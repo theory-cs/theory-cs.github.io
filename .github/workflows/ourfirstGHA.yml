@@ -31,14 +31,13 @@ jobs:
       # in new directory the contents of main
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Create copy of website using makefile
+        run: make generated
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo Debugging where we are: $GITHUB_WORKSPACE
+          pwd
           ls
           ls -l $GITHUB_WORKSPACE
