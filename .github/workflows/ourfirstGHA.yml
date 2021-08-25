@@ -44,6 +44,7 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install --cask mactex-no-gui
+          export PATH="/usr/local/bin:$PATH # Make sure brew stuff is available in our PATH
 
       - name: Create copy of website using makefile
         run: |
