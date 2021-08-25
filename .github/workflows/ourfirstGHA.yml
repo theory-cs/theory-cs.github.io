@@ -44,7 +44,7 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install --cask mactex-no-gui
-          eval "$(/usr/libexec/path_helper)"
+          echo "PATH=/usr/local/bin:$PATH" >> $GITHUB_ENV
 
       - name: Create copy of website using makefile
         run: |
