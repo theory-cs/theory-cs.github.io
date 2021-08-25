@@ -40,6 +40,11 @@ jobs:
           ls
           ls -l $GITHUB_WORKSPACE
 
+      - name: Download and install dependencies
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install texlive
+
       - name: Create copy of website using makefile
         run: |
           make generated
