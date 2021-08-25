@@ -1,0 +1,655 @@
+\documentclass[12pt, oneside]{article}
+
+\input{../resources/CSE20packages}
+\usepackage{enumitem}
+
+\begin{document}
+\begin{flushright}
+\StrBefore{\currfilename}{.}
+\end{flushright}
+
+\section*{This week's highlights}
+\begin{itemize}
+\item Practice with properties of recursively defined sets and functions
+\item Define linked lists: a recursively defined data structure
+\item Prove and disprove properties of recursively defined sets and functions with structural induction and/
+or mathematical induction
+\end{itemize}
+
+\section*{Lecture videos}
+Week 6 Day 1
+\href{https://youtube.com/playlist?list=PLML4QilACLk5tqLcES_OqUwwxp3yqDlBk}{YouTube playlist}
+
+Week 6 Day 2
+\href{https://youtube.com/playlist?list=PLML4QilACLk4TgcwJFIyRw10sZ8JbVcF2}{YouTube playlist}
+
+Week 6 Day 3
+\href{https://youtube.com/playlist?list=PLML4QilACLk7GwJnGi4Sn0qqccvz1568Q}{YouTube playlist}
+
+\newpage
+\section*{Monday February 8}
+{\bf Definition} The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by
+$rnalen: S  \to \mathbb{Z}^+$
+
+\vspace{-20pt}
+
+\begin{quote}
+Basis step: If $b \in B$ then $rnalen(b)  = 1$
+
+Recursive step: If $s \in S$ and $b \in B$, then $rnalen(sb)  = 1 + rnalen(s)$
+\end{quote}
+
+\vspace{-20pt}
+
+The function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is defined recursively by $basecount : S \times B \to\mathbb{N}$
+
+\vspace{-20pt}
+
+\begin{quote}
+Basis step: If  $b_1 \in B$, $b_2 \in B$, $basecount(b_1, b_2) =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}$
+
+Recursive Step: If $s \in S$, $b_1 \in B$, $b_2 \in B$, $basecount(s b_1, b_2) =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}$
+\end{quote}
+
+\vspace{-20pt}
+
+Prove or disprove $\exists s \in S \, (\textit{rnalen(s)} = \textit{basecount}(s, \A))$:
+
+\vfill
+
+Prove or disprove $\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(s, \A))$:
+
+{\bf Proof}: 
+
+{\bf Basis case}: Assume $s = \A \lor s = \C \lor s = \U \lor s = \G$. 
+Need to show $\textit{rnalen(s)} \geq \textit{basecount}(s, \A)$.
+
+{\it Case 1}: Want to show $(s = \A) \to (~\textit{rnalen(s)} \geq \textit{basecount}(s, \A)~)$.
+
+\vfill
+
+{\it Case 2}: Want to show $(s = \C \lor S = \U \lor S = \G) \to (~\textit{rnalen(s)} \geq \textit{basecount}(s, \A)~)$.
+
+\vfill
+
+\vfill
+
+{\it Continued next page} 
+
+\fbox{\parbox{\textwidth}{%
+{\bf Proof by universal generalization}: To prove that $\forall x \, P(x)$
+is true, we can take an arbitrary element $e$ from the domain and show that $P(e)$ is true, without making any assumptions about $e$ other than that it comes from the domain.
+
+{\bf New! Proof by Structural Induction} (Rosen 5.3 p354) To prove a universal quantification over a recursively defined set:
+
+\vspace{-10pt}
+
+
+\begin{itemize}
+\item[] {\bf Basis Step}:  Show the statement holds for elements specified in the basis step of the definition.
+\item[]  {\bf Recursive Step}:  Show that if the statement is true for each of the elements used to construct
+new elements in the recursive step of the definition, the result holds for these new elements.
+\end{itemize}
+
+\vspace{-10pt}
+
+}}
+
+
+\newpage
+
+
+{\bf Recursive case}: Want to show
+\[
+\forall e \in S ~\left(~ \textit{rnalen(e)} \geq \textit{basecount}(e, \A) \to 
+ \forall b \in B ~(~\textit{rnalen(eb)} \geq \textit{basecount}(eb, \A)~) ~\right)
+ \]
+
+Consider arbitrary $e$. Assume, as the {\bf induction hypothesis} that 
+\[
+\textit{rnalen(e)} \geq \textit{basecount}(e, \A)
+\]
+
+Need to show 
+\[
+ \forall b \in B ~(~\textit{rnalen(eb)} \geq \textit{basecount}(eb, \A)~) 
+\]
+Consider arbitrary $b \in B$. 
+
+
+{\it Case 1}: Want to show $(b = \A) \to (~\textit{rnalen(eb)} \geq \textit{basecount}(eb, \A)~) $.
+
+\vfill
+
+{\it Case 2}: Want to show $(b = \C \lor b = \U \lor b = \G) \to (~\textit{rnalen(eb)} \geq \textit{basecount}(eb, \A)~) $.
+
+\vfill
+\vfill
+
+
+\newpage
+\section*{Wednesday February 10}
+
+
+\fbox{\parbox{\textwidth}{%
+{\bf Proof by Structural Induction} (Rosen 5.3 p354) To prove a universal quantification over a recursively defined set:
+
+\vspace{-10pt}
+
+\begin{itemize}
+\item[] {\bf Basis Step}:  Show the statement holds for elements specified in the basis step of the definition.
+\item[]  {\bf Recursive Step}:  Show that if the statement is true for each of the elements used to construct
+new elements in the recursive step of the definition, the result holds for these new elements.
+\end{itemize}
+
+\vspace{-10pt}
+
+}}
+
+{\bf Definition} The set of natural numbers (aka nonnegative integers), $\mathbb{N}$, is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & 0 \in \mathbb{N} \\
+\textrm{Recursive Step: } & \textrm{If } n \in \mathbb{N} \textrm{ then } n+1 \in \mathbb{N} \textrm{ (where $n+1$ is integer addition)}
+\end{array}
+\]
+
+The function $sumPow$ with domain $\mathbb{N}$, codomain
+$\mathbb{N}$, and which computes, for input $i$, the sum of the first $i$ powers of $2$ is defined
+recursively by $sumPow: \mathbb{N} \to \mathbb{N}$ with
+
+\vspace{-20pt}
+
+\begin{quote}
+Basis step: $sumPow(0) = 1$.
+
+Recursive step: If $x \in \mathbb{N}$ then $sumPow(x+1) = sumPow(x) + 2^{x+1}$.
+\end{quote}
+
+\vfill
+
+
+
+Fill in the blanks in the following proof of $\forall n \in \mathbb{N} \, (sumPow(n) = 2^{n+1} - 1)$:
+
+\vspace{-20pt}
+
+\begin{quote}
+Since $\mathbb{N}$ is recursively defined, we proceed by \underline{\phantom{structural induction \hspace{0.3in}}}.
+
+{\bf Basis case} We need to show that \underline{\phantom{$sumPow(0) = 2^{0+1} - 1$ \hspace{0.2in}}}.
+Evaluating each side: $LHS = sumPow(0) = 1$ by the basis case in the recursive definition
+of $sumPow$; $RHS = 2^{0+1} - 1 = 2^1 - 1 = 2-1 = 1$. Since $1=1$, the equality holds.
+
+{\bf Recursive step} Consider arbitrary natural number $n$ and assume, as the 
+\underline{\phantom{Induction Hypothesis (IH)}} that $sumPow(n) = 2^{n+1} - 1$. We need to show that
+\underline{\phantom{$sumPow(n+1) = 2^{(n+1) + 1} - 1$}}.  Evaluating each side: 
+\[
+LHS = sumPow(n+1) \overset{\text{rec def}}{=} sumPow(n)  + 2^{n+1}\overset{\text{IH}}{=} (2^{n+1} - 1) + 2^{n+1}.
+\]
+\[
+RHS = 2^{(n+1)+1}- 1 \overset{\text{exponent rules}}{=} 2 \cdot 2^{n+1} -1  = \left(2^{n+1} + 2^{n+1} \right) - 1
+\overset{\text{regrouping}}{=}  (2^{n+1} - 1) + 2^{n+1} 
+\]
+Thus, $LHS = RHS$. The structural induction is complete and we have proved the universal generalization.
+\end{quote}
+
+
+
+\vfill
+{\it Extra example} Connect the function $sumPow$ to binary expansions of positive integers.
+
+\newpage
+{\bf Definition} The set of linked lists of natural numbers $L$ is defined:
+\[
+\begin{array}{ll}
+    \textrm{Basis Step: } & [] \in L \\
+    \textrm{Recursive Step: } & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N} \textrm{, then } (n, l) \in L
+\end{array}
+\]
+
+Examples: 
+
+\vfill
+
+{\bf Definition} The length of a linked list of natural numbers $L$, $\textit{length}: L \to \mathbb{N}$ is defined by:
+\[
+\begin{array}{llll}
+\textrm{Basis Step:} &  & length([]) &= 0 \\
+\textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{, then  } & length((n, l))  &\phantom{= 1+ length(l)}
+\end{array}
+\]
+
+Examples: 
+
+\vfill
+
+
+{\it Extra example:} The function $prepend : L \times \mathbb{N} \to L$ that adds an element at the front of a linked list is defined:
+\[
+\phantom{prepend(l, n) = (n, l)}
+\]
+
+
+\vfill
+
+{\bf Definition} The function $\textit{append} : L \times \mathbb{N} \to L$ that adds an element at the end of a linked list is defined:
+\[
+\begin{array}{llll}
+\textrm{Basis Step:} & \textrm{If } m \in \mathbb{N}\textrm{ then } & \phantom{\textit{append}([], m)} & \phantom{= (m, []) }\\
+\textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{ and }m \in \mathbb{N}\textrm{, then  } & \phantom{\textit{append}((n, l), m) } &\phantom{= (n, \textit{append}(l, m))}
+\end{array}
+\]
+
+Examples: 
+
+\vfill 
+
+\newpage
+{\bf Claim}: $\forall l \in L \, (~length(~append(l, 100)~) > length(l)~)$
+
+{\bf Proof:} By structural induction on $L$, we have two cases:
+
+\vspace{-10pt}
+
+{\bf Basis Step}
+
+\vspace{-10pt}
+
+    \begin{tabular}{l p{3.5in}}
+    1. \begin{tabular}{l}
+        \textbf{To Show} $length(~append([], 100)~) > length([])$ \\
+    \end{tabular}
+    &  Because $[]$ is the only element defined in the basis step of $L$, we only need to 
+prove that the property holds for $[]$.\\
+    \\
+    2. \begin{tabular}{l}
+        \textbf{To Show} $length(~(100,[])~) > length([])$ \\
+    \end{tabular}
+    &  By basis step in definition of $append$.\\
+    \\
+    3. \begin{tabular}{l}
+        \textbf{To Show} $(1 +length([])) > length([])$ \\
+    \end{tabular}
+    &  By recursive step in definition of $length$.\\
+    \\    
+    4. \begin{tabular}{l}
+        \textbf{To Show} $1+0 > 0$ \\
+    \end{tabular}
+    &  By basis step in definition of $length$.\\
+    \\       
+    5. \begin{tabular}{l}
+        \textbf{To Show } $T$ \\
+    \end{tabular}
+     & By properties of integers \\
+    QED & Because we got to $T$ only by rewriting \textbf{To Show} to equivalent statements, using well-defined proof techniques, and applying definitions. \\
+    \end{tabular}
+
+\vspace{-10pt}
+
+{\bf Recursive Step}
+
+\vspace{-10pt}
+
+Consider an arbitrary: $l = (n, l')$, $l' \in L$, $n \in \mathbb{N}$, and we  assume
+as the {\bf induction hypothesis} that:
+\[
+length(~append(l', 100)~) > length(l')
+\]
+Our goal is to show that $length(~append( (n,l'), 100)~) > length((n,l'))$ is also true. We evaluate each side of the 
+candidate inequality:
+\begin{align*}
+LHS &= length(~append( (n,l'), 100)~) = length(~(n, append(l', 100) )~) \qquad \text{by the recursive definition of $append$}\\
+&= 1 + length(~ append(l', 100) ~) \qquad \text{by the recursive definition of $length$}\\
+&> 1+ length(l')  \qquad \text{by the induction hypothesis}\\
+&= length( (n,l') )  \qquad \text{by the recursive definition of $length$}\\
+&= RHS 
+\end{align*}
+
+\newpage
+\section*{Friday February 12}
+
+
+{\bf Invariant}: A property that is true about our algorithm no matter what. \hfill Rosen p375
+
+{\bf Theorem}: Statement that can be shown to be true, usually an important one. \hfill Rosen p81
+
+\begin{quote}
+ Less important theorems can be called {\bf proposition}, {\bf fact}, {\bf result}.
+
+ A less important theorem that is useful in proving a theorem is called a {\bf lemma}.
+ 
+ A theorem that can be proved directly after another one has been proved is called a {\bf corollary}
+\end{quote}
+
+
+
+
+
+
+
+{\bf Theorem}: A robot on an infinite 2-dimensional integer grid starts at $(0,0)$ and at each step moves
+to diagonally adjacent grid point. This robot can / cannot {\footnotesize({\it circle one})} reach $(1,0)$.
+
+
+{\bf Definition} The set of positions the robot can visit  $P$ is defined by:
+\[
+\begin{array}{ll}
+    \textrm{Basis Step: } & (0,0) \in P \\
+    \textrm{Recursive Step: } & \textrm{If } (x,y) \in P  \textrm{, then } 
+    \phantom{(x+1, y+1), (x+1, y-1), (x-1, y-1), (x-1, y+1)} \textrm{ are also in } P
+\end{array}
+\]
+
+{\bf Lemma}: $\forall (x,y) \in P( (x+y \textrm{ is an even integer})~)$
+
+
+Proof of theorem using lemma: To show is $(1,0) \notin P$. Rewriting the lemma to explicitly 
+restrict the domain of the universal, 
+we have $\forall (x,y) ~(~ (x,y) \in P  \to (x+y \textrm{ is an even integer})~)$.  Since
+the universal is true, 
+$ (~ (1,0) \in P \to (1+0 \textrm{ is an even integer})~)$ is a true statement.
+Evaluating the conclusion of this conditional statement: 
+By definition of long division, since $1 = 0 \cdot 2 + 1$ (where $0 \in \mathbb{Z}$ and 
+$1 \in \mathbb{Z}$ and $0 \leq 1 < 2$ mean that $0$ is the quotient and $1$ is the remainder), $1 ~\textrm{\bf mod}~ 2 = 1$ which is not $0$ 
+so the conclusion is false.  A true conditional with a false conclusion must have a false hypothesis.
+Thus, $(1,0) \notin P$, QED. $\square$
+
+
+
+Proof of lemma by structural induction:
+
+{\bf Basis Step}
+
+
+{\bf Recursive Step}.  Consider arbitrary $(x,y) \in P$.  To show is:
+\[
+(x+y \text{ is an even integer}) \to (\text{sum of coordinates of next position is even integer})
+\]
+Assume {\bf as the induction hypothesis, IH} that: 
+\vfill
+
+
+\newpage
+
+\fbox{\parbox{\textwidth}{%
+
+{\bf ``New"! Proof by Mathematical Induction} (Rosen 5.1 p329)
+
+To prove a universal quantification over the set of  all integers greater than  or  equals some  base integer $b$:
+
+\vspace{-10pt}
+
+\begin{itemize}
+\item[] {\bf Basis Step}:  Show the statement holds for $b$. 
+\item[]  {\bf Recursive Step}:  Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
+    (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{itemize}
+
+\vspace{-10pt}
+
+}}
+
+
+\vspace{-20pt}
+
+
+\begin{center}
+\begin{tabular}{|p{3.5in}|p{3.5in}|}
+\hline
+Recall that the set of linked lists of natural numbers $L$
+
+\vspace{-10pt}
+
+\begin{itemize}
+\item[] Basis Step: $[] \in L$
+
+\vspace{-10pt}
+
+\item[] Recursive Step: If $l \in L$ and $n \in \mathbb{N}$ then $(n, l) \in L$
+\end{itemize}
+
+\vspace{-20pt}
+
+&
+Recall that length of a linked list of natural numbers $L$, $\textit{length}: L \to \mathbb{N}$ is defined by:
+
+\vspace{-10pt}
+
+\begin{itemize}
+\item[] Basis step: $length([]) = 0 $
+
+\vspace{-10pt}
+
+\item[] Recursive step: If $l \in L$ and $n \in \mathbb{N}$ then $length((n, l)) = 1+ length(l)$
+\end{itemize}
+
+\vspace{-20pt}
+
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{-10pt}
+
+Prove or disprove: $\forall n \in \mathbb{N} ~\exists l \in L ~(~length(l) = n~)$
+
+
+\vfill
+\vfill
+\vfill
+
+
+\newpage
+\section*{Review quiz questions}
+\begin{enumerate}
+\item {\bf Monday} The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by
+$rnalen: S  \to \mathbb{Z}^+$
+
+
+\begin{quote}
+Basis step: If $b \in B$ then $rnalen(b)  = 1$
+
+Recursive step: If $s \in S$ and $b \in B$, then $rnalen(sb)  = 1 + rnalen(s)$
+\end{quote}
+
+
+The function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is defined recursively by $basecount : S \times B \to\mathbb{N}$
+
+\begin{quote}
+Basis step: If  $b_1 \in B$, $b_2 \in B$, $basecount(b_1, b_2) =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}$
+
+Recursive Step: If $s \in S$, $b_1 \in B$, $b_2 \in B$, $basecount(s b_1, b_2) =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}$
+\end{quote}
+
+\begin{enumerate}
+\item Select all and only options that give a witness for the existential quantification
+$$\exists s \in S ~(~rnalen(s) = basecount(s,\U)~)$$
+\begin{enumerate}
+\item $\A$
+\item $\U\U$
+\item $\C\U$
+\item $(\U, 1)$
+\end{enumerate}
+
+\item Select all and only options that give a counterexample for the universal quantification
+$$\forall s \in S ~(~rnalen(s) > basecount(s,\G)~)$$
+\begin{enumerate}
+\item $\U$
+\item $\G\G$
+\item $\A\G$
+\item $\C\U\G$
+\end{enumerate}
+
+\item Select all and only the true statements
+\begin{enumerate}
+\item $\forall s \in S ~\exists b \in B ~\left(~rnalen(s) = basecount(s,b)~ \right)$
+\item $\exists s \in S ~\forall b \in B ~\left(~rnalen(s) = basecount(s,b)~ \right)$
+\item \begin{align*} \forall s_1 \in S~\forall s_2 \in S ~&\forall b \in B ~\big( ~\big( rnalen(s_1) = basecount(s_1,b) \\
+&\land rnalen(s_2) = basecount(s_2,b) \land rnalen(s_1) = rnalen(s_2) \big) \to s_1 = s_2  \big)\end{align*}
+\end{enumerate}
+
+\end{enumerate}
+
+\item {\bf Wednesday}  The function $sumPow$ with domain $\mathbb{N}$, codomain
+$\mathbb{N}$, and which computes, for input $i$, the sum of the first $i$ powers of $2$ is defined
+recursively by $sumPow: \mathbb{N} \to \mathbb{N}$ with
+
+\begin{quote}
+Basis step: $sumPow(0) = 1$.
+
+Recursive step: If $x \in \mathbb{N}$ then $sumPow(x+1) = sumPow(x) + 2^{x+1}$.
+\end{quote}
+
+\begin{enumerate}
+\item Calculate $sumPow(0)$
+\item Calculate $sumPow(1)$
+\item Calculate $sumPow(2)$
+\end{enumerate}
+
+\item  {\bf Wednesday} {\bf Definition} The set of linked lists of natural numbers $L$ is defined by:
+\[
+\begin{array}{ll}
+    \textrm{Basis Step: } & [] \in L \\
+    \textrm{Recursive Step: } & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N} \textrm{, then } (n, l) \in L
+\end{array}
+\]
+
+{\bf Definition} The function $\textit{length} : L \to \mathbb{N}$ that computes the length of a list is:
+\[
+\begin{array}{llll}
+& & \textit{length} : L & \to \mathbb{N} \\
+\textrm{Basis Step:} &  & \textit{length}([]) & = 0 \\
+\textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{, then  } & \textit{length}((n, l)) & = 1 + \textit{length}(l)
+\end{array}
+\]
+
+
+Consider this (incomplete) definition:
+
+{\bf Definition} The function $\textit{increment} : \underline{\hspace{6em}}$ that adds 1 to each element of a linked list is defined by:
+\[
+\begin{array}{llll}
+& & \textit{increment} : \underline{\hspace{3em}} & \to \underline{\hspace{3em}} \\
+\textrm{Basis Step:} & & \textit{increment}([]) & = [] \\
+\textrm{Recursive Step:} & \textrm{If } l \in L, n \in \mathbb{N} & \textit{increment}((n, l)) & = (1 + n, \textit{increment}(l))
+\end{array}
+\]
+
+Consider this (incomplete) definition:
+
+{\bf Definition} The function $\textit{sum} : L \to \mathbb{N}$ that adds together all the elements of the list is defined by:
+\[
+\begin{array}{llll}
+& & \textit{sum} : L & \to \mathbb{N} \\
+\textrm{Basis Step:} & & \textit{sum}([]) & = 0 \\
+\textrm{Recursive Step:} & \textrm{If } l \in L, n \in \mathbb{N} & \textit{sum}((n, l)) & = \underline{\hspace{8em}}
+\end{array}
+\]
+
+
+\begin{enumerate}
+    \item (You will compute a sample function application and then fill in the blanks for the domain and codomain) Based on the definition, what is the result of $\textit{increment}((4, (2, (7, []))))$? Write your answer directly with no spaces.
+    
+    \item Which of the following describes the domain and codomain of \textit{increment}?
+    
+    \begin{multicols}{2}
+    \begin{enumerate}
+        \item $L \to \mathbb{N}$
+        \item $L \to \mathbb{N} \times L$
+        \item $L \times \mathbb{N} \to L$
+        \item $L \times \mathbb{N} \to \mathbb{N}$
+        \item $L \to L$
+        \item None of the above
+    \end{enumerate}
+    \end{multicols}
+    
+    \item Assuming we would like $sum((5, (6, [])))$ to evaluate to $11$ and $sum((3, (1, (8, []))))$ to evaluate to $12$, which of the following could be used to fill in the definition of the recursive case of \textit{sum}?
+    
+     \begin{multicols}{2}
+    \begin{enumerate}
+        \item $\begin{cases}
+            1 + \textit{sum}(l) & \textrm{when } n \neq 0 \\
+            \textit{sum}(l) & \textrm{when } n = 0 \\
+        \end{cases}$
+        \item $1 + \textit{sum}(l)$
+        \item $n + \textit{increment}(l)$
+        \item $n + \textit{sum}(l)$
+        \item None of the above
+    \end{enumerate}
+    \end{multicols}
+    
+    \item Choose only and all of the following statements that are \textbf{well-defined}; that is, they correctly reflect the domains and codomains of the functions and quantifiers, and respect the notational conventions we use in this class. Note that a well-defined statement may be true or false.
+
+    \begin{multicols}{2}    
+    \begin{enumerate}
+        \item $\forall l \in L \, (\textit{sum}(l))$
+        \item $\exists l \in L \, (\textit{sum}(l) \land \textit{length}(l))$
+        \item $\forall l \in L \, (\textit{sum}(\textit{increment}(l)) = 10)$
+        \item $\exists l \in L \, (\textit{sum}(\textit{increment}(l)) = 10)$
+        \item $\forall l \in L \, \forall n \in \mathbb{N} \, ((n \times l) \subseteq L)$
+        \item $\forall l_1 \in L \, \exists l_2 \in L \, (\textit{increment}(\textit{sum}(l_1)) = l_2)$
+        \item $\forall l \in L \, (\textit{length}(\textit{increment}(l)) = \textit{length}(l))$
+    \end{enumerate}
+    \end{multicols}
+    
+    \item Choose only and all of the statements in the previous part that are both well-defined and true.
+\end{enumerate}
+
+\item {\bf Friday} Recall the set $P$ defined by the recursive definition
+\[
+\begin{array}{ll}
+    \textrm{Basis Step: } & (0,0) \in P\\
+     \textrm{Recursive Step: } & \textrm{If } (x,y) \in P \textrm{ then } 
+     (x+1, y+1) \in P \textrm{ and } (x+1, y-1) \in P \textrm{ and }\\ 
+     & (x-1,y-1) \in P 
+     \textrm{ and } (x-1, y+1) \in P
+\end{array}
+\]
+\begin{enumerate}
+\item Select all and only the ordered pairs below that are elements of $P$
+\begin{enumerate}
+\item $(0,0)$
+\item $(4,0)$
+\item $(1,1)$
+\item $(1.5,2.5)$
+\item $(0, -2)$
+\end{enumerate}
+\item What is another description of the set $P$ ? (Select all and only the true descriptions.)
+\begin{enumerate}
+\item $\mathbb{Z} \times \mathbb{Z}$
+\item $\{ (n,n) ~|~ n \in \mathbb{Z} \}$
+\item $\{ (a,b) \in \mathbb{Z} \times \mathbb{Z} ~|~ (a+b) \textbf{ mod } 2 =0 \}$
+\end{enumerate}
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}

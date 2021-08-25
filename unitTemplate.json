@@ -1,0 +1,63 @@
+
+{
+    "unit1":{
+      "header": "Week 1",
+      "pdfs": [{
+          "name": "Notes",
+          "filePath": "../../output/Week1-Notes-CSE20W21.pdf",
+          "annotated": true, 
+          "annotatedPath": "../../annotatedNotes/Week1-Notes-CSE20W21-4pm.pdf",
+          ".texIncluded": true,
+          ".texPath": "../notes/Week1-Notes-CSE20W21.tex",
+          "overleafIncluded": true,
+          "overleafLink": "https://www.overleaf.com/read/cdnbwtqkjmtd",
+          "htmlIncluded": true,
+          "htmlPath": "../../output/Week0and1.html"
+      },
+      {
+        "name": "Slides",
+          "filePath": "../../annotatedNotes/Week1-Slides-CSE20W21.pptx.pdf",
+          "annotated": false, 
+          ".texIncluded": false,
+          "overleafIncluded": false,
+          "htmlIncluded": false
+      }
+    ],
+      
+      "Information": [true, "Title", "this", "is", "a test"],
+
+      "embed": [{
+        "name": "Lecture Slides",
+        "embedCode": "<iframe class= \" Lecture-Google-Slides \" src= \"https://docs.google.com/presentation/d/e/2PACX-1vTVeYS9G5uv2HyAmGKzndvETZeXUvPt2RHSGng3f8vh4tkk4tq1VQBq42fEi8uOMQ/embed?start=false&loop=false&delayms=3000\" frameborder= \"0\" width= 85% height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe> "
+      }]
+
+    },
+
+    "unit2":{
+        "header": "Week 2",
+        
+        "pdfs": [{
+          "name": "Notes",
+          "filePath": "../../output/Week2-Notes-CSE20W21.pdf",
+          "annotated": true, 
+          "annotatedPath": "../../annotatedNotes/Week2-Notes-CSE20W21-4pm.pdf",
+          ".texIncluded": true,
+          ".texPath": "../notes/Week2-Notes-CSE20W21.tex",
+          "overleafIncluded": true,
+          "overleafLink": "https://www.overleaf.com/read/cdnbwtqkjmtd",
+          "htmlIncluded": false
+      }],
+      
+      "Information": [true, "Hello", "this", "is", "a test"],
+
+      "embed": [{
+        "name": "Lecture Slides",
+        "embedCode": "<iframe class= \" Lecture-Google-Slides \" src= \"https://docs.google.com/presentation/d/e/2PACX-1vTX11zNwMaEK-ARWn76QeUHNK85xagAAkL1jylfSU_1DmsxerimnwdOGQX7thu3Zg/embed?start=false&loop=false&delayms=3000\" frameborder= \"0\" width= 85% height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe> "
+      }]
+
+      }
+
+
+
+}
+  

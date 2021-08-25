@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "*.aux": "explorerExcludedFiles",
+    "*.fdb_latexmk": "explorerExcludedFiles",
+    "*.fls": "explorerExcludedFiles",
+    "*.log": "explorerExcludedFiles",
+    "*.out": "explorerExcludedFiles",
+    "*.synctex.gz": "explorerExcludedFiles",
+    "Icon*": "explorerExcludedFiles",
+    ".DS_Store": "explorerExcludedFiles",
+    "output/*.pdf": "explorerExcludedFiles",
+    "generated/output/*.pdf": "explorerExcludedFiles"
+  }
+}
