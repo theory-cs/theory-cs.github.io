@@ -46,8 +46,6 @@ jobs:
           brew install --cask mactex-no-gui
           echo "/usr/local/opt" >> $GITHUB_PATH
           ls /usr/local/opt/
-          brew --prefix mactex-no-gui
-          brew --prefix pdflatex
 
       - name: Create copy of website using makefile
         run: |
