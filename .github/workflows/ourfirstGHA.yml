@@ -45,7 +45,7 @@ jobs:
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install --cask mactex-no-gui
           echo "/usr/local/opt" >> $GITHUB_PATH
-          ls /usr/local/opt/
+          echo "/Library/TeX/texbin" >> $GITHUB_PATH
 
       - name: Create copy of website using makefile
         run: |
