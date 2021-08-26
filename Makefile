@@ -2,7 +2,7 @@ all: $(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex))
 
 generated: generated-output generated-annotatedNotes generated-notes generated-resources generated-website generated-website-css generated-notes-Activity-Snippets 
 
-website: generated python pandoc
+website: generated pandoc python
 
 generated-output: all $(patsubst output/%.pdf,generated/output/%.pdf,$(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex)))
 generated-build: $(patsubst build/%,generated/build/%,$(wildcard build/*))
@@ -12,6 +12,7 @@ generated-resources: $(patsubst resources/%,generated/resources/%,$(wildcard res
 generated-website: $(patsubst website/%,generated/website/%,$(wildcard website/*))
 generated-website-css:  $(patsubst website/css/%,generated/website/css/%,$(wildcard website/css/*))
 generated-notes-Activity-Snippets: $(patsubst notes/Activity-Snippets/%,generated/notes/Activity-Snippets/%,$(wildcard notes/Activity-Snippets/*))
+pandoc : $(patsubst output/%.html,generated/output/%.html,$(patsubst notes/lessons/%.tex,output/%.html,$(wildcard notes/lessons/*.tex)))
 
 generated/website/%: website/%
 	mkdir -p generated/website
@@ -54,8 +55,7 @@ clean:
 python: 
 	python3 unitTemplate.py
 
-pandoc:
-	cd notes/Lessons
-	pandoc --standalone --mathjax -f latex -t html *.tex -o ../../generated/website/*.html
+output/%.html: notes/lessons/%.tex
+	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/$(@F)
 
 
