@@ -44,7 +44,10 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install --cask mactex-no-gui
-          echo "PATH=/usr/local/bin:$PATH" >> $GITHUB_ENV
+          echo "/usr/local/opt" >> $GITHUB_PATH
+          ls /usr/local/opt/
+          brew --prefix mactex-no-gui
+          brew --prefix pdflatex
 
       - name: Create copy of website using makefile
         run: |
