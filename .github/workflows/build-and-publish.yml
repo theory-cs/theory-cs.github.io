@@ -43,7 +43,7 @@ jobs:
       - name: Download and install dependencies
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          brew install --cask basictex
+          brew install --cask mactex-no-gui
           echo "/usr/local/opt" >> $GITHUB_PATH
           echo "/Library/TeX/texbin" >> $GITHUB_PATH
 
@@ -51,3 +51,5 @@ jobs:
         run: |
           make generated
           python3 unitTemplate.py
+
+  
