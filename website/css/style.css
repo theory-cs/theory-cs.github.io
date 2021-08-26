@@ -1,0 +1,362 @@
+
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
+
+
+
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+}
+
+.topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 14px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
+.topnav a:hover {
+    background-color: #fcbf8d;
+    color: black;
+}
+  
+.topnav a.active {
+    font-weight: bolder;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+  
+.topnav-right {
+    float: right;
+}
+
+h1 {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 380%;
+    line-height: 87px;
+    color: #000000;
+}
+
+h2 {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: bolder;
+    font-size: 300%;
+}
+
+body {
+    height: 100%;
+    /* margin: 25px 50px 75px 100px; */
+    font-family: 'Nunito', sans-serif;
+}
+
+.calendar-margin{
+    margin-left: 100px;
+}
+
+@media screen and (max-width: 600px) {
+    div.calendar-margin{
+        margin-left: 10px;
+    }
+}
+
+
+
+#page {
+    display: flex;
+    height: 100%;
+    /* height: calc( 100vh - 30px); */
+    /* calculate the height. Header is 30px */
+}
+
+table {border: none;}
+
+
+table.cinereousTable {
+    /* font-family: Verdana, Geneva, sans-serif; */
+    border: 1px solid #FFFFFF;
+    background-color: #fcbf8d;
+    width: 100%;
+    text-align: center;
+}
+  
+table.cinereousTable td, table.cinereousTable th {
+    border: 1px solid #FFFFFF;
+    padding: 3px 4px;
+}
+  
+table.cinereousTable tbody td {
+    font-size: 13px;
+}
+  
+table.cinereousTable thead {
+    background: #FFFFFF;
+}
+  
+table.cinereousTable thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.sidenav {
+    width: 10%;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    background-color: black;
+    font-weight: bold;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;	
+    color: white;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #fcbf8d;
+}
+
+.content {
+    margin-left: 100px;
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    div.content{
+        margin-left: 10px;
+    }
+}
+
+
+p {
+    font-size: 150%;
+}
+
+ul {
+   /*list-style:none;*/
+    font-size: 200%;
+    margin-left: 0%;
+}
+li {
+    margin-bottom: 5px;
+}
+
+.PDFjs{
+    resize: both;
+    overflow: auto;
+}
+
+
+.button{
+    background: #1b827f;
+    color:white;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+    padding: 0.2% 0.8%;
+    border: 2px solid #1b827f;
+    font-weight: 700;
+    font-size: 70%;
+}
+
+.button:hover {
+    color: #1b827f;
+    background: white;
+    text-decoration: none;
+}
+
+.button.PDF {
+    background: #f40f02;
+    border: 2px solid #f40f02;
+}
+
+.button.PDF:hover {
+    color: #f40f02;
+    background: white;
+    text-decoration: none;
+}
+
+#annotationsOnButton{
+    color:white;
+    background: #c6d131;
+    text-decoration: none;
+    border: 2px solid #c6d131;
+}
+
+#annotationsOnButton:hover{
+    color:#c6d131;
+    background: white;
+    text-decoration: none;
+}
+
+#annotationsOffButton{
+    color: white;
+    background: #ccbc60;
+    text-decoration: none;
+    border: 2px solid #ccbc60;
+}
+
+#annotationsOffButton:hover{
+    color:#ccbc60;
+    background: white;
+    text-decoration: none;
+}
+
+.button.TeX {
+    background: #008080;
+    border: 2px solid #008080;
+}
+
+.button.TeX:hover {
+    color: #008080;
+    background: white;
+    text-decoration: none;
+}
+
+.button.Overleaf {
+    background: #46A247;
+    border: 2px solid #46A247;
+}
+
+.button.Overleaf:hover {
+    color: #46A247;
+    background: white;
+    text-decoration: none;
+}
+
+.button.HTML {
+    background: #F06529;
+    border: 2px solid #F06529;
+}
+
+.button.HTML:hover {
+    color: #F06529;
+    background: white;
+    text-decoration: none;
+}
+
+.button.Order {
+    background: #eee;
+    border: 2px solid #eee;
+    color: black;
+}
+
+.button.Order:hover {
+    color: #eee;
+    background: black;
+    text-decoration: none;
+    border: 2px solid black;
+}
+
+.mondayButtons {
+    position: absolute;
+    left: 480px;
+    top: 360px;
+    font-size: 200%;
+}
+
+label {
+    font-size: 150%;
+}
+
+.form-switch .form-check-input {
+    width:4em;
+    height: 2em;
+    position: relative;
+}
+
+.collapsed card-link{
+    font-weight: bolder;
+    font-size: 200%;
+}
+
+.card-link{
+    font-weight: bolder;
+    font-size: 200%;
+}
+
+.header{
+    font-weight: bolder;
+}
+
+.logo {
+    /*text-align:left;*/ 
+    font-size: 250%;
+    line-height: 60px;
+}
+
+.copyright{
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 150%;
+    margin-bottom: 0%;
+    bottom:0%;
+    width:100%;
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}
+
+.choices {
+    border-radius: 8px;
+    text-align: center;
+    
+}
+
+.choices li {
+    background-color: #fcbf8d;
+    border: 3px solid #fcbf8d;
+    margin-right: 10px;
+    font-weight: 500;
+    display: inline-block;
+    width: auto;
+    padding: 2px 15px;
+    border-radius: 8px;
+}
+
+.choices li:hover {
+    transform: scale(1.3);
+    background-color: #f47d3e;
+    border: 3px solid #f47d3e;
+}
+
+.jumpContent:hover {
+    color: black;
+    font-size: 120%;
+}
+
+#viewpdf{
+    width : 85%;
+    height : 600px;
+}
+
+dl{
+    font-size: 150%;
+}
+dd{
+    margin-left: 30px;
+}
+
+.feedback_form{
+
+margin-bottom: 100px;
+}
+
