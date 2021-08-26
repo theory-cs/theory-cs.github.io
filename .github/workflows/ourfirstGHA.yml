@@ -43,7 +43,7 @@ jobs:
       - name: Download and install dependencies
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          brew install --cask mactex-no-gui
+          brew install --cask basictex
           echo "/usr/local/opt" >> $GITHUB_PATH
           echo "/Library/TeX/texbin" >> $GITHUB_PATH
 
