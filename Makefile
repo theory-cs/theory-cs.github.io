@@ -1,6 +1,8 @@
 all: $(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex))
 
-generated: generated-output generated-annotatedNotes generated-notes generated-resources generated-website generated-website-css generated-notes-Activity-Snippets
+generated: generated-output generated-annotatedNotes generated-notes generated-resources generated-website generated-website-css generated-notes-Activity-Snippets 
+
+website: generated python pandoc
 
 generated-output: all $(patsubst output/%.pdf,generated/output/%.pdf,$(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex)))
 generated-build: $(patsubst build/%,generated/build/%,$(wildcard build/*))
@@ -48,3 +50,12 @@ output/%.pdf: notes/%.tex resources/CSE20packages.tex
 
 clean: 
 	cd output; rm *.out *.log *.aux
+
+python: 
+	python3 unitTemplate.py
+
+pandoc:
+	cd notes/Lessons
+	pandoc --standalone --mathjax -f latex -t html *.tex -o ../../generated/website/*.html
+
+

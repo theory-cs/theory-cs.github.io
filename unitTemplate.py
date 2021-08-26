@@ -39,7 +39,7 @@ for i in range(1,len(data)+1):
         #Open in Overleaf button
         if(data['unit'+str(i)]['pdfs'][j]['overleafIncluded']):
             pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
-            href= """ + data['unit'+str(i)]['pdfs'][j]['overleafLink'] + """ >Overleaf</a> """
+            href= """ + data['unit'+str(i)]['pdfs'][j]['overleafLink'] + """ target="Overleaf">Overleaf</a> """
 
         #Raw HTML button 
         if(data['unit'+str(i)]['pdfs'][j]['htmlIncluded']):
@@ -61,8 +61,8 @@ for i in range(1,len(data)+1):
             </script>"""
     
         #pdf.js embed 
-        pdfString += """ <br> <iframe id=\""""+ data['unit'+str(i)]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file="""+ data['unit'+str(i)]['pdfs'][j]['filePath']+ """" 
-        title="webviewer" frameborder="0" width="85%" height="600"></iframe> """
+        pdfString += """ <br> <iframe class="PDFjs" id=\""""+ data['unit'+str(i)]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file="""+ data['unit'+str(i)]['pdfs'][j]['filePath']+ """" 
+        title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
     #Information Section
     if(data['unit'+str(i)]['Information'][0]): 

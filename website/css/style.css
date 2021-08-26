@@ -156,6 +156,12 @@ li {
     margin-bottom: 5px;
 }
 
+.PDFjs{
+    resize: both;
+    overflow: auto;
+}
+
+
 .button{
     background: #1b827f;
     color:white;
