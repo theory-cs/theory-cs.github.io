@@ -5,14 +5,16 @@
         "Children":{
             "Modeling": {
                 "Description": "Model systems with tools from discrete mathematics and reason about implications of modelling choices",
-                "Children": {}
+                "Children": {},
+                "Icon": "MD" 
             },
             "Boolean Operations": {
                 "Description" : "Relate boolean operations to applications, e.g. set operations and combinatorial circuits.",
                 "Children":{
                     "XOR and Bit Shifts":"Correctly use XOR and bit shifts",
                     "Clustering":"Define clustering as an application of relations and partitions"
-                }
+                },
+                "Icon": "BOP"
             }
 
 
@@ -33,7 +35,8 @@
                     "Consistency": "Decide and justify whether or not a collection of propositions is consistent.",
                     "Domain Elements": "Describe the set of domain elements that make a predicate with one input evaluate to true",
                     "Universal and Existential Statements": "Evaluate universal and existential statements about finite domains (with no quantifier alternations)."
-                }
+                },
+                "Icon": "PL"
             },
 
             "Proof Techniques": {
@@ -41,7 +44,8 @@
                 "Children": {
                     "Infinite Domains": "Counterexample and witness-based arguments for predicates with infinite domains",
                     "Nested Quantifiers": "Counterexample and witness-based arguments for nested quantifiers (both alternating and not)."
-                }
+                },
+                "Icon": "PT"
             },
 
             "Valid and Invalid Arguments": {
@@ -49,7 +53,9 @@
                 "Children": {
                     "Quantified Statement": "Determine what evidence is required to establish that a quantified statement is true or false.",
                     "Proposition and its Proof Strategies": "Identify the main connective of a proposition and associated proof strategies"
-                }
+                },
+                "Icon": "VA"
+                
             },
 
             "Craft Proofs": {
@@ -64,7 +70,8 @@
                     "Proof by Contradiction": "Trace and/or construct a proof by contradiction.",
                     "Mathematical Induction": "Use mathematical induction to prove statements about mathematical identities and inequalities.",
                     "Structural Induction": "Apply structural induction to prove statements about recursively defined objects, e.g. strings and trees."
-                }
+                },
+                "Icon": "CP"
             },
 
             "Binary Relations": {
@@ -75,14 +82,16 @@
                     "Properties": "Determine and prove whether a given binary relation is symmetric, antisymmetric, reflexive, and/or transitive",
                     "Equivalence Relation": "Determine and prove whether a given binary relation is an equivalence relation",
                     "Partial Order": "Determine and prove whether a given binary relation is a partial order" 
-                }
+                },
+                "Icon": "BR"
             },
 
             "Modular Arithmetic": {
                 "Description": "Reason about modular arithmetic.",
                 "Children": {
                     "Div and Mod Operators": "Define and use the div and mod operators."   
-                }
+                },
+                "Icon": "MA"
             },
 
             "Sets, Functions, and Relations Proof": {
@@ -90,7 +99,8 @@
                 "Children": {
                     "Properties of Functions": "Compare sets using one-to-one, onto, and invertible functions.",
                     "Classifying the Cardinality of Sets": "Classify sets by cardinality into: Finite sets, countable sets, uncountable sets." 
-                }
+                },
+                "Icon": "SFR"
             }
         }
 
@@ -116,12 +126,14 @@
                     "Important Number Sets":"Differentiate between important sets of numbers",
                     "Binary Relations":"Define (binary) relations and give examples."
                                 
-                }
+                },
+                "Icon": "MDN"
             },
 
             "Algorithms in English/Pseudocode": {
                 "Description":"Describe and trace simple algorithms using English and pseudocode.",
-                "Children":{}
+                "Children":{},
+                "Icon": "AEP"
             },
 
             "Classical Algorithms":{
@@ -131,7 +143,8 @@
                     "Diffie-Hellman Key Exchange":"Trace the algorithms involved in Diffie-Helman key exchange",
                     "Modular Exponentiation":"Trace the algorithms involved in modular exponentiation",
                     "Hasse Diagram":"Draw the Hasse diagram of a partial order"
-                }
+                },
+                "Icon": "CA"
             },
 
             "Develop Algorithms":{
@@ -143,10 +156,11 @@
                     "Representing Negative Integers":"Represent negative integers in multiple ways",
                     "Operating on Numbers in Different Representations":"Perform arithmetic operations on integers using multiple representations",
                     "Relating Integer to Boolean Operations":"Relate algorithms for integer operations to bitwise boolean operations"
-                }
+                },
+                "Icon": "DA"
             },
 
-            "Translating to formal logic":{
+            "Translating to Formal Logic":{
                 "Description":"Translate sentences and specifications between English and formal logic.",
                 "Children":{
                     "CNF/DNF":"Compute the CNF and DNF of a given compound proposition.",
@@ -155,14 +169,16 @@
                     "Predicates with Tuples":"Use predicates with set of tuples as their domain to relate values to one another",
                     "Translate using logical connectors and universal and existential quantifiers":"Translate sentences with combinations of ∧, → in conjunction with universal and existential quantifiers",
                     "Use DeMorgan’s Law in Translating Quantified Statements":"State and apply DeMorgan’s law for quantified statements. aka Use logical equivalence to rewrite quantified statements (including negated quantified statements)"
-                    }
+                },
+                "Icon": "FL"
             },
 
             "Cardinality of Sets":{
                 "Description": "Distinguish between finite, countable, and uncountable sets.",
                 "Children":{
                     "Cantor’s Diagonalization Argument":"Explain the central idea in Cantor’s diagonalization argument."
-                }
+                },
+                "Icon": "CD"
             }
 
         }
