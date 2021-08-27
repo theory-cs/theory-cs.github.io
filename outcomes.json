@@ -1,5 +1,22 @@
 {
     "Modeling and Impact":{
+        "Program Level": "Understand, guide, shape impact of computing on society/the world",
+        "Theory":" Modeling & Application: Connect the role of theory to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts",
+        "Children":{
+                        "Modeling": {
+                                        "Description": "Model systems with tools from discrete mathematics and reason about implications of modelling choices",
+                                        "Children": {}
+                        },
+                        "Boolean Operations": {
+                                        "Description" : "Relate boolean operations to applications, e.g. set operations and combinatorial circuits.",
+                                        "Children":{
+                                            "XOR and Bit Shifts":"Correctly use XOR and bit shifts",
+                                            "Clustering":"Define clustering as an application of relations and partitions"
+                                        }
+                        }
+
+
+        }
         
 
     },
