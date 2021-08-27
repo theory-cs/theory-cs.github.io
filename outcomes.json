@@ -37,39 +37,51 @@
             },
 
             "Proof Techniques": {
-                "Description": "",
+                "Description": "Apply proof techniques, including direct proofs and proofs by contradiction.",
                 "Children": {
-
+                    "Infinite Domains": "Counterexample and witness-based arguments for predicates with infinite domains",
+                    "Nested Quantifiers": "Counterexample and witness-based arguments for nested quantifiers (both alternating and not)."
                 }
-            }
+            },
 
             "Valid and Invalid Arguments": {
-                "Description": "",
+                "Description": "Distinguish valid from invalid arguments.",
                 "Children": {
-                    
+                    "Quantified Statement": "Determine what evidence is required to establish that a quantified statement is true or false.",
+                    "Proposition and its Proof Strategies": "Identify the main connective of a proposition and associated proof strategies"
                 }
-            }
+            },
 
             "Craft Proofs": {
-                "Description": "",
+                "Description": "Craft proofs and arguments at different levels of formality, including prose and symbolic notation as appropriate.",
                 "Children": {
+                    "Universal Generalization": "Use universal generalization to prove that universal statements are true.",
+                    "Using Proofs to Evaluate Propositions": "Determine whether a proposition is true or false using valid reasoning (proofs) in multiple contexts.",
+                    "Recursively Defined Sets and Functions": "Practice with properties of recursively defined sets and functions.",
+                    "Proofs with Recursively Defined Sets and Functions": "Prove and disprove properties of recursively defined sets and functions with structural induction and/ or mathematical induction.",
+                    "Induction Types": "Distinguish between and use as appropriate each of structural induction, mathematical induction, and strong induction.",
+                    "Proof Technique": "Evaluate which proof technique(s) is appropriate for a given proposition",
+                    "Proof by Contradiction": "Trace and/or construct a proof by contradiction.",
+                    "Mathematical Induction": "Use mathematical induction to prove statements about mathematical identities and inequalities.",
+                    "Structural Induction"
+
                     
                 }
-            }
+            },
 
             "Binary Relations": {
                 "Description": "",
                 "Children": {
                     
                 }
-            }
+            },
 
             "Modular Arithmetic": {
                 "Description": "",
                 "Children": {
                     
                 }
-            }
+            },
 
             "Sets, Functions, and Relations Proof": {
                 "Description": "",
