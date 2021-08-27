@@ -20,9 +20,67 @@
         
 
     },
-    "Problem-solving":{
+
+    "Problem Solving":{
+        "Program Level": "Reason about computation and systems ~~ Technical skepticism",
+        "Theory": "Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.",
+        "Children": { 
+            "Propositional Logic": {
+                "Description": "Reason about the truth or falsity of complicated statements using Boolean connectives, quantifiers, and basic definitions.",
+                "Children": {
+                    "Truth Tables": "Prove propositional equivalences using truth tables.",
+                    "Laws or Known Propositional Logic": "Prove propositional equivalences using other known equivalences, e.g. DeMorgan’s laws, Double negation laws, Distributive laws, etc.",
+                    "Consistency": "Decide and justify whether or not a collection of propositions is consistent.",
+                    "Domain Elements": "Describe the set of domain elements that make a predicate with one input evaluate to true",
+                    "Universal and Existential Statements": "Evaluate universal and existential statements about finite domains (with no quantifier alternations)."
+                }
+            },
+
+            "Proof Techniques": {
+                "Description": "",
+                "Children": {
+
+                }
+            }
+
+            "Valid and Invalid Arguments": {
+                "Description": "",
+                "Children": {
+                    
+                }
+            }
+
+            "Craft Proofs": {
+                "Description": "",
+                "Children": {
+                    
+                }
+            }
+
+            "Binary Relations": {
+                "Description": "",
+                "Children": {
+                    
+                }
+            }
+
+            "Modular Arithmetic": {
+                "Description": "",
+                "Children": {
+                    
+                }
+            }
+
+            "Sets, Functions, and Relations Proof": {
+                "Description": "",
+                "Children": {
+                    
+                }
+            }
+        }
 
     },
+
     "Communication":{
 
     }
