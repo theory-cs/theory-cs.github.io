@@ -60,33 +60,36 @@
                     "Recursively Defined Sets and Functions": "Practice with properties of recursively defined sets and functions.",
                     "Proofs with Recursively Defined Sets and Functions": "Prove and disprove properties of recursively defined sets and functions with structural induction and/ or mathematical induction.",
                     "Induction Types": "Distinguish between and use as appropriate each of structural induction, mathematical induction, and strong induction.",
-                    "Proof Technique": "Evaluate which proof technique(s) is appropriate for a given proposition",
+                    "Proof Technique": "Evaluate which proof technique(s) is appropriate for a given proposition.",
                     "Proof by Contradiction": "Trace and/or construct a proof by contradiction.",
                     "Mathematical Induction": "Use mathematical induction to prove statements about mathematical identities and inequalities.",
-                    "Structural Induction"
-
-                    
+                    "Structural Induction": "Apply structural induction to prove statements about recursively defined objects, e.g. strings and trees."
                 }
             },
 
             "Binary Relations": {
-                "Description": "",
+                "Description": "Reason about binary relations",
                 "Children": {
-                    
+                    "Equivalence": "Define equivalence using relations and give examples",
+                    "Congruence Modulo Integers": "Use the equivalence relation of congruence modulo integers and apply its properties",
+                    "Properties": "Determine and prove whether a given binary relation is symmetric, antisymmetric, reflexive, and/or transitive",
+                    "Equivalence Relation": "Determine and prove whether a given binary relation is an equivalence relation",
+                    "Partial Order": "Determine and prove whether a given binary relation is a partial order" 
                 }
             },
 
             "Modular Arithmetic": {
-                "Description": "",
+                "Description": "Reason about modular arithmetic.",
                 "Children": {
-                    
+                    "Div and Mod Operators": "Define and use the div and mod operators."   
                 }
             },
 
             "Sets, Functions, and Relations Proof": {
-                "Description": "",
+                "Description": "Identify and be able to prove basic properties of sets, functions, and relations.",
                 "Children": {
-                    
+                    "Properties of Functions": "Compare sets using one-to-one, onto, and invertible functions.",
+                    "Classifying the Cardinality of Sets": "Classify sets by cardinality into: Finite sets, countable sets, uncountable sets." 
                 }
             }
         }
