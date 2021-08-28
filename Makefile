@@ -1,17 +1,17 @@
-all: $(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex))
+all: $(patsubst notes/lessons/%.tex,output/%.pdf,$(wildcard notes/lessons/*.tex))
 
-generated: generated-output generated-annotatedNotes generated-notes generated-resources generated-website generated-website-css generated-notes-Activity-Snippets 
+generated: generated-output generated-annotated-notes generated-notes generated-resources generated-website generated-website-css generated-notes-activity-snippets 
 
 website: generated pandoc python
 
 generated-output: all $(patsubst output/%.pdf,generated/output/%.pdf,$(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex)))
 generated-build: $(patsubst build/%,generated/build/%,$(wildcard build/*))
-generated-annotatedNotes: $(patsubst annotatedNotes/%,generated/annotatedNotes/%,$(wildcard annotatedNotes/*))
+generated-annotated-notes: $(patsubst annotated-notes/%,generated/annotated-notes/%,$(wildcard annotated-notes/*))
 generated-notes: $(patsubst notes/%,generated/notes/%,$(wildcard notes/*))
 generated-resources: $(patsubst resources/%,generated/resources/%,$(wildcard resources/*))
 generated-website: $(patsubst website/%,generated/website/%,$(wildcard website/*))
 generated-website-css:  $(patsubst website/css/%,generated/website/css/%,$(wildcard website/css/*))
-generated-notes-Activity-Snippets: $(patsubst notes/Activity-Snippets/%,generated/notes/Activity-Snippets/%,$(wildcard notes/Activity-Snippets/*))
+generated-notes-activity-snippets: $(patsubst notes/activity-snippets/%,generated/notes/activity-snippets/%,$(wildcard notes/activity-snippets/*))
 pandoc : $(patsubst output/%.html,generated/output/%.html,$(patsubst notes/lessons/%.tex,output/%.html,$(wildcard notes/lessons/*.tex)))
 
 generated/website/%: website/%
@@ -31,12 +31,12 @@ generated/notes/%: notes/%
 	mkdir -p generated/notes
 	cp -R $< $@
 
-generated/notes/Activity-Snippets/%: notes/Activity-Snippets/%
-	mkdir -p generated/notes/Activity-Snippets
+generated/notes/activity-snippets/%: notes/activity-snippets/%
+	mkdir -p generated/notes/activity-snippets
 	cp $< $@
 
-generated/annotatedNotes/%.pdf: annotatedNotes/%.pdf
-	mkdir -p generated/annotatedNotes
+generated/annotated-notes/%.pdf: annotated-notes/%.pdf
+	mkdir -p generated/annotated-notes
 	cp $< $@
 
 # NOTE(joe): an assumption! output only contains PDFs as interesting content to
@@ -48,6 +48,10 @@ generated/output/%: output/%
 
 output/%.pdf: notes/%.tex resources/CSE20packages.tex
 	mkdir -p output; cd notes; pdflatex -output-directory ../output $(<F) 
+
+# NOTE(mia): adding typesetting step for lessons
+output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex
+	mkdir -p output; cd Notes; cd Lessons; pdflatex -output-directory ../../output $(<F) 
 
 clean: 
 	cd output; rm *.out *.log *.aux
