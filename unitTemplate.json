@@ -2,10 +2,10 @@
     "unit1":{
       "header": "Week 1",
       "pdfs": [{
-          "name": "Notes",
+          "name": "notes",
           "filePath": "../../output/Week1-Notes-CSE20W21.pdf",
           "annotated": true, 
-          "annotatedPath": "../../annotatedNotes/Week1-Notes-CSE20W21-4pm.pdf",
+          "annotatedPath": "../../annotated-notes/Week1-Notes-CSE20W21-4pm.pdf",
           ".texIncluded": true,
           ".texPath": "../notes/Week1-Notes-CSE20W21.tex",
           "overleafIncluded": true,
@@ -15,7 +15,7 @@
       },
       {
         "name": "Slides",
-          "filePath": "../../annotatedNotes/Week1-Slides-CSE20W21.pptx.pdf",
+          "filePath": "../../annotated-notes/Week1-Slides-CSE20W21.pptx.pdf",
           "annotated": false, 
           ".texIncluded": false,
           "overleafIncluded": false,
@@ -39,7 +39,7 @@
           "name": "Notes",
           "filePath": "../../output/Week2-Notes-CSE20W21.pdf",
           "annotated": true, 
-          "annotatedPath": "../../annotatedNotes/Week2-Notes-CSE20W21-4pm.pdf",
+          "annotatedPath": "../../annotated-notes/Week2-Notes-CSE20W21-4pm.pdf",
           ".texIncluded": true,
           ".texPath": "../notes/Week2-Notes-CSE20W21.tex",
           "overleafIncluded": true,

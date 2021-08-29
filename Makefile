@@ -7,7 +7,7 @@ website: generated pandoc python
 generated-output: all $(patsubst output/%.pdf,generated/output/%.pdf,$(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex)))
 generated-build: $(patsubst build/%,generated/build/%,$(wildcard build/*))
 generated-annotated-notes: $(patsubst annotated-notes/%,generated/annotated-notes/%,$(wildcard annotated-notes/*))
-enerated-notes: $(patsubst notes/%,generated/notes/%,$(wildcard notes/*))
+generated-notes: $(patsubst notes/%,generated/notes/%,$(wildcard notes/*))
 generated-resources: $(patsubst resources/%,generated/resources/%,$(wildcard resources/*))
 generated-website: $(patsubst website/%,generated/website/%,$(wildcard website/*))
 generated-website-css:  $(patsubst website/css/%,generated/website/css/%,$(wildcard website/css/*))
