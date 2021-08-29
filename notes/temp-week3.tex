@@ -48,161 +48,23 @@ an additional column that shows the truth value of the result of the operation c
 
 {\it Note}: A propositional variable is one example of a compound proposition.
 
-{\bf Logical operators} aka propositional connectives
+% logical operators
 
-\begin{tabular}{lccccp{4in}}
-{\bf Conjunction} & AND & $\land$ &\verb|\land| & 2 inputs & Evaluates to $T$ when {\bf both} inputs are $T$\\
-{\bf Exclusive or} & XOR & $\oplus$ &\verb|\oplus| & 2 inputs & Evaluates to $T$ when {\bf exactly one} of inputs is $T$\\
-{\bf Disjunction} & OR & $\lor$ &\verb|\lor| & 2 inputs & Evaluates to $T$ when {\bf at least one} of inputs is $T$\\
-{\bf Negation} & NOT & $\lnot$ &\verb|\lnot| & 1 input & Evaluates to $T$ when its input is $F$\\
-\end{tabular}
+% logical operators truth tables
 
-\begin{center}
-\begin{tabular}{cc||c|c|c}
-\multicolumn{2}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
- & & {\bf Conjunction} &  {\bf Exclusive or} & {\bf Disjunction} \\
-$p$ & $q$ & $p \land q$ &  $p  \oplus  q$ & $p \lor  q$ \\
-\hline
-$T$ & $T$ & $T$ & $F$ & $T$\\
-$T$ & $F$ & $F$ & $T$ & $T$\\
-$F$ & $T$ & $F$ & $T$ & $T$\\
-$F$ & $F$ & $F$ & $F$ & $F$\\
-\end{tabular}
-\qquad \qquad\qquad
-\begin{tabular}{c||c}
-Input & Output \\
- & {\bf Negation} \\
-$p$ & $\lnot p$ \\
-\hline
-$T$ & $F$ \\
-$F$ & $T$\\
-\end{tabular}
-\end{center}
+% logical operators exercise
 
-\vfill
+% logical equivalence
 
-\begin{center}
-\begin{tabular}{ccc||p{3in}|c|c}
-\multicolumn{3}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
-$p$ & $q$ & $r$  &  &  $(p \land q) \oplus (~ ( p \oplus q) \land r~)$ & $(p \land q) \vee (~ ( p \oplus q) \land r~)$ \\
-\hline
-$T$ & $T$  & $T$ &   && \\
-$T$ & $T$  & $F$ &   && \\
-$T$ & $F$  & $T$ &   && \\
-$T$ & $F$  & $F$ &   && \\
-$F$ & $T$  & $T$ &   && \\
-$F$ & $T$  & $F$ &   && \\
-$F$ & $F$  & $T$ &   && \\
-$F$ & $F$  & $F$ &   && \\
-\end{tabular}
-\end{center}
-\vfill
+% logical-equivalence-exercise
 
-\newpage
-\begin{tabular}{lp{4in}p{2in}}
-{\bf Logical equivalence } &Two compound  propositions are {\bf logically  equivalent} means that  they 
-have the  same  truth  values for all settings of truth  values to their propositional  variables.\\
-{\bf Tautology} & A compound proposition that evaluates to true
-for all settings of truth  values to its propositional  variables; it is  abbreviated $T$.\\
-{\bf Contradiction} & A compound proposition that  evaluates  to  false 
-for  all settings of truth  values to its propositional  variables; it  is abbreviated $F$.\\
-{\bf Contingency} & A compound proposition that is neither a tautology nor a contradiction.\\
-\end{tabular}
+% logical-equivalence-example
 
-{\it Extra Example}: Which of the  compound propositions in the table below are logically equivalent?
-\begin{center}
-\begin{tabular}{cc||c|c|c|c|c}
-\multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
-$p$ & $q$ & $\lnot (p \land \lnot q)$ & $\lnot (\lnot p  \lor \lnot q)$ &  $(\lnot p \lor  q)$
-& $(\lnot q \lor \lnot p)$ & $(p \land q)$  \\
-\hline
-$T$ & $T$ & &&&&\\
-$T$ & $F$ & &&&&\\
-$F$ & $T$ & &&&&\\
-$F$ & $F$ & &&&&\\
-\end{tabular}
-\end{center}
+% truth-table-to-compound-proposition-application
+
+% dnf-cnf definition
 
 
-{\bf (Some)} logical equivalences) cf. Rosen pp. 26-28
-
-\begin{tabular}{llp{3in}}
-$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
-$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
-$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Absorption} aka 
-short circuit evaluation\\
-$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\end{tabular}
-
-
-{\it Can replace $p$ and $q$ with any compound proposition}
-
-\vfill
-
-\newpage
-Given an compound proposition, we can use
-\begin{itemize}
-\item Truth tables
-\item Logical equivalences
-\end{itemize}
-to compute its truth value for specific input values.
-
-Now, given a truth table, how do we find a compound proposition that has the specified output values?
-
-{\it Application}: design a circuit given a desired input-output relationship.
-
-\begin{center}
-\begin{tabular}{cc||cc}
-\multicolumn{2}{c||}{Input}  &\multicolumn{2}{c}{Output}\\
-$p$ & $q$& $mystery_1$ & $mystery_2$\\
-\hline
-$T$ & $T$  & $T$ & $F$\\
-$T$ & $F$  & $T$ & $F$\\
-$F$ & $T$  & $F$ & $F$\\
-$F$ & $F$  & $T$ & $T$\\
-\end{tabular}
-\qquad \qquad
-\begin{tabular}{ccc||c}
-\multicolumn{3}{c||}{Input}  & Output\\
-$p$ & $q$ & $r$  &  ?\\
-\hline
-$T$ & $T$  & $T$ & $T$ \\
-$T$ & $T$  & $F$ & $T$ \\
-$T$ & $F$  & $T$ & $F$ \\
-$T$ & $F$  & $F$ & $T$ \\
-$F$ & $T$  & $T$ & $F$ \\
-$F$ & $T$  & $F$ & $F$ \\
-$F$ & $F$  & $T$ & $T$ \\
-$F$ & $F$  & $F$ & $F$ \\
-\end{tabular}
-
-\end{center}
-
-
-A compound proposition that  gives output $mystery_1$ is: \underline{\phantom{\hspace{3in}}}
-
-
-\vfill
-
-
-A compound proposition that  gives output $mystery_2$ is: \underline{\phantom{\hspace{3in}}}
-
-
-\vfill
-
-
-
-{\bf  Definition} A compound proposition is in {\bf disjunctive normal form}  (DNF) means
-that  it is an OR of ANDs of variables and their negations.
-
-{\bf  Definition} A compound proposition is in {\bf conjunctive normal form}  (CNF) means
-that  it is an AND of ORs of variables and their negations.
-
-
-{\it Extra example}: A compound proposition that  gives output ? is: 
-
-
-\vfill
-\vfill
 
 \newpage
 \section*{Friday January 22}
