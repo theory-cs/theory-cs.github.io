@@ -46,6 +46,7 @@ jobs:
           brew install --cask mactex-no-gui
           echo "/usr/local/opt" >> $GITHUB_PATH
           echo "/Library/TeX/texbin" >> $GITHUB_PATH
+          brew install pandoc
 
       - name: Create copy of website using makefile
         run: |
