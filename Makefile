@@ -1,8 +1,34 @@
-all: $(patsubst notes/lessons/%.tex,output/%.pdf,$(wildcard notes/lessons/*.tex))
+# To build website, first create PDFs and static elements in generated directory, then
+# translate pdfs to htmls and then dynamically create additional html pages
+# and finally remove auxiliary files from typesetting steps
+website: generated pandoc python clean
 
 generated: generated-output generated-annotated-notes generated-notes generated-resources generated-website generated-website-css generated-notes-activity-snippets 
 
-website: generated pandoc python
+# Typesetting all .tex files in notes directory
+output/%.pdf: notes/%.tex resources/discrete-math-packages.tex
+	mkdir -p output; cd notes; pdflatex -output-directory ../output $(<F) 
+
+# Typesetting all .tex files in notes/lessons directory
+output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	mkdir -p output; cd notes; cd lessons; pdflatex -output-directory ../../output $(<F) 
+
+# Removing all auxiliary files from output directory
+clean: 
+	cd output; rm *.out *.log *.aux
+
+# Building dynamic html pages based on unit template (TODO: also build pages for topics and outcomes)
+python: 
+	python3 unitTemplate.py
+
+#Building html versions of all .tex files in notes/lessons directory (TODO: also need for topics and outcomes)
+output/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/$(@F)
+
+# (Mia) I don't understand these yet
+
+# Target files are all pdfs in output
+all: $(patsubst notes/lessons/%.tex,output/%.pdf,$(wildcard notes/lessons/*.tex))
 
 generated-output: all $(patsubst output/%.pdf,generated/output/%.pdf,$(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex)))
 generated-build: $(patsubst build/%,generated/build/%,$(wildcard build/*))
@@ -26,7 +52,6 @@ generated/resources/%: resources/%
 	mkdir -p generated/resources
 	cp -R $< $@
 
-
 generated/notes/%: notes/%
 	mkdir -p generated/notes
 	cp -R $< $@
@@ -44,22 +69,3 @@ generated/annotated-notes/%.pdf: annotated-notes/%.pdf
 generated/output/%: output/%
 	mkdir -p generated/output
 	cp $< $@
-
-
-output/%.pdf: notes/%.tex resources/discrete-math-packages.tex
-	mkdir -p output; cd notes; pdflatex -output-directory ../output $(<F) 
-
-# NOTE(mia): adding typesetting step for lessons
-output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex
-	mkdir -p output; cd Notes; cd Lessons; pdflatex -output-directory ../../output $(<F) 
-
-clean: 
-	cd output; rm *.out *.log *.aux
-
-python: 
-	python3 unitTemplate.py
-
-output/%.html: notes/lessons/%.tex
-	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/$(@F)
-
-
