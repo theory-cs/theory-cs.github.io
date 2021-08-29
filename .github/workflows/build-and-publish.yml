@@ -49,8 +49,7 @@ jobs:
 
       - name: Create copy of website using makefile
         run: |
-          make generated
-          python3 unitTemplate.py
+          make website
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
