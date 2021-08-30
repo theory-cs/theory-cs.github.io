@@ -6,15 +6,31 @@
             "Modeling": {
                 "Description": "Model systems with tools from discrete mathematics and reason about implications of modelling choices",
                 "Children": {},
-                "Icon": "MD" 
+                "Icon": "MD",
+                "file": "modeling.html"
+
             },
             "Boolean Operations": {
                 "Description" : "Relate boolean operations to applications, e.g. set operations and combinatorial circuits.",
                 "Children":{
-                    "XOR and Bit Shifts":"Correctly use XOR and bit shifts",
-                    "Clustering":"Define clustering as an application of relations and partitions"
+                    "XOR and Bit Shifts": {
+                        "Description": "Correctly use XOR and bit shifts",
+                        "pdf": "../../something",
+                        ".tex": "../something",
+                        "overleaf": "../../something",
+                        "html": "../something"
+                    },
+                    "Clustering":{
+                        "Description": "Define clustering as an application of relations and partitions",
+                        "pdf": "../../something",
+                        ".tex": "../something",
+                        "overleaf": "../../something",
+                        "html": "../something"
+                    }
                 },
-                "Icon": "BOP"
+                "Icon": "BOP",
+                "file":"booleanOperations.html"
+
             }
 
 
@@ -30,13 +46,21 @@
             "Propositional Logic": {
                 "Description": "Reason about the truth or falsity of complicated statements using Boolean connectives, quantifiers, and basic definitions.",
                 "Children": {
-                    "Truth Tables": "Prove propositional equivalences using truth tables.",
+                    "Truth Tables": {
+                        "Description": "Prove propositional equivalences using truth tables.",
+                        "pdf": "../../something",
+                        ".tex": "../something",
+                        "overleaf": "../../something",
+                        "html": "../something"
+                    },
                     "Laws or Known Propositional Logic": "Prove propositional equivalences using other known equivalences, e.g. DeMorgan’s laws, Double negation laws, Distributive laws, etc.",
                     "Consistency": "Decide and justify whether or not a collection of propositions is consistent.",
                     "Domain Elements": "Describe the set of domain elements that make a predicate with one input evaluate to true",
                     "Universal and Existential Statements": "Evaluate universal and existential statements about finite domains (with no quantifier alternations)."
                 },
-                "Icon": "PL"
+                "Icon": "PL",
+                "file":"propositionalLogic.html"
+
             },
 
             "Proof Techniques": {
@@ -45,7 +69,9 @@
                     "Infinite Domains": "Counterexample and witness-based arguments for predicates with infinite domains",
                     "Nested Quantifiers": "Counterexample and witness-based arguments for nested quantifiers (both alternating and not)."
                 },
-                "Icon": "PT"
+                "Icon": "PT",
+                "file":"proofTechniques.html"
+
             },
 
             "Valid and Invalid Arguments": {
@@ -54,7 +80,9 @@
                     "Quantified Statement": "Determine what evidence is required to establish that a quantified statement is true or false.",
                     "Proposition and its Proof Strategies": "Identify the main connective of a proposition and associated proof strategies"
                 },
-                "Icon": "VA"
+                "Icon": "VA",
+                "file":"validAndInvalidArguments.html"
+
                 
             },
 
@@ -71,7 +99,9 @@
                     "Mathematical Induction": "Use mathematical induction to prove statements about mathematical identities and inequalities.",
                     "Structural Induction": "Apply structural induction to prove statements about recursively defined objects, e.g. strings and trees."
                 },
-                "Icon": "CP"
+                "Icon": "CP",
+                "file":"craftProofs.html"
+
             },
 
             "Binary Relations": {
@@ -83,7 +113,8 @@
                     "Equivalence Relation": "Determine and prove whether a given binary relation is an equivalence relation",
                     "Partial Order": "Determine and prove whether a given binary relation is a partial order" 
                 },
-                "Icon": "BR"
+                "Icon": "BR",
+                "file":"binaryRelations.html"
             },
 
             "Modular Arithmetic": {
@@ -91,7 +122,8 @@
                 "Children": {
                     "Div and Mod Operators": "Define and use the div and mod operators."   
                 },
-                "Icon": "MA"
+                "Icon": "MA",
+                "file":"modularArithmetic.html"
             },
 
             "Sets, Functions, and Relations Proof": {
@@ -100,7 +132,8 @@
                     "Properties of Functions": "Compare sets using one-to-one, onto, and invertible functions.",
                     "Classifying the Cardinality of Sets": "Classify sets by cardinality into: Finite sets, countable sets, uncountable sets." 
                 },
-                "Icon": "SFR"
+                "Icon": "SFR",
+                "file":"setsFunctionsRelations.html"
             }
         }
 
@@ -127,13 +160,15 @@
                     "Binary Relations":"Define (binary) relations and give examples."
                                 
                 },
-                "Icon": "MDN"
+                "Icon": "MDN",
+                "file":"mathDefinitions.html"
             },
 
             "Algorithms in English/Pseudocode": {
                 "Description":"Describe and trace simple algorithms using English and pseudocode.",
                 "Children":{},
-                "Icon": "AEP"
+                "Icon": "AEP",
+                "file":"algorithmsInEnglish.html"
             },
 
             "Classical Algorithms":{
@@ -144,7 +179,8 @@
                     "Modular Exponentiation":"Trace the algorithms involved in modular exponentiation",
                     "Hasse Diagram":"Draw the Hasse diagram of a partial order"
                 },
-                "Icon": "CA"
+                "Icon": "CA",
+                "file":"classicalAlgorithms.html"
             },
 
             "Develop Algorithms":{
@@ -157,7 +193,8 @@
                     "Operating on Numbers in Different Representations":"Perform arithmetic operations on integers using multiple representations",
                     "Relating Integer to Boolean Operations":"Relate algorithms for integer operations to bitwise boolean operations"
                 },
-                "Icon": "DA"
+                "Icon": "DA",
+                "file":"developAlgorithms.html"
             },
 
             "Translating to Formal Logic":{
@@ -170,7 +207,8 @@
                     "Translate using logical connectors and universal and existential quantifiers":"Translate sentences with combinations of ∧, → in conjunction with universal and existential quantifiers",
                     "Use DeMorgan’s Law in Translating Quantified Statements":"State and apply DeMorgan’s law for quantified statements. aka Use logical equivalence to rewrite quantified statements (including negated quantified statements)"
                 },
-                "Icon": "FL"
+                "Icon": "FL",
+                "file":"formalLogic.html"
             },
 
             "Cardinality of Sets":{
@@ -178,7 +216,8 @@
                 "Children":{
                     "Cantor’s Diagonalization Argument":"Explain the central idea in Cantor’s diagonalization argument."
                 },
-                "Icon": "CD"
+                "Icon": "CD",
+                "file":"cardinalitySets.html"
             }
 
         }

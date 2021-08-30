@@ -9,5 +9,4 @@ Icon*
 
 .DS_Store
 
-output/*.pdf
 generated/*
