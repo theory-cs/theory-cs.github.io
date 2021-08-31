@@ -19,6 +19,7 @@ clean:
 # Building dynamic html pages based on unit template (TODO: also build pages for topics and outcomes)
 python: 
 	python3 unitTemplate.py
+	python3 topicTemplate.py
 
 #Building html versions of all .tex files in notes/lessons directory (TODO: also need for topics and outcomes)
 output/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
