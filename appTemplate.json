@@ -1,3 +1,40 @@
 {
-    
+    "Numbers":{
+        "file":"numbers.html",
+        "Icon": "NM",
+        "Children":{
+            "Number Representations":{
+                "filename":"something",
+                "overleaf":"something"
+            }
+        }
+       
+       
+    },
+
+    "Recommendation Systems":{
+        "file":"recommendationSystems.html",
+        "Icon": "RS",
+        "Children":{
+            "Netflix":{
+                "filename":"something",
+                "overleaf":"something"
+            },
+            "Machine Learning":{
+                "filename":"",
+                "overleaf":""
+            }
+        }
+        
+    },
+
+    "Computers":{
+        "file":"computers.html",
+        "Icon": "CM",
+        "Children":{
+
+        }
+    }
+
+
 }
