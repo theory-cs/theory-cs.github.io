@@ -1,9 +1,14 @@
 # To build website, first create PDFs and static elements in generated directory, then
-# translate pdfs to htmls and then dynamically create additional html pages
+# translate tex to htmls and then dynamically create additional html pages
 # and finally remove auxiliary files from typesetting steps
 website: generated pandoc python clean
 
+#website: copy-files generated-notes generated-resources generated-website generated-website-css generated-notes-activity-snippets 
+
+#copy-files: generated-output generated-annotated-notes
+
 generated: generated-output generated-annotated-notes generated-notes generated-resources generated-website generated-website-css generated-notes-activity-snippets 
+#generated: generated-annotated-notes generated-notes generated-resources generated-website generated-website-css generated-notes-activity-snippets 
 
 # Typesetting all .tex files in notes directory
 output/%.pdf: notes/%.tex resources/discrete-math-packages.tex
@@ -15,7 +20,7 @@ output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-m
 
 # Removing all auxiliary files from output directory
 clean: 
-	cd output; rm *.out *.log *.aux
+	cd output; rm -f *.out *.log *.aux
 
 # Building dynamic html pages based on unit template (TODO: also build pages for topics and outcomes)
 python: 
@@ -30,7 +35,10 @@ output/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-
 # Target files are all pdfs in output
 all: $(patsubst notes/lessons/%.tex,output/%.pdf,$(wildcard notes/lessons/*.tex))
 
+# First do target all, then do targets that look like generated/output/SOMETHING.pdf
 generated-output: all $(patsubst output/%.pdf,generated/output/%.pdf,$(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex)))
+
+
 generated-build: $(patsubst build/%,generated/build/%,$(wildcard build/*))
 generated-annotated-notes: $(patsubst annotated-notes/%,generated/annotated-notes/%,$(wildcard annotated-notes/*))
 generated-notes: $(patsubst notes/%,generated/notes/%,$(wildcard notes/*))
