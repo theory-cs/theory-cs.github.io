@@ -3,11 +3,9 @@ import json
   
 # Opening JSON file
 fileJson = open('outcomeTest.json',)
-path = open('outcomesPath.json',)
   
 # returns JSON object as a dictionary
 data = json.load(fileJson)
-path = json.load(path)
 
 sidebarButtons = ""
 for i in data:
@@ -15,7 +13,7 @@ for i in data:
         #only put icon in sidebar of 2nd tier topics that have children 
         if(bool(data[i]['Children'][j]['Children'])):
             sidebarButtons += "<li>"
-            sidebarButtons += """<a href= " """ + j + """.html" aria-label="Go to """ + j + """ ">"""
+            sidebarButtons += """<a href= \"""" +data[i]['Children'][j]['file'] + """.html\" aria-label="Go to """ + j + """ ">"""
             sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + data[i]['Children'][j]['Icon'] + """</p></i>"""
             sidebarButtons += """<span class="links_name"> """ + j + """</span>"""
             sidebarButtons += "</a>"
@@ -37,7 +35,17 @@ for i in data:
         pdfString = ""
         collapseVar = 1
 
+        
+
         for k in data[i]['Children'][j]['Children']:
+
+            #format pdf/html/tex file names
+            pdf="../output/"+data[i]['Children'][j]['Children'][k]['filename']+".pdf"
+            html="../output/"+data[i]['Children'][j]['Children'][k]['filename']+".html"
+            #where will tex file for topics be shown? 
+            tex="../notes/"+data[i]['Children'][j]['Children'][k]['filename']+".tex"
+            
+            
             #heading and collapsible card stuff
             pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
             href="#collapse"""+ str(collapseVar)+"\"> "+k+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
@@ -48,11 +56,11 @@ for i in data:
             
             #.pdf Download button
             pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-            href="""+data[i]['Children'][j]['Children'][k]['pdf']+""" download>PDF</a>"""
+            href="""+pdf+""" download>PDF</a>"""
 
             #.tex Download button
             pdfString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
-            href=""" + data[i]['Children'][j]['Children'][k]['.tex'] + """ download>TeX</a> """
+            href=""" + tex + """ download>TeX</a> """
         
             #Open in Overleaf button
             pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
@@ -60,10 +68,10 @@ for i in data:
 
             #Raw HTML button 
             pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-            href= """ + data[i]['Children'][j]['Children'][k]['html'] + """ target="HTML">Raw HTML</a>"""
+            href= """ + html + """ target="HTML">Raw HTML</a>"""
         
             #pdf.js embed 
-            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ k +"""\" src="web/viewer.html?file="""+ data[i]['Children'][j]['Children'][k]['pdf']+ """" 
+            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ k +"""\" src="web/viewer.html?file="""+ pdf+ """" 
             title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
             #closing div for collapsible menu item 

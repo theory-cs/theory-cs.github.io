@@ -15,17 +15,13 @@
                 "Children":{
                     "XOR and Bit Shifts": {
                         "Description": "Correctly use XOR and bit shifts",
-                        "pdf": "../../something",
-                        ".tex": "../something",
-                        "overleaf": "../../something",
-                        "html": "../something"
+                        "filename":"something",
+                        "overleaf": "../../something"
                     },
                     "Clustering":{
                         "Description": "Define clustering as an application of relations and partitions",
-                        "pdf": "../../something",
-                        ".tex": "../something",
-                        "overleaf": "../../something",
-                        "html": "../something"
+                        "filename":"",
+                        "overleaf": "../../something"
                     }
                 },
                 "Icon": "BOP",
