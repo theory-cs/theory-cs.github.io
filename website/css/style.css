@@ -360,3 +360,15 @@ dd{
 margin-bottom: 100px;
 }
 
+
+.box {
+    border: 3px solid #F06529;
+    background:#ffeded;
+    border-color: #ffc0c0;
+    border-width: 9%;
+    border-style: outset;
+    border-radius: 8px;
+    padding: 30px;
+    margin-right: 10%;
+}
+
