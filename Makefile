@@ -4,15 +4,9 @@
 website: generated pandoc python clean
 
 #website: copy-files generated-notes generated-resources generated-website generated-website-css generated-notes-activity-snippets 
-
 #copy-files: generated-output generated-annotated-notes
 
-generated: generated-output generated-annotated-notes generated-notes generated-resources generated-website generated-website-css generated-notes-activity-snippets 
-#generated: generated-annotated-notes generated-notes generated-resources generated-website generated-website-css generated-notes-activity-snippets 
-
-# Typesetting all .tex files in notes directory
-output/%.pdf: notes/%.tex resources/discrete-math-packages.tex
-	mkdir -p output; cd notes; pdflatex -output-directory ../output $(<F) 
+generated: generated-output generated-files generated-notes generated-resources generated-website generated-website-css generated-notes-activity-snippets 
 
 # Typesetting all .tex files in notes/lessons directory
 output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
@@ -33,14 +27,14 @@ output/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-
 # (Mia) I don't understand these yet
 
 # Target files are all pdfs in output
-all: $(patsubst notes/lessons/%.tex,output/%.pdf,$(wildcard notes/lessons/*.tex))
+all: $(patsubst notes/Lessons/%.tex,output/%.pdf,$(wildcard notes/Lessons/*.tex))
 
 # First do target all, then do targets that look like generated/output/SOMETHING.pdf
-generated-output: all $(patsubst output/%.pdf,generated/output/%.pdf,$(patsubst notes/%.tex,output/%.pdf,$(wildcard notes/*.tex)))
+generated-output: all $(patsubst output/%.pdf,generated/output/%.pdf,$(patsubst notes/Lessons/%.tex,output/%.pdf,$(wildcard notes/Lessons/*.tex)))
 
 
 generated-build: $(patsubst build/%,generated/build/%,$(wildcard build/*))
-generated-annotated-notes: $(patsubst annotated-notes/%,generated/annotated-notes/%,$(wildcard annotated-notes/*))
+generated-files: $(patsubst files/%,generated/files/%,$(wildcard files/*))
 generated-notes: $(patsubst notes/%,generated/notes/%,$(wildcard notes/*))
 generated-resources: $(patsubst resources/%,generated/resources/%,$(wildcard resources/*))
 generated-website: $(patsubst website/%,generated/website/%,$(wildcard website/*))
@@ -68,8 +62,8 @@ generated/notes/activity-snippets/%: notes/activity-snippets/%
 	mkdir -p generated/notes/activity-snippets
 	cp $< $@
 
-generated/annotated-notes/%.pdf: annotated-notes/%.pdf
-	mkdir -p generated/annotated-notes
+generated/files/%.pdf: files/%.pdf
+	mkdir -p generated/files
 	cp $< $@
 
 # NOTE(joe): an assumption! output only contains PDFs as interesting content to

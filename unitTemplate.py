@@ -23,18 +23,31 @@ for i in range(1,len(data)+1):
 
 #big for loop begin
 for i in range(1,len(data)+1):
+    pdf=""
+    tex=""
+    html=""
 
     #extract and format all PDFs and associated buttons
     pdfString="" 
     for j in range(len(data['unit'+str(i)]['pdfs'])):
+
+
+        if(data['unit'+str(i)]['pdfs'][j]['extensions']):
+            #format all filenames 
+            pdf= "../output/"+data['unit'+str(i)]['pdfs'][j]['file']+".pdf"
+            tex= "../notes/Lessons/"+data['unit'+str(i)]['pdfs'][j]['file']+".tex"
+            html="../output/"+data['unit'+str(i)]['pdfs'][j]['file']+".html"
+        else:
+             pdf=data['unit'+str(i)]['pdfs'][j]['file']
+
         #heading and PDF download button
         pdfString += """<h2 tabindex = "2"> """+ data['unit'+str(i)]['pdfs'][j]['name'] +"""</h2>
-           <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ data['unit'+str(i)]['pdfs'][j]['filePath']+ """ download>PDF</a> """
+           <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
         
         #.tex Download button
         if(data['unit'+str(i)]['pdfs'][j]['.texIncluded']):
             pdfString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
-            href=""" + data['unit'+str(i)]['pdfs'][j]['.texPath'] + """ download>TeX</a> """
+            href=""" + tex + """ download>TeX</a> """
         
         #Open in Overleaf button
         if(data['unit'+str(i)]['pdfs'][j]['overleafIncluded']):
@@ -44,7 +57,7 @@ for i in range(1,len(data)+1):
         #Raw HTML button 
         if(data['unit'+str(i)]['pdfs'][j]['htmlIncluded']):
             pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-            href= """ + data['unit'+str(i)]['pdfs'][j]['htmlPath'] + """ target="HTML">Raw HTML</a>"""
+            href= """ + html + """ target="HTML">Raw HTML</a>"""
         
         #Annotations on/off buttons 
         if(data['unit'+str(i)]['pdfs'][j]['annotated']):
@@ -53,15 +66,15 @@ for i in range(1,len(data)+1):
 
             #annotations on
             pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(1,
-            \""""+data['unit'+str(i)]['pdfs'][j]['filePath']+ """\",\""""+data['unit'+str(i)]['pdfs'][j]['annotatedPath']+"""\", \""""+data['unit'+str(i)]['pdfs'][j]['name']+ """\")};"""
+            \""""+pdf+ """\",\""""+data['unit'+str(i)]['pdfs'][j]['annotatedPath']+"""\", \""""+data['unit'+str(i)]['pdfs'][j]['name']+ """\")};"""
             
             #annotations off
             pdfString +="""document.getElementById("annotationsOffButton").onclick = function() {annotations(0,
-            \""""+data['unit'+str(i)]['pdfs'][j]['filePath']+ """\",\""""+data['unit'+str(i)]['pdfs'][j]['annotatedPath']+"""\", \""""+data['unit'+str(i)]['pdfs'][j]['name']+ """\")};
+            \""""+pdf+ """\",\""""+data['unit'+str(i)]['pdfs'][j]['annotatedPath']+"""\", \""""+data['unit'+str(i)]['pdfs'][j]['name']+ """\")};
             </script>"""
     
         #pdf.js embed 
-        pdfString += """ <br> <iframe class="PDFjs" id=\""""+ data['unit'+str(i)]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file="""+ data['unit'+str(i)]['pdfs'][j]['filePath']+ """" 
+        pdfString += """ <br> <iframe class="PDFjs" id=\""""+ data['unit'+str(i)]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
         title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
     #Information Section

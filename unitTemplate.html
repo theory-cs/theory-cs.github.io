@@ -130,12 +130,12 @@
 
 				//0 value means annotations are off 
 				if (sw == 0) {
-					doc = "web/viewer.html?file="+notes
+					doc = "web/viewer.html?file=../"+notes
 				} 
 
 				//1 value turns annotations on
 				else {
-					doc = "web/viewer.html?file=" +annotated
+					doc = "web/viewer.html?file=../" +annotated
 				}
 				
                 document.getElementById(id).src = doc;
