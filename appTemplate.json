@@ -30,9 +30,46 @@
 
     "Computers":{
         "file":"computers.html",
-        "Icon": "CM",
+        "Icon": "CP",
         "Children":{
+            "Pixel Color Representation":{
+                "filename":"",
+                "overleaf":""
+            },
+            "Circuits":{
+                "filename":"",
+                "overleaf":""
+            },
+            "Data Structures":{
+                "filename":"",
+                "overleaf":""
+            }
+        }
+    },
 
+    "Codes and Information":{
+        "file":"codesAndInfo.html",
+        "Icon": "CI",
+        "Children":{
+            "Secret Message Sharing":{
+                "filename":"",
+                "overleaf":""
+            },
+            "Error Correction":{
+                "filename":"",
+                "overleaf":""
+            }
+        }
+    }, 
+
+    "Bioinformatics":{
+        "file":"bioinformatics.html",
+        "Icon":"BI",
+        "Children":{
+            "Genomics (DNA/RNA)":{
+                "filename":"",
+                "overleaf":""
+            }
         }
     }
 
