@@ -9,4 +9,5 @@ Icon*
 
 .DS_Store
 
+output/*
 generated/*
