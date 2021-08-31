@@ -38,15 +38,9 @@ Week 3 Day 2
 \newpage
 \section*{Wednesday January 20}
 
-\begin{tabular}{lp{5in}}
-{\bf Proposition} & Declarative sentence that is true or false (not both).\\
-{\bf Propositional variable} & Variable that represents a proposition.\\
-{\bf Compound proposition}& New propositions formed from existing propositions (potentially) using logical operators.\\
-{\bf Truth table}& Table with 1 row for each of the possible combinations of truth values of the input and 
-an additional column that shows the truth value of the result of the operation corresponding to a particular row.
-\end{tabular}
+%  DONE
+% proposition-def.tex
 
-{\it Note}: A propositional variable is one example of a compound proposition.
 
 % logical operators
 
@@ -64,228 +58,47 @@ an additional column that shows the truth value of the result of the operation c
 
 % dnf-cnf definition
 
+% /DONE
+
 
 
 \newpage
 \section*{Friday January 22}
 
-The only way to make  the conditional statement $p \to q$ false is to \underline{\phantom{\hspace{3in}}}
+% hypothesis-conclusion
 
 
-\begin{tabular}{llll}
-The {\bf  hypothesis}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} &
-The {\bf  antecedent}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} \\
-&&&  \\
-The {\bf  conclusion}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}&
-The {\bf  consequent}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}\\
-&&&  \\
-\end{tabular}
+% logical-equivalence-example-two
 
-\vfill
-
-\begin{center}
-\begin{tabular}{cc||c|c|c|c|c}
-\multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
- & & Conjunction &  Exclusive or & Disjunction  &  Conditional & Biconditional  \\
-$p$ & $q$ & $p \wedge q$ &  $p  \oplus  q$ & $p \vee  q$ & $p \to q$ & $p \leftrightarrow q$\\
-\hline
-$T$ & $T$ & $T$ & $F$ & $T$ & $T$& $T$\\
-$T$ & $F$ & $F$ & $T$ & $T$ & $F$& $F$\\
-$F$ & $T$ & $F$ & $T$ & $T$ & $T$& $F$\\
-$F$ & $F$ & $F$ & $F$ & $F$ & $T$& $T$\\
-\end{tabular}
-\end{center}
-
-{\it Examples} 
-
-$p \to q \equiv \lnot p \lor q$ because \underline{\phantom{\hspace{4in}}} 
-
-\vfill
-
-$p \leftrightarrow q$ is not logically equivalent to $p \land q$ because \underline{\phantom{\hspace{4in}}} 
-
-\vfill
-
-$\lnot( p \leftrightarrow q) \equiv p \oplus q$ because \underline{\phantom{\hspace{4in}}} 
-
-\vfill
+% converse-inverse-contrapositive
 
 
-$p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\hspace{4in}}} 
-
-\vfill
-
-$p \leftrightarrow q \equiv q \leftrightarrow p$ because \underline{\phantom{\hspace{4in}}} 
-
-\vfill
-
-\begin{tabular}{ll}
-The {\bf  converse}  of $p \to q$ is & \underline{\phantom{\hspace{1.6in}}}\\
-&  \\
-The {\bf  inverse}  of $p \to q$ is  &\underline{\phantom{\hspace{1.6in}}}\\
-&  \\
-The {\bf  contrapositive}  of $p \to q$ is & \underline{\phantom{\hspace{1.6in}}}
-\end{tabular}
-Which of these is logically equivalent to $p \to q$?
-
-\vfill
-\vfill
 
 \newpage
-{\bf Translation}: Express each of the following sentences as compound propositions, using
-the given propositions.
 
-\begin{multicols}{2}
-``A sufficient condition for the warranty to be good is that you bought the computer less than a year ago"
-\columnbreak
-\begin{align*}
-w &\text{ is  ``the warranty is good"} \\
-b &\text{ is  ``you bought the computer less than a year ago"} \\
-\end{align*}
-\end{multicols}
-\vfill
-
-\begin{multicols}{2}
-``Whenever the message was sent from an unknown system, it is scanned for viruses."
-\columnbreak
-\begin{align*}
-s &\text{ is  ``The message is scanned for viruses"} \\
-u &\text{ is  ``The message was sent from an unknown system"} \\
-\end{align*}
-\end{multicols}
-\vfill
-
-\begin{multicols}{2}
-``I will complete my to-do list only if I put a reminder in my calendar"
-\columnbreak
-\begin{align*}
-r &\text{ is  ``I will complete my to-do list"} \\
-c &\text{ is  ``I put a reminder in my calendar"} \\
-\end{align*}
-\end{multicols}
-\vfill
+% compound-propositions-translation.tex
 
 
 \section*{Review quiz questions}
 \begin{enumerate}
 \item {\bf Wednesday}
-\begin{enumerate}
-\item Consider the logic circuit
-    \begin{center}
-    \includegraphics[width=2in]{../resources/images/review-circuit-3.png}
-    \end{center}
-    For which of the following settings(s) of input values is the output
-    $y_1 =  0$? (Select all and only those that apply.)
-    \begin{enumerate}
-        \item $x_1 = 0$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 0$
-        \item $x_1 = 1$, $x_2 = 1$, $x_3 = 1$, and $x_4 = 1$
-        \item $x_1 = 1$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 1$
-        \item $x_1 = 0$, $x_2 = 0$, $x_3 = 1$, and $x_4 = 1$
-    \end{enumerate}
-\item Consider the logic circuits
-    \begin{center}
-    \includegraphics[width=2in]{../resources/images/review-circuit-1.png}
-    \qquad \qquad \qquad
-    \includegraphics[width=2in]{../resources/images/review-circuit-4.png}
-    \end{center}
-    For which  of the following settings(s) of input values do the outputs
-    of these  circuits have the  same value, i.e.\ $y_1 =  z_1$? 
-    (Select all and only those that apply.)
-    \begin{enumerate}
-        \item $x_1 = 1$, $x_2 = 1$
-        \item $x_1 = 1$, $x_2 = 0$
-        \item $x_1 = 0$, $x_2 = 1$
-        \item $x_1 = 0$, $x_2 = 0$
-    \end{enumerate}    
-    
-\end{enumerate}
+% quiz-logic-circuit.tex DONE
 
-\item {\bf Wednesday} For each of the following propositions, indicate exactly one of:
+% quiz-truth-values-one.tex DONE
 
-\begin{itemize}
-    \item There is no assignment of truth values to its variables that makes it true,
-    \item There is exactly one assignment of truth values to its variables that makes it true, or
-    \item There are exactly two assignments of truth values to its variables that make it true, or
-    \item There are exactly three assignments of truth values to its variables that make it true, or
-    \item \emph{All} assignments of truth values to its variables make it true.
-\end{itemize}
 
-\begin{enumerate}
-    \item $x \land y \land (x \lor y)$
-    \item $\lnot x \land y \land (x \lor y)$
-    \item $x \land \lnot y \land (x \land y)$
-    \item $\lnot x \land (y \lor \lnot y)$
-    \item $x \land (y \lor \lnot x)$
-\end{enumerate}
+
+\item {\bf Wednesday} 
 
 \newpage
-\item {\bf Friday} For each of the following propositions, indicate exactly one of:
+\item {\bf Friday} 
 
-\begin{itemize}
-    \item There is no assignment of truth values to its variables that makes it true,
-    \item There is exactly one assignment of truth values to its variables that makes it true, or
-    \item There are exactly two assignments of truth values to its variables that make it true, or
-    \item There are exactly three assignments of truth values to its variables that make it true, or
-    \item \emph{All} assignments of truth values to its variables make it true.
-\end{itemize}
+% quiz-truth-values-two.tex
 
-\begin{enumerate}
-    \item $(p \leftrightarrow q) \oplus (p \land q)$
-    \item $(p \to q) \vee (q \to p)$
-    \item $(p \to q) \land (q \to p)$
-    \item $\lnot (p \to q) $
-\end{enumerate}
-\item {\bf Friday} {\bf Definition}: A collection of  compound  propositions
-is called {\bf consistent} if  there
-is  an assignment  of  truth values
-to  the  propositional variables that makes
-each of the compound propositions  true.
+\item {\bf Friday} 
 
-For each of  the following  system specifications, 
-identify the compound propositions  that give their
-translations to logic  and then determine if the
-translated collection  of compound
-propositions is consistent.
+% quiz-consistency.tex
 
-\begin{enumerate}
-    \item Specification: If the computer is out of memory, then network connectivity is unreliable. No disk errors can occur when the computer is out of memory. Disk
-    errors only occur when network connectivity is unreliable.
-    
-    Translation: $M =$ ``the computer is  out of memory"; $N = $ ``network connectivity
-    is unreliable"; $D = $  ``disk errors  can occur".
-    
-    \begin{enumerate}
-        \item \begin{align*} &\neg M \to  N  \\ & \neg D \to M \\ & D \to N \end{align*}
-        \item \begin{align*} &M \to  \neg N  \\ & \neg D \wedge M \\ & N \to D \end{align*}
-        \item \begin{align*} &M \to  N  \\ &  M \to \neg D \\ & \neg  N \to \neg D \end{align*}
-    \end{enumerate}
-    
-    \newpage
-    \item Specification: Whether you think you can, or you think you can't - you're right.
-\footnote{Henry Ford}
-    
-    Translation: $T =$ ``you  think  you  can"; $C = $  ``you  can".
-    
-    \begin{enumerate}
-        \item \begin{align*} &T \to C \\&  \neg T \to \neg C \end{align*}
-        \item \begin{align*} &T \wedge C \\  & \neg  T \wedge \neg C \end{align*}
-        \item \begin{align*} &T \to \neg T  \\ & C  \to \neg  C \end{align*}
-    \end{enumerate}
-    
-    \item Specification: A secure password must be private and complicated. If
-    a password is  complicated then  it will be hard to  remember.  People
-    write down hard-to-remember passwords. If a password is written down, it's  not private.   The password is secure.
 
-    Translation: $S =$ ``the password is secure"; $P = $ ``the password is private"; 
-    $C = $  ``the password is  complicated"; $H = $ ``the password is hard to remember";
-    $W =  $ ``the password is written down".
-    
-    \begin{enumerate}
-        \item \begin{align*} &\neg (P \wedge C) \to \neg  S  \\ & C \to H  \\ & W \wedge H \\ & W \to  \neg P \\ & S \end{align*}
-        \item \begin{align*} &(P \wedge  C)  \to S  \\ &  C \to H\\ & W  \to  H \\  & W \to P \\ & S\end{align*}
-        \item \begin{align*} & S  \to (P \wedge C)  \\ &  C \to H\\ & H  \to  W \\  & W \to \neg P \\ & S\end{align*}
-\end{enumerate}
-
-\end{enumerate}
 \end{enumerate}
 \end{document}
