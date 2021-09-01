@@ -373,8 +373,13 @@ margin-bottom: 100px;
     padding: 30px;
     margin-right: 10%;
     border-spacing: 100px;
-    column-count: 2;
+    box-shadow: 2px 2px gray;
     
+    
+}
+
+.column {
+    column-count: 2;
 }
 
 .box:hover {
