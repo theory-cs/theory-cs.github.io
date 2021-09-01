@@ -21,6 +21,7 @@ python:
 	python3 unitTemplate.py
 	python3 topicTemplate.py
 	python3 appTemplate.py
+	python3 overviewTopicTemplate.py
 
 #Building html versions of all .tex files in notes/lessons directory (TODO: also need for topics and outcomes)
 output/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex

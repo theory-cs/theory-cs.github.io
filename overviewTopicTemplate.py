@@ -13,7 +13,7 @@ for i in data:
         #only put icon in sidebar of 2nd tier topics that have children 
         if(bool(data[i]['Children'][j]['Children'])):
             sidebarButtons += "<li>"
-            sidebarButtons += """<a href= \"""" +data[i]['Children'][j]['file'] + """.html\" aria-label="Go to """ + j + """ ">"""
+            sidebarButtons += """<a href= \"""" +data[i]['Children'][j]['file'] + """\" aria-label="Go to """ + j + """ ">"""
             sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + data[i]['Children'][j]['Icon'] + """</p></i>"""
             sidebarButtons += """<span class="links_name"> """ + j + """</span>"""
             sidebarButtons += "</a>"
@@ -45,7 +45,12 @@ for i in data:
     
     for j in data[i]['Children']:
 
-        boxString += """<h3 style="font-size: 20px;"><a href=\"""" + data[i]['Children'][j]['file'] + """\" style=" color: black;">""" + j + """</a></h3>"""
+        if(bool(data[i]['Children'][j]['Children'])):
+             boxString += """<h3 style="font-size: 20px;"><a href=\"""" + data[i]['Children'][j]['file'] + """\" style=" color: black;">""" + j + """</a></h3>"""
+             
+        else:
+            boxString += """<h3 style="font-size: 20px;"><a href="javascript:void(0)" style=" color: black;">""" + j + """</a></h3>"""
+           
 
         if(bool(data[i]['Children'][j]['Children'])):
             boxString += """<ul style="font-size: 13px;">"""
