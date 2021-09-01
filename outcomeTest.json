@@ -2,6 +2,7 @@
     "Modeling and Impact":{
         "Program Level": "Understand, guide, shape impact of computing on society/the world",
         "Theory":" Modeling & Application: Connect the role of theory to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts",
+        "Icon": "<i class='bx bxs-paper-plane'></i>",
         "Children":{
             "Modeling": {
                 "Description": "Model systems with tools from discrete mathematics and reason about implications of modelling choices",
