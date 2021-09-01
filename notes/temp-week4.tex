@@ -1,0 +1,590 @@
+\documentclass[12pt, oneside]{article}
+
+\input{../resources/discrete-math-packages.tex}
+
+\begin{document}
+\begin{flushright}
+\StrBefore{\currfilename}{.}
+\end{flushright}
+
+\section*{This week's highlights}
+\begin{itemize}
+\item Evaluate the truth value of a compound proposition given truth values of its constituent variables.
+\item Prove propositional equivalences using truth tables
+\item Prove propositional equivalences using other known equivalences, e.g.
+\begin{itemize}
+\item DeMorgan's laws
+\item Double negation laws
+\item Distributive laws, etc.
+\end{itemize}
+\item Compute the CNF and DNF of a given compound proposition.
+\item Define a predicate over a finite domain using a table of values and as properties
+\item Determine the truth value of the proposition resulting from evaluating a predicate
+\item Describe the set of domain elements that make a predicate with one input evaluate to true.
+\item Evaluate universal and existential statements about finite domains (with no quantifier alternations).
+\item Counterexample and witness-based arguments for predicates with infinite domains
+\item Practice combinations of $\land$, $\rightarrow$ in conjunction with universal and existential quantifiers
+\item State and apply DeMorgan's law for quantified statements.
+\item Translate sentences from English to propositional logic using appropriate propositional variables and boolean operators.
+\item Decide and justify whether or not a collection of propositions is consistent.
+
+\item Use predicates with set of tuples as their domain to relate values to one another
+\item Evaluate nested quantifiers: both alternating and not.
+\end{itemize}
+
+\section*{Lecture videos}
+Week 4 Day 1
+\href{https://youtube.com/playlist?list=PLML4QilACLk47QBNBgn3XU9VKJteswzfV}{YouTube playlist}
+
+Week 4 Day 2
+\href{https://youtube.com/playlist?list=PLML4QilACLk7ZmUbf4VXu8oUqcVmPMl4l}{YouTube playlist}
+
+Week 4 Day 3
+\href{https://youtube.com/playlist?list=PLML4QilACLk496T5XZ30JKU-t1iVaHIXm}{YouTube playlist}
+
+\newpage
+\section*{Monday January 25}
+
+% logical-equivalence
+
+
+% logical-equivalence-extra-note
+
+% consistency-def
+
+% consistency-example.tex
+
+
+
+\newpage
+
+
+Consider the following algorithm to introduce redundancy in a string of $0$s and $1$s.
+\begin{algorithm}[caption={Create redundancy by repeating each bit three times}]
+procedure $\textit{redun3}$($a_{k-1} \cdots a_0$: a binary string)
+for $i$ := $0$ to $k-1$
+  $c_{3i}$ := $a_i$
+  $c_{3i+1}$ := $a_i$
+  $c_{3i+2}$ := $a_i$
+return $c_{3k-1} \cdots c_0$
+\end{algorithm}
+
+\begin{algorithm}[caption={Decode sequence of bits using majority rule on consecutive three bit sequences}]
+procedure $\textit{decode3}$($c_{3k-1} \cdots c_0$: a binary string whose length is an integer multiple of $3$)
+for $i$ := $0$ to $k-1$
+  if exactly two or three of $c_{3i}, c_{3i+1}, c_{3i+2}$ are set to $1$
+    $a_i$ := 1
+  else 
+    $a_i$ := 0
+return $a_{k-1} \cdots a_0$
+\end{algorithm}
+
+Give a recursive definition of the set of outputs of the $redun3$ procedure, $Out$,
+
+\vspace{-20pt}
+
+\begin{itemize}
+\item[] {\bf Basis step}: \underline{ \phantom{$\lambda \in Out$ \qquad}}
+\item[] {\bf Recursive step}: \underline{\phantom{If $x \in Out$ then $x000 \in Out$ and $x111 \in Out$} }
+%(where $x000$ and $x111$
+%are the results of string concatenation).
+\end{itemize}
+
+
+Consider the message $m = 0001$ so that the sender calculates $redun3(m) = redun3(0001) = 000000000111$.
+
+Introduce $\underline{\phantom{~~4~~}} $
+errors into the message so that the signal received by the 
+receiver is $\underline{\phantom{010100010101}}$
+but the receiver is still able to decode the original message.
+
+\vspace{-10pt}
+
+{\it Challenge: what is the biggest number of errors you can introduce?} 
+
+Building a circuit for line 3 in $decode$ procedure: given three input bits, we need to determine whether the
+majority is a $0$ or a $1$.
+
+\begin{center}
+\begin{multicols}{2}\begin{tabular}{ccc|c}
+$c_{3i}$ & $c_{3i+1}$ & $c_{3i+2}$ & $a_i$ \\
+\hline
+$1$ & $1$ & $1$ & $\phantom{1}$ \\
+$1$ & $1$ & $0$ & $\phantom{1}$ \\
+$1$ & $0$ & $1$ & $\phantom{1}$ \\
+$1$ & $0$ & $0$ & $\phantom{0}$ \\
+$0$ & $1$ & $1$ & $\phantom{1}$ \\
+$0$ & $1$ & $0$ & $\phantom{0}$ \\
+$0$ & $0$ & $1$ & $\phantom{0}$ \\
+$0$ & $0$ & $0$ & $\phantom{0}$ \\\\
+\end{tabular}
+\columnbreak
+
+Circuit 
+\end{multicols}
+\end{center}
+
+\newpage
+\section*{Wednesday January 27}
+
+{\bf  Definition}: A  {\bf predicate}  is  a function from a given set (domain) to $\{T,F\}$.
+
+A predicate can be applied, or {\bf evaluated} at, an element of the domain.
+
+Two predicates over the same domain are {\bf equivalent} means they evaluate to
+the same truth values for all possible assignments of domain elements to the
+input.
+
+
+\begin{center}
+\begin{tabular}{c||c|c|c}
+Input & \multicolumn{3}{c}{Output} \\
+&$P(x)$ & $N(x)$ & $Mystery(x)$\\
+$x$ & $[x]_{2c,3} > 0$ & $[x]_{2c,3} < 0$& \\
+\hline
+$000$  & $F$ & & $T$\\
+$001$  & $T$ & & $T$\\
+$010$  & $T$ & & $T$\\
+$011$  & $T$ & & $F$\\
+$100$  & $F$ & & $F$\\
+$101$  & $F$ & & $T$\\
+$110$  & $F$ & & $F$\\
+$111$  & $F$ & & $T$\\
+\end{tabular}
+\end{center}
+
+The domain for each of the predicates $P(x)$, $N(x)$, $Mystery(x)$ is
+\underline{\phantom{$\{ b_1b_2b_3 ~\mid~ b_i \in \{0,1\} \textrm{ for each } i, 1 \leq i \leq 3 \}$}}.
+
+
+{\bf Definition}: The {\bf truth  set} of a  predicate is the collection of all elements in its
+domain where the predicate evaluates to $T$.
+
+The truth set for the predicate $P(x)$ is $\underline{\phantom{\{ x ~\mid~ P(x) = T\} = \{ 001, 010, 011 \}}}$.
+
+The truth set for the predicate $N(x)$ is $\underline{\phantom{\{ x ~\mid~ N(x) = T\} = \{ 101, 111 \}}}$.
+
+The truth set for the predicate $Mystery(x)$ is $\underline{\phantom{\{ x ~\mid~ Mystery(x) = T\} = \{ 000, 001, 010, 101, 111 \}}}$.
+
+
+\vfill
+
+
+\newpage
+
+{\bf Definitions} (Rosen 40-45): 
+
+\vspace{-15pt}
+
+The {\bf universal quantification} of $P(x)$ is the statement ``$P(x)$ for all values of $x$ in the domain''
+and is written $\forall x P(x)$. An element for which $P(x) = F$ is called a {\bf counterexample} of $\forall x P(x)$.
+
+The {\bf existential quantification} of $P(x)$ is the statement ``There exists an element $x$ in the domain such that $P(x)$'' and is written $\exists x P(x)$. An element for which $P(x) = T$ is called a {\bf witness} of $\exists x P(x)$.
+
+{\bf Example}: 
+\underline{\phantom{$\exists x ~(P(x) \to N(x))$}} is a true existential quantification.
+
+Statements involving predicates and quantifiers are {\bf logically equivalent} 
+means they have the same truth value no matter which predicates (domains and functions) are substituted in. 
+
+{\bf Quantifier version of De Morgan's laws}: 
+$\boxed{\neg \forall x P(x) ~\equiv~ \exists x \left( \neg P(x) \right)}$
+\qquad
+\qquad
+$\boxed{\neg \exists x Q(x) ~\equiv~ \forall x \left( \neg Q(x) \right)}$
+
+
+{\bf Example}: 
+\underline{\phantom{$\forall x ~(P(x) \lor N(x))$}} is a false universal quantification. It is logically equivalent to \underline{\phantom{$\exists x ~\not (P(x) \lor N(x))$}}
+
+
+
+
+
+\vfill
+
+Recall: Each RNA strand is a string whose symbols are elements of the set $B  = \{\A, \C, \G, \U \}$.
+The {\bf set of all RNA strands} is called $S$.
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+{\bf Example predicates on $S$}
+
+\vspace{-20pt}
+
+
+\begin{center}
+\begin{tabular}{|p{4in}p{3.5in}|}
+\hline
+& \\
+$H(s) = T$ & Truth set of $H$ is \underline{\phantom{$S$\hspace{1in}}}\\
+\hline
+$L_3(s) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = 3$} \\
+F & \qquad\text{otherwise}
+\end{cases}$ & 
+Strand where $L_3$ evaluates to $T$ is e.g.\underline{\phantom{$\A\A\A$~\hspace{0.3in}}}
+
+\vspace{10pt}
+
+Strand where $L_3$ evaluates to $F$ is e.g. \underline{\phantom{$\A\A\U\A$\hspace{0.3in}}}\\
+\hline
+& \\
+$F_{\A}$ is defined recursively by: 
+
+~~Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
+
+~~Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$& 
+Strand where $F_{\A}$ evaluates to $T$ is e.g.\underline{\phantom{$\A\C\G$~\hspace{0.3in}}}
+
+\vspace{10pt}
+
+Strand where $F_{\A}$ evaluates to $F$ is e.g. \underline{\phantom{$\U\A\C\U$\hspace{0.3in}}}\\
+\hline
+& \\
+$P_{\A\U\C}$ is defined as the predicate whose truth set
+is the collection of RNA strands where the string $\A\U\C$
+is a substring (appears inside $s$, in order and consecutively)& 
+Strand where $P_{\A\U\C}$ evaluates to $T$ is e.g.\underline{\phantom{$\A\A\A$~\hspace{0.3in}}}
+
+\vspace{10pt}
+
+Strand where $P_{\A\U\C}$ evaluates to $F$ is e.g. \underline{\phantom{$\A\A\U\A$\hspace{0.3in}}}\\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill
+
+\section*{Friday January 29}
+
+
+{\bf Definition} (Rosen p123): The {\bf Cartesian product} of the sets $A$ and $B$, $A \times B$, is the set of all ordered pairs $(a, b)$, where $a \in A$ and $b \in B$. 
+That is: $A \times B = \{(a, b) \mid (a \in A) \land (b \in B)\}.$ The Cartesian product of the sets $A_1, A_2, \ldots ,A_n$, denoted by $A_1 \times A_2 \times \cdots \times A_n$, is the
+set of ordered n-tuples $(a_1, a_2,...,a_n)$, where $a_i$ belongs to $A_i$ for $i = 1, 2,\ldots,n$. That is,
+$A_1 \times A_2 \times \cdots \times A_n = \{(a_1, a_2,\ldots,a_n) \mid a_i \in A_i \textrm{ for } i = 1, 2,\ldots,n\}$
+
+
+
+Recall: Each RNA strand is a string whose symbols are elements of the set $B  = \{\A, \C, \G, \U \}$.
+The {\bf set of all RNA strands} is called $S$.
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+A function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is:
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(b_1, b_2) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(s b_1, b_2) & =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\]
+
+\vfill
+
+\begin{tabular}{p{3.5in}p{0.1in}p{3.5in}}
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( s, n) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+&&
+$BC$ with domain $\underline{\phantom{S \times B \times \mathbb{N}}}$ is defined by, for $s \in S$ and $b \in B$ and $n \in \mathbb{N}$,
+\[
+BC( s, b, n) = \begin{cases}
+T &\qquad\text{if $basecount(s,b) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]\\
+Element where $L$ evaluates to $T$: $\underline{\phantom{(\A, 1)\hspace{0.2in}}}$ & & Element where $BC$ evaluates to $T$: 
+$\underline{\phantom{(\A, \A1)\hspace{0.2in}}}$ \\
+& & \\
+& & \\
+Element where $L$ evaluates to $F$: $\underline{\phantom{(\A, 2)\hspace{0.2in}}}$  & & Element where $BC$ evaluates to $F$: 
+$\underline{\phantom{(\A, \C, 1)\hspace{0.2in}}}$ \\
+& & \\
+& & \\
+\end{tabular}
+
+\vfill
+
+{\bf Notation}: for a predicate $P$ with domain $X_1 \times \cdots \times X_n$ and a $n$-tuple $(x_1, \ldots, x_n)$ 
+with each $x_i \in X$, we write $P(x_1, \ldots, x_n)$ to mean $P( ~(x_1, \ldots, x_n)~)$.
+
+
+\newpage
+
+$\exists t ~BC(t)$ \qquad In English: \underline{\phantom{There exists an ordered $3$-tuple 
+%of strand, base, and nonnegative integer
+at which the predicate $BC$ evaluates to $T$.}}
+
+Witness that proves this existential quantification is true: \underline{\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}}
+
+$\forall (s,b,n) ~(~BC(s,b,n)~)$  \qquad In English: \underline{\phantom{For all ordered $3$-tuples
+%of strand, base, and nonnegative integer
+the predicate $BC$ evaluates to $T$.}}
+
+Counterexample that proves this universal quantification is false: \underline{\phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}}
+
+
+{\bf New predicates from old} \qquad $BC(s,b,n)$ means $basecount(s,b) = n$.
+\begin{center}
+\begin{tabular}{|p{2.5in}p{1.5in}p{2in}|}
+\hline
+{\bf Predicate} & Domain &  Example domain element \\
+& & where predicate is $T$\\
+\hline
+&& \\
+$basecount(s,b) = 3$ & \phantom{$S \times B$}& 
+\phantom{$(\A\U\A\A, \A)$}\\
+\hline
+&& \\
+$basecount(s,\A) = n $&\phantom{$S \times \mathbb{N}$} & 
+\phantom{$(\A\U\A,2)$}\\
+\hline
+&& \\
+$\exists n \in \mathbb{N} ~(basecount(s,b) = n) $&\phantom{$S \times \mathbb{N}$} & 
+\phantom{$(\A\U\A,2)$}\\
+\hline
+&& \\
+$\forall b \in B ~(basecount(s,b) = 1) $&\phantom{$S$} & 
+\phantom{$\A\C\G\U$}\\
+\hline
+\end{tabular}
+\end{center}
+
+
+{\bf Alternating quantifiers}
+$$\forall s \exists n ~BC(s,\A,n)$$
+
+In English: \underline{\phantom{\hspace{3in}}}
+
+\vfill
+
+$$\exists n \forall s ~BC(s,\U,n)$$
+
+In English: \underline{\phantom{\hspace{3in}}}
+
+
+\vfill
+
+Evaluate each quantified statement as $T$ or $F$.
+
+\vspace{-20pt}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+&&\\
+$\forall s ~\forall b ~\exists n~BC(s,b,n)$ & $\forall s ~\forall n ~ \exists b~BC(s,b,n)$ & $\forall b ~\forall n ~\exists s~BC(s,b,n)$ \\
+&&\\
+&&\\
+\hline
+&&\\
+$\exists s ~\forall b ~\exists n~BC(s,b,n)$ & $\forall s~ \exists n ~\forall b~BC(s,b,n)$ & $\exists b ~\exists n ~\forall s~BC(s,b,n)$ \\
+&&\\
+&&\\
+\hline
+\end{tabular}
+\end{center}
+
+{\it Extra example}: Write the negation of each of the statements above, and use De Morgan's law to find a 
+logically equivalent version where the negation is applied only to the $BC$ predicate (not next to a quantifier).
+
+
+
+
+\section*{Review quiz questions}
+\begin{enumerate}
+\item {\bf Monday}
+Real-life representations are often prone to corruptions.  Biological codes, like RNA, 
+may mutate naturally\footnote{Mutations of specific RNA codons have been linked to many disorders and cancers.}
+and during measurement; cosmic radiation and other ambient noise 
+can flip bits in computer storage\footnote{This RadioLab podcast episode
+goes into more detail on bit flips: \url{https://www.wnycstudios.org/story/bit-flip}}. 
+One way to recover from corrupted data is to exploit redundancy.  
+Consider the following algorithm to introduce redundancy in a string of $0$s and $1$s.
+\begin{algorithm}[caption={Create redundancy by repeating each bit three times}]
+procedure $\textit{redun3}$($a_{k-1} \cdots a_0$: a binary string)
+for $i$ := $0$ to $k-1$
+  $c_{3i}$ := $a_i$
+  $c_{3i+1}$ := $a_i$
+  $c_{3i+2}$ := $a_i$
+return $c_{3k-1} \cdots c_0$
+\end{algorithm}
+
+\begin{algorithm}[caption={Decode sequence of bits using majority rule on consecutive three bit sequences}]
+procedure $\textit{decode3}$($c_{3k-1} \cdots c_0$: a binary string whose length is an integer multiple of $3$)
+for $i$ := $0$ to $k-1$
+  if exactly two or three of $c_{3i}, c_{3i+1}, c_{3i+2}$ are set to $1$
+    $a_i$ := 1
+  else 
+    $a_i$ := 0
+return $a_{k-1} \cdots a_0$
+\end{algorithm}
+
+For each of the following, type in your answers precisely including all notational punctuation.
+
+\begin{enumerate}
+\item  Give the output of $redun3(100)$.
+\item  If the output of running $redun3$ is $000000111000111$, what was its input?
+\item  Give the output of $decode3(100)$.
+\item  How many distinct possible inputs to $decode3$ give the output $01$?
+\end{enumerate}
+
+\item {\bf Wednesday} Consider the following predicates, each of which has 
+as its domain the set of all bitstrings whose leftmost bit is $1$
+
+$E(x)$ is $T$ exactly when $(x)_{2}$ is even, and is $F$ otherwise
+
+$L(x)$ is $T$ exactly when $(x)_2 < 3$, and is $F$ otherwise
+
+$M(x)$ is $T$ exactly when $(x)_2 > 256$ and is $F$ otherwise.
+
+\begin{enumerate}
+\item What is $E(110)$?
+\item Why is $L( 00)$ undefined?
+\begin{enumerate}
+\item Because the domain of $L$ is infinite
+\item Because $00$ does not have $1$ in the leftmost position
+\item Because $00$ has length 2, not length 3
+\item Because $(00)_{2,3} = 0$ which is less than $3$
+\end{enumerate}
+\item Is there a bitstring of width (where width is the number of bits) $6$ at which $M(x)$ evaluates 
+to $T$?
+\end{enumerate}
+
+\newpage
+\item {\bf Friday} Recall that $S$ is defined as the set of all RNA strands, strings made of the bases in 
+ $B = \{\A,\U,\G,\C\}$. Define the functions \textit{mutation}, \textit{insertion}, and \textit{deletion} as described by the pseudocode below:
+
+\begin{algorithm}
+procedure $\textit{mutation}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+for $i$ := $1$ to $n$
+  if $i$ = $k$
+    $c_i$ := $b$
+  else
+    $c_i$ := $b_i$
+return $c_1\cdots c_n$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{insertion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+if $k > n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+  $c_{n+1}$ := $b$
+else 
+  for $i$ := $1$ to $k-1$
+    $c_i$ := $b_i$
+  $c_k$ := $b$
+  for $i$ := $k+1$ to $n+1$
+    $c_i$ := $b_{i-1}$
+return $c_1\cdots c_{n+1}$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{deletion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$)
+if $k > n$
+  $m$ := $n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+else
+  $m$ := $n-1$
+  for $i$ := $1$ to $k-1$ 
+    $c_i$ := $b_i$
+  for $i$ := $k$ to $n-1$
+    $c_i$ := $b_{i+1}$
+return $c_1\cdots c_m$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+For this question, we will use the following predicates.
+
+$F_{\A}$ with domain $S$ is defined recursively by: 
+\begin{itemize}
+\item[]Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
+\item[]Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$
+\end{itemize}
+
+$P_{\A\U\C}$ with domain $S$ is defined as the predicate whose truth set
+is the collection of RNA strands where the string $\A\U\C$
+is a substring (appears inside $s$, in order and consecutively)
+
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( s, n) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+
+$Mut$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Mut(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ mutation(s_1, k, b) = s_2~)
+\]
+$Ins$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Ins(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ insertion(s_1, k, b) = s_2~)
+\]
+$Del$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Del(s_1,s_2) = \exists k\in \mathbb{Z^+} (~ deletion(s_1, k) = s_2~)
+\]
+
+\begin{enumerate}
+\item Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $F_\A ( \A\A)$
+    \item $F_\A ( \A\C)$
+    \item $F_\A ( \A\G)$
+    \item $F_\A ( \A\U)$
+    \item $F_\A ( \C\A)$
+    \item $F_\A ( \C\C)$
+    \item $F_\A ( \C\G)$
+    \item $F_\A ( \C\U)$
+ \end{enumerate}    
+\item Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $\exists s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))$
+    \item $\exists s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))$
+    \item $\forall n \in \mathbb{Z}^+~\exists s \in S ~(L(s,n))$
+    \item $\forall s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))$
+    \item $\exists n \in \mathbb{Z}^+ ~\forall s \in S ~(L(s,n))$
+    \item $\forall s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))$
+ \end{enumerate} 
+\item Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $\exists s \in S ~Mut(s,s)$
+    \item $\forall s \in S ~Mut(s,s)$
+    \item $\exists s \in S ~Ins(s,\A)$
+    \item $\exists s \in S ~Ins(\A,s)$
+    \item $\exists s \in S ~Del(s,\A)$
+    \item $\forall s \in S ~Del(s,\A)$
+ \end{enumerate} 
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
