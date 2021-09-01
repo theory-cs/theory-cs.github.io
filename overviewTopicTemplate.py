@@ -2,7 +2,7 @@ from string import Template
 import json
   
 # Opening JSON file
-fileJson = open('outcomeTest.json',)
+fileJson = open('outcomes.json',)
   
 # returns JSON object as a dictionary
 data = json.load(fileJson)
@@ -40,28 +40,27 @@ for i in data:
     boxString += "<p> Theory: " + data[i]['Theory'] + "</p>"
     boxString += "<hr>"
 
-    boxString += """<div class="column">"""
+    boxString += """<div class="column"> <dl>"""
 
     
     for j in data[i]['Children']:
 
         if(bool(data[i]['Children'][j]['Children'])):
-             boxString += """<h3 style="font-size: 20px;"><a href=\"""" + data[i]['Children'][j]['file'] + """\" style=" color: black;">""" + j + """</a></h3>"""
+             boxString += """<dt><a href=\"""" + data[i]['Children'][j]['file'] + """\" style=" color: black;">""" + j + """</a></dt>"""
              
         else:
-            boxString += """<h3 style="font-size: 20px;"><a href="javascript:void(0)" style=" color: black;">""" + j + """</a></h3>"""
+            boxString += """<dt><a href="javascript:void(0)" style=" color: black;">""" + j + """</a></dt>"""
            
 
         if(bool(data[i]['Children'][j]['Children'])):
-            boxString += """<ul style="font-size: 13px;">"""
             for k in data[i]['Children'][j]['Children']:
-                boxString += "<li>" + k + "</li>"
+                boxString += "<dd>" + k + "</dd>"
             
-            boxString += "</ul>"
+            boxString += "</dl>"
 
     boxString += "</div>"
 
-    boxString += "</div>"
+    boxString += "</div><br><br>"
     
 #open unitTemplate html file and read it into a string 
 unitTemplate = open("overviewTopicTemplate.html", "r")

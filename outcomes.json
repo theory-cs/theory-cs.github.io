@@ -138,7 +138,7 @@
 
     "Communication":{
         "Program Level": "Know, select and apply appropriate computing knowledge and problem-solving techniques ~~Multiple representations",
-        "Icon":"<i class='bx bxs-bulb' ></i>",
+        "Icon":"<i class='bx bxs-message-square-edit'></i>",
         "Theory":"Communication: Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.",
         "Children":{
             "Mathematical Definitions and Notation": {
