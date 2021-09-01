@@ -50,6 +50,22 @@ h2 {
     font-size: 300%;
 }
 
+.column dl{
+    margin: 0;
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid-column;         /*Chrome, Safari, IE 11 */
+
+}
+
+.column dd{
+    font-size: 15px;
+}
+
+.column dt{
+    font-size: 20px;
+}
+
+
 .wrapper{
     margin-right: auto;
     margin-left:  auto;
