@@ -54,17 +54,30 @@ h2 {
     margin: 0;
     page-break-inside: avoid;           /* Theoretically FF 20+ */
     break-inside: avoid-column;         /*Chrome, Safari, IE 11 */
-
-}
-
-.column dd{
-    font-size: 15px;
 }
 
 .column dt{
     font-size: 20px;
 }
 
+/* dt a{
+    color: purple;
+}
+*/
+
+.bx-subdirectory-right{
+    color: rgb(70, 2, 70);
+}
+
+.column a{
+    color: rgb(70, 2, 70);
+    text-decoration: none;
+    
+}
+
+.column dd{
+    font-size: 15px;
+}
 
 .wrapper{
     margin-right: auto;

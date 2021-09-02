@@ -33,28 +33,28 @@ boxString = ""
 #big for loop begin
 for i in data:
 
-    boxString += """<div class="box">"""
+    boxString += """<div class="box"> \n"""
 
     boxString += "<h2>" + data[i]['Icon'] + i + "</h2>"
     boxString += "<p> Program Level: " + data[i]['Program Level'] + "</p>"
     boxString += "<p> Theory: " + data[i]['Theory'] + "</p>"
     boxString += "<hr>"
 
-    boxString += """<div class="column"> <dl>"""
+    boxString += """<div class="column"> <dl> \n"""
 
     
     for j in data[i]['Children']:
 
         if(bool(data[i]['Children'][j]['Children'])):
-             boxString += """<dt><a href=\"""" + data[i]['Children'][j]['file'] + """\" style=" color: black;">""" + j + """</a></dt>"""
+             boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href=\"""" + data[i]['Children'][j]['file'] + """\" >""" + j + """</a></dt> \n"""
              
         else:
-            boxString += """<dt><a href="javascript:void(0)" style=" color: black;">""" + j + """</a></dt>"""
+            boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href="javascript:void(0)" >""" + j + """</a></dt> \n"""
            
 
         if(bool(data[i]['Children'][j]['Children'])):
             for k in data[i]['Children'][j]['Children']:
-                boxString += "<dd>" + k + "</dd>"
+                boxString += "<dd>" + k + "</dd>\n"
             
             boxString += "</dl>"
 
