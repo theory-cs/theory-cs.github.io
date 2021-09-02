@@ -198,7 +198,7 @@
             "Translating to Formal Logic":{
                 "Description":"Translate sentences and specifications between English and formal logic.",
                 "Children":{
-                    "CNF/DNF":"Compute the CNF and DNF of a given compound proposition.",
+                    "CNF-DNF":"Compute the CNF and DNF of a given compound proposition.",
                     "Translating to propositional logic":"Translate sentences from English to propositional logic using appropriate propositional variables and boolean operators.",
                     "Defining a Predicate over a Finite Domain":"Define a predicate over a finite domain using a table of values and as properties",
                     "Predicates with Tuples":"Use predicates with set of tuples as their domain to relate values to one another",
