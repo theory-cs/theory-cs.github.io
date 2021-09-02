@@ -50,7 +50,7 @@ for line in lowLevelsDict:
 
 
 
-        resultFile = open("notes/topic/"+ line + ".tex", "w")
+        resultFile = open("notes/lessons/"+ line + ".tex", "w")
         resultFile.write(result)
 
         resultFile.close()

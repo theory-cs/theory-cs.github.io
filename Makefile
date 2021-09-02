@@ -11,6 +11,7 @@ latex: $(patsubst notes/lessons/%.tex,generated/output/%.pdf,$(wildcard notes/le
 generated/output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/output; cd notes; cd lessons; pdflatex -output-directory ../../generated/output $(<F) 
 
+
 # Build website by copying over files, notes, resources, html, and style files to generated directory
 static-pages: generated-files generated-resources generated-notes  generated-notes-activity-snippets generated-website generated-website-temp generated-website-css
 
