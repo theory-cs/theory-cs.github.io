@@ -3,27 +3,19 @@
       "header": "Week 1",
       "pdfs": [{
           "name": "Notes",
-          "extensions":true,
+          "addExtensions":true, 
           "file":"Week0and1",
-          "annotated": true, 
-          "annotatedPath": "../files/Week1-Notes-CSE20W21-4pm.pdf",
-          ".texIncluded": true,
-          "overleafIncluded": true,
-          "overleafLink": "https://www.overleaf.com/read/cdnbwtqkjmtd",
-          "htmlIncluded": true
+          "annotatedFile": "Week1-Notes-CSE20W21-4pm.pdf",
+          "overleafLink": "https://www.overleaf.com/read/cdnbwtqkjmtd"
       },
       {
         "name": "Slides",
-          "extensions":false,
-          "file":"../files/Week1-Slides-CSE20W21.pdf",
-          "annotated": false, 
-          ".texIncluded": false,
-          "overleafIncluded": false,
-          "htmlIncluded": false
+          "addExtensions":false,
+          "file":"Week1-Slides-CSE20W21.pdf"
       }
     ],
       
-      "Information": [true, "Title", "this", "is", "a test"],
+      "Information": [ "Title", "this", "is", "a test"],
 
       "embed": [{
         "name": "Lecture Slides",
@@ -37,17 +29,13 @@
         
         "pdfs": [{
           "name": "Notes",
-          "extensions":true,
+          "addExtensions":true,
           "file":"Week0and1",
-          "annotated": true, 
-          "annotatedPath":"../files/Week2-Notes-CSE20W21-4pm.pdf",
-          ".texIncluded": true,
-          "overleafIncluded": true,
-          "overleafLink": "https://www.overleaf.com/read/cdnbwtqkjmtd",
-          "htmlIncluded": false
+          "annotatedFile":"Week2-Notes-CSE20W21-4pm.pdf",
+          "overleafLink": "https://www.overleaf.com/read/cdnbwtqkjmtd"
       }],
       
-      "Information": [true, "Hello", "this", "is", "a test"],
+      "Information": [ "Hello", "this", "is", "a test"],
 
       "embed": [{
         "name": "Lecture Slides",
