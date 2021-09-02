@@ -30,7 +30,7 @@ output/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-
 # (Mia) I don't understand these yet
 
 # Target files are all pdfs in output
-all: $(patsubst notes/Lessons/%.tex,output/%.pdf,$(wildcard notes/Lessons/*.tex))
+all: $(patsubst notes/lessons/%.tex,output/%.pdf,$(wildcard notes/lessons/*.tex))
 
 # First do target all, then do targets that look like generated/output/SOMETHING.pdf
 generated-output: all $(patsubst output/%.pdf,generated/output/%.pdf,$(patsubst notes/Lessons/%.tex,output/%.pdf,$(wildcard notes/Lessons/*.tex)))

@@ -32,7 +32,7 @@ for i in range(1,len(data)+1):
     for j in range(len(data['unit'+str(i)]['pdfs'])):
 
 
-        if(data['unit'+str(i)]['pdfs'][j]['extensions']):
+        if(data['unit'+str(i)]['pdfs'][j]['addExtensions']):
             #format all filenames 
             pdf= "../output/"+data['unit'+str(i)]['pdfs'][j]['file']+".pdf"
             tex= "../notes/Lessons/"+data['unit'+str(i)]['pdfs'][j]['file']+".tex"
@@ -44,44 +44,50 @@ for i in range(1,len(data)+1):
         pdfString += """<h2 tabindex = "2"> """+ data['unit'+str(i)]['pdfs'][j]['name'] +"""</h2>
            <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
         
-        #.tex Download button
-        if(data['unit'+str(i)]['pdfs'][j]['.texIncluded']):
+        #.tex/.html button
+        if( data['unit'+str(i)]['pdfs'][j]['addExtensions']):
+            #.tex
             pdfString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
             href=""" + tex + """ download>TeX</a> """
+            #.html
+            pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+            href= """ + html + """ target="HTML">Raw HTML</a>"""
+
         
         #Open in Overleaf button
-        if(data['unit'+str(i)]['pdfs'][j]['overleafIncluded']):
+        if('overleafLink' in data['unit'+str(i)]['pdfs'][j]):
             pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
             href= """ + data['unit'+str(i)]['pdfs'][j]['overleafLink'] + """ target="Overleaf">Overleaf</a> """
 
-        #Raw HTML button 
-        if(data['unit'+str(i)]['pdfs'][j]['htmlIncluded']):
-            pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-            href= """ + html + """ target="HTML">Raw HTML</a>"""
-        
         #Annotations on/off buttons 
-        if(data['unit'+str(i)]['pdfs'][j]['annotated']):
+        if('annotatedFile' in data['unit'+str(i)]['pdfs'][j]):
             pdfString += """ <a tabindex = "2" class="button on" aria-label="Annotations On" id="annotationsOnButton" href="javascript:void(0)" >Annotations On</a>
 					<a tabindex = "2" class="button off" aria-label="Annotations Off" id="annotationsOffButton" href="javascript:void(0)" >Annotations Off</a> """
 
             #annotations on
             pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(1,
-            \""""+pdf+ """\",\""""+data['unit'+str(i)]['pdfs'][j]['annotatedPath']+"""\", \""""+data['unit'+str(i)]['pdfs'][j]['name']+ """\")};"""
+            \""""+pdf+ """\",\"../files/"""+data['unit'+str(i)]['pdfs'][j]['annotatedFile']+"""\", \""""+data['unit'+str(i)]['pdfs'][j]['name']+ """\")};"""
             
             #annotations off
             pdfString +="""document.getElementById("annotationsOffButton").onclick = function() {annotations(0,
-            \""""+pdf+ """\",\""""+data['unit'+str(i)]['pdfs'][j]['annotatedPath']+"""\", \""""+data['unit'+str(i)]['pdfs'][j]['name']+ """\")};
+            \""""+pdf+ """\",\"../files/"""+data['unit'+str(i)]['pdfs'][j]['annotatedFile']+"""\", \""""+data['unit'+str(i)]['pdfs'][j]['name']+ """\")};
             </script>"""
-    
-        #pdf.js embed 
-        pdfString += """ <br> <iframe class="PDFjs" id=\""""+ data['unit'+str(i)]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
-        title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
+
+       #if addExtensions is false, then the displayed pdf will be in the files directory 
+        if(not data['unit'+str(i)]['pdfs'][j]['addExtensions']): 
+            #pdf.js embed from files
+            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ data['unit'+str(i)]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
+            title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
+        else:     
+            #pdf.js embed default 
+            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ data['unit'+str(i)]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
+            title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
     #Information Section
-    if(data['unit'+str(i)]['Information'][0]): 
-        infoString = "<dl><dt>"+ data['unit'+str(i)]['Information'][1]+ "</dt>"   
+    if('Information' in data['unit'+str(i)]): 
+        infoString = "<dl><dt>"+ data['unit'+str(i)]['Information'][0]+ "</dt>"   
         data['unit'+str(i)]['Information']                 
-        for k in range(2, len(data['unit'+str(i)]['Information'])) :              
+        for k in range(1, len(data['unit'+str(i)]['Information'])) :              
             infoString += "<dd>"+ data['unit'+str(i)]['Information'][k] +"</dd>"
     infoString += "</dl>"
 
