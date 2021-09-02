@@ -8,6 +8,5 @@
     "*.synctex.gz": "explorerExcludedFiles",
     "Icon*": "explorerExcludedFiles",
     ".DS_Store": "explorerExcludedFiles",
-    "generated/*": "explorerExcludedFiles"
   }
 }

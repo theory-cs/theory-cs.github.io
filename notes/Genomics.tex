@@ -1,0 +1,895 @@
+\documentclass[12pt, oneside]{article}
+
+\input{../resources/discrete-math-packages}
+
+\begin{document}
+\begin{flushright}
+\StrBefore{\currfilename}{.}
+\end{flushright}
+
+
+\section*{Sets and Recursive Definitions}
+
+RNA is made up of strands of four different bases that match up in specific ways.\\
+The bases are elements of the set 
+$B  = \{\A, \C, \G, \U \}$.
+
+
+{\bf Definition} The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+Examples: 
+
+
+\vfill
+
+
+\fbox{\parbox{\textwidth}{%
+To define a set we can use the {\bf roster method}, the {\bf set builder notation}, and also \ldots
+
+
+{\bf New! Recursive Definitions of Sets}: The set $S$ (pick a name) is defined by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \textrm{Specify finitely many elements of } S\\
+\textrm{Recursive Step: } & \textrm{Give a rule for creating a new element of } S \textrm{ from known values existing in } S, \\
+& \textrm{and potentially other values}. \\
+\end{array}
+\]
+The set $S$ then consists of all and only elements that are put in $S$ by finitely many (a nonnegative integer number) of
+applications of the recursive step after the basis step.
+}}
+
+\newpage
+
+{\bf Definition} (Rosen p.\ 123) Let $A$ and $B$ be sets.  The {\bf Cartesian product} of $A$ and $B$, denoted
+$A \times B$, is the set of all ordered pairs $(a,b)$ where $a \in A$ and $b \in B$
+\[
+A \times B = \{ (a,b) \mid a \in A \text{ and } b \in B \}
+\]
+{\bf Definition}: Let $A$ and $B$ be sets of strings over the same alphabet. The {\bf set-wise concatenation} 
+of $A$ and $B$, denoted $A \circ B$, is the set of all results of string concatenation $ab$ where $a \in A$ and $b \in B$
+\[
+A \circ B = \{ ab \mid a \in A \text{ and } b \in B \}
+\]
+
+
+
+\begin{center}
+\begin{tabular}{cc}
+{\bf  Set} & {\bf Example elements in this set}:\\
+\hline 
+$B$ &\A \qquad \C \qquad \G \qquad \U \\
+& \\
+\hline
+\phantom{$B \times B$} & $(\A, \C)$ \qquad $(\U, \U)$\\
+& \\
+\hline
+$B \times \{-1,0,1\}$ & \\
+& \\
+\hline
+$\{-1,0,1\} \times B$ & \\
+& \\
+\hline
+\phantom{$\{-1,0,1\} \times \{-1,0,1\}  \times \{-1,0,1\} $} & \qquad $(0,0,0)$ \\
+& \\
+\hline
+$ \{\A, \C, \G, \U \} \circ  \{\A, \C, \G, \U \}$& \\
+& \\
+\hline
+\phantom{$\{G\} \circ \{G\} \circ \{G\}$} & \qquad $\G\G\G\G$ \\
+& \\
+\hline
+
+\end{tabular}
+\end{center}
+
+\vfill
+\vfill
+\newpage
+
+ The bases of RNA strands are elements of the set $B = \{\A, \C, \G, \U \}$. 
+Each of the sets below is described using set builder notation. Rewrite them using the roster method. 
+\begin{itemize}
+\item $\{s \in S ~|~ s \text{ has length $2$} \}$ 
+
+\vfill
+
+\item $\{s \in S ~|~ \text{the leftmost base in $s$ is the same as the rightmost base in $s$ and 
+$s$ has length $3$} \}$ 
+
+\vfill
+
+\item $\{s \in S ~|~ \text{there are twice as many $\A$s as $\C$s in $s$ and $s$ has length $1$} \}$ 
+
+\vfill
+
+\end{itemize}
+
+Certain 
+ sequences of bases serve important biological functions in translating RNA to proteins. The following
+ recursive definition gives a special set of RNA strands: The set of RNA strands $\hat{S}$ is defined (recursively)
+ by 
+ 
+ \begin{alignat*}{2}
+\text{Basis step:} & & \A\U\G \in \hat{S}\\
+\text{Basis step:} & \qquad& \text{If } s \in \hat{S} \text{ and } x \in R \text{, then } sx\in \hat{S}\\
+ \end{alignat*}
+ where $R = \{ \U\U\U, \C\U\C, \A\U\C, \A\U\G, \G\U\U, \C\C\U, \G\C\U, \U\G\G, \G\G\A \}$.
+
+Each of the sets below is described using set builder notation. Rewrite them using the roster method. 
+\begin{itemize}
+\item $\{s \in \hat{S} ~|~ s \text{ has length less than or equal to $5$} \}$ 
+
+\vfill
+
+
+\item $\{s \in S ~|~ \text{there are twice as many $\C$s as $\A$s in $s$ and $s$ has length $6$} \}$ 
+
+\vfill
+
+\end{itemize}
+\newpage
+
+\section*{Review quiz questions}
+\begin{enumerate}
+\item RNA is made up of strands of four different bases that match up in
+specific ways. The bases are elements of the set 
+$B  = \{\A, \C, \G, \U \}$.
+
+{\bf Definition} The set of RNA strands $S$ is defined (recursively) by:
+
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+
+A function \textit{rnalen} that computes the length of RNA strands in $S$ is defined by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+\begin{enumerate}
+\item How many distinct elements are in the set described using set builder notation as 
+\[
+\{ x \in S \mid rnalen(x) = 1\} \qquad ?
+\]
+
+\item How many distinct elements are in the set described using set builder notation as 
+\[
+\{ x \in S \mid rnalen(x) = 2\} \qquad ?
+\]
+
+\item How many distinct elements are in the set described using set builder notation as 
+\[
+\{ rnalen(x) \mid x \in S \text{ and } rnalen(x) = 2\} \qquad ?
+\]
+
+
+\item How many distinct elements are in the set obtained as the result
+of the set-wise concatenation $\{ \A\A, \A\C \} \circ \{\U, \A\A \}$?
+
+\item How many distinct elements are in the set obtained as the result
+of the Cartesian product $\{ \A\A, \A\C \} \times \{\U, \A\A \}$?
+
+\item {\bf True} or {\bf False}: There is an example of an RNA strand that is both in the set obtained as the result
+of the set-wise concatenation $\{ \A\A, \A\C \} \circ \{\U, \A\A \}$ and in the set obtained as the result of the 
+Cartesian product $\{ \A\A, \A\C \} \times \{\U\A, \A\A \}$
+
+\end{enumerate}
+\end{enumerate}
+{\it Bonus - not for credit: Describe each of the sets above using roster method.}
+\newpage
+\section*{Predicates and Quantified Statements}
+
+Recall: Each RNA strand is a string whose symbols are elements of the set $B  = \{\A, \C, \G, \U \}$.
+The {\bf set of all RNA strands} is called $S$.
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+{\bf Example predicates on $S$}
+
+\vspace{-20pt}
+
+
+\begin{center}
+\begin{tabular}{|p{4in}p{3.5in}|}
+\hline
+& \\
+$H(s) = T$ & Truth set of $H$ is \underline{\phantom{$S$\hspace{1in}}}\\
+\hline
+$L_3(s) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = 3$} \\
+F & \qquad\text{otherwise}
+\end{cases}$ & 
+Strand where $L_3$ evaluates to $T$ is e.g.\underline{\phantom{$\A\A\A$~\hspace{0.3in}}}
+
+\vspace{10pt}
+
+Strand where $L_3$ evaluates to $F$ is e.g. \underline{\phantom{$\A\A\U\A$\hspace{0.3in}}}\\
+\hline
+& \\
+$F_{\A}$ is defined recursively by: 
+
+~~Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
+
+~~Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$& 
+Strand where $F_{\A}$ evaluates to $T$ is e.g.\underline{\phantom{$\A\C\G$~\hspace{0.3in}}}
+
+\vspace{10pt}
+
+Strand where $F_{\A}$ evaluates to $F$ is e.g. \underline{\phantom{$\U\A\C\U$\hspace{0.3in}}}\\
+\hline
+& \\
+$P_{\A\U\C}$ is defined as the predicate whose truth set
+is the collection of RNA strands where the string $\A\U\C$
+is a substring (appears inside $s$, in order and consecutively)& 
+Strand where $P_{\A\U\C}$ evaluates to $T$ is e.g.\underline{\phantom{$\A\A\A$~\hspace{0.3in}}}
+
+\vspace{10pt}
+
+Strand where $P_{\A\U\C}$ evaluates to $F$ is e.g. \underline{\phantom{$\A\A\U\A$\hspace{0.3in}}}\\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill
+\newpage
+
+%NOTES:TOPIC
+{\bf Definition} (Rosen p123): The {\bf Cartesian product} of the sets $A$ and $B$, $A \times B$, is the set of all ordered pairs $(a, b)$, where $a \in A$ and $b \in B$. 
+That is: $A \times B = \{(a, b) \mid (a \in A) \land (b \in B)\}.$ The Cartesian product of the sets $A_1, A_2, \ldots ,A_n$, denoted by $A_1 \times A_2 \times \cdots \times A_n$, is the
+set of ordered n-tuples $(a_1, a_2,...,a_n)$, where $a_i$ belongs to $A_i$ for $i = 1, 2,\ldots,n$. That is,
+$A_1 \times A_2 \times \cdots \times A_n = \{(a_1, a_2,\ldots,a_n) \mid a_i \in A_i \textrm{ for } i = 1, 2,\ldots,n\}$
+
+
+
+Recall: Each RNA strand is a string whose symbols are elements of the set $B  = \{\A, \C, \G, \U \}$.
+The {\bf set of all RNA strands} is called $S$.
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+A function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is:
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(b_1, b_2) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(s b_1, b_2) & =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\]
+
+\vfill
+
+\begin{tabular}{p{3.5in}p{0.1in}p{3.5in}}
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( s, n) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+&&
+$BC$ with domain $\underline{\phantom{S \times B \times \mathbb{N}}}$ is defined by, for $s \in S$ and $b \in B$ and $n \in \mathbb{N}$,
+\[
+BC( s, b, n) = \begin{cases}
+T &\qquad\text{if $basecount(s,b) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]\\
+Element where $L$ evaluates to $T$: $\underline{\phantom{(\A, 1)\hspace{0.2in}}}$ & & Element where $BC$ evaluates to $T$: 
+$\underline{\phantom{(\A, \A1)\hspace{0.2in}}}$ \\
+& & \\
+& & \\
+Element where $L$ evaluates to $F$: $\underline{\phantom{(\A, 2)\hspace{0.2in}}}$  & & Element where $BC$ evaluates to $F$: 
+$\underline{\phantom{(\A, \C, 1)\hspace{0.2in}}}$ \\
+& & \\
+& & \\
+\end{tabular}
+
+\vfill
+{\bf Notation}: for a predicate $P$ with domain $X_1 \times \cdots \times X_n$ and a $n$-tuple $(x_1, \ldots, x_n)$ 
+with each $x_i \in X$, we write $P(x_1, \ldots, x_n)$ to mean $P( ~(x_1, \ldots, x_n)~)$.
+\newpage
+
+$\exists t ~BC(t)$ \qquad In English: \underline{\phantom{There exists an ordered $3$-tuple 
+%of strand, base, and nonnegative integer
+at which the predicate $BC$ evaluates to $T$.}}
+
+Witness that proves this existential quantification is true: \underline{\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}}
+
+$\forall (s,b,n) ~(~BC(s,b,n)~)$  \qquad In English: \underline{\phantom{For all ordered $3$-tuples
+%of strand, base, and nonnegative integer
+the predicate $BC$ evaluates to $T$.}}
+
+Counterexample that proves this universal quantification is false: \underline{\phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}}
+
+
+{\bf New predicates from old} \qquad $BC(s,b,n)$ means $basecount(s,b) = n$.
+\begin{center}
+\begin{tabular}{|p{2.5in}p{1.5in}p{2in}|}
+\hline
+{\bf Predicate} & Domain &  Example domain element \\
+& & where predicate is $T$\\
+\hline
+&& \\
+$basecount(s,b) = 3$ & \phantom{$S \times B$}& 
+\phantom{$(\A\U\A\A, \A)$}\\
+\hline
+&& \\
+$basecount(s,\A) = n $&\phantom{$S \times \mathbb{N}$} & 
+\phantom{$(\A\U\A,2)$}\\
+\hline
+&& \\
+$\exists n \in \mathbb{N} ~(basecount(s,b) = n) $&\phantom{$S \times \mathbb{N}$} & 
+\phantom{$(\A\U\A,2)$}\\
+\hline
+&& \\
+$\forall b \in B ~(basecount(s,b) = 1) $&\phantom{$S$} & 
+\phantom{$\A\C\G\U$}\\
+\hline
+\end{tabular}
+\end{center}
+
+
+{\bf Alternating quantifiers}
+$$\forall s \exists n ~BC(s,\A,n)$$
+
+In English: \underline{\phantom{\hspace{3in}}}
+
+\vfill
+
+$$\exists n \forall s ~BC(s,\U,n)$$
+
+In English: \underline{\phantom{\hspace{3in}}}
+
+
+\vfill
+\newpage
+\section*{Review quiz questions}
+\begin{enumerate}
+\item
+Real-life representations are often prone to corruptions.  Biological codes, like RNA, 
+may mutate naturally\footnote{Mutations of specific RNA codons have been linked to many disorders and cancers.}
+and during measurement; cosmic radiation and other ambient noise 
+can flip bits in computer storage\footnote{This RadioLab podcast episode
+goes into more detail on bit flips: \url{https://www.wnycstudios.org/story/bit-flip}}. 
+One way to recover from corrupted data is to exploit redundancy.  
+Consider the following algorithm to introduce redundancy in a string of $0$s and $1$s.
+\begin{algorithm}[caption={Create redundancy by repeating each bit three times}]
+procedure $\textit{redun3}$($a_{k-1} \cdots a_0$: a binary string)
+for $i$ := $0$ to $k-1$
+  $c_{3i}$ := $a_i$
+  $c_{3i+1}$ := $a_i$
+  $c_{3i+2}$ := $a_i$
+return $c_{3k-1} \cdots c_0$
+\end{algorithm}
+
+\begin{algorithm}[caption={Decode sequence of bits using majority rule on consecutive three bit sequences}]
+procedure $\textit{decode3}$($c_{3k-1} \cdots c_0$: a binary string whose length is an integer multiple of $3$)
+for $i$ := $0$ to $k-1$
+  if exactly two or three of $c_{3i}, c_{3i+1}, c_{3i+2}$ are set to $1$
+    $a_i$ := 1
+  else 
+    $a_i$ := 0
+return $a_{k-1} \cdots a_0$
+\end{algorithm}
+
+For each of the following, type in your answers precisely including all notational punctuation.
+
+\begin{enumerate}
+\item  Give the output of $redun3(100)$.
+\item  If the output of running $redun3$ is $000000111000111$, what was its input?
+\item  Give the output of $decode3(100)$.
+\item  How many distinct possible inputs to $decode3$ give the output $01$?
+\end{enumerate}
+
+\newpage
+\item Recall that $S$ is defined as the set of all RNA strands, strings made of the bases in 
+ $B = \{\A,\U,\G,\C\}$. Define the functions \textit{mutation}, \textit{insertion}, and \textit{deletion} as described by the pseudocode below:
+
+\begin{algorithm}
+procedure $\textit{mutation}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+for $i$ := $1$ to $n$
+  if $i$ = $k$
+    $c_i$ := $b$
+  else
+    $c_i$ := $b_i$
+return $c_1\cdots c_n$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{insertion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+if $k > n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+  $c_{n+1}$ := $b$
+else 
+  for $i$ := $1$ to $k-1$
+    $c_i$ := $b_i$
+  $c_k$ := $b$
+  for $i$ := $k+1$ to $n+1$
+    $c_i$ := $b_{i-1}$
+return $c_1\cdots c_{n+1}$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{deletion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$)
+if $k > n$
+  $m$ := $n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+else
+  $m$ := $n-1$
+  for $i$ := $1$ to $k-1$ 
+    $c_i$ := $b_i$
+  for $i$ := $k$ to $n-1$
+    $c_i$ := $b_{i+1}$
+return $c_1\cdots c_m$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+For this question, we will use the following predicates.
+
+$F_{\A}$ with domain $S$ is defined recursively by: 
+\begin{itemize}
+\item[]Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
+\item[]Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$
+\end{itemize}
+
+$P_{\A\U\C}$ with domain $S$ is defined as the predicate whose truth set
+is the collection of RNA strands where the string $\A\U\C$
+is a substring (appears inside $s$, in order and consecutively)
+
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( s, n) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+
+$Mut$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Mut(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ mutation(s_1, k, b) = s_2~)
+\]
+$Ins$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Ins(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ insertion(s_1, k, b) = s_2~)
+\]
+$Del$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Del(s_1,s_2) = \exists k\in \mathbb{Z^+} (~ deletion(s_1, k) = s_2~)
+\]
+
+\begin{enumerate}
+\item Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $F_\A ( \A\A)$
+    \item $F_\A ( \A\C)$
+    \item $F_\A ( \A\G)$
+    \item $F_\A ( \A\U)$
+    \item $F_\A ( \C\A)$
+    \item $F_\A ( \C\C)$
+    \item $F_\A ( \C\G)$
+    \item $F_\A ( \C\U)$
+ \end{enumerate}    
+\item Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $\exists s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))$
+    \item $\exists s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))$
+    \item $\forall n \in \mathbb{Z}^+~\exists s \in S ~(L(s,n))$
+    \item $\forall s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))$
+    \item $\exists n \in \mathbb{Z}^+ ~\forall s \in S ~(L(s,n))$
+    \item $\forall s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))$
+ \end{enumerate} 
+\item Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $\exists s \in S ~Mut(s,s)$
+    \item $\forall s \in S ~Mut(s,s)$
+    \item $\exists s \in S ~Ins(s,\A)$
+    \item $\exists s \in S ~Ins(\A,s)$
+    \item $\exists s \in S ~Del(s,\A)$
+    \item $\forall s \in S ~Del(s,\A)$
+ \end{enumerate} 
+\end{enumerate}
+
+\end{enumerate}
+\newpage
+
+\section*{Induction}
+{\bf Definition} The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by
+$rnalen: S  \to \mathbb{Z}^+$
+
+\vspace{-20pt}
+
+\begin{quote}
+Basis step: If $b \in B$ then $rnalen(b)  = 1$
+
+Recursive step: If $s \in S$ and $b \in B$, then $rnalen(sb)  = 1 + rnalen(s)$
+\end{quote}
+
+\vspace{-20pt}
+
+The function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is defined recursively by $basecount : S \times B \to\mathbb{N}$
+
+\vspace{-20pt}
+
+\begin{quote}
+Basis step: If  $b_1 \in B$, $b_2 \in B$, $basecount(b_1, b_2) =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}$
+
+Recursive Step: If $s \in S$, $b_1 \in B$, $b_2 \in B$, $basecount(s b_1, b_2) =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}$
+\end{quote}
+
+\vspace{-20pt}
+
+Prove or disprove $\exists s \in S \, (\textit{rnalen(s)} = \textit{basecount}(s, \A))$:
+
+\vfill
+
+Prove or disprove $\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(s, \A))$:
+
+{\bf Proof}: 
+
+{\bf Basis case}: Assume $s = \A \lor s = \C \lor s = \U \lor s = \G$. 
+Need to show $\textit{rnalen(s)} \geq \textit{basecount}(s, \A)$.
+
+{\it Case 1}: Want to show $(s = \A) \to (~\textit{rnalen(s)} \geq \textit{basecount}(s, \A)~)$.
+
+\vfill
+
+{\it Case 2}: Want to show $(s = \C \lor S = \U \lor S = \G) \to (~\textit{rnalen(s)} \geq \textit{basecount}(s, \A)~)$.
+
+\vfill
+
+\vfill
+
+{\it Continued next page} 
+
+\fbox{\parbox{\textwidth}{%
+{\bf Proof by universal generalization}: To prove that $\forall x \, P(x)$
+is true, we can take an arbitrary element $e$ from the domain and show that $P(e)$ is true, without making any assumptions about $e$ other than that it comes from the domain.
+
+{\bf New! Proof by Structural Induction} (Rosen 5.3 p354) To prove a universal quantification over a recursively defined set:
+
+\vspace{-10pt}
+
+
+\begin{itemize}
+\item[] {\bf Basis Step}:  Show the statement holds for elements specified in the basis step of the definition.
+\item[]  {\bf Recursive Step}:  Show that if the statement is true for each of the elements used to construct
+new elements in the recursive step of the definition, the result holds for these new elements.
+\end{itemize}
+
+\vspace{-10pt}
+
+}}
+
+
+\newpage
+
+
+{\bf Recursive case}: Want to show
+\[
+\forall e \in S ~\left(~ \textit{rnalen(e)} \geq \textit{basecount}(e, \A) \to 
+ \forall b \in B ~(~\textit{rnalen(eb)} \geq \textit{basecount}(eb, \A)~) ~\right)
+ \]
+
+Consider arbitrary $e$. Assume, as the {\bf induction hypothesis} that 
+\[
+\textit{rnalen(e)} \geq \textit{basecount}(e, \A)
+\]
+
+Need to show 
+\[
+ \forall b \in B ~(~\textit{rnalen(eb)} \geq \textit{basecount}(eb, \A)~) 
+\]
+Consider arbitrary $b \in B$. 
+
+
+{\it Case 1}: Want to show $(b = \A) \to (~\textit{rnalen(eb)} \geq \textit{basecount}(eb, \A)~) $.
+
+\vfill
+
+{\it Case 2}: Want to show $(b = \C \lor b = \U \lor b = \G) \to (~\textit{rnalen(eb)} \geq \textit{basecount}(eb, \A)~) $.
+
+\vfill
+\vfill
+
+
+\newpage
+
+\section*{Review quiz questions}
+\begin{enumerate}
+\item  The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by
+$rnalen: S  \to \mathbb{Z}^+$
+
+
+\begin{quote}
+Basis step: If $b \in B$ then $rnalen(b)  = 1$
+
+Recursive step: If $s \in S$ and $b \in B$, then $rnalen(sb)  = 1 + rnalen(s)$
+\end{quote}
+
+
+The function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is defined recursively by $basecount : S \times B \to\mathbb{N}$
+
+\begin{quote}
+Basis step: If  $b_1 \in B$, $b_2 \in B$, $basecount(b_1, b_2) =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}$
+
+Recursive Step: If $s \in S$, $b_1 \in B$, $b_2 \in B$, $basecount(s b_1, b_2) =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}$
+\end{quote}
+
+\begin{enumerate}
+\item Select all and only options that give a witness for the existential quantification
+$$\exists s \in S ~(~rnalen(s) = basecount(s,\U)~)$$
+\begin{enumerate}
+\item $\A$
+\item $\U\U$
+\item $\C\U$
+\item $(\U, 1)$
+\end{enumerate}
+
+\item Select all and only options that give a counterexample for the universal quantification
+$$\forall s \in S ~(~rnalen(s) > basecount(s,\G)~)$$
+\begin{enumerate}
+\item $\U$
+\item $\G\G$
+\item $\A\G$
+\item $\C\U\G$
+\end{enumerate}
+
+\item Select all and only the true statements
+\begin{enumerate}
+\item $\forall s \in S ~\exists b \in B ~\left(~rnalen(s) = basecount(s,b)~ \right)$
+\item $\exists s \in S ~\forall b \in B ~\left(~rnalen(s) = basecount(s,b)~ \right)$
+\item \begin{align*} \forall s_1 \in S~\forall s_2 \in S ~&\forall b \in B ~\big( ~\big( rnalen(s_1) = basecount(s_1,b) \\
+&\land rnalen(s_2) = basecount(s_2,b) \land rnalen(s_1) = rnalen(s_2) \big) \to s_1 = s_2  \big)\end{align*}
+\end{enumerate}
+
+\end{enumerate}
+\end{enumerate}
+\newpage
+
+\section*{Cardinality}
+
+Let $S_2$ be the set of RNA strands of length 2.
+
+\vspace{-20pt}
+
+\begin{center}
+\begin{tabular}{|c|p{5in}|}
+\hline
+Statement  &  True/False , justification \\
+\hline
+$| \{\A,\U,\G,\C\} | \leq |S_2 |$ &  \\
+&\\&\\&\\
+\hline
+$| \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} | \leq |S_2 |$ &  \\
+&\\&\\&\\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill
+
+Let $S_2$ be the set of RNA strands of length 2.
+
+\vspace{-20pt}
+
+\begin{center}
+\begin{tabular}{|c|p{5in}|}
+\hline
+Statement  &  True/False , justification \\
+\hline
+$ |S_2 | \geq | \{\A,\U,\G,\C\} |$ &  \\
+&\\&\\&\\
+\hline
+$ |S_2 | \geq | \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} |$ &  \\
+&\\&\\&\\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill
+\newpage
+
+\section*{Review quiz questions}
+\begin{enumerate}
+\item Recall the definitions from previous assignments and class: 
+The bases of RNA are elements of the set 
+$B  = \{\A, \C, \G, \U \}$. The set of RNA strands $S$ is defined (recursively) by:
+
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+
+For $b$ an integer greater than $1$ and $n$ a positive integer, 
+the {\bf base $b$ expansion of $n$}  is
+\[
+(a_{k-1} \cdots a_1 a_0)_b
+\]
+where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ are nonnegative integers less than $b$, $a_{k-1} \neq  0$, and
+\[
+n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0
+\]
+
+For $b$ an integer greater than $1$, $w$ a positive integer, and $n$ a nonnegative integer
+with $n < b^w$,
+the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
+\[
+(a_{w-1} \cdots a_1 a_0)_{b,w}
+\]
+where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
+\[
+n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0
+\]
+For $b$ an integer greater than $1$, $w$ a positive integer, $w'$ a positive  integer, and $x$ a real number
+the {\bf base $b$ fixed-width expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
+\[
+(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w'})_{b,w,w'}
+\]
+where  $a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w'}$ are nonnegative integers less than $b$ and
+$$x \geq a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  c_{w'} b^{-w'}$$
+and
+$$x < a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  (c_{w'} +1) b^{-w'}$$
+
+
+For each set below, determine if it is empty, nonempty and finite, countably infinite, or uncountable.
+
+{\it Challenge - not to hand in}: how would you prove this?
+
+\begin{enumerate}
+\item $B$
+\item $S$
+\item $\{ x \in \mathbb{N} ~\mid~ x = (4102)_3 \}$
+\item $\{ x \in \mathbb{R} ~\mid~ \text{$x$ has a binary fixed-width $5$ expansion} \}$
+\item $\{ x \in \mathbb{R} ~\mid~ x = (0.10)_{(2,1,2)} \}$
+\end{enumerate}
+
+
+\end{enumerate}
+
+\section*{(Equivalence) Relations}
+{\it Example}: Recall that $S$ is defined as the set of all RNA strands, strings made of the bases in 
+ $B = \{\A,\U,\G,\C\}$. Define the functions \textit{mutation}, \textit{insertion}, and \textit{deletion} as described by the pseudocode below:
+
+\begin{algorithm}
+procedure $\textit{mutation}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+for $i$ := $1$ to $n$
+  if $i$ = $k$
+    $c_i$ := $b$
+  else
+    $c_i$ := $b_i$
+return $c_1\cdots c_n$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{insertion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+if $k > n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+  $c_{n+1}$ := $b$
+else 
+  for $i$ := $1$ to $k-1$
+    $c_i$ := $b_i$
+  $c_k$ := $b$
+  for $i$ := $k+1$ to $n+1$
+    $c_i$ := $b_{i-1}$
+return $c_1\cdots c_{n+1}$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{deletion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$)
+if $k > n$
+  $m$ := $n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+else
+  $m$ := $n-1$
+  for $i$ := $1$ to $k-1$ 
+    $c_i$ := $b_i$
+  for $i$ := $k$ to $n-1$
+    $c_i$ := $b_{i+1}$
+return $c_1\cdots c_m$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+
+$Mut$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Mut(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ mutation(s_1, k, b) = s_2~)
+\]
+$Ins$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Ins(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ insertion(s_1, k, b) = s_2~)
+\]
+$Del$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Del(s_1,s_2) = \exists k\in \mathbb{Z^+} (~ deletion(s_1, k) = s_2~)
+\]
+
+{\bf Definition}: We say that a RNA strand $s_1$ is ``within one edit'' of a RNA strand $s_2$ to mean
+\[
+Mut(s_1,s_2) \lor Mut(s_2,s_1) \lor Ins(s_1,s_2) \lor Ins(s_2, s_1) \lor Del(s_1, s_2) \lor Del(s_2,s_1)
+\]
+
+\[
+\begin{array}{ll}
+    \begin{array}{lll}
+    & \textit{within1}_{TF} : \underline{\phantom{S \times S}} & \to \underline{\phantom{\{T, F\}}} \\
+    \\
+    & \textit{within1}_{TF}(s_1, s_2) & = \underline{\phantom{\textrm{``CHECK if within 1 edit''}}} \\
+    \end{array}
+&
+
+
+    \begin{array}{lll}
+    & \textit{within1}_{\mathcal{P}} : \underline{\phantom{S \hspace{1em}}} & \to \underline{\phantom{\mathcal{P}(S)}} \\
+    \\
+    & \textit{within1}_{\mathcal{P}}(s_1) & = \underline{\phantom{\textrm{``COMPUTE all within 1 edit''}}} \\
+    \end{array}
+\end{array}
+\]
+\[
+W_1 = \{ \underline{\phantom{(s_1, s_2) \in S \times S ~\mid~ s_1, s_2 \textrm{ are within 1 edit}}}\}
+\]
+
+\vfill
+
+\end{document}

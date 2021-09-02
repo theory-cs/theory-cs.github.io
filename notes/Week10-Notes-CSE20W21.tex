@@ -1,0 +1,510 @@
+\documentclass[12pt, oneside]{article}
+
+\input{../resources/discrete-math-packages}
+\usepackage{enumitem}
+
+\begin{document}
+\begin{flushright}
+\StrBefore{\currfilename}{.}
+\end{flushright}
+
+\section*{This week's highlights}
+\begin{itemize}
+\item Define clustering as an application of relations and partitions
+\item Practice working with definitions using numerical and logical expressions
+\item Review and practice with key concepts and examples from the quarter
+\end{itemize}
+
+\section*{Lecture videos}
+Week 10 Day 1
+\href{https://youtube.com/playlist?list=PLML4QilACLk4q-3mP0sXZlUREJcqwNP5r}{YouTube playlist}
+
+Week 10 Day 2
+\href{https://youtube.com/playlist?list=PLML4QilACLk5f3EHde4cBpcA4p22v6297}{YouTube playlist}
+
+\newpage
+\section*{Monday March 8}
+
+
+{\bf Scenario}: Good morning! You're a user experience engineer at Netflix. A
+product goal is to design customized home pages for groups of users who have
+similar interests. You task your team with designing an algorithm for
+producing a clustering of users based on their movie interests. Your team
+implements two algorithms that produce different clusterings. How do you
+decide which one to use? What feedback do you give the team in order to help
+them improve? Clearly, you will need to use math.
+
+{\bf Definition}: The set of movie ratings over $n$ movies is $R_n$, where each element of $R_n$ is a $n$-tuple with each entry in the tuple one of $\{-1, 0, 1\}$.
+
+{\bf Definition}: A {\bf partition} of a set $A$ is a set of non-empty, disjoint subsets $A_1, A_2, \cdots, A_n$ such that $A_1 \cup A_2 \cup \cdots \cup A_n = A$.
+
+\vfill
+
+{\bf Idea}: A {\bf clustering} is a partition of the elements in a set with the goal of grouping ``similar'' elements. The definition of ``similar'' can change based on the problem domain.
+
+
+
+
+
+{\bf Conventions for today}: We will use $U = \{r_1, r_2, \cdots, r_t\}$ to refer to an arbitrary set of user ratings (we'll pick some specific examples to explore) that are a subset of $R_5$. We will be interested in creating partitions $C_1, \cdots, C_m$ of $U$. We'll assume that each user represented by an element of $U$ has a unique ratings tuple.
+
+{\bf Idea}: One way to measure similarity is with functions that measure {\bf distance} between elements.
+
+{\bf Definition}: The distance between two ratings is defined by $d$:
+
+$$d(~ (x_1, \ldots, x_n) , (y_1, \ldots, y_n) ~) =  \displaystyle \sum_{1 \leq i \leq n} | x_i - y_i |$$
+
+Consider $x = (1, 0, 1, 0, 1)$, $y = (1, 1, 1, 0, 1)$, $z = (-1, -1, 0, 0, 0)$, $w = (0, 0, 0, 1, 0)$.
+
+What is $d(x, y)$? $d(x, z)$? $d(z, w)$?
+
+\vfill
+
+\newpage
+
+{\bf Definition}: For a cluster of ratings $C = \{r_1, r_2, \cdots, r_n \} \subseteq U$, the {\bf diameter} of the cluster is defined by:
+
+$$\textit{diameter}(C) = \max_{1 \leq i, j \leq n} (d(r_i, r_j))$$ 
+
+Consider $x = (1, 0, 1, 0, 1)$, $y = (1, 1, 1, 0, 1)$, $z = (-1, -1, 0, 0, 0)$, $w = (0, 0, 0, 1, 0)$.
+
+What is $\textit{diameter}(\{x, y, z\})$? $\textit{diameter}(\{x, y\})$? $\textit{diameter}(\{x, z, w\})$?
+
+
+\vfill
+
+\textit{diameter} works on single clusters. One way to aggregate across a
+clustering $C_1, \cdots, C_m$ is \underline{\hspace{15em}}
+
+Can we easily minimize the sum of diameters?
+
+\vfill
+
+How can we express the idea of {\bf many elements within a small area}? Key idea: ``give credit'' to small diameter clusters with many elements.
+
+\vfill
+
+What is the most useful advice to give the team? Put another way, what is {\bf one number} they can focus on improving, where you (the team leader) understand how that number is calculated.
+
+\vfill
+
+
+\newpage
+\section*{Wednesday March 10}
+
+{\bf Scenario}: Good morning! You're a user experience engineer at Netflix. A
+product goal is to design customized home pages for groups of users who have
+similar interests. Your manager tasks you with designing an algorithm for
+producing a clustering of users based on their movie interests, with the following constraints:
+
+
+
+{\bf Definition}: The set of movie ratings over $n$ movies is $R_n$, where each element of $R_n$ is a $n$-tuple with each entry in the tuple one of $\{-1, 0, 1\}$. The distance between two ratings is defined by $d$:
+$$d(~ (x_1, \ldots, x_n) , (y_1, \ldots, y_n) ~) =  \displaystyle \sum_{1 \leq i \leq n} | x_i - y_i |$$
+$U = \{r_1, r_2, \cdots, r_t\}$ is a set of user ratings, and $U \subseteq R_5$. 
+Assume that each user represented by an element of $U$ has a unique ratings tuple.
+A  candidate clustering is  $C_1, \cdots, C_m$ that is a {\bf partition} of $U$:  set of non-empty, disjoint subsets 
+of $U$ whose union equals $U$. We compare candidate clusterings
+by computing  a  metric, e.g.\ min cluster density or  average cluster density, where density relates number
+of ratings  in a  cluster with  the maximum distance between pairs of elements in the cluster.
+
+
+
+{\bf Definition}: A binary relation $E$ on $U$ is an {\bf equivalence relation} means it is reflexive, symmetric, and transitive.
+\[
+\forall x \in  U  (  \underline{\phantom{ (x,x) \in E}} ) ~~,~~
+\forall x \in U~ \forall y \in U~ ( \underline{\phantom{  (x,y) \in E  \to  (y,x) \in E}} )  ~~,\text{and}~~
+\forall x \in U~ \forall y \in U~\forall  z \in  U~ ( \underline{\phantom{  (  (x,y) \in E \land (y,z) \in E)  \to  (x,z) \in E}} ) 
+\]
+An {\bf equivalence class} of an element $x \in U$ for an equivalence relation $E$ on the set $U$ is the set 
+\[ 
+[x]_{E} =  \{s \in U | (x, s) \in E\}
+\]
+The  set of  equivalence classes of $E$ is $\{ [x]_{E} \mid x \in U  \}$.
+
+
+
+{\bf Theorem}: Given an equivalence relation $E$ on set $U$,  $\{ [x]_{E} \mid x \in U  \}$ is a partition of $U$.
+
+\vspace{-15pt}
+
+{\bf Proof}
+
+\vspace{-15pt}
+
+\begin{itemize}
+\item To show: For each  $a \in U$, $[a]_{E}  \neq  \emptyset$, and  for each  $a \in U$, there is some $b \in U$  such that $a \in [b]_{E}$.
+
+\vfill
+
+
+\item To show: For each  $a,b  \in U$ , $(~(a,b)  \in  E ~)\to (~ [a]_{E}  = [b]_{E}~)$
+
+\vfill
+
+\item To show: For each  $a,b  \in U$ , $(~(a,b)  \notin  E ~)\to (~ [a]_{E} \cap[b]_{E} = \emptyset~)$
+
+\vfill
+
+\end{itemize}
+
+
+
+
+
+
+\newpage
+
+\begin{align*}
+E_{proj} &=  \{ ( ~(x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5)~) \in U \times U ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land (x_3 = y_3) \}  \\
+E_{dist} &=  \{ (u,v) \in U \times U ~\mid~ d( u,v ) \leq 2 \}  \\
+E_{circ} &=  \{ (u,v) \in U \times U ~\mid~ d( (0,0,0,0,0), u ) =  d( (0,0,0,0,0),v) \}  \\
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & $E_{proj}$ &  $E_{dist}$ & $E_{circ}$ \\
+\hline & &  &  \\
+Example $(u,v) \in E_{\_\_}$ & \phantom{Put example here} &  \phantom{Put example here}  &  \phantom{Put example here}  \\
+& &  &  \\
+\hline
+& &  &  \\
+Example $(u,v) \notin E_{\_\_}$ & \phantom{Put example here} &  \phantom{Put example here}  &  \phantom{Put example here}  \\
+& &  &  \\
+\hline
+\end{tabular}
+\end{center}
+
+
+{\bf Claim}: \underline{\phantom{$E_{dist}$ }} is not an  equivalence relation.
+
+\vspace{-10pt}
+
+{\bf Proof}:  
+
+\vfill
+
+The partition of  $U$ defined by \underline{\phantom{$E_{proj}$ }} is:
+
+\vfill
+
+The partition of  $U$ defined by \underline{\phantom{$E_{circ}$ }} is:
+
+\vfill
+
+
+What are some properties of the densities of the clusters made by these equivalence relations?
+
+\newpage
+\section*{Tips for future classes}
+
+\subsection*{From the CSE 20 TAs and tutors}
+\begin{itemize}
+\item In class
+\begin{itemize}
+\item Go to class
+\item Show up to class early because sometimes seats get taken/ the classroom gets full and then you have to sit on the floor
+\item There's usually a space for skateboards/longboards/eboards to go at the front or rear of the lecture hall 
+\item If you have a flask water bottle please ensure that its secured during a lecture and it cannot fall - putting on the floor often leads to it falling since people sometimes cross your seats.
+\item Take notes - it's much faster and more effective to note-take in class than watch recordings after, particularly if you do so longhand
+\item Resist the urge to sit in the back. You will be able to focus much better sitting near the front, where there are fewer screens in front of you to distract from the lecture content
+\item If you bring your laptop to class to take notes / access class materials, sit towards the back of the room to minimize distractions for people sitting behind you!
+\item On zoom it's easy to just type a question out in chat, it might be a little more awkward to do so in person, but it is definitely worth it. Don't feel like you should already know what's being covered
+\item Always check you have your iclicker\footnote{iclickers are used in many classes to encourage active participation in class. They're remotes that allow you to respond to multiple choice questions and the instructor can show a histogram of responses in real time.} on you. Just keep it in your backpack permanently. That way you can never forget it. 
+\item Don't be afraid to talk to the people next to you during group discussions. Odds are they're as nervous as you are, and you can all benefit from sharing your thoughts and understanding of the material 
+\item Certain classes will podcast the lectures, just like Zoom archives lecture recordings, at podcast.ucsd.edu
+\item If they aren't podcasted, and you want to record lectures, ask your professor for consent first
+\end{itemize}
+\item Office hours, tutor hours, and the CSE building
+\begin{itemize}
+\item Office hours are a good place to hang out and get work done while being able to ask questions as they come up 
+\item Office hour attendance is typically much busier in person (and confined to the space in the room)
+\item Get to know the CSE building: CSE B260, basement labs, office hours rooms
+\item Know how to get in to the building after-hours
+\end{itemize}
+\item Libraries and on-campus resources
+\begin{itemize}
+\item Look up what library floors are for what, how to book rooms: East wing of Geisel is open 24/7 (they might ask to see an ID if you stay late), East Wing of Geisel has chess boards and jigsaw puzzles, study pods on the 8th floor, 
+free computers/wifi
+\item Know Biomed exists and is usually less crowded
+\item Most libraries allow you to borrow whiteboards and markers (also laptops, tablets, microphones, and other cool stuff) for 24 hours
+\item Take advantage of Dine with a prof / Coffee with a prof program. It's legit free food / coffee once per quarter. 
+\item When planning out your daily schedule, think about where classes are, how much time will they take, are their places to eat nearby and how you can schedule social time with friends to nearby areas 
+\item Take into account the distances between classes if they are back to back
+\end{itemize} 
+\item Final exams
+\begin{itemize}
+\item What are 8am finals? Basically in-person exams are different
+\item Don't forget your university card during exams
+\item Blue books for exams (what they are, where to get them) 
+\item Seating assignments for exams and go early to make sure you're in the right place (check the exits to make sure you're reading it the right way) 
+\item Know where your exam is being held (find it on a map at least a day beforehand). Finals are often in strange places that take a while to find 
+\end{itemize}
+\end{itemize}
+
+
+
+\subsection*{CSE department course numbering system}
+
+\vspace{-15pt}
+
+{\bf Lower division}
+
+\vspace{-15pt}
+
+\begin{itemize}
+\setlength\itemsep{-2pt}
+\item CSE 12, Basic Data Structures and Object-Oriented Programming 
+\item CSE 15L (2 units), Software Tools and Technique Laboratory 
+\item CSE 20 or Math 15A, Introduction to Discrete Mathematics
+\item CSE 21 Mathematics for Algorithms and Systems
+\item CSE 30, Computer Organization \& Systems Programming
+\end{itemize}
+
+\vspace{-15pt}
+
+{\bf Upper division}
+
+\vspace{-15pt}
+
+\begin{itemize}
+\setlength\itemsep{-2pt}
+\item Advanced Data Structures and Programming: CSE 100
+\item Theory and Algorithms: CSE 101, CSE 105
+\item Software Engineering: CSE 110, CSE 112
+\item Systems/Networks: CSE 120 or CSE 123 or CSE 124
+\item Programming Languages /Databases: CSE 130 or CSE 132A
+\item Security/Cryptography: CSE 107 or CSE 127
+\item AI / Machine Learning/ Vision/ Graphics:
+CSE 150A or CSE 151A or CSE 151B or CSE 152A or CSE 158 or CSE 167
+\item Hardware / Architecture: CSE 140/ CSE 140L Components and Design Techniques for Digital Systems Architecture, CSE 141 / CSE 141L Introduction to Computer Architecture and CSE 141L Project in Computer Architecture (2 units), CSE 142 / CSE 142L Comp Arch Software Perspective
+\end{itemize}
+
+ 
+
+
+
+
+
+\newpage
+\section*{Friday March 12}
+
+Convert $(2A)_{16}$ to 
+\begin{itemize}
+\item binary (base \underline{\phantom{~~~2~~}})
+
+\vspace{25pt}
+
+\item decimal (base \underline{\phantom{~~10~~}})
+
+\vspace{25pt}
+
+\item octal (base \underline{\phantom{~~~8~~}})
+
+\vspace{25pt}
+
+\item ternary (base \underline{\phantom{~~~3~~}})
+
+\vspace{25pt}
+
+\end{itemize}
+
+
+{\bf Claim}: every integer greater than $1$ is a product of primes
+
+{\bf Proof}: 
+\vfill
+
+\newpage
+Let $W = \mathcal{P}( \{ 1,2,3,4,5\})$. Consider the statement 
+\[
+\forall A \in W~ \forall B \in W ~ \forall C \in W~ ((A \cap B = A \cap C) \to (B=C) )
+\]
+Negate the statement and decide whether it or its negation is true.
+
+\newpage
+ The bases of RNA strands are elements of the set $B = \{\A, \C, \G, \U \}$. 
+Each of the sets below is described using set builder notation. Rewrite them using the roster method. 
+\begin{itemize}
+\item $\{s \in S ~|~ s \text{ has length $2$} \}$ 
+
+\vfill
+
+\item $\{s \in S ~|~ \text{the leftmost base in $s$ is the same as the rightmost base in $s$ and 
+$s$ has length $3$} \}$ 
+
+\vfill
+
+\item $\{s \in S ~|~ \text{there are twice as many $\A$s as $\C$s in $s$ and $s$ has length $1$} \}$ 
+
+\vfill
+
+\end{itemize}
+
+Certain 
+ sequences of bases serve important biological functions in translating RNA to proteins. The following
+ recursive definition gives a special set of RNA strands: The set of RNA strands $\hat{S}$ is defined (recursively)
+ by 
+ 
+ \begin{alignat*}{2}
+\text{Basis step:} & & \A\U\G \in \hat{S}\\
+\text{Basis step:} & \qquad& \text{If } s \in \hat{S} \text{ and } x \in R \text{, then } sx\in \hat{S}\\
+ \end{alignat*}
+ where $R = \{ \U\U\U, \C\U\C, \A\U\C, \A\U\G, \G\U\U, \C\C\U, \G\C\U, \U\G\G, \G\G\A \}$.
+
+Each of the sets below is described using set builder notation. Rewrite them using the roster method. 
+\begin{itemize}
+\item $\{s \in \hat{S} ~|~ s \text{ has length less than or equal to $5$} \}$ 
+
+\vfill
+
+
+\item $\{s \in S ~|~ \text{there are twice as many $\C$s as $\A$s in $s$ and $s$ has length $6$} \}$ 
+
+\vfill
+
+\end{itemize}
+\newpage
+The set of linked lists of natural numbers $L$ is defined by 
+ \begin{alignat*}{2}
+\text{Basis step:} & &[] \in L \\
+\text{Basis step:} & \qquad& \text{If } l \in L \text{ and } n \in \mathbb{N} \text{, then } (n,l) \in L\\
+ \end{alignat*}
+ The function $length: L \to \mathbb{N}$ that computes the length of a list is
+  \begin{alignat*}{2}
+\text{Basis step:} & &length([]) = 0\\
+\text{Basis step:} & \qquad& \text{If $l \in L$ and $n \in \mathbb{N}$, then } length( ( n,l) ) = 1 + length(l)\\
+ \end{alignat*}
+
+Prove or disprove: the function $length$ is onto.
+
+\vfill
+
+Prove or disprove: the function $length$ is one-to-one.
+
+\vfill
+
+\newpage
+Suppose $A$ and $B$ are sets and $A \subseteq B$:
+
+{\bf True or False}?  If $A$ is infinite then $B$ is finite.
+
+\vfill
+
+{\bf True or False}?  If $A$ is countable then $B$ is countable.
+
+\vfill
+
+{\bf True or False}?  If $B$ is infinite then $A$ is finite.
+
+\vfill
+
+{\bf True or False}?  If $B$ is uncountable then $A$ is coutable.
+
+\vfill
+
+
+
+\newpage
+\section*{Review quiz questions}
+\begin{enumerate}
+
+\item {\bf Monday} Please complete the CAPE and TA evaluations.  Once 
+you have done so complete the custom feedback form for this quarter: \url{https://forms.gle/Gfwy8ABEXsLEvLbQ7}
+
+Then, (we're using the honor system here), write out the statement
+``I have completed the end  of quarter evaluations"  and you'll receive credit for  this  question.
+
+\item {\bf Monday} Select all and only the partitions of $\{1,2,3,4,5\}$ from the sets below.
+\begin{enumerate}
+\item $\{1,2,3,4,5\}$
+\item $\{\{1,2,3,4,5\}\}$
+\item $\{\{1\},\{2\},\{3\},\{4\},\{5\}\}$
+\item $\{ \{1\}, \{2,3\}, \{4\} \}$
+\item $\{ \{\emptyset, 1, 2\}, \{3,4,5\}\}$
+\end{enumerate}
+
+\item {\bf Monday} Consider movie ratings of $4$ movies, 
+where each rating is a $4$-tuple with each component in $\{-1,0,1\}$. The Manhattan distance between
+ratings $(x_1, x_2, x_3, x_4)$ and $(y_1, y_2, y_3, y_4)$ is 
+\[
+d(~(x_1, x_2, x_3, x_4), (y_1, y_2, y_3, y_4)~) = \sum_{1 \leq i \leq 4} |x_i - y_i|
+\]
+The diameter of a collection of ratings $C = \{r_1, \ldots, r_n\}$ is defined by 
+\[
+diameter(C) = \max_{1 \leq i, j \leq n} ( d(r_i, r_j))
+\]
+\begin{enumerate}
+\item Calculate $diameter( \{ (-1,-1,-1,-1), (0,0,0,0), (1,1,1,1) \} )$
+\item Calculate $diameter( \{ (-1,0,0,1), (0,1,0,-1), (1,0,0,-1) \} )$
+\item What's the greatest diameter of a collection that has exactly two ratings $4$-tuples?
+\item What's the least diameter of a collection that has exactly two ratings $4$-tuples?
+\end{enumerate}
+
+\item {\bf Wednesday} Select all and only the correct statements about an equivalence relation $E$ on 
+a set $U$:
+\begin{enumerate}
+\item $E \in U \times U$
+\item $E = U \times U$
+\item $E \subseteq U \times U$
+\item $\forall x \in U ~([x]_E \in U)$
+\item $\forall x \in U ~([x]_E \subseteq U)$
+\item $\forall x \in U ~([x]_E \in \mathcal{P}(U))$
+\item $\forall x \in U ~([x]_E \subseteq \mathcal{P}(U))$
+\end{enumerate}
+
+\newpage
+\item {\bf Wednesday} Fill in the blanks in the following proof that, for any equivalence relation $R$ on a set $A$,
+\[
+\forall a \in A ~([a]_R \neq \emptyset) ~\land ~\forall a \in A ~\exists b \in A~\left( a \in [b]_R \right)
+\]
+
+{\bf Proof}: Since this statement is a  \textbf{(a)}$\underline{\phantom{\hspace{1.3in}}}$
+we need to prove two goals.
+
+{\bf Goal 1}: we need to show $\forall a \in A ~([a]_R \neq \emptyset) $
+{\it Proof of Goal 1}: Towards a \textbf{(b)}$\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $A$. 
+We will work to show that $[a]_R \neq \emptyset$, namely that $\exists x \in [a]_R$.
+By definition of equivalence classes, we can rewrite this goal as 
+$\exists x \in A ~( ~(a,x) \in R~)$. 
+ Towards a \textbf{(c)}$\underline{\phantom{\hspace{1.3in}}}$, consider $x = a$, 
+ an element of $A$ by definition. By \textbf{(d)}$\underline{\phantom{\hspace{1.3in}}}$  of $R$, we know that $(a,a) \in R$  and thus the existential quantification has been proved.
+ 
+{\bf Goal 2}: we need to show $\forall a \in A ~\exists b \in A~\left( a \in [b]_R \right)$
+{\it Proof of Goal 2}: Towards a \textbf{(e)}$\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $A$. By definition of equivalence classes, we can rewrite the goal as 
+$\exists b \in A ~( ~(b,a) \in R~)$. 
+ Towards a \textbf{(f)}$\underline{\phantom{\hspace{1.3in}}}$, consider $b = a$, 
+ an element of $A$ by definition. By \textbf{(g)}$\underline{\phantom{\hspace{1.3in}}}$  of $R$, we know that $(a,a) \in R$  and thus the existential quantification has been proved. 
+ 
+ Since both goals have been proved, the statement has been proved. $\square$
+ 
+ 
+Consider the following expressions as options to fill in the two proofs above. Give your answer as one of the numbers below for each blank a-c. You may use some numbers for more than one blank, but each letter only uses one of the expressions below.
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\roman*]
+\item universal quantification
+\item existential quantification
+\item conditional
+\item conjunction
+\item disjunction
+\item exclusive or
+\item biconditional
+\item exhaustive proof
+\item proof by universal generalization
+\item proof of existential using a witness
+\item proof by cases
+\item direct proof
+\item proof by contrapositive
+\item proof by contradiction
+\item reflexivity
+\item symmetry
+\item transitivity
+\end{enumerate}
+\end{multicols}
+
+\end{enumerate}
+\end{document}

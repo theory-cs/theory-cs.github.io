@@ -1,0 +1,107 @@
+Recall that $S$ is defined as the set of all RNA strands, strings made of the bases in 
+ $B = \{\A,\U,\G,\C\}$. Define the functions \textit{mutation}, \textit{insertion}, and \textit{deletion} as described by the pseudocode below:
+
+\begin{algorithm}
+procedure $\textit{mutation}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+for $i$ := $1$ to $n$
+  if $i$ = $k$
+    $c_i$ := $b$
+  else
+    $c_i$ := $b_i$
+return $c_1\cdots c_n$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{insertion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+if $k > n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+  $c_{n+1}$ := $b$
+else 
+  for $i$ := $1$ to $k-1$
+    $c_i$ := $b_i$
+  $c_k$ := $b$
+  for $i$ := $k+1$ to $n+1$
+    $c_i$ := $b_{i-1}$
+return $c_1\cdots c_{n+1}$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{deletion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$)
+if $k > n$
+  $m$ := $n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+else
+  $m$ := $n-1$
+  for $i$ := $1$ to $k-1$ 
+    $c_i$ := $b_i$
+  for $i$ := $k$ to $n-1$
+    $c_i$ := $b_{i+1}$
+return $c_1\cdots c_m$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+For this question, we will use the following predicates.
+
+$F_{\A}$ with domain $S$ is defined recursively by: 
+\begin{itemize}
+\item[]Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
+\item[]Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$
+\end{itemize}
+
+$P_{\A\U\C}$ with domain $S$ is defined as the predicate whose truth set
+is the collection of RNA strands where the string $\A\U\C$
+is a substring (appears inside $s$, in order and consecutively)
+
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( s, n) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+
+$Mut$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Mut(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ mutation(s_1, k, b) = s_2~)
+\]
+$Ins$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Ins(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ insertion(s_1, k, b) = s_2~)
+\]
+$Del$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
+\[
+Del(s_1,s_2) = \exists k\in \mathbb{Z^+} (~ deletion(s_1, k) = s_2~)
+\]
+
+\begin{enumerate}
+\item Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $F_\A ( \A\A)$
+    \item $F_\A ( \A\C)$
+    \item $F_\A ( \A\G)$
+    \item $F_\A ( \A\U)$
+    \item $F_\A ( \C\A)$
+    \item $F_\A ( \C\C)$
+    \item $F_\A ( \C\G)$
+    \item $F_\A ( \C\U)$
+ \end{enumerate}    
+\item Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $\exists s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))$
+    \item $\exists s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))$
+    \item $\forall n \in \mathbb{Z}^+~\exists s \in S ~(L(s,n))$
+    \item $\forall s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))$
+    \item $\exists n \in \mathbb{Z}^+ ~\forall s \in S ~(L(s,n))$
+    \item $\forall s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))$
+ \end{enumerate} 
+\item Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $\exists s \in S ~Mut(s,s)$
+    \item $\forall s \in S ~Mut(s,s)$
+    \item $\exists s \in S ~Ins(s,\A)$
+    \item $\exists s \in S ~Ins(\A,s)$
+    \item $\exists s \in S ~Del(s,\A)$
+    \item $\forall s \in S ~Del(s,\A)$
+ \end{enumerate} 
+\end{enumerate}

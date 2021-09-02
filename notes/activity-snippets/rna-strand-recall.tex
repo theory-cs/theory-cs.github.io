@@ -1,0 +1,10 @@
+Recall: Each RNA strand is a string whose symbols are elements of the set $B  = \{\A, \C, \G, \U \}$.
+The {\bf set of all RNA strands} is called $S$.
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
