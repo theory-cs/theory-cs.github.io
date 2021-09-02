@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- import font -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">	
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Discrete Mathematics for Computer Science">
+	<meta name="author" content="Mia Minnes">
+
+	<title>CSE 20</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!---Collapsible Menu-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/sidebarStyle.css">
+
+    <!-- icons for side menu -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+		
+		<!-- Page Content -->
+		<div class="content">
+
+      <!-- Navigation -->
+		<div class="sidebar">
+			<div class="logo-details">
+			  <!--<i class='bx bxl-c-plus-plus icon'></i>-->
+				<div class="logo_name">CSE 20</div>
+				<i class='bx bx-menu' id="btn" ></i>
+			</div>
+			<ul class="nav-list">
+			  <li>
+				<a href="index.html" aria-label="Go to Homepage">
+				  <i class='bx bx-home-smile'></i>
+				  <span class="links_name">Home</span>
+				</a>
+				 <span class="tooltip">Home</span>
+			  </li>
+			  
+			 <li>
+			   <a href="induction.html" aria-label="Go to Induction">
+				<i><p class="icons">&nbsp;&nbsp;IN</p></i>
+				 <span class="links_name">Induction</span>
+			   </a>
+			   <span class="tooltip">Induction</span>
+			 </li>
+			 <li>
+			   <a href="unit2.html" aria-label="Go to Algorithms">
+				<i><p class="icons">&nbsp;&nbsp;AL</p></i>
+				<span class="links_name">Algorithms</span>
+			  </a>
+			  <span class="tooltip">Algorithms</span>
+			 </li>
+			 <li>
+			   <a href="unit3.html" aria-label="Go to Proofs">
+				<i><p class="icons">&nbsp;&nbsp;PR</p></i>
+				<span class="links_name">Proofs</span>
+			  </a>
+			  <span class="tooltip">Proofs</span>
+			 </li>
+			 <li>
+			   <a href="unit4.html" aria-label="Go to Codes and Information">
+				<i><p class="icons">&nbsp;&nbsp;CO</p></i>
+				<span class="links_name">Codes and Information</span>
+			  </a>
+			  <span class="tooltip">Codes and Information</span>
+			 </li>
+			 <li>
+				<a href="unit5.html" aria-label="Go to Circuits">
+				<i><p class="icons">&nbsp;&nbsp;CR</p></i>
+				<span class="links_name">Circuits</span>
+			  </a>
+			  <span class="tooltip">Circuits</span>
+			 </li>
+			 <li>
+				<a href="unit6.html" aria-label="Go to Sets">
+					<i><p class="icons">&nbsp;&nbsp;ST</p></i>
+					<span class="links_name">Sets</span>
+				  </a>
+				  <span class="tooltip">Sets</span>
+			</li>
+			<li>
+				<a href="unit7.html" aria-label="Go to Modular Arithmetic">
+					<i><p class="icons">&nbsp;&nbsp;MA</p></i>
+					<span class="links_name">Modular Arithmetic</span>
+				  </a>
+				  <span class="tooltip">Modular Arithmetic</span>
+			</li>
+			<li>
+				<a href="unit8.html" aria-label="Go to Boolean Operations">
+					<i><p class="icons">&nbsp;BOP</p></i>
+					<span class="links_name">Boolean Operation</span>
+				  </a>
+				  <span class="tooltip">Boolean Operation</span>
+			</li>
+			<li>
+				<a href="unit9.html" aria-label="Go to Topic 9">
+					<i><p class="icons">&nbsp;&nbsp;T9</p></i>
+					<span class="links_name">Topic 9</span>
+				  </a>
+				  <span class="tooltip">Topic 9</span>
+			</li>
+			<li>
+				<a href="unit10.html" aria-label="Go to Topic 9">
+					<i><p class="icons">&nbsp;T10</p></i>
+					<span class="links_name">Topic 10</span>
+				  </a>
+				  <span class="tooltip">Topic 10</span>
+			</li>
+			 
+			</ul>
+		  </div>
+		
+		  <script>
+		  let sidebar = document.querySelector(".sidebar");
+		  let closeBtn = document.querySelector("#btn");
+		
+		  closeBtn.addEventListener("click", ()=>{
+			sidebar.classList.toggle("open");
+			menuBtnChange();//calling the function(optional)
+		  });
+		
+		  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			sidebar.classList.toggle("open");
+			menuBtnChange(); //calling the function(optional)
+		  });
+		
+		  // following are the code to change sidebar button(optional)
+		  function menuBtnChange() {
+		   if(sidebar.classList.contains("open")){
+			 closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+		   }else {
+			 closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+		   }
+		  }
+		  </script>
+			
+			
+			<!-- Overview -->
+			<div class="row">
+				<div class="col-lg-12 text-left">
+					<h1>Induction</h1>
+                    <h2>Learning Goals</h2>
+					<p>
+                        <ul>
+                            <li>Use mathematical induction to prove statements about mathematical identities and inequalities.</li>
+                            <li>Apply structural induction to prove statements about recursively defined objects, e.g. strings and trees.</li>
+                        </ul>
+					</p>
+                    <br>
+						
+				</div>
+			</div>
+
+      <!--Collapsible Menu with Subtopics-->
+			
+      <div class="container">
+		  <h2>Subtopics</h2>
+          	<div id="accordion">
+            	<div class="card">
+              <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                  Strong Induction
+                </a>
+              </div>
+
+              <div id="collapseOne" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <!---Strong Induction Card Body-->
+                  
+                  <!--buttons list-->
+                  <p>
+                    <a class="button PDF" aria-label="Download PDF" href="../output/StrongInduction.pdf" download>PDF</a>
+				            <a class="button TeX" aria-label="Download .Tex" href="../notes/StrongInduction.tex" download>TeX</a>
+				            <a class="button Overleaf" aria-label="Open in Overleaf" href="https://www.overleaf.com/read/cdnbwtqkjmtd" >Overleaf</a>
+                    <br>
+                  </p>
+
+                  <p>
+					<div>
+						<iframe id="notes" src="web/viewer.html?file=../../output/StrongInduction.pdf" title="webviewer" frameborder="0" width="100%" height="600"></iframe>
+					</div>
+
+                  </p>
+
+                  <p>Week(s) Included: <a href="unit1.html">Week 7</a></p>
+                    
+                </div>
+              </div>
+        	</div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                  Mathematical Induction
+                </a>
+              </div>
+              
+              <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  
+                  <!---Mathematical Induction Card Body-->
+                        
+                  <!--buttons list-->
+                  <p>
+                    <a class="button PDF" href="../output/MathematicalInduction.pdf" download>PDF</a>
+				            <a class="button TeX" href="../notes/MathematicalInduction.tex" download>TeX</a>
+				            <a class="button Overleaf" href="https://www.overleaf.com/read/cdnbwtqkjmtd" >Overleaf</a>
+                    <br>
+                  </p>
+
+                  <p>
+						<div>
+							<iframe id="notes" src="web/viewer.html?file=../../output/MathematicalInduction.pdf" title="webviewer" frameborder="0" width="100%" height="600"></iframe>
+						</div>
+                  </p>
+
+                  <p>
+                    Week(s) Included: <a href="unit1.html">Week 6, </a>
+                    <a href="unit1.html">Week 7</a>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                  Structural Induction
+                </a>
+              </div>
+
+              <div id="collapseThree" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  
+                  <!---Structural Induction Card Body-->
+                  <!--buttons list-->
+                  <p>
+                    <a class="button PDF" href="../output/StructuralInduction.pdf" download>PDF</a>
+                    <a class="button TeX" href="../notes/StructuralInduction.tex" download>TeX</a>
+                    <a class="button Overleaf" href="https://www.overleaf.com/read/cdnbwtqkjmtd" >Overleaf</a>
+                    <br>
+                  </p>
+
+                  <p>
+						<div>
+							<iframe id="notes" src="web/viewer.html?file=../../output/StructuralInduction.pdf" title="webviewer" frameborder="0" width="100%" height="600"></iframe>
+						</div>
+                  </p>
+
+                  <p>Week(s) Included: <a href="unit1.html">Week 6</a></p>
+
+                </div>
+              </div>
+            </div>
+          
+		</div>
+        </div>
+    </div>
+
+
+		<!-- jQuery Version 1.11.1 -->
+		<script src="js/jquery.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+	
+
+</body>
+
+</html>
