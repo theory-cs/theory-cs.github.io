@@ -54,6 +54,7 @@ for key in lowLevelsDict:
 
         for tex in lowLevelsDict[key]:
             # TO DO: CHANGE testDir TO activity-snippets
+            result += "\section*{"+tex.replace("-"," ").replace(".tex","").capitalize()+"}\n"
             result += "\input{../testDir/" + tex + "}"
             result += "\n"
             result += "\\vfill"
