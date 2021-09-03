@@ -23,8 +23,6 @@ generated/files/%: files/%
 	cp $< $@
 
 # Directory resources has images and tex files used to create lessons
-# TODO: consider only copying image files once all .tex files that are presented to public-facing
-# website are flattened to remove \input of lesson-head and discrete-math-packages
 generated-resources: $(patsubst resources/%,generated/resources/%,$(wildcard resources/*))
 
 generated/resources/%: resources/%
@@ -40,15 +38,16 @@ generated/notes/%: notes/%
 	cp -R $< $@
 
 # Directory notes/activity-snippets contains tex files for outcomes and topics 
-# TODO: remove this once the tex files are created by a script that scrapes tags from lessons
 generated-notes-activity-snippets: $(patsubst notes/activity-snippets/%,generated/notes/activity-snippets/%,$(wildcard notes/activity-snippets/*))
 
 generated/notes/activity-snippets/%: notes/activity-snippets/%
 	mkdir -p generated/notes/activity-snippets
 	cp $< $@
 
-# Directory website  and website-manual-to-automate contain all static components of site
-# TODO: edit these components to use dynamic sidebar
+# Directory website and website-manual-to-automate contain all static components of site
+# TODO: edit these components to use dynamic sidebar e.g. by using loop in unitTemplate.py
+# Site-wide set of variables that are defined and get plugged in for any html file
+# e.g. $unit-sidebar and $outcome-sidebar and $topic-sidebar
 generated-website: $(patsubst website/%,generated/website/%,$(wildcard website/*))
 
 generated/website/%: website/%
