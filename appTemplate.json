@@ -66,7 +66,7 @@
         "file":"bioinformatics.html",
         "Icon":"BI",
         "Children":{
-            "Genomics (DNA/RNA)":{
+            "Genomics":{
                 "filename":"",
                 "overleaf":""
             }
