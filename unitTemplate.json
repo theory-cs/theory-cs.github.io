@@ -1,6 +1,6 @@
 {
     "unit1":{
-      "header": "Week 1",
+      "header": "Week 0 and 1",
       "pdfs": [{
           "name": "Notes",
           "addExtensions":true, 
@@ -42,9 +42,102 @@
         "embedCode": "<iframe class= \" Lecture-Google-Slides \" src= \"https://docs.google.com/presentation/d/e/2PACX-1vTX11zNwMaEK-ARWn76QeUHNK85xagAAkL1jylfSU_1DmsxerimnwdOGQX7thu3Zg/embed?start=false&loop=false&delayms=3000\" frameborder= \"0\" width= 100% height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe> "
       }]
 
+      },
+
+      "unit3":{
+        "header": "Week 3",
+        
+        "pdfs": [{
+          "name": "Notes",
+          "addExtensions":true,
+          "file":"Week3"
+        }],
+
+        "embed": []
+      },
+
+      "unit4":{
+        "header": "Week 4",
+        
+        "pdfs": [{
+          "name": "Notes",
+          "addExtensions":true,
+          "file":"Week4"
+        }],
+
+        "embed": []
+      },
+
+      "unit5":{
+        "header": "Week 5",
+        
+        "pdfs": [{
+          "name": "Notes",
+          "addExtensions":true,
+          "file":"Week5"
+        }],
+        
+        "embed": []
+      },
+
+      "unit6":{
+        "header": "Week 6",
+        
+        "pdfs": [{
+          "name": "Notes",
+          "addExtensions":true,
+          "file":"Week6"
+        }],
+        
+        "embed": []
+      },
+
+      "unit7":{
+        "header": "Week 7",
+        
+        "pdfs": [{
+          "name": "Notes",
+          "addExtensions":true,
+          "file":"Week7"
+        }],
+        
+        "embed": []
+      },
+
+      "unit8":{
+        "header": "Week 8",
+        
+        "pdfs": [{
+          "name": "Notes",
+          "addExtensions":true,
+          "file":"Week8"
+        }],
+        
+        "embed": []
+      },      
+
+      "unit9":{
+        "header": "Week 9",
+        
+        "pdfs": [{
+          "name": "Notes",
+          "addExtensions":true,
+          "file":"Week9"
+        }],
+        
+        "embed": []
+      },
+
+      "unit10":{
+        "header": "Week 10",
+        
+        "pdfs": [{
+          "name": "Notes",
+          "addExtensions":true,
+          "file":"Week10"
+        }],
+        
+        "embed": []
       }
-
-
-
 }
   
