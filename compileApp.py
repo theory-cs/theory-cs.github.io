@@ -59,7 +59,7 @@ for key in appsDict:
 
         result += "\end{document}"
 
-        resultFile = open("notes/apps/"+ key + ".tex", "w")
+        resultFile = open("generated/notes/app/"+ key + ".tex", "w")
         resultFile.write(result)
 
         resultFile.close()

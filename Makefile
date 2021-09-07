@@ -2,14 +2,31 @@
 # To build the website, first create PDFs and static elements in generated directory, then
 # translate tex to htmls and then dynamically create additional html pages
 # and finally remove auxiliary files from typesetting steps
-website: latex static-pages dynamic-pages tex-html clean-tex
+website: compile latex static-pages dynamic-pages tex-html clean-tex
+
+# run compile python scripts to generated compiled .tex files of applications and topics 
+compile: 
+	python3 compileApp.py
+	python3 compileTopic.py
+
 
 # Iterate over all changed .tex files in notes/lessons and run target for them in new folder
-latex: $(patsubst notes/lessons/%.tex,generated/output/%.pdf,$(wildcard notes/lessons/*.tex))
+latex: lessonsLatex appLatex topicLatex
+lessonsLatex: $(patsubst notes/lessons/%.tex,generated/output/%.pdf,$(wildcard notes/lessons/*.tex))
+appLatex: $(patsubst generated/notes/app/%.tex,generated/output/%.pdf,$(wildcard generated/notes/app/*.tex))
+topicLatex: $(patsubst generated/notes/topic/%.tex,generated/output/%.pdf,$(wildcard generated/notes/topic/*.tex))
 
 # Typesetting all .tex files in notes/lessons directory
 generated/output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/output; cd notes; cd lessons; pdflatex -output-directory ../../generated/output $(<F) 
+
+# Typesetting all .tex files in generated/notes/app directory
+generated/output/%.pdf: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/output; cd generated/notes/app; pdflatex -output-directory ../../output $(<F) 
+
+# Typesetting all .tex files in generated/notes/topic directory
+generated/output/%.pdf: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/output; cd generated/notes/topic; pdflatex -output-directory ../../output $(<F)
 
 
 # Build website by copying over files, notes, resources, html, and style files to generated directory
@@ -81,10 +98,19 @@ dynamic-pages:
 
 #Building html versions of all .tex files in notes/lessons directory 
 #TODO: also need for topics and outcomes, potentially as part of python scripts creating them
-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst notes/lessons/%.tex,generated/output/%.html,$(wildcard notes/lessons/*.tex)))
+tex-html : lessons-tex-html app-tex-html topic-tex-html
+lessons-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst notes/lessons/%.tex,generated/output/%.html,$(wildcard notes/lessons/*.tex)))
+app-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst generated/notes/app/%.tex,generated/output/%.html,$(wildcard generated/notes/app/*.tex)))
+topic-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst generated/notes/topic/%.tex,generated/output/%.html,$(wildcard generated/notes/topic/*.tex)))
 
 generated/output/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/$(@F)
+
+generated/output/%.html: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	cd generated/notes/app; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/$(@F)
+
+generated/output/%.html: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	cd generated/notes/topic; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/$(@F)
 
 # Removing all auxiliary typesetting files from output directory
 clean-tex: 
