@@ -62,7 +62,7 @@ for key in lowLevelsDict:
 
         result += "\end{document}"
 
-        resultFile = open("notes/lessons/"+ key + ".tex", "w")
+        resultFile = open("notes/topic/"+ key + ".tex", "w")
         resultFile.write(result)
 
         resultFile.close()
