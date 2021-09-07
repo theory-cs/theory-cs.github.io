@@ -6,6 +6,8 @@ website: compile latex static-pages dynamic-pages tex-html clean-tex
 
 # run compile python scripts to generated compiled .tex files of applications and topics 
 compile: 
+	mkdir -p generated/notes/app
+	mkdir -p generated/notes/topic
 	python3 compileApp.py
 	python3 compileTopic.py
 
