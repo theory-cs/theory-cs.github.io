@@ -1,0 +1,40 @@
+
+
+$\exists t ~BC(t)$ \qquad In English: \underline{\phantom{There exists an ordered $3$-tuple 
+%of strand, base, and nonnegative integer
+at which the predicate $BC$ evaluates to $T$.}}
+
+Witness that proves this existential quantification is true: \underline{\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}}
+
+$\forall (s,b,n) ~(~BC(s,b,n)~)$  \qquad In English: \underline{\phantom{For all ordered $3$-tuples
+%of strand, base, and nonnegative integer
+the predicate $BC$ evaluates to $T$.}}
+
+Counterexample that proves this universal quantification is false: \underline{\phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}}
+
+
+{\bf New predicates from old} \qquad $BC(s,b,n)$ means $basecount(s,b) = n$.
+\begin{center}
+\begin{tabular}{|p{2.5in}p{1.5in}p{2in}|}
+\hline
+{\bf Predicate} & Domain &  Example domain element \\
+& & where predicate is $T$\\
+\hline
+&& \\
+$basecount(s,b) = 3$ & \phantom{$S \times B$}& 
+\phantom{$(\A\U\A\A, \A)$}\\
+\hline
+&& \\
+$basecount(s,\A) = n $&\phantom{$S \times \mathbb{N}$} & 
+\phantom{$(\A\U\A,2)$}\\
+\hline
+&& \\
+$\exists n \in \mathbb{N} ~(basecount(s,b) = n) $&\phantom{$S \times \mathbb{N}$} & 
+\phantom{$(\A\U\A,2)$}\\
+\hline
+&& \\
+$\forall b \in B ~(basecount(s,b) = 1) $&\phantom{$S$} & 
+\phantom{$\A\C\G\U$}\\
+\hline
+\end{tabular}
+\end{center}

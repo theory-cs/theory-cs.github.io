@@ -1,0 +1,30 @@
+%! app: none
+%! small-outcomes: Induction Types, Strong induction
+
+\fbox{\parbox{\textwidth}{%
+
+{\bf New! Proof by Strong Induction} (Rosen 5.2 p337)
+
+To prove that a universal quantification over the set of all integers greater than or equal to some  base integer $b$ holds,  pick a  fixed nonnegative integer  $j$ and then: \hfill 
+
+\begin{tabularx}{\textwidth}{lX}
+    Basis Step: & Show the statement holds for $b$, $b+1$, \ldots, $b+j$. \\
+    Recursive Step: & Consider an arbitrary integer $n$ greater than or  equal to  $b+j$, assume
+    (as the {\bf strong  induction hypothesis})  that the property holds  for {\bf each of} $b$, $b+1$, \ldots, $n$, 	
+    and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{tabularx}
+}} 
+
+\vfill
+
+\begin{center}
+    \begin{tabular}{cll}
+    $\mathbb{N}$  &  The set of  natural numbers & $\{ 0, 1, 2, 3, \ldots \}$ \\
+    %$\mathbb{Z}$  &  The set of  integers & $\{ \ldots -3, -2, -1, 0, 1, 2, 3, \ldots \}$ \\
+    %$\mathbb{Z}^+$ & The set of positive integers  & $\{ 1, 2, 3,  \ldots  \}$ \\
+    $\mathbb{Z}^{\geq b}$ & The set of integers greater than  or equal  a  basis element $b$ & $\{ b, b+1, b+2, b+3,  \ldots  \}$ \\
+    \end{tabular}
+    \end{center}
+    
+    \vfill

@@ -10,11 +10,14 @@ compile:
 	python3 compileTopic.py
 
 
-# Iterate over all changed .tex files in notes/lessons and run target for them in new folder
-latex: lessonsLatex appLatex topicLatex
+# Iterate over all changed .tex files in notes and run target for them in new folder, then generate flat versions if needed
+latex: lessonsLatex appLatex topicLatex app-latexpand topic-latexpand lessons-latexpand
 lessonsLatex: $(patsubst notes/lessons/%.tex,generated/output/%.pdf,$(wildcard notes/lessons/*.tex))
 appLatex: $(patsubst generated/notes/app/%.tex,generated/output/%.pdf,$(wildcard generated/notes/app/*.tex))
 topicLatex: $(patsubst generated/notes/topic/%.tex,generated/output/%.pdf,$(wildcard generated/notes/topic/*.tex))
+app-latexpand: $(patsubst generated/notes/topic/%.tex,generated/notes/topic-flat/%.tex,$(wildcard generated/notes/topic/*.tex))
+topic-latexpand: $(patsubst generated/notes/app/%.tex,generated/notes/app-flat/%.tex,$(wildcard generated/notes/app/*.tex))
+lessons-latexpand: $(patsubst generated/notes/lessons/%.tex,generated/notes/lessons-flat/%.tex,$(wildcard generated/notes/lessons/*.tex))
 
 # Typesetting all .tex files in notes/lessons directory
 generated/output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
@@ -24,9 +27,17 @@ generated/output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/
 generated/output/%.pdf: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/output; cd generated/notes/app; pdflatex -output-directory ../../output $(<F) 
 
-# Typesetting all .tex files in generated/notes/topic directory
-generated/output/%.pdf: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
-	mkdir -p generated/output; cd generated/notes/topic; pdflatex -output-directory ../../output $(<F)
+# generate expanded/flat version of topic compiled tex files
+generated/notes/topic-flat/%.tex: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/notes/topic-flat; cd generated/notes/topic; latexpand $(<F) > ../topic-flat/$(<F)
+
+# generate expanded/flat version of app compiled tex files
+generated/notes/app-flat/%.tex: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/notes/app-flat; cd generated/notes/app; latexpand $(<F) > ../app-flat/$(<F)
+
+# generate expanded/flat version of lessons compiled tex files
+generated/notes/lessons-flat/%.tex: generated/notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/notes/lessons-flat; cd generated/notes/lessons; latexpand $(<F) > ../lessons-flat/$(<F)
 
 
 # Build website by copying over files, notes, resources, html, and style files to generated directory
