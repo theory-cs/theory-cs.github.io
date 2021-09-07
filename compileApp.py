@@ -49,17 +49,13 @@ for key in appsDict:
     # Only run if the key has elements
     if(len(appsDict[key]) > 0):
         # Create each tex file
-        result = "\input{../../resources/lesson-head.tex}"
-
-        result += "\n"
+        result = "\input{../../resources/lesson-head.tex}\n"
 
         for tex in appsDict[key]:
             # TO DO: CHANGE testDir TO activity-snippets
             result += "\section*{"+tex.replace("-"," ").replace(".tex","").capitalize()+"}\n"
-            result += "\input{../testDir/" + tex + "}"
-            result += "\n"
-            result += "\\vfill"
-            result += "\n"
+            result += "\input{../testDir/" + tex + "}\n"
+            result += "\\vfill\n"
 
         result += "\end{document}"
 
