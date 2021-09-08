@@ -2,7 +2,7 @@ from string import Template
 import json
   
 # Opening JSON file
-fileJson = open('appTemplate.json',)
+fileJson = open('applications.json',)
   
 # returns JSON object as a dictionary
 data = json.load(fileJson)

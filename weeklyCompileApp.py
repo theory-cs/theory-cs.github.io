@@ -1,9 +1,16 @@
+# This program creates dictionary that matches
+# applications to weeks in which they are discussed and then
+# produces .tex files for each application
+# with snippets ordered chronologically by weeks
+#
+# Input: applications.json specifies all applications
+
 from string import Template
 import os
 import linecache
 
 import json
-apps = json.loads(open("appTemplate.json").read())
+apps = json.loads(open("applications.json").read())
 
 
 # Credit: Professor Politz code from outcomes-list.py
