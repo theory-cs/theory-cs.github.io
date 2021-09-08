@@ -19,14 +19,15 @@ for (k, v) in apps.items():
   for (k2, v2) in v["Children"].items():
       applications.append(k2.replace(" ", "-").lower())
 
-#shows applications as filenames
+# For debugging: shows applications as filenames
 #for app in applications: print(app)
 
-# Create a dictionary
+# Create a dictionary with applications as key, each have 
+# value an array of pairs (snippet filename, week it appears)
 appsDict = {}
-for line in applications:
-    # Each dictionary has the low_levels as key and empty array as value
-    appsDict[line] = []
+for app in applications:
+    # Initialize the value of each item in the dictionary to be empty array
+    appsDict[app] = []
 
 # A function that returns the week of the snippet (key for later sort)
 def findWeek(element):
