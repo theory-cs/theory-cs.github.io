@@ -13,6 +13,11 @@ for (k, v) in outcomes.items():
     for k3 in v2["Children"].keys():
       low_levels.append(k3.replace(" ", "-").lower()) 
 
+#TODO : remove todooutcome as a key (should be here until all todooutcomes are removed though)
+low_levels.append("todooutcome")
+
+# For debugging: shows outcomes as filenames
+#for outcome in low_levels: print(outcome)
 
 # Create a dictionary
 lowLevelsDict = {}
@@ -24,27 +29,29 @@ for line in low_levels:
 def findWeek(element):
     return int(element[1])
 
-# TO DO: CHANGE testWeek TO lessons
-weeklyDirectory = "notes/testWeek"
+
+weeklyDirectory = "notes/lessons"
 for filename in os.listdir(weeklyDirectory):
     #print(filename)
     weekly = open (weeklyDirectory+"/"+filename, "r")
 
-    #get week number/order from week notes file
-    weekNumber = linecache.getline(weeklyDirectory+"/"+filename, 1).replace("%", "").replace("\n", "")
+    #get week number/order from weekly notes file- this will be the number right before .tex(length-4)
+    #convention: #.tex -> must be at the end of every lessons/ file
+    weekNumber = filename[len(filename)-5]
+    #print(filename+" "+weekNumber)
     
 
     Lines = weekly.readlines()
 
     for line in Lines: 
         if (line.startswith("\input{../")) and not ("lesson-head.tex" in line):
-            #TODO change testDir to activity-snippets
-            snippetsFile= line.replace("\input{../testDir/", "").replace("}","").replace("\n", "")
+
+            snippetsFile= line.replace("\input{../activity-snippets/", "").replace("}","").replace("\n", "")
             #print(snippetsFile)
 
             # Get the second line of each file and clean the string
-            snippetsDirectory= "notes/testDir/"
-            particularLine = linecache.getline(snippetsDirectory+snippetsFile, 2).replace("%! outcome: ", "").replace("\n", "")
+            snippetsDirectory= "notes/activity-snippets/"
+            particularLine = linecache.getline(snippetsDirectory+snippetsFile, 2).replace("%! outcome:", "").replace("\n", "").strip()
             #print(particularLine)
     
 
@@ -54,7 +61,13 @@ for filename in os.listdir(weeklyDirectory):
                 # lowercase them and replace whitespace with dashes (to make them uniform)
                 test = element.replace(" ", "-").lower()
                 #print(test)
+
+                #if application in snippet is empty or is none, do not add it to dictionary
+                if(not test or "none" in test):
+                    continue
+
                 snippetWeek = [snippetsFile, weekNumber]
+                #print(snippetWeek)
                 # add that tex filename to the dictionary
                 lowLevelsDict[test].append(snippetWeek)
 
@@ -73,9 +86,9 @@ for key in lowLevelsDict:
 
         for list in lowLevelsDict[key]:
             tex = list[0]
-            # TO DO: CHANGE testDir TO activity-snippets
+            
             result += "\section*{"+tex.replace("-"," ").replace(".tex","").capitalize()+"}\n"
-            result += "\input{../testDir/" + tex + "}\n"
+            result += "\input{../activity-snippets/" + tex + "}\n"
             result += "\\vfill\n"
 
         result += "\end{document}"
