@@ -1,5 +1,5 @@
-{
-    "unit1":{
+[
+    {
       "header": "Week 0 and 1",
       "pdfs": [{
           "name": "Notes",
@@ -13,7 +13,7 @@
           "addExtensions":false,
           "file":"Week1-Slides-CSE20W21.pdf"
       }
-    ],
+      ],
       
       "Information": [ "Title", "this", "is", "a test"],
 
@@ -24,7 +24,7 @@
 
     },
 
-    "unit2":{
+    {
         "header": "Week 2",
         
         "pdfs": [{
@@ -44,7 +44,7 @@
 
       },
 
-      "unit3":{
+      {
         "header": "Week 3",
         
         "pdfs": [{
@@ -56,7 +56,7 @@
         "embed": []
       },
 
-      "unit4":{
+      {
         "header": "Week 4",
         
         "pdfs": [{
@@ -68,7 +68,7 @@
         "embed": []
       },
 
-      "unit5":{
+      {
         "header": "Week 5",
         
         "pdfs": [{
@@ -80,7 +80,7 @@
         "embed": []
       },
 
-      "unit6":{
+      {
         "header": "Week 6",
         
         "pdfs": [{
@@ -92,7 +92,7 @@
         "embed": []
       },
 
-      "unit7":{
+      {
         "header": "Week 7",
         
         "pdfs": [{
@@ -104,7 +104,7 @@
         "embed": []
       },
 
-      "unit8":{
+      {
         "header": "Week 8",
         
         "pdfs": [{
@@ -116,7 +116,7 @@
         "embed": []
       },      
 
-      "unit9":{
+      {
         "header": "Week 9",
         
         "pdfs": [{
@@ -128,7 +128,7 @@
         "embed": []
       },
 
-      "unit10":{
+      {
         "header": "Week 10",
         
         "pdfs": [{
@@ -139,5 +139,5 @@
         
         "embed": []
       }
-}
+]
   

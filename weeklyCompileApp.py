@@ -18,9 +18,8 @@ applications = []
 for (k, v) in apps.items():
   for (k2, v2) in v["Children"].items():
       applications.append(k2.replace(" ", "-").lower())
-
 # For debugging: shows applications as filenames
-#for app in applications: print(app)
+for app in applications: print(app)
 
 # Create a dictionary with applications as key, each have 
 # value an array of pairs (snippet filename, week it appears)
@@ -33,8 +32,8 @@ for app in applications:
 def findWeek(element):
     return int(element[1])
 
-# TO DO: CHANGE testWeek TO lessons
-weeklyDirectory = "notes/testWeek"
+# TODO: CHANGE testWeek TO lessons
+weeklyDirectory = "notes/lessons"
 for filename in os.listdir(weeklyDirectory):
     #print(filename)
     weekly = open (weeklyDirectory+"/"+filename, "r")
@@ -48,11 +47,12 @@ for filename in os.listdir(weeklyDirectory):
     for line in Lines: 
         if (line.startswith("\input{../")) and not ("lesson-head.tex" in line):
             #TODO change testDir to activity-snippets
-            snippetsFile= line.replace("\input{../testDir/", "").replace("}","").replace("\n", "")
+            snippetsFile= line.replace("\input{../activity-snippets/", "").replace("}","").replace("\n", "")
             #print(snippetsFile)
 
             # Get the second line of each file and clean the string
-            snippetsDirectory= "notes/testDir/"
+            #TODO change testDir to activity-snippets
+            snippetsDirectory= "notes/activity-snippets/"
             particularLine = linecache.getline(snippetsDirectory+snippetsFile, 1).replace("%! app: ", "").replace("\n", "")
             #print(particularLine)
     
@@ -64,13 +64,14 @@ for filename in os.listdir(weeklyDirectory):
                 test = element.replace(" ", "-").lower()
                 #print(test)
                 snippetWeek = [snippetsFile, weekNumber]
+                print(snippetWeek)
                 # add that tex filename to the dictionary
                 appsDict[test].append(snippetWeek)
 
                 #sort each outcome by week
                 appsDict[test].sort(key=findWeek)
 # UNCOMMENT if want to see how the dictionary looks
-#print(appsDict)
+print(appsDict)
 
 
 #Iterate through the dict
@@ -82,9 +83,9 @@ for key in appsDict:
 
         for list in appsDict[key]:
             tex = list[0]
-            # TO DO: CHANGE testDir TO activity-snippets
+            # TODO: CHANGE testDir TO activity-snippets
             result += "\section*{"+tex.replace("-"," ").replace(".tex","").capitalize()+"}\n"
-            result += "\input{../testDir/" + tex + "}\n"
+            result += "\input{../activity-snippets/" + tex + "}\n"
             result += "\\vfill\n"
 
         result += "\end{document}"
