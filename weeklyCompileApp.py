@@ -93,9 +93,3 @@ for key in appsDict:
         resultFile.write(result)
 
         resultFile.close()
-
-    
-
-
-
-    
