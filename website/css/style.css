@@ -363,8 +363,8 @@ label {
 }
 
 .choices li {
-    background-color: #fcbf8d;
-    border: 3px solid #fcbf8d;
+    background-color: #f09b6e;
+    border: 3px solid #f09b6e;
     margin-right: 10px;
     font-weight: 500;
     display: inline-block;
@@ -374,9 +374,10 @@ label {
 }
 
 .choices li:hover {
-    transform: scale(1.3);
-    background-color: #f47d3e;
-    border: 3px solid #f47d3e;
+    transform: translatey(-1px);
+    transition: .2s;
+    background-color: #fcbf8d;
+    border: 3px solid #fcbf8d;
 }
 
 .jumpContent:hover {
