@@ -8,8 +8,8 @@ website: compile latex static-pages dynamic-pages tex-html clean-tex
 compile: 
 	mkdir -p generated/notes/app
 	mkdir -p generated/notes/topic
-	python3 compileApp.py
-	python3 compileTopic.py
+	python3 weeklyCompileApp.py
+	python3 weeklyCompileTopic.py
 
 
 # Iterate over all changed .tex files in notes and run target for them in new folder, then generate flat versions if needed
