@@ -44,7 +44,7 @@ for filename in os.listdir(weeklyDirectory):
 
             # Get the second line of each file and clean the string
             snippetsDirectory= "notes/testDir/"
-            particularLine = linecache.getline(snippetsDirectory+snippetsFile, 2).replace("%! small-outcomes: ", "").replace("\n", "")
+            particularLine = linecache.getline(snippetsDirectory+snippetsFile, 2).replace("%! outcome: ", "").replace("\n", "")
             #print(particularLine)
     
 
