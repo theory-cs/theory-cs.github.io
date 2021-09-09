@@ -10,8 +10,8 @@ data = json.load(fileJson)
 sidebarButtons = ""
 for i in range(0,len(data)):
     sidebarButtons += "<li>"
-    sidebarButtons += """<a href= " """ + 'unit'+str(i) + """.html" aria-label="Go to """ + data[i]['header'] + """ ">"""
-    sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;&nbsp;&nbsp;""" + str(i) + """</p></i>"""
+    sidebarButtons += """<a href= " """ + 'unit'+str(i+1) + """.html" aria-label="Go to """ + data[i]['header'] + """ ">"""
+    sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;&nbsp;&nbsp;""" + str(i+1) + """</p></i>"""
     sidebarButtons += """<span class="links_name"> """ + data[i]['header'] + """</span>"""
     sidebarButtons += "</a>"
     sidebarButtons += """<span class="tooltip"> """ + data[i]['header'] + """</span>"""
@@ -19,7 +19,7 @@ for i in range(0,len(data)):
 
 mobileSidebar = ""
 for i in range(0,len(data)):
-   mobileSidebar += """<a href= \"""" + 'unit'+str(i) + """.html\"">""" + data[i]['header'] + """</a>"""
+   mobileSidebar += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + data[i]['header'] + """</a>"""
 
 #open unitTemplate html file and read it into a string 
 unitTemplate = open("overviewCalendarTemplate.html", "r")
