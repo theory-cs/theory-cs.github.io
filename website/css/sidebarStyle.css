@@ -93,7 +93,7 @@
   left: calc(100% + 15px);
   z-index: 3;
   background: #fff;
-  box-shadow: 0 5px 10px #182B49;
+  box-shadow: 0 5px 10px #747678;
   padding: 6px 12px;
   border-radius: 4px;
   font-size: 15px;
@@ -256,7 +256,7 @@
 }
 
 .icons:hover{
-    color:182B49;
+    color:#182B49;
 }
 
 
@@ -287,13 +287,13 @@
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #f1f1f1;
+  color: white;
   display: block;
   transition: 0.3s;
 }
 
 .collapsedSidebar a:hover {
-  background-color: #f1f1f1;
+  background-color: white;
   color: #182B49;
 }
 
@@ -316,7 +316,7 @@
 }
 
 .openbtn:hover {
-  background-color: #182B49;
+  background-color: #747678;
 }
 
 
