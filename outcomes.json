@@ -17,13 +17,11 @@
                 "Children":{
                     "XOR and Bit Shifts": {
                         "Description": "Correctly use XOR and bit shifts",
-                        "filename":"",
-                        "overleaf": "../../something"
+                        "filename":""
                     },
                     "Clustering":{
                         "Description": "Define clustering as an application of relations and partitions",
-                        "filename":"",
-                        "overleaf": "../../something"
+                        "filename":""
                     }
                 },
                 "Icon": "BOP",
@@ -47,8 +45,7 @@
                 "Children": {
                     "Truth Tables": {
                         "Description": "Prove propositional equivalences using truth tables.",
-                        "filename":"",
-                        "overleaf": "../../something"
+                        "filename":""
                     },
                     "Laws or Known Propositional Logic": "Prove propositional equivalences using other known equivalences, e.g. DeMorgan’s laws, Double negation laws, Distributive laws, etc.",
                     "Consistency": "Decide and justify whether or not a collection of propositions is consistent.",

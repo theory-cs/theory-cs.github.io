@@ -54,8 +54,8 @@ for i in data:
             href=""" + tex + """ download>TeX</a> """
         
             #Open in Overleaf button
-            pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
-            href= """ + data[i]['Children'][k]['overleaf']+ """ target="Overleaf">Overleaf</a> """
+            # pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
+            # href= """ + data[i]['Children'][k]['overleaf']+ """ target="Overleaf">Overleaf</a> """
 
             #Raw HTML button 
             pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 

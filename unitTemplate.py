@@ -55,9 +55,9 @@ for i in range(0,len(data)):
 
         
         #Open in Overleaf button
-        if('overleafLink' in data[i]['pdfs'][j]):
-            pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
-            href= """ + data[i]['pdfs'][j]['overleafLink'] + """ target="Overleaf">Overleaf</a> """
+        # if('overleafLink' in data[i]['pdfs'][j]):
+        #     pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
+        #     href= """ + data[i]['pdfs'][j]['overleafLink'] + """ target="Overleaf">Overleaf</a> """
 
         #Annotations on/off buttons 
         if('annotatedFile' in data[i]['pdfs'][j]):

@@ -5,8 +5,7 @@
           "name": "Notes",
           "addExtensions":true, 
           "file":"Week0and1",
-          "annotatedFile": "Week1-Notes-CSE20W21-4pm.pdf",
-          "overleafLink": "https://www.overleaf.com/read/cdnbwtqkjmtd"
+          "annotatedFile": "Week1-Notes-CSE20W21-4pm.pdf"
       },
       {
         "name": "Slides",
@@ -31,8 +30,7 @@
           "name": "Notes",
           "addExtensions":true,
           "file":"Week2",
-          "annotatedFile":"Week2-Notes-CSE20W21-4pm.pdf",
-          "overleafLink": "https://www.overleaf.com/read/cdnbwtqkjmtd"
+          "annotatedFile":"Week2-Notes-CSE20W21-4pm.pdf"
       }],
       
       "Information": [ "Hello", "this", "is", "a test"],
