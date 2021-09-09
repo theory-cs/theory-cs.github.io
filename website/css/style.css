@@ -1,12 +1,10 @@
 /* UCSD Brand Color Link https://brand.ucsd.edu/logos-and-brand-elements/color-palette/index.html */
 /* Google Font Link */
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
-
-
+/*@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap'); */
 
 .topnav {
     overflow: hidden;
-    background-color: #182B49;
+    background-color: #00629B;
     position: fixed;
     width: 100%;
 }
@@ -22,13 +20,13 @@
   
 .topnav a:hover {
     background-color: #00C6D7;
-    color: black;
+    color: #182B49;
 }
   
 .topnav a.active {
     font-weight: bolder;
     color: white;
-    text-shadow: 1px 1px black;
+    text-shadow: 1px 1px #182B49;
 }
   
 .topnav-right {
@@ -41,13 +39,14 @@ h1 {
     font-weight: bolder;
     font-size: 380%;
     line-height: 87px;
-    color: black;
+    color: #182B49;
 }
 
 h2 {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-weight: bolder;
-    font-size: 300%;
+    font-weight: bold;
+    font-size: 280%;
+    color: #182B49;
 }
 
 .column dl{
@@ -62,11 +61,11 @@ h2 {
 
 
 .bx-subdirectory-right{
-    color: #182B49;
+    color: #00629B;
 }
 
 .column a{
-    color: #182B49;
+    color: #00629B;
     text-decoration: none;
     
 }
@@ -88,7 +87,8 @@ h2 {
 body {
     height: 100%;
     /* margin: 25px 50px 75px 100px; */
-    font-family: 'Nunito', sans-serif;
+    /* font-family: 'Nunito', sans-serif;*/
+    font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
 .calendar-margin{
@@ -137,7 +137,7 @@ table.cinereousTable thead {
 table.cinereousTable thead th {
     font-size: 15px;
     font-weight: bold;
-    color: black;
+    color: #182B49;
     text-align: center;
 }
 
@@ -147,7 +147,7 @@ table.cinereousTable thead th {
     z-index: 1;
     top: 20px;
     left: 10px;
-    background-color: black;
+    background-color: #182B49;
     font-weight: bold;
     overflow-x: hidden;
     padding: 8px 0;
@@ -177,18 +177,18 @@ table.cinereousTable thead th {
     }
 }
 
-
 p {
     font-size: 150%;
 }
 
 ul {
-   /*list-style:none;*/
-    font-size: 200%;
-    margin-left: 0%;
-    text-decoration: none;
-}
-li {
+    /*list-style:none;*/
+     font-size: 150%;
+     margin-left: 0%;
+     text-decoration: none;
+ }
+
+ li {
     margin-bottom: 5px;
     text-decoration: none;
 }
@@ -280,14 +280,14 @@ li {
 .button.Order {
     background: #B6B1A9;
     border: 2px solid #B6B1A9;
-    color: black;
+    color: #182B49;
 }
 
 .button.Order:hover {
     color: #B6B1A9;
-    background: black;
+    background: #182B49;
     text-decoration: none;
-    border: 2px solid black;
+    border: 2px solid #182B49;
 }
 
 .mondayButtons {
@@ -320,6 +320,8 @@ label {
 .header{
     font-weight: bolder;
 }
+
+
 
 .logo {
     /*text-align:left;*/ 
@@ -366,7 +368,7 @@ label {
 }
 
 .jumpContent:hover {
-    color: black;
+    color: #182B49;
     font-size: 120%;
 }
 
@@ -396,7 +398,7 @@ dd{
     padding: 30px;
     margin-right: 10%;
     border-spacing: 100px;
-    box-shadow: 2px 2px #747678;
+    box-shadow: 2px 2px #B6B1A9;
     
     
 }
