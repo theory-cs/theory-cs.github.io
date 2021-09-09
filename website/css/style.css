@@ -70,6 +70,11 @@ h2 {
     
 }
 
+.column a:hover{
+    text-decoration: underline;
+    font-size: 110%;
+}
+
 .column dd{
     font-size: 15px;
 }
@@ -390,7 +395,8 @@ dd{
 
 .box {
     border: 3px solid #00629B;
-    background:#B6B1A9;
+    /*background:#B6B1A9;*/
+    background:#e6e1d9;
     border-color: #00C6D7;
     border-width: 9%;
     border-style: outset;
