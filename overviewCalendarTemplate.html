@@ -1,12 +1,17 @@
 <!DOCTYPE html>
+<html>
+
 <head>
-  <html lang="en">
-	  <!-- logo on tab-->
+	<html lang="en">
+		
+	<!-- logo on tab-->
 	<link rel="shortcut icon" href="../resources/logo.svg" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>CSE 20: Discrete Mathematics</title>
-  <!-- import font -->
+
+    <title>CSE 20 Fall 2021</title>
+	
+	<!-- import font -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,18 +23,11 @@
 	<meta name="description" content="Discrete Mathematics for Computer Science">
 	<meta name="author" content="Mia Minnes">
 
-  
-
-	<title>CSE 20</title>
-
 	<!-- Bootstrap Core CSS S-->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <link rel="stylesheet" href="css/sidebarStyle.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/sidebarStyle.css">
 
 	<!-- icons for side menu -->
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -38,38 +36,41 @@
 </head>
     
 
-    <body>
-         <!-- Mobile sidebar -->
-				  <div id="mySidebar" class="collapsedSidebar">
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+<body>
+    <!-- Mobile sidebar -->
+	<div id="mySidebar" class="collapsedSidebar">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 					
-					<a href="index.html">Home</a>
-					<a href="overview.html">Calendar</a>
-					$mobile
-				</div>
-				<!-- end -->
-				<br>
-				<div class="openbutton" style="margin-left: 10px;">
-					<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
-				</div> 
+		<a href="index.html">Home</a>
+		<a href="overview.html">Calendar</a>
+		$mobile
+	</div>
+	<!-- end -->
+	
+	<br>
+	
+	<div class="openbutton" style="margin-left: 10px;">
+		<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
+	</div> 
 				  
-				<script>
-				  function openNav() {
-					document.getElementById("mySidebar").style.width = "100%";
-					document.getElementById("content").style.marginLeft = "100%";
-				  }
+	<script>
+		function openNav() {
+			document.getElementById("mySidebar").style.width = "100%";
+			document.getElementById("content").style.marginLeft = "100%";
+		}
 				  
-				  function closeNav() {
-					document.getElementById("mySidebar").style.width = "0";
-					document.getElementById("content").style.marginLeft= "0";
-				  }
-				</script>
-				</div> 
-        <div class="calendar-margin">
+		function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("content").style.marginLeft= "0";
+		}
+	</script> 
+    
+	
+	<div class="calendar-margin">
 		
-        <h1> Discrete Math for CS</h1>
+		<h1> Discrete Math for CS</h1>
         <table class="cinereousTable" style="height: 239px; width: 95%" 
-        width="382"cellspacing="0" cellpadding="0">
+		width="382"cellspacing="0" cellpadding="0">
             <thead>
             <tr>
             <th>Week</th>
@@ -131,7 +132,7 @@
             </tr>
             </tbody>
             </table>
-          </div>
+        </div>
 
     <!-- Navigation -->
 	<div class="sidebar">
@@ -140,52 +141,54 @@
 			<div class="logo_name">CSE 20</div>
 			<i class='bx bx-menu' id="btn" ></i>
 		</div>
+
 		<ul class="nav-list">
-		  <li>
-			<a href="index.html" aria-label="Go to Homepage">
-			  <i class='bx bx-home-smile'></i>
-			  <span class="links_name">Home</span>
-			</a>
-			 <span class="tooltip">Home</span>
-		  </li>
-		  <li>
-		   <a href="overview.html" aria-label="Go to Calendar">
-			 <i class='bx bx-calendar'></i>
-			 <span class="links_name">Calendar</span>
-		   </a>
-		   <span class="tooltip">Calendar</span>
-		 </li>
-		 
-         $sidebar
+			<li>
+				<a href="index.html" aria-label="Go to Homepage">
+					<i class='bx bx-home-smile'></i>
+					<span class="links_name">Home</span>
+				</a>
+				<span class="tooltip">Home</span>
+			</li>
+			
+			<li>
+				<a href="overview.html" aria-label="Go to Calendar">
+					<i class='bx bx-calendar'></i>
+					<span class="links_name">Calendar</span>
+				</a>
+				<span class="tooltip">Calendar</span>
+			</li>
+			
+			$sidebar
 		 
 		</ul>
-	  </div> 
+	</div> 
 	
 		
-		  <script>
-		  let sidebar = document.querySelector(".sidebar");
-		  let closeBtn = document.querySelector("#btn");
+	<script>
+		let sidebar = document.querySelector(".sidebar");
+		let closeBtn = document.querySelector("#btn");
 		
-		  closeBtn.addEventListener("click", ()=>{
+		closeBtn.addEventListener("click", ()=>{
 			sidebar.classList.toggle("open");
 			menuBtnChange();//calling the function(optional)
-		  });
+		});
 		
-		  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
 			sidebar.classList.toggle("open");
 			menuBtnChange(); //calling the function(optional)
-		  });
+		});
 		
-		  // following are the code to change sidebar button(optional)
-		  function menuBtnChange() {
-		   if(sidebar.classList.contains("open")){
-			 closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-		   }else {
-			 closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-		   }
-		  }
-		  </script>
+		// following are the code to change sidebar button(optional)
+		function menuBtnChange() {
+			if(sidebar.classList.contains("open")){
+				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+			}
+			else {
+				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+			}
+		}
+	</script>
+</body>
 
-
-    </body>
 </html>
