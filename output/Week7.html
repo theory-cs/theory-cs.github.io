@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week7</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="monday-november-8">Monday November 8</h1>
+<p>For which nonnegative integers <span class="math inline">\(n\)</span> can we make change for <span class="math inline">\(n\)</span> with coins of value <span class="math inline">\(5\)</span> cents and <span class="math inline">\(3\)</span> cents?</p>
+<p>Restating: We can make change for <u></u>, we cannot make change for <u></u>, and <span class="math display">\[\underline{\phantom{\forall n  \in  \mathbb{Z}^{\geq 8}  \exists x \in \mathbb{N}  \exists y \in \mathbb{N}  (  5x+3y =  n)\qquad \qquad}} \star\]</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbb{N}\)</span></td>
+<td style="text-align: left;">The set of natural numbers</td>
+<td style="text-align: left;"><span class="math inline">\(\{ 0, 1, 2, 3, \ldots \}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbb{Z}^{\geq b}\)</span></td>
+<td style="text-align: left;">The set of integers greater than or equal a basis element <span class="math inline">\(b\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ b, b+1, b+2, b+3,  \ldots  \}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="multicols">
+<p><span>2</span> <span><strong>Proof of <span class="math inline">\(\star\)</span> by mathematical induction</strong></span> (<span class="math inline">\(b=8\)</span>)</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(8\)</span></p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary <span class="math inline">\(n \geq 8\)</span>. Assume (as the IH) that there are nonnegative integers <span class="math inline">\(x, y\)</span> such that <span class="math inline">\(n =  5x +  3y\)</span>. WTS that there are nonnegative integers <span class="math inline">\(x&#39;, y&#39;\)</span> such that <span class="math inline">\(n+1 = 5x&#39; +  3y&#39;\)</span>. We consider two cases, depending on whether any <span class="math inline">\(5\)</span> cent coins are used for <span class="math inline">\(n\)</span>.</p>
+<p><span><em>Case 1</em></span>: Assume <span class="math inline">\(x \geq  1\)</span>. Define <span class="math inline">\(x&#39; = x-1\)</span> and <span class="math inline">\(y&#39;=y+2\)</span> (both in <span class="math inline">\(\mathbb{N}\)</span> by case assumption).</p>
+<p>Calculating: <span class="math display">\[\begin{aligned}
+5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(x-1) +  3(y+2)  = 5x -  5 +3y +   6  \\
+&amp;\overset{\text{rearranging}} = (5x+3y) -5  + 6\\
+&amp; \overset{\text{IH}}{=} n-5+6 =  n+1\end{aligned}\]</span></p>
+<p><span><em>Case 2</em></span>: Assume <span class="math inline">\(x = 0\)</span>. Therefore <span class="math inline">\(n  = 3y\)</span>, so since <span class="math inline">\(n \geq 8\)</span>, <span class="math inline">\(y \geq 3\)</span>. Define <span class="math inline">\(x&#39; = 2\)</span> and <span class="math inline">\(y&#39;=y-3\)</span> (both in <span class="math inline">\(\mathbb{N}\)</span> by case assumption). Calculating: <span class="math display">\[\begin{aligned}
+5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(2) +  3(y-3)  = 10  +3y -9  \\
+&amp;\overset{\text{rearranging}} = 3y +10 -9 \\
+&amp;\overset{\text{IH and case}}{=} n+10-9 =  n+1\end{aligned}\]</span></p>
+<p><span><strong>Proof of <span class="math inline">\(\star\)</span> by strong induction</strong></span> (<span class="math inline">\(b=8\)</span> and <span class="math inline">\(j=2\)</span>)</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(8, 9, 10\)</span></p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary <span class="math inline">\(n \geq 10\)</span>. Assume (as the IH) that the property is true about each of <span class="math inline">\(8, 9, 10, \ldots, n\)</span>. WTS that there are nonnegative integers <span class="math inline">\(x&#39;, y&#39;\)</span> such that <span class="math inline">\(n+1 = 5x&#39; +  3y&#39;\)</span>.</p>
+</div>
+<p><span><strong>Representing positive integers</strong></span></p>
+<p><span><strong>Theorem</strong></span>: Every positive integer is a sum of (one or more) distinct powers of <span class="math inline">\(2\)</span>. <span> <em>binary expansions exist!</em></span></p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span class="math inline">\(b=1\)</span> and <span class="math inline">\(j=0\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(1\)</span>.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary integer <span class="math inline">\(n \geq 1\)</span>. Assume (as the IH) that the property is true about each of <span class="math inline">\(1, \ldots, n\)</span>. WTS that the property is true about <span class="math inline">\(n+1\)</span>.</p>
+<h2 class="unnumbered" id="review">Review</h2>
+<ol>
+<li><p>Consider the following statement: For <span class="math inline">\(n &gt; 0\)</span>, the sum of the first <span class="math inline">\(n\)</span> positive integers, also written as <span class="math inline">\(\sum_{i=1}^n 
+i\)</span>, is equal to <span class="math display">\[\left(\dfrac{n \cdot (n + 1)}{2}\right)\]</span>.</p>
+<p>For example, when <span class="math inline">\(n = 3\)</span>, the statement would mean that <span class="math inline">\(1+2+3 = \left(\dfrac{3 \cdot (3 + 1)}{2}\right)\)</span>.</p>
+<p>Consider the following (start to) a proof of this statement:</p>
+<p>Basis Step: Choose <span class="math inline">\(n = 1\)</span> as the basis step. Applying the formula from the original statement, we find that <span class="math inline">\(\dfrac{1 \cdot (1 + 1)}{2}\)</span> is equal to <span class="math inline">\(1\)</span>. Since the total sum of the first positive integer is <span class="math inline">\(1\)</span>, these are equal and the basis step is complete.</p>
+<p>Recursive Step: Consider an arbitrary <span class="math inline">\(k \geq 1\)</span>. Towards a direct proof, we assume (as the induction hypothesis) that the sum of the first <span class="math inline">\(k\)</span> positive integers is <span class="math inline">\(\left(\dfrac{k \cdot (k + 1)}{2}\right)\)</span>. We want to show that the sum of the first <span class="math inline">\(k + 1\)</span> positive integers is <span class="math display">\[\left( \dfrac{(k + 1) \cdot ((k + 1) + 1)}{2}\right)\]</span>.</p>
+<p>[Proof would continue here...]</p>
+<ol>
+<li><p>In a recursive definition of the function that gives the sum of the first <span class="math inline">\(n\)</span> positive integers, the domain is</p>
+<ol>
+<li><p><span class="math inline">\(\mathbb{N}\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{Z}^+\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{Z}\)</span></p></li>
+</ol></li>
+<li><p>In a recursive definition of the function that gives the sum of the first <span class="math inline">\(n\)</span> positive integers, the basis step is</p>
+<ol>
+<li><p><span class="math inline">\(\sum_{i=1}^1 i = 1\)</span></p></li>
+<li><p><span class="math inline">\(\sum_{i=1}^n 1 = n\)</span></p></li>
+<li><p>None of the above.</p></li>
+</ol></li>
+<li><p>In a recursive definition of the function that gives the sum of the first <span class="math inline">\(n\)</span> positive integers, the recursive step is</p>
+<ol>
+<li><p>If <span class="math inline">\(n\)</span> is a positive integer, <span class="math inline">\(\sum_{i=1}^n i = n\)</span></p></li>
+<li><p>If <span class="math inline">\(n\)</span> is a positive integer, <span class="math inline">\(\sum_{i=1}^n i =\left(  \sum_{i=1}^n i \right)+ 1\)</span></p></li>
+<li><p>If <span class="math inline">\(n\)</span> is a positive integer, <span class="math inline">\(\sum_{i=1}^{n+1} i =\left(  \sum_{i=1}^n i \right) + 1\)</span></p></li>
+<li><p>If <span class="math inline">\(n\)</span> is a positive integer, <span class="math inline">\(\sum_{i=1}^{n+1} i =\left(  \sum_{i=1}^n i \right) + n\)</span></p></li>
+<li><p>If <span class="math inline">\(n\)</span> is a positive integer, <span class="math inline">\(\sum_{i=1}^{n+1} i =\left(  \sum_{i=1}^n i \right)+ (n+1)\)</span></p></li>
+</ol></li>
+<li><p>The proof technique used here is:</p>
+<ol>
+<li><p>Structural induction</p></li>
+<li><p>Mathematical induction</p></li>
+<li><p>Strong induction</p></li>
+</ol></li>
+<li><p>Which of these is both true, and a useful next step in the proof?</p>
+<ol>
+<li><p>By the induction hypothesis, we know that <span class="math display">\[\left( \dfrac{(k + 1) \cdot ((k + 1) + 1)}{2}\right) = \left(\dfrac{k \cdot (k + 1)}{2}\right)\]</span></p></li>
+<li><p>By the induction hypothesis, we know that <span class="math display">\[\left( \dfrac{(k + 1) \cdot ((k + 1) + 1)}{2}\right) &gt; \left(\dfrac{k \cdot (k + 1)}{2}\right)\]</span></p></li>
+<li><p>By the induction hypothesis and the definition of the statement we’re proving, we know that <span class="math display">\[\left(\dfrac{k \cdot (k + 1)}{2}\right) + k\]</span> is the sum of the first <span class="math inline">\(k + 1\)</span> positive integers.</p></li>
+<li><p>By the induction hypothesis and the definition of the statement we’re proving, we know that <span class="math display">\[\left(\dfrac{k \cdot (k + 1)}{2}\right) + k + 1\]</span> is the sum of the first <span class="math inline">\(k + 1\)</span> positive integers.</p></li>
+<li><p>None of the above</p></li>
+</ol></li>
+</ol></li>
+<li><p>Recall that an integer <span class="math inline">\(p\)</span> greater than <span class="math inline">\(1\)</span> is called <span><strong>prime</strong></span> if the only positive factors of <span class="math inline">\(p\)</span> are <span class="math inline">\(1\)</span> and <span class="math inline">\(p\)</span>. Fill in the following blanks in the proof of the <span><strong>Theorem</strong></span> (Rosen p336): Every positive integer <span><em>greater than 1</em></span> is a product of (one or more) primes.</p>
+<p><span><strong>Proof</strong></span>: We proceed by <u>   BLANK for part (a)   </u>.</p>
+<ul>
+<li><p>Basis step: We want to show that the property is about <span class="math inline">\(2\)</span>. Since <span class="math inline">\(2\)</span> is itself prime, it is already written as a product of (one) prime.</p></li>
+<li><p>Recursive step: Consider an arbitrary integer <span class="math inline">\(n \geq 2\)</span>. Assume, as the induction hypothesis, that <u>   BLANK for part (c)   </u>. We want to show that <span class="math inline">\(n+1\)</span> can be written as a product of primes. There are two cases to consider: <span class="math inline">\(n+1\)</span> is itself prime or it is composite. In the first case, we assume <span class="math inline">\(n+1\)</span> is prime and then immediately it is written as a product of (one) prime so we are done. In the second case, we assume that <span class="math inline">\(n+1\)</span> is composite so there are integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> where <span class="math inline">\(n+1 = xy\)</span> and each of them is between <span class="math inline">\(2\)</span> and <span class="math inline">\(n\)</span> (inclusive). Therefore, the induction hypothesis applies to each of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> so each of these factors of <span class="math inline">\(n+1\)</span> can be written as a product of primes. Multiplying these products together, we get a product of primes that gives <span class="math inline">\(n+1\)</span>, as required. Since both cases give the necessary conclusion, the proof by cases for the recursive step is complete.</p></li>
+</ul>
+<ol>
+<li><p>The proof technique used here is:</p>
+<ol>
+<li><p>Structural induction</p></li>
+<li><p>Mathematical induction</p></li>
+<li><p>Strong induction</p></li>
+</ol></li>
+<li><p>How many basis steps are used in this proof?</p></li>
+<li><p>What is the induction hypothesis?</p>
+<ol>
+<li><p>That <span class="math inline">\(n\)</span> can be written as a product of (one or more) primes.</p></li>
+<li><p>That each integer between <span class="math inline">\(0\)</span> and <span class="math inline">\(n\)</span> (inclusive) can be written as a product of (one or more) primes.</p></li>
+<li><p>That each integer between <span class="math inline">\(1\)</span> and <span class="math inline">\(n+1\)</span> (inclusive) can be written as a product of (one or more) primes.</p></li>
+<li><p>That each integer between <span class="math inline">\(2\)</span> and <span class="math inline">\(n\)</span> (inclusive) can be written as a product of (one or more) primes.</p></li>
+<li><p>That each integer between <span class="math inline">\(3\)</span> and <span class="math inline">\(n+1\)</span> (inclusive) can be written as a product of (one or more) primes.</p></li>
+</ol></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="wednesday-november-10">Wednesday November 10</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbb{N}\)</span></td>
+<td style="text-align: left;">The set of natural numbers</td>
+<td style="text-align: left;"><span class="math inline">\(\{ 0, 1, 2, 3, \ldots \}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbb{Z}^{\geq b}\)</span></td>
+<td style="text-align: left;">The set of integers greater than or equal a basis element <span class="math inline">\(b\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ b, b+1, b+2, b+3,  \ldots  \}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Definition</strong></span>: An integer <span class="math inline">\(p\)</span> greater than <span class="math inline">\(1\)</span> is called <span><strong>prime</strong></span> if the only positive factors of <span class="math inline">\(p\)</span> are <span class="math inline">\(1\)</span> and <span class="math inline">\(p\)</span>. A positive integer that is greater than <span class="math inline">\(1\)</span> and is not prime is called composite.</p>
+<p><span><strong>Theorem</strong></span>: Every positive integer <span><em>greater than 1</em></span> is a product of (one or more) primes.</p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span class="math inline">\(b=2\)</span> and <span class="math inline">\(j=0\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(2\)</span>.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary integer <span class="math inline">\(n \geq 2\)</span>. Assume (as the IH) that the property is true about each of <span class="math inline">\(2, \ldots, n\)</span>. WTS that the property is true about <span class="math inline">\(n+1\)</span>.</p>
+<p><span><strong>Case 1</strong></span>:</p>
+<p><span><strong>Case 2</strong></span>:</p>
+<h2 class="unnumbered" id="review-1">Review</h2>
+<ol>
+<li><p>Recall that an integer <span class="math inline">\(p\)</span> greater than <span class="math inline">\(1\)</span> is called <span><strong>prime</strong></span> if the only positive factors of <span class="math inline">\(p\)</span> are <span class="math inline">\(1\)</span> and <span class="math inline">\(p\)</span>. Fill in the following blanks in the proof of the <span><strong>Theorem</strong></span> (Rosen p336): Every positive integer <span><em>greater than 1</em></span> is a product of (one or more) primes.</p>
+<p><span><strong>Proof</strong></span>: We proceed by <u>   BLANK for part (a)   </u>.</p>
+<ul>
+<li><p>Basis step: We want to show that the property is about <span class="math inline">\(2\)</span>. Since <span class="math inline">\(2\)</span> is itself prime, it is already written as a product of (one) prime.</p></li>
+<li><p>Recursive step: Consider an arbitrary integer <span class="math inline">\(n \geq 2\)</span>. Assume, as the induction hypothesis, that <u>   BLANK for part (c)   </u>. We want to show that <span class="math inline">\(n+1\)</span> can be written as a product of primes. There are two cases to consider: <span class="math inline">\(n+1\)</span> is itself prime or it is composite. In the first case, we assume <span class="math inline">\(n+1\)</span> is prime and then immediately it is written as a product of (one) prime so we are done. In the second case, we assume that <span class="math inline">\(n+1\)</span> is composite so there are integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> where <span class="math inline">\(n+1 = xy\)</span> and each of them is between <span class="math inline">\(2\)</span> and <span class="math inline">\(n\)</span> (inclusive). Therefore, the induction hypothesis applies to each of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> so each of these factors of <span class="math inline">\(n+1\)</span> can be written as a product of primes. Multiplying these products together, we get a product of primes that gives <span class="math inline">\(n+1\)</span>, as required. Since both cases give the necessary conclusion, the proof by cases for the recursive step is complete.</p></li>
+</ul>
+<ol>
+<li><p>The proof technique used here is:</p>
+<ol>
+<li><p>Structural induction</p></li>
+<li><p>Mathematical induction</p></li>
+<li><p>Strong induction</p></li>
+</ol></li>
+<li><p>How many basis steps are used in this proof?</p></li>
+<li><p>What is the induction hypothesis?</p>
+<ol>
+<li><p>That <span class="math inline">\(n\)</span> can be written as a product of (one or more) primes.</p></li>
+<li><p>That each integer between <span class="math inline">\(0\)</span> and <span class="math inline">\(n\)</span> (inclusive) can be written as a product of (one or more) primes.</p></li>
+<li><p>That each integer between <span class="math inline">\(1\)</span> and <span class="math inline">\(n+1\)</span> (inclusive) can be written as a product of (one or more) primes.</p></li>
+<li><p>That each integer between <span class="math inline">\(2\)</span> and <span class="math inline">\(n\)</span> (inclusive) can be written as a product of (one or more) primes.</p></li>
+<li><p>That each integer between <span class="math inline">\(3\)</span> and <span class="math inline">\(n+1\)</span> (inclusive) can be written as a product of (one or more) primes.</p></li>
+</ol></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="friday-november-12">Friday November 12</h1>
+<p><span><strong>Definition</strong></span>: An integer <span class="math inline">\(p\)</span> greater than <span class="math inline">\(1\)</span> is called <span><strong>prime</strong></span> if the only positive factors of <span class="math inline">\(p\)</span> are <span class="math inline">\(1\)</span> and <span class="math inline">\(p\)</span>. A positive integer that is greater than <span class="math inline">\(1\)</span> and is not prime is called composite.</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: There is a least prime number.</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: There is a greatest integer.</p>
+<p><span><em>Approach 1, De Morgan’s and universal generalization</em></span>:</p>
+<p><span><em>Approach 2, proof by contradiction</em></span>:</p>
+<p><span><em>Extra examples</em></span>: Prove or disprove that <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span> each have a least and a greatest element. Prove that there is no greatest prime number.</p>
+<p>The <span><strong>set of rational numbers</strong></span>, <span class="math inline">\(\mathbb{Q}\)</span> is defined as <span class="math display">\[\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
+\text{~~~~or, equivalently,~~~~}
+\{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in \mathbb{Z}^+ ( p =  x \cdot q) \}\]</span></p>
+<p><span><em>Extra practice</em></span>: Use the definition of set equality to prove that the definitions above give the same set.</p>
+<p><span><strong>Goal</strong></span>: The square root of <span class="math inline">\(2\)</span> is not a rational number. In other words: <span class="math inline">\(\neg \exists x \in \mathbb{Q} ( x^2 -  2 = 0)\)</span></p>
+<p><span><strong>Attempted proof</strong></span>: The definition of the set of rational numbers is the collection of fractions <span class="math inline">\(p/q\)</span> where <span class="math inline">\(p\)</span> is an integer and <span class="math inline">\(q\)</span> is a nonzero integer. Looking for a <span><strong>witness</strong></span> <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>, we can write the square root of <span class="math inline">\(2\)</span> as the fraction <span class="math inline">\(\sqrt{2 }/1\)</span>, where <span class="math inline">\(1\)</span> is a nonzero integer. Since the numerator is not in the domain, this witness is not allowed, and we have shown that the square root of <span class="math inline">\(2\)</span> is not a fraction of integers (with nonzero denominator). Thus, the square root of <span class="math inline">\(2\)</span> is not rational.</p>
+<p><span><em>The problem in the above attempted proof is that</em></span> <u></u></p>
+<p><span><strong>Proof</strong></span>:</p>
+<p><span><strong>Lemma 1:</strong></span> For every two integers <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>, not both zero, <span class="math inline">\(gcd\left( \frac{p}{gcd(p,q) },  \frac{q}{gcd(p,q)} \right) =  1\)</span>.</p>
+<p><span><strong>Lemma 2:</strong></span> For every two integers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, not both zero, with <span class="math inline">\(gcd(a,b) = 1\)</span>, it is not the case that both <span class="math inline">\(a\)</span> is even and <span class="math inline">\(b\)</span> is even.</p>
+<p><span><strong>Lemma 3:</strong></span> For every integer <span class="math inline">\(x\)</span>, <span class="math inline">\(x\)</span> is even if and only if <span class="math inline">\(x^2\)</span> is even.</p>
+<h2 class="unnumbered" id="review-2">Review</h2>
+</body>
+</html>

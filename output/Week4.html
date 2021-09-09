@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week4</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="monday-january-25">Monday January 25</h1>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Logical equivalence</strong> </span></td>
+<td style="text-align: left;">Two compound propositions are <span><strong>logically equivalent</strong></span> means that they have the same truth values for all settings of truth values to their propositional variables.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Tautology</strong></span></td>
+<td style="text-align: left;">A compound proposition that evaluates to true for all settings of truth values to its propositional variables; it is abbreviated <span class="math inline">\(T\)</span>.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Contradiction</strong></span></td>
+<td style="text-align: left;">A compound proposition that evaluates to false for all settings of truth values to its propositional variables; it is abbreviated <span class="math inline">\(F\)</span>.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Contingency</strong></span></td>
+<td style="text-align: left;">A compound proposition that is neither a tautology nor a contradiction.</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><span><em>Can replace <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> with any compound proposition</em></span></p>
+<p><span><strong>Definition</strong></span>: A collection of compound propositions is called <span><strong>consistent</strong></span> if there is an assignment of truth values to the propositional variables that makes each of the compound propositions true.</p>
+<p><span><strong>Consistency</strong></span>:</p>
+<blockquote>
+<p>Whenever the system software is being upgraded, users cannot access the file system. If users can access the file system, then they can save new files. If users cannot save new files, then the system software is not being upgraded.</p>
+</blockquote>
+<ol>
+<li><p>Translate to symbolic compound propositions</p></li>
+<li><p>Look for some truth assignment to the propositional variables for which all the compound propositions output <span class="math inline">\(T\)</span></p></li>
+</ol>
+<p>Consider the following algorithm to introduce redundancy in a string of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s.</p>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{redun3}\)</span>(<span class="math inline">\(a_{k-1} \cdots a_0\)</span>: a binary string) for <span class="math inline">\(i\)</span> := <span class="math inline">\(0\)</span> to <span class="math inline">\(k-1\)</span> <span class="math inline">\(c_{3i}\)</span> := <span class="math inline">\(a_i\)</span> <span class="math inline">\(c_{3i+1}\)</span> := <span class="math inline">\(a_i\)</span> <span class="math inline">\(c_{3i+2}\)</span> := <span class="math inline">\(a_i\)</span> return <span class="math inline">\(c_{3k-1} \cdots c_0\)</span></p>
+</div>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{decode3}\)</span>(<span class="math inline">\(c_{3k-1} \cdots c_0\)</span>: a binary string whose length is an integer multiple of <span class="math inline">\(3\)</span>) for <span class="math inline">\(i\)</span> := <span class="math inline">\(0\)</span> to <span class="math inline">\(k-1\)</span> if exactly two or three of <span class="math inline">\(c_{3i}, c_{3i+1}, c_{3i+2}\)</span> are set to <span class="math inline">\(1\)</span> <span class="math inline">\(a_i\)</span> := 1 else <span class="math inline">\(a_i\)</span> := 0 return <span class="math inline">\(a_{k-1} \cdots a_0\)</span></p>
+</div>
+<p>Give a recursive definition of the set of outputs of the <span class="math inline">\(redun3\)</span> procedure, <span class="math inline">\(Out\)</span>,</p>
+<ul>
+<li><p><span><strong>Basis step</strong></span>: <u> </u></p></li>
+<li><p><span><strong>Recursive step</strong></span>: <u> </u></p></li>
+</ul>
+<p>Consider the message <span class="math inline">\(m = 0001\)</span> so that the sender calculates <span class="math inline">\(redun3(m) = redun3(0001) = 000000000111\)</span>.</p>
+<p>Introduce <span class="math inline">\(\underline{\phantom{~~4~~}}\)</span> errors into the message so that the signal received by the receiver is <span class="math inline">\(\underline{\phantom{010100010101}}\)</span> but the receiver is still able to decode the original message.</p>
+<p><span><em>Challenge: what is the biggest number of errors you can introduce?</em></span></p>
+<p>Building a circuit for line 3 in <span class="math inline">\(decode\)</span> procedure: given three input bits, we need to determine whether the majority is a <span class="math inline">\(0\)</span> or a <span class="math inline">\(1\)</span>.</p>
+<div class="center">
+<div class="multicols">
+<p><span>2</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(c_{3i}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(c_{3i+1}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(c_{3i+2}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(a_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{1}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{0}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Circuit</p>
+</div>
+</div>
+<h2 class="unnumbered" id="review">Review</h2>
+<ol>
+<li><p>Real-life representations are often prone to corruptions. Biological codes, like RNA, may mutate naturally<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and during measurement; cosmic radiation and other ambient noise can flip bits in computer storage<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. One way to recover from corrupted data is to exploit redundancy. Consider the following algorithm to introduce redundancy in a string of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s.</p>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{redun3}\)</span>(<span class="math inline">\(a_{k-1} \cdots a_0\)</span>: a binary string) for <span class="math inline">\(i\)</span> := <span class="math inline">\(0\)</span> to <span class="math inline">\(k-1\)</span> <span class="math inline">\(c_{3i}\)</span> := <span class="math inline">\(a_i\)</span> <span class="math inline">\(c_{3i+1}\)</span> := <span class="math inline">\(a_i\)</span> <span class="math inline">\(c_{3i+2}\)</span> := <span class="math inline">\(a_i\)</span> return <span class="math inline">\(c_{3k-1} \cdots c_0\)</span></p>
+</div>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{decode3}\)</span>(<span class="math inline">\(c_{3k-1} \cdots c_0\)</span>: a binary string whose length is an integer multiple of <span class="math inline">\(3\)</span>) for <span class="math inline">\(i\)</span> := <span class="math inline">\(0\)</span> to <span class="math inline">\(k-1\)</span> if exactly two or three of <span class="math inline">\(c_{3i}, c_{3i+1}, c_{3i+2}\)</span> are set to <span class="math inline">\(1\)</span> <span class="math inline">\(a_i\)</span> := 1 else <span class="math inline">\(a_i\)</span> := 0 return <span class="math inline">\(a_{k-1} \cdots a_0\)</span></p>
+</div>
+<p>For each of the following, type in your answers precisely including all notational punctuation.</p>
+<ol>
+<li><p>Give the output of <span class="math inline">\(redun3(100)\)</span>.</p></li>
+<li><p>If the output of running <span class="math inline">\(redun3\)</span> is <span class="math inline">\(000000111000111\)</span>, what was its input?</p></li>
+<li><p>Give the output of <span class="math inline">\(decode3(100)\)</span>.</p></li>
+<li><p>How many distinct possible inputs to <span class="math inline">\(decode3\)</span> give the output <span class="math inline">\(01\)</span>?</p></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="wednesday-january-27">Wednesday January 27</h1>
+<p><span><strong>Definition</strong></span>: A <span><strong>predicate</strong></span> is a function from a given set (domain) to <span class="math inline">\(\{T,F\}\)</span>.</p>
+<p>A predicate can be applied, or <span><strong>evaluated</strong></span> at, an element of the domain.</p>
+<p>Two predicates over the same domain are <span><strong>equivalent</strong></span> means they evaluate to the same truth values for all possible assignments of domain elements to the input.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Input</td>
+<td style="text-align: center;" colspan="3">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(P(x)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(N(x)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Mystery(x)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(x\)</span></td>
+<td style="text-align: center;"><span class="math inline">\([x]_{2c,3} &gt; 0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\([x]_{2c,3} &lt; 0\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(000\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(001\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(010\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(011\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(101\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(110\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(111\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The domain for each of the predicates <span class="math inline">\(P(x)\)</span>, <span class="math inline">\(N(x)\)</span>, <span class="math inline">\(Mystery(x)\)</span> is <u></u>.</p>
+<p><span><strong>Definition</strong></span>: The <span><strong>truth set</strong></span> of a predicate is the collection of all elements in its domain where the predicate evaluates to <span class="math inline">\(T\)</span>.</p>
+<p>The truth set for the predicate <span class="math inline">\(P(x)\)</span> is <span class="math inline">\(\underline{\phantom{\{ x ~\mid~ P(x) = T\} = \{ 001, 010, 011 \}}}\)</span>.</p>
+<p>The truth set for the predicate <span class="math inline">\(N(x)\)</span> is <span class="math inline">\(\underline{\phantom{\{ x ~\mid~ N(x) = T\} = \{ 101, 111 \}}}\)</span>.</p>
+<p>The truth set for the predicate <span class="math inline">\(Mystery(x)\)</span> is <span class="math inline">\(\underline{\phantom{\{ x ~\mid~ Mystery(x) = T\} = \{ 000, 001, 010, 101, 111 \}}}\)</span>.</p>
+<p><span><strong>Definitions</strong></span> (Rosen 40-45):</p>
+<p>The <span><strong>universal quantification</strong></span> of <span class="math inline">\(P(x)\)</span> is the statement “<span class="math inline">\(P(x)\)</span> for all values of <span class="math inline">\(x\)</span> in the domain” and is written <span class="math inline">\(\forall x P(x)\)</span>. An element for which <span class="math inline">\(P(x) = F\)</span> is called a <span><strong>counterexample</strong></span> of <span class="math inline">\(\forall x P(x)\)</span>.</p>
+<p>The <span><strong>existential quantification</strong></span> of <span class="math inline">\(P(x)\)</span> is the statement “There exists an element <span class="math inline">\(x\)</span> in the domain such that <span class="math inline">\(P(x)\)</span>” and is written <span class="math inline">\(\exists x P(x)\)</span>. An element for which <span class="math inline">\(P(x) = T\)</span> is called a <span><strong>witness</strong></span> of <span class="math inline">\(\exists x P(x)\)</span>.</p>
+<p><span><strong>Example</strong></span>: <u></u> is a true existential quantification.</p>
+<p>Statements involving predicates and quantifiers are <span><strong>logically equivalent</strong></span> means they have the same truth value no matter which predicates (domains and functions) are substituted in.</p>
+<p><span><strong>Quantifier version of De Morgan’s laws</strong></span>: <span class="math inline">\(\boxed{\neg \forall x P(x) ~\equiv~ \exists x \left( \neg P(x) \right)}\)</span> <span class="math inline">\(\boxed{\neg \exists x Q(x) ~\equiv~ \forall x \left( \neg Q(x) \right)}\)</span></p>
+<p><span><strong>Example</strong></span>: <u></u> is a false universal quantification. It is logically equivalent to <u></u></p>
+<p>Recall: Each RNA strand is a string whose symbols are elements of the set <span class="math inline">\(B  = \{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}\)</span>. The <span><strong>set of all RNA strands</strong></span> is called <span class="math inline">\(S\)</span>. The function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
+\end{array}\]</span></p>
+<p><span><strong>Example predicates on <span class="math inline">\(S\)</span></strong></span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(H(s) = T\)</span></td>
+<td style="text-align: left;">Truth set of <span class="math inline">\(H\)</span> is <u></u></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(L_3(s) = \begin{cases}
+T &amp;\qquad\text{if $rnalen(s) = 3$} \\
+F &amp; \qquad\text{otherwise}
+\end{cases}\)</span></td>
+<td style="text-align: left;"><p>Strand where <span class="math inline">\(L_3\)</span> evaluates to <span class="math inline">\(T\)</span> is e.g.<u></u></p>
+<p>Strand where <span class="math inline">\(L_3\)</span> evaluates to <span class="math inline">\(F\)</span> is e.g. <u></u></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><p><span class="math inline">\(F_{\texttt{A}}\)</span> is defined recursively by:</p>
+<p>  Basis step: <span class="math inline">\(F_{\texttt{A}}(\texttt{A}) = T\)</span>, <span class="math inline">\(F_{\texttt{A}}(\texttt{C}) = F_{\texttt{A}}(\texttt{G}) = F_{\texttt{A}}(\texttt{U}) = F\)</span></p>
+<p>  Recursive step: If <span class="math inline">\(s \in S\)</span> and <span class="math inline">\(b \in B\)</span>, then <span class="math inline">\(F_{\texttt{A}}(sb) = F_{\texttt{A}}(s)\)</span></p></td>
+<td style="text-align: left;"><p>Strand where <span class="math inline">\(F_{\texttt{A}}\)</span> evaluates to <span class="math inline">\(T\)</span> is e.g.<u></u></p>
+<p>Strand where <span class="math inline">\(F_{\texttt{A}}\)</span> evaluates to <span class="math inline">\(F\)</span> is e.g. <u></u></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P_{\texttt{A}\texttt{U}\texttt{C}}\)</span> is defined as the predicate whose truth set is the collection of RNA strands where the string <span class="math inline">\(\texttt{A}\texttt{U}\texttt{C}\)</span> is a substring (appears inside <span class="math inline">\(s\)</span>, in order and consecutively)</td>
+<td style="text-align: left;"><p>Strand where <span class="math inline">\(P_{\texttt{A}\texttt{U}\texttt{C}}\)</span> evaluates to <span class="math inline">\(T\)</span> is e.g.<u></u></p>
+<p>Strand where <span class="math inline">\(P_{\texttt{A}\texttt{U}\texttt{C}}\)</span> evaluates to <span class="math inline">\(F\)</span> is e.g. <u></u></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class="unnumbered" id="review-1">Review</h2>
+<ol>
+<li><p>Consider the following predicates, each of which has as its domain the set of all bitstrings whose leftmost bit is <span class="math inline">\(1\)</span></p>
+<p><span class="math inline">\(E(x)\)</span> is <span class="math inline">\(T\)</span> exactly when <span class="math inline">\((x)_{2}\)</span> is even, and is <span class="math inline">\(F\)</span> otherwise</p>
+<p><span class="math inline">\(L(x)\)</span> is <span class="math inline">\(T\)</span> exactly when <span class="math inline">\((x)_2 &lt; 3\)</span>, and is <span class="math inline">\(F\)</span> otherwise</p>
+<p><span class="math inline">\(M(x)\)</span> is <span class="math inline">\(T\)</span> exactly when <span class="math inline">\((x)_2 &gt; 256\)</span> and is <span class="math inline">\(F\)</span> otherwise.</p>
+<ol>
+<li><p>What is <span class="math inline">\(E(110)\)</span>?</p></li>
+<li><p>Why is <span class="math inline">\(L( 00)\)</span> undefined?</p>
+<ol>
+<li><p>Because the domain of <span class="math inline">\(L\)</span> is infinite</p></li>
+<li><p>Because <span class="math inline">\(00\)</span> does not have <span class="math inline">\(1\)</span> in the leftmost position</p></li>
+<li><p>Because <span class="math inline">\(00\)</span> has length 2, not length 3</p></li>
+<li><p>Because <span class="math inline">\((00)_{2,3} = 0\)</span> which is less than <span class="math inline">\(3\)</span></p></li>
+</ol></li>
+<li><p>Is there a bitstring of width (where width is the number of bits) <span class="math inline">\(6\)</span> at which <span class="math inline">\(M(x)\)</span> evaluates to <span class="math inline">\(T\)</span>?</p></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="friday-january-29">Friday January 29</h1>
+<p><span><strong>Definition</strong></span> (Rosen p123): The <span><strong>Cartesian product</strong></span> of the sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(A \times B\)</span>, is the set of all ordered pairs <span class="math inline">\((a, b)\)</span>, where <span class="math inline">\(a \in A\)</span> and <span class="math inline">\(b \in B\)</span>. That is: <span class="math inline">\(A \times B = \{(a, b) \mid (a \in A) \land (b \in B)\}.\)</span> The Cartesian product of the sets <span class="math inline">\(A_1, A_2, \ldots ,A_n\)</span>, denoted by <span class="math inline">\(A_1 \times A_2 \times \cdots \times A_n\)</span>, is the set of ordered n-tuples <span class="math inline">\((a_1, a_2,...,a_n)\)</span>, where <span class="math inline">\(a_i\)</span> belongs to <span class="math inline">\(A_i\)</span> for <span class="math inline">\(i = 1, 2,\ldots,n\)</span>. That is, <span class="math inline">\(A_1 \times A_2 \times \cdots \times A_n = \{(a_1, a_2,\ldots,a_n) \mid a_i \in A_i \textrm{ for } i = 1, 2,\ldots,n\}\)</span></p>
+<p>Recall: Each RNA strand is a string whose symbols are elements of the set <span class="math inline">\(B  = \{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}\)</span>. The <span><strong>set of all RNA strands</strong></span> is called <span class="math inline">\(S\)</span>. The function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
+\end{array}\]</span></p>
+<p>A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(b_1, b_2) &amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(s b_1, b_2) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}\]</span></p>
+<div class="tabular">
+<p><span>p<span>3.5in</span>p<span>0.1in</span>p<span>3.5in</span></span> <span class="math inline">\(L\)</span> with domain <span class="math inline">\(S \times \mathbb{Z}^+\)</span> is defined by, for <span class="math inline">\(s \in S\)</span> and <span class="math inline">\(n \in \mathbb{Z}^+\)</span>, <span class="math display">\[L( s, n) = \begin{cases}
+T &amp;\qquad\text{if $rnalen(s) = n$}\\
+F &amp;\qquad\text{otherwise}\\
+\end{cases}\]</span> &amp;&amp; <span class="math inline">\(BC\)</span> with domain <span class="math inline">\(\underline{\phantom{S \times B \times \mathbb{N}}}\)</span> is defined by, for <span class="math inline">\(s \in S\)</span> and <span class="math inline">\(b \in B\)</span> and <span class="math inline">\(n \in \mathbb{N}\)</span>, <span class="math display">\[BC( s, b, n) = \begin{cases}
+T &amp;\qquad\text{if $basecount(s,b) = n$}\\
+F &amp;\qquad\text{otherwise}\\
+\end{cases}\]</span><br />
+Element where <span class="math inline">\(L\)</span> evaluates to <span class="math inline">\(T\)</span>: <span class="math inline">\(\underline{\phantom{(\texttt{A}, 1)\hspace{0.2in}}}\)</span> &amp; &amp; Element where <span class="math inline">\(BC\)</span> evaluates to <span class="math inline">\(T\)</span>: <span class="math inline">\(\underline{\phantom{(\texttt{A}, \texttt{A}1)\hspace{0.2in}}}\)</span><br />
+&amp; &amp;<br />
+&amp; &amp;<br />
+Element where <span class="math inline">\(L\)</span> evaluates to <span class="math inline">\(F\)</span>: <span class="math inline">\(\underline{\phantom{(\texttt{A}, 2)\hspace{0.2in}}}\)</span> &amp; &amp; Element where <span class="math inline">\(BC\)</span> evaluates to <span class="math inline">\(F\)</span>: <span class="math inline">\(\underline{\phantom{(\texttt{A}, \texttt{C}, 1)\hspace{0.2in}}}\)</span><br />
+&amp; &amp;<br />
+&amp; &amp;<br />
+</p>
+</div>
+<p><span><strong>Notation</strong></span>: for a predicate <span class="math inline">\(P\)</span> with domain <span class="math inline">\(X_1 \times \cdots \times X_n\)</span> and a <span class="math inline">\(n\)</span>-tuple <span class="math inline">\((x_1, \ldots, x_n)\)</span> with each <span class="math inline">\(x_i \in X\)</span>, we write <span class="math inline">\(P(x_1, \ldots, x_n)\)</span> to mean <span class="math inline">\(P( ~(x_1, \ldots, x_n)~)\)</span>.</p>
+<p><span class="math inline">\(\exists t ~BC(t)\)</span> In English: <u></u></p>
+<p>Witness that proves this existential quantification is true: <u></u></p>
+<p><span class="math inline">\(\forall (s,b,n) ~(~BC(s,b,n)~)\)</span> In English: <u></u></p>
+<p>Counterexample that proves this universal quantification is false: <u></u></p>
+<p><span><strong>New predicates from old</strong></span> <span class="math inline">\(BC(s,b,n)\)</span> means <span class="math inline">\(basecount(s,b) = n\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Predicate</strong></span></td>
+<td style="text-align: left;">Domain</td>
+<td style="text-align: left;">Example domain element</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">where predicate is <span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(basecount(s,b) = 3\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(basecount(s,\texttt{A}) = n\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\exists n \in \mathbb{N} ~(basecount(s,b) = n)\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\forall b \in B ~(basecount(s,b) = 1)\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Alternating quantifiers</strong></span> <span class="math display">\[\forall s \exists n ~BC(s,\texttt{A},n)\]</span></p>
+<p>In English: <u></u></p>
+<p><span class="math display">\[\exists n \forall s ~BC(s,\texttt{U},n)\]</span></p>
+<p>In English: <u></u></p>
+<p>Evaluate each quantified statement as <span class="math inline">\(T\)</span> or <span class="math inline">\(F\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\forall s ~\forall b ~\exists n~BC(s,b,n)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\forall s ~\forall n ~ \exists b~BC(s,b,n)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\forall b ~\forall n ~\exists s~BC(s,b,n)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\exists s ~\forall b ~\exists n~BC(s,b,n)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\forall s~ \exists n ~\forall b~BC(s,b,n)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists b ~\exists n ~\forall s~BC(s,b,n)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><em>Extra example</em></span>: Write the negation of each of the statements above, and use De Morgan’s law to find a logically equivalent version where the negation is applied only to the <span class="math inline">\(BC\)</span> predicate (not next to a quantifier).</p>
+<h2 class="unnumbered" id="review-2">Review</h2>
+<ol>
+<li><p>Recall that <span class="math inline">\(S\)</span> is defined as the set of all RNA strands, strings made of the bases in <span class="math inline">\(B = \{\texttt{A},\texttt{U},\texttt{G},\texttt{C}\}\)</span>. Define the functions <em>mutation</em>, <em>insertion</em>, and <em>deletion</em> as described by the pseudocode below:</p>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{mutation}\)</span>(<span class="math inline">\(b_1\cdots b_n\)</span>: <span class="math inline">\(\textrm{a RNA strand}\)</span>, <span class="math inline">\(k\)</span>: <span class="math inline">\(\textrm{a  positive integer}\)</span>, <span class="math inline">\(b\)</span>: <span class="math inline">\(\textrm{an  element of } B\)</span>) for <span class="math inline">\(i\)</span> := <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span> if <span class="math inline">\(i\)</span> = <span class="math inline">\(k\)</span> <span class="math inline">\(c_i\)</span> := <span class="math inline">\(b\)</span> else <span class="math inline">\(c_i\)</span> := <span class="math inline">\(b_i\)</span> return <span class="math inline">\(c_1\cdots c_n\)</span> <span class="math inline">\(\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}\)</span></p>
+</div>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{insertion}\)</span>(<span class="math inline">\(b_1\cdots b_n\)</span>: <span class="math inline">\(\textrm{a RNA strand}\)</span>, <span class="math inline">\(k\)</span>: <span class="math inline">\(\textrm{a  positive integer}\)</span>, <span class="math inline">\(b\)</span>: <span class="math inline">\(\textrm{an  element of } B\)</span>) if <span class="math inline">\(k &gt; n\)</span> for <span class="math inline">\(i\)</span> := <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span> <span class="math inline">\(c_i\)</span> := <span class="math inline">\(b_i\)</span> <span class="math inline">\(c_{n+1}\)</span> := <span class="math inline">\(b\)</span> else for <span class="math inline">\(i\)</span> := <span class="math inline">\(1\)</span> to <span class="math inline">\(k-1\)</span> <span class="math inline">\(c_i\)</span> := <span class="math inline">\(b_i\)</span> <span class="math inline">\(c_k\)</span> := <span class="math inline">\(b\)</span> for <span class="math inline">\(i\)</span> := <span class="math inline">\(k+1\)</span> to <span class="math inline">\(n+1\)</span> <span class="math inline">\(c_i\)</span> := <span class="math inline">\(b_{i-1}\)</span> return <span class="math inline">\(c_1\cdots c_{n+1}\)</span> <span class="math inline">\(\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}\)</span></p>
+</div>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{deletion}\)</span>(<span class="math inline">\(b_1\cdots b_n\)</span>: <span class="math inline">\(\textrm{a RNA strand}\)</span>, <span class="math inline">\(k\)</span>: <span class="math inline">\(\textrm{a  positive integer}\)</span>) if <span class="math inline">\(k &gt; n\)</span> <span class="math inline">\(m\)</span> := <span class="math inline">\(n\)</span> for <span class="math inline">\(i\)</span> := <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span> <span class="math inline">\(c_i\)</span> := <span class="math inline">\(b_i\)</span> else <span class="math inline">\(m\)</span> := <span class="math inline">\(n-1\)</span> for <span class="math inline">\(i\)</span> := <span class="math inline">\(1\)</span> to <span class="math inline">\(k-1\)</span> <span class="math inline">\(c_i\)</span> := <span class="math inline">\(b_i\)</span> for <span class="math inline">\(i\)</span> := <span class="math inline">\(k\)</span> to <span class="math inline">\(n-1\)</span> <span class="math inline">\(c_i\)</span> := <span class="math inline">\(b_{i+1}\)</span> return <span class="math inline">\(c_1\cdots c_m\)</span> <span class="math inline">\(\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}\)</span></p>
+</div>
+<p>For this question, we will use the following predicates.</p>
+<p><span class="math inline">\(F_{\texttt{A}}\)</span> with domain <span class="math inline">\(S\)</span> is defined recursively by:</p>
+<ul>
+<li><p>Basis step: <span class="math inline">\(F_{\texttt{A}}(\texttt{A}) = T\)</span>, <span class="math inline">\(F_{\texttt{A}}(\texttt{C}) = F_{\texttt{A}}(\texttt{G}) = F_{\texttt{A}}(\texttt{U}) = F\)</span></p></li>
+<li><p>Recursive step: If <span class="math inline">\(s \in S\)</span> and <span class="math inline">\(b \in B\)</span>, then <span class="math inline">\(F_{\texttt{A}}(sb) = F_{\texttt{A}}(s)\)</span></p></li>
+</ul>
+<p><span class="math inline">\(P_{\texttt{A}\texttt{U}\texttt{C}}\)</span> with domain <span class="math inline">\(S\)</span> is defined as the predicate whose truth set is the collection of RNA strands where the string <span class="math inline">\(\texttt{A}\texttt{U}\texttt{C}\)</span> is a substring (appears inside <span class="math inline">\(s\)</span>, in order and consecutively)</p>
+<p><span class="math inline">\(L\)</span> with domain <span class="math inline">\(S \times \mathbb{Z}^+\)</span> is defined by, for <span class="math inline">\(s \in S\)</span> and <span class="math inline">\(n \in \mathbb{Z}^+\)</span>, <span class="math display">\[L( s, n) = \begin{cases}
+T &amp;\qquad\text{if $rnalen(s) = n$}\\
+F &amp;\qquad\text{otherwise}\\
+\end{cases}\]</span></p>
+<p><span class="math inline">\(Mut\)</span> with domain <span class="math inline">\(S \times S\)</span> is defined by, for <span class="math inline">\(s_1 \in S\)</span> and <span class="math inline">\(s_2 \in S\)</span>, <span class="math display">\[Mut(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ mutation(s_1, k, b) = s_2~)\]</span> <span class="math inline">\(Ins\)</span> with domain <span class="math inline">\(S \times S\)</span> is defined by, for <span class="math inline">\(s_1 \in S\)</span> and <span class="math inline">\(s_2 \in S\)</span>, <span class="math display">\[Ins(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ insertion(s_1, k, b) = s_2~)\]</span> <span class="math inline">\(Del\)</span> with domain <span class="math inline">\(S \times S\)</span> is defined by, for <span class="math inline">\(s_1 \in S\)</span> and <span class="math inline">\(s_2 \in S\)</span>, <span class="math display">\[Del(s_1,s_2) = \exists k\in \mathbb{Z^+} (~ deletion(s_1, k) = s_2~)\]</span></p>
+<ol>
+<li><p>Which of the following is true? (Select all and only that apply.)</p>
+<ol>
+<li><p><span class="math inline">\(F_\texttt{A}( \texttt{A}\texttt{A})\)</span></p></li>
+<li><p><span class="math inline">\(F_\texttt{A}( \texttt{A}\texttt{C})\)</span></p></li>
+<li><p><span class="math inline">\(F_\texttt{A}( \texttt{A}\texttt{G})\)</span></p></li>
+<li><p><span class="math inline">\(F_\texttt{A}( \texttt{A}\texttt{U})\)</span></p></li>
+<li><p><span class="math inline">\(F_\texttt{A}( \texttt{C}\texttt{A})\)</span></p></li>
+<li><p><span class="math inline">\(F_\texttt{A}( \texttt{C}\texttt{C})\)</span></p></li>
+<li><p><span class="math inline">\(F_\texttt{A}( \texttt{C}\texttt{G})\)</span></p></li>
+<li><p><span class="math inline">\(F_\texttt{A}( \texttt{C}\texttt{U})\)</span></p></li>
+</ol></li>
+<li><p>Which of the following is true? (Select all and only that apply.)</p>
+<ol>
+<li><p><span class="math inline">\(\exists s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))\)</span></p></li>
+<li><p><span class="math inline">\(\exists s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))\)</span></p></li>
+<li><p><span class="math inline">\(\forall n \in \mathbb{Z}^+~\exists s \in S ~(L(s,n))\)</span></p></li>
+<li><p><span class="math inline">\(\forall s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))\)</span></p></li>
+<li><p><span class="math inline">\(\exists n \in \mathbb{Z}^+ ~\forall s \in S ~(L(s,n))\)</span></p></li>
+<li><p><span class="math inline">\(\forall s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))\)</span></p></li>
+</ol></li>
+<li><p>Which of the following is true? (Select all and only that apply.)</p>
+<ol>
+<li><p><span class="math inline">\(\exists s \in S ~Mut(s,s)\)</span></p></li>
+<li><p><span class="math inline">\(\forall s \in S ~Mut(s,s)\)</span></p></li>
+<li><p><span class="math inline">\(\exists s \in S ~Ins(s,\texttt{A})\)</span></p></li>
+<li><p><span class="math inline">\(\exists s \in S ~Ins(\texttt{A},s)\)</span></p></li>
+<li><p><span class="math inline">\(\exists s \in S ~Del(s,\texttt{A})\)</span></p></li>
+<li><p><span class="math inline">\(\forall s \in S ~Del(s,\texttt{A})\)</span></p></li>
+</ol></li>
+</ol></li>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Mutations of specific RNA codons have been linked to many disorders and cancers.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>This RadioLab podcast episode goes into more detail on bit flips: <a href="https://www.wnycstudios.org/story/bit-flip">https://www.wnycstudios.org/story/bit-flip</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
