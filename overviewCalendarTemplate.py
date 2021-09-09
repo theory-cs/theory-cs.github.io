@@ -7,6 +7,8 @@ fileJson = open('unitTemplate.json',)
 # returns JSON object as a dictionary
 data = json.load(fileJson)
 
+
+# Generate sidebar buttons
 sidebarButtons = ""
 for i in range(0,len(data)):
     sidebarButtons += "<li>"
@@ -17,15 +19,17 @@ for i in range(0,len(data)):
     sidebarButtons += """<span class="tooltip"> """ + data[i]['header'] + """</span>"""
     sidebarButtons += "</li>"
 
+
+# Generate mobile sidebar buttons
 mobileSidebar = ""
 for i in range(0,len(data)):
    mobileSidebar += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + data[i]['header'] + """</a>"""
 
-#open unitTemplate html file and read it into a string 
+# Open unitTemplate html file and read it into a string 
 unitTemplate = open("overviewCalendarTemplate.html", "r")
 templateString = Template(unitTemplate.read())
 
-#substitute settings data with appropriate variables 
+# Substitute settings data with appropriate variables 
 result = templateString.safe_substitute(   
     sidebar = sidebarButtons,
     mobile = mobileSidebar
@@ -36,6 +40,6 @@ resultFile = open("generated/website/overview.html", "w")
 resultFile.write(result)
 resultFile.close()
 
-# Closing files
+# Close files
 fileJson.close()
 unitTemplate.close()
