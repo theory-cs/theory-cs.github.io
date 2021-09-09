@@ -1,3 +1,10 @@
+# This program creates dictionary that matches
+# topics to weeks in which they are discussed and then
+# produces .tex files for each topic
+# with snippets ordered chronologically by weeks
+#
+# Input: outcomes.json specifies all topics
+
 from string import Template
 import os
 import linecache
@@ -16,7 +23,7 @@ for (k, v) in outcomes.items():
 #TODO : remove todooutcome as a key (should be here until all todooutcomes are removed though)
 low_levels.append("todooutcome")
 
-# For debugging: shows outcomes as filenames
+#debug: shows outcomes as filenames
 #for outcome in low_levels: print(outcome)
 
 # Create a dictionary
@@ -38,6 +45,8 @@ for filename in os.listdir(weeklyDirectory):
     #get week number/order from weekly notes file- this will be the number right before .tex(length-4)
     #convention: #.tex -> must be at the end of every lessons/ file
     weekNumber = filename[len(filename)-5]
+    
+    #debug
     #print(filename+" "+weekNumber)
     
 
@@ -47,11 +56,15 @@ for filename in os.listdir(weeklyDirectory):
         if (line.startswith("\input{../")) and not ("lesson-head.tex" in line):
 
             snippetsFile= line.replace("\input{../activity-snippets/", "").replace("}","").replace("\n", "")
+            
+            #debug
             #print(snippetsFile)
 
             # Get the second line of each file and clean the string
             snippetsDirectory= "notes/activity-snippets/"
             particularLine = linecache.getline(snippetsDirectory+snippetsFile, 2).replace("%! outcome:", "").replace("\n", "").strip()
+            
+            #debug
             #print(particularLine)
     
 
@@ -60,6 +73,8 @@ for filename in os.listdir(weeklyDirectory):
             for element in li:
                 # lowercase them and replace whitespace with dashes (to make them uniform)
                 test = element.replace(" ", "-").lower()
+                
+                #debug
                 #print(test)
 
                 #if application in snippet is empty or is none, do not add it to dictionary
@@ -67,7 +82,10 @@ for filename in os.listdir(weeklyDirectory):
                     continue
 
                 snippetWeek = [snippetsFile, weekNumber]
+                
+                #debug
                 #print(snippetWeek)
+                
                 # add that tex filename to the dictionary
                 lowLevelsDict[test].append(snippetWeek)
 

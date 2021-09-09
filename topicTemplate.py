@@ -2,6 +2,7 @@ from string import Template
 import json
   
 # Opening JSON file
+#TODO : change outcomeTest.json to outcomes.json
 fileJson = open('outcomeTest.json',)
   
 # returns JSON object as a dictionary

@@ -7,6 +7,7 @@ fileJson = open('outcomes.json',)
 # returns JSON object as a dictionary
 data = json.load(fileJson)
 
+#Adds icons in regular sidebar for each 2nd tier child in outcomes.json 
 sidebarButtons = ""
 for i in data:
     for j in data[i]['Children']:
@@ -20,6 +21,7 @@ for i in data:
             sidebarButtons += """<span class="tooltip"> """ + j + """</span>"""
             sidebarButtons += "</li>"
 
+#Adds icons in regular sidebar for each 2nd tier child in outcomes.json 
 mobileSidebar = ""
 for i in data:
     for j in data[i]['Children']:
@@ -45,6 +47,7 @@ for i in data:
     
     for j in data[i]['Children']:
 
+        #add link to page of 2nd tier children with subtopics (only link to pages of 2nd tier children with content)
         if(bool(data[i]['Children'][j]['Children'])):
              boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href=\"""" + data[i]['Children'][j]['file'] + """\" >""" + j + """</a></dt> \n"""
              
@@ -52,6 +55,7 @@ for i in data:
             boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href="javascript:void(0)" >""" + j + """</a></dt> \n"""
            
 
+        #list children of 2nd tier children (subtopics under outcomes, these will be included on the webpage for the outcomes as PDFs and menu options)
         if(bool(data[i]['Children'][j]['Children'])):
             for k in data[i]['Children'][j]['Children']:
                 boxString += "<dd>" + k + "</dd>\n"

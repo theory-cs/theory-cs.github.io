@@ -1,3 +1,4 @@
+#Helps list all of the 2nd tier outcomes in outcomes.json file
 import json
 outcomes = json.loads(open("outcomes.json").read())
 

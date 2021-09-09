@@ -2,7 +2,10 @@
 # To build the website, first create PDFs and static elements in generated directory, then
 # translate tex to htmls and then dynamically create additional html pages
 # and finally remove auxiliary files from typesetting steps
-website: compile static-pages latex dynamic-pages tex-html clean-tex
+website: static-pages dynamic-pages clean-tex
+
+#TODO: restore targets below once done testing
+#compile static-pages latex dynamic-pages tex-html clean-tex 
 
 # run compile python scripts to generated compiled .tex files of applications and topics 
 compile: 

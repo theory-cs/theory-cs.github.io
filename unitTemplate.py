@@ -7,6 +7,7 @@ fileJson = open('unitTemplate.json',)
 # returns JSON object as a dictionary
 data = json.load(fileJson)
 
+#adds regular sidebar icons for each of the units/weeks specified in json file
 sidebarButtons = ""
 for i in range(0,len(data)):
     sidebarButtons += "<li>"
@@ -17,6 +18,7 @@ for i in range(0,len(data)):
     sidebarButtons += """<span class="tooltip"> """ + data[i]['header'] + """</span>"""
     sidebarButtons += "</li>"
 
+#adds mobile sidebar icons for each of the units/weeks specified in json file
 mobileSidebar = ""
 for i in range(0,len(data)):
    mobileSidebar += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + data[i]['header'] + """</a>"""
