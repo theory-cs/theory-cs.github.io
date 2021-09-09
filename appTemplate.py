@@ -7,6 +7,7 @@ fileJson = open('applications.json',)
 # returns JSON object as a dictionary
 data = json.load(fileJson)
 
+#adds regular sidebar icons for each of the applications specified in json file
 sidebarButtons = ""
 for i in data:
     sidebarButtons += "<li>"
@@ -17,6 +18,7 @@ for i in data:
     sidebarButtons += """<span class="tooltip"> """ + i + """</span>"""
     sidebarButtons += "</li>"
 
+#adds regular mobile icons for each of the applications specified in json file
 mobileSidebar = ""
 for i in data:
     mobileSidebar += """<a href= \"""" + data[i]['file'] + """\"">""" + i + """</a>"""
