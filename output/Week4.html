@@ -295,7 +295,8 @@
 </ol>
 <h1 class="unnumbered" id="wednesday-january-27">Wednesday January 27</h1>
 <p><span><strong>Definition</strong></span>: A <span><strong>predicate</strong></span> is a function from a given set (domain) to <span class="math inline">\(\{T,F\}\)</span>.</p>
-<p>A predicate can be applied, or <span><strong>evaluated</strong></span> at, an element of the domain. Two predicates over the same domain are <span><strong>equivalent</strong></span> means they evaluate to the same truth values for all possible assignments of domain elements to the input.</p>
+<p>A predicate can be applied, or <span><strong>evaluated</strong></span> at, an element of the domain.</p>
+<p>Two predicates over the same domain are <span><strong>equivalent</strong></span> means they evaluate to the same truth values for all possible assignments of domain elements to the input.</p>
 <div class="center">
 <table>
 <tbody>
@@ -366,20 +367,24 @@
 </tbody>
 </table>
 </div>
-<p>The domain for each of the predicates <span class="math inline">\(P(x)\)</span>, <span class="math inline">\(N(x)\)</span>, <span class="math inline">\(Mystery(x)\)</span> is <u></u>. <span><strong>Definition</strong></span>: The <span><strong>truth set</strong></span> of a predicate is the collection of all elements in its domain where the predicate evaluates to <span class="math inline">\(T\)</span>. The truth set for the predicate <span class="math inline">\(P(x)\)</span> is <span class="math inline">\(\underline{\phantom{\{ x ~\mid~ P(x) = T\} = \{ 001, 010, 011 \}}}\)</span>.</p>
+<p>The domain for each of the predicates <span class="math inline">\(P(x)\)</span>, <span class="math inline">\(N(x)\)</span>, <span class="math inline">\(Mystery(x)\)</span> is <u></u>.</p>
+<p><span><strong>Definition</strong></span>: The <span><strong>truth set</strong></span> of a predicate is the collection of all elements in its domain where the predicate evaluates to <span class="math inline">\(T\)</span>.</p>
+<p>The truth set for the predicate <span class="math inline">\(P(x)\)</span> is <span class="math inline">\(\underline{\phantom{\{ x ~\mid~ P(x) = T\} = \{ 001, 010, 011 \}}}\)</span>.</p>
 <p>The truth set for the predicate <span class="math inline">\(N(x)\)</span> is <span class="math inline">\(\underline{\phantom{\{ x ~\mid~ N(x) = T\} = \{ 101, 111 \}}}\)</span>.</p>
 <p>The truth set for the predicate <span class="math inline">\(Mystery(x)\)</span> is <span class="math inline">\(\underline{\phantom{\{ x ~\mid~ Mystery(x) = T\} = \{ 000, 001, 010, 101, 111 \}}}\)</span>.</p>
 <p><span><strong>Definitions</strong></span> (Rosen 40-45):</p>
 <p>The <span><strong>universal quantification</strong></span> of <span class="math inline">\(P(x)\)</span> is the statement “<span class="math inline">\(P(x)\)</span> for all values of <span class="math inline">\(x\)</span> in the domain” and is written <span class="math inline">\(\forall x P(x)\)</span>. An element for which <span class="math inline">\(P(x) = F\)</span> is called a <span><strong>counterexample</strong></span> of <span class="math inline">\(\forall x P(x)\)</span>.</p>
 <p>The <span><strong>existential quantification</strong></span> of <span class="math inline">\(P(x)\)</span> is the statement “There exists an element <span class="math inline">\(x\)</span> in the domain such that <span class="math inline">\(P(x)\)</span>” and is written <span class="math inline">\(\exists x P(x)\)</span>. An element for which <span class="math inline">\(P(x) = T\)</span> is called a <span><strong>witness</strong></span> of <span class="math inline">\(\exists x P(x)\)</span>.</p>
-<p><span><strong>Example</strong></span>: <u></u> is a true existential quantification. Statements involving predicates and quantifiers are <span><strong>logically equivalent</strong></span> means they have the same truth value no matter which predicates (domains and functions) are substituted in.</p>
+<p><span><strong>Example</strong></span>: <u></u> is a true existential quantification.</p>
+<p>Statements involving predicates and quantifiers are <span><strong>logically equivalent</strong></span> means they have the same truth value no matter which predicates (domains and functions) are substituted in.</p>
 <p><span><strong>Quantifier version of De Morgan’s laws</strong></span>: <span class="math inline">\(\boxed{\neg \forall x P(x) ~\equiv~ \exists x \left( \neg P(x) \right)}\)</span> <span class="math inline">\(\boxed{\neg \exists x Q(x) ~\equiv~ \forall x \left( \neg Q(x) \right)}\)</span></p>
 <p><span><strong>Example</strong></span>: <u></u> is a false universal quantification. It is logically equivalent to <u></u></p>
 <p>Recall: Each RNA strand is a string whose symbols are elements of the set <span class="math inline">\(B  = \{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}\)</span>. The <span><strong>set of all RNA strands</strong></span> is called <span class="math inline">\(S\)</span>. The function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is: <span class="math display">\[\begin{array}{llll}
 &amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
 \textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
 \textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
-\end{array}\]</span> <span><strong>Example predicates on <span class="math inline">\(S\)</span></strong></span></p>
+\end{array}\]</span></p>
+<p><span><strong>Example predicates on <span class="math inline">\(S\)</span></strong></span></p>
 <div class="center">
 <table>
 <tbody>
@@ -446,7 +451,8 @@ F &amp; \qquad\text{otherwise}
 &amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
 \textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
 \textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
-\end{array}\]</span> A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is: <span class="math display">\[\begin{array}{llll}
+\end{array}\]</span></p>
+<p>A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is: <span class="math display">\[\begin{array}{llll}
 &amp; &amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} \\
 \textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(b_1, b_2) &amp; =
         \begin{cases}

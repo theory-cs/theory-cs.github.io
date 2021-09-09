@@ -188,7 +188,8 @@
 <p>The above sets are all <span><strong>infinite</strong></span>.</p>
 <p>A <span><strong>finite</strong></span> set is one whose distinct elements can be counted by a natural number.</p>
 <p><span><em>Examples of finite sets</em></span>: <span class="math inline">\(\emptyset\)</span> , <span class="math inline">\(\{ \sqrt{2} \}\)</span></p>
-<p><span><strong>Motivating question</strong></span>: Are some of the above sets <span><em>bigger than</em></span> others? <span><em>Analogy</em></span>: Musical chairs</p>
+<p><span><strong>Motivating question</strong></span>: Are some of the above sets <span><em>bigger than</em></span> others?</p>
+<p><span><em>Analogy</em></span>: Musical chairs</p>
 <div class="multicols">
 <p><span>2</span> <img src="../../resources/images/musicalChairs.png" style="width:2in" alt="image" /></p>
 <p>People try to sit down when the music stops</p>
@@ -198,8 +199,11 @@
 <p>What does this say about the number of chairs and the number of people?</p>
 <p><span><em>Example</em></span>: <span class="math inline">\(f_A: \mathbb{R}^+ \to \mathbb{Q}\)</span> with <span class="math inline">\(f_A(x) = x\)</span> is <span><strong>not</strong></span> a well-defined function because</p>
 <p><span><em>Example</em></span>: <span class="math inline">\(f_B: \mathbb{Q} \to \mathbb{Z}\)</span> with <span class="math inline">\(f_B\left(\frac{p}{q}\right) = p+q\)</span> is <span><strong>not</strong></span> a well-defined function because</p>
-<p><span><em>Example</em></span>: <span class="math inline">\(f_C: \mathbb{Z} \to \mathbb{R}\)</span> with <span class="math inline">\(f_C(x) = \frac{x}{|x|}\)</span> is <span><strong>not</strong></span> a well-defined function because <span><strong>Definition</strong></span> (Rosen p141): A function <span class="math inline">\(f: D  \to C\)</span> is <span><strong>one-to-one</strong></span> (or injective) means for every <span class="math inline">\(a,b\)</span> in the domain <span class="math inline">\(D\)</span>, if <span class="math inline">\(f(a) = f(b)\)</span> then <span class="math inline">\(a=b\)</span>.</p>
-<p><span><strong>Definition</strong></span>: For sets <span class="math inline">\(A, B\)</span>, we say that <span><strong>the cardinality of <span class="math inline">\(A\)</span> is no bigger than the cardinality of <span class="math inline">\(B\)</span></strong></span>, and write <span class="math inline">\(|A| \leq |B|\)</span>, to mean there is a one-to-one function with domain <span class="math inline">\(A\)</span> and codomain <span class="math inline">\(B\)</span>. <span><em>In the analogy</em></span>: The function <span class="math inline">\(sitter: \{ Chair1, Chair2\} \to \{ Person\sun, Person\smiley, Person\frownie \}\)</span> given by <span class="math inline">\(sitter(Chair1) = Person\sun\)</span>, <span class="math inline">\(sitter(Chair2) = Person\smiley\)</span>, is one-to-one and witnesses that <span class="math display">\[| \{ Chair1, Chair2\} | \leq |\{ Person\sun, Person\smiley, Person\frownie \}|\]</span> Let <span class="math inline">\(S_2\)</span> be the set of RNA strands of length 2.</p>
+<p><span><em>Example</em></span>: <span class="math inline">\(f_C: \mathbb{Z} \to \mathbb{R}\)</span> with <span class="math inline">\(f_C(x) = \frac{x}{|x|}\)</span> is <span><strong>not</strong></span> a well-defined function because</p>
+<p><span><strong>Definition</strong></span> (Rosen p141): A function <span class="math inline">\(f: D  \to C\)</span> is <span><strong>one-to-one</strong></span> (or injective) means for every <span class="math inline">\(a,b\)</span> in the domain <span class="math inline">\(D\)</span>, if <span class="math inline">\(f(a) = f(b)\)</span> then <span class="math inline">\(a=b\)</span>.</p>
+<p><span><strong>Definition</strong></span>: For sets <span class="math inline">\(A, B\)</span>, we say that <span><strong>the cardinality of <span class="math inline">\(A\)</span> is no bigger than the cardinality of <span class="math inline">\(B\)</span></strong></span>, and write <span class="math inline">\(|A| \leq |B|\)</span>, to mean there is a one-to-one function with domain <span class="math inline">\(A\)</span> and codomain <span class="math inline">\(B\)</span>.</p>
+<p><span><em>In the analogy</em></span>: The function <span class="math inline">\(sitter: \{ Chair1, Chair2\} \to \{ Person\sun, Person\smiley, Person\frownie \}\)</span> given by <span class="math inline">\(sitter(Chair1) = Person\sun\)</span>, <span class="math inline">\(sitter(Chair2) = Person\smiley\)</span>, is one-to-one and witnesses that <span class="math display">\[| \{ Chair1, Chair2\} | \leq |\{ Person\sun, Person\smiley, Person\frownie \}|\]</span></p>
+<p>Let <span class="math inline">\(S_2\)</span> be the set of RNA strands of length 2.</p>
 <div class="center">
 <table>
 <thead>
@@ -247,7 +251,8 @@
 <p><span><strong>Definition</strong></span> (Rosen p143): A function <span class="math inline">\(f: D  \to C\)</span> is <span><strong>onto</strong></span> (or surjective) means for every <span class="math inline">\(b\)</span> in the codomain, there is an element <span class="math inline">\(a\)</span> in the domain with <span class="math inline">\(f(a) = b\)</span>.</p>
 <p>Formally, <span class="math inline">\(f: D  \to  C\)</span> is onto means <span class="math inline">\(\underline{\phantom{\forall b \in C  \exists a \in D ( f(a) = b)}}\)</span>.</p>
 <p><span><strong>Definition</strong></span>: For sets <span class="math inline">\(A, B\)</span>, we say that <span><strong>the cardinality of <span class="math inline">\(A\)</span> is no smaller than the cardinality of <span class="math inline">\(B\)</span></strong></span>, and write <span class="math inline">\(|A| \geq |B|\)</span>, to mean there is an onto function with domain <span class="math inline">\(A\)</span> and codomain <span class="math inline">\(B\)</span>.</p>
-<p><span><em>In the analogy</em></span>: The function <span class="math inline">\(triedToSit: \{ Person\sun, Person\smiley, Person\frownie \} \to  \{ Chair1, Chair2\}\)</span> given by <span class="math inline">\(triedToSit(Person\sun) = Chair1\)</span>, <span class="math inline">\(triedToSit(Person\smiley) = Chair2\)</span>, <span class="math inline">\(triedToSit(Person\frownie) = Chair2\)</span>, is onto and witnesses that <span class="math display">\[|\{ Person\sun, Person\smiley, Person\frownie \}| \geq | \{ Chair1, Chair2\} |\]</span> Let <span class="math inline">\(S_2\)</span> be the set of RNA strands of length 2.</p>
+<p><span><em>In the analogy</em></span>: The function <span class="math inline">\(triedToSit: \{ Person\sun, Person\smiley, Person\frownie \} \to  \{ Chair1, Chair2\}\)</span> given by <span class="math inline">\(triedToSit(Person\sun) = Chair1\)</span>, <span class="math inline">\(triedToSit(Person\smiley) = Chair2\)</span>, <span class="math inline">\(triedToSit(Person\frownie) = Chair2\)</span>, is onto and witnesses that <span class="math display">\[|\{ Person\sun, Person\smiley, Person\frownie \}| \geq | \{ Chair1, Chair2\} |\]</span></p>
+<p>Let <span class="math inline">\(S_2\)</span> be the set of RNA strands of length 2.</p>
 <div class="center">
 <table>
 <thead>
@@ -297,7 +302,8 @@
 &amp;\forall A ~ (~  |A| = |A| ~)\\
 &amp;\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
 &amp;\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| = |C|) ~\to ~ |A| = |C|~)\end{aligned}\]</span></p>
-<p><span><em>Extra practice with proofs:</em></span> Use the definitions of bijections to prove these properties. <span><strong>Cantor-Schroder-Bernstein Theorem</strong></span>: For all nonempty sets, <span class="math display">\[|A| = |B| \qquad\text{if and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
+<p><span><em>Extra practice with proofs:</em></span> Use the definitions of bijections to prove these properties.</p>
+<p><span><strong>Cantor-Schroder-Bernstein Theorem</strong></span>: For all nonempty sets, <span class="math display">\[|A| = |B| \qquad\text{if and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
 \qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq |A|)\]</span></p>
 <p>To prove <span class="math inline">\(|A| = |B|\)</span>, we can do any <span><strong>one</strong></span> of the following</p>
 <ul>
