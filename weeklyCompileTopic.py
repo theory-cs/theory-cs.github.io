@@ -74,7 +74,7 @@ for filename in os.listdir(weeklyDirectory):
                 #sort each outcome by week
                 lowLevelsDict[test].sort(key=findWeek)
 # UNCOMMENT if want to see how the dictionary looks
-print(lowLevelsDict)
+#print(lowLevelsDict)
 
 
 #Iterate through the dict

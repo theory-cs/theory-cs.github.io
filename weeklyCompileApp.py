@@ -43,7 +43,7 @@ for filename in os.listdir(weeklyDirectory):
 
     #get week number/order from weekly notes file- this will be the number right before .tex(length-4)
     weekNumber = filename[len(filename)-5]
-    print(filename+" "+weekNumber)
+    #print(filename+" "+weekNumber)
     
 
     Lines = weekly.readlines()
@@ -80,7 +80,7 @@ for filename in os.listdir(weeklyDirectory):
                 #sort each outcome by week
                 appsDict[test].sort(key=findWeek)
 # UNCOMMENT if want to see how the dictionary looks
-print(appsDict)
+#print(appsDict)
 
 
 #Iterate through the dict
