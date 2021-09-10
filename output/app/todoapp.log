@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.10)  10 SEP 2021 19:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.10)  10 SEP 2021 19:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -666,53 +666,65 @@ File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 (../activity-snippets/netflix-intro.tex [2])
-(../activity-snippets/data-types.tex) (../activity-snippets/proposition-def.tex
-) (../activity-snippets/logical-operators.tex [3])
-Overfull \hbox (1.54883pt too wide) in paragraph at lines 6--16
+(../activity-snippets/data-types.tex)
+(../activity-snippets/infinite-finite-sets-def.tex [3])
+(../activity-snippets/musical-chairs-analogy.tex
+<../../resources/images/musicalChairs.png, id=32, 200.75pt x 200.75pt>
+File: ../../resources/images/musicalChairs.png Graphic file (type png)
+<use ../../resources/images/musicalChairs.png>
+Package pdftex.def Info: ../../resources/images/musicalChairs.png  used on inpu
+t line 7.
+(pdftex.def)             Requested size: 144.54pt x 144.54906pt.
+)
+(../activity-snippets/defined-functions.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 10--11
+[] 
+ []
+
+[4 <../../output/app/../../resources/images/musicalChairs.png (PNG copy)>])
+(../activity-snippets/injective-cardinality-definition.tex)
+(../activity-snippets/injective-cardinality-musical-chairs.tex)
+(../activity-snippets/rna-injective-cardinality.tex
+Overfull \hbox (0.78714pt too wide) in paragraph at lines 9--20
+ [] 
+ []
+
+[5]) (../activity-snippets/surjective-cardinality-definition.tex)
+(../activity-snippets/surjective-cardinality-musical-chairs.tex)
+(../activity-snippets/rna-surjective-cardinality.tex
+Overfull \hbox (0.78714pt too wide) in paragraph at lines 9--20
+ [] 
+ []
+
+[6]) (../activity-snippets/bijection-definition.tex)
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 15--40
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6--16
+Underfull \hbox (badness 10000) in paragraph at lines 15--40
 
  []
 
-(../activity-snippets/logical-operators-truth-tables.tex)
-(../activity-snippets/logical-operators-exercise.tex
-Overfull \hbox (11.96017pt too wide) in paragraph at lines 5--18
- [] 
- []
-
-) (../activity-snippets/logical-equivalence.tex) [4]
-(../activity-snippets/logical-equivalence-exercise.tex)
-(../activity-snippets/logical-equivalence-example.tex)
-(../activity-snippets/truth-table-to-compound-proposition-application.tex
-[5]) (../activity-snippets/dnf-cnf-definition.tex)
-(../activity-snippets/hypothesis-conclusion.tex)
-(../activity-snippets/logical-equivalence-example-two.tex [6])
-(../activity-snippets/converse-inverse-contrapositive.tex)
-(../activity-snippets/compound-propositions-translation.tex
-Overfull \hbox (4.27635pt too wide) detected at line 13
-[]
- []
-
-
-Overfull \hbox (11.64156pt too wide) detected at line 23
-[]
- []
-
-[7]) (../activity-snippets/logical-equivalence.tex)
+(../activity-snippets/cardinality-properties.tex)
+(../activity-snippets/cantor-schroder-bernstein-theorem.tex [7])
+(../activity-snippets/logical-equivalence.tex)
 (../activity-snippets/logical-equivalence-extra-note.tex)
 (../activity-snippets/consistency-def.tex)
-(../activity-snippets/consistency-example.tex)
-(../activity-snippets/redundancy-algorithm.tex [8]
+(../activity-snippets/consistency-example.tex [8])
+(../activity-snippets/redundancy-algorithm.tex
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 5.
  [9])
 (../activity-snippets/predicate-definition.tex)
 (../activity-snippets/predicate-equivalent-definition.tex)
 (../activity-snippets/predicate-truth-tables.tex)
-Overfull \hbox (1.85902pt too wide) in paragraph at lines 21--73
+Overfull \hbox (1.85902pt too wide) in paragraph at lines 21--70
 []\OT1/cmr/m/n/12 The do-main for each of the pred-i-cates $\OML/cmm/m/it/12 P\
 OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$, $\OML/cmm/m/it/12 N\OT1/c
 mr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$, $\OML/cmm/m/it/12 Mystery\OT1/
@@ -720,7 +732,7 @@ cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$ is $[]$.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--73
+Underfull \hbox (badness 10000) in paragraph at lines 21--70
 
  []
 
@@ -784,61 +796,51 @@ Overfull \hbox (121.7852pt too wide) in paragraph at lines 10--12
  []
 
 ) (../activity-snippets/gcd-def.tex)
-Overfull \hbox (10.71661pt too wide) in paragraph at lines 10--148
+Overfull \hbox (10.71661pt too wide) in paragraph at lines 10--145
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--148
+Underfull \hbox (badness 10000) in paragraph at lines 10--145
 
  []
 
-(../activity-snippets/infinite-finite-sets-def.tex [19])
-(../activity-snippets/musical-chairs-analogy.tex
-<../../resources/images/musicalChairs.png, id=187, 200.75pt x 200.75pt>
-File: ../../resources/images/musicalChairs.png Graphic file (type png)
-<use ../../resources/images/musicalChairs.png>
-Package pdftex.def Info: ../../resources/images/musicalChairs.png  used on inpu
-t line 7.
-(pdftex.def)             Requested size: 144.54pt x 144.54906pt.
-)
-(../activity-snippets/defined-functions.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
-
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 10--11
-[] 
- []
-
-[20 <../../output/app/../../resources/images/musicalChairs.png (PNG copy)>])
-(../activity-snippets/injective-cardinality-definition.tex)
-(../activity-snippets/injective-cardinality-musical-chairs.tex)
-(../activity-snippets/rna-injective-cardinality.tex
-Overfull \hbox (0.78714pt too wide) in paragraph at lines 9--20
- [] 
- []
-
-[21]) (../activity-snippets/surjective-cardinality-definition.tex)
-(../activity-snippets/surjective-cardinality-musical-chairs.tex)
-(../activity-snippets/rna-surjective-cardinality.tex
-Overfull \hbox (0.78714pt too wide) in paragraph at lines 9--20
- [] 
- []
-
-[22]) (../activity-snippets/bijection-definition.tex)
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 15--178
+(../activity-snippets/proposition-def.tex [19])
+(../activity-snippets/logical-operators.tex)
+Overfull \hbox (1.54883pt too wide) in paragraph at lines 6--151
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--178
+Underfull \hbox (badness 10000) in paragraph at lines 6--151
 
  []
 
-(../activity-snippets/cardinality-properties.tex)
-(../activity-snippets/cantor-schroder-bernstein-theorem.tex [23])
+(../activity-snippets/logical-operators-truth-tables.tex)
+(../activity-snippets/logical-operators-exercise.tex
+Overfull \hbox (11.96017pt too wide) in paragraph at lines 5--18
+ [] 
+ []
+
+[20]) (../activity-snippets/logical-equivalence.tex)
+(../activity-snippets/logical-equivalence-exercise.tex)
+(../activity-snippets/logical-equivalence-example.tex [21])
+(../activity-snippets/truth-table-to-compound-proposition-application.tex)
+(../activity-snippets/dnf-cnf-definition.tex)
+(../activity-snippets/hypothesis-conclusion.tex [22])
+(../activity-snippets/logical-equivalence-example-two.tex)
+(../activity-snippets/converse-inverse-contrapositive.tex)
+(../activity-snippets/compound-propositions-translation.tex [23]
+Overfull \hbox (4.27635pt too wide) detected at line 13
+[]
+ []
+
+
+Overfull \hbox (11.64156pt too wide) detected at line 23
+[]
+ []
+
+)
 
 Package lastpage Warning: Rerun to get the references right on input line 185.
 
@@ -860,7 +862,7 @@ Package rerunfilecheck Info: Checksums for `todoapp.out':
 Here is how much of TeX's memory you used:
  14783 strings out of 478994
  224121 string characters out of 5858184
- 549689 words of memory out of 5000000
+ 548689 words of memory out of 5000000
  31748 multiletter control sequences out of 15000+600000
  414059 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -885,7 +887,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2021/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/202
 1/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/
 texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
-Output written on ../../output/app/todoapp.pdf (24 pages, 262803 bytes).
+Output written on ../../output/app/todoapp.pdf (24 pages, 262861 bytes).
 PDF statistics:
  312 PDF objects out of 1000 (max. 8388607)
  263 compressed objects within 3 object streams

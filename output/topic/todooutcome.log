@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.10)  10 SEP 2021 19:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.10)  10 SEP 2021 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -676,122 +676,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--13
 
  []
 
-[3] (../activity-snippets/proposition-def.tex)
-(../activity-snippets/logical-operators.tex)
-Overfull \hbox (1.54883pt too wide) in paragraph at lines 6--19
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6--19
-
- []
-
-(../activity-snippets/logical-operators-truth-tables.tex [4])
-(../activity-snippets/logical-operators-exercise.tex
-Overfull \hbox (11.96017pt too wide) in paragraph at lines 5--18
- [] 
- []
-
-) (../activity-snippets/logical-equivalence.tex)
-(../activity-snippets/logical-equivalence-exercise.tex [5])
-(../activity-snippets/logical-equivalence-example.tex)
-(../activity-snippets/truth-table-to-compound-proposition-application.tex)
-(../activity-snippets/dnf-cnf-definition.tex [6])
-(../activity-snippets/hypothesis-conclusion.tex)
-(../activity-snippets/logical-equivalence-example-two.tex)
-(../activity-snippets/converse-inverse-contrapositive.tex) [7]
-(../activity-snippets/compound-propositions-translation.tex
-Overfull \hbox (4.27635pt too wide) detected at line 13
-[]
- []
-
-
-Overfull \hbox (11.64156pt too wide) detected at line 23
-[]
- []
-
-) (../activity-snippets/logical-equivalence.tex)
-(../activity-snippets/logical-equivalence-extra-note.tex) [8]
-(../activity-snippets/consistency-def.tex)
-(../activity-snippets/consistency-example.tex)
-(../activity-snippets/redundancy-algorithm.tex
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 5.
- [9])
-(../activity-snippets/predicate-definition.tex)
-(../activity-snippets/predicate-equivalent-definition.tex) [10]
-(../activity-snippets/predicate-truth-tables.tex)
-Overfull \hbox (1.85902pt too wide) in paragraph at lines 21--76
-[]\OT1/cmr/m/n/12 The do-main for each of the pred-i-cates $\OML/cmm/m/it/12 P\
-OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$, $\OML/cmm/m/it/12 N\OT1/c
-mr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$, $\OML/cmm/m/it/12 Mystery\OT1/
-cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$ is $[]$.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--76
-
- []
-
-(../activity-snippets/truth-set-definition.tex)
-(../activity-snippets/truth-set-exercise.tex)
-(../activity-snippets/quantification-definition.tex [11])
-(../activity-snippets/quantification-logical-equivalence.tex
-Overfull \hbox (3.52684pt too wide) in paragraph at lines 7--12
-[]\OT1/cmr/bx/n/12 Quantifier ver-sion of De Mor-gan's laws\OT1/cmr/m/n/12 : $[
-]$   $[]$ 
- []
-
-
-Overfull \hbox (9.37964pt too wide) in paragraph at lines 14--16
-[]\OT1/cmr/bx/n/12 Example\OT1/cmr/m/n/12 : $[]$ is a false uni-ver-sal quan-ti
-fi-ca-tion. It is log-i-cally equiv-a-lent to $[]$ 
- []
-
-) (../activity-snippets/rna-strand-recall.tex)
-(../activity-snippets/predicate-rna-example.tex
-Overfull \hbox (20.1028pt too wide) in paragraph at lines 10--48
- [] 
- []
-
-[12]) (../activity-snippets/cartesian-product-definition.tex)
-(../activity-snippets/rna-strand-recall.tex)
-(../activity-snippets/rna-basecount-example.tex [13]
-Overfull \hbox (2.39525pt too wide) in paragraph at lines 23--48
-[][] 
- []
-
-) (../activity-snippets/predicate-notation.tex)
-(../activity-snippets/rna-basecount-example-two.tex [14])
-(../activity-snippets/alternating-quantifiers.tex) [15]
-(../activity-snippets/making-change-example.tex)
-(../activity-snippets/strong-induction-def.tex
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 17--18
-[] 
- []
-
-[16]) (../activity-snippets/strong-induction-def.tex
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 17--18
-[] 
- []
-
-) (../activity-snippets/prime-number-def.tex)
-(../activity-snippets/prime-number-def.tex)
-(../activity-snippets/proof-by-contradiction-def.tex
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 12--13
-[] 
- []
-
-) [17] (../activity-snippets/rational-number-def.tex)
-(../activity-snippets/proof-square-root2.tex
-Overfull \hbox (121.7852pt too wide) in paragraph at lines 10--12
-[]\OT1/cmr/m/it/12 The prob-lem in the above at-tempted proof is that $[]$ 
- []
-
-) (../activity-snippets/infinite-finite-sets-def.tex [18])
-(../activity-snippets/musical-chairs-analogy.tex
-<../../resources/images/musicalChairs.png, id=177, 200.75pt x 200.75pt>
+[3] (../activity-snippets/infinite-finite-sets-def.tex)
+(../activity-snippets/musical-chairs-analogy.tex [4]
+<../../resources/images/musicalChairs.png, id=41, 200.75pt x 200.75pt>
 File: ../../resources/images/musicalChairs.png Graphic file (type png)
 <use ../../resources/images/musicalChairs.png>
 Package pdftex.def Info: ../../resources/images/musicalChairs.png  used on inpu
@@ -808,39 +695,153 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 10--11
 [] 
  []
 
-[19 <../../output/topic/../../resources/images/musicalChairs.png (PNG copy)>])
-(../activity-snippets/injective-cardinality-definition.tex)
+) (../activity-snippets/injective-cardinality-definition.tex)
 (../activity-snippets/injective-cardinality-musical-chairs.tex)
-(../activity-snippets/rna-injective-cardinality.tex
+(../activity-snippets/rna-injective-cardinality.tex [5 <../../output/topic/../.
+./resources/images/musicalChairs.png (PNG copy)>]
 Overfull \hbox (0.78714pt too wide) in paragraph at lines 9--20
  [] 
  []
 
-[20]) (../activity-snippets/surjective-cardinality-definition.tex)
+) (../activity-snippets/surjective-cardinality-definition.tex)
 (../activity-snippets/surjective-cardinality-musical-chairs.tex)
-(../activity-snippets/rna-surjective-cardinality.tex
+(../activity-snippets/rna-surjective-cardinality.tex [6]
 Overfull \hbox (0.78714pt too wide) in paragraph at lines 9--20
  [] 
  []
 
-[21]) (../activity-snippets/bijection-definition.tex)
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 15--166
+) (../activity-snippets/bijection-definition.tex)
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 15--43
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--166
+Underfull \hbox (badness 10000) in paragraph at lines 15--43
 
  []
 
 (../activity-snippets/cardinality-properties.tex)
-(../activity-snippets/cantor-schroder-bernstein-theorem.tex [22])
+(../activity-snippets/cantor-schroder-bernstein-theorem.tex [7])
+(../activity-snippets/logical-equivalence.tex)
+(../activity-snippets/logical-equivalence-extra-note.tex)
+(../activity-snippets/consistency-def.tex)
+(../activity-snippets/consistency-example.tex [8])
+(../activity-snippets/redundancy-algorithm.tex
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 5.
+ [9])
+(../activity-snippets/predicate-definition.tex)
+(../activity-snippets/predicate-equivalent-definition.tex)
+(../activity-snippets/predicate-truth-tables.tex)
+Overfull \hbox (1.85902pt too wide) in paragraph at lines 21--73
+[]\OT1/cmr/m/n/12 The do-main for each of the pred-i-cates $\OML/cmm/m/it/12 P\
+OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$, $\OML/cmm/m/it/12 N\OT1/c
+mr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$, $\OML/cmm/m/it/12 Mystery\OT1/
+cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$ is $[]$.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--73
+
+ []
+
+(../activity-snippets/truth-set-definition.tex) [10]
+(../activity-snippets/truth-set-exercise.tex)
+(../activity-snippets/quantification-definition.tex)
+(../activity-snippets/quantification-logical-equivalence.tex
+Overfull \hbox (3.52684pt too wide) in paragraph at lines 7--12
+[]\OT1/cmr/bx/n/12 Quantifier ver-sion of De Mor-gan's laws\OT1/cmr/m/n/12 : $[
+]$   $[]$ 
+ []
+
+
+Overfull \hbox (9.37964pt too wide) in paragraph at lines 14--16
+[]\OT1/cmr/bx/n/12 Example\OT1/cmr/m/n/12 : $[]$ is a false uni-ver-sal quan-ti
+fi-ca-tion. It is log-i-cally equiv-a-lent to $[]$ 
+ []
+
+) (../activity-snippets/rna-strand-recall.tex) [11]
+(../activity-snippets/predicate-rna-example.tex
+Overfull \hbox (20.1028pt too wide) in paragraph at lines 10--48
+ [] 
+ []
+
+) (../activity-snippets/cartesian-product-definition.tex)
+(../activity-snippets/rna-strand-recall.tex) [12]
+(../activity-snippets/rna-basecount-example.tex
+Overfull \hbox (2.39525pt too wide) in paragraph at lines 23--48
+[][] 
+ []
+
+) (../activity-snippets/predicate-notation.tex)
+(../activity-snippets/rna-basecount-example-two.tex [13])
+(../activity-snippets/alternating-quantifiers.tex) [14]
+(../activity-snippets/making-change-example.tex)
+(../activity-snippets/strong-induction-def.tex
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 17--18
+[] 
+ []
+
+[15]) (../activity-snippets/strong-induction-def.tex
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 17--18
+[] 
+ []
+
+) (../activity-snippets/prime-number-def.tex)
+(../activity-snippets/prime-number-def.tex)
+(../activity-snippets/proof-by-contradiction-def.tex
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 12--13
+[] 
+ []
+
+) [16] (../activity-snippets/rational-number-def.tex)
+(../activity-snippets/proof-square-root2.tex
+Overfull \hbox (121.7852pt too wide) in paragraph at lines 10--12
+[]\OT1/cmr/m/it/12 The prob-lem in the above at-tempted proof is that $[]$ 
+ []
+
+) (../activity-snippets/proposition-def.tex [17])
+(../activity-snippets/logical-operators.tex)
+Overfull \hbox (1.54883pt too wide) in paragraph at lines 6--139
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--139
+
+ []
+
+(../activity-snippets/logical-operators-truth-tables.tex)
+(../activity-snippets/logical-operators-exercise.tex
+Overfull \hbox (11.96017pt too wide) in paragraph at lines 5--18
+ [] 
+ []
+
+[18]) (../activity-snippets/logical-equivalence.tex)
+(../activity-snippets/logical-equivalence-exercise.tex)
+(../activity-snippets/logical-equivalence-example.tex [19])
+(../activity-snippets/truth-table-to-compound-proposition-application.tex)
+(../activity-snippets/dnf-cnf-definition.tex)
+(../activity-snippets/hypothesis-conclusion.tex [20])
+(../activity-snippets/logical-equivalence-example-two.tex)
+(../activity-snippets/converse-inverse-contrapositive.tex)
+(../activity-snippets/compound-propositions-translation.tex [21]
+Overfull \hbox (4.27635pt too wide) detected at line 13
+[]
+ []
+
+
+Overfull \hbox (11.64156pt too wide) detected at line 23
+[]
+ []
+
+)
 
 Package lastpage Warning: Rerun to get the references right on input line 173.
 
 
 AED: lastpage setting LastPage
-[23] (../../output/topic/todooutcome.aux)
+[22] (../../output/topic/todooutcome.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -854,9 +855,9 @@ Package rerunfilecheck Info: Checksums for `todooutcome.out':
 (rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14762 strings out of 478994
- 223410 string characters out of 5858184
- 553705 words of memory out of 5000000
+ 14761 strings out of 478994
+ 223403 string characters out of 5858184
+ 548705 words of memory out of 5000000
  31744 multiletter control sequences out of 15000+600000
  414059 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -881,10 +882,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2021/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/202
 1/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/
 texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
-Output written on ../../output/topic/todooutcome.pdf (23 pages, 256094 bytes).
+Output written on ../../output/topic/todooutcome.pdf (22 pages, 255408 bytes).
 PDF statistics:
- 302 PDF objects out of 1000 (max. 8388607)
- 254 compressed objects within 3 object streams
- 98 named destinations out of 1000 (max. 500000)
+ 297 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 97 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
