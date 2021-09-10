@@ -38,8 +38,8 @@
                         "filename": "linked-lists"
                     }
                 },
-                "Icon": "M",
-                "file":"model.html"
+                "Icon": "S",
+                "file":"systems.html"
             },
             "Translate": {
                 "Description": "Translate between different representations to illustrate a concept",
@@ -184,7 +184,7 @@
                         "filename": "divisibility-and-primes"
                     }
                 },
-                "Icon": "Mod",
+                "Icon": "M",
                 "file":"modular.html"
             }
         }
