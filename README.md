@@ -3,4 +3,4 @@
  where to make edits.
 
  Weekly instructor workflow: edit .tex files by selecting snippets and adding custom text, then 
- update unitTemplate.json paths with current files.
+ update unit-settings.json paths with current files.
