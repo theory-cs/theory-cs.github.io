@@ -115,6 +115,7 @@ dynamic-pages:
 	python3 topicTemplate.py
 	python3 appTemplate.py
 	python3 overviewTopicTemplate.py
+	python3 overviewApplicationTemplate.py
 
 #Building html versions of all .tex files in notes/lessons directory 
 #TODO: also need for topics and outcomes, potentially as part of python scripts creating them
