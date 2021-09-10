@@ -19,7 +19,7 @@
                         "filename": "applications-num-rep"
                     }
                 },
-                "Icon": "Connect",
+                "Icon": "C",
                 "file": "connect.html"
             },
             "Model systems": {
@@ -38,7 +38,7 @@
                         "filename": "linked-lists"
                     }
                 },
-                "Icon": "Model",
+                "Icon": "M",
                 "file":"model.html"
             },
             "Translate": {
@@ -65,7 +65,7 @@
                         "filename": "translate-sentences"
                     }
                 },
-                "Icon": "Translate",
+                "Icon": "T",
                 "file": "translate.html"
             }
         }
@@ -110,7 +110,7 @@
                         "filename": "variants-conditionals"
                     }
                 },
-                "Icon": "Logic",
+                "Icon": "L",
                 "file":"logic.html"
 
             },
@@ -142,7 +142,7 @@
                         "filename": "contradiction-proofs"
                     }
                 },
-                "Icon": "Proofs",
+                "Icon": "P",
                 "file":"proofs.html"
             },
             "Recursion and Induction": {
@@ -165,7 +165,7 @@
                         "filename": "structural-induction"
                     }
                 },
-                "Icon": "Induction",
+                "Icon": "I",
                 "file": "induction.html"
             },
             "Modular Arithmetic": {
@@ -221,7 +221,7 @@
                         "filename": "proof-signposts"
                     }
                 },
-                "Icon": "Conventions",
+                "Icon": "U",
                 "file": "conventions.html"                
             },
             "Mathematical definitions and notation": {
@@ -252,7 +252,7 @@
                         "filename": "important-sets"
                     }
                 },
-                "Icon": "Notation",
+                "Icon": "N",
                 "file": "notation.html"
             }
         }

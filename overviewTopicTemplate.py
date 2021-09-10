@@ -77,7 +77,7 @@ result = templateString.safe_substitute(
 )
 
 
-resultFile = open("generated/website/overviewTopicTemplate.html", "w")
+resultFile = open("generated/website/overviewTopic.html", "w")
 resultFile.write(result)
 resultFile.close()
 
