@@ -1,0 +1,1214 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage.)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Definitions}
+
+
+\begin{center}
+\begin{tabular}{|llp{9cm}|}
+\hline
+Term & Notation Example(s) & We say in English \\
+\hline
+$n$-tuple & $(x_1, x_2, x_3)$ & The 3-tuple of $x_1$, $x_2$, and $x_3$ \\
+          & $(3, 4)$ & The 2-tuple or {\bf ordered pair} of $3$ and $4$ \\
+
+sequence & $x_1, \ldots, x_n$ & A sequence $x_1$ to $x_n$ \\
+         & $x_1, \ldots, x_n$ where $n = 0$ & An empty sequence \\
+         & $x_1, \ldots, x_n$ where $n = 1$ & A sequence containing just $x_1$ \\
+         & $x_1, \ldots, x_n$ where $n = 2$ & A sequence containing just $x_1$ and $x_2$ in order \\
+         & $x_1, x_2$ & A sequence containing just $x_1$ and $x_2$ in order \\
+&&\\
+set & & Unordered collection of objects. The set of \ldots \\
+&&\\
+all integers & $\mathbb{Z}$ & The (set of all) integers (whole numbers including negatives, zero, and positives) \\
+all positive integers & $\mathbb{Z}^+$ & The (set of all) strictly positive integers \\
+all natural numbers & $\mathbb{N}$ & The (set of all) natural numbers. {\bf Note}: we use the convention that $0$ is a natural number. \\
+roster method & $\{43, 7, 9\}$ & The set whose elements are $43$, $7$, and $9$\\
+              & $\{9, \mathbb{N}\}$ & The set whose elements are $9$ and $\mathbb{N}$\\
+
+&&\\
+
+set builder notation & $\{ x \in \mathbb{Z} \mid x > 0\}$ & The set of all $x$ from the integers such that $x$ is greater than $0$ \\
+                     & $\{ 3x  \mid x \in \mathbb{Z} \}$ & The set of all integer multiples of $3$ {\bf Note}: we use the convention that writing two numbers next to each other means multiplication. \\
+
+&&\\
+function definition & $f(x) = x + 4$ & Define $f$ of $x$ to be $x + 4$ \\
+function application & $f(7)$ & $f$ of $7$ {\bf or} $f$ applied to $7$ {\bf or} the image of $7$ under $f$\\
+                     & $f(z)$ & $f$ of $z$ {\bf or} $f$ applied to $z$ {\bf or} the image of $z$ under $f$\\
+                     & $f(g(z))$ & $f$ of $g$ of $z$ {\bf or} $f$ applied to the result of $g$ applied to $z$ \\
+&&\\
+absolute value & $\lvert -3 \rvert$ & The absolute value of $-3$ \\
+square root & $\sqrt{9}$ & The non-negative square root of $9$ \\
+&&\\
+summation notation & $\displaystyle \sum_{i=1}^n i$ & The sum of the integers from $1$ to $n$, inclusive \\
+                    & $\displaystyle \sum_{i=1}^n i^2 - 1$ & The sum of $i^2 - 1$ ($i$ squared minus $1$) for each $i$ from $1$ to $n$, inclusive \\
+&&\\
+quotient, integer division & $n~\textbf{div}~m$ & The (integer) quotient upon dividing $n$ by $m$; informally: divide and then 
+drop the fractional part\\
+modulo, remainder & $n~\textbf{mod}~m$ & The remainder upon dividing $n$ by $m$ \\
+
+\hline
+\end{tabular}
+\end{center} \vfill
+\section*{Netflix intro}
+
+
+What data should we encode about each Netflix account holder to help us make effective recommendations?
+
+\vfill
+
+In machine learning, clustering can be used to group similar data for prediction and recommendation.  For example,
+each Netflix user's viewing history can be represented as a $n$-tuple indicating their preferences about
+movies in the database, where $n$ is the number of movies in the database.  People with similar tastes in movies can then be clustered to provide recommendations
+of movies for one another.  Mathematically, clustering is based on a notion of distance between pairs of $n$-tuples.
+
+\vfill
+ \vfill
+\section*{Data types}
+
+
+\begin{center}
+    \begin{tabular}{p{4.4in}p{2.8in}}
+    {\bf  Term} & {\bf Examples}:\\
+    &  (add additional examples from class)\\
+    \hline 
+    {\bf set} \newline
+    unordered collection of elements & $7 \in \{43, 7, 9 \}$ \qquad $2 \notin \{43, 7, 9 \}$ \\
+    {\it Equal means agree on membership of all elements}& \\
+    \hline
+    {\bf $n$-tuple} \newline
+    ordered sequence of elements with $n$ ``slots" & \\
+    {\it Equal means corresponding components equal}& \\
+    \hline
+    {\bf string} \newline
+    ordered finite sequence of elements each from specified
+    set & \\
+    {\it Equal means same length and corresponding characters equal}
+    \end{tabular}
+    \end{center}
+    \[
+    \{ -1, 1\} \qquad 
+    \{0, 0 \} \qquad
+    \{-1, 0, 1 \} \qquad
+    \mathbb{Z} \qquad
+    \mathbb{N} = \{ x \in \mathbb{Z} \mid x \geq 0 \} \qquad
+    \emptyset \qquad
+    \mathbb{Z}^+ = \{ x \in \mathbb{Z}  \mid x > 0 \}
+    \]
+    
+    \vfill
+    
+    {\it Which of the sets above are defined using the roster method? Which are defined using set builder notation?}
+    
+    {\it Which of the sets above have $0$ as an element?}
+    
+    {\it Can you write any of the sets above more simply?}
+    
+    \vfill \vfill
+\section*{Rna def}
+
+
+RNA is made up of strands of four different bases that match up in specific ways.\\
+The bases are elements of the set 
+$B  = \{\A, \C, \G, \U \}$.
+
+
+{\bf Definition} The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+Examples: 
+
+\vfill
+
+\fbox{\parbox{\textwidth}{To define a set we can use the {\bf roster method}, the {\bf set builder notation}, and also \ldots
+
+
+{\bf New! Recursive Definitions of Sets}: The set $S$ (pick a name) is defined by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \textrm{Specify finitely many elements of } S\\
+\textrm{Recursive Step: } & \textrm{Give a rule for creating a new element of } S \textrm{ from known values existing in } S, \\
+& \textrm{and potentially other values}. \\
+\end{array}
+\]
+The set $S$ then consists of all and only elements that are put in $S$ by finitely many (a nonnegative integer number) of
+applications of the recursive step after the basis step.
+}} \vfill
+\section*{Proposition def}
+
+
+\begin{tabular}{lp{5in}}
+    {\bf Proposition} & Declarative sentence that is true or false (not both).\\
+    {\bf Propositional variable} & Variable that represents a proposition.\\
+    {\bf Compound proposition}& New propositions formed from existing propositions (potentially) using logical operators.\\
+    {\bf Truth table}& Table with 1 row for each of the possible combinations of truth values of the input and 
+    an additional column that shows the truth value of the result of the operation corresponding to a particular row.
+    \end{tabular}
+    
+    {\it Note}: A propositional variable is one example of a compound proposition. \vfill
+\section*{Logical operators}
+
+
+{\bf Logical operators} aka propositional connectives
+
+\begin{tabular}{lccccp{4in}}
+{\bf Conjunction} & AND & $\land$ &\verb|\land| & 2 inputs & Evaluates to $T$ when {\bf both} inputs are $T$\\
+{\bf Exclusive or} & XOR & $\oplus$ &\verb|\oplus| & 2 inputs & Evaluates to $T$ when {\bf exactly one} of inputs is $T$\\
+{\bf Disjunction} & OR & $\lor$ &\verb|\lor| & 2 inputs & Evaluates to $T$ when {\bf at least one} of inputs is $T$\\
+{\bf Negation} & NOT & $\lnot$ &\verb|\lnot| & 1 input & Evaluates to $T$ when its input is $F$\\
+\end{tabular} \vfill
+\section*{Logical operators truth tables}
+
+
+\begin{center}
+\begin{tabular}{cc||c|c|c}
+\multicolumn{2}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+& & {\bf Conjunction} &  {\bf Exclusive or} & {\bf Disjunction} \\
+$p$ & $q$ & $p \land q$ &  $p  \oplus  q$ & $p \lor  q$ \\
+\hline
+$T$ & $T$ & $T$ & $F$ & $T$\\
+$T$ & $F$ & $F$ & $T$ & $T$\\
+$F$ & $T$ & $F$ & $T$ & $T$\\
+$F$ & $F$ & $F$ & $F$ & $F$\\
+\end{tabular}
+\qquad \qquad\qquad
+\begin{tabular}{c||c}
+Input & Output \\
+& {\bf Negation} \\
+$p$ & $\lnot p$ \\
+\hline
+$T$ & $F$ \\
+$F$ & $T$\\
+\end{tabular}
+\end{center}
+
+\vfill \vfill
+\section*{Logical operators exercise}
+
+
+\begin{center}
+    \begin{tabular}{ccc||p{3in}|c|c}
+    \multicolumn{3}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+    $p$ & $q$ & $r$  &  &  $(p \land q) \oplus (~ ( p \oplus q) \land r~)$ & $(p \land q) \vee (~ ( p \oplus q) \land r~)$ \\
+    \hline
+    $T$ & $T$  & $T$ &   && \\
+    $T$ & $T$  & $F$ &   && \\
+    $T$ & $F$  & $T$ &   && \\
+    $T$ & $F$  & $F$ &   && \\
+    $F$ & $T$  & $T$ &   && \\
+    $F$ & $T$  & $F$ &   && \\
+    $F$ & $F$  & $T$ &   && \\
+    $F$ & $F$  & $F$ &   && \\
+    \end{tabular}
+\end{center}
+    \vfill \vfill
+\section*{Logical equivalence}
+
+
+\begin{tabular}{lp{4in}p{2in}}
+{\bf Logical equivalence } &Two compound  propositions are {\bf logically  equivalent} means that  they 
+have the  same  truth  values for all settings of truth  values to their propositional  variables.\\
+{\bf Tautology} & A compound proposition that evaluates to true
+for all settings of truth  values to its propositional  variables; it is  abbreviated $T$.\\
+{\bf Contradiction} & A compound proposition that  evaluates  to  false 
+for  all settings of truth  values to its propositional  variables; it  is abbreviated $F$.\\
+{\bf Contingency} & A compound proposition that is neither a tautology nor a contradiction.\\
+\end{tabular}
+ \vfill
+\section*{Logical equivalence exercise}
+
+
+{\it Extra Example}: Which of the  compound propositions in the table below are logically equivalent?
+\begin{center}
+\begin{tabular}{cc||c|c|c|c|c}
+\multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+$p$ & $q$ & $\lnot (p \land \lnot q)$ & $\lnot (\lnot p  \lor \lnot q)$ &  $(\lnot p \lor  q)$
+& $(\lnot q \lor \lnot p)$ & $(p \land q)$  \\
+\hline
+$T$ & $T$ & &&&&\\
+$T$ & $F$ & &&&&\\
+$F$ & $T$ & &&&&\\
+$F$ & $F$ & &&&&\\
+\end{tabular}
+\end{center} \vfill
+\section*{Logical equivalence example}
+
+
+{\bf (Some)} logical equivalences) cf. Rosen pp. 26-28
+
+\begin{tabular}{llp{3in}}
+$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
+$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
+$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Absorption} aka 
+short circuit evaluation\\
+$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\end{tabular}
+
+
+{\it Can replace $p$ and $q$ with any compound proposition}
+
+\vfill \vfill
+\section*{Truth table to compound proposition application}
+
+
+{\it Application}: design a circuit given a desired input-output relationship.
+
+\begin{center}
+\begin{tabular}{cc||cc}
+\multicolumn{2}{c||}{Input}  &\multicolumn{2}{c}{Output}\\
+$p$ & $q$& $mystery_1$ & $mystery_2$\\
+\hline
+$T$ & $T$  & $T$ & $F$\\
+$T$ & $F$  & $T$ & $F$\\
+$F$ & $T$  & $F$ & $F$\\
+$F$ & $F$  & $T$ & $T$\\
+\end{tabular}
+\qquad \qquad
+\begin{tabular}{ccc||c}
+\multicolumn{3}{c||}{Input}  & Output\\
+$p$ & $q$ & $r$  &  ?\\
+\hline
+$T$ & $T$  & $T$ & $T$ \\
+$T$ & $T$  & $F$ & $T$ \\
+$T$ & $F$  & $T$ & $F$ \\
+$T$ & $F$  & $F$ & $T$ \\
+$F$ & $T$  & $T$ & $F$ \\
+$F$ & $T$  & $F$ & $F$ \\
+$F$ & $F$  & $T$ & $T$ \\
+$F$ & $F$  & $F$ & $F$ \\
+\end{tabular}
+
+\end{center}
+
+
+A compound proposition that  gives output $mystery_1$ is: \underline{\phantom{\hspace{3in}}}
+
+
+\vfill
+
+
+A compound proposition that  gives output $mystery_2$ is: \underline{\phantom{\hspace{3in}}}
+
+
+\vfill \vfill
+\section*{Dnf cnf definition}
+
+
+{\bf  Definition} A compound proposition is in {\bf disjunctive normal form}  (DNF) means
+that  it is an OR of ANDs of variables and their negations.
+
+{\bf  Definition} A compound proposition is in {\bf conjunctive normal form}  (CNF) means
+that  it is an AND of ORs of variables and their negations.
+
+
+{\it Extra example}: A compound proposition that  gives output ? is: 
+
+
+\vfill
+\vfill \vfill
+\section*{Hypothesis conclusion}
+
+
+The only way to make  the conditional statement $p \to q$ false is to \underline{\phantom{\hspace{3in}}}
+
+\begin{tabular}{llll}
+The {\bf  hypothesis}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} &
+The {\bf  antecedent}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} \\
+&&&  \\
+The {\bf  conclusion}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}&
+The {\bf  consequent}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}\\
+&&&  \\
+\end{tabular}
+
+\vfill \vfill
+\section*{Logical equivalence example two}
+
+
+\begin{center}
+    \begin{tabular}{cc||c|c|c|c|c}
+    \multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+     & & Conjunction &  Exclusive or & Disjunction  &  Conditional & Biconditional  \\
+    $p$ & $q$ & $p \wedge q$ &  $p  \oplus  q$ & $p \vee  q$ & $p \to q$ & $p \leftrightarrow q$\\
+    \hline
+    $T$ & $T$ & $T$ & $F$ & $T$ & $T$& $T$\\
+    $T$ & $F$ & $F$ & $T$ & $T$ & $F$& $F$\\
+    $F$ & $T$ & $F$ & $T$ & $T$ & $T$& $F$\\
+    $F$ & $F$ & $F$ & $F$ & $F$ & $T$& $T$\\
+    \end{tabular}
+    \end{center}
+    
+    {\it Examples} 
+    
+    $p \to q \equiv \lnot p \lor q$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill
+    
+    $p \leftrightarrow q$ is not logically equivalent to $p \land q$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill
+    
+    $\lnot( p \leftrightarrow q) \equiv p \oplus q$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill
+    
+    
+    $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill
+    
+    $p \leftrightarrow q \equiv q \leftrightarrow p$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill \vfill
+\section*{Converse inverse contrapositive}
+
+
+\begin{tabular}{ll}
+    The {\bf  converse}  of $p \to q$ is & \underline{\phantom{\hspace{1.6in}}}\\
+    &  \\
+    The {\bf  inverse}  of $p \to q$ is  &\underline{\phantom{\hspace{1.6in}}}\\
+    &  \\
+    The {\bf  contrapositive}  of $p \to q$ is & \underline{\phantom{\hspace{1.6in}}}
+    \end{tabular}
+    Which of these is logically equivalent to $p \to q$?
+    
+    \vfill
+    \vfill \vfill
+\section*{Compound propositions translation}
+
+
+{\bf Translation}: Express each of the following sentences as compound propositions, using
+the given propositions.
+
+\begin{multicols}{2}
+``A sufficient condition for the warranty to be good is that you bought the computer less than a year ago"
+\columnbreak
+\begin{align*}
+w &\text{ is  ``the warranty is good"} \\
+b &\text{ is  ``you bought the computer less than a year ago"} \\
+\end{align*}
+\end{multicols}
+\vfill
+
+\begin{multicols}{2}
+``Whenever the message was sent from an unknown system, it is scanned for viruses."
+\columnbreak
+\begin{align*}
+s &\text{ is  ``The message is scanned for viruses"} \\
+u &\text{ is  ``The message was sent from an unknown system"} \\
+\end{align*}
+\end{multicols}
+\vfill
+
+\begin{multicols}{2}
+``I will complete my to-do list only if I put a reminder in my calendar"
+\columnbreak
+\begin{align*}
+r &\text{ is  ``I will complete my to-do list"} \\
+c &\text{ is  ``I put a reminder in my calendar"} \\
+\end{align*}
+\end{multicols}
+\vfill \vfill
+\section*{Logical equivalence}
+
+
+\begin{tabular}{lp{4in}p{2in}}
+{\bf Logical equivalence } &Two compound  propositions are {\bf logically  equivalent} means that  they 
+have the  same  truth  values for all settings of truth  values to their propositional  variables.\\
+{\bf Tautology} & A compound proposition that evaluates to true
+for all settings of truth  values to its propositional  variables; it is  abbreviated $T$.\\
+{\bf Contradiction} & A compound proposition that  evaluates  to  false 
+for  all settings of truth  values to its propositional  variables; it  is abbreviated $F$.\\
+{\bf Contingency} & A compound proposition that is neither a tautology nor a contradiction.\\
+\end{tabular}
+ \vfill
+\section*{Logical equivalence extra note}
+
+
+{\it Can replace $p$ and $q$ with any compound proposition}
+ \vfill
+\section*{Consistency def}
+
+
+{\bf Definition}: A collection of  compound  propositions
+is called {\bf consistent} if  there
+is  an assignment  of  truth values
+to  the  propositional variables that makes
+each of the compound propositions  true.
+ \vfill
+\section*{Consistency example}
+
+
+{\bf Consistency}: 
+\begin{quote}
+Whenever the system software is being upgraded, users cannot access the file system. 
+If users can access the file system, then they can save new files. 
+If users cannot save new files, then the system software is not being upgraded.
+\end{quote}
+
+\begin{enumerate}
+\item Translate to symbolic compound propositions
+\vfill
+\item Look for some truth assignment to the propositional variables for which all the compound propositions output $T$
+\vfill
+\end{enumerate} \vfill
+\section*{Redundancy algorithm}
+
+
+Consider the following algorithm to introduce redundancy in a string of $0$s and $1$s.
+\begin{algorithm}[caption={Create redundancy by repeating each bit three times}]
+procedure $\textit{redun3}$($a_{k-1} \cdots a_0$: a binary string)
+for $i$ := $0$ to $k-1$
+  $c_{3i}$ := $a_i$
+  $c_{3i+1}$ := $a_i$
+  $c_{3i+2}$ := $a_i$
+return $c_{3k-1} \cdots c_0$
+\end{algorithm}
+
+\begin{algorithm}[caption={Decode sequence of bits using majority rule on consecutive three bit sequences}]
+procedure $\textit{decode3}$($c_{3k-1} \cdots c_0$: a binary string whose length is an integer multiple of $3$)
+for $i$ := $0$ to $k-1$
+  if exactly two or three of $c_{3i}, c_{3i+1}, c_{3i+2}$ are set to $1$
+    $a_i$ := 1
+  else 
+    $a_i$ := 0
+return $a_{k-1} \cdots a_0$
+\end{algorithm}
+
+Give a recursive definition of the set of outputs of the $redun3$ procedure, $Out$,
+
+\vspace{-20pt}
+
+\begin{itemize}
+\item[] {\bf Basis step}: \underline{ \phantom{$\lambda \in Out$ \qquad}}
+\item[] {\bf Recursive step}: \underline{\phantom{If $x \in Out$ then $x000 \in Out$ and $x111 \in Out$} }
+\end{itemize}
+
+
+Consider the message $m = 0001$ so that the sender calculates $redun3(m) = redun3(0001) = 000000000111$.
+
+Introduce $\underline{\phantom{~~4~~}} $
+errors into the message so that the signal received by the 
+receiver is $\underline{\phantom{010100010101}}$
+but the receiver is still able to decode the original message.
+
+\vspace{-10pt}
+
+{\it Challenge: what is the biggest number of errors you can introduce?} 
+
+Building a circuit for line 3 in $decode$ procedure: given three input bits, we need to determine whether the
+majority is a $0$ or a $1$.
+
+\begin{center}
+\begin{multicols}{2}\begin{tabular}{ccc|c}
+$c_{3i}$ & $c_{3i+1}$ & $c_{3i+2}$ & $a_i$ \\
+\hline
+$1$ & $1$ & $1$ & $\phantom{1}$ \\
+$1$ & $1$ & $0$ & $\phantom{1}$ \\
+$1$ & $0$ & $1$ & $\phantom{1}$ \\
+$1$ & $0$ & $0$ & $\phantom{0}$ \\
+$0$ & $1$ & $1$ & $\phantom{1}$ \\
+$0$ & $1$ & $0$ & $\phantom{0}$ \\
+$0$ & $0$ & $1$ & $\phantom{0}$ \\
+$0$ & $0$ & $0$ & $\phantom{0}$ \\\\
+\end{tabular}
+\columnbreak
+
+Circuit 
+\end{multicols}
+\end{center} \vfill
+\section*{Predicate definition}
+
+
+{\bf  Definition}: A  {\bf predicate}  is  a function from a given set (domain) to $\{T,F\}$.
+
+A predicate can be applied, or {\bf evaluated} at, an element of the domain. \vfill
+\section*{Predicate equivalent definition}
+
+
+Two predicates over the same domain are {\bf equivalent} means they evaluate to
+the same truth values for all possible assignments of domain elements to the
+input. \vfill
+\section*{Predicate truth tables}
+
+
+\begin{center}
+    \begin{tabular}{c||c|c|c}
+    Input & \multicolumn{3}{c}{Output} \\
+    &$P(x)$ & $N(x)$ & $Mystery(x)$\\
+    $x$ & $[x]_{2c,3} > 0$ & $[x]_{2c,3} < 0$& \\
+    \hline
+    $000$  & $F$ & & $T$\\
+    $001$  & $T$ & & $T$\\
+    $010$  & $T$ & & $T$\\
+    $011$  & $T$ & & $F$\\
+    $100$  & $F$ & & $F$\\
+    $101$  & $F$ & & $T$\\
+    $110$  & $F$ & & $F$\\
+    $111$  & $F$ & & $T$\\
+    \end{tabular}
+    \end{center}
+    
+    The domain for each of the predicates $P(x)$, $N(x)$, $Mystery(x)$ is
+    \underline{\phantom{$\{ b_1b_2b_3 ~\mid~ b_i \in \{0,1\} \textrm{ for each } i, 1 \leq i \leq 3 \}$}}. \vfill
+\section*{Truth set definition}
+
+
+{\bf Definition}: The {\bf truth  set} of a  predicate is the collection of all elements in its
+domain where the predicate evaluates to $T$. \vfill
+\section*{Truth set exercise}
+
+
+The truth set for the predicate $P(x)$ is $\underline{\phantom{\{ x ~\mid~ P(x) = T\} = \{ 001, 010, 011 \}}}$.
+
+The truth set for the predicate $N(x)$ is $\underline{\phantom{\{ x ~\mid~ N(x) = T\} = \{ 101, 111 \}}}$.
+
+The truth set for the predicate $Mystery(x)$ is $\underline{\phantom{\{ x ~\mid~ Mystery(x) = T\} = \{ 000, 001, 010, 101, 111 \}}}$.
+
+
+\vfill \vfill
+\section*{Quantification definition}
+
+
+{\bf Definitions} (Rosen 40-45): 
+
+\vspace{-15pt}
+
+The {\bf universal quantification} of $P(x)$ is the statement ``$P(x)$ for all values of $x$ in the domain''
+and is written $\forall x P(x)$. An element for which $P(x) = F$ is called a {\bf counterexample} of $\forall x P(x)$.
+
+The {\bf existential quantification} of $P(x)$ is the statement ``There exists an element $x$ in the domain such that $P(x)$'' and is written $\exists x P(x)$. An element for which $P(x) = T$ is called a {\bf witness} of $\exists x P(x)$.
+
+{\bf Example}: 
+\underline{\phantom{$\exists x ~(P(x) \to N(x))$}} is a true existential quantification. \vfill
+\section*{Quantification logical equivalence}
+
+
+Statements involving predicates and quantifiers are {\bf logically equivalent} 
+means they have the same truth value no matter which predicates (domains and functions) are substituted in. 
+
+{\bf Quantifier version of De Morgan's laws}: 
+$\boxed{\neg \forall x P(x) ~\equiv~ \exists x \left( \neg P(x) \right)}$
+\qquad
+\qquad
+$\boxed{\neg \exists x Q(x) ~\equiv~ \forall x \left( \neg Q(x) \right)}$
+
+
+{\bf Example}: 
+\underline{\phantom{$\forall x ~(P(x) \lor N(x))$}} is a false universal quantification. It is logically equivalent to \underline{\phantom{$\exists x ~\not (P(x) \lor N(x))$}}
+
+
+
+
+
+\vfill \vfill
+\section*{Rna strand recall}
+
+
+Recall: Each RNA strand is a string whose symbols are elements of the set $B  = \{\A, \C, \G, \U \}$.
+The {\bf set of all RNA strands} is called $S$.
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\] \vfill
+\section*{Predicate rna example}
+
+
+{\bf Example predicates on $S$}
+
+\vspace{-20pt}
+
+
+\begin{center}
+\begin{tabular}{|p{4in}p{3.5in}|}
+\hline
+& \\
+$H(s) = T$ & Truth set of $H$ is \underline{\phantom{$S$\hspace{1in}}}\\
+\hline
+$L_3(s) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = 3$} \\
+F & \qquad\text{otherwise}
+\end{cases}$ & 
+Strand where $L_3$ evaluates to $T$ is e.g.\underline{\phantom{$\A\A\A$~\hspace{0.3in}}}
+
+\vspace{10pt}
+
+Strand where $L_3$ evaluates to $F$ is e.g. \underline{\phantom{$\A\A\U\A$\hspace{0.3in}}}\\
+\hline
+& \\
+$F_{\A}$ is defined recursively by: 
+
+~~Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
+
+~~Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$& 
+Strand where $F_{\A}$ evaluates to $T$ is e.g.\underline{\phantom{$\A\C\G$~\hspace{0.3in}}}
+
+\vspace{10pt}
+
+Strand where $F_{\A}$ evaluates to $F$ is e.g. \underline{\phantom{$\U\A\C\U$\hspace{0.3in}}}\\
+\hline
+& \\
+$P_{\A\U\C}$ is defined as the predicate whose truth set
+is the collection of RNA strands where the string $\A\U\C$
+is a substring (appears inside $s$, in order and consecutively)& 
+Strand where $P_{\A\U\C}$ evaluates to $T$ is e.g.\underline{\phantom{$\A\A\A$~\hspace{0.3in}}}
+
+\vspace{10pt}
+
+Strand where $P_{\A\U\C}$ evaluates to $F$ is e.g. \underline{\phantom{$\A\A\U\A$\hspace{0.3in}}}\\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill \vfill
+\section*{Cartesian product definition}
+
+
+{\bf Definition} (Rosen p123): The {\bf Cartesian product} of the sets $A$ and $B$, $A \times B$, is the set of all ordered pairs $(a, b)$, where $a \in A$ and $b \in B$. 
+That is: $A \times B = \{(a, b) \mid (a \in A) \land (b \in B)\}.$ The Cartesian product of the sets $A_1, A_2, \ldots ,A_n$, denoted by $A_1 \times A_2 \times \cdots \times A_n$, is the
+set of ordered n-tuples $(a_1, a_2,...,a_n)$, where $a_i$ belongs to $A_i$ for $i = 1, 2,\ldots,n$. That is,
+$A_1 \times A_2 \times \cdots \times A_n = \{(a_1, a_2,\ldots,a_n) \mid a_i \in A_i \textrm{ for } i = 1, 2,\ldots,n\}$
+ \vfill
+\section*{Rna strand recall}
+
+
+Recall: Each RNA strand is a string whose symbols are elements of the set $B  = \{\A, \C, \G, \U \}$.
+The {\bf set of all RNA strands} is called $S$.
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\] \vfill
+\section*{Rna basecount example}
+
+
+A function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is:
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(b_1, b_2) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(s b_1, b_2) & =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\]
+
+\vfill
+
+\begin{tabular}{p{3.5in}p{0.1in}p{3.5in}}
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( s, n) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+&&
+$BC$ with domain $\underline{\phantom{S \times B \times \mathbb{N}}}$ is defined by, for $s \in S$ and $b \in B$ and $n \in \mathbb{N}$,
+\[
+BC( s, b, n) = \begin{cases}
+T &\qquad\text{if $basecount(s,b) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]\\
+Element where $L$ evaluates to $T$: $\underline{\phantom{(\A, 1)\hspace{0.2in}}}$ & & Element where $BC$ evaluates to $T$: 
+$\underline{\phantom{(\A, \A1)\hspace{0.2in}}}$ \\
+& & \\
+& & \\
+Element where $L$ evaluates to $F$: $\underline{\phantom{(\A, 2)\hspace{0.2in}}}$  & & Element where $BC$ evaluates to $F$: 
+$\underline{\phantom{(\A, \C, 1)\hspace{0.2in}}}$ \\
+& & \\
+& & \\
+\end{tabular}
+
+\vfill \vfill
+\section*{Predicate notation}
+
+
+{\bf Notation}: for a predicate $P$ with domain $X_1 \times \cdots \times X_n$ and a $n$-tuple $(x_1, \ldots, x_n)$ 
+with each $x_i \in X$, we write $P(x_1, \ldots, x_n)$ to mean $P( ~(x_1, \ldots, x_n)~)$.
+ \vfill
+\section*{Rna basecount example two}
+
+
+$\exists t ~BC(t)$ \qquad In English: \underline{\phantom{There exists an ordered $3$-tuple 
+at which the predicate $BC$ evaluates to $T$.}}
+
+Witness that proves this existential quantification is true: \underline{\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}}
+
+$\forall (s,b,n) ~(~BC(s,b,n)~)$  \qquad In English: \underline{\phantom{For all ordered $3$-tuples
+the predicate $BC$ evaluates to $T$.}}
+
+Counterexample that proves this universal quantification is false: \underline{\phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}}
+
+
+{\bf New predicates from old} \qquad $BC(s,b,n)$ means $basecount(s,b) = n$.
+\begin{center}
+\begin{tabular}{|p{2.5in}p{1.5in}p{2in}|}
+\hline
+{\bf Predicate} & Domain &  Example domain element \\
+& & where predicate is $T$\\
+\hline
+&& \\
+$basecount(s,b) = 3$ & \phantom{$S \times B$}& 
+\phantom{$(\A\U\A\A, \A)$}\\
+\hline
+&& \\
+$basecount(s,\A) = n $&\phantom{$S \times \mathbb{N}$} & 
+\phantom{$(\A\U\A,2)$}\\
+\hline
+&& \\
+$\exists n \in \mathbb{N} ~(basecount(s,b) = n) $&\phantom{$S \times \mathbb{N}$} & 
+\phantom{$(\A\U\A,2)$}\\
+\hline
+&& \\
+$\forall b \in B ~(basecount(s,b) = 1) $&\phantom{$S$} & 
+\phantom{$\A\C\G\U$}\\
+\hline
+\end{tabular}
+\end{center} \vfill
+\section*{Alternating quantifiers}
+
+
+{\bf Alternating quantifiers}
+$$\forall s \exists n ~BC(s,\A,n)$$
+
+In English: \underline{\phantom{\hspace{3in}}}
+
+\vfill
+
+$$\exists n \forall s ~BC(s,\U,n)$$
+
+In English: \underline{\phantom{\hspace{3in}}}
+
+
+\vfill
+
+Evaluate each quantified statement as $T$ or $F$.
+
+\vspace{-20pt}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+&&\\
+$\forall s ~\forall b ~\exists n~BC(s,b,n)$ & $\forall s ~\forall n ~ \exists b~BC(s,b,n)$ & $\forall b ~\forall n ~\exists s~BC(s,b,n)$ \\
+&&\\
+&&\\
+\hline
+&&\\
+$\exists s ~\forall b ~\exists n~BC(s,b,n)$ & $\forall s~ \exists n ~\forall b~BC(s,b,n)$ & $\exists b ~\exists n ~\forall s~BC(s,b,n)$ \\
+&&\\
+&&\\
+\hline
+\end{tabular}
+\end{center}
+
+{\it Extra example}: Write the negation of each of the statements above, and use De Morgan's law to find a 
+logically equivalent version where the negation is applied only to the $BC$ predicate (not next to a quantifier).
+
+ \vfill
+\section*{Making change example}
+
+
+For which nonnegative integers  $n$ can we make change for $n$ with coins of 
+value $5$ cents and $3$ cents?
+
+
+Restating: We can make change for \underline{\phantom{$3$~~,~~ $5$~~,~~ $6$}}, we
+cannot make change for \underline{\phantom{$1$~~,~~ $2$~~,~~ $4$~~,~~ $7$}}, and 
+\[
+\underline{\phantom{\forall n  \in  \mathbb{Z}^{\geq 8}  \exists x \in \mathbb{N}  \exists y \in \mathbb{N}  (  5x+3y =  n)\qquad \qquad}} \star
+\]
+
+\vfill \vfill
+\section*{Strong induction def}
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf New! Proof by Strong Induction} (Rosen 5.2 p337)
+
+To prove that a universal quantification over the set of all integers greater than or equal to some  base integer $b$ holds,  pick a  fixed nonnegative integer  $j$ and then: \hfill 
+
+\begin{tabularx}{\textwidth}{lX}
+    Basis Step: & Show the statement holds for $b$, $b+1$, \ldots, $b+j$. \\
+    Recursive Step: & Consider an arbitrary integer $n$ greater than or  equal to  $b+j$, assume
+    (as the {\bf strong  induction hypothesis})  that the property holds  for {\bf each of} $b$, $b+1$, \ldots, $n$, 	
+    and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{tabularx}
+}} 
+
+\vfill
+
+\begin{center}
+    \begin{tabular}{cll}
+    $\mathbb{N}$  &  The set of  natural numbers & $\{ 0, 1, 2, 3, \ldots \}$ \\
+$\mathbb{Z}^{\geq b}$ & The set of integers greater than  or equal  a  basis element $b$ & $\{ b, b+1, b+2, b+3,  \ldots  \}$ \\
+    \end{tabular}
+    \end{center}
+    
+    \vfill \vfill
+\section*{Strong induction def}
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf New! Proof by Strong Induction} (Rosen 5.2 p337)
+
+To prove that a universal quantification over the set of all integers greater than or equal to some  base integer $b$ holds,  pick a  fixed nonnegative integer  $j$ and then: \hfill 
+
+\begin{tabularx}{\textwidth}{lX}
+    Basis Step: & Show the statement holds for $b$, $b+1$, \ldots, $b+j$. \\
+    Recursive Step: & Consider an arbitrary integer $n$ greater than or  equal to  $b+j$, assume
+    (as the {\bf strong  induction hypothesis})  that the property holds  for {\bf each of} $b$, $b+1$, \ldots, $n$, 	
+    and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{tabularx}
+}} 
+
+\vfill
+
+\begin{center}
+    \begin{tabular}{cll}
+    $\mathbb{N}$  &  The set of  natural numbers & $\{ 0, 1, 2, 3, \ldots \}$ \\
+$\mathbb{Z}^{\geq b}$ & The set of integers greater than  or equal  a  basis element $b$ & $\{ b, b+1, b+2, b+3,  \ldots  \}$ \\
+    \end{tabular}
+    \end{center}
+    
+    \vfill \vfill
+\section*{Prime number def}
+
+
+{\bf Definition}:  An integer $p$ greater than $1$ is called {\bf prime} if the only positive factors of 
+$p$ are $1$ and $p$. A positive integer that is greater than $1$ and is not prime is called composite. 
+ \vfill
+\section*{Prime number def}
+
+
+{\bf Definition}:  An integer $p$ greater than $1$ is called {\bf prime} if the only positive factors of 
+$p$ are $1$ and $p$. A positive integer that is greater than $1$ and is not prime is called composite. 
+ \vfill
+\section*{Proof by contradiction def}
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf New! Proof by Contradiction} 
+
+To prove that a statement $p$ is true, pick another statement $r$ and once we show
+that $\neg p  \to (r \wedge  \neg r)$ then  we can conclude that  $p$ is  true.
+
+{\it Informally} The statement we care about can't possible be false, so it must be true.
+}} 
+
+ \vfill
+\section*{Rational number def}
+
+
+The {\bf set  of rational numbers}, $\mathbb{Q}$  is defined as 
+\[
+\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
+\text{~~~~or, equivalently,~~~~}
+\{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in \mathbb{Z}^+ ( p =  x \cdot q) \}
+\]
+
+{\it Extra practice}: Use the definition of set equality to prove that the definitions above  give the same set.
+
+ \vfill
+\section*{Proof square root2}
+
+
+{\bf Goal}:  The square root of $2$ is not a rational number.  In other words: $\neg \exists x \in \mathbb{Q} ( x^2 -  2 = 0)$
+
+{\bf Attempted proof}: The definition of the set of rational numbers is the collection of fractions $p/q$ where $p$ is an integer and $q$ is a nonzero integer. Looking for a {\bf witness} $p$ and $q$, we can write the square root of $2$ as the fraction 
+$\sqrt{2 }/1$, where $1$ is a nonzero integer. Since the numerator is not in the domain, this witness is not allowed, and we have shown that the square root of $2$ is not a fraction of integers (with nonzero denominator). Thus, the square root of $2$ is not rational.
+
+
+{\it The problem in the above attempted proof is that} \underline{\phantom{it only considers one candidate witness
+and does not prove that no witnesses exist.}}
+
+
+{\bf Proof}: 
+
+\vfill
+
+\vfill
+
+
+
+{\bf Lemma 1:} For every two integers $p$  and  $q$, not both zero, $gcd\left( \frac{p}{gcd(p,q) },  \frac{q}{gcd(p,q)} \right) =  1$.
+
+
+{\bf Lemma 2:} For every two integers $a$ and  $b$, not both zero, with  $gcd(a,b) = 1$, it is not the case that both $a$
+is  even and $b$ is even.
+
+
+{\bf Lemma 3:} For every integer  $x$, $x$ is  even if and only if $x^2$  is even.
+
+\vfill \vfill
+\section*{Infinite finite sets def}
+
+
+\begin{tabular}{clc}
+    $\mathbb{Z}$ &  The  set of integers  & $\{ \ldots, -2, -1, 0,  1, 2, \ldots\}$ \\
+    $\mathbb{Z}^+$ &  The  set of positive integers  & $\{1, 2, \ldots\}$ \\
+    $\mathbb{N}$ &  The  set of nonnegative integers  & $\{0, 1, 2, \ldots\}$ \\
+    $\mathbb{Q}$ &  The  set of rational numbers  & $\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}$\\
+    $\mathbb{R}$ & The  set  of  real numbers &  \\
+    \end{tabular}
+    \[
+    \underline{\phantom{\mathbb{Z}^+}} ~~\subsetneq~~ \underline{\phantom{\mathbb{N}~}} ~~\subsetneq ~~\underline{\phantom{\mathbb{Z}~}}~~ \subsetneq~~ \underline{\phantom{\mathbb{Q}~}} 
+    ~~\subsetneq~~ \underline{\phantom{\mathbb{R}~}} 
+    \]
+    
+    
+    The above sets are all {\bf infinite}.
+    
+    
+    A {\bf finite} set is one whose distinct elements can be counted by a natural number.
+    
+    {\it Examples of finite sets}: $\emptyset$ , $\{ \sqrt{2} \}$
+    
+    
+    {\bf Motivating question}: Are some of the above sets {\it bigger than} others? \vfill
+\section*{Musical chairs analogy}
+
+
+{\it Analogy}: Musical chairs
+
+\begin{multicols}{2}
+\includegraphics[width=2in]{../../resources/images/musicalChairs.png}
+\columnbreak
+
+People try to sit down when the music stops
+
+Person\sun~ sits in Chair 1,
+Person\smiley~ sits in Chair 2,
+
+Person\frownie~  is left standing!
+\end{multicols}
+What does this say about the number of chairs and the number of people? \vfill
+\section*{Defined functions}
+
+
+\fbox{\parbox{\textwidth}{{\bf Defining functions} A function is defined by its (1) domain, (2) codomain, and (3) rule assigning each 
+element in the domain exactly one element in the codomain. The domain and codomain are nonempty sets.
+The rule can be depicted as a table, formula, English description, etc.\\
+
+(Rosen p139)
+}}
+
+
+{\it Example}: $f_A: \mathbb{R}^+ \to \mathbb{Q}$ with $f_A(x) = x$ is {\bf not} a well-defined function because
+
+\vfill
+
+
+{\it Example}: $f_B: \mathbb{Q} \to \mathbb{Z}$ with $f_B\left(\frac{p}{q}\right) = p+q$ is {\bf not} a well-defined function because
+
+\vfill
+
+
+{\it Example}: $f_C: \mathbb{Z} \to \mathbb{R}$ with $f_C(x) = \frac{x}{|x|}$ is {\bf not} a well-defined function because \vfill
+\section*{Injective cardinality definition}
+
+
+{\bf Definition}  (Rosen p141): A function $f: D  \to C$ is {\bf one-to-one} (or  injective) means for every $a,b$ in the domain $D$, 
+if $f(a) = f(b)$ then  $a=b$.
+
+{\bf Definition}:  For sets $A, B$, we say that  {\bf the  cardinality of $A$ is  no  bigger than the cardinality of  $B$}, and 
+write $|A| \leq |B|$, to mean there is a  one-to-one function  with domain $A$  and codomain $B$. \vfill
+\section*{Injective cardinality musical chairs}
+
+
+{\it In the analogy}: The function $sitter: \{ Chair1, Chair2\} \to \{ Person\sun, Person\smiley, Person\frownie \}$ given
+by $sitter(Chair1) = Person\sun$,  $sitter(Chair2) = Person\smiley$, is one-to-one and witnesses that 
+\[
+| \{ Chair1, Chair2\} | \leq |\{ Person\sun, Person\smiley, Person\frownie \}|
+\] \vfill
+\section*{Rna injective cardinality}
+
+
+Let $S_2$ be the set of RNA strands of length 2.
+
+\vspace{-20pt}
+
+\begin{center}
+\begin{tabular}{|c|p{5in}|}
+\hline
+Statement  &  True/False , justification \\
+\hline
+$| \{\A,\U,\G,\C\} | \leq |S_2 |$ &  \\
+&\\&\\&\\
+\hline
+$| \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} | \leq |S_2 |$ &  \\
+&\\&\\&\\
+\hline
+\end{tabular}
+\end{center} \vfill
+\section*{Surjective cardinality definition}
+
+
+{\bf Definition}  (Rosen p143): A function $f: D  \to C$ is {\bf onto} (or  surjective) means for every $b$ in the codomain, 
+there  is an element $a$ in the domain with  $f(a) = b$.
+
+
+Formally, $f: D  \to  C$ is  onto  means $\underline{\phantom{\forall b \in C  \exists a \in D ( f(a) = b)}}$.
+
+
+{\bf Definition}:  For sets $A, B$, we say that  {\bf the  cardinality of $A$ is  no  smaller than the cardinality of  $B$}, and 
+write $|A| \geq |B|$, to mean there is an onto function  with domain $A$  and codomain $B$.
+ \vfill
+\section*{Surjective cardinality musical chairs}
+
+
+{\it In the analogy}: The function $triedToSit: \{ Person\sun, Person\smiley, Person\frownie \} \to  \{ Chair1, Chair2\} $ given
+by $triedToSit(Person\sun) = Chair1$,  $triedToSit(Person\smiley) = Chair2$, 
+$triedToSit(Person\frownie) = Chair2$, is onto and witnesses that 
+\[
+ |\{ Person\sun, Person\smiley, Person\frownie \}| \geq | \{ Chair1, Chair2\} |
+\] \vfill
+\section*{Rna surjective cardinality}
+
+
+Let $S_2$ be the set of RNA strands of length 2.
+
+\vspace{-20pt}
+
+\begin{center}
+\begin{tabular}{|c|p{5in}|}
+\hline
+Statement  &  True/False , justification \\
+\hline
+$ |S_2 | \geq | \{\A,\U,\G,\C\} |$ &  \\
+&\\&\\&\\
+\hline
+$ |S_2 | \geq | \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} |$ &  \\
+&\\&\\&\\
+\hline
+\end{tabular}
+\end{center} \vfill
+\section*{Bijection definition}
+
+
+{\bf Definition}  (Rosen p144): A function $f: D  \to C$ is a {\bf bijection} means that it is both  one-to-one  and onto.
+The {\bf inverse} of a  bijection $f: D  \to  C$ is  the function $g: C  \to  D$  such that $g(b) = a$ iff  $f(a) =  b$.
+
+
+\fbox{\parbox{\textwidth}{For nonempty sets $A, B$ we say
+\begin{align*}
+|A| \leq |B| &\text{ means there is a one-to-one function with domain $A$, codomain $B$} \\
+|A| \geq |B| &\text{ means there is an onto function with domain $A$, codomain $B$} \\
+|A| = |B| &\text{ means there is a bijection with domain $A$, codomain $B$}
+\end{align*}
+}} \vfill
+\section*{Cardinality properties}
+
+
+{\bf Properties of cardinality}
+\begin{align*}
+&\forall A ~ (~  |A| = |A| ~)\\
+&\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
+&\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| = |C|) ~\to ~ |A| = |C|~)
+\end{align*}
+
+{\it Extra practice with proofs:} Use the definitions of bijections to prove these properties. \vfill
+\section*{Cantor schroder bernstein theorem}
+
+
+{\bf Cantor-Schroder-Bernstein Theorem}: For all nonempty sets,
+\[
+|A| = |B| \qquad\text{if and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
+\qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq |A|)
+\]
+
+To prove $|A| = |B|$,  we can do any {\bf one} of the following
+
+\begin{itemize}\setlength{\itemsep}{-5pt}
+\item Prove there exists  a bijection $f:  A \to B$;
+\item Prove there exists a  bijection  $f: B  \to  A$;
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is one-to-one.
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is onto.
+\end{itemize} \vfill
+\end{document}
