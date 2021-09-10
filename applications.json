@@ -4,8 +4,7 @@
         "Icon": "NM",
         "Children":{
             "Number Representations":{
-                "filename":"something",
-                "overleaf":"something"
+                "filename":"something"
             }
         }
        
@@ -17,12 +16,10 @@
         "Icon": "RS",
         "Children":{
             "Netflix":{
-                "filename":"something",
-                "overleaf":"something"
+                "filename":"something"
             },
             "Machine Learning":{
-                "filename":"",
-                "overleaf":""
+                "filename":""
             }
         }
         
@@ -33,16 +30,13 @@
         "Icon": "CP",
         "Children":{
             "Pixel Color Representation":{
-                "filename":"",
-                "overleaf":""
+                "filename":""
             },
             "Circuits":{
-                "filename":"",
-                "overleaf":""
+                "filename":""
             },
             "Data Structures":{
-                "filename":"",
-                "overleaf":""
+                "filename":""
             }
         }
     },
@@ -52,12 +46,10 @@
         "Icon": "CI",
         "Children":{
             "Secret Message Sharing":{
-                "filename":"",
-                "overleaf":""
+                "filename":""
             },
             "Error Correction":{
-                "filename":"",
-                "overleaf":""
+                "filename":""
             }
         }
     }, 
@@ -67,8 +59,7 @@
         "Icon":"BI",
         "Children":{
             "Genomics":{
-                "filename":"",
-                "overleaf":""
+                "filename":""
             }
         }
     }
