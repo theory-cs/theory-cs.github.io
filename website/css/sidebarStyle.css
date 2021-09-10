@@ -305,6 +305,14 @@
   margin-left: 50px;
 }
 
+.collapsedSidebar .homeMobile{
+  position: absolute;
+  top: 0;
+  
+  /*margin-right: 50px;*/
+  margin-left: -20px;
+}
+
 .openbtn {
   font-size: 20px;
   cursor: pointer;
