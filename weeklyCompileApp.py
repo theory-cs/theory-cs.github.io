@@ -12,6 +12,9 @@ import linecache
 import json
 apps = json.loads(open("applications.json").read())
 
+# returns unit-settings JSON file as a dictionary
+unitData = json.loads(open("unit-settings.json").read())
+
 
 # Credit: Professor Politz code from outcomes-list.py
 applications = []
@@ -35,18 +38,34 @@ for app in applications:
 def findWeek(element):
     return int(element[1])
 
+#if file in lessons directory is not found within a week on the website/unit-settings.json, then it will have 99 as a week number, 
+#so that it is sorted to the end of compiled .tex files 
+weekNumber = 99
 
 weeklyDirectory = "notes/lessons"
 for filename in os.listdir(weeklyDirectory):
     #print(filename)
     weekly = open (weeklyDirectory+"/"+filename, "r")
 
-    #get week number/order from weekly notes file- this will be the number right before .tex(length-4)
-    #convention: #.tex -> must be at the end of every lessons/ file
-    weekNumber = filename[len(filename)-5]
+    #remove .tex extension from filename
+    editFilename= filename.replace(".tex","")
+    #print("editFilename: "+editFilename)
+
+    #get week number/order from unit-settings.json file, this will be the order in which files appear on the website
+    for element in unitData:
+        for pdf in element['pdfs']:
+            if( editFilename in pdf['file']):
+                
+
+                weekNumber= unitData.index(element)+1
+
+                #debug
+                #print(pdf['file'])
+                #print(" index: "+str(unitData.index(element)+1))
+    
     
     #debug
-    #print(filename+" "+weekNumber)
+    #print(filename+" "+str(weekNumber))
     
 
     Lines = weekly.readlines()
@@ -91,7 +110,7 @@ for filename in os.listdir(weeklyDirectory):
                 #sort each outcome by week
                 appsDict[test].sort(key=findWeek)
 # UNCOMMENT if want to see how the dictionary looks
-#print(appsDict)
+print(appsDict)
 
 
 def write_if_different(filename, contents):
@@ -122,3 +141,7 @@ for key in appsDict:
         result += "\end{document}"
 
         write_if_different("generated/notes/app/"+ key + ".tex", result)
+        resultFile = open("generated/notes/app/"+ key + ".tex", "w")
+        resultFile.write(result)
+
+        resultFile.close()
