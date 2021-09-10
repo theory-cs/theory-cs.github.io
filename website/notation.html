@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- logo on tab-->
+	<link rel="shortcut icon" href="../resources/images/musicalchairs.png" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import font -->
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>	
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Discrete Math for Computer Science">
+	<meta name="author" content="Mia Minnes">
+
+	<title>Discrete Math for CS</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!---Collapsible Menu-->
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/sidebarStyle.css">
+
+	
+
+	<!-- icons for side menu -->
+	<link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' >
+
+</head>
+
+<body>
+	<div class="content">	
+		  <!-- Navigation -->
+		  <div class="sidebar">
+			<div class="logo-details">
+				<div class="logo_name">Discrete Math for CS</div>
+				<i class='bx bx-menu' id="btn" aria-label="menu sidebar"></i>
+			</div>
+			<ul class="nav-list">
+			  <li>
+				<a href="index.html" aria-label="Go to Homepage">
+				  <i class='bx bx-home-smile'></i>
+				  <span class="links_name">Home</span>
+				</a>
+				 <span class="tooltip">Home</span>
+			  </li>
+			  <li>
+				<a href="overviewTopicTemplate.html" aria-label="Go to Overview">
+				 <i class='bx bx-list-ul' ></i>
+				  <span class="links_name">Overview</span>
+				</a>
+				<span class="tooltip">Overview</span>
+			  </li>
+			 
+			 <li><a href= "connect.html" aria-label="Go to Connections with other courses "><i><p class="icons">&nbsp;&nbsp;Connect</p></i><span class="links_name"> Connections with other courses</span></a><span class="tooltip"> Connections with other courses</span></li><li><a href= "model.html" aria-label="Go to Model systems "><i><p class="icons">&nbsp;&nbsp;Model</p></i><span class="links_name"> Model systems</span></a><span class="tooltip"> Model systems</span></li><li><a href= "translate.html" aria-label="Go to Translate "><i><p class="icons">&nbsp;&nbsp;Translate</p></i><span class="links_name"> Translate</span></a><span class="tooltip"> Translate</span></li><li><a href= "logic.html" aria-label="Go to Propositional and predicate logic "><i><p class="icons">&nbsp;&nbsp;Logic</p></i><span class="links_name"> Propositional and predicate logic</span></a><span class="tooltip"> Propositional and predicate logic</span></li><li><a href= "proofs.html" aria-label="Go to Proof strategies and valid arguments "><i><p class="icons">&nbsp;&nbsp;Proofs</p></i><span class="links_name"> Proof strategies and valid arguments</span></a><span class="tooltip"> Proof strategies and valid arguments</span></li><li><a href= "induction.html" aria-label="Go to Recursion and Induction "><i><p class="icons">&nbsp;&nbsp;Induction</p></i><span class="links_name"> Recursion and Induction</span></a><span class="tooltip"> Recursion and Induction</span></li><li><a href= "modular.html" aria-label="Go to Modular Arithmetic "><i><p class="icons">&nbsp;&nbsp;Mod</p></i><span class="links_name"> Modular Arithmetic</span></a><span class="tooltip"> Modular Arithmetic</span></li><li><a href= "conventions.html" aria-label="Go to Use language conventions to improve arguments "><i><p class="icons">&nbsp;&nbsp;Conventions</p></i><span class="links_name"> Use language conventions to improve arguments</span></a><span class="tooltip"> Use language conventions to improve arguments</span></li><li><a href= "notation.html" aria-label="Go to Mathematical definitions and notation "><i><p class="icons">&nbsp;&nbsp;Notation</p></i><span class="links_name"> Mathematical definitions and notation</span></a><span class="tooltip"> Mathematical definitions and notation</span></li>
+
+
+			
+			 
+			</ul>
+		  </div>
+		
+        
+        <script>
+		   let sidebar = document.querySelector(".sidebar");
+		  let closeBtn = document.querySelector("#btn");
+		
+		  closeBtn.addEventListener("click", ()=>{
+			sidebar.classList.toggle("open");
+			menuBtnChange();//calling the function(optional)
+		  });
+		
+		  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			sidebar.classList.toggle("open");
+			menuBtnChange(); //calling the function(optional)
+		  });
+		
+		  // following are the code to change sidebar button(optional)
+		  function menuBtnChange() {
+		   if(sidebar.classList.contains("open")){
+			 closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+		   }else {
+			 closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+		   }
+		  }
+		</script>
+
+		
+
+		<div id="mySidebar" class="collapsedSidebar">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+			
+			<a href="index.html">Home</a>
+			<a href="overview.html">Calendar</a>
+			<a href= "connect.html"">Connections with other courses</a><a href= "model.html"">Model systems</a><a href= "translate.html"">Translate</a><a href= "logic.html"">Propositional and predicate logic</a><a href= "proofs.html"">Proof strategies and valid arguments</a><a href= "induction.html"">Recursion and Induction</a><a href= "modular.html"">Modular Arithmetic</a><a href= "conventions.html"">Use language conventions to improve arguments</a><a href= "notation.html"">Mathematical definitions and notation</a>
+		</div>
+
+		<div class="openbutton">
+			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
+		</div> 
+		  
+		<script>
+		  function openNav() {
+			document.getElementById("mySidebar").style.width = "100%";
+			document.getElementById("content").style.marginLeft = "100%";
+		  }
+		  
+		  function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("content").style.marginLeft= "0";
+		  }
+		</script>
+		
+			
+		<!-- Overview -->
+		<div class="row">
+			<div class="col-lg-12 text-left">
+				<h1 tabindex = "1">Mathematical definitions and notation</h1>
+				<h2>Learning Goal</h2>
+				<p>Use precise notation to encode meaning and present arguments concisely and clearly</p>
+			</div>
+		</div>
+
+        <div class="container" style="margin-left: 0px; padding: 0px;">
+            <h2>Subtopics</h2>
+
+            <div id="accordion">
+                <div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+            href="#collapse1"> truth table definitions</a> </div> <div id="collapse1""
+            class="collapse" data-parent="#accordion"><div class="card-body"> <p> Learning Goal: Listing the truth tables of atomic boolean functions (and, or, xor, not, if, iff)</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+            href=../output/truth-tables.pdf download>PDF</a> <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
+            href=../notes/truth-tables.tex download>TeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+            href= ../output/truth-tables.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="truth table definitions" src="web/viewer.html?file=../output/truth-tables.pdf" 
+            title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+            href="#collapse2"> write set definition</a> </div> <div id="collapse2""
+            class="collapse" data-parent="#accordion"><div class="card-body"> <p> Learning Goal: Precisely describing a set using appropriate notation e.g. roster method, set builder notation, and recursive definitions</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+            href=../output/set-definitions.pdf download>PDF</a> <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
+            href=../notes/set-definitions.tex download>TeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+            href= ../output/set-definitions.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="write set definition" src="web/viewer.html?file=../output/set-definitions.pdf" 
+            title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+            href="#collapse3"> classify cardinality</a> </div> <div id="collapse3""
+            class="collapse" data-parent="#accordion"><div class="card-body"> <p> Learning Goal: Classifying sets into: finite sets, countably infinite sets, uncountable sets</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+            href=../output/classify-cardinality.pdf download>PDF</a> <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
+            href=../notes/classify-cardinality.tex download>TeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+            href= ../output/classify-cardinality.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="classify cardinality" src="web/viewer.html?file=../output/classify-cardinality.pdf" 
+            title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+            href="#collapse4"> function and relation definitions</a> </div> <div id="collapse4""
+            class="collapse" data-parent="#accordion"><div class="card-body"> <p> Learning Goal: Defining functions, predicates, and binary relations using multiple representations</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+            href=../output/define-functions-and-relations.pdf download>PDF</a> <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
+            href=../notes/define-functions-and-relations.tex download>TeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+            href= ../output/define-functions-and-relations.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="function and relation definitions" src="web/viewer.html?file=../output/define-functions-and-relations.pdf" 
+            title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+            href="#collapse5"> functions for cardinality</a> </div> <div id="collapse5""
+            class="collapse" data-parent="#accordion"><div class="card-body"> <p> Learning Goal: Using functions to compare cardinality of sets</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+            href=../output/functions-for-cardinality.pdf download>PDF</a> <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
+            href=../notes/functions-for-cardinality.tex download>TeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+            href= ../output/functions-for-cardinality.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="functions for cardinality" src="web/viewer.html?file=../output/functions-for-cardinality.pdf" 
+            title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+            href="#collapse6"> important sets</a> </div> <div id="collapse6""
+            class="collapse" data-parent="#accordion"><div class="card-body"> <p> Learning Goal: Defining important sets of numbers, e.g. set of integers, set of rational numbers</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+            href=../output/important-sets.pdf download>PDF</a> <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
+            href=../notes/important-sets.tex download>TeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+            href= ../output/important-sets.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="important sets" src="web/viewer.html?file=../output/important-sets.pdf" 
+            title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div>
+            </div>
+            
+        </div>
+
+
+				
+		
+			
+	</div>
+
+
+    <!-- jQuery Version 1.11.1 -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+	
+</body>
+
+</html>
