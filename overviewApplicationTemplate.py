@@ -31,14 +31,14 @@ for i in data:
 
     boxString += """<div class="box"> \n"""
 
-    boxString += "<h2>" + i + "</h2>"
+    boxString += "<h2><a href= " + data[i]['file'] + ">" + i + "</a></h2>"
     boxString += "<hr>"
 
     boxString += """<div class="column"> <dl> \n"""
 
     
     for j in data[i]['Children']:
-        boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href=\"""" + data[i]['Children'][j]['filename'] + """\" >""" + j + """</a></dt> \n"""
+        boxString += """<dt><i class='bx bx-subdirectory-right'></i>""" + j + """</dt> \n"""
 
 
             
