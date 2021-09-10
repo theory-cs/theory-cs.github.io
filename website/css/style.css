@@ -335,14 +335,14 @@ label {
 }
 
 .copyright{
-    background-color: #182B49;
+    background-color: #00629B;
     color: white;
     text-align: center;
     font-size: 150%;
     margin-bottom: 0%;
     bottom:0%;
     width:100%;
-    /* position: fixed; */
+    position: fixed;
    left: 0;
    bottom: 0;
    width: 100%;
