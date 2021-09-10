@@ -5,16 +5,17 @@
           "name": "Notes",
           "addExtensions":true, 
           "file":"Week0and1",
-          "annotatedFile": "Week1-Notes-CSE20W21-4pm.pdf"
+          "annotatedFile": "Week0and1-annotated-CSE20F21.pdf"
       }],
-      "Information": [ "Welcome to CSE 20 in Fall 2021"],
+      "Information": [ "Welcome", "We look forward to working with you this quarter!"],
       "embed": [{
         "name": "Video Snippets",
-        "embedCode": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/2KbOaCLS-cQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+        "embedCode": "<iframe height=\"200px\" src=\"https://www.youtube.com/embed/2KbOaCLS-cQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+      }, {
+        "name": "Lecture Hall",
+        "embedCode": "<iframe height=\"200px\" src=\"https://map.concept3d.com/?id=1005#!w/32.8738,-117.24095,0;32.88187,-117.23338,0;0\" frameborder=\"0\"</iframe>"
       }]
-
     },
-
     {
         "header": "Week 2",
         
