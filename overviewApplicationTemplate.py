@@ -11,19 +11,20 @@ data = json.load(fileJson)
 sidebarButtons = ""
 for i in data:
     sidebarButtons += "<li>"
-    sidebarButtons += """<a href= \"""" +data[i]['file'] + """\" aria-label="Go to """ + i + """ ">"""
+    sidebarButtons += """<a href= \"""" +data[i]['file'] + """\" aria-label="Go to """ + i + """">"""
     sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + data[i]['Icon'] + """</p></i>"""
     sidebarButtons += """<span class="links_name"> """ + i + """</span>"""
     sidebarButtons += "</a>"
     sidebarButtons += """<span class="tooltip"> """ + i + """</span>"""
-    sidebarButtons += "</li>"
+    sidebarButtons += "</li>\n"
+
         
             
 
 #Adds icons in regular sidebar for each 2nd tier child in outcomes.json 
 mobileSidebar = ""
 for i in data:
-    mobileSidebar += """<a href= \"""" + data[i]['file'] + """\"">""" + i + """</a>"""
+    mobileSidebar += """<a href= \"""" + data[i]['file'] + """">""" + i + """</a>"""
 
 boxString = ""
 #big for loop begin
@@ -31,14 +32,14 @@ for i in data:
 
     boxString += """<div class="box"> \n"""
 
-    boxString += "<h2><a href= " + data[i]['file'] + ">" + i + "</a></h2>"
+    boxString += """<h2><a href= \"""" + data[i]['file'] + """\" style="color: #182B49; text-decoration: none;" >""" + i + """</a></h2>"""
     boxString += "<hr>"
 
     boxString += """<div class="column"> <dl> \n"""
 
     
     for j in data[i]['Children']:
-        boxString += """<dt><i class='bx bx-subdirectory-right'></i>""" + j + """</dt> \n"""
+        boxString += """<dt><a style="color: #00629B;"><i class='bx bx-subdirectory-right'></i>""" + j + """</a></dt> \n"""
 
 
             
