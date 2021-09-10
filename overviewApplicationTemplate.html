@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <html lang="en">
+	  <!-- logo on tab-->
+	<link rel="shortcut icon" href="../resources/images/musicalchairs.png" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Discrete Mathematics for Computer Science</title>
+  <!-- import font -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">	
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Discrete Mathematics for Computer Science">
+	<meta name="author" content="Mia Minnes">
+
+  
+
+	<title>Discrete Mathematics for Computer Science</title>
+
+	<!-- Bootstrap Core CSS S-->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/sidebarStyle.css">
+
+	<!-- icons for side menu -->
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+
+</head>
+    
+
+<body>
+    <!-- Mobile sidebar -->
+	<div id="mySidebar" class="collapsedSidebar">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+		<a href="index.html">Home</a>
+		<a href="overview.html">Calendar</a>
+		$mobile
+	</div>
+	<!-- end -->
+	
+	<br>
+	
+	<div class="openbutton" style="margin-left: 10px;">
+		<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
+	</div> 
+				  
+	<script>
+		function openNav() {
+			document.getElementById("mySidebar").style.width = "100%";
+			document.getElementById("content").style.marginLeft = "100%";
+		}
+				  
+		function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("content").style.marginLeft= "0";
+		}
+	</script>
+        
+	<div class="calendar-margin">
+		
+    <h1 style="font-size: 50px;"><a href="overviewTopic.html" aria-label="Go to Overview">Overview</a></h1>
+	
+	<!-- Template starts here -->
+    $boxes 
+
+    <!-- Navigation -->
+	<div class="sidebar">
+		<div class="logo-details">
+		  <!--<i class='bx bxl-c-plus-plus icon'></i>-->
+			<div class="logo_name"><a href="index.html" aria-label="Go to Homepage">Discrete Math for CS</a></div>
+			<i class='bx bx-menu' id="btn" ></i>
+		</div>
+
+		<ul class="nav-list">
+         	$sidebar
+		 
+		</ul>
+	</div> 
+		
+	<script>
+		let sidebar = document.querySelector(".sidebar");
+		let closeBtn = document.querySelector("#btn");
+		
+		closeBtn.addEventListener("click", ()=>{
+			sidebar.classList.toggle("open");
+			menuBtnChange();//calling the function(optional)
+		});
+		
+		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			sidebar.classList.toggle("open");
+			menuBtnChange(); //calling the function(optional)
+		});
+		
+		// following are the code to change sidebar button(optional)
+		function menuBtnChange() {
+			if(sidebar.classList.contains("open")){
+				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+		   	}
+
+			else {
+				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+		   	}
+		}
+	</script>
+</body>
+
+</html>
