@@ -10,18 +10,12 @@ website: compile static-pages latex dynamic-pages tex-html clean-tex
 #testing targets:
 #static-pages dynamic-pages clean-tex 
 
-compile: generated/last-compile.txt
-
-# run compile python scripts to generated compiled .tex files of applications
-# and topics. The target is a text file, and the trick of using touch makes the
-# file update its modified time when this is run. BUT, if these files haven't
-# changed since the last run, they will all be older than last-compile.txt
-generated/last-compile.txt: *.json *.html *.py notes/lessons/*.tex notes/activity-snippets/*.tex resources/*.tex
+# run compile python scripts to generated compiled .tex files of applications and topics 
+compile: 
 	mkdir -p generated/notes/app
 	mkdir -p generated/notes/topic
 	python3 weeklyCompileApp.py
 	python3 weeklyCompileTopic.py
-	touch generated/last-compile.txt
 
 
 # Iterate over all changed .tex files in notes and run target for them in new folder, then generate flat versions if needed

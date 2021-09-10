@@ -94,13 +94,6 @@ for filename in os.listdir(weeklyDirectory):
 # UNCOMMENT if want to see how the dictionary looks
 #print(lowLevelsDict)
 
-def write_if_different(filename, contents):
-    old_contents = open(filename).read()
-    if old_contents == contents: return
-    result_file = open(filename, "w")
-    result_file.write(contents)
-    result_file.close()
-
 
 #Iterate through the dict
 for key in lowLevelsDict:
@@ -118,4 +111,7 @@ for key in lowLevelsDict:
 
         result += "\end{document}"
 
-        write_if_different("generated/notes/app/"+ key + ".tex", result)
+        resultFile = open("generated/notes/app/"+ key + ".tex", "w")
+        resultFile.write(result)
+
+        resultFile.close()

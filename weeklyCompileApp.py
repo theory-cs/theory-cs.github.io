@@ -94,14 +94,6 @@ for filename in os.listdir(weeklyDirectory):
 #print(appsDict)
 
 
-def write_if_different(filename, contents):
-    old_contents = open(filename).read()
-    if old_contents == contents: return
-    result_file = open(filename, "w")
-    result_file.write(contents)
-    result_file.close()
-
-
 #Iterate through the dict
 for key in appsDict:
     # Only run if the key has elements
@@ -118,4 +110,7 @@ for key in appsDict:
 
         result += "\end{document}"
 
-        write_if_different("generated/notes/app/"+ key + ".tex", result)
+        resultFile = open("generated/notes/app/"+ key + ".tex", "w")
+        resultFile.write(result)
+
+        resultFile.close()
