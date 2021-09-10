@@ -35,33 +35,10 @@
 
 <body>
 	
-   <!-- Mobile sidebar -->
-	<div id="mySidebar" class="collapsedSidebar">
-		<a href="index.html" class="homeMobile">CSE 20</a>
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
-			
-		<a href="overview.html">Calendar</a>
+   <!-- Mobile sidebar Insert-->
 		$mobile
-	</div>
 	<!-- end -->
-	
-	<br>
-	
-	<div class="openbutton" style="margin-left: 10px;">
-		<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
-	</div> 
 				  
-	<script>
-		function openNav() {
-			document.getElementById("mySidebar").style.width = "100%";
-			document.getElementById("content").style.marginLeft = "100%";
-		}
-				  
-		function closeNav() {
-			document.getElementById("mySidebar").style.width = "0";
-			document.getElementById("content").style.marginLeft= "0";
-		}
-	</script> 
     
 	
 	<div class="calendar-margin">
@@ -132,55 +109,9 @@
             </table>
         </div>
 
-    <!-- Navigation -->
-	<div class="sidebar">
-		<div class="logo-details">
-		  <!--<i class='bx bxl-c-plus-plus icon'></i>-->
-		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
-			<a href="index.html" class="logo_name">CSE 20</a>
-			<i class='bx bx-menu' id="btn" ></i>
-		</div>
-
-		<ul class="nav-list">
-			
-			<li>
-				<a href="overview.html" aria-label="Go to Calendar">
-					<i class='bx bx-calendar'></i>
-					<span class="links_name">Calendar</span>
-				</a>
-				<span class="tooltip">Calendar</span>
-			</li>
-			
-			$sidebar
-		 
-		</ul>
-	</div> 
-	
-		
-	<script>
-		let sidebar = document.querySelector(".sidebar");
-		let closeBtn = document.querySelector("#btn");
-		
-		closeBtn.addEventListener("click", ()=>{
-			sidebar.classList.toggle("open");
-			menuBtnChange();//calling the function(optional)
-		});
-		
-		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-			sidebar.classList.toggle("open");
-			menuBtnChange(); //calling the function(optional)
-		});
-		
-		// following are the code to change sidebar button(optional)
-		function menuBtnChange() {
-			if(sidebar.classList.contains("open")){
-				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-			}
-			else {
-				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-			}
-		}
-	</script>
+    <!-- Sidebar Insert -->
+	$sidebar
+	<!-- Navigation End -->
 </body>
 
 </html>
