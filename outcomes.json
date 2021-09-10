@@ -1,223 +1,129 @@
 {
     "Modeling and Impact":{
-        "Program Level": "Understand, guide, shape impact of computing on society/the world",
-        "Theory":" Modeling & Application: Connect the role of theory to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts",
+        "Description": "Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts",
         "Icon": "<i class='bx bxs-paper-plane'></i>",
         "Children":{
-            "Modeling": {
-                "Description": "Model systems with tools from discrete mathematics and reason about implications of modelling choices",
-                "Children": {},
-                "Icon": "MD",
-                "file": "modeling.html"
+            "Connections with other courses": {
+                "Description": "Explore applications in CS through multiple perspectives, including software, hardware, and theory.",
+                "Children": {
+                    "drawing circuits": "Drawing a logical circuit to implement a compound proposition",
+                    "tracing circuits": "Tracing a logical circuit to determine the values on output wires",
+                    "applications of number representations": "Determining the properties of positional number representations, including overflow and bit operations"
+                },
+                "Icon": "Connect",
+                "file": "connect.html"
+            },
+            "Model systems": {
+                "Description" : "Model systems with tools from discrete mathematics and reason about implications of modelling choices.",
+                "Children":{
+                    "modeling clusters": "Modeling data with partitions and functions",
+                    "data types": "Selecting and representing appropriate data types and using notation conventions to clearly communicate choices",
+                    "linked lists": "Modeling data structures, such as linked lists or trees, as recursively defined data structures"
+                },
+                "Icon": "Model",
+                "file":"model.html"
 
             },
-            "Boolean Operations": {
-                "Description" : "Relate boolean operations to applications, e.g. set operations and combinatorial circuits.",
-                
-                "Children":{
-                    "XOR and Bit Shifts": {
-                        "Description": "Correctly use XOR and bit shifts",
-                        "filename":""
-                    },
-                    "Clustering":{
-                        "Description": "Define clustering as an application of relations and partitions",
-                        "filename":""
-                    }
+            "Translate": {
+                "Description": "Translate between different representations to illustrate a concept",
+                "Children": {
+                    "compound propositions and truth tables": "Translating between truth tables (tables of values) and compound propositions",
+                    "graph representations of relations": "Drawing graph representations of relations and functions e.g. Hasse diagram and partition diagram",
+                    "representing numbers": "Representing numbers using positional representations, including decimal, binary, hexadecimal, fixed-width representations, and 2s complement",
+                    "trace algorithms": "Tracing algorithms specified in pseudocode",
+                    "translating": "Translating between symbolic and English versions of statements using precise mathematical language"
                 },
-                "Icon": "BOP",
-                "file":"booleanOperations.html"
-
+                "Icon": "Translate",
+                "file": "translate.html"
             }
-
-
         }
-        
-
     },
-
     "Problem Solving":{
-        "Program Level": "Reason about computation and systems ~~ Technical skepticism",
-        "Theory": "Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.",
+        "Description": "Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.",
         "Icon":"<i class='bx bxs-bulb' ></i>",
         "Children": { 
-            "Propositional Logic": {
-                "Description": "Reason about the truth or falsity of complicated statements using Boolean connectives, quantifiers, and basic definitions.",
+            "Propositional and predicate logic": {
+                "Description": "Reason about the truth or falsity of complicated statements using Boolean connectives, quantifiers, and basic operations.",
                 "Children": {
-                    "Truth Tables": {
-                        "Description": "Prove propositional equivalences using truth tables.",
-                        "filename":""
-                    },
-                    "Laws or Known Propositional Logic": "Prove propositional equivalences using other known equivalences, e.g. DeMorgan’s laws, Double negation laws, Distributive laws, etc.",
-                    "Consistency": "Decide and justify whether or not a collection of propositions is consistent.",
-                    "Domain Elements": "Describe the set of domain elements that make a predicate with one input evaluate to true",
-                    "Universal and Existential Statements": "Evaluate universal and existential statements about finite domains (with no quantifier alternations)."
+                    "evidence for quantified statements": "Determining what evidence is required to establish that a quantified statement is true or false",
+                    "quantified statement proofs": "Evaluating quantified statements about finite and infinite domains",
+                    "cnf and dnf": "Rewriting compound propositions using normal forms",
+                    "consistency": "Judging whether a collection of propositions is consistent",
+                    "evaluating compound propositions": "Evaluating compound propositions",
+                    "logical equivalence via laws": "Judging logical equivalence of compound propositions using symbolic manipulation with known equivalences, including DeMorgan's Law",
+                    "logical equivalence via truth tables": "Judging logical equivalence of compound propositions using truth tables",
+                    "variants of conditionals": "Writing the converse, contrapositive, and inverse of a given conditional statement"
                 },
-                "Icon": "PL",
-                "file":"propositionalLogic.html"
+                "Icon": "Logic",
+                "file":"logic.html"
 
             },
-
-            "Proof Techniques": {
-                "Description": "Apply proof techniques, including direct proofs and proofs by contradiction.",
+            "Proof strategies and valid arguments": {
+                "Description": "Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.",
                 "Children": {
-                    "Infinite Domains": "Counterexample and witness-based arguments for predicates with infinite domains",
-                    "Nested Quantifiers": "Counterexample and witness-based arguments for nested quantifiers (both alternating and not)."
+                    "applying proof strategy": "Carrying out a given proof strategy to prove a given statement",
+                    "identifying proof strategy in proof": "Identifying the proof strategies used in a given proof",
+                    "logical structure to proof strategy": "Identifying which proof strategies are applicable to prove a given compound proposition based on its logical structure",
+                    "universal generalization": "Carrying out a universal generalization argument to prove that a universal statement is true",
+                    "using proofs to evaluate": "Using proofs to as knowledge discovery tools to decide whether a statement is true or false",
+                    "contradiction proofs": "Tracing and/or modifying a proof by contradiction"
                 },
-                "Icon": "PT",
-                "file":"proofTechniques.html"
-
+                "Icon": "Proofs",
+                "file":"proofs.html"
             },
-
-            "Valid and Invalid Arguments": {
-                "Description": "Distinguish valid from invalid arguments.",
+            "Recursion and Induction": {
+                "Description": "Work with recursively defined data and prove their properties using inductive reasonging",
                 "Children": {
-                    "Quantified Statement": "Determine what evidence is required to establish that a quantified statement is true or false.",
-                    "Proposition and its Proof Strategies": "Identify the main connective of a proposition and associated proof strategies"
+                    "recursive definitions": "Using a recursive definition to evaluate a function or determine membership in a set",
+                    "mathematical induction proofs": "Using mathematical induction to prove mathematical identities, inequalities, and other invariants",
+                    "strong induction proofs": "Using strong induction to prove mathematical identities, inequalities, and other invariants",
+                    "structural induction proofs": "Using structural induction to prove statements about recursively defined objects, e.g. strings and trees"
                 },
-                "Icon": "VA",
-                "file":"validAndInvalidArguments.html"
-
-                
+                "Icon": "Induction",
+                "file": "induction.html"
             },
-
-            "Craft Proofs": {
-                "Description": "Craft proofs and arguments at different levels of formality, including prose and symbolic notation as appropriate.",
-                "Children": {
-                    "Universal Generalization": "Use universal generalization to prove that universal statements are true.",
-                    "Using Proofs to Evaluate Propositions": "Determine whether a proposition is true or false using valid reasoning (proofs) in multiple contexts.",
-                    "Recursively Defined Sets and Functions": "Practice with properties of recursively defined sets and functions.",
-                    "Proofs with Recursively Defined Sets and Functions": "Prove and disprove properties of recursively defined sets and functions with structural induction and/ or mathematical induction.",
-                    "Induction Types": "Distinguish between and use as appropriate each of structural induction, mathematical induction, and strong induction.",
-                    "Proof Technique": "Evaluate which proof technique(s) is appropriate for a given proposition.",
-                    "Proof by Contradiction": "Trace and/or construct a proof by contradiction.",
-                    "Mathematical Induction": "Use mathematical induction to prove statements about mathematical identities and inequalities.",
-                    "Structural Induction": "Apply structural induction to prove statements about recursively defined objects, e.g. strings and trees."
-                },
-                "Icon": "CP",
-                "file":"craftProofs.html"
-
-            },
-
-            "Binary Relations": {
-                "Description": "Reason about binary relations",
-                "Children": {
-                    "Equivalence": "Define equivalence using relations and give examples",
-                    "Congruence Modulo Integers": "Use the equivalence relation of congruence modulo integers and apply its properties",
-                    "Properties": "Determine and prove whether a given binary relation is symmetric, antisymmetric, reflexive, and/or transitive",
-                    "Equivalence Relation": "Determine and prove whether a given binary relation is an equivalence relation",
-                    "Partial Order": "Determine and prove whether a given binary relation is a partial order" 
-                },
-                "Icon": "BR",
-                "file":"binaryRelations.html"
-            },
-
             "Modular Arithmetic": {
                 "Description": "Reason about modular arithmetic.",
                 "Children": {
-                    "Div and Mod Operators": "Define and use the div and mod operators."   
+                    "congruence mod n": "Applying the definition of congruence modulo n and modular arithmetic",
+                    "div and mod": "Using the definitions of the div and mod operators on integers",
+                    "divisibility and primes": "Using divisibility and primality predicates"
                 },
-                "Icon": "MA",
-                "file":"modularArithmetic.html"
-            },
-
-            "Sets, Functions, and Relations Proof": {
-                "Description": "Identify and be able to prove basic properties of sets, functions, and relations.",
-                "Children": {
-                    "Properties of Functions": "Compare sets using one-to-one, onto, and invertible functions.",
-                    "Classifying the Cardinality of Sets": "Classify sets by cardinality into: Finite sets, countable sets, uncountable sets." 
-                },
-                "Icon": "SFR",
-                "file":"setsFunctionsRelations.html"
+                "Icon": "Mod",
+                "file":"modular.html"
             }
         }
-
     },
-
     "Communication":{
-        "Program Level": "Know, select and apply appropriate computing knowledge and problem-solving techniques ~~Multiple representations",
+        "Description": "Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.",
         "Icon":"<i class='bx bxs-message-square-edit'></i>",
-        "Theory":"Communication: Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.",
         "Children":{
-            "Mathematical Definitions and Notation": {
-                "Description":"Use and apply mathematical definitions and notation",
-                "Children":{
-                    "Data Types":"Define data types: set, n-tuple, string (over specific alphabet)",
-                    "Sets and Functions":"Define sets and functions in multiple ways including recursively",
-                    "Logical Connectors":"List the truth tables and meanings for conjunction, disjunction, exclusive or.",
-                    "Compound Propositions":"Evaluate the truth value of a compound proposition given truth values of its constituent variables",
-                    "Converse, Contrapositive, and Inverse":"Form the converse, contrapositive, and inverse of a given conditional statement",
-                    "Evaluating Propositions":"Determine the truth value of the proposition resulting from evaluating a predicate",
-                    "Factoring and Primes":"Define predicates associated with integer factoring and primes",
-                    "Arbitrary":"Define “arbitrary”",
-                    "Linked Lists":"Define linked lists as a recursively defined data structure",
-                    "Cardinality Through Functions":"Define cardinality using one-to-one, onto, and invertible functions.",
-                    "Important Number Sets":"Differentiate between important sets of numbers",
-                    "Binary Relations":"Define (binary) relations and give examples."
-                                
+            "Use language conventions to improve arguments": {
+                "Description": "Use precise language to clearly present logical arguments and communicate with technical and non-technical colleagues.",
+                "Children": {
+                    "tautologies and contradictions": "Distinguishing between tautologies, contradictions, and contingencies",
+                    "binary relations properties": "Determining whether a given binary relation is symmetric, antisymmetric, reflexive, and/or transitive",
+                    "function properties": "Determining whether a given function is one-to-one, onto, and/or invertible",
+                    "special binary relations": "Determining whether a given binary relation is an equivalence relation and/or a partial order",
+                    "induction flavors": "Distinguishing between structural induction, mathematical induction, and strong induction",
+                    "proof signposts": "Using appropriate signpost words to improve readability of proofs, including 'arbitrary' and 'assume'"
                 },
-                "Icon": "MDN",
-                "file":"mathDefinitions.html"
+                "Icon": "Conventions",
+                "file": "conventions.html"                
             },
-
-            "Algorithms in English/Pseudocode": {
-                "Description":"Describe and trace simple algorithms using English and pseudocode.",
-                "Children":{},
-                "Icon": "AEP",
-                "file":"algorithmsInEnglish.html"
-            },
-
-            "Classical Algorithms":{
-                "Description":"Define and use classical algorithms and algorithmic paradigms",
-                "Children":{
-                    "Convert Between Bases":"Convert between expansions in different bases of a positive integer.",
-                    "Diffie-Hellman Key Exchange":"Trace the algorithms involved in Diffie-Helman key exchange",
-                    "Modular Exponentiation":"Trace the algorithms involved in modular exponentiation",
-                    "Hasse Diagram":"Draw the Hasse diagram of a partial order"
+            "Mathematical definitions and notation": {
+                "Description": "Use precise notation to encode meaning and present arguments concisely and clearly",
+                "Children": {
+                    "truth table definitions": "Listing the truth tables of atomic boolean functions (and, or, xor, not, if, iff)",
+                    "write set definition": "Precisely describing a set using appropriate notation e.g. roster method, set builder notation, and recursive definitions",
+                    "classify cardinality": "Classifying sets into: finite sets, countably infinite sets, uncountable sets",
+                    "function and relation definitions": "Defining functions, predicates, and binary relations using multiple representations",
+                    "functions for cardinality": "Using functions to compare cardinality of sets",
+                    "important sets": "Defining important sets of numbers, e.g. set of integers, set of rational numbers"
                 },
-                "Icon": "CA",
-                "file":"classicalAlgorithms.html"
-            },
-
-            "Develop Algorithms":{
-                "Description":"Use multiple representations of numbers to illustrate properties of the numbers and develop algorithms.",
-                "Children":{
-                    "Base Expansions":"Define the base expansion of a positive integer, specifically decimal, binary, hexadecimal, and octal",
-                    "Representing Numbers":"Define multiple ways for representing numbers",
-                    "Defining Ranges of Numbers":"Compute the ranges of numbers that can be represented using a given definition",
-                    "Representing Negative Integers":"Represent negative integers in multiple ways",
-                    "Operating on Numbers in Different Representations":"Perform arithmetic operations on integers using multiple representations",
-                    "Relating Integer to Boolean Operations":"Relate algorithms for integer operations to bitwise boolean operations"
-                },
-                "Icon": "DA",
-                "file":"developAlgorithms.html"
-            },
-
-            "Translating to Formal Logic":{
-                "Description":"Translate sentences and specifications between English and formal logic.",
-                "Children":{
-                    "CNF-DNF":"Compute the CNF and DNF of a given compound proposition.",
-                    "Translating to propositional logic":"Translate sentences from English to propositional logic using appropriate propositional variables and boolean operators.",
-                    "Defining a Predicate over a Finite Domain":"Define a predicate over a finite domain using a table of values and as properties",
-                    "Predicates with Tuples":"Use predicates with set of tuples as their domain to relate values to one another",
-                    "Translate using logical connectors and universal and existential quantifiers":"Translate sentences with combinations of ∧, → in conjunction with universal and existential quantifiers",
-                    "Use DeMorgan’s Law in Translating Quantified Statements":"State and apply DeMorgan’s law for quantified statements. aka Use logical equivalence to rewrite quantified statements (including negated quantified statements)"
-                },
-                "Icon": "FL",
-                "file":"formalLogic.html"
-            },
-
-            "Cardinality of Sets":{
-                "Description": "Distinguish between finite, countable, and uncountable sets.",
-                "Children":{
-                    "Cantor’s Diagonalization Argument":"Explain the central idea in Cantor’s diagonalization argument."
-                },
-                "Icon": "CD",
-                "file":"cardinalitySets.html"
+                "Icon": "Notation",
+                "file": "notation.html"
             }
-
         }
-
     }
-
 }
-

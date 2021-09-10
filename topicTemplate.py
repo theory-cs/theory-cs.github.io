@@ -2,8 +2,8 @@ from string import Template
 import json
   
 # Opening JSON file
-#TODO : change outcomeTest.json to outcomes.json
-fileJson = open('outcomeTest.json',)
+#fileJson = open('outcomeTest.json',)
+fileJson = open('outcomes.json',)
   
 # returns JSON object as a dictionary
 data = json.load(fileJson)

@@ -38,8 +38,7 @@ for i in data:
     boxString += """<div class="box"> \n"""
 
     boxString += "<h2>" + data[i]['Icon'] + i + "</h2>"
-    boxString += "<p> Program Level: " + data[i]['Program Level'] + "</p>"
-    boxString += "<p> Theory: " + data[i]['Theory'] + "</p>"
+    boxString += "<p> Description: " + data[i]['Description'] + "</p>"
     boxString += "<hr>"
 
     boxString += """<div class="column"> <dl> \n"""
