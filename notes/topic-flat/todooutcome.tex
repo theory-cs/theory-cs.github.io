@@ -202,190 +202,279 @@ Examples:
 The set $S$ then consists of all and only elements that are put in $S$ by finitely many (a nonnegative integer number) of
 applications of the recursive step after the basis step.
 }} \vfill
-\section*{Infinite finite sets def}
+\section*{Proposition def}
 
 
-\begin{tabular}{clc}
-    $\mathbb{Z}$ &  The  set of integers  & $\{ \ldots, -2, -1, 0,  1, 2, \ldots\}$ \\
-    $\mathbb{Z}^+$ &  The  set of positive integers  & $\{1, 2, \ldots\}$ \\
-    $\mathbb{N}$ &  The  set of nonnegative integers  & $\{0, 1, 2, \ldots\}$ \\
-    $\mathbb{Q}$ &  The  set of rational numbers  & $\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}$\\
-    $\mathbb{R}$ & The  set  of  real numbers &  \\
+\begin{tabular}{lp{5in}}
+    {\bf Proposition} & Declarative sentence that is true or false (not both).\\
+    {\bf Propositional variable} & Variable that represents a proposition.\\
+    {\bf Compound proposition}& New propositions formed from existing propositions (potentially) using logical operators.\\
+    {\bf Truth table}& Table with 1 row for each of the possible combinations of truth values of the input and 
+    an additional column that shows the truth value of the result of the operation corresponding to a particular row.
     \end{tabular}
-    \[
-    \underline{\phantom{\mathbb{Z}^+}} ~~\subsetneq~~ \underline{\phantom{\mathbb{N}~}} ~~\subsetneq ~~\underline{\phantom{\mathbb{Z}~}}~~ \subsetneq~~ \underline{\phantom{\mathbb{Q}~}} 
-    ~~\subsetneq~~ \underline{\phantom{\mathbb{R}~}} 
-    \]
     
-    
-    The above sets are all {\bf infinite}.
-    
-    
-    A {\bf finite} set is one whose distinct elements can be counted by a natural number.
-    
-    {\it Examples of finite sets}: $\emptyset$ , $\{ \sqrt{2} \}$
-    
-    
-    {\bf Motivating question}: Are some of the above sets {\it bigger than} others? \vfill
-\section*{Musical chairs analogy}
+    {\it Note}: A propositional variable is one example of a compound proposition. \vfill
+\section*{Logical operators}
 
 
-{\it Analogy}: Musical chairs
+{\bf Logical operators} aka propositional connectives
+
+\begin{tabular}{lccccp{4in}}
+{\bf Conjunction} & AND & $\land$ &\verb|\land| & 2 inputs & Evaluates to $T$ when {\bf both} inputs are $T$\\
+{\bf Exclusive or} & XOR & $\oplus$ &\verb|\oplus| & 2 inputs & Evaluates to $T$ when {\bf exactly one} of inputs is $T$\\
+{\bf Disjunction} & OR & $\lor$ &\verb|\lor| & 2 inputs & Evaluates to $T$ when {\bf at least one} of inputs is $T$\\
+{\bf Negation} & NOT & $\lnot$ &\verb|\lnot| & 1 input & Evaluates to $T$ when its input is $F$\\
+\end{tabular} \vfill
+\section*{Logical operators truth tables}
+
+
+\begin{center}
+\begin{tabular}{cc||c|c|c}
+\multicolumn{2}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+& & {\bf Conjunction} &  {\bf Exclusive or} & {\bf Disjunction} \\
+$p$ & $q$ & $p \land q$ &  $p  \oplus  q$ & $p \lor  q$ \\
+\hline
+$T$ & $T$ & $T$ & $F$ & $T$\\
+$T$ & $F$ & $F$ & $T$ & $T$\\
+$F$ & $T$ & $F$ & $T$ & $T$\\
+$F$ & $F$ & $F$ & $F$ & $F$\\
+\end{tabular}
+\qquad \qquad\qquad
+\begin{tabular}{c||c}
+Input & Output \\
+& {\bf Negation} \\
+$p$ & $\lnot p$ \\
+\hline
+$T$ & $F$ \\
+$F$ & $T$\\
+\end{tabular}
+\end{center}
+
+\vfill \vfill
+\section*{Logical operators exercise}
+
+
+\begin{center}
+    \begin{tabular}{ccc||p{3in}|c|c}
+    \multicolumn{3}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+    $p$ & $q$ & $r$  &  &  $(p \land q) \oplus (~ ( p \oplus q) \land r~)$ & $(p \land q) \vee (~ ( p \oplus q) \land r~)$ \\
+    \hline
+    $T$ & $T$  & $T$ &   && \\
+    $T$ & $T$  & $F$ &   && \\
+    $T$ & $F$  & $T$ &   && \\
+    $T$ & $F$  & $F$ &   && \\
+    $F$ & $T$  & $T$ &   && \\
+    $F$ & $T$  & $F$ &   && \\
+    $F$ & $F$  & $T$ &   && \\
+    $F$ & $F$  & $F$ &   && \\
+    \end{tabular}
+\end{center}
+    \vfill \vfill
+\section*{Logical equivalence}
+
+
+\begin{tabular}{lp{4in}p{2in}}
+{\bf Logical equivalence } &Two compound  propositions are {\bf logically  equivalent} means that  they 
+have the  same  truth  values for all settings of truth  values to their propositional  variables.\\
+{\bf Tautology} & A compound proposition that evaluates to true
+for all settings of truth  values to its propositional  variables; it is  abbreviated $T$.\\
+{\bf Contradiction} & A compound proposition that  evaluates  to  false 
+for  all settings of truth  values to its propositional  variables; it  is abbreviated $F$.\\
+{\bf Contingency} & A compound proposition that is neither a tautology nor a contradiction.\\
+\end{tabular}
+ \vfill
+\section*{Logical equivalence exercise}
+
+
+{\it Extra Example}: Which of the  compound propositions in the table below are logically equivalent?
+\begin{center}
+\begin{tabular}{cc||c|c|c|c|c}
+\multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+$p$ & $q$ & $\lnot (p \land \lnot q)$ & $\lnot (\lnot p  \lor \lnot q)$ &  $(\lnot p \lor  q)$
+& $(\lnot q \lor \lnot p)$ & $(p \land q)$  \\
+\hline
+$T$ & $T$ & &&&&\\
+$T$ & $F$ & &&&&\\
+$F$ & $T$ & &&&&\\
+$F$ & $F$ & &&&&\\
+\end{tabular}
+\end{center} \vfill
+\section*{Logical equivalence example}
+
+
+{\bf (Some)} logical equivalences) cf. Rosen pp. 26-28
+
+\begin{tabular}{llp{3in}}
+$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
+$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
+$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Absorption} aka 
+short circuit evaluation\\
+$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\end{tabular}
+
+
+{\it Can replace $p$ and $q$ with any compound proposition}
+
+\vfill \vfill
+\section*{Truth table to compound proposition application}
+
+
+{\it Application}: design a circuit given a desired input-output relationship.
+
+\begin{center}
+\begin{tabular}{cc||cc}
+\multicolumn{2}{c||}{Input}  &\multicolumn{2}{c}{Output}\\
+$p$ & $q$& $mystery_1$ & $mystery_2$\\
+\hline
+$T$ & $T$  & $T$ & $F$\\
+$T$ & $F$  & $T$ & $F$\\
+$F$ & $T$  & $F$ & $F$\\
+$F$ & $F$  & $T$ & $T$\\
+\end{tabular}
+\qquad \qquad
+\begin{tabular}{ccc||c}
+\multicolumn{3}{c||}{Input}  & Output\\
+$p$ & $q$ & $r$  &  ?\\
+\hline
+$T$ & $T$  & $T$ & $T$ \\
+$T$ & $T$  & $F$ & $T$ \\
+$T$ & $F$  & $T$ & $F$ \\
+$T$ & $F$  & $F$ & $T$ \\
+$F$ & $T$  & $T$ & $F$ \\
+$F$ & $T$  & $F$ & $F$ \\
+$F$ & $F$  & $T$ & $T$ \\
+$F$ & $F$  & $F$ & $F$ \\
+\end{tabular}
+
+\end{center}
+
+
+A compound proposition that  gives output $mystery_1$ is: \underline{\phantom{\hspace{3in}}}
+
+
+\vfill
+
+
+A compound proposition that  gives output $mystery_2$ is: \underline{\phantom{\hspace{3in}}}
+
+
+\vfill \vfill
+\section*{Dnf cnf definition}
+
+
+{\bf  Definition} A compound proposition is in {\bf disjunctive normal form}  (DNF) means
+that  it is an OR of ANDs of variables and their negations.
+
+{\bf  Definition} A compound proposition is in {\bf conjunctive normal form}  (CNF) means
+that  it is an AND of ORs of variables and their negations.
+
+
+{\it Extra example}: A compound proposition that  gives output ? is: 
+
+
+\vfill
+\vfill \vfill
+\section*{Hypothesis conclusion}
+
+
+The only way to make  the conditional statement $p \to q$ false is to \underline{\phantom{\hspace{3in}}}
+
+\begin{tabular}{llll}
+The {\bf  hypothesis}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} &
+The {\bf  antecedent}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} \\
+&&&  \\
+The {\bf  conclusion}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}&
+The {\bf  consequent}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}\\
+&&&  \\
+\end{tabular}
+
+\vfill \vfill
+\section*{Logical equivalence example two}
+
+
+\begin{center}
+    \begin{tabular}{cc||c|c|c|c|c}
+    \multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+     & & Conjunction &  Exclusive or & Disjunction  &  Conditional & Biconditional  \\
+    $p$ & $q$ & $p \wedge q$ &  $p  \oplus  q$ & $p \vee  q$ & $p \to q$ & $p \leftrightarrow q$\\
+    \hline
+    $T$ & $T$ & $T$ & $F$ & $T$ & $T$& $T$\\
+    $T$ & $F$ & $F$ & $T$ & $T$ & $F$& $F$\\
+    $F$ & $T$ & $F$ & $T$ & $T$ & $T$& $F$\\
+    $F$ & $F$ & $F$ & $F$ & $F$ & $T$& $T$\\
+    \end{tabular}
+    \end{center}
+    
+    {\it Examples} 
+    
+    $p \to q \equiv \lnot p \lor q$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill
+    
+    $p \leftrightarrow q$ is not logically equivalent to $p \land q$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill
+    
+    $\lnot( p \leftrightarrow q) \equiv p \oplus q$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill
+    
+    
+    $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill
+    
+    $p \leftrightarrow q \equiv q \leftrightarrow p$ because \underline{\phantom{\hspace{4in}}} 
+    
+    \vfill \vfill
+\section*{Converse inverse contrapositive}
+
+
+\begin{tabular}{ll}
+    The {\bf  converse}  of $p \to q$ is & \underline{\phantom{\hspace{1.6in}}}\\
+    &  \\
+    The {\bf  inverse}  of $p \to q$ is  &\underline{\phantom{\hspace{1.6in}}}\\
+    &  \\
+    The {\bf  contrapositive}  of $p \to q$ is & \underline{\phantom{\hspace{1.6in}}}
+    \end{tabular}
+    Which of these is logically equivalent to $p \to q$?
+    
+    \vfill
+    \vfill \vfill
+\section*{Compound propositions translation}
+
+
+{\bf Translation}: Express each of the following sentences as compound propositions, using
+the given propositions.
 
 \begin{multicols}{2}
-\includegraphics[width=2in]{../../resources/images/musicalChairs.png}
+``A sufficient condition for the warranty to be good is that you bought the computer less than a year ago"
 \columnbreak
-
-People try to sit down when the music stops
-
-Person\sun~ sits in Chair 1,
-Person\smiley~ sits in Chair 2,
-
-Person\frownie~  is left standing!
+\begin{align*}
+w &\text{ is  ``the warranty is good"} \\
+b &\text{ is  ``you bought the computer less than a year ago"} \\
+\end{align*}
 \end{multicols}
-What does this say about the number of chairs and the number of people? \vfill
-\section*{Defined functions}
-
-
-\fbox{\parbox{\textwidth}{{\bf Defining functions} A function is defined by its (1) domain, (2) codomain, and (3) rule assigning each 
-element in the domain exactly one element in the codomain. The domain and codomain are nonempty sets.
-The rule can be depicted as a table, formula, English description, etc.\\
-
-(Rosen p139)
-}}
-
-
-{\it Example}: $f_A: \mathbb{R}^+ \to \mathbb{Q}$ with $f_A(x) = x$ is {\bf not} a well-defined function because
-
 \vfill
 
-
-{\it Example}: $f_B: \mathbb{Q} \to \mathbb{Z}$ with $f_B\left(\frac{p}{q}\right) = p+q$ is {\bf not} a well-defined function because
-
+\begin{multicols}{2}
+``Whenever the message was sent from an unknown system, it is scanned for viruses."
+\columnbreak
+\begin{align*}
+s &\text{ is  ``The message is scanned for viruses"} \\
+u &\text{ is  ``The message was sent from an unknown system"} \\
+\end{align*}
+\end{multicols}
 \vfill
 
-
-{\it Example}: $f_C: \mathbb{Z} \to \mathbb{R}$ with $f_C(x) = \frac{x}{|x|}$ is {\bf not} a well-defined function because \vfill
-\section*{Injective cardinality definition}
-
-
-{\bf Definition}  (Rosen p141): A function $f: D  \to C$ is {\bf one-to-one} (or  injective) means for every $a,b$ in the domain $D$, 
-if $f(a) = f(b)$ then  $a=b$.
-
-{\bf Definition}:  For sets $A, B$, we say that  {\bf the  cardinality of $A$ is  no  bigger than the cardinality of  $B$}, and 
-write $|A| \leq |B|$, to mean there is a  one-to-one function  with domain $A$  and codomain $B$. \vfill
-\section*{Injective cardinality musical chairs}
-
-
-{\it In the analogy}: The function $sitter: \{ Chair1, Chair2\} \to \{ Person\sun, Person\smiley, Person\frownie \}$ given
-by $sitter(Chair1) = Person\sun$,  $sitter(Chair2) = Person\smiley$, is one-to-one and witnesses that 
-\[
-| \{ Chair1, Chair2\} | \leq |\{ Person\sun, Person\smiley, Person\frownie \}|
-\] \vfill
-\section*{Rna injective cardinality}
-
-
-Let $S_2$ be the set of RNA strands of length 2.
-
-\vspace{-20pt}
-
-\begin{center}
-\begin{tabular}{|c|p{5in}|}
-\hline
-Statement  &  True/False , justification \\
-\hline
-$| \{\A,\U,\G,\C\} | \leq |S_2 |$ &  \\
-&\\&\\&\\
-\hline
-$| \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} | \leq |S_2 |$ &  \\
-&\\&\\&\\
-\hline
-\end{tabular}
-\end{center} \vfill
-\section*{Surjective cardinality definition}
-
-
-{\bf Definition}  (Rosen p143): A function $f: D  \to C$ is {\bf onto} (or  surjective) means for every $b$ in the codomain, 
-there  is an element $a$ in the domain with  $f(a) = b$.
-
-
-Formally, $f: D  \to  C$ is  onto  means $\underline{\phantom{\forall b \in C  \exists a \in D ( f(a) = b)}}$.
-
-
-{\bf Definition}:  For sets $A, B$, we say that  {\bf the  cardinality of $A$ is  no  smaller than the cardinality of  $B$}, and 
-write $|A| \geq |B|$, to mean there is an onto function  with domain $A$  and codomain $B$.
- \vfill
-\section*{Surjective cardinality musical chairs}
-
-
-{\it In the analogy}: The function $triedToSit: \{ Person\sun, Person\smiley, Person\frownie \} \to  \{ Chair1, Chair2\} $ given
-by $triedToSit(Person\sun) = Chair1$,  $triedToSit(Person\smiley) = Chair2$, 
-$triedToSit(Person\frownie) = Chair2$, is onto and witnesses that 
-\[
- |\{ Person\sun, Person\smiley, Person\frownie \}| \geq | \{ Chair1, Chair2\} |
-\] \vfill
-\section*{Rna surjective cardinality}
-
-
-Let $S_2$ be the set of RNA strands of length 2.
-
-\vspace{-20pt}
-
-\begin{center}
-\begin{tabular}{|c|p{5in}|}
-\hline
-Statement  &  True/False , justification \\
-\hline
-$ |S_2 | \geq | \{\A,\U,\G,\C\} |$ &  \\
-&\\&\\&\\
-\hline
-$ |S_2 | \geq | \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} |$ &  \\
-&\\&\\&\\
-\hline
-\end{tabular}
-\end{center} \vfill
-\section*{Bijection definition}
-
-
-{\bf Definition}  (Rosen p144): A function $f: D  \to C$ is a {\bf bijection} means that it is both  one-to-one  and onto.
-The {\bf inverse} of a  bijection $f: D  \to  C$ is  the function $g: C  \to  D$  such that $g(b) = a$ iff  $f(a) =  b$.
-
-
-\fbox{\parbox{\textwidth}{For nonempty sets $A, B$ we say
+\begin{multicols}{2}
+``I will complete my to-do list only if I put a reminder in my calendar"
+\columnbreak
 \begin{align*}
-|A| \leq |B| &\text{ means there is a one-to-one function with domain $A$, codomain $B$} \\
-|A| \geq |B| &\text{ means there is an onto function with domain $A$, codomain $B$} \\
-|A| = |B| &\text{ means there is a bijection with domain $A$, codomain $B$}
+r &\text{ is  ``I will complete my to-do list"} \\
+c &\text{ is  ``I put a reminder in my calendar"} \\
 \end{align*}
-}} \vfill
-\section*{Cardinality properties}
-
-
-{\bf Properties of cardinality}
-\begin{align*}
-&\forall A ~ (~  |A| = |A| ~)\\
-&\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
-&\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| = |C|) ~\to ~ |A| = |C|~)
-\end{align*}
-
-{\it Extra practice with proofs:} Use the definitions of bijections to prove these properties. \vfill
-\section*{Cantor schroder bernstein theorem}
-
-
-{\bf Cantor-Schroder-Bernstein Theorem}: For all nonempty sets,
-\[
-|A| = |B| \qquad\text{if and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
-\qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq |A|)
-\]
-
-To prove $|A| = |B|$,  we can do any {\bf one} of the following
-
-\begin{itemize}\setlength{\itemsep}{-5pt}
-\item Prove there exists  a bijection $f:  A \to B$;
-\item Prove there exists a  bijection  $f: B  \to  A$;
-\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is one-to-one.
-\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is onto.
-\end{itemize} \vfill
+\end{multicols}
+\vfill \vfill
 \section*{Logical equivalence}
 
 
@@ -938,277 +1027,188 @@ is  even and $b$ is even.
 {\bf Lemma 3:} For every integer  $x$, $x$ is  even if and only if $x^2$  is even.
 
 \vfill \vfill
-\section*{Proposition def}
+\section*{Infinite finite sets def}
 
 
-\begin{tabular}{lp{5in}}
-    {\bf Proposition} & Declarative sentence that is true or false (not both).\\
-    {\bf Propositional variable} & Variable that represents a proposition.\\
-    {\bf Compound proposition}& New propositions formed from existing propositions (potentially) using logical operators.\\
-    {\bf Truth table}& Table with 1 row for each of the possible combinations of truth values of the input and 
-    an additional column that shows the truth value of the result of the operation corresponding to a particular row.
+\begin{tabular}{clc}
+    $\mathbb{Z}$ &  The  set of integers  & $\{ \ldots, -2, -1, 0,  1, 2, \ldots\}$ \\
+    $\mathbb{Z}^+$ &  The  set of positive integers  & $\{1, 2, \ldots\}$ \\
+    $\mathbb{N}$ &  The  set of nonnegative integers  & $\{0, 1, 2, \ldots\}$ \\
+    $\mathbb{Q}$ &  The  set of rational numbers  & $\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}$\\
+    $\mathbb{R}$ & The  set  of  real numbers &  \\
     \end{tabular}
+    \[
+    \underline{\phantom{\mathbb{Z}^+}} ~~\subsetneq~~ \underline{\phantom{\mathbb{N}~}} ~~\subsetneq ~~\underline{\phantom{\mathbb{Z}~}}~~ \subsetneq~~ \underline{\phantom{\mathbb{Q}~}} 
+    ~~\subsetneq~~ \underline{\phantom{\mathbb{R}~}} 
+    \]
     
-    {\it Note}: A propositional variable is one example of a compound proposition. \vfill
-\section*{Logical operators}
+    
+    The above sets are all {\bf infinite}.
+    
+    
+    A {\bf finite} set is one whose distinct elements can be counted by a natural number.
+    
+    {\it Examples of finite sets}: $\emptyset$ , $\{ \sqrt{2} \}$
+    
+    
+    {\bf Motivating question}: Are some of the above sets {\it bigger than} others? \vfill
+\section*{Musical chairs analogy}
 
 
-{\bf Logical operators} aka propositional connectives
+{\it Analogy}: Musical chairs
 
-\begin{tabular}{lccccp{4in}}
-{\bf Conjunction} & AND & $\land$ &\verb|\land| & 2 inputs & Evaluates to $T$ when {\bf both} inputs are $T$\\
-{\bf Exclusive or} & XOR & $\oplus$ &\verb|\oplus| & 2 inputs & Evaluates to $T$ when {\bf exactly one} of inputs is $T$\\
-{\bf Disjunction} & OR & $\lor$ &\verb|\lor| & 2 inputs & Evaluates to $T$ when {\bf at least one} of inputs is $T$\\
-{\bf Negation} & NOT & $\lnot$ &\verb|\lnot| & 1 input & Evaluates to $T$ when its input is $F$\\
-\end{tabular} \vfill
-\section*{Logical operators truth tables}
+\begin{multicols}{2}
+\includegraphics[width=2in]{../../resources/images/musicalChairs.png}
+\columnbreak
 
+People try to sit down when the music stops
+
+Person\sun~ sits in Chair 1,
+Person\smiley~ sits in Chair 2,
+
+Person\frownie~  is left standing!
+\end{multicols}
+What does this say about the number of chairs and the number of people? \vfill
+\section*{Defined functions}
+
+
+\fbox{\parbox{\textwidth}{{\bf Defining functions} A function is defined by its (1) domain, (2) codomain, and (3) rule assigning each 
+element in the domain exactly one element in the codomain. The domain and codomain are nonempty sets.
+The rule can be depicted as a table, formula, English description, etc.\\
+
+(Rosen p139)
+}}
+
+
+{\it Example}: $f_A: \mathbb{R}^+ \to \mathbb{Q}$ with $f_A(x) = x$ is {\bf not} a well-defined function because
+
+\vfill
+
+
+{\it Example}: $f_B: \mathbb{Q} \to \mathbb{Z}$ with $f_B\left(\frac{p}{q}\right) = p+q$ is {\bf not} a well-defined function because
+
+\vfill
+
+
+{\it Example}: $f_C: \mathbb{Z} \to \mathbb{R}$ with $f_C(x) = \frac{x}{|x|}$ is {\bf not} a well-defined function because \vfill
+\section*{Injective cardinality definition}
+
+
+{\bf Definition}  (Rosen p141): A function $f: D  \to C$ is {\bf one-to-one} (or  injective) means for every $a,b$ in the domain $D$, 
+if $f(a) = f(b)$ then  $a=b$.
+
+{\bf Definition}:  For sets $A, B$, we say that  {\bf the  cardinality of $A$ is  no  bigger than the cardinality of  $B$}, and 
+write $|A| \leq |B|$, to mean there is a  one-to-one function  with domain $A$  and codomain $B$. \vfill
+\section*{Injective cardinality musical chairs}
+
+
+{\it In the analogy}: The function $sitter: \{ Chair1, Chair2\} \to \{ Person\sun, Person\smiley, Person\frownie \}$ given
+by $sitter(Chair1) = Person\sun$,  $sitter(Chair2) = Person\smiley$, is one-to-one and witnesses that 
+\[
+| \{ Chair1, Chair2\} | \leq |\{ Person\sun, Person\smiley, Person\frownie \}|
+\] \vfill
+\section*{Rna injective cardinality}
+
+
+Let $S_2$ be the set of RNA strands of length 2.
+
+\vspace{-20pt}
 
 \begin{center}
-\begin{tabular}{cc||c|c|c}
-\multicolumn{2}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
-& & {\bf Conjunction} &  {\bf Exclusive or} & {\bf Disjunction} \\
-$p$ & $q$ & $p \land q$ &  $p  \oplus  q$ & $p \lor  q$ \\
+\begin{tabular}{|c|p{5in}|}
 \hline
-$T$ & $T$ & $T$ & $F$ & $T$\\
-$T$ & $F$ & $F$ & $T$ & $T$\\
-$F$ & $T$ & $F$ & $T$ & $T$\\
-$F$ & $F$ & $F$ & $F$ & $F$\\
-\end{tabular}
-\qquad \qquad\qquad
-\begin{tabular}{c||c}
-Input & Output \\
-& {\bf Negation} \\
-$p$ & $\lnot p$ \\
+Statement  &  True/False , justification \\
 \hline
-$T$ & $F$ \\
-$F$ & $T$\\
-\end{tabular}
-\end{center}
-
-\vfill \vfill
-\section*{Logical operators exercise}
-
-
-\begin{center}
-    \begin{tabular}{ccc||p{3in}|c|c}
-    \multicolumn{3}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
-    $p$ & $q$ & $r$  &  &  $(p \land q) \oplus (~ ( p \oplus q) \land r~)$ & $(p \land q) \vee (~ ( p \oplus q) \land r~)$ \\
-    \hline
-    $T$ & $T$  & $T$ &   && \\
-    $T$ & $T$  & $F$ &   && \\
-    $T$ & $F$  & $T$ &   && \\
-    $T$ & $F$  & $F$ &   && \\
-    $F$ & $T$  & $T$ &   && \\
-    $F$ & $T$  & $F$ &   && \\
-    $F$ & $F$  & $T$ &   && \\
-    $F$ & $F$  & $F$ &   && \\
-    \end{tabular}
-\end{center}
-    \vfill \vfill
-\section*{Logical equivalence}
-
-
-\begin{tabular}{lp{4in}p{2in}}
-{\bf Logical equivalence } &Two compound  propositions are {\bf logically  equivalent} means that  they 
-have the  same  truth  values for all settings of truth  values to their propositional  variables.\\
-{\bf Tautology} & A compound proposition that evaluates to true
-for all settings of truth  values to its propositional  variables; it is  abbreviated $T$.\\
-{\bf Contradiction} & A compound proposition that  evaluates  to  false 
-for  all settings of truth  values to its propositional  variables; it  is abbreviated $F$.\\
-{\bf Contingency} & A compound proposition that is neither a tautology nor a contradiction.\\
-\end{tabular}
- \vfill
-\section*{Logical equivalence exercise}
-
-
-{\it Extra Example}: Which of the  compound propositions in the table below are logically equivalent?
-\begin{center}
-\begin{tabular}{cc||c|c|c|c|c}
-\multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
-$p$ & $q$ & $\lnot (p \land \lnot q)$ & $\lnot (\lnot p  \lor \lnot q)$ &  $(\lnot p \lor  q)$
-& $(\lnot q \lor \lnot p)$ & $(p \land q)$  \\
+$| \{\A,\U,\G,\C\} | \leq |S_2 |$ &  \\
+&\\&\\&\\
 \hline
-$T$ & $T$ & &&&&\\
-$T$ & $F$ & &&&&\\
-$F$ & $T$ & &&&&\\
-$F$ & $F$ & &&&&\\
+$| \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} | \leq |S_2 |$ &  \\
+&\\&\\&\\
+\hline
 \end{tabular}
 \end{center} \vfill
-\section*{Logical equivalence example}
+\section*{Surjective cardinality definition}
 
 
-{\bf (Some)} logical equivalences) cf. Rosen pp. 26-28
-
-\begin{tabular}{llp{3in}}
-$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
-$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
-$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Absorption} aka 
-short circuit evaluation\\
-$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\end{tabular}
+{\bf Definition}  (Rosen p143): A function $f: D  \to C$ is {\bf onto} (or  surjective) means for every $b$ in the codomain, 
+there  is an element $a$ in the domain with  $f(a) = b$.
 
 
-{\it Can replace $p$ and $q$ with any compound proposition}
-
-\vfill \vfill
-\section*{Truth table to compound proposition application}
+Formally, $f: D  \to  C$ is  onto  means $\underline{\phantom{\forall b \in C  \exists a \in D ( f(a) = b)}}$.
 
 
-{\it Application}: design a circuit given a desired input-output relationship.
-
-\begin{center}
-\begin{tabular}{cc||cc}
-\multicolumn{2}{c||}{Input}  &\multicolumn{2}{c}{Output}\\
-$p$ & $q$& $mystery_1$ & $mystery_2$\\
-\hline
-$T$ & $T$  & $T$ & $F$\\
-$T$ & $F$  & $T$ & $F$\\
-$F$ & $T$  & $F$ & $F$\\
-$F$ & $F$  & $T$ & $T$\\
-\end{tabular}
-\qquad \qquad
-\begin{tabular}{ccc||c}
-\multicolumn{3}{c||}{Input}  & Output\\
-$p$ & $q$ & $r$  &  ?\\
-\hline
-$T$ & $T$  & $T$ & $T$ \\
-$T$ & $T$  & $F$ & $T$ \\
-$T$ & $F$  & $T$ & $F$ \\
-$T$ & $F$  & $F$ & $T$ \\
-$F$ & $T$  & $T$ & $F$ \\
-$F$ & $T$  & $F$ & $F$ \\
-$F$ & $F$  & $T$ & $T$ \\
-$F$ & $F$  & $F$ & $F$ \\
-\end{tabular}
-
-\end{center}
+{\bf Definition}:  For sets $A, B$, we say that  {\bf the  cardinality of $A$ is  no  smaller than the cardinality of  $B$}, and 
+write $|A| \geq |B|$, to mean there is an onto function  with domain $A$  and codomain $B$.
+ \vfill
+\section*{Surjective cardinality musical chairs}
 
 
-A compound proposition that  gives output $mystery_1$ is: \underline{\phantom{\hspace{3in}}}
+{\it In the analogy}: The function $triedToSit: \{ Person\sun, Person\smiley, Person\frownie \} \to  \{ Chair1, Chair2\} $ given
+by $triedToSit(Person\sun) = Chair1$,  $triedToSit(Person\smiley) = Chair2$, 
+$triedToSit(Person\frownie) = Chair2$, is onto and witnesses that 
+\[
+ |\{ Person\sun, Person\smiley, Person\frownie \}| \geq | \{ Chair1, Chair2\} |
+\] \vfill
+\section*{Rna surjective cardinality}
 
 
-\vfill
+Let $S_2$ be the set of RNA strands of length 2.
 
-
-A compound proposition that  gives output $mystery_2$ is: \underline{\phantom{\hspace{3in}}}
-
-
-\vfill \vfill
-\section*{Dnf cnf definition}
-
-
-{\bf  Definition} A compound proposition is in {\bf disjunctive normal form}  (DNF) means
-that  it is an OR of ANDs of variables and their negations.
-
-{\bf  Definition} A compound proposition is in {\bf conjunctive normal form}  (CNF) means
-that  it is an AND of ORs of variables and their negations.
-
-
-{\it Extra example}: A compound proposition that  gives output ? is: 
-
-
-\vfill
-\vfill \vfill
-\section*{Hypothesis conclusion}
-
-
-The only way to make  the conditional statement $p \to q$ false is to \underline{\phantom{\hspace{3in}}}
-
-\begin{tabular}{llll}
-The {\bf  hypothesis}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} &
-The {\bf  antecedent}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} \\
-&&&  \\
-The {\bf  conclusion}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}&
-The {\bf  consequent}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}\\
-&&&  \\
-\end{tabular}
-
-\vfill \vfill
-\section*{Logical equivalence example two}
-
+\vspace{-20pt}
 
 \begin{center}
-    \begin{tabular}{cc||c|c|c|c|c}
-    \multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
-     & & Conjunction &  Exclusive or & Disjunction  &  Conditional & Biconditional  \\
-    $p$ & $q$ & $p \wedge q$ &  $p  \oplus  q$ & $p \vee  q$ & $p \to q$ & $p \leftrightarrow q$\\
-    \hline
-    $T$ & $T$ & $T$ & $F$ & $T$ & $T$& $T$\\
-    $T$ & $F$ & $F$ & $T$ & $T$ & $F$& $F$\\
-    $F$ & $T$ & $F$ & $T$ & $T$ & $T$& $F$\\
-    $F$ & $F$ & $F$ & $F$ & $F$ & $T$& $T$\\
-    \end{tabular}
-    \end{center}
-    
-    {\it Examples} 
-    
-    $p \to q \equiv \lnot p \lor q$ because \underline{\phantom{\hspace{4in}}} 
-    
-    \vfill
-    
-    $p \leftrightarrow q$ is not logically equivalent to $p \land q$ because \underline{\phantom{\hspace{4in}}} 
-    
-    \vfill
-    
-    $\lnot( p \leftrightarrow q) \equiv p \oplus q$ because \underline{\phantom{\hspace{4in}}} 
-    
-    \vfill
-    
-    
-    $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\hspace{4in}}} 
-    
-    \vfill
-    
-    $p \leftrightarrow q \equiv q \leftrightarrow p$ because \underline{\phantom{\hspace{4in}}} 
-    
-    \vfill \vfill
-\section*{Converse inverse contrapositive}
+\begin{tabular}{|c|p{5in}|}
+\hline
+Statement  &  True/False , justification \\
+\hline
+$ |S_2 | \geq | \{\A,\U,\G,\C\} |$ &  \\
+&\\&\\&\\
+\hline
+$ |S_2 | \geq | \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} |$ &  \\
+&\\&\\&\\
+\hline
+\end{tabular}
+\end{center} \vfill
+\section*{Bijection definition}
 
 
-\begin{tabular}{ll}
-    The {\bf  converse}  of $p \to q$ is & \underline{\phantom{\hspace{1.6in}}}\\
-    &  \\
-    The {\bf  inverse}  of $p \to q$ is  &\underline{\phantom{\hspace{1.6in}}}\\
-    &  \\
-    The {\bf  contrapositive}  of $p \to q$ is & \underline{\phantom{\hspace{1.6in}}}
-    \end{tabular}
-    Which of these is logically equivalent to $p \to q$?
-    
-    \vfill
-    \vfill \vfill
-\section*{Compound propositions translation}
+{\bf Definition}  (Rosen p144): A function $f: D  \to C$ is a {\bf bijection} means that it is both  one-to-one  and onto.
+The {\bf inverse} of a  bijection $f: D  \to  C$ is  the function $g: C  \to  D$  such that $g(b) = a$ iff  $f(a) =  b$.
 
 
-{\bf Translation}: Express each of the following sentences as compound propositions, using
-the given propositions.
-
-\begin{multicols}{2}
-``A sufficient condition for the warranty to be good is that you bought the computer less than a year ago"
-\columnbreak
+\fbox{\parbox{\textwidth}{For nonempty sets $A, B$ we say
 \begin{align*}
-w &\text{ is  ``the warranty is good"} \\
-b &\text{ is  ``you bought the computer less than a year ago"} \\
+|A| \leq |B| &\text{ means there is a one-to-one function with domain $A$, codomain $B$} \\
+|A| \geq |B| &\text{ means there is an onto function with domain $A$, codomain $B$} \\
+|A| = |B| &\text{ means there is a bijection with domain $A$, codomain $B$}
 \end{align*}
-\end{multicols}
-\vfill
+}} \vfill
+\section*{Cardinality properties}
 
-\begin{multicols}{2}
-``Whenever the message was sent from an unknown system, it is scanned for viruses."
-\columnbreak
-\begin{align*}
-s &\text{ is  ``The message is scanned for viruses"} \\
-u &\text{ is  ``The message was sent from an unknown system"} \\
-\end{align*}
-\end{multicols}
-\vfill
 
-\begin{multicols}{2}
-``I will complete my to-do list only if I put a reminder in my calendar"
-\columnbreak
+{\bf Properties of cardinality}
 \begin{align*}
-r &\text{ is  ``I will complete my to-do list"} \\
-c &\text{ is  ``I put a reminder in my calendar"} \\
+&\forall A ~ (~  |A| = |A| ~)\\
+&\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
+&\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| = |C|) ~\to ~ |A| = |C|~)
 \end{align*}
-\end{multicols}
-\vfill \vfill
+
+{\it Extra practice with proofs:} Use the definitions of bijections to prove these properties. \vfill
+\section*{Cantor schroder bernstein theorem}
+
+
+{\bf Cantor-Schroder-Bernstein Theorem}: For all nonempty sets,
+\[
+|A| = |B| \qquad\text{if and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
+\qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq |A|)
+\]
+
+To prove $|A| = |B|$,  we can do any {\bf one} of the following
+
+\begin{itemize}\setlength{\itemsep}{-5pt}
+\item Prove there exists  a bijection $f:  A \to B$;
+\item Prove there exists a  bijection  $f: B  \to  A$;
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is one-to-one.
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is onto.
+\end{itemize} \vfill
 \end{document}
