@@ -1,8 +1,24 @@
+usage:
+	@echo 'Welcome to the build system for discrete-math-for-cs!'
+	@echo 'You are seeing this message because you ran plain `make` or `make usage`'
+	@echo 'The most common use of this Makefile is `make index; make website`'
+	@echo 'This will populate the site, which you can navigate through `generated/website/index.html`'
+	@echo 'You can read more about how to edit and build in README.md'
+
+# This is named "index" because it does the aggregation and creation of files
+# that don't have a one-to-one corresponding source file. This includes all the
+# topic and app files. Since getting `make` to understand intermediate generated
+# files adds significant complexity, it's more straightforward to run two make
+# commands in a row. The `website` rule relies on files created from *data* in
+# the json files that index uses, so it needs to run in a totally separate step.
+# The `index` rule sets this up.
+index: generated/last-index.txt
+
 # The files that drive website changes are the tex files for lessons.
 # To build the website, first create PDFs and static elements in generated directory, then
 # translate tex to htmls and then dynamically create additional html pages
 # and finally remove auxiliary files from typesetting steps
-website: compile static-pages latex dynamic-pages tex-html clean-tex 
+website: static-pages latex dynamic-pages tex-html clean-tex 
 
 #TODO: restore targets below once done testing
 #compile static-pages latex dynamic-pages tex-html clean-tex 
@@ -10,25 +26,23 @@ website: compile static-pages latex dynamic-pages tex-html clean-tex
 #testing targets:
 #static-pages dynamic-pages clean-tex 
 
-compile: generated/last-compile.txt
-
 # run compile python scripts to generated compiled .tex files of applications
 # and topics. The target is a text file, and the trick of using touch makes the
 # file update its modified time when this is run. BUT, if these files haven't
-# changed since the last run, they will all be older than last-compile.txt
-generated/last-compile.txt: *.json *.html *.py notes/lessons/*.tex notes/activity-snippets/*.tex resources/*.tex
+# changed since the last run, they will all be older than last-index.txt
+generated/last-index.txt: *.json *.html *.py notes/lessons/*.tex notes/activity-snippets/*.tex resources/*.tex
 	mkdir -p generated/notes/app
 	mkdir -p generated/notes/topic
 	python3 weeklyCompileApp.py
 	python3 weeklyCompileTopic.py
-	touch generated/last-compile.txt
+	touch generated/last-index.txt
 
 
 # Iterate over all changed .tex files in notes and run target for them in new folder, then generate flat versions if needed
 latex: lessonsLatex appLatex topicLatex app-latexpand topic-latexpand lessons-latexpand
 lessonsLatex: $(patsubst notes/lessons/%.tex,generated/output/%.pdf,$(wildcard notes/lessons/*.tex))
-appLatex: $(patsubst generated/notes/app/%.tex,generated/output/%.pdf,$(wildcard generated/notes/app/*.tex))
-topicLatex: $(patsubst generated/notes/topic/%.tex,generated/output/%.pdf,$(wildcard generated/notes/topic/*.tex))
+appLatex: $(patsubst generated/notes/app/%.tex,generated/output/app/%.pdf,$(wildcard generated/notes/app/*.tex))
+topicLatex: $(patsubst generated/notes/topic/%.tex,generated/output/topic/%.pdf,$(wildcard generated/notes/topic/*.tex))
 app-latexpand: $(patsubst generated/notes/topic/%.tex,generated/notes/topic-flat/%.tex,$(wildcard generated/notes/topic/*.tex))
 topic-latexpand: $(patsubst generated/notes/app/%.tex,generated/notes/app-flat/%.tex,$(wildcard generated/notes/app/*.tex))
 lessons-latexpand: $(patsubst generated/notes/lessons/%.tex,generated/notes/lessons-flat/%.tex,$(wildcard generated/notes/lessons/*.tex))
@@ -38,8 +52,12 @@ generated/output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/
 	mkdir -p generated/output; cd notes; cd lessons; pdflatex -output-directory ../../generated/output $(<F) 
 
 # Typesetting all .tex files in generated/notes/app directory
-generated/output/%.pdf: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
-	mkdir -p generated/output; cd generated/notes/app; pdflatex -output-directory ../../output $(<F) 
+generated/output/app/%.pdf: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/output/app; cd generated/notes/app; pdflatex -output-directory ../../output/app $(<F) 
+
+# Typesetting all .tex files in generated/notes/app directory
+generated/output/topic/%.pdf: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/output/topic; cd generated/notes/topic; pdflatex -output-directory ../../output/topic $(<F) 
 
 # generate expanded/flat version of topic compiled tex files
 generated/notes/topic-flat/%.tex: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex

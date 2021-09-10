@@ -95,8 +95,11 @@ for filename in os.listdir(weeklyDirectory):
 #print(lowLevelsDict)
 
 def write_if_different(filename, contents):
-    old_contents = open(filename).read()
-    if old_contents == contents: return
+    try:
+        old_contents = open(filename).read()
+        if old_contents == contents: return
+    except FileNotFoundError:
+        pass # If the file doesn't exist, continue so we can create it!
     result_file = open(filename, "w")
     result_file.write(contents)
     result_file.close()
@@ -118,4 +121,4 @@ for key in lowLevelsDict:
 
         result += "\end{document}"
 
-        write_if_different("generated/notes/app/"+ key + ".tex", result)
+        write_if_different("generated/notes/topic/"+ key + ".tex", result)
