@@ -9,51 +9,47 @@ fileJson = open('outcomes.json',)
 data = json.load(fileJson)
 
 sidebarButtons = ""
-for i in data:
-    for j in data[i]['Children']:
+for big in data:
+    for med in data[big]['Children']:
         #only put icon in sidebar of 2nd tier topics that have children 
-        if(bool(data[i]['Children'][j]['Children'])):
+        if(bool(data[big]['Children'][med]['Children'])):
             sidebarButtons += "<li>"
-            sidebarButtons += """<a href= \"""" +data[i]['Children'][j]['file'] + """\" aria-label="Go to """ + j + """ ">"""
-            sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + data[i]['Children'][j]['Icon'] + """</p></i>"""
-            sidebarButtons += """<span class="links_name"> """ + j + """</span>"""
+            sidebarButtons += """<a href= \"""" +data[big]['Children'][med]['file'] + """\" aria-label="Go to """ + med + """ ">"""
+            sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + data[big]['Children'][med]['Icon'] + """</p></i>"""
+            sidebarButtons += """<span class="links_name"> """ + med + """</span>"""
             sidebarButtons += "</a>"
-            sidebarButtons += """<span class="tooltip"> """ + j + """</span>"""
+            sidebarButtons += """<span class="tooltip"> """ + med + """</span>"""
             sidebarButtons += "</li>"
 
 mobileSidebar = ""
-for i in data:
-    for j in data[i]['Children']:
+for big in data:
+    for med in data[big]['Children']:
         #only put icon in sidebar of 2nd tier topics that have children 
-        if(bool(data[i]['Children'][j]['Children'])):
-            mobileSidebar += """<a href= \"""" + data[i]['Children'][j]['file'] + """\"">""" + j + """</a>"""
+        if(bool(data[big]['Children'][med]['Children'])):
+            mobileSidebar += """<a href= \"""" + data[big]['Children'][med]['file'] + """\"">""" + med + """</a>"""
 
-#big for loop begin
-for i in data:
-    for j in data[i]['Children']:
+#main for loop begin
+for big in data:
+    for med in data[big]['Children']:
 
     #extract and format all PDFs and associated buttons
         pdfString = ""
         collapseVar = 1
 
-        
-
-        for k in data[i]['Children'][j]['Children']:
-
+        for small in data[big]['Children'][med]['Children']:
             #format pdf/html/tex file names
-            pdf="../output/"+data[i]['Children'][j]['Children'][k]['filename']+".pdf"
-            html="../output/"+data[i]['Children'][j]['Children'][k]['filename']+".html"
-            #where will tex file for topics be shown? 
-            tex="../notes/"+data[i]['Children'][j]['Children'][k]['filename']+".tex"
-            
+            pdf="../output/"+data[big]['Children'][med]['Children'][small]['filename']+".pdf"
+            html="../output/"+data[big]['Children'][med]['Children'][small]['filename']+".html"
+            ##where will tex file for topics be shown? 
+            tex="../notes/"+data[big]['Children'][med]['Children'][small]['filename']+".tex"
             
             #heading and collapsible card stuff
             pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-            href="#collapse"""+ str(collapseVar)+"\"> "+k+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
+            href="#collapse"""+ str(collapseVar)+"\"> "+small+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
             class="collapse" data-parent="#accordion"><div class="card-body">"""
             
             #Learning Goal
-            pdfString += """ <p> Learning Goal: """+ data[i]['Children'][j]['Children'][k]['Description']+"""</p>"""
+            pdfString += """ <p> Learning Goal: """+ data[big]['Children'][med]['Children'][small]['Description']+"""</p>"""
             
             #.pdf Download button
             pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
@@ -62,17 +58,13 @@ for i in data:
             #.tex Download button
             pdfString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
             href=""" + tex + """ download>TeX</a> """
-        
-            #Open in Overleaf button
-            # pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
-            # href= """ + data[i]['Children'][j]['Children'][k]['overleaf'] + """ target="Overleaf">Overleaf</a> """
 
             #Raw HTML button 
             pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
             href= """ + html + """ target="HTML">Raw HTML</a>"""
         
             #pdf.js embed 
-            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ k +"""\" src="web/viewer.html?file="""+ pdf+ """" 
+            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ small +"""\" src="web/viewer.html?file="""+ pdf+ """" 
             title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
             #closing div for collapsible menu item 
@@ -82,7 +74,7 @@ for i in data:
             collapseVar += 1
 
    #Information Section
-    infoString = "<p>"+ data[i]['Children'][j]['Description']+ "</p>" 
+    infoString = "<p>"+ data[big]['Children'][med]['Description']+ "</p>" 
     
     
     #open unitTemplate html file and read it into a string 
@@ -93,7 +85,7 @@ for i in data:
 
     #substitute settings data with appropriate variables 
     result = templateString.safe_substitute(
-    heading = j,
+    heading = med,
     Information = infoString, 
     collapsibleMenu = pdfString,
     sidebar = sidebarButtons,
@@ -101,7 +93,7 @@ for i in data:
     )
 
 
-    resultFile = open("generated/website/"+data[i]['Children'][j]['file'], "w")
+    resultFile = open("generated/website/"+data[big]['Children'][med]['file'], "w")
     resultFile.write(result)
     resultFile.close()
 
