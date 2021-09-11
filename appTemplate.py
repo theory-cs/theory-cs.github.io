@@ -1,51 +1,121 @@
 from string import Template
 import json
   
-# Opening JSON file
-fileJson = open('applications.json',)
-  
-# returns JSON object as a dictionary
-data = json.load(fileJson)
+# returns unit-settings JSON file as a dictionary
+appData = json.loads(open("applications.json").read())
+websiteData = json.loads(open("website-settings.json").read())
+
+#Sidebar top with title of course offering
+sidebarButtons = """<div class="sidebar">
+		<div class="logo-details">
+		  
+		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
+			<a href="index.html" class="logo_name">""" + websiteData['Global Class Name']+"""</a> <!--NAME-->
+			<i class='bx bx-menu' id="btn" ></i>
+		</div>
+
+		<ul class="nav-list">
+			
+			<li>
+				<a href="overviewApplication.html" aria-label="Go to Overview">
+					<i class='bx bx-list-ul'></i>
+					<span class="links_name">Overview</span>
+				</a>
+				<span class="tooltip">Overview</span>
+			</li>"""
+
+
 
 #adds regular sidebar icons for each of the applications specified in json file
-sidebarButtons = ""
-for i in data:
+for i in appData:
     sidebarButtons += "<li>"
-    sidebarButtons += """<a href= \"""" + data[i]['file'] + """\" aria-label="Go to """ + i + """ ">"""
-    sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + data[i]['Icon'] + """</p></i>"""
+    sidebarButtons += """<a href= \"""" + appData[i]['file'] + """\" aria-label="Go to """ + i + """ ">"""
+    sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + appData[i]['Icon'] + """</p></i>"""
     sidebarButtons += """<span class="links_name"> """ + i + """</span>"""
     sidebarButtons += "</a>"
     sidebarButtons += """<span class="tooltip"> """ + i + """</span>"""
     sidebarButtons += "</li>"
 
+
+#end div tags and script for sidebar
+sidebarButtons += """</ul> </div> 
+	<script>
+		let sidebar = document.querySelector(".sidebar");
+		let closeBtn = document.querySelector("#btn");
+		
+		closeBtn.addEventListener("click", ()=>{
+			sidebar.classList.toggle("open");
+			menuBtnChange();//calling the function(optional)
+		});
+		
+		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			sidebar.classList.toggle("open");
+			menuBtnChange(); //calling the function(optional)
+		});
+		
+		// following are the code to change sidebar button(optional)
+		function menuBtnChange() {
+			if(sidebar.classList.contains("open")){
+				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+			}
+			else {
+				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+			}
+		}
+	</script>"""
+
+#Mobile Sidebar top with Title of Course Offering 
+mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
+		<a href="index.html" class="homeMobile"> """ + websiteData['Global Class Name']+"""</a> <!--NAME-->
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
+        <a href="overviewApplication.html">Overview</a>
+		"""
+
+
 #adds regular mobile icons for each of the applications specified in json file
-mobileSidebar = ""
-for i in data:
-    mobileSidebar += """<a href= \"""" + data[i]['file'] + """\"">""" + i + """</a>"""
+for i in appData:
+    mobileSidebar += """<a href= \"""" + appData[i]['file'] + """\"">""" + i + """</a>"""
+
+#end div tags, open button, and script for mobile sidebar 
+mobileSidebar += """</div> <br>
+	<div class="openbutton" style="margin-left: 10px;">
+		<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
+	</div> 
+    <script>
+		function openNav() {
+			document.getElementById("mySidebar").style.width = "100%";
+			document.getElementById("content").style.marginLeft = "100%";
+		}
+				  
+		function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("content").style.marginLeft= "0";
+		}
+	</script> """
 
 #big for loop begin
-for i in data:
+for i in appData:
     #extract and format all PDFs and associated buttons
     pdfString = ""
     collapseVar = 1
 
    
 
-    for k in data[i]['Children']:
+    for k in appData[i]['Children']:
 
             #format pdf/html/tex file names
-            pdf="../output/"+data[i]['Children'][k]['filename']+".pdf"
-            html="../output/"+data[i]['Children'][k]['filename']+".html"
+            pdf="../output/"+appData[i]['Children'][k]['filename']+".pdf"
+            html="../output/"+appData[i]['Children'][k]['filename']+".html"
             #where will tex file for applications be shown? 
-            tex="../notes/"+data[i]['Children'][k]['filename']+".tex"
+            tex="../notes/"+appData[i]['Children'][k]['filename']+".tex"
 
-        #heading and collapsible card stuff
+            #heading and collapsible card stuff
             pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
             href="#collapse"""+ str(collapseVar)+"\"> "+k+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
             class="collapse" data-parent="#accordion"><div class="card-body">"""
             
             #Learning Goal
-            #pdfString += """ <p> Learning Goal: """+ data[i]['Children'][j]['Children'][k]['Description']+"""</p>"""
+            #pdfString += """ <p> Learning Goal: """+ appData[i]['Children'][j]['Children'][k]['Description']+"""</p>"""
             
             #.pdf Download button
             pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
@@ -57,7 +127,7 @@ for i in data:
         
             #Open in Overleaf button
             # pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
-            # href= """ + data[i]['Children'][k]['overleaf']+ """ target="Overleaf">Overleaf</a> """
+            # href= """ + appData[i]['Children'][k]['overleaf']+ """ target="Overleaf">Overleaf</a> """
 
             #Raw HTML button 
             pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
@@ -74,7 +144,7 @@ for i in data:
             collapseVar += 1
 
    #Information Section
-    #infoString = "<p>"+ data[i]['Children'][j]['Description']+ "</p>" 
+    #infoString = "<p>"+ appData[i]['Children'][j]['Description']+ "</p>" 
     
     
     #open unitTemplate html file and read it into a string 
@@ -83,7 +153,7 @@ for i in data:
 
 
 
-    #substitute settings data with appropriate variables 
+    #substitute settings appData with appropriate variables 
     result = templateString.safe_substitute(
     heading = i,
     #Information = infoString, 
@@ -93,7 +163,7 @@ for i in data:
     )
 
 
-    resultFile = open("generated/website/"+data[i]['file'], "w")
+    resultFile = open("generated/website/"+appData[i]['file'], "w")
     resultFile.write(result)
     resultFile.close()
 
@@ -101,4 +171,4 @@ for i in data:
 
 
 # Closing files
-fileJson.close()
+appTemplate.close()

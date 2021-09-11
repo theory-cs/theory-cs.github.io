@@ -1,42 +1,37 @@
 from string import Template
 import json
-  
-# Opening JSON file
-fileJson = open('unit-settings.json',)
-  
-# returns JSON object as a dictionary
-data = json.load(fileJson)
+
+# returns unit-settings JSON file as a dictionary
+unitData = json.loads(open("unit-settings.json").read())
+websiteData = json.loads(open("website-settings.json").read())
 
 #adds regular sidebar icons for each of the units/weeks specified in json file
-sidebarButtons = """ <div class="sidebar">
-			<div class="logo-details">
-				<div class="logo_name">Discrete Math for CS</div>
-				<i class='bx bx-menu' id="btn" aria-label="menu sidebar"></i>
-			</div>
-			<ul class="nav-list">
-			  <li>
-				<a href="index.html" aria-label="Go to Homepage">
-				  <i class='bx bx-home-smile'></i>
-				  <span class="links_name">Home</span>
+sidebarButtons = """<div class="sidebar">
+		<div class="logo-details">
+		  
+		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
+			<a href="index.html" class="logo_name">""" + websiteData['Course Offering Title']+"""</a> <!--NAME-->
+			<i class='bx bx-menu' id="btn" ></i>
+		</div>
+
+		<ul class="nav-list">
+			
+			<li>
+				<a href="overview.html" aria-label="Go to Calendar">
+					<i class='bx bx-calendar'></i>
+					<span class="links_name">Calendar</span>
 				</a>
-				 <span class="tooltip">Home</span>
-			  </li>
-			  <li>
-			   <a href="overview.html" aria-label="Go to Calendar">
-				 <i class='bx bx-calendar'></i>
-				 <span class="links_name">Calendar</span>
-			   </a>
-			   <span class="tooltip">Calendar</span>
-			 </li>"""
+				<span class="tooltip">Calendar</span>
+			</li>"""
 
 
-for i in range(0,len(data)):
+for i in range(0,len(unitData)):
     sidebarButtons += "<li>"
-    sidebarButtons += """<a href= " """ + 'unit'+str(i+1) + """.html" aria-label="Go to """ + data[i]['header'] + """ ">"""
+    sidebarButtons += """<a href= " """ + 'unit'+str(i+1) + """.html" aria-label="Go to """ + unitData[i]['header'] + """ ">"""
     sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;&nbsp;&nbsp;""" + str(i+1) + """</p></i>"""
-    sidebarButtons += """<span class="links_name"> """ + data[i]['header'] + """</span>"""
+    sidebarButtons += """<span class="links_name"> """ + unitData[i]['header'] + """</span>"""
     sidebarButtons += "</a>"
-    sidebarButtons += """<span class="tooltip"> """ + data[i]['header'] + """</span>"""
+    sidebarButtons += """<span class="tooltip"> """ + unitData[i]['header'] + """</span>"""
     sidebarButtons += "</li>"
 
 
@@ -71,15 +66,14 @@ sidebarButtons += """ </ul>
 
 #adds mobile sidebar icons for each of the units/weeks specified in json file
 mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+			<a href="index.html" class="homeMobile"> """ + websiteData['Course Offering Title']+"""</a> <!--NAME-->
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
 			
-			<a href="index.html">Home</a>
-			<a href="overview.html">Calendar</a>
-"""
+      <a href="overview.html">Calendar</a>"""
 
 
-for i in range(0,len(data)):
-   mobileSidebar += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + data[i]['header'] + """</a>"""
+for i in range(0,len(unitData)):
+   mobileSidebar += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
 
 mobileSidebar += """ </div>
 
@@ -103,30 +97,30 @@ mobileSidebar += """ </div>
 
 
 #big for loop begin
-for i in range(0,len(data)):
+for i in range(0,len(unitData)):
     pdf=""
     tex=""
     html=""
 
     #extract and format all PDFs and associated buttons
     pdfString="" 
-    for j in range(len(data[i]['pdfs'])):
+    for j in range(len(unitData[i]['pdfs'])):
 
 
-        if(data[i]['pdfs'][j]['addExtensions']):
+        if(unitData[i]['pdfs'][j]['addExtensions']):
             #format all filenames 
-            pdf= "../output/"+data[i]['pdfs'][j]['file']+".pdf"
-            tex= "../notes/Lessons/"+data[i]['pdfs'][j]['file']+".tex"
-            html="../output/"+data[i]['pdfs'][j]['file']+".html"
+            pdf= "../output/"+unitData[i]['pdfs'][j]['file']+".pdf"
+            tex= "../notes/Lessons/"+unitData[i]['pdfs'][j]['file']+".tex"
+            html="../output/"+unitData[i]['pdfs'][j]['file']+".html"
         else:
-             pdf=data[i]['pdfs'][j]['file']
+             pdf=unitData[i]['pdfs'][j]['file']
 
         #heading and PDF download button
-        pdfString += """<h2 tabindex = "2"> """+ data[i]['pdfs'][j]['name'] +"""</h2>
+        pdfString += """<h2 tabindex = "2"> """+ unitData[i]['pdfs'][j]['name'] +"""</h2>
            <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
         
         #.tex/.html button
-        if( data[i]['pdfs'][j]['addExtensions']):
+        if( unitData[i]['pdfs'][j]['addExtensions']):
             #.tex
             pdfString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
             href=""" + tex + """ download>TeX</a> """
@@ -136,47 +130,47 @@ for i in range(0,len(data)):
 
         
         #Open in Overleaf button
-        # if('overleafLink' in data[i]['pdfs'][j]):
+        # if('overleafLink' in unitData[i]['pdfs'][j]):
         #     pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
-        #     href= """ + data[i]['pdfs'][j]['overleafLink'] + """ target="Overleaf">Overleaf</a> """
+        #     href= """ + unitData[i]['pdfs'][j]['overleafLink'] + """ target="Overleaf">Overleaf</a> """
 
         #Annotations on/off buttons 
-        if('annotatedFile' in data[i]['pdfs'][j]):
+        if('annotatedFile' in unitData[i]['pdfs'][j]):
             pdfString += """ <a tabindex = "2" class="button on" aria-label="Annotations On" id="annotationsOnButton" href="javascript:void(0)" >Annotations On</a>
 					<a tabindex = "2" class="button off" aria-label="Annotations Off" id="annotationsOffButton" href="javascript:void(0)" >Annotations Off</a> """
 
             #annotations on
             pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(1,
-            \""""+pdf+ """\",\"../files/"""+data[i]['pdfs'][j]['annotatedFile']+"""\", \""""+data[i]['pdfs'][j]['name']+ """\")};"""
+            \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+unitData[i]['pdfs'][j]['name']+ """\")};"""
             
             #annotations off
             pdfString +="""document.getElementById("annotationsOffButton").onclick = function() {annotations(0,
-            \""""+pdf+ """\",\"../files/"""+data[i]['pdfs'][j]['annotatedFile']+"""\", \""""+data[i]['pdfs'][j]['name']+ """\")};
+            \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+unitData[i]['pdfs'][j]['name']+ """\")};
             </script>"""
 
        #if addExtensions is false, then the displayed pdf will be in the files directory 
-        if(not data[i]['pdfs'][j]['addExtensions']): 
+        if(not unitData[i]['pdfs'][j]['addExtensions']): 
             #pdf.js embed from files
-            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ data[i]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
+            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ unitData[i]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
             title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
         else:     
             #pdf.js embed default 
-            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ data[i]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
+            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ unitData[i]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
             title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
     #Information Section
-    if('Information' in data[i]): 
-        infoString = "<dl><dt>"+ data[i]['Information'][0]+ "</dt>"   
-        data[i]['Information']                 
-        for k in range(1, len(data[i]['Information'])) :              
-            infoString += "<dd>"+ data[i]['Information'][k] +"</dd>"
+    if('Information' in unitData[i]): 
+        infoString = "<dl><dt>"+ unitData[i]['Information'][0]+ "</dt>"   
+        unitData[i]['Information']                 
+        for k in range(1, len(unitData[i]['Information'])) :              
+            infoString += "<dd>"+ unitData[i]['Information'][k] +"</dd>"
     infoString += "</dl>"
 
     
     #Embedded links section
     embedString = ""
-    for j in range(len(data[i]['embed'])): 
-        embedString += "<h2>"+data[i]['embed'][j]['name']+"</h2>"+ data[i]['embed'][j]['embedCode']
+    for j in range(len(unitData[i]['embed'])): 
+        embedString += "<h2>"+unitData[i]['embed'][j]['name']+"</h2>"+ unitData[i]['embed'][j]['embedCode']
 
 
 
@@ -184,9 +178,9 @@ for i in range(0,len(data)):
     unitTemplate = open("unitTemplate.html", "r")
     templateString = Template(unitTemplate.read())
 
-    #substitute settings data with appropriate variables 
+    #substitute settings unitData with appropriate variables 
     result = templateString.safe_substitute(
-        heading = data[i]['header'],
+        heading = unitData[i]['header'],
         Information = infoString, 
         PDF = pdfString,
         embed = embedString,
@@ -203,5 +197,4 @@ for i in range(0,len(data)):
 
 
 # Closing files
-fileJson.close()
 unitTemplate.close()
