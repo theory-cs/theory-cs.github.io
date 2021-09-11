@@ -8,7 +8,28 @@ fileJson = open('unit-settings.json',)
 data = json.load(fileJson)
 
 #adds regular sidebar icons for each of the units/weeks specified in json file
-sidebarButtons = ""
+sidebarButtons = """ <div class="sidebar">
+			<div class="logo-details">
+				<div class="logo_name">Discrete Math for CS</div>
+				<i class='bx bx-menu' id="btn" aria-label="menu sidebar"></i>
+			</div>
+			<ul class="nav-list">
+			  <li>
+				<a href="index.html" aria-label="Go to Homepage">
+				  <i class='bx bx-home-smile'></i>
+				  <span class="links_name">Home</span>
+				</a>
+				 <span class="tooltip">Home</span>
+			  </li>
+			  <li>
+			   <a href="overview.html" aria-label="Go to Calendar">
+				 <i class='bx bx-calendar'></i>
+				 <span class="links_name">Calendar</span>
+			   </a>
+			   <span class="tooltip">Calendar</span>
+			 </li>"""
+
+
 for i in range(0,len(data)):
     sidebarButtons += "<li>"
     sidebarButtons += """<a href= " """ + 'unit'+str(i+1) + """.html" aria-label="Go to """ + data[i]['header'] + """ ">"""
@@ -18,10 +39,68 @@ for i in range(0,len(data)):
     sidebarButtons += """<span class="tooltip"> """ + data[i]['header'] + """</span>"""
     sidebarButtons += "</li>"
 
+
+sidebarButtons += """ </ul>
+		  </div>
+		
+        
+        <script>
+		   let sidebar = document.querySelector(".sidebar");
+		  let closeBtn = document.querySelector("#btn");
+		
+		  closeBtn.addEventListener("click", ()=>{
+			sidebar.classList.toggle("open");
+			menuBtnChange();//calling the function(optional)
+		  });
+		
+		  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			sidebar.classList.toggle("open");
+			menuBtnChange(); //calling the function(optional)
+		  });
+		
+		  // following are the code to change sidebar button(optional)
+		  function menuBtnChange() {
+		   if(sidebar.classList.contains("open")){
+			 closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+		   }else {
+			 closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+		   }
+		  }
+		</script>
+"""
+
 #adds mobile sidebar icons for each of the units/weeks specified in json file
-mobileSidebar = ""
+mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+			
+			<a href="index.html">Home</a>
+			<a href="overview.html">Calendar</a>
+"""
+
+
 for i in range(0,len(data)):
    mobileSidebar += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + data[i]['header'] + """</a>"""
+
+mobileSidebar += """ </div>
+
+		<div class="openbutton">
+			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
+		</div> 
+		  
+		<script>
+		  function openNav() {
+			document.getElementById("mySidebar").style.width = "100%";
+			document.getElementById("content").style.marginLeft = "100%";
+		  }
+		  
+		  function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("content").style.marginLeft= "0";
+		  }
+		</script>
+"""
+
+
 
 #big for loop begin
 for i in range(0,len(data)):

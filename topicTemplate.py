@@ -2,54 +2,89 @@ from string import Template
 import json
   
 # Opening JSON file
-#fileJson = open('outcomeTest.json',)
-fileJson = open('outcomes.json',)
-  
-# returns JSON object as a dictionary
-data = json.load(fileJson)
+outcomeData = json.loads(open("outcomes.json").read())
+websiteData = json.loads(open("website-settings.json").read())
 
-sidebarButtons = ""
-for big in data:
-    for med in data[big]['Children']:
+sidebarButtons = """<div class="sidebar">
+		<div class="logo-details">
+		  <!--<i class='bx bxl-c-plus-plus icon'></i>-->
+			<div class="logo_name"><a href="index.html" aria-label="Go to Homepage">""" + websiteData['Course Offering Title'] +"""</a></div>
+			<i class='bx bx-menu' id="btn" ></i>
+		</div>
+
+		<ul class="nav-list">"""
+
+for big in outcomeData:
+    for med in outcomeData[big]['Children']:
         #only put icon in sidebar of 2nd tier topics that have children 
-        if(bool(data[big]['Children'][med]['Children'])):
+        if(bool(outcomeData[big]['Children'][med]['Children'])):
             sidebarButtons += "<li>"
-            sidebarButtons += """<a href= \"""" +data[big]['Children'][med]['file'] + """\" aria-label="Go to """ + med + """ ">"""
-            sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + data[big]['Children'][med]['Icon'] + """</p></i>"""
+            sidebarButtons += """<a href= \"""" +outcomeData[big]['Children'][med]['file'] + """\" aria-label="Go to """ + med + """ ">"""
+            sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + outcomeData[big]['Children'][med]['Icon'] + """</p></i>"""
             sidebarButtons += """<span class="links_name"> """ + med + """</span>"""
             sidebarButtons += "</a>"
             sidebarButtons += """<span class="tooltip"> """ + med + """</span>"""
             sidebarButtons += "</li>"
 
+#end div tags and script for sidebar
+sidebarButtons += """</ul>
+	</div> 
+		
+	<script>
+		let sidebar = document.querySelector(".sidebar");
+		let closeBtn = document.querySelector("#btn");
+		
+		closeBtn.addEventListener("click", ()=>{
+			sidebar.classList.toggle("open");
+			menuBtnChange();//calling the function(optional)
+		});
+		
+		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			sidebar.classList.toggle("open");
+			menuBtnChange(); //calling the function(optional)
+		});
+		
+		// following are the code to change sidebar button(optional)
+		function menuBtnChange() {
+			if(sidebar.classList.contains("open")){
+				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+		   	}
+
+			else {
+				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+		   	}
+		}
+	</script>		"""
+
 mobileSidebar = ""
-for big in data:
-    for med in data[big]['Children']:
+for big in outcomeData:
+    for med in outcomeData[big]['Children']:
         #only put icon in sidebar of 2nd tier topics that have children 
-        if(bool(data[big]['Children'][med]['Children'])):
-            mobileSidebar += """<a href= \"""" + data[big]['Children'][med]['file'] + """\"">""" + med + """</a>"""
+        if(bool(outcomeData[big]['Children'][med]['Children'])):
+            mobileSidebar += """<a href= \"""" + outcomeData[big]['Children'][med]['file'] + """\"">""" + med + """</a>"""
 
 #main for loop begin
-for big in data:
-    for med in data[big]['Children']:
+for big in outcomeData:
+    for med in outcomeData[big]['Children']:
 
     #extract and format all PDFs and associated buttons
         pdfString = ""
         collapseVar = 1
 
-        for small in data[big]['Children'][med]['Children']:
+        for small in outcomeData[big]['Children'][med]['Children']:
             #format pdf/html/tex file names
-            pdf="../output/"+data[big]['Children'][med]['Children'][small]['filename']+".pdf"
-            html="../output/"+data[big]['Children'][med]['Children'][small]['filename']+".html"
+            pdf="../output/"+outcomeData[big]['Children'][med]['Children'][small]['filename']+".pdf"
+            html="../output/"+outcomeData[big]['Children'][med]['Children'][small]['filename']+".html"
             ##where will tex file for topics be shown? 
-            tex="../notes/"+data[big]['Children'][med]['Children'][small]['filename']+".tex"
+            tex="../notes/"+outcomeData[big]['Children'][med]['Children'][small]['filename']+".tex"
             
             #heading and collapsible card stuff
-            pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+            pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" outcomeData-toggle="collapse" 
             href="#collapse"""+ str(collapseVar)+"\"> "+small+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
-            class="collapse" data-parent="#accordion"><div class="card-body">"""
+            class="collapse" outcomeData-parent="#accordion"><div class="card-body">"""
             
             #Learning Goal
-            pdfString += """ <p> Learning Goal: """+ data[big]['Children'][med]['Children'][small]['Description']+"""</p>"""
+            pdfString += """ <p> Learning Goal: """+ outcomeData[big]['Children'][med]['Children'][small]['Description']+"""</p>"""
             
             #.pdf Download button
             pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
@@ -74,7 +109,7 @@ for big in data:
             collapseVar += 1
 
    #Information Section
-    infoString = "<p>"+ data[big]['Children'][med]['Description']+ "</p>" 
+    infoString = "<p>"+ outcomeData[big]['Children'][med]['Description']+ "</p>" 
     
     
     #open unitTemplate html file and read it into a string 
@@ -83,7 +118,7 @@ for big in data:
 
 
 
-    #substitute settings data with appropriate variables 
+    #substitute settings outcomeData with appropriate variables 
     result = templateString.safe_substitute(
     heading = med,
     Information = infoString, 
@@ -93,7 +128,7 @@ for big in data:
     )
 
 
-    resultFile = open("generated/website/"+data[big]['Children'][med]['file'], "w")
+    resultFile = open("generated/website/"+outcomeData[big]['Children'][med]['file'], "w")
     resultFile.write(result)
     resultFile.close()
 
@@ -101,4 +136,4 @@ for big in data:
 
 
 # Closing files
-fileJson.close()
+unitTemplate.close()
