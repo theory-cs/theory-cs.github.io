@@ -39,87 +39,71 @@
 
 <body>
 	<div class="content">	
-		<!-- Navigation -->
-		<div class="sidebar">
-			<div class="logo-details">
-				<div class="logo_name">Discrete Math for CS</div>
-				<i class='bx bx-menu' id="btn" aria-label="menu sidebar"></i>
-			</div>
-
-			<ul class="nav-list">
-				<li>
-					<a href="index.html" aria-label="Go to Homepage">
-				  	<i class='bx bx-home-smile'></i>
-				  	<span class="links_name">Home</span>
-					</a>
-					<span class="tooltip">Home</span>
-			  	</li>
-
-			  <!-- <li>
-			   <a href="overview.html" aria-label="Go to Calendar">
-				 <i class='bx bx-calendar'></i>
-				 <span class="links_name">Calendar</span>
-			   </a>
-			   <span class="tooltip">Calendar</span>
-			 </li> -->
-			 
-				<li><a href= "numbers.html" aria-label="Go to Numbers "><i><p class="icons">&nbsp;&nbsp;NM</p></i><span class="links_name"> Numbers</span></a><span class="tooltip"> Numbers</span></li><li><a href= "recommendationSystems.html" aria-label="Go to Recommendation Systems "><i><p class="icons">&nbsp;&nbsp;RS</p></i><span class="links_name"> Recommendation Systems</span></a><span class="tooltip"> Recommendation Systems</span></li><li><a href= "computers.html" aria-label="Go to Computers "><i><p class="icons">&nbsp;&nbsp;CP</p></i><span class="links_name"> Computers</span></a><span class="tooltip"> Computers</span></li><li><a href= "codesAndInfo.html" aria-label="Go to Codes and Information "><i><p class="icons">&nbsp;&nbsp;CI</p></i><span class="links_name"> Codes and Information</span></a><span class="tooltip"> Codes and Information</span></li><li><a href= "bioinformatics.html" aria-label="Go to Bioinformatics "><i><p class="icons">&nbsp;&nbsp;BI</p></i><span class="links_name"> Bioinformatics</span></a><span class="tooltip"> Bioinformatics</span></li>
-
-			</ul>
-		  </div>
 		
-        
-        <script>
-		
-			let sidebar = document.querySelector(".sidebar");
-		  	let closeBtn = document.querySelector("#btn");
-		
-		  	closeBtn.addEventListener("click", ()=>{
-				sidebar.classList.toggle("open");
-				menuBtnChange();//calling the function(optional)
-		  	});
-		
-		  	searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-				sidebar.classList.toggle("open");
-				menuBtnChange(); //calling the function(optional)
-		  	});
-		
-		  	// following are the code to change sidebar button(optional)
-		  	function menuBtnChange() {
-		   		if(sidebar.classList.contains("open")){
-			 		closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-		   		}
-				
-				else {
-			 		closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-		   		}
-		  	}
-		</script>
-
-		<div id="mySidebar" class="collapsedSidebar">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-			<a href="index.html">Home</a>
-			<a href="overview.html">Calendar</a>
-			<a href= "numbers.html"">Numbers</a><a href= "recommendationSystems.html"">Recommendation Systems</a><a href= "computers.html"">Computers</a><a href= "codesAndInfo.html"">Codes and Information</a><a href= "bioinformatics.html"">Bioinformatics</a>
-
-		</div>
-
-		<div class="openbutton">
-			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
-		</div> 
-		  
-		<script>
-		  function openNav() {
+		<!-- Insert mobile sidebar-->
+		 <div id="mySidebar" class="collapsedSidebar">
+		<a href="index.html" class="homeMobile"> Discrete Math for CS</a> <!--NAME-->
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
+        <a href="overviewApplication.html">Overview</a>
+		<a href= "numbers.html"">Numbers</a><a href= "recommendationSystems.html"">Recommendation Systems</a><a href= "computers.html"">Computers</a><a href= "codesAndInfo.html"">Codes and Information</a><a href= "bioinformatics.html"">Bioinformatics</a></div> <br>
+	<div class="openbutton" style="margin-left: 10px;">
+		<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
+	</div> 
+    <script>
+		function openNav() {
 			document.getElementById("mySidebar").style.width = "100%";
 			document.getElementById("content").style.marginLeft = "100%";
-		  }
-		  
-		  function closeNav() {
+		}
+				  
+		function closeNav() {
 			document.getElementById("mySidebar").style.width = "0";
 			document.getElementById("content").style.marginLeft= "0";
-		  }
-		</script>
+		}
+	</script> 
+
+		<!-- Insert sidebar -->
+		<div class="sidebar">
+		<div class="logo-details">
+		  
+		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
+			<a href="index.html" class="logo_name">Discrete Math for CS</a> <!--NAME-->
+			<i class='bx bx-menu' id="btn" ></i>
+		</div>
+
+		<ul class="nav-list">
+			
+			<li>
+				<a href="overviewApplication.html" aria-label="Go to Overview">
+					<i class='bx bx-list-ul'></i>
+					<span class="links_name">Overview</span>
+				</a>
+				<span class="tooltip">Overview</span>
+			</li><li><a href= "numbers.html" aria-label="Go to Numbers "><i><p class="icons">&nbsp;&nbsp;NM</p></i><span class="links_name"> Numbers</span></a><span class="tooltip"> Numbers</span></li><li><a href= "recommendationSystems.html" aria-label="Go to Recommendation Systems "><i><p class="icons">&nbsp;&nbsp;RS</p></i><span class="links_name"> Recommendation Systems</span></a><span class="tooltip"> Recommendation Systems</span></li><li><a href= "computers.html" aria-label="Go to Computers "><i><p class="icons">&nbsp;&nbsp;CP</p></i><span class="links_name"> Computers</span></a><span class="tooltip"> Computers</span></li><li><a href= "codesAndInfo.html" aria-label="Go to Codes and Information "><i><p class="icons">&nbsp;&nbsp;CI</p></i><span class="links_name"> Codes and Information</span></a><span class="tooltip"> Codes and Information</span></li><li><a href= "bioinformatics.html" aria-label="Go to Bioinformatics "><i><p class="icons">&nbsp;&nbsp;BI</p></i><span class="links_name"> Bioinformatics</span></a><span class="tooltip"> Bioinformatics</span></li></ul> </div> 
+	<script>
+		let sidebar = document.querySelector(".sidebar");
+		let closeBtn = document.querySelector("#btn");
 		
+		closeBtn.addEventListener("click", ()=>{
+			sidebar.classList.toggle("open");
+			menuBtnChange();//calling the function(optional)
+		});
+		
+		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			sidebar.classList.toggle("open");
+			menuBtnChange(); //calling the function(optional)
+		});
+		
+		// following are the code to change sidebar button(optional)
+		function menuBtnChange() {
+			if(sidebar.classList.contains("open")){
+				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+			}
+			else {
+				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+			}
+		}
+	</script>
+	   
 			
 		<!-- Overview -->
 		<div class="row">
@@ -148,6 +132,8 @@
             href= ../output/.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="Error Correction" src="web/viewer.html?file=../output/.pdf" 
             title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div>
             </div>
+            
+        </div>
             
         </div>
 	</div>
