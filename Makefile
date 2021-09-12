@@ -20,11 +20,8 @@ index: generated/last-index.txt
 # and finally remove auxiliary files from typesetting steps
 website: static-pages latex dynamic-pages tex-html clean-tex 
 
-#TODO: restore targets below once done testing
-#compile static-pages latex dynamic-pages tex-html clean-tex 
-
-#testing targets:
-#static-pages dynamic-pages clean-tex 
+# TODO cleanup output directory so that all files are in either app, topic, or lessons directory and 
+# remove .aux, .log, .out files from app and topic directories.
 
 # run compile python scripts to generated compiled .tex files of applications
 # and topics. The target is a text file, and the trick of using touch makes the
@@ -116,11 +113,11 @@ generated/website/%: website/%
 
 # Directory website-manual-to-automate contains placeholder versions of pages that will be 
 # created by appTemplate.py and outcomes-list.py  TODO: remove once automated versions exist
-generated-website-temp: $(patsubst website-manual-to-automate/%,generated/website/%,$(wildcard website-manual-to-automate/*))
-
-generated/website/%: website-manual-to-automate/%
-	mkdir -p generated/website
-	cp -R $< $@
+#generated-website-temp: $(patsubst website-manual-to-automate/%,generated/website/%,$(wildcard website-manual-to-automate/*))
+#
+#generated/website/%: website-manual-to-automate/%
+#	mkdir -p generated/website
+#	cp -R $< $@
 
 # Directory website/css contains styling information that may change when pages are updated, 
 # for example, the contents of the sidebar depend on the number of lessons, outcomes, and applications
