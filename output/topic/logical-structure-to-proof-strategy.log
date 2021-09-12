@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.11)  11 SEP 2021 20:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.12)  12 SEP 2021 15:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -702,7 +702,7 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
 Output written on ../../output/topic/logical-structure-to-proof-strategy.pdf (1
- page, 42103 bytes).
+ page, 42102 bytes).
 PDF statistics:
  31 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream
