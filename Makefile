@@ -70,7 +70,7 @@ generated/notes/lessons-flat/%.tex: generated/notes/lessons/%.tex resources/less
 
 
 # Build website by copying over files, notes, resources, html, and style files to generated directory
-static-pages: generated-files generated-resources generated-notes  generated-notes-activity-snippets generated-website generated-website-temp generated-website-css
+static-pages: generated-files generated-resources generated-notes  generated-notes-activity-snippets generated-website generated-website-css
 
 # Directory files has instructor-added content, e.g. annotated pdfs and slides
 generated-files: $(patsubst files/%,generated/files/%,$(wildcard files/*))
