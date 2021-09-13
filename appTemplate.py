@@ -103,10 +103,10 @@ for (k,v) in appData.items():
     collapseVar = 1
 
     #format pdf/html/tex file names
-    pdf="../output/"+file+".pdf"
-    html="../output/"+file+".html"
+    pdf="../output/app/"+file+".pdf"
+    html="../output/app/"+file+".html"
     #where will tex file for applications be shown? 
-    tex="../notes/"+file+".tex"
+    tex="../notes/app/"+file+".tex"
 
     #heading and collapsible card stuff
     pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
@@ -133,7 +133,7 @@ for (k,v) in appData.items():
     href= """ + html + """ target="HTML">Raw HTML</a>"""
         
     #pdf.js embed 
-    pdfString += """ <br> <iframe class="PDFjs" id=\""""+ k +"""\" src="web/viewer.html?file="""+ pdf+ """" 
+    pdfString += """ <br> <iframe class="PDFjs" id=\""""+ k +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
     title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
     #closing div for collapsible menu item 

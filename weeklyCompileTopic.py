@@ -44,7 +44,8 @@ weekNumber = 99
 
 weeklyDirectory = "notes/lessons"
 for filename in os.listdir(weeklyDirectory):
-    #print(filename)
+    #debug:
+    # print(filename)
     weekly = open (weeklyDirectory+"/"+filename, "r")
 
    #remove .tex extension from filename
@@ -110,8 +111,8 @@ for filename in os.listdir(weeklyDirectory):
                 #sort each outcome by week
                 lowLevelsDict[test].sort(key=findWeek)
 
-# UNCOMMENT if want to see how the dictionary looks
-print(lowLevelsDict)
+#debug: UNCOMMENT if want to see how the dictionary looks
+#print(lowLevelsDict)
 
 def write_if_different(filename, contents):
     try:

@@ -21,7 +21,7 @@ applications = []
 for (k, v) in apps.items():
     applications.append(k.replace(" ", "-").lower())
 # debug: shows applications as filenames
-for app in applications: print(app)
+#for app in applications: print(app)
 
 #TODO : remove todoapp as a key (should be here until all todoapps are removed though)
 applications.append("todoapp")
@@ -48,7 +48,7 @@ for filename in os.listdir(weeklyDirectory):
 
     #remove .tex extension from filename
     editFilename= filename.replace(".tex","")
-    print("editFilename: "+editFilename)
+    #debug: print("editFilename: "+editFilename)
 
     #get week number/order from unit-settings.json file, this will be the order in which files appear on the website
     for element in unitData:
@@ -92,7 +92,7 @@ for filename in os.listdir(weeklyDirectory):
                 test = element.replace(" ", "-").lower()
                 
                 #debug
-                print(test)
+                #print(test)
 
                 #if application in snippet is empty or is none, do not add it to dictionary
                 if(not test or "none" in test):
@@ -101,15 +101,15 @@ for filename in os.listdir(weeklyDirectory):
                 snippetWeek = [snippetsFile, weekNumber]
                 
                 #debug
-                print(snippetWeek)
+                #print(snippetWeek)
                 
                 # add that tex filename to the dictionary
                 appsDict[test].append(snippetWeek)
 
                 #sort each outcome by week
                 appsDict[test].sort(key=findWeek)
-# UNCOMMENT if want to see how the dictionary looks
-print(appsDict)
+# debug: UNCOMMENT if want to see how the dictionary looks
+#print(appsDict)
 
 
 def write_if_different(filename, contents):

@@ -46,8 +46,9 @@ lessons-latexpand: $(patsubst generated/notes/lessons/%.tex,generated/notes/less
 
 # Typesetting all .tex files in notes/lessons directory
 generated/output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
-	mkdir -p generated/output; cd notes; cd lessons; pdflatex -output-directory ../../generated/output $(<F) 
+	mkdir -p generated/output/lessons; cd notes/lessons; pdflatex -output-directory ../../generated/output/lessons $(<F) 
 
+#since all of the app and topic files are generated through a python script, they are in the generated directory 
 # Typesetting all .tex files in generated/notes/app directory
 generated/output/app/%.pdf: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/output/app; cd generated/notes/app; pdflatex -output-directory ../../output/app $(<F) 
@@ -148,14 +149,17 @@ app-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(pats
 topic-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst generated/notes/topic/%.tex,generated/output/%.html,$(wildcard generated/notes/topic/*.tex)))
 
 generated/output/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
-	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/$(@F)
+	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/lessons/$(@F)
 
 generated/output/%.html: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
-	cd generated/notes/app; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/$(@F)
+	cd generated/notes/app; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/app/$(@F)
 
 generated/output/%.html: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
-	cd generated/notes/topic; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/$(@F)
+	cd generated/notes/topic; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/topic/$(@F)
 
-# Removing all auxiliary typesetting files from output directory
+# Removing all auxiliary typesetting files from output directory and its subdirectories
 clean-tex: 
 	cd generated/output; rm -f *.out *.log *.aux
+	cd generated/output/lessons; rm -f *.out *.log *.aux
+	cd generated/output/app; rm -f *.out *.log *.aux
+	cd generated/output/topic; rm -f *.out *.log *.aux
