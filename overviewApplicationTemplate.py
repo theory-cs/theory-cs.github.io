@@ -12,7 +12,7 @@ sidebarButtons = """<div class="sidebar">
 		  
 		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
 			<a href="index.html" class="logo_name">""" + websiteData['Global Class Name']+"""</a> <!--NAME-->
-			<i class='bx bx-menu' id="btn" ></i>
+			<i class='bx bx-chevron-right' id="btn" ></i>
 		</div>
 
 		<ul class="nav-list">
@@ -55,10 +55,10 @@ sidebarButtons += """</ul> </div>
 		// following are the code to change sidebar button(optional)
 		function menuBtnChange() {
 			if(sidebar.classList.contains("open")){
-				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+				closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
 			}
 			else {
-				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+				closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
 			}
 		}
 	</script>"""
@@ -95,28 +95,12 @@ mobileSidebar += """</div> <br>
 	</script> """
 
 
-boxString = ""
+boxString = """<div class="box"> \n"""
 #big for loop begin
 for i in appData:
+    boxString += """<h2> <i style= "font-size: 75%;" class='bx bxs-chevron-right-square'></i> <a href= \"""" + appData[i]['file'] + """\" style="color: #182B49; text-decoration: none; font-size: 75%; font-weight: normal;" >""" + i + """</a></h2>"""
 
-    boxString += """<div class="box"> \n"""
-
-    boxString += """<h2><a href= \"""" + appData[i]['file'] + """\" style="color: #182B49; text-decoration: none;" >""" + i + """</a></h2>"""
-    boxString += "<hr>"
-
-    boxString += """<div class="column"> <dl> \n"""
-
-    
-    for j in appData[i]['Children']:
-        boxString += """<dt><a style="color: #00629B;"><i class='bx bx-subdirectory-right'></i>""" + j + """</a></dt> \n"""
-
-
-            
-    boxString += "</dl>"
-
-    boxString += "</div>"
-
-    boxString += "</div><br><br>"
+boxString += "</div><br><br>"
     
 #open unitTemplate html file and read it into a string 
 unitTemplate = open("overviewApplicationTemplate.html", "r")

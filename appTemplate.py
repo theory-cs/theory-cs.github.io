@@ -11,7 +11,7 @@ sidebarButtons = """<div class="sidebar">
 		  
 		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
 			<a href="index.html" class="logo_name">""" + websiteData['Global Class Name']+"""</a> <!--NAME-->
-			<i class='bx bx-menu' id="btn" ></i>
+			<i class='bx bx-chevron-right' id="btn" ></i>
 		</div>
 
 		<ul class="nav-list">
@@ -28,8 +28,9 @@ sidebarButtons = """<div class="sidebar">
 
 #adds regular sidebar icons for each of the applications specified in json file
 for i in appData:
+    file = i.replace(" ", "-").lower()+".html"
     sidebarButtons += "<li>"
-    sidebarButtons += """<a href= \"""" + appData[i]['file'] + """\" aria-label="Go to """ + i + """ ">"""
+    sidebarButtons += """<a href= \"""" + file + """\" aria-label="Go to """ + i + """ ">"""
     sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + appData[i]['Icon'] + """</p></i>"""
     sidebarButtons += """<span class="links_name"> """ + i + """</span>"""
     sidebarButtons += "</a>"
@@ -56,10 +57,10 @@ sidebarButtons += """</ul> </div>
 		// following are the code to change sidebar button(optional)
 		function menuBtnChange() {
 			if(sidebar.classList.contains("open")){
-				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+				closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
 			}
 			else {
-				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+				closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
 			}
 		}
 	</script>"""
@@ -74,7 +75,8 @@ mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
 
 #adds regular mobile icons for each of the applications specified in json file
 for i in appData:
-    mobileSidebar += """<a href= \"""" + appData[i]['file'] + """\"">""" + i + """</a>"""
+    file = i.replace(" ", "-").lower()+".html"
+    mobileSidebar += """<a href= \"""" + file + """\"">""" + i + """</a>"""
 
 #end div tags, open button, and script for mobile sidebar 
 mobileSidebar += """</div> <br>
@@ -93,55 +95,52 @@ mobileSidebar += """</div> <br>
 		}
 	</script> """
 
-#big for loop begin
-for i in appData:
+for (k,v) in appData.items():
     #extract and format all PDFs and associated buttons
+    file = k.replace(" ", "-").lower()
+
     pdfString = ""
     collapseVar = 1
 
-   
+    #format pdf/html/tex file names
+    pdf="../output/"+file+".pdf"
+    html="../output/"+file+".html"
+    #where will tex file for applications be shown? 
+    tex="../notes/"+file+".tex"
 
-    for k in appData[i]['Children']:
-
-            #format pdf/html/tex file names
-            pdf="../output/"+appData[i]['Children'][k]['filename']+".pdf"
-            html="../output/"+appData[i]['Children'][k]['filename']+".html"
-            #where will tex file for applications be shown? 
-            tex="../notes/"+appData[i]['Children'][k]['filename']+".tex"
-
-            #heading and collapsible card stuff
-            pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-            href="#collapse"""+ str(collapseVar)+"\"> "+k+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
-            class="collapse" data-parent="#accordion"><div class="card-body">"""
+    #heading and collapsible card stuff
+    pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+    href="#collapse"""+ str(collapseVar)+"\"> "+k+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
+    class="collapse" data-parent="#accordion"><div class="card-body">"""
             
-            #Learning Goal
-            #pdfString += """ <p> Learning Goal: """+ appData[i]['Children'][j]['Children'][k]['Description']+"""</p>"""
+    #Learning Goal
+    #pdfString += """ <p> Learning Goal: """+ appData[i]['Children'][j]['Children'][k]['Description']+"""</p>"""
             
-            #.pdf Download button
-            pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-            href="""+pdf+""" download>PDF</a>"""
+    #.pdf Download button
+    pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+    href="""+pdf+""" download>PDF</a>"""
 
-            #.tex Download button
-            pdfString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
-            href=""" + tex + """ download>TeX</a> """
+    #.tex Download button
+    pdfString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
+    href=""" + tex + """ download>TeX</a> """
         
-            #Open in Overleaf button
-            # pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
-            # href= """ + appData[i]['Children'][k]['overleaf']+ """ target="Overleaf">Overleaf</a> """
+    #Open in Overleaf button
+    # pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
+    # href= """ + appData[i]['Children'][k]['overleaf']+ """ target="Overleaf">Overleaf</a> """
 
-            #Raw HTML button 
-            pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-            href= """ + html + """ target="HTML">Raw HTML</a>"""
+    #Raw HTML button 
+    pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+    href= """ + html + """ target="HTML">Raw HTML</a>"""
         
-            #pdf.js embed 
-            pdfString += """ <br> <iframe class="PDFjs" id=\""""+ k +"""\" src="web/viewer.html?file="""+ pdf+ """" 
-            title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
+    #pdf.js embed 
+    pdfString += """ <br> <iframe class="PDFjs" id=\""""+ k +"""\" src="web/viewer.html?file="""+ pdf+ """" 
+    title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
-            #closing div for collapsible menu item 
-            pdfString += """</div></div></div>"""
+    #closing div for collapsible menu item 
+    pdfString += """</div></div></div>"""
             
-            #increment collapseVar
-            collapseVar += 1
+    #increment collapseVar
+    collapseVar += 1
 
    #Information Section
     #infoString = "<p>"+ appData[i]['Children'][j]['Description']+ "</p>" 
@@ -163,7 +162,7 @@ for i in appData:
     )
 
 
-    resultFile = open("generated/website/"+appData[i]['file'], "w")
+    resultFile = open("generated/website/"+file+".html", "w")
     resultFile.write(result)
     resultFile.close()
 

@@ -1,22 +1,17 @@
 {
     "Numbers":{
-        "file":"numbers.html",
         "Icon": "NM"
     },
-    "Recommendation Systems":{
-        "file":"recommendation-systems.html",
+    "Recommendation Systems":{ 
         "Icon": "RS"
     },
     "Computers":{
-        "file":"computers.html",
         "Icon": "CP"
     },
     "Codes and Information":{
-        "file":"codesAndInfo.html",
         "Icon": "CI"
     },
     "Bioinformatics":{
-        "file":"bioinformatics.html",
         "Icon":"BI"
     }
 }

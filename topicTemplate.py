@@ -7,12 +7,20 @@ websiteData = json.loads(open("website-settings.json").read())
 
 sidebarButtons = """<div class="sidebar">
 		<div class="logo-details">
-		  <!--<i class='bx bxl-c-plus-plus icon'></i>-->
-			<div class="logo_name"><a href="index.html" aria-label="Go to Homepage">""" + websiteData['Global Class Name'] +"""</a></div>
-			<i class='bx bx-menu' id="btn" ></i>
+    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
+			<a href="index.html" class="logo_name">""" + websiteData['Global Class Name']+"""</a>
+			<i class='bx bx-chevron-right' id="btn" ></i>
 		</div>
 
-		<ul class="nav-list">"""
+		<ul class="nav-list">
+    
+    <li>
+				<a href="overviewTopic.html" aria-label="Go to Overview">
+					<i class='bx bx-list-ul'></i>
+					<span class="links_name">Overview</span>
+				</a>
+				<span class="tooltip">Overview</span>
+			</li>"""
 
 for big in outcomeData:
     for med in outcomeData[big]['Children']:
@@ -47,11 +55,11 @@ sidebarButtons += """</ul>
 		// following are the code to change sidebar button(optional)
 		function menuBtnChange() {
 			if(sidebar.classList.contains("open")){
-				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+				closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
 		   	}
 
 			else {
-				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+				closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
 		   	}
 		}
 	</script>		"""
@@ -104,9 +112,9 @@ for big in outcomeData:
             tex="../notes/"+outcomeData[big]['Children'][med]['Children'][small]['filename']+".tex"
             
             #heading and collapsible card stuff
-            pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" outcomeData-toggle="collapse" 
+            pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
             href="#collapse"""+ str(collapseVar)+"\"> "+small+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
-            class="collapse" outcomeData-parent="#accordion"><div class="card-body">"""
+            class="collapse" data-parent="#accordion"><div class="card-body">"""
             
             #Learning Goal
             pdfString += """ <p> Learning Goal: """+ outcomeData[big]['Children'][med]['Children'][small]['Description']+"""</p>"""
