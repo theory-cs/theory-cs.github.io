@@ -1,7 +1,7 @@
 from string import Template
 import json
 
-# returns unit-settings JSON file as a dictionary
+# returns unit-settings and websiteData JSON files as dictionaries
 unitData = json.loads(open("unit-settings.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
@@ -127,12 +127,6 @@ for i in range(0,len(unitData)):
             #.html
             pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
             href= """ + html + """ target="HTML">Raw HTML</a>"""
-
-        
-        #Open in Overleaf button
-        # if('overleafLink' in unitData[i]['pdfs'][j]):
-        #     pdfString += """ <a tabindex = "2" class="button Overleaf" aria-label="Open in Overleaf" 
-        #     href= """ + unitData[i]['pdfs'][j]['overleafLink'] + """ target="Overleaf">Overleaf</a> """
 
         #Annotations on/off buttons 
         if('annotatedFile' in unitData[i]['pdfs'][j]):
