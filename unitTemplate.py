@@ -159,6 +159,7 @@ for i in range(0,len(unitData)):
             title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
     #Information Section
+    infoString = ""
     if('Information' in unitData[i]): 
         infoString = "<dl><dt>"+ unitData[i]['Information'][0]+ "</dt>"   
         unitData[i]['Information']                 
