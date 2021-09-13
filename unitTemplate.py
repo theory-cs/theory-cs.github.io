@@ -6,7 +6,7 @@ unitData = json.loads(open("unit-settings.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
 #adds regular sidebar icons for each of the units/weeks specified in json file
-sidebarButtons = """<div class="sidebar">
+sidebarButtons = """<div class="sidebar" id="unit">
 		<div class="logo-details">
 		  
 		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>

@@ -7,7 +7,7 @@ websiteData = json.loads(open("website-settings.json").read())
 
 
 #Sidebar top with title of course offering
-sidebarButtons = """<div class="sidebar">
+sidebarButtons = """<div class="sidebar" id="unit">
 		<div class="logo-details">
 		  
 		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>

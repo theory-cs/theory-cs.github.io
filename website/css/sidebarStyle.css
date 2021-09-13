@@ -30,6 +30,10 @@
 .sidebar.open{
   width: 40%;
 }
+
+#unit.open{
+  width: 25%;
+}
 .sidebar .logo-details{
   height: 60px;
   display: flex;

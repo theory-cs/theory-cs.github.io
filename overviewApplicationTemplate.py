@@ -27,13 +27,14 @@ sidebarButtons = """<div class="sidebar">
 
 #Adds icons in regular sidebar for each 2nd tier child in outcomes.json 
 for i in appData:
-    sidebarButtons += "<li>"
-    sidebarButtons += """<a href= \"""" +appData[i]['file'] + """\" aria-label="Go to """ + i + """">"""
-    sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + appData[i]['Icon'] + """</p></i>"""
-    sidebarButtons += """<span class="links_name"> """ + i + """</span>"""
-    sidebarButtons += "</a>"
-    sidebarButtons += """<span class="tooltip"> """ + i + """</span>"""
-    sidebarButtons += "</li>\n"
+	file = i.replace(" ", "-").lower()+".html"
+	sidebarButtons += "<li>"
+	sidebarButtons += """<a href= \"""" +file + """\" aria-label="Go to """ + i + """">"""
+	sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + appData[i]['Icon'] + """</p></i>"""
+	sidebarButtons += """<span class="links_name"> """ + i + """</span>"""
+	sidebarButtons += "</a>"
+	sidebarButtons += """<span class="tooltip"> """ + i + """</span>"""
+	sidebarButtons += "</li>\n"
 
 
 #end div tags and script for sidebar
@@ -74,7 +75,8 @@ mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
 
 #Adds icons in regular sidebar for each 2nd tier child in outcomes.json 
 for i in appData:
-    mobileSidebar += """<a href= \"""" + appData[i]['file'] + """">""" + i + """</a>"""
+	file = i.replace(" ", "-").lower()+".html"
+	mobileSidebar += """<a href= \"""" + file + """">""" + i + """</a>"""
 
 
 #end div tags, open button, and script for mobile sidebar 
@@ -98,7 +100,8 @@ mobileSidebar += """</div> <br>
 boxString = """<div class="box"> \n"""
 #big for loop begin
 for i in appData:
-    boxString += """<h2> <i style= "font-size: 75%;" class='bx bxs-chevron-right-square'></i> <a href= \"""" + appData[i]['file'] + """\" style="color: #182B49; text-decoration: none; font-size: 75%; font-weight: normal;" >""" + i + """</a></h2>"""
+	file = i.replace(" ", "-").lower()+".html"
+	boxString += """<h2> <i style= "font-size: 75%;" class='bx bxs-chevron-right-square'></i> <a href= \"""" + file + """\" style="color: #182B49; text-decoration: none; font-size: 75%; font-weight: normal;" >""" + i + """</a></h2>"""
 
 boxString += "</div><br><br>"
     
