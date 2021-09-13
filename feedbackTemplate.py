@@ -11,7 +11,7 @@ feedback += "</div>"
 
 
 copyright = """<div class="copyright">"""
-copyright += "Copyright © " + websiteData["Copyright Year"] + websiteData["Copyright Name"] + "<br>"
+copyright += "Copyright © " + websiteData["Copyright Year"] + " " + websiteData["Copyright Name"] + "<br>"
 copyright += """<a style= "color:white;" href="feedback.html">Feedback</a></div>"""
 
 

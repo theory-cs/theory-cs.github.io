@@ -150,11 +150,9 @@ for (k,v) in appData.items():
     appTemplate = open("appTemplate.html", "r")
     templateString = Template(appTemplate.read())
 
-
-
     #substitute settings appData with appropriate variables 
     result = templateString.safe_substitute(
-    heading = i,
+    heading = k,
     #Information = infoString, 
     collapsibleMenu = pdfString,
     sidebar = sidebarButtons,

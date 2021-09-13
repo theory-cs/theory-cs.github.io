@@ -7,7 +7,7 @@ websiteData = json.loads(open("website-settings.json").read())
 title = websiteData["Global Class Name"]
 
 copyright = """<div class="copyright">"""
-copyright += "Copyright © " + websiteData["Copyright Year"] + websiteData["Copyright Name"] + "<br>"
+copyright += "Copyright © " + websiteData["Copyright Year"] + " " + websiteData["Copyright Name"] + "<br>"
 copyright += """<a style= "color:white;" href="feedback.html">Feedback</a></div>"""
 
 #open indexTemplate html file and read it into a string 
