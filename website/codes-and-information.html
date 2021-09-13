@@ -45,7 +45,7 @@
 		<a href="index.html" class="homeMobile"> Discrete Math for CS</a> <!--NAME-->
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
         <a href="overviewApplication.html">Overview</a>
-		<a href= "numbers.html"">Numbers</a><a href= "recommendationSystems.html"">Recommendation Systems</a><a href= "computers.html"">Computers</a><a href= "codesAndInfo.html"">Codes and Information</a><a href= "bioinformatics.html"">Bioinformatics</a></div> <br>
+		<a href= "numbers.html"">Numbers</a><a href= "recommendation-systems.html"">Recommendation Systems</a><a href= "computers.html"">Computers</a><a href= "codes-and-information.html"">Codes and Information</a><a href= "bioinformatics.html"">Bioinformatics</a></div> <br>
 	<div class="openbutton" style="margin-left: 10px;">
 		<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
 	</div> 
@@ -67,7 +67,7 @@
 		  
 		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
 			<a href="index.html" class="logo_name">Discrete Math for CS</a> <!--NAME-->
-			<i class='bx bx-menu' id="btn" ></i>
+			<i class='bx bx-chevron-right' id="btn" ></i>
 		</div>
 
 		<ul class="nav-list">
@@ -78,7 +78,7 @@
 					<span class="links_name">Overview</span>
 				</a>
 				<span class="tooltip">Overview</span>
-			</li><li><a href= "numbers.html" aria-label="Go to Numbers "><i><p class="icons">&nbsp;&nbsp;NM</p></i><span class="links_name"> Numbers</span></a><span class="tooltip"> Numbers</span></li><li><a href= "recommendationSystems.html" aria-label="Go to Recommendation Systems "><i><p class="icons">&nbsp;&nbsp;RS</p></i><span class="links_name"> Recommendation Systems</span></a><span class="tooltip"> Recommendation Systems</span></li><li><a href= "computers.html" aria-label="Go to Computers "><i><p class="icons">&nbsp;&nbsp;CP</p></i><span class="links_name"> Computers</span></a><span class="tooltip"> Computers</span></li><li><a href= "codesAndInfo.html" aria-label="Go to Codes and Information "><i><p class="icons">&nbsp;&nbsp;CI</p></i><span class="links_name"> Codes and Information</span></a><span class="tooltip"> Codes and Information</span></li><li><a href= "bioinformatics.html" aria-label="Go to Bioinformatics "><i><p class="icons">&nbsp;&nbsp;BI</p></i><span class="links_name"> Bioinformatics</span></a><span class="tooltip"> Bioinformatics</span></li></ul> </div> 
+			</li><li><a href= "numbers.html" aria-label="Go to Numbers "><i><p class="icons">&nbsp;&nbsp;NM</p></i><span class="links_name"> Numbers</span></a><span class="tooltip"> Numbers</span></li><li><a href= "recommendation-systems.html" aria-label="Go to Recommendation Systems "><i><p class="icons">&nbsp;&nbsp;RS</p></i><span class="links_name"> Recommendation Systems</span></a><span class="tooltip"> Recommendation Systems</span></li><li><a href= "computers.html" aria-label="Go to Computers "><i><p class="icons">&nbsp;&nbsp;CP</p></i><span class="links_name"> Computers</span></a><span class="tooltip"> Computers</span></li><li><a href= "codes-and-information.html" aria-label="Go to Codes and Information "><i><p class="icons">&nbsp;&nbsp;CI</p></i><span class="links_name"> Codes and Information</span></a><span class="tooltip"> Codes and Information</span></li><li><a href= "bioinformatics.html" aria-label="Go to Bioinformatics "><i><p class="icons">&nbsp;&nbsp;BI</p></i><span class="links_name"> Bioinformatics</span></a><span class="tooltip"> Bioinformatics</span></li></ul> </div> 
 	<script>
 		let sidebar = document.querySelector(".sidebar");
 		let closeBtn = document.querySelector("#btn");
@@ -96,10 +96,10 @@
 		// following are the code to change sidebar button(optional)
 		function menuBtnChange() {
 			if(sidebar.classList.contains("open")){
-				closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+				closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
 			}
 			else {
-				closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+				closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
 			}
 		}
 	</script>
@@ -108,7 +108,7 @@
 		<!-- Overview -->
 		<div class="row">
 			<div class="col-lg-12 text-left">
-				<h1 tabindex = "1">Recommendation Systems</h1>
+				<h1 tabindex = "1">Bioinformatics</h1>
 				<!--<h2>Background</h2>-->
 				<!--$Information-->
 			</div>
@@ -119,18 +119,12 @@
 
             <div id="accordion">
                 <div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-            href="#collapse1"> Netflix</a> </div> <div id="collapse1""
-            class="collapse" data-parent="#accordion"><div class="card-body"> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-            href=../output/something.pdf download>PDF</a> <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
-            href=../notes/something.tex download>TeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-            href= ../output/something.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="Netflix" src="web/viewer.html?file=../output/something.pdf" 
-            title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-            href="#collapse2"> Machine Learning</a> </div> <div id="collapse2""
-            class="collapse" data-parent="#accordion"><div class="card-body"> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-            href=../output/.pdf download>PDF</a> <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
-            href=../notes/.tex download>TeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-            href= ../output/.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="Machine Learning" src="web/viewer.html?file=../output/.pdf" 
-            title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div>
+    href="#collapse1"> Codes and Information</a> </div> <div id="collapse1""
+    class="collapse" data-parent="#accordion"><div class="card-body"> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+    href=../output/codes-and-information.pdf download>PDF</a> <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
+    href=../notes/codes-and-information.tex download>TeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+    href= ../output/codes-and-information.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="Codes and Information" src="web/viewer.html?file=../output/codes-and-information.pdf" 
+    title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div>
             </div>
             
         </div>

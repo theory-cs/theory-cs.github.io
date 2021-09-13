@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.13)  13 SEP 2021 14:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.13)  13 SEP 2021 19:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**netflix.tex
-(./netflix.tex
+**recommendation-systems.tex
+(./recommendation-systems.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18>
 (../../output/app/../../resources/lesson-head.tex
@@ -540,8 +540,8 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box100
 )
-No file netflix.aux.
-\openout1 = `netflix.aux'.
+No file recommendation-systems.aux.
+\openout1 = `recommendation-systems.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -614,7 +614,7 @@ LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
 LaTeX Info: Redefining \nameref on input line 15.
 \@outlinefile=\write4
-\openout4 = `netflix.out'.
+\openout4 = `recommendation-systems.out'.
 
  (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -676,27 +676,27 @@ AED: lastpage setting LastPage
 [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(../../output/app/netflix.aux)
+(../../output/app/recommendation-systems.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
-Package rerunfilecheck Warning: File `netflix.out' has changed.
+Package rerunfilecheck Warning: File `recommendation-systems.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
 
-Package rerunfilecheck Info: Checksums for `netflix.out':
+Package rerunfilecheck Info: Checksums for `recommendation-systems.out':
 (rerunfilecheck)             Before: <no file>
 (rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  14114 strings out of 478994
- 210259 string characters out of 5858184
- 540689 words of memory out of 5000000
+ 210394 string characters out of 5858184
+ 540749 words of memory out of 5000000
  31366 multiletter control sequences out of 15000+600000
  411303 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 81i,12n,80p,355b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 81i,12n,80p,370b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
@@ -706,7 +706,8 @@ sr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 cal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
 al/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/loca
 l/texlive/2021/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on ../../output/app/netflix.pdf (1 page, 83511 bytes).
+Output written on ../../output/app/recommendation-systems.pdf (1 page, 83257 by
+tes).
 PDF statistics:
  51 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
