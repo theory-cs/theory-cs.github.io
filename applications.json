@@ -1,68 +1,22 @@
 {
     "Numbers":{
         "file":"numbers.html",
-        "Icon": "NM",
-        "Children":{
-            "Number Representations":{
-                "filename":"something"
-            }
-        }
-       
-       
+        "Icon": "NM"
     },
-
     "Recommendation Systems":{
-        "file":"recommendationSystems.html",
-        "Icon": "RS",
-        "Children":{
-            "Netflix":{
-                "filename":"something"
-            },
-            "Machine Learning":{
-                "filename":""
-            }
-        }
-        
+        "file":"recommendation-systems.html",
+        "Icon": "RS"
     },
-
     "Computers":{
         "file":"computers.html",
-        "Icon": "CP",
-        "Children":{
-            "Pixel Color Representation":{
-                "filename":""
-            },
-            "Circuits":{
-                "filename":""
-            },
-            "Data Structures":{
-                "filename":""
-            }
-        }
+        "Icon": "CP"
     },
-
     "Codes and Information":{
         "file":"codesAndInfo.html",
-        "Icon": "CI",
-        "Children":{
-            "Secret Message Sharing":{
-                "filename":""
-            },
-            "Error Correction":{
-                "filename":""
-            }
-        }
-    }, 
-
+        "Icon": "CI"
+    },
     "Bioinformatics":{
         "file":"bioinformatics.html",
-        "Icon":"BI",
-        "Children":{
-            "Genomics":{
-                "filename":""
-            }
-        }
+        "Icon":"BI"
     }
-
-
 }
