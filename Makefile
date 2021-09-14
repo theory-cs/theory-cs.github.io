@@ -38,7 +38,7 @@ generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/activity-snippet
 
 # Iterate over all changed .tex files in notes and run target for them in new folder, then generate flat versions if needed
 latex: lessonsLatex appLatex topicLatex app-latexpand topic-latexpand lessons-latexpand
-lessonsLatex: $(patsubst notes/lessons/%.tex,generated/output/%.pdf,$(wildcard notes/lessons/*.tex))
+lessonsLatex: $(patsubst notes/lessons/%.tex,generated/output/lessons/%.pdf,$(wildcard notes/lessons/*.tex))
 appLatex: $(patsubst generated/notes/app/%.tex,generated/output/app/%.pdf,$(wildcard generated/notes/app/*.tex))
 topicLatex: $(patsubst generated/notes/topic/%.tex,generated/output/topic/%.pdf,$(wildcard generated/notes/topic/*.tex))
 app-latexpand: $(patsubst generated/notes/topic/%.tex,generated/notes/topic-flat/%.tex,$(wildcard generated/notes/topic/*.tex))
@@ -46,7 +46,7 @@ topic-latexpand: $(patsubst generated/notes/app/%.tex,generated/notes/app-flat/%
 lessons-latexpand: $(patsubst generated/notes/lessons/%.tex,generated/notes/lessons-flat/%.tex,$(wildcard generated/notes/lessons/*.tex))
 
 # Typesetting all .tex files in notes/lessons directory
-generated/output/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+generated/output/lessons/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/output/lessons; cd notes/lessons; pdflatex -output-directory ../../generated/output/lessons $(<F) 
 
 #since all of the app and topic files are generated through a python script, they are in the generated directory 
@@ -142,17 +142,17 @@ dynamic-pages:
 
 #Building html versions of all .tex files in notes/lessons directory 
 tex-html : lessons-tex-html app-tex-html topic-tex-html
-lessons-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst notes/lessons/%.tex,generated/output/%.html,$(wildcard notes/lessons/*.tex)))
-app-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst generated/notes/app/%.tex,generated/output/%.html,$(wildcard generated/notes/app/*.tex)))
-topic-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst generated/notes/topic/%.tex,generated/output/%.html,$(wildcard generated/notes/topic/*.tex)))
+lessons-tex-html : $(patsubst notes/lessons/%.tex,generated/output/lessons/%.html,$(wildcard notes/lessons/*.tex))
+app-tex-html : $(patsubst generated/notes/app/%.tex,generated/output/app/%.html,$(wildcard generated/notes/app/*.tex))
+topic-tex-html : $(patsubst generated/notes/topic/%.tex,generated/output/topic/%.html,$(wildcard generated/notes/topic/*.tex))
 
-generated/output/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+generated/output/lessons/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/lessons/$(@F)
 
-generated/output/%.html: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+generated/output/app/%.html: generated/notes/app/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd generated/notes/app; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/app/$(@F)
 
-generated/output/%.html: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+generated/output/topic/%.html: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd generated/notes/topic; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/topic/$(@F)
 
 # Removing all auxiliary typesetting files from output directory and its subdirectories
