@@ -6,6 +6,8 @@
 # Input: outcomes.json specifies all topics
 # website-settings are global settings (ungrouped snippets)
 # unit-settings.json helps find the order of the weeks each snippet appears in
+#
+#Output: compiled .tex files for each Topic with corresponding snippets
 
 from string import Template
 import os
@@ -133,7 +135,7 @@ for filename in os.listdir(weeklyDirectory):
                 lowLevelsDict[test].sort(key=findWeek)
 
 #debug: UNCOMMENT if want to see how the dictionary looks
-print(lowLevelsDict)
+#print(lowLevelsDict)
 
 def write_if_different(filename, contents):
     try:

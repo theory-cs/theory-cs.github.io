@@ -6,6 +6,8 @@
 # Input: applications.json specifies all applications
 # website-settings are global settings (ungrouped snippets)
 # unit-settings.json helps find the order of the weeks each snippet appears in
+#
+# Output: compiled .tex files for each Application with corresponding snippets
 
 from string import Template
 import os
