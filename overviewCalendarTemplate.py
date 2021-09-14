@@ -18,7 +18,7 @@ sidebarButtons = """<div class="sidebar" id="unit">
 		<ul class="nav-list">
 			
 			<li>
-				<a href="overview.html" aria-label="Go to Calendar">
+				<a href="overviewCalendar.html" aria-label="Go to Calendar">
 					<i class='bx bx-calendar'></i>
 					<span class="links_name">Calendar</span>
 				</a>
@@ -69,7 +69,7 @@ mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
 		<a href="index.html" class="homeMobile"> """ + websiteData['Course Offering Title']+"""</a> <!--NAME-->
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
 			
-		<a href="overview.html">Calendar</a>"""
+		<a href="overviewCalendar.html">Calendar</a>"""
 
 # Generate mobile sidebar buttons
 for i in range(0,len(unitData)):
@@ -104,7 +104,7 @@ result = templateString.safe_substitute(
 )
 
 
-resultFile = open("generated/website/overview.html", "w")
+resultFile = open("generated/website/overviewCalendar.html", "w")
 resultFile.write(result)
 resultFile.close()
 
