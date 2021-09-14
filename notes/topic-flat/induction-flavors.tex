@@ -1,0 +1,176 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage.)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Making change proof two ways}
+
+
+\setlength{\columnseprule}{0.4pt}
+\begin{multicols}{2}
+{\bf  Proof of $\star$ by mathematical induction} ($b=8$)
+
+{\bf Basis step}:  WTS property is true about  $8$
+\vspace{50pt}
+
+{\bf Recursive step}: Consider an  arbitrary  $n \geq 8$.
+Assume (as the  IH) that  there are nonnegative integers
+$x, y$ such that $n =  5x +  3y$.  WTS
+that there are nonnegative integers $x', y'$ such
+that  $n+1 = 5x' +  3y'$.  We consider two cases, 
+depending on  whether  any  $5$ cent coins
+are used for $n$.
+
+\vspace{1in}
+
+{\it Case 1}:  Assume $x \geq  1$.
+Define $x' = x-1$ and $y'=y+2$ (both in  $\mathbb{N}$ by case assumption).
+
+\vspace{-15pt}
+
+Calculating:
+\begin{align*}
+5x' +  3y' &\overset{\text{by def}}{=}  5(x-1) +  3(y+2)  = 5x -  5 +3y +   6  \\
+&\overset{\text{rearranging}} = (5x+3y) -5  + 6\\
+& \overset{\text{IH}}{=} n-5+6 =  n+1
+\end{align*}
+
+\vspace{1in}
+
+{\it  Case 2}: Assume $x = 0$.  Therefore  $n  = 3y$,  so 
+since  $n \geq 8$, $y \geq 3$. Define $x' = 2$ and $y'=y-3$
+(both in $\mathbb{N}$ by case assumption).
+Calculating:
+\begin{align*}
+5x' +  3y' &\overset{\text{by def}}{=}  5(2) +  3(y-3)  = 10  +3y -9  \\
+&\overset{\text{rearranging}} = 3y +10 -9 \\
+&\overset{\text{IH and case}}{=} n+10-9 =  n+1
+\end{align*}
+
+\vspace{1in}
+
+\columnbreak
+
+
+{\bf Proof of $\star$ by strong induction} ($b=8$ and $j=2$)
+
+{\bf Basis step}:  WTS property is true about  $8, 9, 10$
+\vspace{50pt}
+
+{\bf Recursive step}: Consider an  arbitrary  $n \geq 10$.
+Assume (as the  IH) that the property is true about  each of $8, 9, 10, \ldots, n$.  
+WTS
+that there are nonnegative integers $x', y'$ such
+that  $n+1 = 5x' +  3y'$.
+
+\vspace{200pt}
+\end{multicols}
+
+
+\vfill \vfill
+\section*{Binary expansions exist proof}
+
+
+{\bf  Representing positive integers}
+
+
+{\bf Theorem}: Every positive integer is a sum of (one or more) distinct powers of $2$. {\it  
+binary expansions exist!}
+
+
+
+{\bf Proof by strong induction}, with $b=1$ and $j=0$.
+
+
+{\bf Basis step}:  WTS property is true about  $1$.
+
+
+{\bf Recursive step}: Consider an arbitrary integer $n \geq 1$.
+Assume (as the IH) that the property is true about  each of $1, \ldots, n$.  
+WTS that the property is true about  $n+1$.
+
+
+\vfill
+ \vfill
+\section*{Fundamental theorem proof}
+
+
+{\bf Theorem}: Every positive integer {\it greater than 1} is a product of (one or more) primes.
+
+{\bf Proof by strong induction}, with $b=2$ and $j=0$.
+
+{\bf Basis step}:  WTS property is true about  $2$.
+\vspace{20pt}
+
+{\bf Recursive step}: Consider an arbitrary integer $n \geq 2$.
+Assume (as the IH) that the property is true about  each of $2, \ldots, n$.  
+WTS that the property is true about  $n+1$.
+
+
+{\bf Case 1}: 
+
+
+{\bf Case 2}: 
+
+\vfill \vfill
+\end{document}
