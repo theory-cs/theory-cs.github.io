@@ -28,6 +28,7 @@ website: static-pages latex dynamic-pages tex-html clean-tex
 # file update its modified time when this is run. BUT, if these files haven't
 # changed since the last run, they will all be older than last-index.txt
 generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/activity-snippets/*.tex resources/*.tex
+	mkdir -p generated/notes
 	mkdir -p generated/notes/app
 	mkdir -p generated/notes/topic
 	python3 weeklyCompileApp.py
@@ -69,7 +70,6 @@ generated/notes/app-flat/%.tex: generated/notes/app/%.tex resources/lesson-head.
 generated/notes/lessons-flat/%.tex: generated/notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/notes/lessons-flat; cd generated/notes/lessons; latexpand $(<F) > ../lessons-flat/$(<F)
 
-
 # Build website by copying over files, notes, resources, html, and style files to generated directory
 static-pages: generated-files generated-resources generated-notes  generated-notes-activity-snippets generated-website generated-website-css
 
@@ -88,7 +88,6 @@ generated/resources/%: resources/%
 	cp -R $< $@
 
 # Directory notes contains tex files for outcomes and topics 
-# TODO: remove this once the tex files are created by a script that scrapes tags from lessons
 generated-notes: $(patsubst notes/%,generated/notes/%,$(wildcard notes/*))
 
 generated/notes/%: notes/%
@@ -142,7 +141,6 @@ dynamic-pages:
 	python3 overviewApplicationTemplate.py
 
 #Building html versions of all .tex files in notes/lessons directory 
-#TODO: also need for topics and outcomes, potentially as part of python scripts creating them
 tex-html : lessons-tex-html app-tex-html topic-tex-html
 lessons-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst notes/lessons/%.tex,generated/output/%.html,$(wildcard notes/lessons/*.tex)))
 app-tex-html : $(patsubst generated/output/%.html,generated/output/%.html,$(patsubst generated/notes/app/%.tex,generated/output/%.html,$(wildcard generated/notes/app/*.tex)))
