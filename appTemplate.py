@@ -109,9 +109,9 @@ for (k,v) in appData.items():
     tex="../notes/app/"+file+".tex"
 
     #heading and collapsible card stuff
-    pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-    href="#collapse"""+ str(collapseVar)+"\"> "+k+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
-    class="collapse" data-parent="#accordion"><div class="card-body">"""
+    #pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+    #href="#collapse"""+ str(collapseVar)+"\"> "+k+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
+    #class="collapse" data-parent="#accordion"><div class="card-body">"""
             
     #Learning Goal
     #pdfString += """ <p> Learning Goal: """+ appData[i]['Children'][j]['Children'][k]['Description']+"""</p>"""
@@ -137,7 +137,7 @@ for (k,v) in appData.items():
     title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
     #closing div for collapsible menu item 
-    pdfString += """</div></div></div>"""
+    # pdfString += """</div></div></div>"""
             
     #increment collapseVar
     collapseVar += 1
