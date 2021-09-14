@@ -4,13 +4,17 @@
 # with snippets ordered chronologically by weeks
 #
 # Input: outcomes.json specifies all topics
+# website-settings are global settings (ungrouped snippets)
+# unit-settings.json helps find the order of the weeks each snippet appears in
 
 from string import Template
 import os
 import linecache
 
 import json
+from weeklyCompileApp import UNGROUPED
 outcomes = json.loads(open("outcomes.json").read())
+settings = json.loads(open("website-settings.json").read())
 
 # returns unit-settings JSON file as a dictionary
 unitData = json.loads(open("unit-settings.json").read())
@@ -38,9 +42,11 @@ for line in low_levels:
 def findWeek(element):
     return int(element[1])
 
-#if file in lessons directory is not found within a week on the website/unit-settings.json, then it will have 99 as a week number, 
-#so that it is sorted to the end of compiled .tex files 
-weekNumber = 99
+#if file in lessons directory is not found within a week on the website/unit-settings.json, then it will have the
+#UNGROUPED constant as a week number, so that it is sorted to the end of compiled .tex files 
+#ensure that the ungrouped constant is uniqe and will not appear as a week  
+UNGROUPED = 99
+weekNumber = UNGROUPED
 
 weeklyDirectory = "notes/lessons"
 for filename in os.listdir(weeklyDirectory):
@@ -100,19 +106,34 @@ for filename in os.listdir(weeklyDirectory):
                 if(not test or "none" in test):
                     continue
 
-                snippetWeek = [snippetsFile, weekNumber]
-                
-                #debug
-                #print(snippetWeek)
-                
-                # add that tex filename to the dictionary
-                lowLevelsDict[test].append(snippetWeek)
 
+                #if IncludeUngroupedSnippets is true, then include all snippets
+                #(including ungrouped ones)
+                if(settings['IncludeUngroupedSnippets']):
+                    snippetWeek = [snippetsFile, weekNumber]
+
+                    # add that tex filename to the dictionary
+                    lowLevelsDict[test].append(snippetWeek)
+
+                    #debug
+                    #print(snippetWeek)
+            
+                #if IncludeUngroupedSnippets is false, then only include those snippets who aren't 
+                # ungrouped (these are set to the UNGROUPED constant value)
+                elif (weekNumber != UNGROUPED):
+                    snippetWeek = [snippetsFile, weekNumber]
+                
+                    # add that tex filename to the dictionary
+                    lowLevelsDict[test].append(snippetWeek)
+
+                    #debug
+                    #print(snippetWeek)
+                
                 #sort each outcome by week
                 lowLevelsDict[test].sort(key=findWeek)
 
 #debug: UNCOMMENT if want to see how the dictionary looks
-#print(lowLevelsDict)
+print(lowLevelsDict)
 
 def write_if_different(filename, contents):
     try:

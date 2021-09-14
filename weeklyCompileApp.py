@@ -4,6 +4,8 @@
 # with snippets ordered chronologically by weeks
 #
 # Input: applications.json specifies all applications
+# website-settings are global settings (ungrouped snippets)
+# unit-settings.json helps find the order of the weeks each snippet appears in
 
 from string import Template
 import os
@@ -11,6 +13,7 @@ import linecache
 
 import json
 apps = json.loads(open("applications.json").read())
+settings = json.loads(open("website-settings.json").read())
 
 # returns unit-settings JSON file as a dictionary
 unitData = json.loads(open("unit-settings.json").read())
@@ -39,7 +42,8 @@ def findWeek(element):
 
 #if file in lessons directory is not found within a week on the website/unit-settings.json, then it will have 99 as a week number, 
 #so that it is sorted to the end of compiled .tex files 
-weekNumber = 99
+UNGROUPED = 99
+weekNumber = UNGROUPED
 
 weeklyDirectory = "notes/lessons"
 for filename in os.listdir(weeklyDirectory):
@@ -88,7 +92,7 @@ for filename in os.listdir(weeklyDirectory):
             # Split small outcomes with the delimiter ", " into a list
             li = list(particularLine.split(", "))
             for element in li:
-                # lowercase them and replace whitespace with dashes (to make them uniform)
+                # lowercase outcomes and replace whitespace with dashes (to make them uniform as future .tex file names)
                 test = element.replace(" ", "-").lower()
                 
                 #debug
@@ -97,16 +101,30 @@ for filename in os.listdir(weeklyDirectory):
                 #if application in snippet is empty or is none, do not add it to dictionary
                 if(not test or "none" in test):
                     continue
-
-                snippetWeek = [snippetsFile, weekNumber]
                 
-                #debug
-                #print(snippetWeek)
-                
-                # add that tex filename to the dictionary
-                appsDict[test].append(snippetWeek)
+                #if IncludeUngroupedSnippets is true, then include all snippets
+                #(including ungrouped ones)
+                if(settings['IncludeUngroupedSnippets']):
+                    snippetWeek = [snippetsFile, weekNumber]
 
-                #sort each outcome by week
+                    # add that tex filename to the dictionary
+                    appsDict[test].append(snippetWeek)
+
+                    #debug
+                    #print(snippetWeek)
+            
+                #if IncludeUngroupedSnippets is false, then only include those snippets who aren't 
+                # ungrouped (these are set to the UNGROUPED constant value)
+                elif (weekNumber != UNGROUPED):
+                    snippetWeek = [snippetsFile, weekNumber]
+            
+                    # add that tex filename to the dictionary
+                    appsDict[test].append(snippetWeek)
+
+                    #debug
+                    #print(snippetWeek)
+
+                #sort each outcome by week, findWeek function returns the week number of the snippet
                 appsDict[test].sort(key=findWeek)
 # debug: UNCOMMENT if want to see how the dictionary looks
 #print(appsDict)
