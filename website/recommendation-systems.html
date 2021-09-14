@@ -62,11 +62,7 @@
 	</script> 
 
 		<!-- Insert sidebar -->
-		<div class="sidebar">
-		<div class="logo-details">
-		  
-		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
-			<a href="index.html" class="logo_name">Discrete Math for CS</a> <!--NAME-->
+		 <a href="index.html" class="logo_name">Discrete Math for CS</a> <!--NAME-->
 			<i class='bx bx-chevron-right' id="btn" ></i>
 		</div>
 
@@ -79,30 +75,30 @@
 				</a>
 				<span class="tooltip">Overview</span>
 			</li><li><a href= "numbers.html" aria-label="Go to Numbers "><i><p class="icons">&nbsp;&nbsp;NM</p></i><span class="links_name"> Numbers</span></a><span class="tooltip"> Numbers</span></li><li><a href= "recommendation-systems.html" aria-label="Go to Recommendation Systems "><i><p class="icons">&nbsp;&nbsp;RS</p></i><span class="links_name"> Recommendation Systems</span></a><span class="tooltip"> Recommendation Systems</span></li><li><a href= "computers.html" aria-label="Go to Computers "><i><p class="icons">&nbsp;&nbsp;CP</p></i><span class="links_name"> Computers</span></a><span class="tooltip"> Computers</span></li><li><a href= "codes-and-information.html" aria-label="Go to Codes and Information "><i><p class="icons">&nbsp;&nbsp;CI</p></i><span class="links_name"> Codes and Information</span></a><span class="tooltip"> Codes and Information</span></li><li><a href= "bioinformatics.html" aria-label="Go to Bioinformatics "><i><p class="icons">&nbsp;&nbsp;BI</p></i><span class="links_name"> Bioinformatics</span></a><span class="tooltip"> Bioinformatics</span></li></ul> </div> 
-	<script>
-		let sidebar = document.querySelector(".sidebar");
-		let closeBtn = document.querySelector("#btn");
+	        <script>
+		    let sidebar = document.querySelector(".sidebar");
+		    let closeBtn = document.querySelector("#btn");
 		
-		closeBtn.addEventListener("click", ()=>{
-			sidebar.classList.toggle("open");
-			menuBtnChange();//calling the function(optional)
-		});
+		    closeBtn.addEventListener("click", ()=>{
+			    sidebar.classList.toggle("open");
+			    menuBtnChange();//calling the function(optional)
+		    });
 		
-		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-			sidebar.classList.toggle("open");
-			menuBtnChange(); //calling the function(optional)
-		});
+		    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			    sidebar.classList.toggle("open");
+			    menuBtnChange(); //calling the function(optional)
+		    });
 		
-		// following are the code to change sidebar button(optional)
-		function menuBtnChange() {
-			if(sidebar.classList.contains("open")){
-				closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
-			}
-			else {
-				closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
-			}
-		}
-	</script>
+		    // following are the code to change sidebar button(optional)
+		    function menuBtnChange() {
+			    if(sidebar.classList.contains("open")){
+				    closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
+			    }
+			    else {
+				    closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
+			    }
+		    }
+	        </script>
 	   
 			
 		<!-- Overview -->
