@@ -11,7 +11,7 @@ sidebarButtons = """<div class="sidebar" id="unit">
 		<div class="logo-details">
 		  
 		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
-			<a href="index.html" class="logo_name">""" + websiteData['Course Offering Title']+"""</a> <!--NAME-->
+			<a href="overviewCalendar.html" class="logo_name">""" + websiteData['Course Offering Title']+"""</a> <!--NAME-->
 			<i class='bx bx-chevron-right' id="btn" ></i>
 		</div>
 
