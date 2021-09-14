@@ -1,69 +1,14 @@
 from string import Template
 import json
+from sidebarFunction import *
   
 # returns unit-settings JSON file as a dictionary
 appData = json.loads(open("applications.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
 #Sidebar top with title of course offering
-sidebarButtons = """<div class="sidebar">
-		<div class="logo-details">
-		  
-		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
-			<a href="index.html" class="logo_name">""" + websiteData['Global Class Name']+"""</a> <!--NAME-->
-			<i class='bx bx-chevron-right' id="btn" ></i>
-		</div>
+sidebarButtons = sidebar("application")
 
-		<ul class="nav-list">
-			
-			<li>
-				<a href="overviewApplication.html" aria-label="Go to Overview">
-					<i class='bx bx-list-ul'></i>
-					<span class="links_name">Overview</span>
-				</a>
-				<span class="tooltip">Overview</span>
-			</li>"""
-
-
-
-#adds regular sidebar icons for each of the applications specified in json file
-for i in appData:
-    file = i.replace(" ", "-").lower()+".html"
-    sidebarButtons += "<li>"
-    sidebarButtons += """<a href= \"""" + file + """\" aria-label="Go to """ + i + """ ">"""
-    sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + appData[i]['Icon'] + """</p></i>"""
-    sidebarButtons += """<span class="links_name"> """ + i + """</span>"""
-    sidebarButtons += "</a>"
-    sidebarButtons += """<span class="tooltip"> """ + i + """</span>"""
-    sidebarButtons += "</li>"
-
-
-#end div tags and script for sidebar
-sidebarButtons += """</ul> </div> 
-	<script>
-		let sidebar = document.querySelector(".sidebar");
-		let closeBtn = document.querySelector("#btn");
-		
-		closeBtn.addEventListener("click", ()=>{
-			sidebar.classList.toggle("open");
-			menuBtnChange();//calling the function(optional)
-		});
-		
-		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-			sidebar.classList.toggle("open");
-			menuBtnChange(); //calling the function(optional)
-		});
-		
-		// following are the code to change sidebar button(optional)
-		function menuBtnChange() {
-			if(sidebar.classList.contains("open")){
-				closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
-			}
-			else {
-				closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
-			}
-		}
-	</script>"""
 
 #Mobile Sidebar top with Title of Course Offering 
 mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">

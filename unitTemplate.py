@@ -1,68 +1,13 @@
 from string import Template
 import json
+from sidebarFunction import *
 
 # returns unit-settings and websiteData JSON files as dictionaries
 unitData = json.loads(open("unit-settings.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
 #adds regular sidebar icons for each of the units/weeks specified in json file
-sidebarButtons = """<div class="sidebar" id="unit">
-		<div class="logo-details">
-		  
-		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
-			<a href="overviewCalendar.html" class="logo_name">""" + websiteData['Course Offering Title']+"""</a> <!--NAME-->
-			<i class='bx bx-chevron-right' id="btn" ></i>
-		</div>
-
-		<ul class="nav-list">
-			
-			<li>
-				<a href="overviewCalendar.html" aria-label="Go to Calendar">
-					<i class='bx bx-calendar'></i>
-					<span class="links_name">Calendar</span>
-				</a>
-				<span class="tooltip">Calendar</span>
-			</li>"""
-
-
-for i in range(0,len(unitData)):
-    sidebarButtons += "<li>"
-    sidebarButtons += """<a href= " """ + 'unit'+str(i+1) + """.html" aria-label="Go to """ + unitData[i]['header'] + """ ">"""
-    sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;&nbsp;&nbsp;""" + str(i+1) + """</p></i>"""
-    sidebarButtons += """<span class="links_name"> """ + unitData[i]['header'] + """</span>"""
-    sidebarButtons += "</a>"
-    sidebarButtons += """<span class="tooltip"> """ + unitData[i]['header'] + """</span>"""
-    sidebarButtons += "</li>"
-
-
-sidebarButtons += """ </ul>
-		  </div>
-		
-        
-        <script>
-		   let sidebar = document.querySelector(".sidebar");
-		  let closeBtn = document.querySelector("#btn");
-		
-		  closeBtn.addEventListener("click", ()=>{
-			sidebar.classList.toggle("open");
-			menuBtnChange();//calling the function(optional)
-		  });
-		
-		  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-			sidebar.classList.toggle("open");
-			menuBtnChange(); //calling the function(optional)
-		  });
-		
-		  // following are the code to change sidebar button(optional)
-		  function menuBtnChange() {
-		   if(sidebar.classList.contains("open")){
-			 closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
-		   }else {
-			 closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
-		   }
-		  }
-		</script>
-"""
+sidebarButtons = sidebar("unit")
 
 #adds mobile sidebar icons for each of the units/weeks specified in json file
 mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
