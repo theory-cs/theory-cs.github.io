@@ -49,6 +49,13 @@ h2 {
     color: #182B49;
 }
 
+h3 {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: bold;
+    font-size: 180%;
+    color: #182B49;
+}
+
 .column dl{
     margin: 0;
     page-break-inside: avoid;           /* Theoretically FF 20+ */
