@@ -51,23 +51,25 @@ for i in range(0,len(unitData)):
                 pdfString += """ <a tabindex = "2" class="button on" aria-label="Annotations On" id="annotationsOnButton" href="javascript:void(0)" >Annotations On</a>
 					<a tabindex = "2" class="button off" aria-label="Annotations Off" id="annotationsOffButton" href="javascript:void(0)" >Annotations Off</a> """
 
+            #id of pdf.js element formatting
+            pdfjsID = unitData[i]['pdfs'][j]['name'].replace(" ", "-")
             #annotations on
             pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(1,
-            \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+unitData[i]['pdfs'][j]['name']+ """\")};"""
+            \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};"""
             
             #annotations off
             pdfString +="""document.getElementById("annotationsOffButton").onclick = function() {annotations(0,
-            \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+unitData[i]['pdfs'][j]['name']+ """\")};
+            \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};
             </script>"""
 
             #if addExtensions is false, then the displayed pdf will be in the files directory 
             if(not unitData[i]['pdfs'][j]['addExtensions']): 
                 #pdf.js embed from files
-                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ unitData[i]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
+                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
                     title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
             else:     
                 #pdf.js embed default 
-                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ unitData[i]['pdfs'][j]['name'] +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
+                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
                 title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
         #Information Section

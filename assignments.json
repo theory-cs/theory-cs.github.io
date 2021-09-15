@@ -2,7 +2,15 @@
    {
     "name": "HW 1",
     "addExtensions":true, 
-    "file":"HW1",
-    "solutionsFile": "Week0and1-annotated-CSE20F21.pdf"
-   } 
+    "file":"Week0and1",
+    "solutionsFile": "CSE20commands.pdf", 
+    "Information" : "Due Date: 09/24/2021, This is a Partner Assignment"
+   }, 
+   {
+      "name": "HW 2",
+      "addExtensions":false, 
+      "file":"HW2",
+      "solutionsFile": "Week0and1-annotated-CSE20F21.pdf", 
+      "Information" : "Due Date: 10/03/2021, This is a NOT Partner Assignment"
+     }
 ]
