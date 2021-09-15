@@ -8,8 +8,6 @@ websiteData = json.loads(open("website-settings.json").read())
 
 headerHtml = head("application")
 
-#Mobile Sidebar top with Title of Course Offering
-mobileSidebar = mobileSidebar("application")
 
 boxString = """<div class="box"> \n"""
 #big for loop begin
@@ -26,7 +24,6 @@ templateString = Template(unitTemplate.read())
 page_variables = site_variables.copy()
 page_variables.update(dict(
     head = headerHtml,
-    mobile = mobileSidebar,
     boxes = boxString
 ))
 

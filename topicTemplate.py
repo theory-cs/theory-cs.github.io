@@ -8,7 +8,6 @@ websiteData = json.loads(open("website-settings.json").read())
 
 headerHtml = head("topic")
 
-mobileSidebar = mobileSidebar("topic")
 
 
 #main for loop begin
@@ -69,8 +68,7 @@ for big in outcomeData:
       head = headerHtml,
     heading = med,
     Information = infoString, 
-    collapsibleMenu = pdfString,
-    mobile = mobileSidebar
+    collapsibleMenu = pdfString
     ))
 
     #substitute settings outcomeData with appropriate variables 

@@ -1,12 +1,11 @@
 from string import Template
 import json
-from sidebarFunction import *
+from userFunctions import *
 
 # Opening JSON file
 assignmentData = json.loads(open("assignments.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-mobileSidebar = mobileSidebar("unit")
 
 
 templateString = ""
@@ -85,8 +84,7 @@ substituteString = Template(assignmentTemplate.read())
 
 page_variables = site_variables.copy()
 site_variables.update(dict(
-    collapsibleMenu = templateString,
-    mobile = mobileSidebar
+    collapsibleMenu = templateString
 ))
 
 #substitute settings outcomeData with appropriate variables 

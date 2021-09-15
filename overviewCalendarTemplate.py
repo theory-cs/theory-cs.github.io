@@ -8,9 +8,6 @@ websiteData = json.loads(open("website-settings.json").read())
 
 headHtml = head("unit")
 
-#Mobile Sidebar top with Title of Course Offering 
-mobileSidebar = mobileSidebar("unit")
-
 
 # Open unitTemplate html file and read it into a string 
 unitTemplate = open("overviewCalendarTemplate.html", "r")
@@ -18,8 +15,7 @@ templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()
 page_variables.update(dict(
-    head = headHtml,
-    mobile = mobileSidebar
+    head = headHtml
 ))
 
 # Substitute settings unitData with appropriate variables 

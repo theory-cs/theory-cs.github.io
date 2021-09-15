@@ -8,9 +8,6 @@ websiteData = json.loads(open("website-settings.json").read())
 
 headHtml = head("application")
 
-#Mobile Sidebar top with Title of Course Offering 
-mobileSidebar = mobileSidebar("application")
-
 for (k,v) in appData.items():
     #extract and format all PDFs and associated buttons
     file = k.replace(" ", "-").lower()
@@ -69,8 +66,7 @@ for (k,v) in appData.items():
     page_variables.update(dict(
         heading = k,
         collapsibleMenu = pdfString,
-        head = headHtml,
-        mobile = mobileSidebar
+        head = headHtml
     ))
 
     #substitute settings appData with appropriate variables 

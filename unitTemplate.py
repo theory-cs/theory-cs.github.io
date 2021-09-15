@@ -8,12 +8,6 @@ websiteData = json.loads(open("website-settings.json").read())
 
 headerHtml = head("unit")
 
-#adds mobile sidebar icons for each of the units/weeks specified in json file
-mobileSidebar = mobileSidebar("unit")
-
-
-
-
 #big for loop begin
 for i in range(0,len(unitData)):
     pdf=""
@@ -100,8 +94,7 @@ for i in range(0,len(unitData)):
         heading = unitData[i]['header'],
         Information = infoString, 
         PDF = pdfString,
-        embed = embedString,
-        mobile = mobileSidebar
+        embed = embedString
     ))
 
     #substitute settings unitData with appropriate variables 

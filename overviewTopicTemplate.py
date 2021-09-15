@@ -3,8 +3,6 @@ from userFunctions import *
 
 headerHtml = head("topic")
 
-#Mobile Sidebar top with Title of Course Offering 
-mobileSidebar = mobileSidebar("topic")
 
     
 #open unitTemplate html file and read it into a string 
@@ -13,8 +11,7 @@ templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()
 page_variables.update(dict(
-    head = headerHtml,
-    mobile = mobileSidebar,
+    head = headerHtml
 ))
 #substitute settings topicData with appropriate variables 
 result = templateString.substitute(page_variables)

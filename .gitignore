@@ -12,3 +12,4 @@ Icon*
 generated/*
 notes/topic/*
 *.pyc
+__pycache__/*

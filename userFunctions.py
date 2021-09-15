@@ -55,52 +55,16 @@ def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon
 	
 	return sidebarButtons
 
-def mobileSidebar(view):
-
-	if("application" in view):
-		titleHref = "index.html"
-		titleName = websiteData['Global Class Name']
-		overviewHref = "overviewApplication.html"
-		overviewName = "Overview"
-
-	if("topic" in view):
-		titleHref = "index.html"
-		titleName = websiteData['Global Class Name']
-		overviewHref = "overviewTopic.html"
-		overviewName = "Overview"
-
-	if("unit" in view):
-		titleHref = "overviewCalendar.html"
-		titleName = websiteData['Course Offering Title']
-		overviewHref = "overviewCalendar.html"
-		overviewName = "Calendar"
 
 
+def build_mobile_sidebar(titleHref, titleName, overviewHref, overviewName, mobileButtonsContent):
 	mobileSidebarButtons = """ <div id="mySidebar" class="collapsedSidebar">
 			<a href=""" + titleHref + """ class="homeMobile"> """ + titleName +"""</a> <!--NAME-->
 		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
 			<a href=""" + overviewHref + """>""" + overviewName + """</a>"""
-
-	if("application" in view):
-		appData = json.loads(open("applications.json").read())
-		for i in appData:
-			file = i.replace(" ", "-").lower()+".html"
-			mobileSidebarButtons += """<a href= \"""" + file + """\">""" + i + """</a>\n"""
-
-	if("topic" in view):
-		outcomeData = json.loads(open("outcomes.json").read())
-		for big in outcomeData:
-			for med in outcomeData[big]['Children']:
-				#only put icon in sidebar of 2nd tier topics that have children 
-				if(bool(outcomeData[big]['Children'][med]['Children'])):
-					mobileSidebarButtons += """<a href= \"""" + outcomeData[big]['Children'][med]['file'] + """\"">""" + med + """</a>"""
-
-
-	if("unit" in view):
-		unitData = json.loads(open("unit-settings.json").read())
-		for i in range(0,len(unitData)):
-			mobileSidebarButtons += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
-
+	
+	mobileSidebarButtons += mobileButtonsContent
+		
 
 	mobileSidebarButtons += """ </div>
 
@@ -176,6 +140,7 @@ def head(view):
 	return headHtml
 
 
+# Application
 appData = json.loads(open("applications.json").read())
 appButtonsContent = ""
 for i in appData:
@@ -188,6 +153,14 @@ for i in appData:
 	appButtonsContent += """<span class="tooltip"> """ + i + """</span>"""
 	appButtonsContent += "</li>\n"
 
+appMobileButtonsContent = ""
+for i in appData:
+	file = i.replace(" ", "-").lower()+".html"
+	appMobileButtonsContent += """<a href= \"""" + file + """\">""" + i + """</a>\n"""
+
+
+
+# Outcome
 outcomeData = json.loads(open("outcomes.json").read())
 outcomeButtonsContent = ""
 for big in outcomeData:
@@ -202,6 +175,15 @@ for big in outcomeData:
 			outcomeButtonsContent += """<span class="tooltip"> """ + med + """</span>"""
 			outcomeButtonsContent += "</li>"
 
+outcomeMobileButtonsContent = ""
+for big in outcomeData:
+	for med in outcomeData[big]['Children']:
+		#only put icon in sidebar of 2nd tier topics that have children 
+		if(bool(outcomeData[big]['Children'][med]['Children'])):
+			outcomeMobileButtonsContent += """<a href= \"""" + outcomeData[big]['Children'][med]['file'] + """\"">""" + med + """</a>"""
+
+
+# Unit
 unitData = json.loads(open("unit-settings.json").read())
 unitButtonsContent = ""
 
@@ -214,12 +196,24 @@ for i in range(0,len(unitData)):
 	unitButtonsContent += """<span class="tooltip"> """ + unitData[i]['header'] + """</span>"""
 	unitButtonsContent += "</li>"
 
+unitMobileButtonsContent = ""
+for i in range(0,len(unitData)):
+	unitMobileButtonsContent += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
+
+
+
+
 sidebars = {
 	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overviewApplication.html", "Overview", "'bx bxs-shapes'", appButtonsContent),
 	'topic': build_sidebar("index.html", websiteData['Global Class Name'], "overviewTopic.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent),
 	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overviewCalendar.html", "Calendar", "'bx bx-calendar'", unitButtonsContent),
 }
 
+mobile_sidebars = {
+	'application': build_mobile_sidebar("index.html", websiteData['Global Class Name'], "overviewApplication.html", "Overview", appMobileButtonsContent),
+	'topic': build_mobile_sidebar("index.html", websiteData['Global Class Name'], "overviewTopic.html", "Overview", outcomeMobileButtonsContent),
+	'unit': build_mobile_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overviewCalendar.html", "Calendar", unitMobileButtonsContent),
+}
 
 
 
@@ -271,6 +265,10 @@ def create_site_variables():
 		'applicationSidebar': sidebars['application'],
 		'outcomeSidebar': sidebars['topic'],
 		'unitSidebar': sidebars['unit'],
+
+		'applicationMobileSidebar': mobile_sidebars['application'],
+		'outcomeMobileSidebar': mobile_sidebars['topic'],
+		'unitMobileSidebar': mobile_sidebars['unit'],
 
 		'outcomeBoxes': create_outcome_boxes()
 		# and many more to come ...
