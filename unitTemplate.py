@@ -6,7 +6,7 @@ from userFunctions import *
 unitData = json.loads(open("unit-settings.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-headerHtml = head()
+headerHtml = head("unit")
 
 #adds regular sidebar icons for each of the units/weeks specified in json file
 sidebarButtons = sidebar("unit")
@@ -26,7 +26,7 @@ for i in range(0,len(unitData)):
     #extract and format all PDFs and associated buttons
     pdfString="" 
     if('pdfs' in unitData[i]):
-        print("pdfs in "+str(i+1))
+        # print("pdfs in "+str(i+1))
         for j in range(len(unitData[i]['pdfs'])):
             if(unitData[i]['pdfs'][j]['addExtensions']):
                 #format all filenames 
@@ -85,7 +85,7 @@ for i in range(0,len(unitData)):
     #Embedded links section
     embedString = ""
     if('embed' in unitData[i]):
-        print("embed in "+str(i+1))
+        # print("embed in "+str(i+1))
         for j in range(len(unitData[i]['embed'])): 
             embedString += "<h2>"+unitData[i]['embed'][j]['name']+"</h2>"+ unitData[i]['embed'][j]['embedCode']
 

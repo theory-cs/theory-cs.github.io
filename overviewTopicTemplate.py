@@ -6,7 +6,7 @@ from userFunctions import *
 topicData = json.loads(open("outcomes.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-headerHtml = head()
+headerHtml = head("topic")
 
 #Sidebar top with title of course offering
 sidebarButtons = sidebar("topic")

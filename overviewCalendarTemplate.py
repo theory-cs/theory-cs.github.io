@@ -6,7 +6,7 @@ from userFunctions import *
 unitData = json.loads(open("unit-settings.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-headHtml = head()
+headHtml = head("unit")
 
 #Sidebar top with title of course offering
 sidebarButtons = sidebar("unit")

@@ -6,7 +6,7 @@ from userFunctions import *
 outcomeData = json.loads(open("outcomes.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-headerHtml = head()
+headerHtml = head("topic")
 
 sidebarButtons = sidebar("topic")
 mobileSidebar = mobileSidebar("topic")

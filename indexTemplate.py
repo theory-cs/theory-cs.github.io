@@ -5,7 +5,7 @@ from userFunctions import head
 # Opening JSON file
 websiteData = json.loads(open("website-settings.json").read())
 
-headerHtml = head()
+headerHtml = head("misc")
 
 title = websiteData["Global Class Name"]
 
