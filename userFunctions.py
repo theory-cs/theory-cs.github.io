@@ -220,11 +220,59 @@ sidebars = {
 	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overviewCalendar.html", "Calendar", "'bx bx-calendar'", unitButtonsContent),
 }
 
+
+
+
+
+
+def create_outcome_boxes():
+	boxString = ""
+	#big for loop begin
+	for i in outcomeData:
+
+		boxString += """<div class="box"> \n"""
+
+		boxString += "<h2>" + outcomeData[i]['Icon'] + i + "</h2>"
+		boxString += "<p> Description: " + outcomeData[i]['Description'] + "</p>"
+		boxString += "<hr>"
+
+		boxString += """<div class="column"> <dl> \n"""
+
+		
+		for j in outcomeData[i]['Children']:
+
+			#add link to page of 2nd tier children with subtopics (only link to pages of 2nd tier children with content)
+			if(bool(outcomeData[i]['Children'][j]['Children'])):
+				boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href=\"""" + outcomeData[i]['Children'][j]['file'] + """\" >""" + j + """</a></dt> \n"""
+				
+			else:
+				boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href="javascript:void(0)" >""" + j + """</a></dt> \n"""
+			
+
+			#list children of 2nd tier children (subtopics under outcomes, these will be included on the webpage for the outcomes as PDFs and menu options)
+			if(bool(outcomeData[i]['Children'][j]['Children'])):
+				for k in outcomeData[i]['Children'][j]['Children']:
+					boxString += "<dd>" + k + "</dd>\n"
+				
+				boxString += "</dl>"
+
+		boxString += "</div>"
+
+		boxString += "</div><br><br>"
+	return boxString
+
+
+
+
+
+
 def create_site_variables():
 	return {
 		'applicationSidebar': sidebars['application'],
 		'outcomeSidebar': sidebars['topic'],
 		'unitSidebar': sidebars['unit'],
+
+		'outcomeBoxes': create_outcome_boxes()
 		# and many more to come ...
 	}
 
