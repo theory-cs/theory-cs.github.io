@@ -21,7 +21,7 @@ mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
 #adds regular mobile icons for each of the applications specified in json file
 for i in appData:
     file = i.replace(" ", "-").lower()+".html"
-    mobileSidebar += """<a href= \"""" + file + """\"">""" + i + """</a>"""
+    mobileSidebar += """<a href= \"""" + file + """\">""" + i + """</a>\n"""
 
 #end div tags, open button, and script for mobile sidebar 
 mobileSidebar += """</div> <br>

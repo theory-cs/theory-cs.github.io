@@ -16,7 +16,7 @@ def sidebar(view):
     
     if("application" in view):
         appData = json.loads(open("applications.json").read())
-        sidebarButtons = """ <a href="index.html" class="logo_name">""" + websiteData['Global Class Name']+ """</a> <!--NAME-->
+        sidebarButtons += """ <a href="index.html" class="logo_name">""" + websiteData['Global Class Name']+ """</a> <!--NAME-->
 			<i class='bx bx-chevron-right' id="btn" ></i>
 		</div>
 
@@ -38,7 +38,7 @@ def sidebar(view):
             sidebarButtons += """<span class="links_name"> """ + i + """</span>"""
             sidebarButtons += "</a>"
             sidebarButtons += """<span class="tooltip"> """ + i + """</span>"""
-            sidebarButtons += "</li>"
+            sidebarButtons += "</li>\n"
 
 
         #end div tags and script for sidebar
