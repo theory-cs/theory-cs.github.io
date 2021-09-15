@@ -58,11 +58,12 @@ for filename in os.listdir(weeklyDirectory):
 
     #get week number/order from unit-settings.json file, this will be the order in which files appear on the website
     for element in unitData:
-        for pdf in element['pdfs']:
-            if( editFilename in pdf['file']):
+        if('pdfs' in element):
+            for pdf in element['pdfs']:
+                if( editFilename in pdf['file']):
                 
 
-                weekNumber= unitData.index(element)+1
+                    weekNumber= unitData.index(element)+1
 
                 #debug
                 #print(pdf['file'])
