@@ -5,7 +5,6 @@ from userFunctions import *
 # Opening JSON file
 websiteData = json.loads(open("website-settings.json").read())
 
-headHtml = head("misc")
 
 
 feedback = """<div class="feedback_form">"""
@@ -24,7 +23,6 @@ templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()
 page_variables.update(dict(
-    head = headHtml,
     feedbackForm = feedback,
     copyrightFooter = copyright
 ))

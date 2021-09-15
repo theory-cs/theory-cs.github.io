@@ -87,20 +87,7 @@ def build_mobile_sidebar(titleHref, titleName, overviewHref, overviewName, mobil
 
 	return mobileSidebarButtons
 
-def head(view):
-	if("application" in view):
-		title = websiteData['Global Class Name']
-
-	elif("topic" in view):
-		title = websiteData['Global Class Name']
-	
-	elif("unit" in view):
-		title = websiteData['Course Offering Title']
-
-	else:
-		title = websiteData['Global Class Name']
-
-
+def build_head_html(title):
 	headHtml = """<head>
 	<!-- logo on tab-->
 	
@@ -215,6 +202,13 @@ mobile_sidebars = {
 	'unit': build_mobile_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overviewCalendar.html", "Calendar", unitMobileButtonsContent),
 }
 
+head_html = {
+	'application': build_head_html(websiteData['Global Class Name']),
+	'topic': build_head_html(websiteData['Global Class Name']),
+	'unit': build_head_html(websiteData['Course Offering Title']),
+	'others': build_head_html(websiteData['Global Class Name'])
+}
+
 
 
 
@@ -269,6 +263,11 @@ def create_site_variables():
 		'applicationMobileSidebar': mobile_sidebars['application'],
 		'outcomeMobileSidebar': mobile_sidebars['topic'],
 		'unitMobileSidebar': mobile_sidebars['unit'],
+
+		'applicationHead': head_html['application'],
+		'outcomeHead': head_html['topic'],
+		'unitHead': head_html['unit'],
+		'othersHead': head_html['others'],
 
 		'outcomeBoxes': create_outcome_boxes()
 		# and many more to come ...

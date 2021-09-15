@@ -6,8 +6,6 @@ from userFunctions import *
 appData = json.loads(open("applications.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-headerHtml = head("application")
-
 
 boxString = """<div class="box"> \n"""
 #big for loop begin
@@ -23,7 +21,6 @@ templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()
 page_variables.update(dict(
-    head = headerHtml,
     boxes = boxString
 ))
 

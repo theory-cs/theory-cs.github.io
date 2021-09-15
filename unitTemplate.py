@@ -6,8 +6,6 @@ from userFunctions import *
 unitData = json.loads(open("unit-settings.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-headerHtml = head("unit")
-
 #big for loop begin
 for i in range(0,len(unitData)):
     pdf=""
@@ -90,7 +88,6 @@ for i in range(0,len(unitData)):
 
     page_variables = site_variables.copy()
     page_variables.update(dict(
-        head = headerHtml,
         heading = unitData[i]['header'],
         Information = infoString, 
         PDF = pdfString,

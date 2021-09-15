@@ -6,10 +6,6 @@ from userFunctions import *
 outcomeData = json.loads(open("outcomes.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-headerHtml = head("topic")
-
-
-
 #main for loop begin
 for big in outcomeData:
   for med in outcomeData[big]['Children']:
@@ -65,7 +61,6 @@ for big in outcomeData:
 
     page_variables = site_variables.copy()
     page_variables.update(dict(
-      head = headerHtml,
     heading = med,
     Information = infoString, 
     collapsibleMenu = pdfString

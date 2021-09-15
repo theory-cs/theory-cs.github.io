@@ -1,11 +1,9 @@
 from string import Template
 import json
-from userFunctions import head, site_variables
+from userFunctions import *
   
 # Opening JSON file
 websiteData = json.loads(open("website-settings.json").read())
-
-headerHtml = head("misc")
 
 title = websiteData["Global Class Name"]
 
@@ -19,7 +17,6 @@ templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()
 page_variables.update(dict(
-    head = headerHtml,
     mainTitle = title,
     copyrightFooter = copyright
 ))

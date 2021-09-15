@@ -6,7 +6,6 @@ from userFunctions import *
 appData = json.loads(open("applications.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-headHtml = head("application")
 
 for (k,v) in appData.items():
     #extract and format all PDFs and associated buttons
@@ -65,8 +64,7 @@ for (k,v) in appData.items():
     page_variables = site_variables.copy()
     page_variables.update(dict(
         heading = k,
-        collapsibleMenu = pdfString,
-        head = headHtml
+        collapsibleMenu = pdfString
     ))
 
     #substitute settings appData with appropriate variables 

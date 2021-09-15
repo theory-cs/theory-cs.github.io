@@ -6,16 +6,12 @@ from userFunctions import *
 unitData = json.loads(open("unit-settings.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-headHtml = head("unit")
-
-
 # Open unitTemplate html file and read it into a string 
 unitTemplate = open("overviewCalendarTemplate.html", "r")
 templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()
 page_variables.update(dict(
-    head = headHtml
 ))
 
 # Substitute settings unitData with appropriate variables 
