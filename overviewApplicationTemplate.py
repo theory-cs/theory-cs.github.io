@@ -19,7 +19,7 @@ sidebarButtons = """<div class="sidebar">
 			
 			<li>
 				<a href="overviewApplication.html" aria-label="Go to Overview">
-					<i class='bx bx-list-ul'></i>
+					<i class='bx bxs-shapes'></i>
 					<span class="links_name">Overview</span>
 				</a>
 				<span class="tooltip">Overview</span>

@@ -9,10 +9,22 @@ def sidebar(view):
 
     view = view.lower()
 
-    sidebarButtons = """<div class="sidebar">
+	hrefApplication = "overviewApplication.html"
+	overviewApplication= """<li>
+		<a href="overviewApplication.html" aria-label="Go to Overview">
+		<i class='bx bxs-shapes'></i>
+		<span class="links_name">Overview</span>
+		</a>
+		<span class="tooltip">Overview</span>
+		</li>"""
+
+    sidebarTop = """<div class="sidebar">
 		<div class="logo-details">
-		  
-		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div> """
+		<div class="logo_name">
+		<i class='bx bx-home-smile'>
+		</i> </div> """
+
+	sidebarButtons = "" 
     
     if("application" in view):
         appData = json.loads(open("applications.json").read())
@@ -24,7 +36,7 @@ def sidebar(view):
 			
 			<li>
 				<a href="overviewApplication.html" aria-label="Go to Overview">
-					<i class='bx bx-list-ul'></i>
+					<i class='bx bxs-shapes'></i>
 					<span class="links_name">Overview</span>
 				</a>
 				<span class="tooltip">Overview</span>
@@ -78,7 +90,7 @@ def sidebar(view):
     
             <li>
 				<a href="overviewTopic.html" aria-label="Go to Overview">
-					<i class='bx bx-list-ul'></i>
+					<i class='bx bxs-shapes'></i>
 					<span class="links_name">Overview</span>
 				</a>
 				<span class="tooltip">Overview</span>
