@@ -161,7 +161,3 @@ for key in appsDict:
         result += "\end{document}"
 
         write_if_different("generated/notes/app/"+ key + ".tex", result)
-        resultFile = open("generated/notes/app/"+ key + ".tex", "w")
-        resultFile.write(result)
-
-        resultFile.close()
