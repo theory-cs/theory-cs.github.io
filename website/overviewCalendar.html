@@ -40,28 +40,6 @@
     
 
 <body>
-  <!-- Insert mobile sidebar-->
-     <div id="mySidebar" class="collapsedSidebar">
-			<a href=overviewCalendar.html class="homeMobile"> CSE 20 Fall 2021</a> <!--NAME-->
-		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
-			<a href=overviewCalendar.html>Calendar</a><a href= "unit1.html"">Week 0 and 1</a> </div>
-
-		<div class="openbutton">
-			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
-		</div> 
-		  
-		<script>
-		  function openNav() {
-			document.getElementById("mySidebar").style.width = "100%";
-			document.getElementById("content").style.marginLeft = "100%";
-		  }
-		  
-		  function closeNav() {
-			document.getElementById("mySidebar").style.width = "0";
-			document.getElementById("content").style.marginLeft= "0";
-		  }
-		</script>
-		
 
   <!-- Insert sidebar -->
      <div class="sidebar"><div class="logo-details"><div class="logo_name"><i class='bx bx-home-smile'></i> </div>  <a href=courseInfo.html class="logo_name">CSE 20 Fall 2021</a> <!--NAME-->
@@ -101,6 +79,29 @@
 			    }
 		    }
 	        </script>
+
+  <!-- Insert mobile sidebar-->
+     <div id="mySidebar" class="collapsedSidebar">
+			<a href=courseInfo.html class="homeMobile"> CSE 20 Fall 2021</a> <!--NAME-->
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
+			<a href=overviewCalendar.html>Calendar</a><a href= "unit1.html"">Week 0 and 1</a> </div>
+
+		<div class="openbutton">
+			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
+		</div> 
+		  
+		<script>
+		  function openNav() {
+			document.getElementById("mySidebar").style.width = "100%";
+			document.getElementById("content").style.marginLeft = "100%";
+		  }
+		  
+		  function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("content").style.marginLeft= "0";
+		  }
+		</script>
+		
 				  
     
 	
