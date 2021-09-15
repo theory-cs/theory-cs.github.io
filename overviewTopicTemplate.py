@@ -1,70 +1,13 @@
 from string import Template
 import json
+from sidebarFunction import *
 
 # returns unit-settings JSON file as a dictionary
 topicData = json.loads(open("outcomes.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-
 #Sidebar top with title of course offering
-sidebarButtons = """<div class="sidebar">
-		<div class="logo-details">
-		  
-		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
-			<a href="index.html" class="logo_name">""" + websiteData['Global Class Name']+"""</a> <!--NAME-->
-			<i class='bx bx-chevron-right' id="btn" ></i>
-		</div>
-
-		<ul class="nav-list">
-			
-			<li>
-				<a href="overviewTopic.html" aria-label="Go to Overview">
-					<i class='bx bx-list-ul'></i>
-					<span class="links_name">Overview</span>
-				</a>
-				<span class="tooltip">Overview</span>
-			</li>"""
-
-
-#Adds icons in regular sidebar for each 2nd tier child in outcomes.json 
-for i in topicData:
-    for j in topicData[i]['Children']:
-        #only put icon in sidebar of 2nd tier topics that have children 
-        if(bool(topicData[i]['Children'][j]['Children'])):
-            sidebarButtons += "<li>"
-            sidebarButtons += """<a href= \"""" +topicData[i]['Children'][j]['file'] + """\" aria-label="Go to """ + j + """ ">"""
-            sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + topicData[i]['Children'][j]['Icon'] + """</p></i>"""
-            sidebarButtons += """<span class="links_name"> """ + j + """</span>"""
-            sidebarButtons += "</a>"
-            sidebarButtons += """<span class="tooltip"> """ + j + """</span>"""
-            sidebarButtons += "</li>"
-
-#end div tags and script for sidebar
-sidebarButtons += """</ul> </div> 
-	<script>
-		let sidebar = document.querySelector(".sidebar");
-		let closeBtn = document.querySelector("#btn");
-		
-		closeBtn.addEventListener("click", ()=>{
-			sidebar.classList.toggle("open");
-			menuBtnChange();//calling the function(optional)
-		});
-		
-		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-			sidebar.classList.toggle("open");
-			menuBtnChange(); //calling the function(optional)
-		});
-		
-		// following are the code to change sidebar button(optional)
-		function menuBtnChange() {
-			if(sidebar.classList.contains("open")){
-				closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
-			}
-			else {
-				closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
-			}
-		}
-	</script>"""
+sidebarButtons = sidebar("topic")
 
 
 #Mobile Sidebar top with Title of Course Offering 

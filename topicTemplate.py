@@ -5,6 +5,7 @@ from sidebarFunction import *
 # Opening JSON file
 outcomeData = json.loads(open("outcomes.json").read())
 websiteData = json.loads(open("website-settings.json").read())
+
 sidebarButtons = sidebar("topic")
 
 mobileSidebar = """<div id="mySidebar" class="collapsedSidebar">
