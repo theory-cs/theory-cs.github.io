@@ -1,8 +1,11 @@
 from string import Template
 import json
+from userFunctions import head
   
 # Opening JSON file
 websiteData = json.loads(open("website-settings.json").read())
+
+headerHtml = head("misc")
 
 title = websiteData["Global Class Name"]
 
@@ -16,6 +19,7 @@ templateString = Template(unitTemplate.read())
 
 #substitute settings data with appropriate variables 
 result = templateString.safe_substitute(
+    head = headerHtml,
     mainTitle = title,
     copyrightFooter = copyright
 )

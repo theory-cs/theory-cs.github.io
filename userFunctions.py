@@ -184,6 +184,58 @@ def mobileSidebar(view):
 
 	return mobileSidebarButtons
 
+def head(view):
+	if("application" in view):
+		title = websiteData['Global Class Name']
+
+	elif("topic" in view):
+		title = websiteData['Global Class Name']
+	
+	elif("unit" in view):
+		title = websiteData['Course Offering Title']
+
+	else:
+		title = websiteData['Global Class Name']
+
+
+	headHtml = """<head>
+	<!-- logo on tab-->
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import font -->
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>	
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Discrete Math for Computer Science">
+	<meta name="author" content="Mia Minnes">
+
+	<title>""" + title + """</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!---Collapsible Menu-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="css/sidebarStyle.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!-- icons for side menu -->
+	<link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' >
+
+	<link rel="shortcut icon" href="../resources/images/musicalChairs.png">
+</head>
+	"""
+	return headHtml
+
 
 
     

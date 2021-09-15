@@ -1,10 +1,13 @@
 from string import Template
 import json
-from sidebarFunction import *
+from userFunctions import *
   
 # returns unit-settings JSON file as a dictionary
 appData = json.loads(open("applications.json").read())
 websiteData = json.loads(open("website-settings.json").read())
+
+
+headHtml = head("application")
 
 #Sidebar top with title of course offering
 sidebarButtons = sidebar("application")
@@ -73,6 +76,7 @@ for (k,v) in appData.items():
     #Information = infoString, 
     collapsibleMenu = pdfString,
     sidebar = sidebarButtons,
+    head = headHtml,
     mobile = mobileSidebar
     )
 

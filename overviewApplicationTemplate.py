@@ -1,10 +1,12 @@
 from string import Template
 import json
-from sidebarFunction import *  
+from userFunctions import *  
 
 # returns unit-settings JSON file as a dictionary
 appData = json.loads(open("applications.json").read())
 websiteData = json.loads(open("website-settings.json").read())
+
+headerHtml = head("application")
 
 #Sidebar top with title of course offering
 sidebarButtons = sidebar("application")
@@ -26,6 +28,7 @@ templateString = Template(unitTemplate.read())
 
 #substitute settings appData with appropriate variables 
 result = templateString.safe_substitute(
+    head = headerHtml,
     sidebar = sidebarButtons,
     mobile = mobileSidebar,
     boxes = boxString

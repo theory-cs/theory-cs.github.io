@@ -1,13 +1,14 @@
 from string import Template
 import json
-from sidebarFunction import *
+from userFunctions import *
 
 # Opening JSON file
 outcomeData = json.loads(open("outcomes.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-sidebarButtons = sidebar("topic")
+headerHtml = head("topic")
 
+sidebarButtons = sidebar("topic")
 mobileSidebar = mobileSidebar("topic")
 
 
@@ -67,6 +68,7 @@ for big in outcomeData:
 
     #substitute settings outcomeData with appropriate variables 
     result = templateString.safe_substitute(
+      head = headerHtml,
     heading = med,
     Information = infoString, 
     collapsibleMenu = pdfString,
