@@ -4,14 +4,10 @@ import json
 
 websiteData = json.loads(open("website-settings.json").read())
 
-
 def sidebar(view):
-	
 	view = view.lower()
 	
-	
 	sidebarButtons = """ <div class="sidebar"><div class="logo-details"><div class="logo_name"><i class='bx bx-home-smile'></i> </div> """
-
 
 	if("application" in view):
 		titleHref = "index.html"
@@ -20,16 +16,12 @@ def sidebar(view):
 		overviewName = "Overview"
 		overviewIcon = "'bx bxs-shapes'"
 
-
-	
 	if("topic" in view):
 		titleHref = "index.html"
 		titleName = websiteData['Global Class Name']
 		overviewHref = "overviewTopic.html"
 		overviewName = "Overview"
 		overviewIcon = "'bx bxs-shapes'"
-
-
 
 	if("unit" in view):
 		titleHref = "overviewCalendar.html"
@@ -38,14 +30,11 @@ def sidebar(view):
 		overviewName = "Calendar"
 		overviewIcon = "'bx bx-calendar'"
 
-
-
-
 	sidebarButtons += """ <a href=""" + titleHref +""" class="logo_name">""" + titleName + """</a> <!--NAME-->
 			<i class='bx bx-chevron-right' id="btn" ></i>
 			</div>
-
-		<ul class="nav-list">
+			
+			<ul class="nav-list">
 			
 			<li>
 				<a href=""" + overviewHref + """ aria-label="Go to""" + overviewName + """\">
@@ -56,7 +45,6 @@ def sidebar(view):
 			</li>"""
 			
 	if("application" in view):
-		
 		appData = json.loads(open("applications.json").read())
 		
 		for i in appData:
@@ -71,7 +59,6 @@ def sidebar(view):
 
 	if("topic" in view):
 		outcomeData = json.loads(open("outcomes.json").read())
-        
         
 		for big in outcomeData:
 			for med in outcomeData[big]['Children']:
@@ -126,6 +113,76 @@ def sidebar(view):
 	        </script>"""
 	
 	return sidebarButtons
+
+
+
+def mobileSidebar(view):
+
+	if("application" in view):
+		titleHref = "index.html"
+		titleName = websiteData['Global Class Name']
+		overviewHref = "overviewApplication.html"
+		overviewName = "Overview"
+
+	if("topic" in view):
+		titleHref = "index.html"
+		titleName = websiteData['Global Class Name']
+		overviewHref = "overviewTopic.html"
+		overviewName = "Overview"
+
+	if("unit" in view):
+		titleHref = "overviewCalendar.html"
+		titleName = websiteData['Course Offering Title']
+		overviewHref = "overviewCalendar.html"
+		overviewName = "Calendar"
+
+
+	mobileSidebarButtons = """ <div id="mySidebar" class="collapsedSidebar">
+			<a href=""" + titleHref + """ class="homeMobile"> """ + titleName +"""</a> <!--NAME-->
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
+			<a href=""" + overviewHref + """>""" + overviewName + """</a>"""
+
+	if("application" in view):
+		appData = json.loads(open("applications.json").read())
+		for i in appData:
+			file = i.replace(" ", "-").lower()+".html"
+			mobileSidebarButtons += """<a href= \"""" + file + """\">""" + i + """</a>\n"""
+
+	if("topic" in view):
+		outcomeData = json.loads(open("outcomes.json").read())
+		for big in outcomeData:
+			for med in outcomeData[big]['Children']:
+				#only put icon in sidebar of 2nd tier topics that have children 
+				if(bool(outcomeData[big]['Children'][med]['Children'])):
+					mobileSidebarButtons += """<a href= \"""" + outcomeData[big]['Children'][med]['file'] + """\"">""" + med + """</a>"""
+
+
+	if("unit" in view):
+		unitData = json.loads(open("unit-settings.json").read())
+		for i in range(0,len(unitData)):
+			mobileSidebarButtons += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
+
+
+	mobileSidebarButtons += """ </div>
+
+		<div class="openbutton">
+			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
+		</div> 
+		  
+		<script>
+		  function openNav() {
+			document.getElementById("mySidebar").style.width = "100%";
+			document.getElementById("content").style.marginLeft = "100%";
+		  }
+		  
+		  function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("content").style.marginLeft= "0";
+		  }
+		</script>
+		"""
+
+	return mobileSidebarButtons
 
 
 

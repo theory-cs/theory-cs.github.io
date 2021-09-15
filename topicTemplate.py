@@ -8,36 +8,7 @@ websiteData = json.loads(open("website-settings.json").read())
 
 sidebarButtons = sidebar("topic")
 
-mobileSidebar = """<div id="mySidebar" class="collapsedSidebar">
-		<a href="index.html" class="homeMobile"> """ + websiteData['Global Class Name']+ """</a>
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
-			
-		<a href="overviewTopic.html">Overview</a>"""
-
-for big in outcomeData:
-    for med in outcomeData[big]['Children']:
-        #only put icon in sidebar of 2nd tier topics that have children 
-        if(bool(outcomeData[big]['Children'][med]['Children'])):
-            mobileSidebar += """<a href= \"""" + outcomeData[big]['Children'][med]['file'] + """\"">""" + med + """</a>"""
-
-mobileSidebar += """ </div>
-
-		<div class="openbutton">
-			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
-		</div> 
-		  
-		<script>
-		  function openNav() {
-			document.getElementById("mySidebar").style.width = "100%";
-			document.getElementById("content").style.marginLeft = "100%";
-		  }
-		  
-		  function closeNav() {
-			document.getElementById("mySidebar").style.width = "0";
-			document.getElementById("content").style.marginLeft= "0";
-		  }
-		</script>
-"""
+mobileSidebar = mobileSidebar("topic")
 
 
 #main for loop begin

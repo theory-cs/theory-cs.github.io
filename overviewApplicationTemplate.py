@@ -9,38 +9,8 @@ websiteData = json.loads(open("website-settings.json").read())
 #Sidebar top with title of course offering
 sidebarButtons = sidebar("application")
             
-#Mobile Sidebar top with Title of Course Offering 
-mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
-		<a href="index.html" class="homeMobile"> """ + websiteData['Global Class Name']+"""</a> <!--NAME-->
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
-        <a href="overviewApplication.html">Overview</a>
-		"""
-
-
-
-#Adds icons in regular sidebar for each 2nd tier child in outcomes.json 
-for i in appData:
-	file = i.replace(" ", "-").lower()+".html"
-	mobileSidebar += """<a href= \"""" + file + """">""" + i + """</a>"""
-
-
-#end div tags, open button, and script for mobile sidebar 
-mobileSidebar += """</div> <br>
-	<div class="openbutton" style="margin-left: 10px;">
-		<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
-	</div> 
-    <script>
-		function openNav() {
-			document.getElementById("mySidebar").style.width = "100%";
-			document.getElementById("content").style.marginLeft = "100%";
-		}
-				  
-		function closeNav() {
-			document.getElementById("mySidebar").style.width = "0";
-			document.getElementById("content").style.marginLeft= "0";
-		}
-	</script> """
-
+#Mobile Sidebar top with Title of Course Offering
+mobileSidebar = mobileSidebar("application")
 
 boxString = """<div class="box"> \n"""
 #big for loop begin

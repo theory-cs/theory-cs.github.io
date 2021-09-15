@@ -11,37 +11,7 @@ sidebarButtons = sidebar("topic")
 
 
 #Mobile Sidebar top with Title of Course Offering 
-mobileSidebar = """ <div id="mySidebar" class="collapsedSidebar">
-		<a href="index.html" class="homeMobile"> """ + websiteData['Global Class Name']+"""</a> <!--NAME-->
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
-        <a href="overviewTopic.html">Overview</a>
-			"""
-
-
-#Adds icons in regular sidebar for each 2nd tier child in outcomes.json 
-for i in topicData:
-    for j in topicData[i]['Children']:
-        #only put icon in sidebar of 2nd tier topics that have children 
-        if(bool(topicData[i]['Children'][j]['Children'])):
-            mobileSidebar += """<a href= \"""" + topicData[i]['Children'][j]['file'] + """\"">""" + j + """</a>"""
-
-#end div tags, open button, and script for mobile sidebar 
-mobileSidebar += """</div> <br>
-	<div class="openbutton" style="margin-left: 10px;">
-		<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
-	</div> 
-    <script>
-		function openNav() {
-			document.getElementById("mySidebar").style.width = "100%";
-			document.getElementById("content").style.marginLeft = "100%";
-		}
-				  
-		function closeNav() {
-			document.getElementById("mySidebar").style.width = "0";
-			document.getElementById("content").style.marginLeft= "0";
-		}
-	</script> """
-
+mobileSidebar = mobileSidebar("topic")
 
 boxString = ""
 #big for loop begin
