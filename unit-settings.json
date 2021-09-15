@@ -7,7 +7,7 @@
           "file":"Week0and1",
           "annotatedFile": "Week0and1-annotated-CSE20F21.pdf"
       }],
-      "Information": [ "Welcome", "We look forward to working with you this quarter!"],
+      "Information": [ "Welcome", "We look forward to working with you this quarter!", "Scroll down to see this week's notes (the PDF includes class notes and review quiz questions), and some bonus material (a video and a map)."],
       "Topics": "Introduction and data types",
       "embed": [{
         "name": "Video Snippets",
