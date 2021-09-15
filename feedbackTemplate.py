@@ -1,8 +1,11 @@
 from string import Template
 import json
+from userFunctions import *
   
 # Opening JSON file
 websiteData = json.loads(open("website-settings.json").read())
+
+headHtml = head()
 
 
 feedback = """<div class="feedback_form">"""
@@ -21,6 +24,7 @@ templateString = Template(unitTemplate.read())
 
 #substitute settings data with appropriate variables 
 result = templateString.safe_substitute(
+    headHtml = head,
     feedbackForm = feedback,
     copyrightFooter = copyright
 )

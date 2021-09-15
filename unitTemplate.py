@@ -1,16 +1,19 @@
 from string import Template
 import json
-from sidebarFunction import *
+from userFunctions import *
 
 # returns unit-settings and websiteData JSON files as dictionaries
 unitData = json.loads(open("unit-settings.json").read())
 websiteData = json.loads(open("website-settings.json").read())
+
+headerHtml = head()
 
 #adds regular sidebar icons for each of the units/weeks specified in json file
 sidebarButtons = sidebar("unit")
 
 #adds mobile sidebar icons for each of the units/weeks specified in json file
 mobileSidebar = mobileSidebar("unit")
+
 
 
 
@@ -94,6 +97,7 @@ for i in range(0,len(unitData)):
 
     #substitute settings unitData with appropriate variables 
     result = templateString.safe_substitute(
+        head = headerHtml,
         heading = unitData[i]['header'],
         Information = infoString, 
         PDF = pdfString,

@@ -1,6 +1,6 @@
 from string import Template
 import json
-from sidebarFunction import *
+from userFunctions import *
   
 # returns unit-settings JSON file as a dictionary
 unitData = json.loads(open("unit-settings.json").read())
