@@ -6,6 +6,8 @@ from userFunctions import *
 unitData = json.loads(open("unit-settings.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
+headHtml = head()
+
 #Sidebar top with title of course offering
 sidebarButtons = sidebar("unit")
 
@@ -19,6 +21,7 @@ templateString = Template(unitTemplate.read())
 
 # Substitute settings unitData with appropriate variables 
 result = templateString.safe_substitute(   
+    head = headHtml,
     sidebar = sidebarButtons,
     mobile = mobileSidebar
 )
