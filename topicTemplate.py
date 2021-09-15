@@ -8,7 +8,6 @@ websiteData = json.loads(open("website-settings.json").read())
 
 headerHtml = head("topic")
 
-sidebarButtons = sidebar("topic")
 mobileSidebar = mobileSidebar("topic")
 
 
@@ -65,17 +64,17 @@ for big in outcomeData:
     templateString = Template(unitTemplate.read())
 
 
-
-    #substitute settings outcomeData with appropriate variables 
-    result = templateString.safe_substitute(
+    page_variables = site_variables.copy()
+    page_variables.update(dict(
       head = headerHtml,
     heading = med,
     Information = infoString, 
     collapsibleMenu = pdfString,
-    sidebar = sidebarButtons,
     mobile = mobileSidebar
-    )
-    
+    ))
+
+    #substitute settings outcomeData with appropriate variables 
+    result = templateString.substitute(page_variables)
 
     resultFile = open("generated/website/"+outcomeData[big]['Children'][med]['file'], "w")
     resultFile.write(result)

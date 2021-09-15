@@ -11,3 +11,4 @@ Icon*
 
 generated/*
 notes/topic/*
+*.pyc

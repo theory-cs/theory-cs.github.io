@@ -8,9 +8,6 @@ websiteData = json.loads(open("website-settings.json").read())
 
 headerHtml = head("topic")
 
-#Sidebar top with title of course offering
-sidebarButtons = sidebar("topic")
-
 #Mobile Sidebar top with Title of Course Offering 
 mobileSidebar = mobileSidebar("topic")
 
@@ -52,14 +49,14 @@ for i in topicData:
 unitTemplate = open("overviewTopicTemplate.html", "r")
 templateString = Template(unitTemplate.read())
 
-#substitute settings topicData with appropriate variables 
-result = templateString.safe_substitute(
+page_variables = site_variables.copy()
+page_variables.update(dict(
     head = headerHtml,
-    sidebar = sidebarButtons,
     mobile = mobileSidebar,
     boxes = boxString
-)
-
+))
+#substitute settings topicData with appropriate variables 
+result = templateString.substitute(page_variables)
 
 resultFile = open("generated/website/overviewTopic.html", "w")
 resultFile.write(result)

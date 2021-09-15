@@ -4,31 +4,11 @@ import json
 
 websiteData = json.loads(open("website-settings.json").read())
 
-def sidebar(view):
-	view = view.lower()
-	
+
+# "application" | "unit" | "topic" -> HTML (for the sidebar)
+def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon, buttonsContent):
 	sidebarButtons = """ <div class="sidebar"><div class="logo-details"><div class="logo_name"><i class='bx bx-home-smile'></i> </div> """
 
-	if("application" in view):
-		titleHref = "index.html"
-		titleName = websiteData['Global Class Name']
-		overviewHref = "overviewApplication.html"
-		overviewName = "Overview"
-		overviewIcon = "'bx bxs-shapes'"
-
-	if("topic" in view):
-		titleHref = "index.html"
-		titleName = websiteData['Global Class Name']
-		overviewHref = "overviewTopic.html"
-		overviewName = "Overview"
-		overviewIcon = "'bx bxs-shapes'"
-
-	if("unit" in view):
-		titleHref = "courseInfo.html"
-		titleName = websiteData['Course Offering Title']
-		overviewHref = "overviewCalendar.html"
-		overviewName = "Calendar"
-		overviewIcon = "'bx bx-calendar'"
 
 	sidebarButtons += """ <a href=""" + titleHref +""" class="logo_name">""" + titleName + """</a> <!--NAME-->
 			<i class='bx bx-chevron-right' id="btn" ></i>
@@ -43,47 +23,8 @@ def sidebar(view):
 				</a>
 				<span class="tooltip">""" + overviewName + """</span>
 			</li>"""
-			
-	if("application" in view):
-		appData = json.loads(open("applications.json").read())
-		
-		for i in appData:
-			file = i.replace(" ", "-").lower()+".html"
-			sidebarButtons += "<li>"
-			sidebarButtons += """<a href= \"""" + file + """\" aria-label="Go to """ + i + """ ">"""
-			sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + appData[i]['Icon'] + """</p></i>"""
-			sidebarButtons += """<span class="links_name"> """ + i + """</span>"""
-			sidebarButtons += "</a>"
-			sidebarButtons += """<span class="tooltip"> """ + i + """</span>"""
-			sidebarButtons += "</li>\n"
 
-	if("topic" in view):
-		outcomeData = json.loads(open("outcomes.json").read())
-        
-		for big in outcomeData:
-			for med in outcomeData[big]['Children']:
-				#only put icon in sidebar of 2nd tier topics that have children 
-				if(bool(outcomeData[big]['Children'][med]['Children'])):
-					sidebarButtons += "<li>"
-					sidebarButtons += """<a href= \"""" +outcomeData[big]['Children'][med]['file'] + """\" aria-label="Go to """ + med + """ ">"""
-					sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;""" + outcomeData[big]['Children'][med]['Icon'] + """</p></i>"""
-					sidebarButtons += """<span class="links_name"> """ + med + """</span>"""
-					sidebarButtons += "</a>"
-					sidebarButtons += """<span class="tooltip"> """ + med + """</span>"""
-					sidebarButtons += "</li>"
-
-	if ("unit" in view):
-		unitData = json.loads(open("unit-settings.json").read())
-		
-		for i in range(0,len(unitData)):
-			sidebarButtons += "<li>"
-			sidebarButtons += """<a href= " """ + 'unit'+str(i+1) + """.html" aria-label="Go to """ + unitData[i]['header'] + """ ">"""
-			sidebarButtons += """<i><p class="icons">&nbsp;&nbsp;&nbsp;&nbsp;""" + str(i+1) + """</p></i>"""
-			sidebarButtons += """<span class="links_name"> """ + unitData[i]['header'] + """</span>"""
-			sidebarButtons += "</a>"
-			sidebarButtons += """<span class="tooltip"> """ + unitData[i]['header'] + """</span>"""
-			sidebarButtons += "</li>"
-
+	sidebarButtons += buttonsContent
 
     #end div tags and script for sidebar
 	sidebarButtons += """</ul> </div> 
@@ -113,8 +54,6 @@ def sidebar(view):
 	        </script>"""
 	
 	return sidebarButtons
-
-
 
 def mobileSidebar(view):
 
@@ -237,5 +176,56 @@ def head(view):
 	return headHtml
 
 
+appData = json.loads(open("applications.json").read())
+appButtonsContent = ""
+for i in appData:
+	file = i.replace(" ", "-").lower()+".html"
+	appButtonsContent += "<li>"
+	appButtonsContent += """<a href= \"""" + file + """\" aria-label="Go to """ + i + """ ">"""
+	appButtonsContent += """<i><p class="icons">&nbsp;&nbsp;""" + appData[i]['Icon'] + """</p></i>"""
+	appButtonsContent += """<span class="links_name"> """ + i + """</span>"""
+	appButtonsContent += "</a>"
+	appButtonsContent += """<span class="tooltip"> """ + i + """</span>"""
+	appButtonsContent += "</li>\n"
 
-    
+outcomeData = json.loads(open("outcomes.json").read())
+outcomeButtonsContent = ""
+for big in outcomeData:
+	for med in outcomeData[big]['Children']:
+		#only put icon in sidebar of 2nd tier topics that have children 
+		if(bool(outcomeData[big]['Children'][med]['Children'])):
+			outcomeButtonsContent += "<li>"
+			outcomeButtonsContent += """<a href= \"""" +outcomeData[big]['Children'][med]['file'] + """\" aria-label="Go to """ + med + """ ">"""
+			outcomeButtonsContent += """<i><p class="icons">&nbsp;&nbsp;""" + outcomeData[big]['Children'][med]['Icon'] + """</p></i>"""
+			outcomeButtonsContent += """<span class="links_name"> """ + med + """</span>"""
+			outcomeButtonsContent += "</a>"
+			outcomeButtonsContent += """<span class="tooltip"> """ + med + """</span>"""
+			outcomeButtonsContent += "</li>"
+
+unitData = json.loads(open("unit-settings.json").read())
+unitButtonsContent = ""
+
+for i in range(0,len(unitData)):
+	unitButtonsContent += "<li>"
+	unitButtonsContent += """<a href= " """ + 'unit'+str(i+1) + """.html" aria-label="Go to """ + unitData[i]['header'] + """ ">"""
+	unitButtonsContent += """<i><p class="icons">&nbsp;&nbsp;&nbsp;&nbsp;""" + str(i+1) + """</p></i>"""
+	unitButtonsContent += """<span class="links_name"> """ + unitData[i]['header'] + """</span>"""
+	unitButtonsContent += "</a>"
+	unitButtonsContent += """<span class="tooltip"> """ + unitData[i]['header'] + """</span>"""
+	unitButtonsContent += "</li>"
+
+sidebars = {
+	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overviewApplication.html", "Overview", "'bx bxs-shapes'", appButtonsContent),
+	'topic': build_sidebar("index.html", websiteData['Global Class Name'], "overviewTopic.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent),
+	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overviewCalendar.html", "Calendar", "'bx bx-calendar'", unitButtonsContent),
+}
+
+def create_site_variables():
+	return {
+		'applicationSidebar': sidebars['application'],
+		'outcomeSidebar': sidebars['topic'],
+		'unitSidebar': sidebars['unit'],
+		# and many more to come ...
+	}
+
+site_variables = create_site_variables()

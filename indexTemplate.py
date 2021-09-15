@@ -1,6 +1,6 @@
 from string import Template
 import json
-from userFunctions import head
+from userFunctions import head, site_variables
   
 # Opening JSON file
 websiteData = json.loads(open("website-settings.json").read())
@@ -17,12 +17,15 @@ copyright += """<a style= "color:white;" href="feedback.html">Feedback</a></div>
 unitTemplate = open("indexTemplate.html", "r")
 templateString = Template(unitTemplate.read())
 
-#substitute settings data with appropriate variables 
-result = templateString.safe_substitute(
+page_variables = site_variables.copy()
+page_variables.update(dict(
     head = headerHtml,
     mainTitle = title,
     copyrightFooter = copyright
-)
+))
+
+#substitute settings data with appropriate variables 
+result = templateString.substitute(page_variables)
 
 
 resultFile = open("generated/website/index.html", "w")

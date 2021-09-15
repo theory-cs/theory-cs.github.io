@@ -6,11 +6,7 @@ from userFunctions import *
 appData = json.loads(open("applications.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-
 headHtml = head("application")
-
-#Sidebar top with title of course offering
-sidebarButtons = sidebar("application")
 
 #Mobile Sidebar top with Title of Course Offering 
 mobileSidebar = mobileSidebar("application")
@@ -63,23 +59,22 @@ for (k,v) in appData.items():
     collapseVar += 1
 
    #Information Section
-    #infoString = "<p>"+ appData[i]['Children'][j]['Description']+ "</p>" 
     
     
     #open unitTemplate html file and read it into a string 
     appTemplate = open("appTemplate.html", "r")
     templateString = Template(appTemplate.read())
 
-    #substitute settings appData with appropriate variables 
-    result = templateString.safe_substitute(
-    heading = k,
-    #Information = infoString, 
-    collapsibleMenu = pdfString,
-    sidebar = sidebarButtons,
-    head = headHtml,
-    mobile = mobileSidebar
-    )
+    page_variables = site_variables.copy()
+    page_variables.update(dict(
+        heading = k,
+        collapsibleMenu = pdfString,
+        head = headHtml,
+        mobile = mobileSidebar
+    ))
 
+    #substitute settings appData with appropriate variables 
+    result = templateString.substitute(page_variables)
 
     resultFile = open("generated/website/"+file+".html", "w")
     resultFile.write(result)

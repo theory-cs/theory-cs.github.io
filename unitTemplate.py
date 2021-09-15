@@ -8,9 +8,6 @@ websiteData = json.loads(open("website-settings.json").read())
 
 headerHtml = head("unit")
 
-#adds regular sidebar icons for each of the units/weeks specified in json file
-sidebarButtons = sidebar("unit")
-
 #adds mobile sidebar icons for each of the units/weeks specified in json file
 mobileSidebar = mobileSidebar("unit")
 
@@ -97,16 +94,18 @@ for i in range(0,len(unitData)):
     unitTemplate = open("unitTemplate.html", "r")
     templateString = Template(unitTemplate.read())
 
-    #substitute settings unitData with appropriate variables 
-    result = templateString.safe_substitute(
+    page_variables = site_variables.copy()
+    page_variables.update(dict(
         head = headerHtml,
         heading = unitData[i]['header'],
         Information = infoString, 
         PDF = pdfString,
         embed = embedString,
-        sidebar = sidebarButtons,
         mobile = mobileSidebar
-    )
+    ))
+
+    #substitute settings unitData with appropriate variables 
+    result = templateString.substitute(page_variables)
 
 
     resultFile = open("generated/website/"+'unit'+str(i+1)+".html", "w")

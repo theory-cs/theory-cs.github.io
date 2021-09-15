@@ -6,8 +6,6 @@ from sidebarFunction import *
 assignmentData = json.loads(open("assignments.json").read())
 websiteData = json.loads(open("website-settings.json").read())
 
-sidebarButtons = sidebar("unit")
-
 mobileSidebar = mobileSidebar("unit")
 
 
@@ -85,13 +83,14 @@ assignmentTemplate = open("assignment-template.html", "r")
 substituteString = Template(assignmentTemplate.read())
 
 
+page_variables = site_variables.copy()
+site_variables.update(dict(
+    collapsibleMenu = templateString,
+    mobile = mobileSidebar
+))
 
 #substitute settings outcomeData with appropriate variables 
-result = substituteString.safe_substitute(
-collapsibleMenu = templateString,
-sidebar = sidebarButtons,
-mobile = mobileSidebar
-)
+result = substituteString.substitute(page_variables)
     
 
         
