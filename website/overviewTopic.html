@@ -60,47 +60,43 @@
 	</script> 
 
   <!-- Insert sidebar -->
-    <div class="sidebar">
-		<div class="logo-details">
-		  
-		    <div class="logo_name"><i class='bx bx-home-smile'></i> </div>
-			<a href="index.html" class="logo_name">Discrete Math for CS</a> <!--NAME-->
+     <div class="sidebar"><div class="logo-details"><div class="logo_name"><i class='bx bx-home-smile'></i> </div>  <a href=index.html class="logo_name">Discrete Math for CS</a> <!--NAME-->
 			<i class='bx bx-chevron-right' id="btn" ></i>
-		</div>
+			</div>
 
 		<ul class="nav-list">
 			
 			<li>
-				<a href="overviewTopic.html" aria-label="Go to Overview">
-					<i class='bx bx-list-ul'></i>
+				<a href=overviewTopic.html aria-label="Go toOverview">
+					<i class='bx bxs-shapes'></i>
 					<span class="links_name">Overview</span>
 				</a>
 				<span class="tooltip">Overview</span>
 			</li><li><a href= "connect.html" aria-label="Go to Connections with other courses "><i><p class="icons">&nbsp;&nbsp;C</p></i><span class="links_name"> Connections with other courses</span></a><span class="tooltip"> Connections with other courses</span></li><li><a href= "systems.html" aria-label="Go to Model systems "><i><p class="icons">&nbsp;&nbsp;S</p></i><span class="links_name"> Model systems</span></a><span class="tooltip"> Model systems</span></li><li><a href= "translate.html" aria-label="Go to Translate "><i><p class="icons">&nbsp;&nbsp;T</p></i><span class="links_name"> Translate</span></a><span class="tooltip"> Translate</span></li><li><a href= "logic.html" aria-label="Go to Propositional and predicate logic "><i><p class="icons">&nbsp;&nbsp;L</p></i><span class="links_name"> Propositional and predicate logic</span></a><span class="tooltip"> Propositional and predicate logic</span></li><li><a href= "proofs.html" aria-label="Go to Proof strategies and valid arguments "><i><p class="icons">&nbsp;&nbsp;P</p></i><span class="links_name"> Proof strategies and valid arguments</span></a><span class="tooltip"> Proof strategies and valid arguments</span></li><li><a href= "induction.html" aria-label="Go to Recursion and Induction "><i><p class="icons">&nbsp;&nbsp;I</p></i><span class="links_name"> Recursion and Induction</span></a><span class="tooltip"> Recursion and Induction</span></li><li><a href= "modular.html" aria-label="Go to Modular Arithmetic "><i><p class="icons">&nbsp;&nbsp;M</p></i><span class="links_name"> Modular Arithmetic</span></a><span class="tooltip"> Modular Arithmetic</span></li><li><a href= "conventions.html" aria-label="Go to Use language conventions to improve arguments "><i><p class="icons">&nbsp;&nbsp;U</p></i><span class="links_name"> Use language conventions to improve arguments</span></a><span class="tooltip"> Use language conventions to improve arguments</span></li><li><a href= "notation.html" aria-label="Go to Mathematical definitions and notation "><i><p class="icons">&nbsp;&nbsp;N</p></i><span class="links_name"> Mathematical definitions and notation</span></a><span class="tooltip"> Mathematical definitions and notation</span></li></ul> </div> 
-	<script>
-		let sidebar = document.querySelector(".sidebar");
-		let closeBtn = document.querySelector("#btn");
+	        <script>
+		    let sidebar = document.querySelector(".sidebar");
+		    let closeBtn = document.querySelector("#btn");
 		
-		closeBtn.addEventListener("click", ()=>{
-			sidebar.classList.toggle("open");
-			menuBtnChange();//calling the function(optional)
-		});
+		    closeBtn.addEventListener("click", ()=>{
+			    sidebar.classList.toggle("open");
+			    menuBtnChange();//calling the function(optional)
+		    });
 		
-		searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-			sidebar.classList.toggle("open");
-			menuBtnChange(); //calling the function(optional)
-		});
+		    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			    sidebar.classList.toggle("open");
+			    menuBtnChange(); //calling the function(optional)
+		    });
 		
-		// following are the code to change sidebar button(optional)
-		function menuBtnChange() {
-			if(sidebar.classList.contains("open")){
-				closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
-			}
-			else {
-				closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
-			}
-		}
-	</script>
+		    // following are the code to change sidebar button(optional)
+		    function menuBtnChange() {
+			    if(sidebar.classList.contains("open")){
+				    closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
+			    }
+			    else {
+				    closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
+			    }
+		    }
+	        </script>
         
 	<div class="calendar-margin">
 		
