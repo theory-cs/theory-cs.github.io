@@ -24,7 +24,7 @@ def sidebar(view):
 		overviewIcon = "'bx bxs-shapes'"
 
 	if("unit" in view):
-		titleHref = "overviewCalendar.html"
+		titleHref = "courseInfo.html"
 		titleName = websiteData['Course Offering Title']
 		overviewHref = "overviewCalendar.html"
 		overviewName = "Calendar"
