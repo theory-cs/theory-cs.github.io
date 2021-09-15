@@ -42,36 +42,38 @@
 		
 		<!-- Insert mobile sidebar-->
 		 <div id="mySidebar" class="collapsedSidebar">
-		<a href="index.html" class="homeMobile"> Discrete Math for CS</a> <!--NAME-->
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
-        <a href="overviewApplication.html">Overview</a>
-		<a href= "numbers.html">Numbers</a>
+			<a href=index.html class="homeMobile"> Discrete Math for CS</a> <!--NAME-->
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
+			<a href=overviewApplication.html>Overview</a><a href= "numbers.html">Numbers</a>
 <a href= "recommendation-systems.html">Recommendation Systems</a>
 <a href= "computers.html">Computers</a>
 <a href= "codes-and-information.html">Codes and Information</a>
 <a href= "bioinformatics.html">Bioinformatics</a>
-</div> <br>
-	<div class="openbutton" style="margin-left: 10px;">
-		<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> <br><br>
-	</div> 
-    <script>
-		function openNav() {
+ </div>
+
+		<div class="openbutton">
+			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
+		</div> 
+		  
+		<script>
+		  function openNav() {
 			document.getElementById("mySidebar").style.width = "100%";
 			document.getElementById("content").style.marginLeft = "100%";
-		}
-				  
-		function closeNav() {
+		  }
+		  
+		  function closeNav() {
 			document.getElementById("mySidebar").style.width = "0";
 			document.getElementById("content").style.marginLeft= "0";
-		}
-	</script> 
+		  }
+		</script>
+		
 
 		<!-- Insert sidebar -->
 		 <div class="sidebar"><div class="logo-details"><div class="logo_name"><i class='bx bx-home-smile'></i> </div>  <a href=index.html class="logo_name">Discrete Math for CS</a> <!--NAME-->
 			<i class='bx bx-chevron-right' id="btn" ></i>
 			</div>
-
-		<ul class="nav-list">
+			
+			<ul class="nav-list">
 			
 			<li>
 				<a href=overviewApplication.html aria-label="Go toOverview">
