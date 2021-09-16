@@ -3,44 +3,12 @@ import json
 from userFunctions import *
 
 # UNIT
-unitData = json.loads(open("unit-settings.json").read())
-
-for i in range (1, len(unitData)+1):
-    boxString =""
-    
-    # Set appropriate variables with information from unit-settings.json
-    weekNumber = i
-    info = ""
-
-    if ('CalendarInfo' in unitData[i-1]):
-        dates = unitData[i-1]['CalendarInfo']
-
-    assignments=""
-    if ('Assignments' in unitData[i-1]):
-        assignments = unitData[i-1]['Assignments']
-    
-    # Box heading and subheading/description
-    boxString += """<div class="box"> \n"""
-    boxString += "<h2> Week " + str(weekNumber) + "</h2>"
-    boxString += "<p> " + info + "</p>"
-    boxString += "<hr>"
-
-    # List begins
-    boxString += """<div class="column"> <dl> \n"""
-
-    boxString += "</dl>"
-    boxString += "</div>"
-    boxString += "</div><br><br>"
-
-
 # Open overviewCalendarTemplate html file and read it into a string 
 overviewCalendarTemplate = open("overviewCalendarTemplate.html", "r")
 templateString = Template(overviewCalendarTemplate.read())
 
 page_variables = site_variables.copy()
-page_variables.update(dict(
-    unitBoxes = boxString
-))
+page_variables.update(dict())
 
 # Substitute settings unitData with appropriate variables 
 result = templateString.substitute(page_variables)
@@ -52,6 +20,8 @@ resultFile.close()
 # Close files
 overviewCalendarTemplate.close()
 
+# template = ["overviewTopicTemplate.html", "overviewApplicationTemplate.html"]
+# result = ["overviewTopic.html", "overviewApplication.html"]
 
 # TOPIC
 # Open overviewTopicTemplate html file and read it into a string 

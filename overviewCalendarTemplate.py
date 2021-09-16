@@ -8,15 +8,14 @@ websiteData = json.loads(open("website-settings.json").read())
 
 for i in range (1, len(unitData)+1):
     index = i-1
-    boxString =""
-    
+
     #set appropriate variables for top calendar information section and title 
     weekNumber = i
     info=""
     if('CalendarInfo' in unitData[index]):
         info=unitData[index]['CalendarInfo']
     
-    
+    boxString =""
     #box heading and subheading/description
     boxString += """<div class="box"> \n"""
     boxString += "<h2> Week " + str(weekNumber) + "</h2>"
