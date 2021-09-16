@@ -21,11 +21,11 @@ for element in assignmentData:
 
     #format all filenames if addExtensions is true
     if(element['addExtensions']):
-       pdf="../output/lessons/"+element['file']+".pdf"
-       tex="../notes/lessons/"+element['file']+".tex"
-       html="../output/lessons/"+element['file']+".html"
+       pdf="../output/assignments/"+element['file']+".pdf"
+       tex="../notes/assignments/"+element['file']+".tex"
+       html="../output/assignments/"+element['file']+".html"
     else:
-        pdf="../output/lessons/"+element['file']+".pdf"
+        pdf="../output/assignments/"+element['file']+".pdf"
     
     #heading and collapsible card stuff
     cardID = element['name'].replace(" ", "").lower()
