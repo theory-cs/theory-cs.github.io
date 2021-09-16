@@ -268,8 +268,7 @@ def create_unit_boxes():
 					link=assignment['link']
             	#else refer to the assignments page (default)
 				else:
-					cardID = assignment['name'].replace(" ", "").lower()
-					link="""assignments.html#collapse"""+cardID
+					link="""assignments.html"
 				
 				boxString += "<dd> <a href=\"""" +link+ """\">"""+assignment['name']+"""</a></dd>\n"""  
 		
