@@ -270,11 +270,16 @@ def create_unit_boxes():
 				else:
 					link="assignments.html"
 				
-				boxString += "<dd> <a href=\"""" +link+ """\">"""+assignment['name']+"""</a></dd>\n"""  
+				#add due date of assignment if present
+				due = ""
+				if('due' in assignment):
+					due+= "Due: "
+					due+= assignment['due']
+
+				
+				boxString += "<dd> <a href=\"""" +link+ """\">"""+assignment['name']+"""</a> <div class="badge due">"""+due+"""</div> </dd>\n"""
 		
-		boxString += "</dl>"
-		
-		boxString += "</div>"
+		boxString += "</dl></div>"
 		
 		boxString += "</div><br><br>"
 	

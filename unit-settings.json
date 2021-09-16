@@ -19,7 +19,9 @@
 
       "CalendarInfo":" Dates: 9/24- 10/1 <br> Welcome! Lectures will be in Galbraith Hall",
       "Assignments": [{
-        "name":"HW1"
+        "name":"HW1",
+        "due": "Friday"
+
       },
       {
         "name":"Review Quiz",
