@@ -4,7 +4,6 @@ from userFunctions import *
 
 # returns unit-settings JSON file as a dictionary
 appData = json.loads(open("applications.json").read())
-websiteData = json.loads(open("website-settings.json").read())
 
 
 boxString = """<div class="box"> \n"""
