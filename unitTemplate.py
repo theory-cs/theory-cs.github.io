@@ -76,8 +76,9 @@ for i in range(0,len(unitData)):
     embedString = ""
     if('embed' in unitData[i]):
         # print("embed in "+str(i+1))
-        for j in range(len(unitData[i]['embed'])): 
-            embedString += "<h2>"+unitData[i]['embed'][j]['name']+"</h2>"+ unitData[i]['embed'][j]['embedCode']
+        for j in range(len(unitData[i]['embed'])):
+            embedID =  unitData[i]['embed'][j]['name'].replace(" ","-")
+            embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embed'][j]['name']+"</h2>"+ unitData[i]['embed'][j]['embedCode']
 
 
 

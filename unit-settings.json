@@ -16,12 +16,15 @@
         "name": "Lecture Hall",
         "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!w/32.8738,-117.24095,0;32.88187,-117.23338,0;0\" frameborder=\"0\"</iframe>"
       }],
-      "CalendarInfo":" Dates: 1/1- 1/8 <br> No Lecture Tuesday",
-      "Assignments": {
-        "name":"HW1",
-        "link":"../assignments.html"
 
-      }
+      "CalendarInfo":" Dates: 9/24- 10/1 <br> Welcome! Lectures will be in Galbraith Hall",
+      "Assignments": [{
+        "name":"HW1"
+      },
+      {
+        "name":"Review Quiz",
+        "link":"https://canvas.ucsd.edu/"
+      }]
     }
 ]
   

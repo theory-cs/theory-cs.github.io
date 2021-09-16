@@ -28,8 +28,9 @@ for element in assignmentData:
         pdf="../output/lessons/"+element['file']+".pdf"
     
     #heading and collapsible card stuff
-    templateString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-      href="#collapse"""+ str(collapseVar)+"\"> "+element['name']+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
+    cardID = element['name'].replace(" ", "").lower()
+    templateString += """<div class="card" id=\""""+cardID+"""\"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
+      href="#collapse"""+ cardID+"\"> "+element['name']+"""</a> </div> <div id="collapse""" + cardID+ """""
       class="collapse" data-parent="#accordion"><div class="card-body">"""
 
     #Assignment Information
@@ -53,7 +54,6 @@ for element in assignmentData:
     if('solutionsFile' in element):
         #id of pdf.js element formatting
         pdfjsID = element['name'].replace(" ", "-")
-        print(pdfjsID)
         
         templateString += """ <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions On</a>
 		<a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions Off</a> """
@@ -83,7 +83,7 @@ substituteString = Template(assignmentTemplate.read())
 
 
 page_variables = site_variables.copy()
-site_variables.update(dict(
+page_variables.update(dict(
     collapsibleMenu = templateString
 ))
 
