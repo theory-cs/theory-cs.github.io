@@ -56,7 +56,7 @@ for big in outcomeData:
     
     
     #open unitTemplate html file and read it into a string 
-    unitTemplate = open("topicTemplate.html", "r")
+    unitTemplate = open("templates/topicTemplate.html", "r")
     templateString = Template(unitTemplate.read())
 
 

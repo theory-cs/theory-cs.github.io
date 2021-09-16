@@ -12,7 +12,7 @@ copyright += "Copyright © " + websiteData["Copyright Year"] + " " + websiteData
 copyright += """<a style= "color:white;" href="feedback.html">Feedback</a></div>"""
 
 #open indexTemplate html file and read it into a string 
-unitTemplate = open("indexTemplate.html", "r")
+unitTemplate = open("templates/indexTemplate.html", "r")
 templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()

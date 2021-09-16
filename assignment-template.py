@@ -78,7 +78,7 @@ for element in assignmentData:
         
         
 #open assignmentTemplate html file and read it into a string 
-assignmentTemplate = open("assignment-template.html", "r")
+assignmentTemplate = open("templates/assignment-template.html", "r")
 substituteString = Template(assignmentTemplate.read())
 
 

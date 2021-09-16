@@ -38,7 +38,7 @@ for (k,v) in appData.items():
     collapseVar += 1
     
     #open unitTemplate html file and read it into a string 
-    appTemplate = open("appTemplate.html", "r")
+    appTemplate = open("templates/appTemplate.html", "r")
     templateString = Template(appTemplate.read())
 
     page_variables = site_variables.copy()

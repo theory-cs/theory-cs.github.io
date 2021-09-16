@@ -18,7 +18,7 @@ copyright += """<a style= "color:white;" href="feedback.html">Feedback</a></div>
 
 
 #open indexTemplate html file and read it into a string 
-unitTemplate = open("feedbackTemplate.html", "r")
+unitTemplate = open("templates/feedbackTemplate.html", "r")
 templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()

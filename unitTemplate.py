@@ -83,7 +83,7 @@ for i in range(0,len(unitData)):
 
 
     #open unitTemplate html file and read it into a string 
-    unitTemplate = open("unitTemplate.html", "r")
+    unitTemplate = open("templates/unitTemplate.html", "r")
     templateString = Template(unitTemplate.read())
 
     page_variables = site_variables.copy()

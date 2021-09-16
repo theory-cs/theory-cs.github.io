@@ -1,8 +1,8 @@
 [
    {
     "name": "HW 1",
-    "addExtensions":true, 
-    "file":"Week0and1",
+    "addExtensions":true,
+    "file":"CSE20W21-HW1-definitions-and-notation",
     "solutionsFile": "CSE20commands.pdf", 
     "Information" : "Due Date: 09/24/2021, This is a Partner Assignment"
    }, 

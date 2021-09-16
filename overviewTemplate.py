@@ -6,7 +6,7 @@ template = ["overviewCalendarTemplate", "overviewTopicTemplate", "overviewApplic
 generated = ["overviewCalendar", "overviewTopic", "overviewApplication"]
 
 for i in range (len(template)):
-    overviewTemplate = open(template[i] + ".html", "r")
+    overviewTemplate = open("templates/"+template[i] + ".html", "r")
     templateString = Template(overviewTemplate.read())
     
     page_variables = site_variables.copy()
