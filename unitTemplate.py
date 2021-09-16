@@ -37,21 +37,22 @@ for i in range(0,len(unitData)):
                 pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
                     href= """ + html + """ target="HTML">Raw HTML</a>"""
 
+            pdfjsID =""
             #Annotations on/off buttons 
             if('annotatedFile' in unitData[i]['pdfs'][j]):
                 pdfString += """ <a tabindex = "2" class="button on" aria-label="Annotations On" id="annotationsOnButton" href="javascript:void(0)" >Annotations On</a>
 					<a tabindex = "2" class="button off" aria-label="Annotations Off" id="annotationsOffButton" href="javascript:void(0)" >Annotations Off</a> """
 
-            #id of pdf.js element formatting
-            pdfjsID = unitData[i]['pdfs'][j]['name'].replace(" ", "-")
-            #annotations on
-            pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(1,
-            \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};"""
+                #id of pdf.js element formatting
+                pdfjsID = unitData[i]['pdfs'][j]['name'].replace(" ", "-")
+                #annotations on
+                pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(1,
+                \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};"""
             
-            #annotations off
-            pdfString +="""document.getElementById("annotationsOffButton").onclick = function() {annotations(0,
-            \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};
-            </script>"""
+                #annotations off
+                pdfString +="""document.getElementById("annotationsOffButton").onclick = function() {annotations(0,
+                \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};
+                </script>"""
 
             #if addExtensions is false, then the displayed pdf will be in the files directory 
             if(not unitData[i]['pdfs'][j]['addExtensions']): 
