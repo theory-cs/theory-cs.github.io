@@ -133,12 +133,11 @@ generated/website/css/%: website/css/%
 dynamic-pages: 
 	python3 indexTemplate.py
 	python3 feedbackTemplate.py
-	python3 overviewCalendarTemplate.py
+	python3 overviewTemplate.py
 	python3 unitTemplate.py
 	python3 topicTemplate.py
 	python3 appTemplate.py
-	python3 overviewTopicTemplate.py
-	python3 overviewApplicationTemplate.py
+	python3 assignment-template.py
 
 #Building html versions of all .tex files in notes/lessons directory 
 tex-html : lessons-tex-html app-tex-html topic-tex-html
