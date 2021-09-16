@@ -21,3 +21,5 @@
         if true: all snippets present in notes/activity-snippets will be added to the end of topic/application compiled files (generated/notes/topic or /app)
         if false: snippets which are not included in any lesons/ .tex files will not be included in topic/application compiled files (generated/notes/topic or /app)
 
+ outcomes.json: contains first, second, and third tier learning outcomes of Discrete Maths (specifically CSE 20) and the attributes of each outcome
+    
