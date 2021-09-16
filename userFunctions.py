@@ -268,7 +268,7 @@ def create_unit_boxes():
 					link=assignment['link']
             	#else refer to the assignments page (default)
 				else:
-					link="""assignments.html"
+					link="assignments.html"
 				
 				boxString += "<dd> <a href=\"""" +link+ """\">"""+assignment['name']+"""</a></dd>\n"""  
 		
