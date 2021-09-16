@@ -4,7 +4,6 @@ from userFunctions import *
 
 # Opening JSON file
 outcomeData = json.loads(open("outcomes.json").read())
-websiteData = json.loads(open("website-settings.json").read())
 
 #main for loop begin
 for big in outcomeData:
@@ -15,10 +14,12 @@ for big in outcomeData:
     collapseVar = 1
 
     for small in outcomeData[big]['Children'][med]['Children']:
+      
       #format pdf/html/tex file names
-      pdf="../output/topic/"+outcomeData[big]['Children'][med]['Children'][small]['filename']+".pdf"
-      html="../output/topic/"+outcomeData[big]['Children'][med]['Children'][small]['filename']+".html"
-      tex="../notes/topic/"+outcomeData[big]['Children'][med]['Children'][small]['filename']+".tex"
+      file = outcomeData[big]['Children'][med]['Children'][small]['filename']
+      pdf="../output/topic/" + file + ".pdf"
+      html="../output/topic/" + file + ".html"
+      tex="../notes/topic/" + file + ".tex"
             
       #heading and collapsible card stuff
       pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 

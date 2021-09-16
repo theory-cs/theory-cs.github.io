@@ -74,25 +74,13 @@ overviewTopicTemplate.close()
 
 # APPLICATION
 # returns unit-settings JSON file as a dictionary
-appData = json.loads(open("applications.json").read())
-
-
-boxString = """<div class="box"> \n"""
-#big for loop begin
-for i in appData:
-	file = i.replace(" ", "-").lower()+".html"
-	boxString += """<h2> <i style= "font-size: 75%;" class='bx bxs-chevron-right-square'></i> <a href= \"""" + file + """\" style="color: #182B49; text-decoration: none; font-size: 75%; font-weight: normal;" >""" + i + """</a></h2>"""
-
-boxString += "</div><br><br>"
-    
+   
 #open overviewApplicationTemplate html file and read it into a string 
 overviewApplicationTemplate = open("overviewApplicationTemplate.html", "r")
 templateString = Template(overviewApplicationTemplate.read())
 
 page_variables = site_variables.copy()
-page_variables.update(dict(
-    boxes = boxString
-))
+page_variables.update(dict())
 
 #substitute settings appData with appropriate variables 
 result = templateString.substitute(page_variables)

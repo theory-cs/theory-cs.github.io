@@ -19,9 +19,7 @@ unitTemplate = open("overviewApplicationTemplate.html", "r")
 templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()
-page_variables.update(dict(
-    boxes = boxString
-))
+page_variables.update(dict())
 
 #substitute settings appData with appropriate variables 
 result = templateString.substitute(page_variables)

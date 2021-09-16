@@ -2,9 +2,8 @@ from string import Template
 import json
 from userFunctions import *
 
-# returns unit-settings and websiteData JSON files as dictionaries
+# returns unit-settings JSON file as a dictionary
 unitData = json.loads(open("unit-settings.json").read())
-websiteData = json.loads(open("website-settings.json").read())
 
 #big for loop begin
 for i in range(0,len(unitData)):
