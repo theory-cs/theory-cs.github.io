@@ -6,8 +6,13 @@ websiteData = json.loads(open("website-settings.json").read())
 
 
 # "application" | "unit" | "topic" -> HTML (for the sidebar)
-def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon, buttonsContent):
-	sidebarButtons = """ <div class="sidebar"><div class="logo-details"><div class="logo_name"><i class='bx bx-home-smile'></i> </div> """
+def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon, buttonsContent, smallWidth):
+	sidebarButtons = """ <div class="sidebar\""""
+	#unit view must have smaller width
+	if(smallWidth):
+		sidebarButtons+= """id="unit">"""
+	sidebarButtons+="""<div class="logo-details"><div class="logo_name">
+	<i class='bx bx-home-smile'></i> </div> """
 
 
 	sidebarButtons += """ <a href=""" + titleHref +""" class="logo_name">""" + titleName + """</a> <!--NAME-->
@@ -23,6 +28,8 @@ def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon
 				</a>
 				<span class="tooltip">""" + overviewName + """</span>
 			</li>"""
+
+		
 
 	sidebarButtons += buttonsContent
 
@@ -172,7 +179,14 @@ for big in outcomeData:
 
 # Unit
 unitData = json.loads(open("unit-settings.json").read())
-unitButtonsContent = ""
+#unit buttons will have an additional assignments button
+unitButtonsContent = """<li>
+			<a href=\"assignments.html\" aria-label="Go to Assignments\">
+			<i class='bx bxs-detail'></i>
+			<span class="links_name"> Assignments </span>
+			</a>
+			<span class="tooltip">Assignments</span>
+			</li>"""
 
 for i in range(0,len(unitData)):
 	unitButtonsContent += "<li>"
@@ -191,9 +205,9 @@ for i in range(0,len(unitData)):
 
 
 sidebars = {
-	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overviewApplication.html", "Overview", "'bx bxs-shapes'", appButtonsContent),
-	'topic': build_sidebar("index.html", websiteData['Global Class Name'], "overviewTopic.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent),
-	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overviewCalendar.html", "Calendar", "'bx bx-calendar'", unitButtonsContent),
+	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overviewApplication.html", "Overview", "'bx bxs-shapes'", appButtonsContent,bool(False)),
+	'topic': build_sidebar("index.html", websiteData['Global Class Name'], "overviewTopic.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent, bool(False)),
+	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overviewCalendar.html", "Calendar", "'bx bx-calendar'", unitButtonsContent, bool(True)),
 }
 
 mobile_sidebars = {
