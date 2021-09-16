@@ -10,8 +10,8 @@ def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon
 	sidebarButtons = """ <div class="sidebar\""""
 	#unit view must have smaller width
 	if(smallWidth):
-		sidebarButtons+= """id="unit">"""
-	sidebarButtons+="""<div class="logo-details"><div class="logo_name">
+		sidebarButtons+= """id=\"unit\""""
+	sidebarButtons+="""><div class="logo-details"><div class="logo_name">
 	<i class='bx bx-home-smile'></i> </div> """
 
 
