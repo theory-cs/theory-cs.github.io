@@ -17,13 +17,11 @@ templateString = Template(unitTemplate.read())
 
 page_variables = site_variables.copy()
 page_variables.update(dict(
-    mainTitle = title,
-    copyrightFooter = copyright
+    mainTitle = title
 ))
 
 #substitute settings data with appropriate variables 
 result = templateString.substitute(page_variables)
-
 
 resultFile = open("generated/website/index.html", "w")
 resultFile.write(result)

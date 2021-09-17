@@ -285,9 +285,6 @@ def create_unit_boxes():
 	
 	return boxString
 
-
-
-
 def create_outcome_boxes():
 	boxString = ""
 	#big for loop begin
@@ -333,10 +330,11 @@ def create_application_boxes():
 	boxString += "</div><br><br>"
 	return boxString
 
-
-
-
-
+def create_copyright():
+	copyright = """<div class="copyright">"""
+	copyright += "Copyright © " + websiteData["Copyright Year"] + " " + websiteData["Copyright Name"] + "<br>"
+	copyright += """<a style= "color:white;" href="feedback.html">Feedback</a></div>"""
+	return copyright
 
 def create_site_variables():
 	return {
@@ -355,7 +353,9 @@ def create_site_variables():
 
 		'unitBoxes': create_unit_boxes(),
 		'outcomeBoxes': create_outcome_boxes(),
-		'applicationBoxes': create_application_boxes()
+		'applicationBoxes': create_application_boxes(),
+
+		'copyrightFooter': create_copyright()
 		# and many more to come ...
 	}
 
