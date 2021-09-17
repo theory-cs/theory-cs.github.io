@@ -432,6 +432,16 @@ def substitute_template(input, output):
     # Close files
 	templateOpener.close()
 
+def write_if_different(filename, contents):
+    try:
+        old_contents = open(filename).read()
+        if old_contents == contents: return
+    except FileNotFoundError:
+        pass # If the file doesn't exist, continue so we can create it!
+    result_file = open(filename, "w")
+    result_file.write(contents)
+    result_file.close()
+
 def create_site_variables():
 	return {
 		'applicationSidebar': sidebars['application'],

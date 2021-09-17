@@ -55,9 +55,9 @@ for big in outcomeData:
     infoString = "<p>"+ outcomeData[big]['Children'][med]['Description']+ "</p>" 
     
     
-    #open unitTemplate html file and read it into a string 
-    unitTemplate = open("templates/topicTemplate.html", "r")
-    templateString = Template(unitTemplate.read())
+    #open topicTemplate html file and read it into a string 
+    topicTemplate = open("templates/topicTemplate.html", "r")
+    templateString = Template(topicTemplate.read())
 
 
     page_variables = site_variables.copy()
@@ -78,4 +78,4 @@ for big in outcomeData:
 
 
 # Closing files
-unitTemplate.close()
+topicTemplate.close()
