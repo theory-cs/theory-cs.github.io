@@ -2,8 +2,8 @@ from string import Template
 import json
 from userFunctions import *
 
-template = ["indexTemplate", "feedbackTemplate", "overviewCalendarTemplate", "overviewTopicTemplate", "overviewApplicationTemplate"]
-generated = ["index", "feedback", "overviewCalendar", "overviewTopic", "overviewApplication"]
+template = ["indexTemplate", "feedbackTemplate", "overviewCalendarTemplate", "overviewTopicTemplate", "overviewApplicationTemplate", "assignment-template"]
+generated = ["index", "feedback", "overviewCalendar", "overviewTopic", "overviewApplication", "assignments"]
 
 for i in range (len(template)):
     templateOpener = open("templates/"+template[i] + ".html", "r")
