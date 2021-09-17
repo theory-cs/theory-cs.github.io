@@ -146,7 +146,7 @@
                 "file":"proofs.html"
             },
             "Recursion and Induction": {
-                "Description": "Work with recursively defined data and prove their properties using inductive reasonging",
+                "Description": "Work with recursively defined data and prove their properties using inductive reasoning",
                 "Children": {
                     "recursive definitions": {
                         "Description": "Using a recursive definition to evaluate a function or determine membership in a set",
