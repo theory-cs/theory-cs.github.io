@@ -97,7 +97,7 @@ def build_mobile_sidebar(titleHref, titleName, overviewHref, overviewName, mobil
 def build_head_html(title):
 	headHtml = """<head>
 	<!-- logo on tab-->
-	
+	<link rel="shortcut icon" href="../resources/images/musicalchairs.png" type="image/x-icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- import font -->
