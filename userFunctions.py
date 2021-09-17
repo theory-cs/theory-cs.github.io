@@ -415,6 +415,23 @@ def create_assignment():
 		
 	return templateString
 
+def substitute_template(input, output):
+	templateOpener = open("templates/" + input + ".html", "r")
+	templateString = Template(templateOpener.read())
+	
+	page_variables = site_variables.copy()
+	page_variables.update(dict())
+    
+    # Substitute settings unitData with appropriate variables 
+	result = templateString.substitute(page_variables)
+	
+	resultFile = open("generated/website/" + output + ".html", "w")
+	resultFile.write(result)
+	resultFile.close()
+    
+    # Close files
+	templateOpener.close()
+
 def create_site_variables():
 	return {
 		'applicationSidebar': sidebars['application'],
