@@ -224,19 +224,18 @@ head_html = {
 }
 
 def create_unit_boxes():
-	for i in range (1, len(unitData)+1):
+	for i in range (0, len(unitData)):
 		index = i-1
 
     	#set appropriate variables for top calendar information section and title 
-		weekNumber = i
 		info=""
-		if('CalendarInfo' in unitData[index]):
+		if('CalendarInfo' in unitData[i]):
 			info=unitData[index]['CalendarInfo']
 		
 		boxString =""
 		#box heading and subheading/description
 		boxString += """<div class="box"> \n"""
-		boxString += "<h2> Week " + str(weekNumber) + "</h2>"
+		boxString += "<h2>" + unitData[i]['header'] + "</h2>"
 		boxString += "<p> " + info + "</p>"
 		boxString += "<hr>"
 		
@@ -244,11 +243,11 @@ def create_unit_boxes():
 		boxString += """<div class="column"> <dl> \n"""
 		
 		#Learning Materials (link to contents on weekly page)
-		boxString += """<dt><i class='bx bxs-right-arrow'></i>Learning Materials</dt> \n"""
+		boxString += """<dt>Learning Materials</dt> \n"""
 		
 		#pdfs
-		if('pdfs' in unitData[index]):
-			for pdf in unitData[index]['pdfs']:
+		if('pdfs' in unitData[i]):
+			for pdf in unitData[i]['pdfs']:
 				pdfjsID = pdf['name'].replace(" ", "-")
 				boxString += "<dd> <a href=\"unit""" +str(i)+ """.html#"""+ pdfjsID+"""\" >""" + pdf['name'] + """</a></dd>\n"""
 				
@@ -259,7 +258,7 @@ def create_unit_boxes():
 				boxString += "<dd> <a href=\"unit""" +str(i)+ """.html#"""+ embedID+"""\" >""" + embed['name'] + """</a></dd>\n"""
 
     	#Assignments
-		boxString += """<dt><i class='bx bxs-right-arrow'></i>Assignments</dt> \n"""
+		boxString += """<dt>Due Dates</dt> \n"""
 		if ('Assignments' in unitData[index]):
 			for assignment in unitData[index]['Assignments']:
 				#if link is provided use that link
