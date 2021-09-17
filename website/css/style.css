@@ -4,7 +4,7 @@
 
 .topnav {
     overflow: hidden;
-    background-color: #00629B;
+    background-color: #182B49;
     position: fixed;
     width: 100%;
 }
@@ -269,12 +269,12 @@ ul {
 }
 
 .button.TeX {
-    background: #F3E500;
-    border: 2px solid #F3E500;
+    background: #182B49;
+    border: 2px solid #182B49;
 }
 
 .button.TeX:hover {
-    color: #F3E500;
+    color: #182B49;
     background: white;
     text-decoration: none;
 }
@@ -343,7 +343,7 @@ label {
 }
 
 .copyright{
-    background-color: #00629B;
+    background-color: #182B49;
     color: white;
     text-align: center;
     font-size: 150%;
