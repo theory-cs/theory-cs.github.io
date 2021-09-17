@@ -1,31 +1,25 @@
 [
-    {
-      "header": "Week 0 and 1",
-      "pdfs": [{
-          "name": "Notes",
-          "addExtensions":true, 
-          "file":"Week0and1"
-      }],
-      "Information": [ "Welcome", "We look forward to working with you this quarter!", "Scroll down to see this week's notes (the PDF includes class notes and review quiz questions), and some bonus material (a video and a map)."],
-      "Topics": "Introduction and data types",
-      "embed": [{
-        "name": "Video Overview",
-        "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/2KbOaCLS-cQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-      }, {
-        "name": "Lecture Hall",
-        "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!w/32.8738,-117.24095,0;32.88187,-117.23338,0;0\" frameborder=\"0\"</iframe>"
-      }],
-
-      "CalendarInfo":" Dates: 9/24- 10/1 <br> Welcome! Lectures will be in Galbraith Hall",
-      "Assignments": [{
-        "name":"HW1",
-        "due": "Friday"
-
-      },
-      {
-        "name":"Review Quiz",
-        "link":"https://canvas.ucsd.edu/"
-      }]
-    }
+  {
+    "header": "Week 0 and 1",
+    "pdfs": [{
+        "name": "Notes",
+        "addExtensions":true, 
+        "file":"Week0and1"
+    }],
+    "Topics": "Introduction and data types",
+    "Information": [ "Welcome", "We look forward to working with you this quarter!", "Scroll down to see this week's notes (the PDF includes class notes and review quiz questions), and some bonus material (a video and a map)."],
+    "embed": [{
+      "name": "Video Overview",
+      "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/2KbOaCLS-cQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+    }, {
+      "name": "Lecture Hall",
+      "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!w/32.8738,-117.24095,0;32.88187,-117.23338,0;0\" frameborder=\"0\"</iframe>"
+    }],
+    "CalendarInfo":"9/24 - 10/1<br> Welcome! See you Friday in Galbraith Hall",
+    "Assignments": [{
+      "name":"Review Quiz",
+      "link":"https://gradescope.com"
+    }]
+  }
+ 
 ]
-  
