@@ -239,7 +239,7 @@ def create_unit_boxes():
 		
 		#box heading and subheading/description
 		boxString += """<div class="box"> \n"""
-		boxString += "<h2>" + heading + "</h2>"
+		boxString += """<h2 style= "line-height:40px;">""" + heading + "</h2>"
 		boxString += "<p> " + info + "</p>"
 		boxString += "<hr>"
 		
