@@ -142,9 +142,7 @@ generated/website/css/%: website/css/%
 # application template, and overview pages. These dynamic html pages are created
 # directly in the generated directory
 dynamic-pages: 
-	python3 indexTemplate.py
-	python3 feedbackTemplate.py
-	python3 overviewTemplate.py
+	python3 template.py
 	python3 unitTemplate.py
 	python3 topicTemplate.py
 	python3 appTemplate.py

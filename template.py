@@ -2,12 +2,12 @@ from string import Template
 import json
 from userFunctions import *
 
-template = ["overviewCalendarTemplate", "overviewTopicTemplate", "overviewApplicationTemplate"]
-generated = ["overviewCalendar", "overviewTopic", "overviewApplication"]
+template = ["indexTemplate", "feedbackTemplate", "overviewCalendarTemplate", "overviewTopicTemplate", "overviewApplicationTemplate"]
+generated = ["index", "feedback", "overviewCalendar", "overviewTopic", "overviewApplication"]
 
 for i in range (len(template)):
-    overviewTemplate = open("templates/"+template[i] + ".html", "r")
-    templateString = Template(overviewTemplate.read())
+    templateOpener = open("templates/"+template[i] + ".html", "r")
+    templateString = Template(templateOpener.read())
     
     page_variables = site_variables.copy()
     page_variables.update(dict())
@@ -20,4 +20,4 @@ for i in range (len(template)):
     resultFile.close()
     
     # Close files
-    overviewTemplate.close()
+    templateOpener.close()

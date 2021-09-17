@@ -336,6 +336,15 @@ def create_copyright():
 	copyright += """<a style= "color:white;" href="feedback.html">Feedback</a></div>"""
 	return copyright
 
+def create_feedback():
+	feedback = """<div class="feedback_form">""" + websiteData["Feedback"] + """</div>"""
+	return feedback
+
+def create_title():
+	title = websiteData["Global Class Name"]
+	return title
+
+
 def create_site_variables():
 	return {
 		'applicationSidebar': sidebars['application'],
@@ -355,7 +364,9 @@ def create_site_variables():
 		'outcomeBoxes': create_outcome_boxes(),
 		'applicationBoxes': create_application_boxes(),
 
-		'copyrightFooter': create_copyright()
+		'copyrightFooter': create_copyright(),
+		'feedbackForm': create_feedback(),
+		'mainTitle': create_title()
 		# and many more to come ...
 	}
 
