@@ -178,7 +178,7 @@ for big in outcomeData:
 
 
 # Unit
-unitData = json.loads(open("unit-settings.json").read())
+unitData = json.loads(open("unit-settings2.json").read())
 #unit buttons will have an additional assignments button
 unitButtonsContent = """<li>
 			<a href=\"assignments.html\" aria-label="Go to Assignments\">
@@ -224,8 +224,11 @@ head_html = {
 }
 
 def create_unit_boxes():
-	for i in range(len(unitData)):
+	#variables used in for loop
+	boxString =""
 
+	for i in range(len(unitData)):
+		unitNumber = i+1
     	#set appropriate variables for top calendar information section and title 
 		heading=unitData[i]['header']
 		if('Topics' in unitData[i]):
@@ -234,7 +237,6 @@ def create_unit_boxes():
 		if('CalendarInfo' in unitData[i]):
 			info+=unitData[i]['CalendarInfo']
 		
-		boxString =""
 		#box heading and subheading/description
 		boxString += """<div class="box"> \n"""
 		boxString += "<h2>" + heading + "</h2>"
@@ -251,13 +253,13 @@ def create_unit_boxes():
 		if('pdfs' in unitData[i]):
 			for pdf in unitData[i]['pdfs']:
 				pdfjsID = pdf['name'].replace(" ", "-")
-				boxString += "<dd> <a href=\"unit""" +str(i)+ """.html#"""+ pdfjsID+"""\" >""" + pdf['name'] + """</a></dd>\n"""
+				boxString += "<dd> <a href=\"unit""" +str(unitNumber)+ """.html#"""+ pdfjsID+"""\" >""" + pdf['name'] + """</a></dd>\n"""
 				
 		#embeds
 		if('embed' in unitData[i]):
 			for embed in unitData[i]['embed']: 
 				embedID = embed['name'].replace(" ", "-")
-				boxString += "<dd> <a href=\"unit""" +str(i)+ """.html#"""+ embedID+"""\" >""" + embed['name'] + """</a></dd>\n"""
+				boxString += "<dd> <a href=\"unit""" +str(unitNumber)+ """.html#"""+ embedID+"""\" >""" + embed['name'] + """</a></dd>\n"""
 
     	#Assignments
 		boxString += """<dt>Due Dates</dt> \n"""
@@ -283,7 +285,6 @@ def create_unit_boxes():
 		boxString += "</dl></div>"
 		
 		boxString += "</div><br><br>"
-		print(boxString)
 	return boxString
 
 def create_outcome_boxes():
