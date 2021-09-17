@@ -178,7 +178,7 @@ for big in outcomeData:
 
 
 # Unit
-unitData = json.loads(open("unit-settings2.json").read())
+unitData = json.loads(open("unit-settings.json").read())
 #unit buttons will have an additional assignments button
 unitButtonsContent = """<li>
 			<a href=\"assignments.html\" aria-label="Go to Assignments\">
