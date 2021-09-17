@@ -13,3 +13,4 @@ generated/*
 notes/topic/*
 *.pyc
 __pycache__/*
+drafts/*
