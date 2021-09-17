@@ -19,7 +19,7 @@ for i in range(0,len(unitData)):
             if(unitData[i]['pdfs'][j]['addExtensions']):
                 #format all filenames 
                 pdf= "../output/lessons/"+unitData[i]['pdfs'][j]['file']+".pdf"
-                tex= "../notes/lessons/"+unitData[i]['pdfs'][j]['file']+".tex"
+                tex= "../notes/lessons-flat/"+unitData[i]['pdfs'][j]['file']+".tex"
                 html="../output/lessons/"+unitData[i]['pdfs'][j]['file']+".html"
             else:
                 pdf=unitData[i]['pdfs'][j]['file']

@@ -19,7 +19,7 @@ for big in outcomeData:
       file = outcomeData[big]['Children'][med]['Children'][small]['filename']
       pdf="../output/topic/" + file + ".pdf"
       html="../output/topic/" + file + ".html"
-      tex="../notes/topic/" + file + ".tex"
+      tex="../notes/topic-flat/" + file + ".tex"
             
       #heading and collapsible card stuff
       pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 

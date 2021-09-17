@@ -24,11 +24,10 @@ website: static-pages latex dynamic-pages tex-html clean-tex
 # and topics. The target is a text file, and the trick of using touch makes the
 # file update its modified time when this is run. BUT, if these files haven't
 # changed since the last run, they will all be older than last-index.txt
-generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/activity-snippets/*.tex resources/*.tex
+generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/assignments/*.tex notes/activity-snippets/*.tex resources/*.tex
 	mkdir -p generated/notes
 	mkdir -p generated/notes/app
 	mkdir -p generated/notes/topic
-	mkdir -p generated/notes/assignments
 	python3 weeklyCompileApp.py
 	python3 weeklyCompileTopic.py
 	touch generated/last-index.txt

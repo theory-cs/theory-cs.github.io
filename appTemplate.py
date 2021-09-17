@@ -16,7 +16,7 @@ for (k,v) in appData.items():
     pdf="../output/app/"+file+".pdf"
     html="../output/app/"+file+".html"
     #where will tex file for applications be shown? 
-    tex="../notes/app/"+file+".tex"
+    tex="../notes/app-flat/"+file+".tex"
             
     #.pdf Download button
     pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 

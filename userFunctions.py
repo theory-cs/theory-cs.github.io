@@ -363,7 +363,7 @@ def create_assignment():
 		#format all filenames if addExtensions is true
 		if(element['addExtensions']):
 			pdf="../output/assignments/"+element['file']+".pdf"
-			tex="../notes/assignments/"+element['file']+".tex"
+			tex="../notes/assignments-flat/"+element['file']+".tex"
 			html="../output/assignments/"+element['file']+".html"
 		else:
 			pdf="../output/assignments/"+element['file']+".pdf"
