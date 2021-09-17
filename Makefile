@@ -20,9 +20,6 @@ index: generated/last-index.txt
 # and finally remove auxiliary files from typesetting steps
 website: static-pages latex dynamic-pages tex-html clean-tex 
 
-# TODO cleanup output directory so that all files are in either app, topic, or lessons directory and 
-# remove .aux, .log, .out files from app and topic directories.
-
 # run compile python scripts to generated compiled .tex files of applications
 # and topics. The target is a text file, and the trick of using touch makes the
 # file update its modified time when this is run. BUT, if these files haven't
@@ -113,22 +110,11 @@ generated/notes/activity-snippets/%: notes/activity-snippets/%
 	cp $< $@
 
 # Directory website and website-manual-to-automate contain all static components of site
-# TODO: edit these components to use dynamic sidebar e.g. by using loop in unitTemplate.py
-# Site-wide set of variables that are defined and get plugged in for any html file
-# e.g. $unit-sidebar and $outcome-sidebar and $topic-sidebar
 generated-website: $(patsubst website/%,generated/website/%,$(wildcard website/*))
 
 generated/website/%: website/%
 	mkdir -p generated/website
 	cp -R $< $@
-
-# Directory website-manual-to-automate contains placeholder versions of pages that will be 
-# created by appTemplate.py and outcomes-list.py  TODO: remove once automated versions exist
-#generated-website-temp: $(patsubst website-manual-to-automate/%,generated/website/%,$(wildcard website-manual-to-automate/*))
-#
-#generated/website/%: website-manual-to-automate/%
-#	mkdir -p generated/website
-#	cp -R $< $@
 
 # Directory website/css contains styling information that may change when pages are updated, 
 # for example, the contents of the sidebar depend on the number of lessons, outcomes, and applications
