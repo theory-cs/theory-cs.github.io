@@ -432,9 +432,9 @@ dd{
   text-align: left;
 }
 
-.active, .collapsible:hover {
+/* .active, .collapsible:hover {
   background-color: #e6e1d9;
-}
+} */
 
 .boxContent {
   display: none;
