@@ -238,9 +238,10 @@ def create_unit_boxes():
 			info+=unitData[i]['CalendarInfo']
 		
 		#box heading and subheading/description
-		boxString += """<div class="box"> \n"""
-		boxString += """<h2 style= "line-height:40px;">""" + heading + "</h2>"
-		boxString += "<p> " + info + "</p>"
+		boxString += """<div class="box"><button type="button" class="collapsible"> \n"""
+		boxString += """<h2 style= "line-height:40px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-right'></i> 
+				""" + heading + "</h2> </button> "
+		boxString += """<div class="boxContent"> <p> """+ info + """</p>"""
 		boxString += "<hr>"
 		
 		#list begins
@@ -282,9 +283,47 @@ def create_unit_boxes():
 				
 				boxString += "<dd> <a href=\"""" +link+ """\">"""+assignment['name']+"""</a> <div class="badge due">"""+due+"""</div> </dd>\n"""
 		
-		boxString += "</dl></div>"
+		boxString += "</dl></div></div>"
 		
 		boxString += "</div><br><br>"
+
+ 	#collapsible script 
+	boxString += """<script>
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+	
+	for (i = 0; i < coll.length; i++) {
+		sideBtnString="#sideBtn";
+		sideBtnString+=(i+1);
+		let sideBtn = document.querySelector(sideBtnString);
+
+  		coll[i].addEventListener("click", function() {
+    	this.classList.toggle("active");
+    	var content = this.nextElementSibling;
+    	
+		if (content.style.display === "block") {
+      	content.style.display = "none";
+    	} 
+		else {
+      content.style.display = "block";
+    	}
+		if(this.classList.contains("active")){
+		sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the iocns class
+		}
+		else {
+		sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the iocns class
+		}
+
+  	});
+
+	//coll[0].classList.toggle("active");
+    //var content = coll[0].nextElementSibling;
+	//content.style.display = "block";
+
+
+}
+	</script>"""
+		
 	return boxString
 
 def create_outcome_boxes():

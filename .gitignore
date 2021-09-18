@@ -10,7 +10,6 @@ Icon*
 .DS_Store
 
 generated/*
-notes/topic/*
 *.pyc
 __pycache__/*
 drafts/*
