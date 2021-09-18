@@ -1,10 +1,49 @@
-%! app: Bioinformatics
-%! outcome: TODOoutcome
+%! app: Bioinformatics, Numbers
+%! outcome: recursive definitions
 
 RNA is made up of strands of four different bases that match up in specific ways.\\
 The bases are elements of the set 
 $B  = \{\A, \C, \G, \U \}$.
 
+
+Formally, to define the set of all RNA strands, we need more than roster
+method or set builder descriptions. 
+
+\fbox{\parbox{\textwidth}{%
+
+{\bf New! Recursive Definitions of Sets}: The set $S$ (pick a name) is defined by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \textrm{Specify finitely many elements of } S\\
+\textrm{Recursive Step: } & \textrm{Give rule(s) for creating a new element of } S \textrm{ from known values existing in } S, \\
+& \textrm{and potentially other values}. \\
+\end{array}
+\]
+The set $S$ then consists of all and only elements that are put in $S$ by finitely many (a nonnegative integer number) of
+applications of the recursive step after the basis step.
+}}
+
+{\bf Definition} The set of nonnegative integers $\mathbb{N}$ is defined (recursively) by: 
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \\
+\textrm{Recursive Step: } & 
+\end{array}
+\]
+
+Examples: 
+
+{\bf Definition} The set of all integers $\mathbb{Z}$ is defined (recursively) by: 
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \\
+\textrm{Recursive Step: } & 
+\end{array}
+\]
+
+Examples: 
+
+\vfill
 
 {\bf Definition} The set of RNA strands $S$ is defined (recursively) by:
 \[
@@ -19,18 +58,15 @@ Examples:
 
 \vfill
 
-\fbox{\parbox{\textwidth}{%
-To define a set we can use the {\bf roster method}, the {\bf set builder notation}, and also \ldots
-
-
-{\bf New! Recursive Definitions of Sets}: The set $S$ (pick a name) is defined by:
+{\bf Definition} The set of bitstrings (strings of 0s and 1s) is defined (recursively) by:
 \[
 \begin{array}{ll}
-\textrm{Basis Step: } & \textrm{Specify finitely many elements of } S\\
-\textrm{Recursive Step: } & \textrm{Give a rule for creating a new element of } S \textrm{ from known values existing in } S, \\
-& \textrm{and potentially other values}. \\
+\textrm{Basis Step: } & \\
+\textrm{Recursive Step: } & 
 \end{array}
 \]
-The set $S$ then consists of all and only elements that are put in $S$ by finitely many (a nonnegative integer number) of
-applications of the recursive step after the basis step.
-}}
+
+
+Examples: 
+
+\vfill
