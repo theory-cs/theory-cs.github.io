@@ -153,30 +153,26 @@
 <div class="flushright">
 
 </div>
-<p>Welcome to the CSE 20: Discrete Math for Computer Science</p>
-<h1 class="unnumbered" id="themes-for-cse-20">Themes for CSE 20</h1>
+<p>Welcome to CSE 20: Discrete Math for Computer Science in Fall 2021!</p>
+<h1 class="unnumbered" id="themes-and-applications-for-cse-20">Themes and applications for CSE 20</h1>
 <ul>
-<li><p>Technical skepticism</p></li>
-<li><p>Multiple representations</p></li>
+<li><p><span><strong>Technical skepticism</strong></span>: Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.</p></li>
+<li><p><span><strong>Multiple representations</strong></span>: Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts. Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.</p></li>
 </ul>
-<p>Why are we here?</p>
-<ul>
-<li><p>... for discrete math</p></li>
-<li><p>... in Galbraith Hall</p></li>
-<li><p>... together</p></li>
-</ul>
+<p><span><strong>Applications</strong></span>: Numbers (how to represent them and use them in Computer Science), Recommendation systems and their roots in machine learning (with applications like Netflix), “Under the hood" of computers (circuits, pixel color representation, data structures), Codes and information (secret message sharing and error correction), Bioinformatics algorithms and genomics (DNA and RNA).</p>
 <h1 class="unnumbered" id="introductions">Introductions</h1>
 <p>Class website: <a href="http://cseweb.ucsd.edu/classes/fa21/cse20-a">http://cseweb.ucsd.edu/classes/fa21/cse20-a</a></p>
-<p>Notice: URL structure</p>
-<p>Instructor: Prof. Mia Minnes <span><span>"Minnes" rhymes with Guinness</span></span></p>
-<h1 class="unnumbered" id="recurring-applications-in-cse-20">Recurring applications in CSE 20</h1>
-<ul>
-<li><p>Clustering and recommendation systems (machine learning, Netflix)</p></li>
-<li><p>Genomics and bioinformatics (DNA and RNA)</p></li>
-<li><p>Codes and information (secret message sharing and error correction)</p></li>
-<li><p>“Under the hood" of computers (circuits, pixel color representation, data structures)</p></li>
-</ul>
+<p><span><strong>Pro-tip</strong></span>: the URL structure is your map to finding your course website for other CSE classes.</p>
+<p>Instructor: Prof. Mia Minnes <span><span>"Minnes" rhymes with Guinness</span></span>, minnes@eng.ucsd.edu, <a href="http://cseweb.ucsd.edu/~minnes">http://cseweb.ucsd.edu/ minnes</a></p>
+<p>Our team: Four TAs and 10 tutors + all of you</p>
+<p>Fill in contact info for students around you, if you’d like:</p>
+<p>On an average week, MWF Lectures + review quizzes, W Discussion, T HW due, Office hours, Piazza. Project parts will be due some weeks.</p>
+<p>Due dates: Review quizzes, HW, and Project, see <a href="https://discrete-math-for-cs.github.io/website/overviewCalendar.html">course calendar</a> and Canvas.</p>
+<p>Education research: CSE 20 is participating in a project on retention and sense of community in UCSD majors; see <a href="https://discrete-math-for-cs.github.io/files/CSInclusiveMentoringConsentFormNonCSEDataAnalysis.pdf">research plan</a>. If you consent to participate in this study, no action is needed. If you DO NOT consent to participate in this study, or you choose to opt-out at any time during the a cademic year, sign and submit this form to the research contact at retentionstudy@cs.ucsd.edu.</p>
 <h1 class="unnumbered" id="friday-september-24">Friday September 24</h1>
+<p>What data should we encode about each Netflix account holder to help us make effective recommendations?</p>
+<p>In machine learning, clustering can be used to group similar data for prediction and recommendation. For example, each Netflix user’s viewing history can be represented as a <span class="math inline">\(n\)</span>-tuple indicating their preferences about movies in the database, where <span class="math inline">\(n\)</span> is the number of movies in the database. People with similar tastes in movies can then be clustered to provide recommendations of movies for one another. Mathematically, clustering is based on a notion of distance between pairs of <span class="math inline">\(n\)</span>-tuples.</p>
+<h1 class="unnumbered" id="monday-september-27">Monday September 27</h1>
 <div class="center">
 <table>
 <thead>
@@ -350,125 +346,6 @@
 </tbody>
 </table>
 </div>
-<p>What data should we encode about each Netflix account holder to help us make effective recommendations?</p>
-<p>In machine learning, clustering can be used to group similar data for prediction and recommendation. For example, each Netflix user’s viewing history can be represented as a <span class="math inline">\(n\)</span>-tuple indicating their preferences about movies in the database, where <span class="math inline">\(n\)</span> is the number of movies in the database. People with similar tastes in movies can then be clustered to provide recommendations of movies for one another. Mathematically, clustering is based on a notion of distance between pairs of <span class="math inline">\(n\)</span>-tuples.</p>
-<p>In the table below, each row represents a user’s ratings of movies:  (check) indicates the person liked the movie,  (x) that they didn’t, and <span class="math inline">\(\bullet\)</span> (dot) that they didn’t rate it one way or another (neutral rating or didn’t watch).</p>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Person</th>
-<th style="text-align: center;">Fyre</th>
-<th style="text-align: center;">Frozen II</th>
-<th style="text-align: center;">Picard</th>
-<th style="text-align: center;">Ratings written as a <span class="math inline">\(3\)</span>-tuple</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P_1\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><span class="math inline">\((-1, 0, 1)\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(P_2\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><span class="math inline">\((1, 1, -1)\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P_3\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><span class="math inline">\((1, 1, 1)\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(P_4\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Which of <span class="math inline">\(P_1\)</span>, <span class="math inline">\(P_2\)</span>, <span class="math inline">\(P_3\)</span> has movie preferences most similar to <span class="math inline">\(P_4\)</span>?</p>
-<p>One approach to answer this question: use <span><strong>functions</strong></span> to define distance between user preferences.</p>
-<div class="center">
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;" colspan="2">Define the following functions whose inputs are ordered pairs of <span class="math inline">\(3\)</span>-tuples each of whose components</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;" colspan="2">comes from the set <span class="math inline">\(\{-1,0,1\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\displaystyle d_{1}(~ (x_1, x_2, x_3) , (y_1, y_2, y_3) ~) =  \sum_{i=1}^3\left( (\lvert~x_i-y_i~\rvert + 1) \textbf{ div } 2 \right)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\displaystyle d_{2}(~ (x_1, x_2, x_3) , (y_1, y_2, y_3) ~) =  \sqrt{ \sum_{i=1}^3 (x_i - y_i)^2}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(d_1(P_4, P_1)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(d_1(P_4, P_2)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(d_1(P_4, P_3)\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(d_2(P_4, P_1)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(d_2(P_4, P_2)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(d_2(P_4, P_3)\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><span><em>Extra example:</em></span> A new movie is released, and <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> watch it before <span class="math inline">\(P_3\)</span>, and give it ratings; <span class="math inline">\(P_1\)</span> gives  and <span class="math inline">\(P_2\)</span> gives . Should this movie be recommended to <span class="math inline">\(P_3\)</span>? Why or why not?</p>
-<p><span><em>Extra example:</em></span> Define the new functions that would be used to compare the <span class="math inline">\(4\)</span>-tuples of ratings encoding movie preferences now that there are four movies in the database.</p>
-<h1 class="unnumbered" id="monday-september-27">Monday September 27</h1>
 <div class="center">
 <table>
 <tbody>
