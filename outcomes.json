@@ -1,6 +1,6 @@
 {
     "Modeling and Impact":{
-        "Description": "Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts",
+        "Description": "Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.",
         "Icon": "<i class='bx bxs-paper-plane'></i>",
         "Children":{
             "Connections with other courses": {
@@ -42,7 +42,7 @@
                 "file":"systems.html"
             },
             "Translate": {
-                "Description": "Translate between different representations to illustrate a concept",
+                "Description": "Translate between different representations to illustrate a concept.",
                 "Children": {
                     "compound propositions and truth tables": {
                         "Description": "Translating between truth tables (tables of values) and compound propositions",
