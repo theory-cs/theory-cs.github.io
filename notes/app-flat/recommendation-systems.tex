@@ -63,7 +63,24 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Defining sets}
+\end{flushright} \section*{Ratings encoding}
+
+
+In the table  below,  each row represents a user's ratings of movies: 
+\cmark~(check) indicates the person liked the movie, \xmark~(x)
+that they didn't, and $\bullet$ (dot) that they didn't rate it one way or another (neutral rating or didn't watch).
+
+\begin{center}
+\begin{tabular}{c|ccc||c}
+Person & Fyre & Frozen II & Picard & Ratings written as a  $3$-tuple\\
+\hline
+$P_1$     & \xmark & $\bullet$ & \cmark & \phantom{$(-1, 0, 1)$} \\
+$P_2$     & \cmark & \cmark & \xmark & \phantom{$(1, 1, -1)$} \\
+$P_3$     & \cmark & \cmark & \cmark & \phantom{$(1, 1, 1)$} \\
+$P_4$     & $\bullet$ & \xmark & \cmark &  \\
+\end{tabular}
+\end{center} \vfill
+\section*{Defining sets}
 
 
 To define a set using {\bf roster method}, explicitly list its elements. That is,
@@ -92,77 +109,5 @@ or set builder notation.
     \item[]$\{\A,\C,\U,\G\}$ 
     \item[]$\{\A\U\G, \U\A\G, \U\G\A, \U\A\A \}$
 \end{itemize}
-\vfill \vfill
-\section*{Rna def}
-
-
-RNA is made up of strands of four different bases that match up in specific ways.\\
-The bases are elements of the set 
-$B  = \{\A, \C, \G, \U \}$.
-
-
-Formally, to define the set of all RNA strands, we need more than roster
-method or set builder descriptions. 
-
-\fbox{\parbox{\textwidth}{
-
-{\bf New! Recursive Definitions of Sets}: The set $S$ (pick a name) is defined by:
-\[
-\begin{array}{ll}
-\textrm{Basis Step: } & \textrm{Specify finitely many elements of } S\\
-\textrm{Recursive Step: } & \textrm{Give rule(s) for creating a new element of } S \textrm{ from known values existing in } S, \\
-& \textrm{and potentially other values}. \\
-\end{array}
-\]
-The set $S$ then consists of all and only elements that are put in $S$ by finitely many (a nonnegative integer number) of
-applications of the recursive step after the basis step.
-}}
-
-{\bf Definition} The set of nonnegative integers $\mathbb{N}$ is defined (recursively) by: 
-\[
-\begin{array}{ll}
-\textrm{Basis Step: } & \\
-\textrm{Recursive Step: } & 
-\end{array}
-\]
-
-Examples: 
-
-{\bf Definition} The set of all integers $\mathbb{Z}$ is defined (recursively) by: 
-\[
-\begin{array}{ll}
-\textrm{Basis Step: } & \\
-\textrm{Recursive Step: } & 
-\end{array}
-\]
-
-Examples: 
-
-\vfill
-
-{\bf Definition} The set of RNA strands $S$ is defined (recursively) by:
-\[
-\begin{array}{ll}
-\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
-\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
-\end{array}
-\]
-where $sb$ is string concatenation.
-
-Examples: 
-
-\vfill
-
-{\bf Definition} The set of bitstrings (strings of 0s and 1s) is defined (recursively) by:
-\[
-\begin{array}{ll}
-\textrm{Basis Step: } & \\
-\textrm{Recursive Step: } & 
-\end{array}
-\]
-
-
-Examples: 
-
 \vfill \vfill
 \end{document}

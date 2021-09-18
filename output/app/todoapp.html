@@ -156,180 +156,6 @@
 <h1 class="unnumbered" id="netflix-intro">Netflix intro</h1>
 <p>What data should we encode about each Netflix account holder to help us make effective recommendations?</p>
 <p>In machine learning, clustering can be used to group similar data for prediction and recommendation. For example, each Netflix user’s viewing history can be represented as a <span class="math inline">\(n\)</span>-tuple indicating their preferences about movies in the database, where <span class="math inline">\(n\)</span> is the number of movies in the database. People with similar tastes in movies can then be clustered to provide recommendations of movies for one another. Mathematically, clustering is based on a notion of distance between pairs of <span class="math inline">\(n\)</span>-tuples.</p>
-<h1 class="unnumbered" id="definitions">Definitions</h1>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Term</th>
-<th style="text-align: left;">Notation Example(s)</th>
-<th style="text-align: left;">We say in English</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(n\)</span>-tuple</td>
-<td style="text-align: left;"><span class="math inline">\((x_1, x_2, x_3)\)</span></td>
-<td style="text-align: left;">The 3-tuple of <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, and <span class="math inline">\(x_3\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\((3, 4)\)</span></td>
-<td style="text-align: left;">The 2-tuple or <span><strong>ordered pair</strong></span> of <span class="math inline">\(3\)</span> and <span class="math inline">\(4\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sequence</td>
-<td style="text-align: left;"><span class="math inline">\(x_1, \ldots, x_n\)</span></td>
-<td style="text-align: left;">A sequence <span class="math inline">\(x_1\)</span> to <span class="math inline">\(x_n\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(x_1, \ldots, x_n\)</span> where <span class="math inline">\(n = 0\)</span></td>
-<td style="text-align: left;">An empty sequence</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(x_1, \ldots, x_n\)</span> where <span class="math inline">\(n = 1\)</span></td>
-<td style="text-align: left;">A sequence containing just <span class="math inline">\(x_1\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(x_1, \ldots, x_n\)</span> where <span class="math inline">\(n = 2\)</span></td>
-<td style="text-align: left;">A sequence containing just <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> in order</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(x_1, x_2\)</span></td>
-<td style="text-align: left;">A sequence containing just <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> in order</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">set</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Unordered collection of objects. The set of …</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">all integers</td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{Z}\)</span></td>
-<td style="text-align: left;">The (set of all) integers (whole numbers including negatives, zero, and positives)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">all positive integers</td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{Z}^+\)</span></td>
-<td style="text-align: left;">The (set of all) strictly positive integers</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">all natural numbers</td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{N}\)</span></td>
-<td style="text-align: left;">The (set of all) natural numbers. <span><strong>Note</strong></span>: we use the convention that <span class="math inline">\(0\)</span> is a natural number.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">roster method</td>
-<td style="text-align: left;"><span class="math inline">\(\{43, 7, 9\}\)</span></td>
-<td style="text-align: left;">The set whose elements are <span class="math inline">\(43\)</span>, <span class="math inline">\(7\)</span>, and <span class="math inline">\(9\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(\{9, \mathbb{N}\}\)</span></td>
-<td style="text-align: left;">The set whose elements are <span class="math inline">\(9\)</span> and <span class="math inline">\(\mathbb{N}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">set builder notation</td>
-<td style="text-align: left;"><span class="math inline">\(\{ x \in \mathbb{Z} \mid x &gt; 0\}\)</span></td>
-<td style="text-align: left;">The set of all <span class="math inline">\(x\)</span> from the integers such that <span class="math inline">\(x\)</span> is greater than <span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(\{ 3x  \mid x \in \mathbb{Z} \}\)</span></td>
-<td style="text-align: left;">The set of all integer multiples of <span class="math inline">\(3\)</span> <span><strong>Note</strong></span>: we use the convention that writing two numbers next to each other means multiplication.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">function definition</td>
-<td style="text-align: left;"><span class="math inline">\(f(x) = x + 4\)</span></td>
-<td style="text-align: left;">Define <span class="math inline">\(f\)</span> of <span class="math inline">\(x\)</span> to be <span class="math inline">\(x + 4\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">function application</td>
-<td style="text-align: left;"><span class="math inline">\(f(7)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(f\)</span> of <span class="math inline">\(7\)</span> <span><strong>or</strong></span> <span class="math inline">\(f\)</span> applied to <span class="math inline">\(7\)</span> <span><strong>or</strong></span> the image of <span class="math inline">\(7\)</span> under <span class="math inline">\(f\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(f(z)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(f\)</span> of <span class="math inline">\(z\)</span> <span><strong>or</strong></span> <span class="math inline">\(f\)</span> applied to <span class="math inline">\(z\)</span> <span><strong>or</strong></span> the image of <span class="math inline">\(z\)</span> under <span class="math inline">\(f\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(f(g(z))\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(f\)</span> of <span class="math inline">\(g\)</span> of <span class="math inline">\(z\)</span> <span><strong>or</strong></span> <span class="math inline">\(f\)</span> applied to the result of <span class="math inline">\(g\)</span> applied to <span class="math inline">\(z\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">absolute value</td>
-<td style="text-align: left;"><span class="math inline">\(\lvert -3 \rvert\)</span></td>
-<td style="text-align: left;">The absolute value of <span class="math inline">\(-3\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">square root</td>
-<td style="text-align: left;"><span class="math inline">\(\sqrt{9}\)</span></td>
-<td style="text-align: left;">The non-negative square root of <span class="math inline">\(9\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">summation notation</td>
-<td style="text-align: left;"><span class="math inline">\(\displaystyle \sum_{i=1}^n i\)</span></td>
-<td style="text-align: left;">The sum of the integers from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>, inclusive</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(\displaystyle \sum_{i=1}^n i^2 - 1\)</span></td>
-<td style="text-align: left;">The sum of <span class="math inline">\(i^2 - 1\)</span> (<span class="math inline">\(i\)</span> squared minus <span class="math inline">\(1\)</span>) for each <span class="math inline">\(i\)</span> from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>, inclusive</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">quotient, integer division</td>
-<td style="text-align: left;"><span class="math inline">\(n~\textbf{div}~m\)</span></td>
-<td style="text-align: left;">The (integer) quotient upon dividing <span class="math inline">\(n\)</span> by <span class="math inline">\(m\)</span>; informally: divide and then drop the fractional part</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">modulo, remainder</td>
-<td style="text-align: left;"><span class="math inline">\(n~\textbf{mod}~m\)</span></td>
-<td style="text-align: left;">The remainder upon dividing <span class="math inline">\(n\)</span> by <span class="math inline">\(m\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
 <h1 class="unnumbered" id="data-types">Data types</h1>
 <div class="center">
 <table>
@@ -347,11 +173,19 @@
 <td style="text-align: left;"><span class="math inline">\(7 \in \{43, 7, 9 \}\)</span> <span class="math inline">\(2 \notin \{43, 7, 9 \}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span><em>Equal means agree on membership of all elements</em></span></td>
+<td style="text-align: left;"><span><em>repetition doesn’t matter</em></span></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><span><em>Equal means agree on membership of all elements</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><span><strong><span class="math inline">\(n\)</span>-tuple</strong></span> ordered sequence of elements with <span class="math inline">\(n\)</span> “slots"</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><em>repetition matters, fixed length</em></span></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
@@ -363,22 +197,16 @@
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"><span><em>repetition matters, arbitrary finite length</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"><span><em>Equal means same length and corresponding characters equal</em></span></td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><span class="math display">\[\{ -1, 1\} \qquad 
-    \{0, 0 \} \qquad
-    \{-1, 0, 1 \} \qquad
-    \mathbb{Z} \qquad
-    \mathbb{N} = \{ x \in \mathbb{Z} \mid x \geq 0 \} \qquad
-    \emptyset \qquad
-    \mathbb{Z}^+ = \{ x \in \mathbb{Z}  \mid x &gt; 0 \}\]</span></p>
-<p><span><em>Which of the sets above are defined using the roster method? Which are defined using set builder notation?</em></span></p>
-<p><span><em>Which of the sets above have <span class="math inline">\(0\)</span> as an element?</em></span></p>
-<p><span><em>Can you write any of the sets above more simply?</em></span></p>
 <h1 class="unnumbered" id="infinite-finite-sets-def">Infinite finite sets def</h1>
 <table>
 <tbody>

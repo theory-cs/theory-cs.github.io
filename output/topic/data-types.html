@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>important-sets</title>
+  <title>data-types</title>
   <style>
     html {
       line-height: 1.5;
@@ -152,6 +152,51 @@
 <body>
 <div class="flushright">
 
+</div>
+<h1 class="unnumbered" id="ratings-encoding">Ratings encoding</h1>
+<p>In the table below, each row represents a user’s ratings of movies:  (check) indicates the person liked the movie,  (x) that they didn’t, and <span class="math inline">\(\bullet\)</span> (dot) that they didn’t rate it one way or another (neutral rating or didn’t watch).</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Person</th>
+<th style="text-align: center;">Fyre</th>
+<th style="text-align: center;">Frozen II</th>
+<th style="text-align: center;">Picard</th>
+<th style="text-align: center;">Ratings written as a <span class="math inline">\(3\)</span>-tuple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P_1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(P_2\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P_3\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(P_4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
 </div>
 <h1 class="unnumbered" id="definitions">Definitions</h1>
 <div class="center">
@@ -343,12 +388,56 @@
 <li><p><span class="math inline">\(\{\texttt{A},\texttt{C},\texttt{U},\texttt{G}\}\)</span></p></li>
 <li><p><span class="math inline">\(\{\texttt{A}\texttt{U}\texttt{G}, \texttt{U}\texttt{A}\texttt{G}, \texttt{U}\texttt{G}\texttt{A}, \texttt{U}\texttt{A}\texttt{A}\}\)</span></p></li>
 </ul>
-<h1 class="unnumbered" id="least-greatest-proofs">Least greatest proofs</h1>
-<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: There is a least prime number.</p>
-<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: There is a greatest integer.</p>
-<p><span><em>Approach 1, De Morgan’s and universal generalization</em></span>:</p>
-<p><span><em>Approach 2, proof by contradiction</em></span>:</p>
-<p><span><em>Extra examples</em></span>: Prove or disprove that <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span> each have a least and a greatest element. Prove that there is no greatest prime number.</p>
-<h1 class="unnumbered" id="gcd-def">Gcd def</h1>
+<h1 class="unnumbered" id="data-types">Data types</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Term</strong></span></td>
+<td style="text-align: left;"><span><strong>Examples</strong></span>:</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(add additional examples from class)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>set</strong></span> unordered collection of elements</td>
+<td style="text-align: left;"><span class="math inline">\(7 \in \{43, 7, 9 \}\)</span> <span class="math inline">\(2 \notin \{43, 7, 9 \}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><em>repetition doesn’t matter</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><em>Equal means agree on membership of all elements</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong><span class="math inline">\(n\)</span>-tuple</strong></span> ordered sequence of elements with <span class="math inline">\(n\)</span> “slots"</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><em>repetition matters, fixed length</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><em>Equal means corresponding components equal</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>string</strong></span> ordered finite sequence of elements each from specified set</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><em>repetition matters, arbitrary finite length</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><em>Equal means same length and corresponding characters equal</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
 </body>
 </html>

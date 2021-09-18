@@ -153,6 +153,15 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="before-we-start">Before we start</h1>
+<p>If you or someone you know is suffering from food and/or housing insecurities there are UCSD resources here to help:</p>
+<p>Basic Needs Office: <a href="https://basicneeds.ucsd.edu/">https://basicneeds.ucsd.edu/</a></p>
+<p>Triton Food Pantry (in the old Student Center) is free and anonymous, and includes produce:</p>
+<p><a href="https://www.facebook.com/tritonfoodpantry/">https://www.facebook.com/tritonfoodpantry/</a></p>
+<p>Mutual Aid UCSD: <a href="https://mutualaiducsd.wordpress.com/">https://mutualaiducsd.wordpress.com/</a></p>
+<p>If you find yourself in an uncomfortable situation, ask for help. We are committed to upholding University policies regarding nondiscrimination, sexual violence and sexual harassment.</p>
+<p>Counseling and Psychological Services (CAPS) at 858 5343755 or <a href="http://caps.ucsd.edu">http://caps.ucsd.edu</a></p>
+<p>OPHD at (858) 534-8298, ophd@ucsd.edu , <a href="http://ophd.ucsd.edu">http://ophd.ucsd.edu</a>. CARE at Sexual Assault Resource Center at 858 5345793 sarc@ucsd.edu <a href="http://care.ucsd.edu">http://care.ucsd.edu</a></p>
 <p>Welcome to CSE 20: Discrete Math for Computer Science in Fall 2021!</p>
 <h1 class="unnumbered" id="themes-and-applications-for-cse-20">Themes and applications for CSE 20</h1>
 <ul>
@@ -163,6 +172,7 @@
 <h1 class="unnumbered" id="introductions">Introductions</h1>
 <p>Class website: <a href="http://cseweb.ucsd.edu/classes/fa21/cse20-a">http://cseweb.ucsd.edu/classes/fa21/cse20-a</a></p>
 <p><span><strong>Pro-tip</strong></span>: the URL structure is your map to finding your course website for other CSE classes.</p>
+<p><span><strong>Pro-tip</strong></span>: you can use MATH109 to replace CSE20 for prerequisites and other requirements.</p>
 <p>Instructor: Prof. Mia Minnes <span><span>"Minnes" rhymes with Guinness</span></span>, minnes@eng.ucsd.edu, <a href="http://cseweb.ucsd.edu/~minnes">http://cseweb.ucsd.edu/ minnes</a></p>
 <p>Our team: Four TAs and 10 tutors + all of you</p>
 <p>Fill in contact info for students around you, if you’d like:</p>
@@ -172,6 +182,51 @@
 <h1 class="unnumbered" id="friday-september-24">Friday September 24</h1>
 <p>What data should we encode about each Netflix account holder to help us make effective recommendations?</p>
 <p>In machine learning, clustering can be used to group similar data for prediction and recommendation. For example, each Netflix user’s viewing history can be represented as a <span class="math inline">\(n\)</span>-tuple indicating their preferences about movies in the database, where <span class="math inline">\(n\)</span> is the number of movies in the database. People with similar tastes in movies can then be clustered to provide recommendations of movies for one another. Mathematically, clustering is based on a notion of distance between pairs of <span class="math inline">\(n\)</span>-tuples.</p>
+<p>In the table below, each row represents a user’s ratings of movies:  (check) indicates the person liked the movie,  (x) that they didn’t, and <span class="math inline">\(\bullet\)</span> (dot) that they didn’t rate it one way or another (neutral rating or didn’t watch).</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Person</th>
+<th style="text-align: center;">Fyre</th>
+<th style="text-align: center;">Frozen II</th>
+<th style="text-align: center;">Picard</th>
+<th style="text-align: center;">Ratings written as a <span class="math inline">\(3\)</span>-tuple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P_1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(P_2\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P_3\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(P_4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Conclusion</strong></span>: Modeling involves choosing data types to represent and organize data</p>
 <h1 class="unnumbered" id="monday-september-27">Monday September 27</h1>
 <div class="center">
 <table>
@@ -271,7 +326,7 @@
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><span class="math inline">\(\{ 3x  \mid x \in \mathbb{Z} \}\)</span></td>
-<td style="text-align: left;">The set of all integer multiples of <span class="math inline">\(3\)</span> <span><strong>Note</strong></span>: we use the convention that writing two numbers next to each other means multiplication.</td>
+<td style="text-align: left;">The set of all integer multiples of <span class="math inline">\(3\)</span>. <span><strong>Note</strong></span>: we use the convention that writing two numbers next to each other means multiplication.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -346,6 +401,22 @@
 </tbody>
 </table>
 </div>
+<h2 class="unnumbered" id="data-types-sets-n-tuples-and-strings">Data Types: sets, <span class="math inline">\(n\)</span>-tuples, and strings</h2>
+<p>To define a set using <span><strong>roster method</strong></span>, explicitly list its elements. That is, start with <span class="math inline">\(\{\)</span> then list elements of the set separated by commas and close with <span class="math inline">\(\}\)</span>.</p>
+<p>To define a set using <span><strong>set builder definition</strong></span>, either form “The set of all <span class="math inline">\(x\)</span> from the universe <span class="math inline">\(U\)</span> such that <span class="math inline">\(x\)</span> is ..." by writing <span class="math display">\[\{x \in U \mid ...x... \}\]</span> or form “the collection of all outputs of some operation when the input ranges over the universe <span class="math inline">\(U\)</span>" by writing <span class="math display">\[\{ ...x... \mid x\in U \}\]</span></p>
+<p>We use the symbol <span class="math inline">\(\in\)</span> as “is an element of” to indicate membership in a set.</p>
+<p><span><strong>Example sets</strong></span>: For each of the following, identify whether it’s defined using the roster method or set builder notation.</p>
+<ul>
+<li><p><span class="math inline">\(\{ -1, 1\}\)</span></p></li>
+<li><p><span class="math inline">\(\{0, 0 \}\)</span></p></li>
+<li><p><span class="math inline">\(\{-1, 0, 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(\{(x,x,x) \mid x \in \{-1,0,1\} \}\)</span></p></li>
+<li><p><span class="math inline">\(\emptyset\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{N} = \{ x \in \mathbb{Z} \mid x \geq 0 \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{Z}^+ = \{ x \in \mathbb{Z}  \mid x &gt; 0 \}\)</span></p></li>
+<li><p><span class="math inline">\(\{\texttt{A},\texttt{C},\texttt{U},\texttt{G}\}\)</span></p></li>
+<li><p><span class="math inline">\(\{\texttt{A}\texttt{U}\texttt{G}, \texttt{U}\texttt{A}\texttt{G}, \texttt{U}\texttt{G}\texttt{A}, \texttt{U}\texttt{A}\texttt{A}\}\)</span></p></li>
+</ul>
 <div class="center">
 <table>
 <tbody>
@@ -362,11 +433,19 @@
 <td style="text-align: left;"><span class="math inline">\(7 \in \{43, 7, 9 \}\)</span> <span class="math inline">\(2 \notin \{43, 7, 9 \}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span><em>Equal means agree on membership of all elements</em></span></td>
+<td style="text-align: left;"><span><em>repetition doesn’t matter</em></span></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><span><em>Equal means agree on membership of all elements</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><span><strong><span class="math inline">\(n\)</span>-tuple</strong></span> ordered sequence of elements with <span class="math inline">\(n\)</span> “slots"</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><em>repetition matters, fixed length</em></span></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
@@ -378,30 +457,42 @@
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"><span><em>repetition matters, arbitrary finite length</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"><span><em>Equal means same length and corresponding characters equal</em></span></td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><span class="math display">\[\{ -1, 1\} \qquad 
-    \{0, 0 \} \qquad
-    \{-1, 0, 1 \} \qquad
-    \mathbb{Z} \qquad
-    \mathbb{N} = \{ x \in \mathbb{Z} \mid x \geq 0 \} \qquad
-    \emptyset \qquad
-    \mathbb{Z}^+ = \{ x \in \mathbb{Z}  \mid x &gt; 0 \}\]</span></p>
-<p><span><em>Which of the sets above are defined using the roster method? Which are defined using set builder notation?</em></span></p>
-<p><span><em>Which of the sets above have <span class="math inline">\(0\)</span> as an element?</em></span></p>
-<p><span><em>Can you write any of the sets above more simply?</em></span></p>
 <p>RNA is made up of strands of four different bases that match up in specific ways.<br />
 The bases are elements of the set <span class="math inline">\(B  = \{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}\)</span>.</p>
+<p>Formally, to define the set of all RNA strands, we need more than roster method or set builder descriptions.</p>
+<p><span><strong>Definition</strong></span> The set of nonnegative integers <span class="math inline">\(\mathbb{N}\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \\
+\textrm{Recursive Step: } &amp; 
+\end{array}\]</span></p>
+<p>Examples:</p>
+<p><span><strong>Definition</strong></span> The set of all integers <span class="math inline">\(\mathbb{Z}\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \\
+\textrm{Recursive Step: } &amp; 
+\end{array}\]</span></p>
+<p>Examples:</p>
 <p><span><strong>Definition</strong></span> The set of RNA strands <span class="math inline">\(S\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
 \textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S, \texttt{U}\in S, \texttt{G}\in S \\
 \textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
 \end{array}\]</span> where <span class="math inline">\(sb\)</span> is string concatenation.</p>
 <p>Examples:</p>
+<p><span><strong>Definition</strong></span> The set of bitstrings (strings of 0s and 1s) is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \\
+\textrm{Recursive Step: } &amp; 
+\end{array}\]</span></p>
+<p>Examples:</p>
 <h1 class="unnumbered" id="wednesday-september-29">Wednesday September 29</h1>
+<p>Sets from other sets Functions</p>
 <h1 class="unnumbered" id="friday-october-1">Friday October 1</h1>
+<p>Number representations</p>
 </body>
 </html>
