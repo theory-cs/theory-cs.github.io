@@ -423,6 +423,23 @@ dd{
 
 .box:hover {
     transform: scale(1.01);
-  }
+}
+
+.collapsible {
+  background-color: #e6e1d9;
+  width: 100%;
+  border: none;
+  text-align: left;
+}
+
+.active, .collapsible:hover {
+  background-color: #e6e1d9;
+}
+
+.boxContent {
+  display: none;
+  overflow: hidden;
+}
+
 
 
