@@ -298,30 +298,28 @@ def create_unit_boxes():
 		let sideBtn = document.querySelector(sideBtnString);
 
   		coll[i].addEventListener("click", function() {
-    	this.classList.toggle("active");
-    	var content = this.nextElementSibling;
+    		this.classList.toggle("active");
+    		var content = this.nextElementSibling;
     	
-		if (content.style.display === "block") {
-      	content.style.display = "none";
-    	} 
-		else {
-      content.style.display = "block";
-    	}
-		if(this.classList.contains("active")){
-		sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the iocns class
-		}
-		else {
-		sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the iocns class
-		}
-
-  	});
-
-	//coll[0].classList.toggle("active");
-    //var content = coll[0].nextElementSibling;
-	//content.style.display = "block";
+			if (content.style.display === "block") {
+      			content.style.display = "none";
+    		} 
+			else {
+      			content.style.display = "block";
+    		}
+			if(this.classList.contains("active")){
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+			}
+			else {
+			sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+			}
+		});
 
 
-}
+		//coll[0].classList.toggle("active");
+    	//var content = coll[0].nextElementSibling;
+		//content.style.display = "block";
+	}
 	</script>"""
 		
 	return boxString
