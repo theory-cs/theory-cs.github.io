@@ -13,3 +13,4 @@ generated/*
 *.pyc
 __pycache__/*
 drafts/*
+archive/*
