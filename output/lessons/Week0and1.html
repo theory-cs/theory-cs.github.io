@@ -227,6 +227,25 @@
 </table>
 </div>
 <p><span><strong>Conclusion</strong></span>: Modeling involves choosing data types to represent and organize data</p>
+<h2 class="unnumbered" id="review">Review</h2>
+<ol>
+<li><p>Please complete the beginning of the quarter survey <a href="https://forms.gle/gvibFnNixxqcWbaU8">https://forms.gle/gvibFnNixxqcWbaU8</a></p></li>
+<li><p>We want you to be familiar with class policies and procedures so you are ready to have a successful quarter. Please take a look at the class website http://cseweb.ucsd.edu/classes/fa21/cse20-a and answer the questions about it on <a href="http://gradescope.com">Gradescope</a>.</p></li>
+<li><p>Modeling:</p>
+<ol>
+<li><p>Using the example movie database from class with the <span class="math inline">\(3\)</span> movies Fyre, Frozen II, Picard, which of the following is a <span class="math inline">\(3\)</span>-tuple that represents the ratings of a user who liked Frozen II? (Select all and only that apply.)</p>
+<ol>
+<li><p><span class="math inline">\(1\)</span></p></li>
+<li><p><span class="math inline">\((0,0,0)\)</span></p></li>
+<li><p><span class="math inline">\([1,1,1]\)</span></p></li>
+<li><p><span class="math inline">\(\{-1, 0, 1\}\)</span></p></li>
+<li><p><span class="math inline">\((1,-1,0)\)</span></p></li>
+<li><p><span class="math inline">\((0,1,1)\)</span></p></li>
+<li><p><span class="math inline">\((1,1,1,1)\)</span></p></li>
+</ol></li>
+<li><p>Using the example movie database from class with the <span class="math inline">\(3\)</span> movies Fyre, Frozen II, Picard, how many distinct (different) <span class="math inline">\(3\)</span>-tuples of ratings are there?</p></li>
+</ol></li>
+</ol>
 <h1 class="unnumbered" id="monday-september-27">Monday September 27</h1>
 <div class="center">
 <table>
@@ -490,9 +509,35 @@ The bases are elements of the set <span class="math inline">\(B  = \{\texttt{A},
 \textrm{Recursive Step: } &amp; 
 \end{array}\]</span></p>
 <p>Examples:</p>
+<h2 class="unnumbered" id="review-1">Review</h2>
+<ol>
+<li><p>Colors can be described as amounts of red, green, and blue mixed together<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Mathematically, a color can be represented as a <span class="math inline">\(3\)</span>-tuple <span class="math inline">\((r, g, b)\)</span> where <span class="math inline">\(r\)</span> represents the red component, <span class="math inline">\(g\)</span> the green component, <span class="math inline">\(b\)</span> the blue component and where each of <span class="math inline">\(r\)</span>, <span class="math inline">\(g\)</span>, <span class="math inline">\(b\)</span> must be a value from this collection of numbers:</p>
+<blockquote>
+<p><span class="math inline">\(\{\)</span>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255<span class="math inline">\(\}\)</span></p>
+</blockquote>
+<ol>
+<li><p><strong>True</strong> or <strong>False</strong>: <span class="math inline">\((1, 3, 4)\)</span> fits the definition of a color above.</p></li>
+<li><p><strong>True</strong> or <strong>False</strong>: <span class="math inline">\((1, 100, 200, 0)\)</span> fits the definition of a color above.</p></li>
+<li><p><strong>True</strong> or <strong>False</strong>: <span class="math inline">\((510, 255)\)</span> fits the definition of a color above.</p></li>
+<li><p><strong>True</strong> or <strong>False</strong>: There is a color <span class="math inline">\((r_1, g_1, b_1)\)</span> where <span class="math inline">\(r_1 + g_1 + b_1\)</span> is greater than <span class="math inline">\(765\)</span>.</p></li>
+<li><p><strong>True</strong> or <strong>False</strong>: There is a color <span class="math inline">\((r_2, g_2, b_2)\)</span> where <span class="math inline">\(r_2 + g_2 + b_2\)</span> is equal to <span class="math inline">\(1\)</span>.</p></li>
+<li><p><strong>True</strong> or <strong>False</strong>: Another way to write the collection of allowed values for red, green, and blue components is <span class="math display">\[\{x \in \mathbb{N}\mid 0 \leq x \leq 255 \}\]</span>.</p></li>
+<li><p><strong>True</strong> or <strong>False</strong>: Another way to write the collection of allowed values for red, green, and blue components is <span class="math display">\[\{n \in \mathbb{Z}\mid 0 \leq n \leq 255 \}\]</span>.</p></li>
+<li><p><strong>True</strong> or <strong>False</strong>: Another way to write the collection of allowed values for red, green, and blue components is <span class="math display">\[\{y \in \mathbb{Z}\mid -1 &lt; y \leq 255 \}\]</span>.</p></li>
+</ol></li>
+<li><p>Recursive definition questions</p></li>
+</ol>
 <h1 class="unnumbered" id="wednesday-september-29">Wednesday September 29</h1>
 <p>Sets from other sets Functions</p>
+<h2 class="unnumbered" id="review-2">Review</h2>
 <h1 class="unnumbered" id="friday-october-1">Friday October 1</h1>
 <p>Number representations</p>
+<h2 class="unnumbered" id="review-3">Review</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>This RGB representation is common in web applications. Many online tools are available to play around with mixing these colors, e.g. <a href="https://www.w3schools.com/colors/colors_rgb.asp">https://www.w3schools.com/colors/colors_rgb.asp</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 </body>
 </html>
