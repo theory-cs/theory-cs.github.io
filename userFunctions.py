@@ -179,6 +179,7 @@ for big in outcomeData:
 
 # Unit
 unitData = json.loads(open("unit-settings.json").read())
+assignmentData = json.loads(open("assignments.json").read()) #assignment information displays on calendar
 #unit buttons will have an additional assignments button
 unitButtonsContent = """<li>
 			<a href=\"assignments.html\" aria-label="Go to Assignments\">
@@ -273,14 +274,15 @@ def create_unit_boxes():
             	#else refer to the assignments page (default)
 				else:
 					link="assignments.html"
-				
-				#add due date of assignment if present
+				#add due date of assignment based on unit-settings or, if not present, based on assignmentData
+				assignmentDict = next((assnt for assnt in assignmentData if assnt["name"] == assignment['name']), False)
 				due = ""
 				if('due' in assignment):
 					due+= "Due: "
 					due+= assignment['due']
-
-				
+				elif(assignmentDict and 'due' in assignmentDict):
+					due+= "Due: "
+					due+= assignmentDict['due']
 				boxString += "<dd> <a href=\"""" +link+ """\">"""+assignment['name']+"""</a> <div class="badge due">"""+due+"""</div> </dd>\n"""
 		
 		boxString += "</dl></div></div>"
@@ -384,7 +386,7 @@ def create_title():
 	return title
 
 def create_assignment():
-	assignmentData = json.loads(open("assignments.json").read())
+#	assignmentData = json.loads(open("assignments.json").read())  #available globally now
 	templateString = ""
 	
 	collapseVar = 0

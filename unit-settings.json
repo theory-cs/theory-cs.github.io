@@ -2,7 +2,7 @@
     {
         "header": "Week 0 and 1",
         "Topics": "Introduction and data types",
-        "CalendarInfo": " Dates: 9/24 - 10/1<br> Welcome! See you Friday in Galbraith Hall. Please take our <a href=\"https://forms.gle/gvibFnNixxqcWbaU8\" target=\"_blank\">pre-class survey.</a> ",
+        "CalendarInfo": " Dates: 9/24/21 - 10/1/21<br> Welcome! See you Friday in Galbraith Hall. Please take our <a href=\"https://forms.gle/gvibFnNixxqcWbaU8\" target=\"_blank\">pre-class survey.</a> ",
         "ExpandInCalendar": true,
         "pdfs": [
             {
@@ -25,14 +25,14 @@
             {
                 "name": "Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "10/1 11pm"
+                "due": "10/1/21 at 11pm"
             }
         ]
     },
     {
         "header": "Week 2",
         "Topics": "Introduction and data types contd.",
-        "CalendarInfo": " Dates: 10/4-10/8",
+        "CalendarInfo": " Dates: 10/4/21-10/8/21",
         "ExpandInCalendar": true,
         "pdfs": [
             {
@@ -49,7 +49,7 @@
             {
                 "name": "Review Quiz",
                 "link": "https://gradescope.com",
-                "due" : "10/8 11pm"
+                "due" : "10/8/21 at 11pm"
             }
         ]
     }

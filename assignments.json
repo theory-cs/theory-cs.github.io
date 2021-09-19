@@ -1,17 +1,16 @@
 [
    {
-    "name": "HW1-definitions-and-notation-CSE20F21",
-    "due": "10/5 11pm",
-    "addExtensions":true,
-    "file":"HW1-definitions-and-notation-CSE20F21",
-    "solutionsFile": "CSE20commands.pdf", 
-    "Information" : "Due Date: 09/24/2021, This is a group optional assignment"
+      "name": "HW1-definitions-and-notation-CSE20F21",
+      "addExtensions":true,
+    "file":"hw1-definitions-and-notation-CSE20F21",
+    "solutionsFile": "", 
+    "due": "10/5/21 at 11pm",
+    "Information": "This is a group optional assignment"
    }, 
    {
-      "name": "HW2",
-      "addExtensions":false, 
-      "file":"HW2",
-      "solutionsFile": "Week0and1-annotated-CSE20F21.pdf", 
-      "Information" : "Due Date: 10/03/2021, This is an Individual Assignment"
+      "name": "project-CSE20F21",
+      "addExtensions":true, 
+      "file":"project-CSE20F21",
+      "Information" : "Part 1 due: 10/14/2021<br>Part 2 due: 11/4/2021<br>Part 3 due: 12/2/2021,<br>This is an Individual Assignment"
      }
 ]
