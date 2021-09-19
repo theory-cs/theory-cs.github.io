@@ -1,8 +1,8 @@
 {
-    "Modeling and Impact":{
+    "Modeling and Impact": {
         "Description": "Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.",
         "Icon": "<i class='bx bxs-paper-plane'></i>",
-        "Children":{
+        "Children": {
             "Connections with other courses": {
                 "Description": "Explore applications in CS through multiple perspectives, including software, hardware, and theory.",
                 "Children": {
@@ -23,8 +23,8 @@
                 "file": "connect.html"
             },
             "Model systems": {
-                "Description" : "Model systems with tools from discrete mathematics and reason about implications of modelling choices.",
-                "Children":{
+                "Description": "Model systems with tools from discrete mathematics and reason about implications of modelling choices.",
+                "Children": {
                     "modeling clusters": {
                         "Description": "Modeling data with partitions and functions",
                         "filename": "clusters"
@@ -39,7 +39,7 @@
                     }
                 },
                 "Icon": "S",
-                "file":"systems.html"
+                "file": "systems.html"
             },
             "Translate": {
                 "Description": "Translate between different representations to illustrate a concept.",
@@ -70,10 +70,10 @@
             }
         }
     },
-    "Problem Solving":{
+    "Problem Solving": {
         "Description": "Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.",
-        "Icon":"<i class='bx bxs-bulb' ></i>",
-        "Children": { 
+        "Icon": "<i class='bx bxs-bulb' ></i>",
+        "Children": {
             "Propositional and predicate logic": {
                 "Description": "Reason about the truth or falsity of complicated statements using Boolean connectives, quantifiers, and basic operations.",
                 "Children": {
@@ -111,8 +111,7 @@
                     }
                 },
                 "Icon": "L",
-                "file":"logic.html"
-
+                "file": "logic.html"
             },
             "Proof strategies and valid arguments": {
                 "Description": "Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.",
@@ -143,7 +142,7 @@
                     }
                 },
                 "Icon": "P",
-                "file":"proofs.html"
+                "file": "proofs.html"
             },
             "Recursion and Induction": {
                 "Description": "Work with recursively defined data and prove their properties using inductive reasoning",
@@ -185,14 +184,14 @@
                     }
                 },
                 "Icon": "M",
-                "file":"modular.html"
+                "file": "modular.html"
             }
         }
     },
-    "Communication":{
+    "Communication": {
         "Description": "Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.",
-        "Icon":"<i class='bx bxs-message-square-edit'></i>",
-        "Children":{
+        "Icon": "<i class='bx bxs-message-square-edit'></i>",
+        "Children": {
             "Use language conventions to improve arguments": {
                 "Description": "Use precise language to clearly present logical arguments and communicate with technical and non-technical colleagues.",
                 "Children": {
@@ -222,7 +221,7 @@
                     }
                 },
                 "Icon": "U",
-                "file": "conventions.html"                
+                "file": "conventions.html"
             },
             "Mathematical definitions and notation": {
                 "Description": "Use precise notation to encode meaning and present arguments concisely and clearly",
