@@ -77,4 +77,169 @@ of movies for one another.  Mathematically, clustering is based on a notion of d
 
 \vfill
  \vfill
+\section*{Set operations}
+
+
+\fbox{\parbox{\textwidth}{To define a set we can use the roster method, set builder notation, a recursive definition, 
+and also we can apply a set operation to other sets. \\
+
+{\bf New! Cartesian product of sets} and {\bf set-wise concatenation of sets of strings}\\
+
+
+{\bf Definition}: Let $A$ and $B$ be sets.  The {\bf Cartesian product} of $A$ and $B$, denoted
+$A \times B$, is the set of all ordered pairs $(a,b)$ where $a \in A$ and $b \in B$
+\[
+A \times B = \{ (a,b) \mid a \in A \text{ and } b \in B \}
+\]
+{\bf Definition}: Let $A$ and $B$ be sets of strings over the same alphabet. The {\bf set-wise concatenation} 
+of $A$ and $B$, denoted $A \circ B$, is the set of all results of string concatenation $ab$ where $a \in A$ and $b \in B$
+\[
+A \circ B = \{ ab \mid a \in A \text{ and } b \in B \}
+\]
+}}
+
+
+{\it Fill in the missing entries in the table}:
+
+\begin{center}
+\begin{tabular}{cc}
+{\bf  Set} & {\bf Example elements in this set}:\\
+\hline 
+& \\
+$B$ &\A \qquad \C \qquad \G \qquad \U \\
+& \\
+\hline
+& \\
+\phantom{$B \times B$} & $(\A, \C)$ \qquad $(\U, \U)$\\
+& \\
+\hline
+& \\
+$B \times \{-1,0,1\}$ & \\
+& \\
+\hline
+& \\
+$\{-1,0,1\} \times B$ & \\
+& \\
+\hline
+& \\
+\phantom{$\{-1,0,1\} \times \{-1,0,1\}  \times \{-1,0,1\} $} & \qquad $(0,0,0)$ \\
+& \\
+\hline
+& \\
+$ \{\A, \C, \G, \U \} \circ  \{\A, \C, \G, \U \}$& \\
+& \\
+\hline
+& \\
+\phantom{$\{G\} \circ \{G\} \circ \{G\}$} & \qquad $\G\G\G\G$ \\
+& \\
+\hline
+
+\end{tabular}
+\end{center}
+
+\vfill \vfill
+\section*{Defining functions}
+
+
+\fbox{\parbox{\textwidth}{{\bf New! Defining functions} A function is defined by its (1) domain, (2) codomain, and (3) rule assigning each 
+element in the domain exactly one element in the codomain.\\
+
+The domain and codomain are nonempty sets.
+
+The rule can be depicted as a table, formula, or English description.
+}}
+
+
+Examples: 
+
+
+
+\vfill 
+
+
+{\bf Definition} (Of a function, recursively) A function \textit{rnalen} that computes the length of RNA strands in $S$ is defined by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+The domain of \textit{rnalen} is \underline{\phantom{$S$\hspace{1.5in}}}.
+The codomain of \textit{rnalen} is \underline{\phantom{$\mathbb{Z}^+$\hspace{1.5in}}}.
+\[
+rnalen(\A\C\U) = \underline{\phantom{\hspace{5in}}}
+\]
+
+\vfill
+
+{\it Extra example}: A function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is defined recursively:  {\it fill in codomain and sample function
+applications}
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \phantom{\mathbb{N}} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(b_1, b_2) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(s b_1, b_2) & =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\]
+\[
+basecount(\A\C\U,\A) = \underline{\phantom{\hspace{5in}}}
+\]
+\[
+basecount(\A\C\U,\G) = \underline{\phantom{\hspace{5in}}}
+\]
+ \vfill
+\section*{Defining functions recursively}
+
+
+{\bf Definition} (Of a function, recursively) A function \textit{rnalen} that computes the length of RNA strands in $S$ is defined by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+The domain of \textit{rnalen} is \underline{\phantom{$S$\hspace{1.5in}}}.
+The codomain of \textit{rnalen} is \underline{\phantom{$\mathbb{Z}^+$\hspace{1.5in}}}.
+\[
+rnalen(\A\C\U) = \underline{\phantom{\hspace{5in}}}
+\]
+
+\vfill
+
+{\it Extra example}: A function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is defined recursively:  {\it fill in codomain and sample function
+applications}
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \phantom{\mathbb{N}} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(b_1, b_2) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(s b_1, b_2) & =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\]
+\[
+basecount(\A\C\U,\A) = \underline{\phantom{\hspace{5in}}}
+\]
+\[
+basecount(\A\C\U,\G) = \underline{\phantom{\hspace{5in}}}
+\]
+ \vfill
 \end{document}

@@ -122,7 +122,7 @@ square root & $\sqrt{9}$ & The non-negative square root of $9$ \\
     \end{tabular}
 \end{center}
 
-Special cases: 
+{\it Special cases}: 
 
 When $n=2$, the 2-tuple is called an {\bf ordered pair}.
 
@@ -160,5 +160,66 @@ or set builder notation and give an example element.
     \item[]$\{\A,\C,\U,\G\}$ 
     \item[]$\{\A\U\G, \U\A\G, \U\G\A, \U\A\A \}$
 \end{itemize}
+\vfill \vfill
+\section*{Set operations}
+
+
+\fbox{\parbox{\textwidth}{To define a set we can use the roster method, set builder notation, a recursive definition, 
+and also we can apply a set operation to other sets. \\
+
+{\bf New! Cartesian product of sets} and {\bf set-wise concatenation of sets of strings}\\
+
+
+{\bf Definition}: Let $A$ and $B$ be sets.  The {\bf Cartesian product} of $A$ and $B$, denoted
+$A \times B$, is the set of all ordered pairs $(a,b)$ where $a \in A$ and $b \in B$
+\[
+A \times B = \{ (a,b) \mid a \in A \text{ and } b \in B \}
+\]
+{\bf Definition}: Let $A$ and $B$ be sets of strings over the same alphabet. The {\bf set-wise concatenation} 
+of $A$ and $B$, denoted $A \circ B$, is the set of all results of string concatenation $ab$ where $a \in A$ and $b \in B$
+\[
+A \circ B = \{ ab \mid a \in A \text{ and } b \in B \}
+\]
+}}
+
+
+{\it Fill in the missing entries in the table}:
+
+\begin{center}
+\begin{tabular}{cc}
+{\bf  Set} & {\bf Example elements in this set}:\\
+\hline 
+& \\
+$B$ &\A \qquad \C \qquad \G \qquad \U \\
+& \\
+\hline
+& \\
+\phantom{$B \times B$} & $(\A, \C)$ \qquad $(\U, \U)$\\
+& \\
+\hline
+& \\
+$B \times \{-1,0,1\}$ & \\
+& \\
+\hline
+& \\
+$\{-1,0,1\} \times B$ & \\
+& \\
+\hline
+& \\
+\phantom{$\{-1,0,1\} \times \{-1,0,1\}  \times \{-1,0,1\} $} & \qquad $(0,0,0)$ \\
+& \\
+\hline
+& \\
+$ \{\A, \C, \G, \U \} \circ  \{\A, \C, \G, \U \}$& \\
+& \\
+\hline
+& \\
+\phantom{$\{G\} \circ \{G\} \circ \{G\}$} & \qquad $\G\G\G\G$ \\
+& \\
+\hline
+
+\end{tabular}
+\end{center}
+
 \vfill \vfill
 \end{document}

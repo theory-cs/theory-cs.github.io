@@ -230,7 +230,7 @@
 </table>
 </div>
 <p><span><strong>Conclusion</strong></span>: Modeling involves choosing data types to represent and organize data</p>
-<h2 class="unnumbered" id="review">Review</h2>
+<h2 class="unnumbered" id="review-week-0-friday">Review: Week 0 Friday</h2>
 <ol>
 <li><p>Please complete the beginning of the quarter survey <a href="https://forms.gle/gvibFnNixxqcWbaU8">https://forms.gle/gvibFnNixxqcWbaU8</a></p></li>
 <li><p>We want you to be familiar with class policies and procedures so you are ready to have a successful quarter. Please take a look at the class website http://cseweb.ucsd.edu/classes/fa21/cse20-a and answer the questions about it on <a href="http://gradescope.com">Gradescope</a>.</p></li>
@@ -410,7 +410,7 @@
 </tbody>
 </table>
 </div>
-<p>Special cases:</p>
+<p><span><em>Special cases</em></span>:</p>
 <p>When <span class="math inline">\(n=2\)</span>, the 2-tuple is called an <span><strong>ordered pair</strong></span>.</p>
 <p>A string of length <span class="math inline">\(0\)</span> is called the <span><strong>empty string</strong></span> and is denoted <span class="math inline">\(\lambda\)</span>.</p>
 <p>A set with no elements is called the <span><strong>empty set</strong></span> and is denoted <span class="math inline">\(\{\}\)</span> or <span class="math inline">\(\emptyset\)</span>.</p>
@@ -454,7 +454,7 @@ The bases are elements of the set <span class="math inline">\(B  = \{\texttt{A},
 \end{array}\]</span></p>
 <p><span><em>Notation:</em></span> We call the set of bitstrings <span class="math inline">\(\{0,1\}^*\)</span>.</p>
 <p>Examples:</p>
-<h2 class="unnumbered" id="review-1">Review</h2>
+<h2 class="unnumbered" id="review-week-1-monday">Review: Week 1 Monday</h2>
 <ol>
 <li><p>Colors can be described as amounts of red, green, and blue mixed together<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Mathematically, a color can be represented as a <span class="math inline">\(3\)</span>-tuple <span class="math inline">\((r, g, b)\)</span> where <span class="math inline">\(r\)</span> represents the red component, <span class="math inline">\(g\)</span> the green component, <span class="math inline">\(b\)</span> the blue component and where each of <span class="math inline">\(r\)</span>, <span class="math inline">\(g\)</span>, <span class="math inline">\(b\)</span> must be a value from this collection of numbers:</p>
 <blockquote>
@@ -470,14 +470,190 @@ The bases are elements of the set <span class="math inline">\(B  = \{\texttt{A},
 <li><p><strong>True</strong> or <strong>False</strong>: Another way to write the collection of allowed values for red, green, and blue components is <span class="math display">\[\{n \in \mathbb{Z}\mid 0 \leq n \leq 255 \}\]</span>.</p></li>
 <li><p><strong>True</strong> or <strong>False</strong>: Another way to write the collection of allowed values for red, green, and blue components is <span class="math display">\[\{y \in \mathbb{Z}\mid -1 &lt; y \leq 255 \}\]</span>.</p></li>
 </ol></li>
-<li><p>Recursive definition questions</p></li>
+<li><p>Sets are unordered collections. In class, we saw some examples of sets and also how to define sets using roster method and set builder notation.</p>
+<ol>
+<li><p>Select all and only the sets below that have <span class="math inline">\(0\)</span> as an element.</p>
+<ol>
+<li><p><span class="math inline">\(\{-1,1\}\)</span></p></li>
+<li><p><span class="math inline">\(\{0,0\}\)</span></p></li>
+<li><p><span class="math inline">\(\{-1,0,1\}\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{Z}^+\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{N}\)</span></p></li>
+</ol></li>
+<li><p>Select all and only the sets below that have the ordered pair <span class="math inline">\((2, 0)\)</span> as an element.</p>
+<ol>
+<li><p><span class="math inline">\(\{ x \mid x \in \mathbb{N} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ (x,x) \mid x \in \mathbb{N} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ (x, x-2) \mid x \in \mathbb{N} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ (x,y) \mid x \in \mathbb{Z}^+, y \in \mathbb{Z} \}\)</span></p></li>
+</ol></li>
+</ol></li>
+<li><p>Which of the following are (recursive) definitions of the set of integers <span class="math inline">\(\mathbb{Z}\)</span>? (Select True/False for each one.)</p>
+<ol>
+<li><p><span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; 5 \in \mathbb{Z} \\
+\textrm{Recursive Step: } &amp; \textrm{If } x \in \mathbb{Z} \textrm{, then } x+1 \in \mathbb{Z}
+\textrm{ and } x-1 \in \mathbb{Z}
+\end{array}\]</span></p></li>
+<li><p><span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; 0 \in \mathbb{Z} \\
+\textrm{Recursive Step: } &amp; \textrm{If } x \in \mathbb{Z} \textrm{, then } x+1 \in \mathbb{Z}
+\textrm{ and } x-1 \in \mathbb{Z} \textrm{ and } x+2 \in \mathbb{Z} \textrm{ and } x-2 \in \mathbb{Z}
+\end{array}\]</span></p></li>
+<li><p><span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; 0 \in \mathbb{Z} \\
+\textrm{Recursive Step: } &amp; \textrm{If } x \in \mathbb{Z} \textrm{, then } x+2 \in \mathbb{Z}
+\textrm{ and } x-1 \in \mathbb{Z}
+\end{array}\]</span></p></li>
+<li><p><span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; 0 \in \mathbb{Z} \\
+\textrm{Recursive Step: } &amp; \textrm{If } x \in \mathbb{Z} \textrm{, then } x+1 \in \mathbb{Z}
+\textrm{ and } x+2 \in \mathbb{Z}
+\end{array}\]</span></p></li>
+</ol></li>
 </ol>
 <h1 class="unnumbered" id="wednesday-september-29">Wednesday September 29</h1>
-<p>Sets from other sets Functions</p>
-<h2 class="unnumbered" id="review-2">Review</h2>
+<p><span><em>Fill in the missing entries in the table</em></span>:</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span><strong>Set</strong></span></th>
+<th style="text-align: center;"><span><strong>Example elements in this set</strong></span>:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><code>A</code><code>C</code><code>G</code><code>U</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\((\texttt{A}, \texttt{C})\)</span> <span class="math inline">\((\texttt{U}, \texttt{U})\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(B \times \{-1,0,1\}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\{-1,0,1\} \times B\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\((0,0,0)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\} \circ  \{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\texttt{G}\texttt{G}\texttt{G}\texttt{G}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Examples:</p>
+<p><span><strong>Definition</strong></span> (Of a function, recursively) A function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is defined by: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
+\end{array}\]</span></p>
+<p>The domain of <em>rnalen</em> is <u></u>. The codomain of <em>rnalen</em> is <u></u>. <span class="math display">\[rnalen(\texttt{A}\texttt{C}\texttt{U}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
+<p><span><em>Extra example</em></span>: A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is defined recursively: <span><em>fill in codomain and sample function applications</em></span> <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \phantom{\mathbb{N}} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(b_1, b_2) &amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(s b_1, b_2) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{A}) = \underline{\phantom{\hspace{5in}}}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{G}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
+<p><span><strong>Definition</strong></span> (Of a function, recursively) A function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is defined by: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
+\end{array}\]</span></p>
+<p>The domain of <em>rnalen</em> is <u></u>. The codomain of <em>rnalen</em> is <u></u>. <span class="math display">\[rnalen(\texttt{A}\texttt{C}\texttt{U}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
+<p><span><em>Extra example</em></span>: A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is defined recursively: <span><em>fill in codomain and sample function applications</em></span> <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \phantom{\mathbb{N}} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(b_1, b_2) &amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(s b_1, b_2) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{A}) = \underline{\phantom{\hspace{5in}}}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{G}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
+<h2 class="unnumbered" id="review-week-1-wednesday">Review: Week 1 Wednesday</h2>
 <h1 class="unnumbered" id="friday-october-1">Friday October 1</h1>
 <p>Number representations</p>
-<h2 class="unnumbered" id="review-3">Review</h2>
+<h2 class="unnumbered" id="review-week-1-friday">Review: Week 1 Friday</h2>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>

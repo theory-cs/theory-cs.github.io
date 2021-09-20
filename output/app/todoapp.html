@@ -207,9 +207,148 @@
 </tbody>
 </table>
 </div>
-<p>Special cases:</p>
+<p><span><em>Special cases</em></span>:</p>
 <p>When <span class="math inline">\(n=2\)</span>, the 2-tuple is called an <span><strong>ordered pair</strong></span>.</p>
 <p>A string of length <span class="math inline">\(0\)</span> is called the <span><strong>empty string</strong></span> and is denoted <span class="math inline">\(\lambda\)</span>.</p>
 <p>A set with no elements is called the <span><strong>empty set</strong></span> and is denoted <span class="math inline">\(\{\}\)</span> or <span class="math inline">\(\emptyset\)</span>.</p>
+<h1 class="unnumbered" id="set-operations">Set operations</h1>
+<p><span><em>Fill in the missing entries in the table</em></span>:</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span><strong>Set</strong></span></th>
+<th style="text-align: center;"><span><strong>Example elements in this set</strong></span>:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><code>A</code><code>C</code><code>G</code><code>U</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\((\texttt{A}, \texttt{C})\)</span> <span class="math inline">\((\texttt{U}, \texttt{U})\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(B \times \{-1,0,1\}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\{-1,0,1\} \times B\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\((0,0,0)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\} \circ  \{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\texttt{G}\texttt{G}\texttt{G}\texttt{G}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="defining-functions">Defining functions</h1>
+<p>Examples:</p>
+<p><span><strong>Definition</strong></span> (Of a function, recursively) A function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is defined by: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
+\end{array}\]</span></p>
+<p>The domain of <em>rnalen</em> is <u></u>. The codomain of <em>rnalen</em> is <u></u>. <span class="math display">\[rnalen(\texttt{A}\texttt{C}\texttt{U}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
+<p><span><em>Extra example</em></span>: A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is defined recursively: <span><em>fill in codomain and sample function applications</em></span> <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \phantom{\mathbb{N}} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(b_1, b_2) &amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(s b_1, b_2) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{A}) = \underline{\phantom{\hspace{5in}}}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{G}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
+<h1 class="unnumbered" id="defining-functions-recursively">Defining functions recursively</h1>
+<p><span><strong>Definition</strong></span> (Of a function, recursively) A function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is defined by: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
+\end{array}\]</span></p>
+<p>The domain of <em>rnalen</em> is <u></u>. The codomain of <em>rnalen</em> is <u></u>. <span class="math display">\[rnalen(\texttt{A}\texttt{C}\texttt{U}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
+<p><span><em>Extra example</em></span>: A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is defined recursively: <span><em>fill in codomain and sample function applications</em></span> <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \phantom{\mathbb{N}} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(b_1, b_2) &amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(s b_1, b_2) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{A}) = \underline{\phantom{\hspace{5in}}}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{G}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
 </body>
 </html>
