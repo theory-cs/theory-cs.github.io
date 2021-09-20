@@ -8,6 +8,54 @@
       "Information": "This is a group optional assignment"
    },
    {
+      "name": "hw2-numbers-CSE20F21",
+      "addExtensions": true,
+      "file": "hw2-numbers-CSE20F21",
+      "solutionsFile": "",
+      "due": "10/12/21 at 11pm",
+      "Information": "This is a group optional assignment"
+   },
+   {
+      "name": "hw3-circuits-and-logic-CSE20F21",
+      "addExtensions": true,
+      "file": "hw3-circuits-and-logic-CSE20F21",
+      "solutionsFile": "",
+      "due": "10/26/21 at 11pm",
+      "Information": "This is a group optional assignment"
+   },
+   {
+      "name": "hw4-propositional-and-predicate-logic-CSE20F21",
+      "addExtensions": true,
+      "file": "hw4-propositional-and-predicate-logic-CSE20F21",
+      "solutionsFile": "",
+      "due": "11/2/21 at 11pm",
+      "Information": "This is a group optional assignment"
+   },
+   {
+      "name": "hw5-proofs-and-sets-CSE20F21",
+      "addExtensions": true,
+      "file": "hw5-proofs-and-sets-CSE20F21",
+      "solutionsFile": "",
+      "due": "11/16/21 at 11pm",
+      "Information": "This is a group optional assignment"
+   },
+   {
+      "name": "hw6-induction-CSE20F21",
+      "addExtensions": true,
+      "file": "hw6-induction-CSE20F21",
+      "solutionsFile": "",
+      "due": "11/23/21 at 11pm",
+      "Information": "This is a group optional assignment"
+   },
+   {
+      "name": "hw7-proof-numbers-cardinality-CSE20F21",
+      "addExtensions": true,
+      "file": "hw7-proof-numbers-cardinality-CSE20F21",
+      "solutionsFile": "",
+      "due": "11/30/21 at 11pm",
+      "Information": "This is a group optional assignment"
+   },
+   {
       "name": "project-CSE20F21",
       "addExtensions": true,
       "file": "project-CSE20F21",

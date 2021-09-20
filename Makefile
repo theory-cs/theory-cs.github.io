@@ -58,11 +58,11 @@ generated/output/topic/%.pdf: generated/notes/topic/%.tex resources/lesson-head.
 	mkdir -p generated/output/topic; cd generated/notes/topic; pdflatex -output-directory ../../output/topic $(<F) 
 
 # Typesetting all .tex files in generated/notes/assignments directory
-generated/output/assignments/%.pdf: generated/notes/assignments/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+generated/output/assignments/%.pdf: generated/notes/assignments/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/output/assignments; cd generated/notes/assignments; pdflatex -output-directory ../../output/assignments $(<F) 
 
 # generate expanded/flat version of assignments compiled tex files
-generated/notes/assignments-flat/%.tex: generated/notes/assignments/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+generated/notes/assignments-flat/%.tex: generated/notes/assignments/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/notes/assignments-flat; cd generated/notes/assignments; latexpand $(<F) > ../assignments-flat/$(<F)
 
 # generate expanded/flat version of topic compiled tex files
