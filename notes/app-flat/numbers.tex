@@ -80,15 +80,15 @@ by writing
 We use the symbol $\in$ as ``is an element of'' to indicate membership in a set.
 
 {\bf Example sets}: For each of the following, identify whether it's defined using the roster method
-or set builder notation.
+or set builder notation and give an example element.
 \begin{itemize}
     \item[]$\{ -1, 1\}$
     \item[]$\{0, 0 \}$
     \item[]$\{-1, 0, 1 \}$
     \item[]$\{(x,x,x) \mid x \in \{-1,0,1\} \}$
-    \item[]$\emptyset$
-    \item[]$\mathbb{N} = \{ x \in \mathbb{Z} \mid x \geq 0 \}$
-    \item[]$\mathbb{Z}^+ = \{ x \in \mathbb{Z}  \mid x > 0 \}$
+    \item[]$\{ \}$
+    \item[]$\{ x \in \mathbb{Z} \mid x \geq 0 \}$
+    \item[]$\{ x \in \mathbb{Z}  \mid x > 0 \}$
     \item[]$\{\A,\C,\U,\G\}$ 
     \item[]$\{\A\U\G, \U\A\G, \U\G\A, \U\A\A \}$
 \end{itemize}
@@ -98,7 +98,7 @@ or set builder notation.
 
 RNA is made up of strands of four different bases that match up in specific ways.\\
 The bases are elements of the set 
-$B  = \{\A, \C, \G, \U \}$.
+$B  = \{\A, \C, \U, \G \}$.
 
 
 Formally, to define the set of all RNA strands, we need more than roster
@@ -121,8 +121,8 @@ applications of the recursive step after the basis step.
 {\bf Definition} The set of nonnegative integers $\mathbb{N}$ is defined (recursively) by: 
 \[
 \begin{array}{ll}
-\textrm{Basis Step: } & \\
-\textrm{Recursive Step: } & 
+\textrm{Basis Step: } & \phantom{0 \in \mathbb{N}} \\
+\textrm{Recursive Step: } & \phantom{\textrm{If } n \in \mathbb{N} \textrm{, then } n+1 \in \mathbb{N}}
 \end{array}
 \]
 
@@ -131,8 +131,9 @@ Examples:
 {\bf Definition} The set of all integers $\mathbb{Z}$ is defined (recursively) by: 
 \[
 \begin{array}{ll}
-\textrm{Basis Step: } & \\
-\textrm{Recursive Step: } & 
+\textrm{Basis Step: } & \phantom{0 \in \mathbb{Z}} \\
+\textrm{Recursive Step: } & \phantom{\textrm{If } x \in \mathbb{Z} \textrm{, then } x+1 \in \mathbb{Z}
+\textrm{ and } x-1 \in \mathbb{Z}}
 \end{array}
 \]
 
@@ -156,11 +157,12 @@ Examples:
 {\bf Definition} The set of bitstrings (strings of 0s and 1s) is defined (recursively) by:
 \[
 \begin{array}{ll}
-\textrm{Basis Step: } & \\
-\textrm{Recursive Step: } & 
+\textrm{Basis Step: } & \phantom{\lambda \in X} \\
+\textrm{Recursive Step: } & \phantom{\textrm{If } s \in X \textrm{, then } s0 \in X \text{ and } s1 \in X}
 \end{array}
 \]
 
+{\it Notation:} We call the set of bitstrings $\{0,1\}^*$.
 
 Examples: 
 

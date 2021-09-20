@@ -69,32 +69,21 @@
 \begin{center}
 \begin{tabular}{|llp{9cm}|}
 \hline
-Term & Notation Example(s) & We say in English \\
+{\bf Term} & {\bf Notation Example(s)} & {\bf We say in English \ldots } \\
 \hline
-$n$-tuple & $(x_1, x_2, x_3)$ & The 3-tuple of $x_1$, $x_2$, and $x_3$ \\
-          & $(3, 4)$ & The 2-tuple or {\bf ordered pair} of $3$ and $4$ \\
-
 sequence & $x_1, \ldots, x_n$ & A sequence $x_1$ to $x_n$ \\
          & $x_1, \ldots, x_n$ where $n = 0$ & An empty sequence \\
          & $x_1, \ldots, x_n$ where $n = 1$ & A sequence containing just $x_1$ \\
          & $x_1, \ldots, x_n$ where $n = 2$ & A sequence containing just $x_1$ and $x_2$ in order \\
          & $x_1, x_2$ & A sequence containing just $x_1$ and $x_2$ in order \\
 &&\\
-set & & Unordered collection of objects. The set of \ldots \\
-&&\\
 all integers & $\mathbb{Z}$ & The (set of all) integers (whole numbers including negatives, zero, and positives) \\
 all positive integers & $\mathbb{Z}^+$ & The (set of all) strictly positive integers \\
 all natural numbers & $\mathbb{N}$ & The (set of all) natural numbers. {\bf Note}: we use the convention that $0$ is a natural number. \\
-roster method & $\{43, 7, 9\}$ & The set whose elements are $43$, $7$, and $9$\\
-              & $\{9, \mathbb{N}\}$ & The set whose elements are $9$ and $\mathbb{N}$\\
-
 &&\\
-
-set builder notation & $\{ x \in \mathbb{Z} \mid x > 0\}$ & The set of all $x$ from the integers such that $x$ is greater than $0$ \\
-                     & $\{ 3x  \mid x \in \mathbb{Z} \}$ & The set of all integer multiples of $3$. {\bf Note}: we use the convention that writing two numbers next to each other means multiplication. \\
-
-&&\\
-function definition & $f(x) = x + 4$ & Define $f$ of $x$ to be $x + 4$ \\
+function rule definition & $f(x) = x + 4$ & Define $f$ of $x$ to be $x + 4$ \\
+piecewise rule definition & $f(x) = \begin{cases} x & \text{if~}x \geq 0 \\ -x & \text{if~}x<0\end{cases}$ &
+Define $f$ of $x$ to be $x$ when $x$ is nonnegative and to be $-x$ when $x$ is negative\\
 function application & $f(7)$ & $f$ of $7$ {\bf or} $f$ applied to $7$ {\bf or} the image of $7$ under $f$\\
                      & $f(z)$ & $f$ of $z$ {\bf or} $f$ applied to $z$ {\bf or} the image of $z$ under $f$\\
                      & $f(g(z))$ & $f$ of $g$ of $z$ {\bf or} $f$ applied to the result of $g$ applied to $z$ \\
@@ -102,16 +91,46 @@ function application & $f(7)$ & $f$ of $7$ {\bf or} $f$ applied to $7$ {\bf or} 
 absolute value & $\lvert -3 \rvert$ & The absolute value of $-3$ \\
 square root & $\sqrt{9}$ & The non-negative square root of $9$ \\
 &&\\
-summation notation & $\displaystyle \sum_{i=1}^n i$ & The sum of the integers from $1$ to $n$, inclusive \\
-                    & $\displaystyle \sum_{i=1}^n i^2 - 1$ & The sum of $i^2 - 1$ ($i$ squared minus $1$) for each $i$ from $1$ to $n$, inclusive \\
-&&\\
-quotient, integer division & $n~\textbf{div}~m$ & The (integer) quotient upon dividing $n$ by $m$; informally: divide and then 
-drop the fractional part\\
-modulo, remainder & $n~\textbf{mod}~m$ & The remainder upon dividing $n$ by $m$ \\
+
 
 \hline
 \end{tabular}
 \end{center} \vfill
+\section*{Data types}
+
+
+\begin{center}
+    \begin{tabular}{p{4.6in}p{2.6in}}
+    {\bf  Term} & {\bf Examples}:\\
+    &  (add additional examples from class)\\
+    \hline 
+    {\bf set} \newline
+    unordered collection of elements & $7 \in \{43, 7, 9 \}$ \qquad $2 \notin \{43, 7, 9 \}$ \\
+    {\it repetition doesn't matter} & \\
+    {\it Equal sets agree on membership of all elements}& \\
+    \hline
+    {\bf $n$-tuple} \newline
+    ordered sequence of elements with $n$ ``slots" ($n >0$) & \\
+    {\it repetition matters, fixed length} &\\
+    {\it Equal $n$-tuples have corresponding components equal}& \\
+    \hline
+    {\bf string} \newline
+    ordered finite sequence of elements each from specified
+    set & \\
+    {\it repetition matters, arbitrary finite length} &\\
+    {\it Equal strings have same length and corresponding characters equal}
+    \end{tabular}
+\end{center}
+
+Special cases: 
+
+When $n=2$, the 2-tuple is called an {\bf ordered pair}.
+
+A string of length $0$ is called the {\bf empty string} and is denoted $\lambda$.
+
+A set with no elements is called the {\bf empty set} and is denoted $\{\}$ or $\emptyset$.
+
+\vfill \vfill
 \section*{Defining sets}
 
 
@@ -129,44 +148,17 @@ by writing
 We use the symbol $\in$ as ``is an element of'' to indicate membership in a set.
 
 {\bf Example sets}: For each of the following, identify whether it's defined using the roster method
-or set builder notation.
+or set builder notation and give an example element.
 \begin{itemize}
     \item[]$\{ -1, 1\}$
     \item[]$\{0, 0 \}$
     \item[]$\{-1, 0, 1 \}$
     \item[]$\{(x,x,x) \mid x \in \{-1,0,1\} \}$
-    \item[]$\emptyset$
-    \item[]$\mathbb{N} = \{ x \in \mathbb{Z} \mid x \geq 0 \}$
-    \item[]$\mathbb{Z}^+ = \{ x \in \mathbb{Z}  \mid x > 0 \}$
+    \item[]$\{ \}$
+    \item[]$\{ x \in \mathbb{Z} \mid x \geq 0 \}$
+    \item[]$\{ x \in \mathbb{Z}  \mid x > 0 \}$
     \item[]$\{\A,\C,\U,\G\}$ 
     \item[]$\{\A\U\G, \U\A\G, \U\G\A, \U\A\A \}$
 \end{itemize}
-\vfill \vfill
-\section*{Data types}
-
-
-\begin{center}
-    \begin{tabular}{p{4.4in}p{2.8in}}
-    {\bf  Term} & {\bf Examples}:\\
-    &  (add additional examples from class)\\
-    \hline 
-    {\bf set} \newline
-    unordered collection of elements & $7 \in \{43, 7, 9 \}$ \qquad $2 \notin \{43, 7, 9 \}$ \\
-    {\it repetition doesn't matter} & \\
-    {\it Equal means agree on membership of all elements}& \\
-    \hline
-    {\bf $n$-tuple} \newline
-    ordered sequence of elements with $n$ ``slots" & \\
-    {\it repetition matters, fixed length} &\\
-    {\it Equal means corresponding components equal}& \\
-    \hline
-    {\bf string} \newline
-    ordered finite sequence of elements each from specified
-    set & \\
-    {\it repetition matters, arbitrary finite length} &\\
-    {\it Equal means same length and corresponding characters equal}
-    \end{tabular}
-    \end{center}
-
 \vfill \vfill
 \end{document}
