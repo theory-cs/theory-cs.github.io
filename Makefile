@@ -44,8 +44,8 @@ topic-latexpand: $(patsubst generated/notes/app/%.tex,generated/notes/app-flat/%
 lessons-latexpand: $(patsubst generated/notes/lessons/%.tex,generated/notes/lessons-flat/%.tex,$(wildcard generated/notes/lessons/*.tex))
 assignments-latexpand: $(patsubst generated/notes/assignments/%.tex,generated/notes/assignments-flat/%.tex,$(wildcard generated/notes/assignments/*.tex))
 
-# Typesetting all .tex files in notes/lessons directory
-generated/output/lessons/%.pdf: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+# Typesetting all .tex files in notes/lessons directory MIA:added dependency on activity-snippets
+generated/output/lessons/%.pdf: notes/lessons/%.tex notes/activity-snippets/*.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/output/lessons; cd notes/lessons; pdflatex -output-directory ../../generated/output/lessons $(<F) 
 
 #since all of the app and topic files are generated through a python script, they are in the generated directory 
