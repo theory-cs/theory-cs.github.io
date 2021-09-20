@@ -247,20 +247,18 @@ def create_unit_boxes():
 		boxString += """<div class="column"> <dl> \n"""
 		
 		#Learning Materials (link to contents on weekly page)
-		boxString += """<dt>Learning Materials</dt> \n"""
-		
+		boxString += """<dt>Learning Materials</dt><dd>"""		
 		#pdfs
 		if('pdfs' in unitData[i]):
 			for pdf in unitData[i]['pdfs']:
 				pdfjsID = pdf['name'].replace(" ", "-")
-				boxString += "<dd> <a href=\"unit""" +str(unitNumber)+ """.html#"""+ pdfjsID+"""\" >""" + pdf['name'] + """</a></dd>\n"""
-				
+				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ pdfjsID+"""\" >""" + pdf['name'] + """</a>&emsp;"""				
 		#embeds
 		if('embed' in unitData[i]):
 			for embed in unitData[i]['embed']: 
 				embedID = embed['name'].replace(" ", "-")
-				boxString += "<dd> <a href=\"unit""" +str(unitNumber)+ """.html#"""+ embedID+"""\" >""" + embed['name'] + """</a></dd>\n"""
-
+				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ embedID+"""\" >""" + embed['name'] + """</a>&emsp;"""
+		boxString += "</dd>"
     	#Assignments
 		boxString += """<dt>Due Dates</dt> \n"""
 		if ('Assignments' in unitData[i]):

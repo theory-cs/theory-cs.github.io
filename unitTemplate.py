@@ -66,12 +66,13 @@ for i in range(0,len(unitData)):
 
         #Information Section
         infoString = ""
-        if('Information' in unitData[i]): 
-            infoString = "<dl><dt>"+ unitData[i]['Information'][0]+ "</dt>"   
-            unitData[i]['Information']                 
-            for k in range(1, len(unitData[i]['Information'])) :              
-                infoString += "<dd>"+ unitData[i]['Information'][k] +"</dd>"
-        infoString += "</dl>"
+        if('CalendarInfo' in unitData[i]): 
+            infoString = "<dl><dt>" + unitData[i]['CalendarInfo'] + "</dt></dl>"
+#            infoString = "<dl><dt>"+ unitData[i]['calendarInfo'][0]+ "</dt>"   
+#            unitData[i]['calendarInfo']                 
+#            for k in range(1, len(unitData[i]['calendarInfo'])) :              
+#                infoString += "<dd>"+ unitData[i]['calendarInfo'][k] +"</dd>"
+#        infoString += "</dl>"
 
     #Embedded links section
     embedString = ""
