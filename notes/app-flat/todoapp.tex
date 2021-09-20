@@ -176,7 +176,8 @@ $ \{\A, \C, \G, \U \} \circ  \{\A, \C, \G, \U \}$& \\
 \section*{Defining functions}
 
 
-\fbox{\parbox{\textwidth}{{\bf New! Defining functions} A function is defined by its (1) domain, (2) codomain, and (3) rule assigning each 
+\fbox{\parbox{\textwidth}{{\bf New! Defining functions} A function is defined by its (1) domain, 
+(2) codomain, and (3) rule assigning each 
 element in the domain exactly one element in the codomain.\\
 
 The domain and codomain are nonempty sets.
@@ -185,54 +186,79 @@ The rule can be depicted as a table, formula, or English description.
 }}
 
 
-Examples: 
+Example: The absolute value function 
 
+{\bf Domain}
 
+{\bf Codomain}
+
+{\bf Rule}
 
 \vfill 
 
 
-{\bf Definition} (Of a function, recursively) A function \textit{rnalen} that computes the length of RNA strands in $S$ is defined by:
-\[
-\begin{array}{llll}
-& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
-\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
-\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
-\end{array}
-\]
 
-The domain of \textit{rnalen} is \underline{\phantom{$S$\hspace{1.5in}}}.
-The codomain of \textit{rnalen} is \underline{\phantom{$\mathbb{Z}^+$\hspace{1.5in}}}.
-\[
-rnalen(\A\C\U) = \underline{\phantom{\hspace{5in}}}
-\]
+In the table  below,  each row represents a user's ratings of movies: 
+\cmark~(check) indicates the person liked the movie, \xmark~(x)
+that they didn't, and $\bullet$ (dot) that they didn't rate it one way or another (neutral rating or didn't watch).
+
+\begin{center}
+\begin{tabular}{c|ccc||c}
+Person & Fyre & Frozen II & Picard & Ratings written as a  $3$-tuple\\
+\hline
+$P_1$     & \xmark & $\bullet$ & \cmark & $(-1, 0, 1)$ \\
+$P_2$     & \cmark & \cmark & \xmark & $(1, 1, -1)$ \\
+$P_3$     & \cmark & \cmark & \cmark & $(1, 1, 1)$ \\
+$P_4$     & $\bullet$ & \xmark & \cmark &  \\
+\end{tabular}
+\end{center}
+
+Which of $P_1$, $P_2$, $P_3$ has movie preferences most similar to $P_4$?
+
+One approach to answer this question: use {\bf functions} to define distance between user preferences.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|l|}{
+Define the following functions whose inputs are ordered pairs of $3$-tuples each of whose components}\\
+\multicolumn{2}{|l|}{
+ comes from the set $\{-1,0,1\}$
+}
+\\
+\hline
+&\\
+$\displaystyle d_{1}(~ (x_1, x_2, x_3) , (y_1, y_2, y_3) ~) =  \sum_{i=1}^3\left( (\abs{x_i-y_i} + 1) \textbf{ div } 2 \right)$
+&
+$\displaystyle d_{2}(~ (x_1, x_2, x_3) , (y_1, y_2, y_3) ~) =  \sqrt{ \sum_{i=1}^3 (x_i - y_i)^2}$ \\
+&\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline &&\\
+$d_1(P_4, P_1)$ & $d_1(P_4, P_2)$ & $d_1(P_4, P_3)$ \\
+&&\\
+&&\\
+\hline&&\\
+$d_2(P_4, P_1)$ & $d_2(P_4, P_2)$ & $d_2(P_4, P_3)$ \\
+&&\\
+&&\\
+\hline
+\end{tabularx}
 
 \vfill
 
-{\it Extra example}: A function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is defined recursively:  {\it fill in codomain and sample function
-applications}
-\[
-\begin{array}{llll}
-& & \textit{basecount} : S \times B & \to \phantom{\mathbb{N}} \\
-\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(b_1, b_2) & =
-        \begin{cases}
-            1 & \textrm{when } b_1 = b_2 \\
-            0 & \textrm{when } b_1 \neq b_2 \\
-        \end{cases} \\
-\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(s b_1, b_2) & =
-        \begin{cases}
-            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
-            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
-        \end{cases}
-\end{array}
-\]
-\[
-basecount(\A\C\U,\A) = \underline{\phantom{\hspace{5in}}}
-\]
-\[
-basecount(\A\C\U,\G) = \underline{\phantom{\hspace{5in}}}
-\]
- \vfill
+
+{\it Extra example:} A new movie is released, and $P_1$ and $P_2$ watch it before $P_3$, and give it
+ratings; $P_1$ gives \cmark~and $P_2$ gives \xmark.
+Should this movie be recommended to $P_3$? Why or why not?
+
+{\it Extra example:} Define the new functions that would be used to compare the $4$-tuples of ratings encoding
+movie preferences now that there are four movies in the database.
+
+\vfill \vfill
 \section*{Defining functions recursively}
 
 

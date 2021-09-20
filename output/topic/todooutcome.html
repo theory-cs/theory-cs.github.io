@@ -255,26 +255,126 @@
 </table>
 </div>
 <h1 class="unnumbered" id="defining-functions">Defining functions</h1>
-<p>Examples:</p>
-<p><span><strong>Definition</strong></span> (Of a function, recursively) A function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is defined by: <span class="math display">\[\begin{array}{llll}
-&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
-\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
-\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
-\end{array}\]</span></p>
-<p>The domain of <em>rnalen</em> is <u></u>. The codomain of <em>rnalen</em> is <u></u>. <span class="math display">\[rnalen(\texttt{A}\texttt{C}\texttt{U}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
-<p><span><em>Extra example</em></span>: A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is defined recursively: <span><em>fill in codomain and sample function applications</em></span> <span class="math display">\[\begin{array}{llll}
-&amp; &amp; \textit{basecount} : S \times B &amp; \to \phantom{\mathbb{N}} \\
-\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(b_1, b_2) &amp; =
-        \begin{cases}
-            1 &amp; \textrm{when } b_1 = b_2 \\
-            0 &amp; \textrm{when } b_1 \neq b_2 \\
-        \end{cases} \\
-\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(s b_1, b_2) &amp; =
-        \begin{cases}
-            1 + \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 = b_2 \\
-            \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 \neq b_2 \\
-        \end{cases}
-\end{array}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{A}) = \underline{\phantom{\hspace{5in}}}\]</span> <span class="math display">\[basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{G}) = \underline{\phantom{\hspace{5in}}}\]</span></p>
+<p>Example: The absolute value function</p>
+<p><span><strong>Domain</strong></span></p>
+<p><span><strong>Codomain</strong></span></p>
+<p><span><strong>Rule</strong></span></p>
+<p>In the table below, each row represents a user’s ratings of movies:  (check) indicates the person liked the movie,  (x) that they didn’t, and <span class="math inline">\(\bullet\)</span> (dot) that they didn’t rate it one way or another (neutral rating or didn’t watch).</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Person</th>
+<th style="text-align: center;">Fyre</th>
+<th style="text-align: center;">Frozen II</th>
+<th style="text-align: center;">Picard</th>
+<th style="text-align: center;">Ratings written as a <span class="math inline">\(3\)</span>-tuple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P_1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\((-1, 0, 1)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(P_2\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\((1, 1, -1)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P_3\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\((1, 1, 1)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(P_4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Which of <span class="math inline">\(P_1\)</span>, <span class="math inline">\(P_2\)</span>, <span class="math inline">\(P_3\)</span> has movie preferences most similar to <span class="math inline">\(P_4\)</span>?</p>
+<p>One approach to answer this question: use <span><strong>functions</strong></span> to define distance between user preferences.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;" colspan="2">Define the following functions whose inputs are ordered pairs of <span class="math inline">\(3\)</span>-tuples each of whose components</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" colspan="2">comes from the set <span class="math inline">\(\{-1,0,1\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\displaystyle d_{1}(~ (x_1, x_2, x_3) , (y_1, y_2, y_3) ~) =  \sum_{i=1}^3\left( (\lvert~x_i-y_i~\rvert + 1) \textbf{ div } 2 \right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle d_{2}(~ (x_1, x_2, x_3) , (y_1, y_2, y_3) ~) =  \sqrt{ \sum_{i=1}^3 (x_i - y_i)^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(d_1(P_4, P_1)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(d_1(P_4, P_2)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(d_1(P_4, P_3)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(d_2(P_4, P_1)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(d_2(P_4, P_2)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(d_2(P_4, P_3)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><span><em>Extra example:</em></span> A new movie is released, and <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> watch it before <span class="math inline">\(P_3\)</span>, and give it ratings; <span class="math inline">\(P_1\)</span> gives  and <span class="math inline">\(P_2\)</span> gives . Should this movie be recommended to <span class="math inline">\(P_3\)</span>? Why or why not?</p>
+<p><span><em>Extra example:</em></span> Define the new functions that would be used to compare the <span class="math inline">\(4\)</span>-tuples of ratings encoding movie preferences now that there are four movies in the database.</p>
 <h1 class="unnumbered" id="defining-functions-recursively">Defining functions recursively</h1>
 <p><span><strong>Definition</strong></span> (Of a function, recursively) A function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is defined by: <span class="math display">\[\begin{array}{llll}
 &amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\

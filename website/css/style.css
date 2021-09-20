@@ -37,7 +37,7 @@ h1 {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-style: normal;
     font-weight: bolder;
-    font-size: 380%;
+    font-size: 300%;
     line-height: 87px;
     color: #182B49;
 }
@@ -45,7 +45,7 @@ h1 {
 h2 {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-weight: bold;
-    font-size: 280%;
+    font-size: 200%;
     line-height: 80px;
     color: #182B49;
 }
@@ -53,7 +53,7 @@ h2 {
 h3 {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-weight: bold;
-    font-size: 180%;
+    font-size: 150%;
     color: #182B49;
 }
 
@@ -140,7 +140,7 @@ table.cinereousTable td, table.cinereousTable th {
 }
   
 table.cinereousTable tbody td {
-    font-size: 13px;
+    font-size: 15px;
 }
   
 table.cinereousTable thead {
@@ -191,12 +191,12 @@ table.cinereousTable thead th {
 }
 
 p {
-    font-size: 150%;
+    font-size: 140%;
 }
 
 ul {
     /*list-style:none;*/
-     font-size: 150%;
+     font-size: 100%;
      margin-left: 0%;
      text-decoration: none;
  }
@@ -222,7 +222,7 @@ ul {
     padding: 0.2% 0.8%;
     border: 2px solid #6E963B;
     font-weight: 700;
-    font-size: 120%;
+    font-size: 100%;
 }
 
 .button:hover {
@@ -307,11 +307,11 @@ ul {
     position: absolute;
     left: 480px;
     top: 360px;
-    font-size: 200%;
+    font-size: 120%;
 }
 
 label {
-    font-size: 150%;
+    font-size: 120%;
 }
 
 .form-switch .form-check-input {
@@ -322,12 +322,12 @@ label {
 
 .collapsed card-link{
     font-weight: bolder;
-    font-size: 200%;
+    font-size: 150%;
 }
 
 .card-link{
     font-weight: bolder;
-    font-size: 200%;
+    font-size: 150%;
 }
 
 .header{
@@ -338,7 +338,7 @@ label {
 
 .logo {
     /*text-align:left;*/ 
-    font-size: 250%;
+    font-size: 200%;
     line-height: 60px;
 }
 
@@ -346,7 +346,7 @@ label {
     background-color: #182B49;
     color: white;
     text-align: center;
-    font-size: 150%;
+    font-size: 100%;
     margin-bottom: 0%;
     bottom:0%;
     width:100%;
