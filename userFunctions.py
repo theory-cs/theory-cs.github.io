@@ -127,8 +127,6 @@ def build_head_html(title):
 
 	<!-- icons for side menu -->
 	<link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' >
-
-	<link rel="shortcut icon" href="../resources/images/musicalChairs.png">
 </head>
 	"""
 	return headHtml
