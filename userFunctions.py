@@ -238,10 +238,17 @@ def create_unit_boxes():
 			info+=unitData[i]['CalendarInfo']
 		
 		#box heading and subheading/description
-		boxString += """<div class="box"><button type="button" class="collapsible"> \n"""
-		boxString += """<h2 style= "line-height:40px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-right'></i> 
+		if(unitData[i]['ExpandInCalendar']):
+			boxString += """<div class="box"><button type="button" class="collapsible active"> \n"""
+			boxString += """<h2 style= "line-height:40px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-down'></i> 
 				""" + heading + "</h2> </button> "
-		boxString += """<div class="boxContent"> <p> """+ info + """</p>"""
+			boxString += """<div class="boxContent" style="display: block;"> <p> """+ info + """</p>"""
+		else:
+			boxString += """<div class="box"><button type="button" class="collapsible"> \n"""
+			boxString += """<h2 style= "line-height:40px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-right'></i> 
+				""" + heading + "</h2> </button> "
+			boxString += """<div class="boxContent" style="display: none;"> <p> """+ info + """</p>"""
+			
 		boxString += "<hr>"
 		
 		#list begins
@@ -286,6 +293,8 @@ def create_unit_boxes():
 		
 		boxString += "</div><br><br>"
 
+
+	print(boxString)
  	#collapsible script 
 	boxString += """<script>
 	var coll = document.getElementsByClassName("collapsible");
