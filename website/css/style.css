@@ -404,7 +404,8 @@ dd{
 .box {
     border: 3px solid #00629B;
     /*background:#B6B1A9;*/
-    background:#e6e1d9;
+    /*background:#e6e1d9;*/
+    background: white;
     border-color: #00C6D7;
     border-width: 9%;
     border-style: outset;
