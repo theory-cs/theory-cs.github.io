@@ -38,11 +38,11 @@ latex: lessonsLatex appLatex topicLatex assignmentsLatex app-latexpand topic-lat
 lessonsLatex: $(patsubst notes/lessons/%.tex,generated/output/lessons/%.pdf,$(wildcard notes/lessons/*.tex))
 appLatex: $(patsubst generated/notes/app/%.tex,generated/output/app/%.pdf,$(wildcard generated/notes/app/*.tex))
 topicLatex: $(patsubst generated/notes/topic/%.tex,generated/output/topic/%.pdf,$(wildcard generated/notes/topic/*.tex))
-assignmentsLatex: $(patsubst generated/notes/assignments/%.tex,generated/output/assignments/%.pdf,$(wildcard generated/notes/assignments/*.tex))
-app-latexpand: $(patsubst generated/notes/topic/%.tex,generated/notes/topic-flat/%.tex,$(wildcard generated/notes/topic/*.tex))
-topic-latexpand: $(patsubst generated/notes/app/%.tex,generated/notes/app-flat/%.tex,$(wildcard generated/notes/app/*.tex))
+assignmentsLatex: $(patsubst notes/assignments/%.tex,generated/output/assignments/%.pdf,$(wildcard notes/assignments/*.tex))
+topic-latexpand: $(patsubst generated/notes/topic/%.tex,generated/notes/topic-flat/%.tex,$(wildcard generated/notes/topic/*.tex))
+app-latexpand: $(patsubst generated/notes/app/%.tex,generated/notes/app-flat/%.tex,$(wildcard generated/notes/app/*.tex))
 lessons-latexpand: $(patsubst generated/notes/lessons/%.tex,generated/notes/lessons-flat/%.tex,$(wildcard generated/notes/lessons/*.tex))
-assignments-latexpand: $(patsubst generated/notes/assignments/%.tex,generated/notes/assignments-flat/%.tex,$(wildcard generated/notes/assignments/*.tex))
+assignments-latexpand: $(patsubst notes/assignments/%.tex,generated/notes/assignments-flat/%.tex,$(wildcard notes/assignments/*.tex))
 
 # Typesetting all .tex files in notes/lessons directory MIA:added dependency on activity-snippets
 generated/output/lessons/%.pdf: notes/lessons/%.tex notes/activity-snippets/*.tex resources/lesson-head.tex resources/discrete-math-packages.tex
@@ -57,13 +57,13 @@ generated/output/app/%.pdf: generated/notes/app/%.tex resources/lesson-head.tex 
 generated/output/topic/%.pdf: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/output/topic; cd generated/notes/topic; pdflatex -output-directory ../../output/topic $(<F) 
 
-# Typesetting all .tex files in generated/notes/assignments directory
-generated/output/assignments/%.pdf: generated/notes/assignments/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
-	mkdir -p generated/output/assignments; cd generated/notes/assignments; pdflatex -output-directory ../../output/assignments $(<F) 
+# Typesetting all .tex files in notes/assignments directory
+generated/output/assignments/%.pdf: notes/assignments/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/output/assignments; cd notes/assignments; pdflatex -output-directory ../../generated/output/assignments $(<F) 
 
 # generate expanded/flat version of assignments compiled tex files
-generated/notes/assignments-flat/%.tex: generated/notes/assignments/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
-	mkdir -p generated/notes/assignments-flat; cd generated/notes/assignments; latexpand $(<F) > ../assignments-flat/$(<F)
+generated/notes/assignments-flat/%.tex: notes/assignments/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/notes/assignments-flat; cd notes/assignments; latexpand $(<F) > ../../generated/notes/assignments-flat/$(<F)
 
 # generate expanded/flat version of topic compiled tex files
 generated/notes/topic-flat/%.tex: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
@@ -137,7 +137,7 @@ tex-html : lessons-tex-html app-tex-html topic-tex-html assignments-tex-html
 lessons-tex-html : $(patsubst notes/lessons/%.tex,generated/output/lessons/%.html,$(wildcard notes/lessons/*.tex))
 app-tex-html : $(patsubst generated/notes/app/%.tex,generated/output/app/%.html,$(wildcard generated/notes/app/*.tex))
 topic-tex-html : $(patsubst generated/notes/topic/%.tex,generated/output/topic/%.html,$(wildcard generated/notes/topic/*.tex))
-assignments-tex-html : $(patsubst generated/notes/assignments/%.tex,generated/output/assignments/%.html,$(wildcard generated/notes/assignments/*.tex))
+assignments-tex-html : $(patsubst notes/assignments/%.tex,generated/output/assignments/%.html,$(wildcard notes/assignments/*.tex))
 
 generated/output/lessons/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/lessons/$(@F)
@@ -148,8 +148,8 @@ generated/output/app/%.html: generated/notes/app/%.tex resources/lesson-head.tex
 generated/output/topic/%.html: generated/notes/topic/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd generated/notes/topic; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/topic/$(@F)
 
-generated/output/assignments/%.html: generated/notes/assignments/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
-	cd generated/notes/assignments; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/assignments/$(@F)
+generated/output/assignments/%.html: notes/assignments/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	cd notes/assignments; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/assignments/$(@F)
 
 # Removing all auxiliary typesetting files from output directory and its subdirectories
 clean-tex: 
