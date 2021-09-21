@@ -121,18 +121,23 @@ and also we can apply a set operation to other sets. \\
 {\bf New! Cartesian product of sets} and {\bf set-wise concatenation of sets of strings}\\
 
 
-{\bf Definition}: Let $A$ and $B$ be sets.  The {\bf Cartesian product} of $A$ and $B$, denoted
-$A \times B$, is the set of all ordered pairs $(a,b)$ where $a \in A$ and $b \in B$
+{\bf Definition}: Let $X$ and $Y$ be sets.  The {\bf Cartesian product} of $X$ and $Y$, denoted
+$X \times Y$, is the set of all ordered pairs $(x,y)$ where $x \in X$ and $y \in Y$
 \[
-A \times B = \{ (a,b) \mid a \in A \text{ and } b \in B \}
+X \times Y = \{ (x,y) \mid x \in X \text{ and } y \in Y \}
 \]
-{\bf Definition}: Let $A$ and $B$ be sets of strings over the same alphabet. The {\bf set-wise concatenation} 
-of $A$ and $B$, denoted $A \circ B$, is the set of all results of string concatenation $ab$ where $a \in A$ and $b \in B$
+{\bf Definition}: Let $X$ and $Y$ be sets of strings over the same alphabet. The {\bf set-wise concatenation} 
+of $X$ and $Y$, denoted $X \circ Y$, is the set of all results of string concatenation $xy$ where $x \in X$ 
+and $y \in Y$
 \[
-A \circ B = \{ ab \mid a \in A \text{ and } b \in B \}
+X \circ Y = \{ xy \mid x \in X \text{ and } y \in Y \}
 \]
 }}
 
+{\bf Pro-tip}: the meaning of writing one element next to another like $xy$ depends on the data-types of $x$ and 
+$y$. When $x$ and $y$ are strings, the convention is that $xy$ is the result of string concatenation. 
+When $x$ and $y$ are numbers, the convention is that $xy$ is the result of multiplication. This is 
+(one of the many reasons) why is it very important to declare the data-type of variables before we use them.
 
 {\it Fill in the missing entries in the table}:
 
@@ -183,8 +188,21 @@ element in the domain exactly one element in the codomain.\\
 The domain and codomain are nonempty sets.
 
 The rule can be depicted as a table, formula, or English description.
+
+The notation is 
+\begin{center}
+    ``Let the function FUNCTION-NAME: DOMAIN $\to$ CODOMAIN be given by \\
+FUNCTION-NAME(x) = \ldots for every $x \in DOMAIN$''.
+\end{center}
+
+or 
+\begin{center}
+    ``Consider the function FUNCTION-NAME: DOMAIN $\to$ CODOMAIN given by \\
+FUNCTION-NAME(x) = \ldots for every $x \in DOMAIN$''.
+\end{center}
 }}
 
+\vfill
 
 Example: The absolute value function 
 
@@ -195,72 +213,21 @@ Example: The absolute value function
 {\bf Rule}
 
 \vfill 
-
-
-
-In the table  below,  each row represents a user's ratings of movies: 
-\cmark~(check) indicates the person liked the movie, \xmark~(x)
-that they didn't, and $\bullet$ (dot) that they didn't rate it one way or another (neutral rating or didn't watch).
-
-\begin{center}
-\begin{tabular}{c|ccc||c}
-Person & Fyre & Frozen II & Picard & Ratings written as a  $3$-tuple\\
-\hline
-$P_1$     & \xmark & $\bullet$ & \cmark & $(-1, 0, 1)$ \\
-$P_2$     & \cmark & \cmark & \xmark & $(1, 1, -1)$ \\
-$P_3$     & \cmark & \cmark & \cmark & $(1, 1, 1)$ \\
-$P_4$     & $\bullet$ & \xmark & \cmark &  \\
-\end{tabular}
-\end{center}
-
-Which of $P_1$, $P_2$, $P_3$ has movie preferences most similar to $P_4$?
-
-One approach to answer this question: use {\bf functions} to define distance between user preferences.
-
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-\multicolumn{2}{|l|}{
-Define the following functions whose inputs are ordered pairs of $3$-tuples each of whose components}\\
-\multicolumn{2}{|l|}{
- comes from the set $\{-1,0,1\}$
-}
-\\
-\hline
-&\\
-$\displaystyle d_{1}(~ (x_1, x_2, x_3) , (y_1, y_2, y_3) ~) =  \sum_{i=1}^3\left( (\abs{x_i-y_i} + 1) \textbf{ div } 2 \right)$
-&
-$\displaystyle d_{2}(~ (x_1, x_2, x_3) , (y_1, y_2, y_3) ~) =  \sqrt{ \sum_{i=1}^3 (x_i - y_i)^2}$ \\
-&\\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{tabularx}{\textwidth}{|X|X|X|}
-\hline &&\\
-$d_1(P_4, P_1)$ & $d_1(P_4, P_2)$ & $d_1(P_4, P_3)$ \\
-&&\\
-&&\\
-\hline&&\\
-$d_2(P_4, P_1)$ & $d_2(P_4, P_2)$ & $d_2(P_4, P_3)$ \\
-&&\\
-&&\\
-\hline
-\end{tabularx}
-
-\vfill
-
-
-{\it Extra example:} A new movie is released, and $P_1$ and $P_2$ watch it before $P_3$, and give it
-ratings; $P_1$ gives \cmark~and $P_2$ gives \xmark.
-Should this movie be recommended to $P_3$? Why or why not?
-
-{\it Extra example:} Define the new functions that would be used to compare the $4$-tuples of ratings encoding
-movie preferences now that there are four movies in the database.
-
-\vfill \vfill
+ \vfill
 \section*{Defining functions recursively}
 
+
+When the domain of a function is a {\it recursively defined set}, the rule assigning 
+images to domain elements (outputs) can also be defined recursively.
+
+Recall: The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
 
 {\bf Definition} (Of a function, recursively) A function \textit{rnalen} that computes the length of RNA strands in $S$ is defined by:
 \[
@@ -271,10 +238,13 @@ movie preferences now that there are four movies in the database.
 \end{array}
 \]
 
-The domain of \textit{rnalen} is \underline{\phantom{$S$\hspace{1.5in}}}.
-The codomain of \textit{rnalen} is \underline{\phantom{$\mathbb{Z}^+$\hspace{1.5in}}}.
+The domain of \textit{rnalen} is \phantom{$S$}\\
+
+The codomain of \textit{rnalen} is \phantom{$\mathbb{Z}^+$}\\
+
+Example function application:
 \[
-rnalen(\A\C\U) = \underline{\phantom{\hspace{5in}}}
+rnalen(\A\C\U) = \phantom{1+ rnalen(\A\C) = 1 + (1 + rnalen(\A) ) = 1 + ( 1 + 1) = 3}
 \]
 
 \vfill
@@ -296,11 +266,17 @@ applications}
         \end{cases}
 \end{array}
 \]
-\[
-basecount(\A\C\U,\A) = \underline{\phantom{\hspace{5in}}}
-\]
-\[
-basecount(\A\C\U,\G) = \underline{\phantom{\hspace{5in}}}
-\]
+
+$basecount(\A\C\U,\A) = \hspace{5in}$\\
+
+
+$basecount(\A\C\U,\G) = \hspace{5in}$\\
+
+
+\vfill
+{\it Extra example}: The function which outputs $2^n$ when given a nonnegative integer $n$ can be defined recursively, 
+because its domain is the set of nonnegative integers.
+
+\vfill
  \vfill
 \end{document}

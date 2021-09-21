@@ -214,5 +214,13 @@
 <li><p><span class="math inline">\(\{\texttt{A},\texttt{C},\texttt{U},\texttt{G}\}\)</span></p></li>
 <li><p><span class="math inline">\(\{\texttt{A}\texttt{U}\texttt{G}, \texttt{U}\texttt{A}\texttt{G}, \texttt{U}\texttt{G}\texttt{A}, \texttt{U}\texttt{A}\texttt{A}\}\)</span></p></li>
 </ul>
+<h1 class="unnumbered" id="defining-functions-ratings">Defining functions ratings</h1>
+<p>Recall our representation of Netflix users’ ratings of movies as <span class="math inline">\(n\)</span>-tuples, where <span class="math inline">\(n\)</span> is the number of movies in the database. Each component of the <span class="math inline">\(n\)</span>-tuple is <span class="math inline">\(-1\)</span> (didn’t like the movie), <span class="math inline">\(0\)</span> (neutral rating or didn’t watch the movie), or <span class="math inline">\(1\)</span> (liked the movie).</p>
+<p>Consider the ratings <span class="math inline">\(P_1 = (-1, 0, 1)\)</span>, <span class="math inline">\(P_2 = (1, 1, -1)\)</span>, <span class="math inline">\(P_3 = (1, 1, 1)\)</span>, <span class="math inline">\(P_4 = (0,-1,1)\)</span></p>
+<p>Which of <span class="math inline">\(P_1\)</span>, <span class="math inline">\(P_2\)</span>, <span class="math inline">\(P_3\)</span> has movie preferences most similar to <span class="math inline">\(P_4\)</span>?</p>
+<p>One approach to answer this question: use <span><strong>functions</strong></span> to define distance between user preferences.</p>
+<p>For example, consider the function <span class="math inline">\(d_0: \phantom{the Cartesian product of the set of ratings on 3 movies with itself} \to \phantom{\mathbb{R}}\)</span> given by <span class="math display">\[d_0 (~(~ (x_1, x_2, x_3), (y_1, y_2, y_3) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2}\]</span></p>
+<p><span><em>Extra example:</em></span> A new movie is released, and <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> watch it before <span class="math inline">\(P_3\)</span>, and give it ratings; <span class="math inline">\(P_1\)</span> gives  and <span class="math inline">\(P_2\)</span> gives . Should this movie be recommended to <span class="math inline">\(P_3\)</span>? Why or why not?</p>
+<p><span><em>Extra example:</em></span> Define a new function that could be used to compare the <span class="math inline">\(4\)</span>-tuples of ratings encoding movie preferences now that there are four movies in the database.</p>
 </body>
 </html>
