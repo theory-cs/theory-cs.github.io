@@ -244,4 +244,204 @@ because its domain is the set of nonnegative integers.
 
 \vfill
  \vfill
+\section*{Why represent numbers}
+
+
+Positional representation.
+
+Computers. \vfill
+\section*{Base expansion definition}
+
+
+{\bf Definition} For $b$ an integer greater than $1$ and $n$ a positive integer, 
+the {\bf base $b$ expansion of $n$}  is
+\[
+(a_{k-1} \cdots a_1 a_0)_b
+\]
+where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ 
+are nonnegative integers less than $b$, $a_{k-1} \neq  0$, and
+\[
+n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0
+\]
+
+Notice: {\it The base $b$ expansion of a positive integer $n$ is a string over the alphabet 
+$\{x \in \mathbb{N} \st x < b\}$
+whose leftmost character is nonzero.}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Base $b$ & Collection of possible coefficients in base $b$ expansion of  a positive integer \\
+\hline
+& \\
+Binary ($b=2$) & $\{0,1\}$ \\
+\hline
+& \\
+Ternary ($b=3$) & $\{0,1, 2\}$ \\
+\hline
+& \\
+Octal ($b=8$) & $\{0,1, 2, 3, 4, 5, 6, 7\}$\\
+\hline
+& \\
+Decimal ($b=10$) & $\{0,1, 2, 3, 4, 5, 6, 7, 8, 9\}$\\
+\hline
+& \\
+Hexadecimal ($b=16$) &  $\{0,1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F\}$\\
+& letter coefficient symbols represent numerical values $(A)_{16} = (10)_{10}$\\
+&$(B)_{16} = (11)_{10} ~~(C)_{16} = (12)_{10} ~~
+ (D)_{16} = (13)_{10} ~~ (E)_{16} = (14)_{10} ~~ (F)_{16} = (15)_{10} $\\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill
+ \vfill
+\section*{Base expansion examples}
+
+
+\begin{center}
+    \begin{tabular}{|p{1.75in}|p{1.75in}|p{1.75in}|p{1.75in}|}
+    \hline
+    Binary  $b=2$ & Octal $b=8$ & Decimal $b=10$ & Hexadecimal $b=16$ \\
+    \hline 
+    &&&  \\
+    $(1401)_{2}$&&&\\
+    &&&  \\
+    &&&  \\
+    \hline 
+    &&&  \\
+    & $(1401)_{8}$&&\\
+    &&&\\
+    &&&  \\
+    \hline
+    &&&\\
+    &&$(1401)_{10}$&\\
+    &&&  \\
+    &&&\\
+    \hline
+    &&&\\
+    &&& $(1401)_{16}$\\
+    &&&  \\
+    &&&\\
+    \hline
+    \end{tabular}
+\end{center} \vfill
+\section*{Algorithm definition}
+
+
+\fbox{\parbox{\textwidth}{{\bf New!} An algorithm is a finite sequence of precise instructions for solving a problem.
+}} \vfill
+\section*{Division algorithm}
+
+
+{\bf The Division Algorithm} Let $n$ be an integer 
+and $d$ a positive integer. There are unique integers $q$ and $r$, with $0 \leq r < d$, such that 
+$n = dq + r$. In this case, $d$ is called the divisor, $n$ is called the dividend, $q$ is called the quotient, 
+and $r$ is called the remainder. We write $q=n \textbf{ div } d$ and $r=n \textbf{ mod } d$.
+
+\textit{Extra example}: How do $\textbf{ div }$ and $\textbf{ mod }$ compare to $/$ and $\%$ in Java and python?
+
+\vfill
+ \vfill
+\section*{Algorithm log}
+
+
+\begin{multicols}{2}
+    \begin{minipage}{4in}
+    \begin{algorithm}[caption={Algorithm for calculating integer part of $\log$}]
+    procedure $\textit{log}$($n$: a positive integer)
+    $r$ := $0$
+    while $n$ > $1$
+      $r$ := $r + 1$
+      $n$ := $n$ div $2$
+    return $r$ $\{ r~\textrm{holds the result of the}~\log~\textrm{operation}\} $
+    \end{algorithm}
+    \end{minipage}
+    \begin{center}
+    \begin{tabular}{c|c|c}
+    $n$ & $r$  & $n > 1$?\\
+    \hline 
+    ~$6$~ & \phantom{~$0$~} & \phantom{~T~}\\
+    \phantom{$3$} & \phantom{$1$} & \phantom{T}\\
+    \phantom{$1$} & \phantom{$2$} & \phantom{F}\\
+    &\\
+    \end{tabular}
+    \end{center}
+\end{multicols}
+
+\vfill \vfill
+\section*{Base expansion algorithms}
+
+
+{\bf Two algorithms for constructing base $b$ expansion from decimal representation}
+
+{\bf Algorithm 1}: Start with highest power of $b$, i.e. at left-most coefficient of expansion
+\begin{multicols}{2}
+\begin{algorithm}[caption={Calculating integer part of $\log_b$}]
+procedure $\textit{logb}$($n, b$: positive integers with $b > 1$)
+$r$ := $0$
+while $n$ > $1$
+  $r$ := $r + 1$
+  $n$ := $n$ div $b$
+return $r$ $\{ r~\textrm{holds the result of the}~\log~\textrm{operation}\}$
+\end{algorithm}
+\columnbreak
+\begin{algorithm}[caption={Calculating base $b$ expansion, from left}]
+procedure $\textit{baseb1}$($n, b$: positive integers with $b > 1$)
+$v$ := $n$
+$k$ := $logb(n,b) + 1$
+for $i$ := $1$ to $k$
+  $a_{k-i}$ := $0$
+  while $v \geq b^{k-i}$
+    $a_{k-i}$ := $a_{k-i} + 1$
+    $v$ := $v -  b^{k-i}$
+return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+\end{algorithm}
+\end{multicols}
+
+{\bf Algorithm 2}: Start with right-most coefficient of expansion
+
+\begin{multicols}{2}
+\begin{minipage}{3.2in}
+\begin{tabular}{c|c|c|c|c|c}
+$n$ & $b$  & $q$ & $k$ & $a_k$ & $q \neq 0$?\\
+\hline 
+\phantom{~$17$~} & \phantom{~$3$~} & \phantom{~$17$~} & \phantom{~$0$~} & \phantom{~~~} & \phantom{~T~}\\
+\phantom{~$17$~} & \phantom{~$3$~} & \phantom{~$5$~} & \phantom{~$1$~} & \phantom{~$a_0 = 2$~} & \phantom{~T~}\\
+\phantom{~$17$~} & \phantom{~$3$~} & \phantom{~$1$~} & \phantom{~$2$~} & \phantom{~$a_1 = 2$~} & \phantom{~T~}\\
+\phantom{~$17$~} & \phantom{~$3$~} & \phantom{~$0$~} & \phantom{~$3$~} & \phantom{~$a_2 = 1$~} & \phantom{~F~}\\
+&&&&&\\
+\end{tabular}
+\end{minipage}
+\columnbreak
+\begin{algorithm}[caption={Calculating base $b$ expansion, from right}]
+procedure $\textit{baseb2}$($n, b$: positive integers with $b > 1$)
+$q$ := $n$
+$k$ := $0$
+while $q  \neq 0$
+  $a_{k}$ := $q$ mod $b$
+  $q$ := $q$ div $b$
+  $k$ := $k+1$
+return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+\end{algorithm}
+
+Idea: {\tiny(when $k > 1$)} $n = a_{k-1} b^{k-1} + \cdot+ a_1 b + a_0 = b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0$
+so $a_0 = n \textbf{ mod } b$ and $a_{k-1} b^{k-2} + \cdots + a_1 = n \textbf{ div } b$.
+\end{multicols}
+
+
+\begin{center}
+\begin{tabular}{p{3.3in}|p{3.3in}}
+Algorithm 1 for the base 3 expansion of $17$ &Algorithm 2 for the base 3 expansion of $17$  \\
+\hline
+ & \\
+ & \\
+ & \\
+ & \\
+  & \\
+ & \\
+\end{tabular}
+\end{center}
+
+\vfill \vfill
 \end{document}

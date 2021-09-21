@@ -345,5 +345,337 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <p><span class="math inline">\(basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{A}) = \hspace{5in}\)</span><br />
 <span class="math inline">\(basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{G}) = \hspace{5in}\)</span><br />
 <span><em>Extra example</em></span>: The function which outputs <span class="math inline">\(2^n\)</span> when given a nonnegative integer <span class="math inline">\(n\)</span> can be defined recursively, because its domain is the set of nonnegative integers.</p>
+<h1 class="unnumbered" id="why-represent-numbers">Why represent numbers</h1>
+<p>Positional representation.</p>
+<p>Computers.</p>
+<h1 class="unnumbered" id="base-expansion-definition">Base expansion definition</h1>
+<p><span><strong>Definition</strong></span> For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span> a positive integer, the <span><strong>base <span class="math inline">\(b\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{k-1} \cdots a_1 a_0)_b\]</span> where <span class="math inline">\(k\)</span> is a positive integer, <span class="math inline">\(a_0, a_1, \ldots, a_{k-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span>, <span class="math inline">\(a_{k-1} \neq  0\)</span>, and <span class="math display">\[n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0\]</span></p>
+<p>Notice: <span><em>The base <span class="math inline">\(b\)</span> expansion of a positive integer <span class="math inline">\(n\)</span> is a string over the alphabet <span class="math inline">\(\{x \in \mathbb{N} \mid x &lt; b\}\)</span> whose leftmost character is nonzero.</em></span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Base <span class="math inline">\(b\)</span></th>
+<th style="text-align: center;">Collection of possible coefficients in base <span class="math inline">\(b\)</span> expansion of a positive integer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Binary (<span class="math inline">\(b=2\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ternary (<span class="math inline">\(b=3\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1, 2\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Octal (<span class="math inline">\(b=8\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1, 2, 3, 4, 5, 6, 7\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Decimal (<span class="math inline">\(b=10\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Hexadecimal (<span class="math inline">\(b=16\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">letter coefficient symbols represent numerical values <span class="math inline">\((A)_{16} = (10)_{10}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\((B)_{16} = (11)_{10} ~~(C)_{16} = (12)_{10} ~~
+ (D)_{16} = (13)_{10} ~~ (E)_{16} = (14)_{10} ~~ (F)_{16} = (15)_{10}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="base-expansion-examples">Base expansion examples</h1>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Binary <span class="math inline">\(b=2\)</span></th>
+<th style="text-align: left;">Octal <span class="math inline">\(b=8\)</span></th>
+<th style="text-align: left;">Decimal <span class="math inline">\(b=10\)</span></th>
+<th style="text-align: left;">Hexadecimal <span class="math inline">\(b=16\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\((1401)_{2}\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\((1401)_{8}\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\((1401)_{10}\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\((1401)_{16}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="algorithm-definition">Algorithm definition</h1>
+<h1 class="unnumbered" id="division-algorithm">Division algorithm</h1>
+<p><span><strong>The Division Algorithm</strong></span> Let <span class="math inline">\(n\)</span> be an integer and <span class="math inline">\(d\)</span> a positive integer. There are unique integers <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>, with <span class="math inline">\(0 \leq r &lt; d\)</span>, such that <span class="math inline">\(n = dq + r\)</span>. In this case, <span class="math inline">\(d\)</span> is called the divisor, <span class="math inline">\(n\)</span> is called the dividend, <span class="math inline">\(q\)</span> is called the quotient, and <span class="math inline">\(r\)</span> is called the remainder. We write <span class="math inline">\(q=n \textbf{ div } d\)</span> and <span class="math inline">\(r=n \textbf{ mod } d\)</span>.</p>
+<p><em>Extra example</em>: How do <span class="math inline">\(\textbf{ div }\)</span> and <span class="math inline">\(\textbf{ mod }\)</span> compare to <span class="math inline">\(/\)</span> and <span class="math inline">\(\%\)</span> in Java and python?</p>
+<h1 class="unnumbered" id="algorithm-log">Algorithm log</h1>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{log}\)</span>(<span class="math inline">\(n\)</span>: a positive integer) <span class="math inline">\(r\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(n\)</span> &gt; <span class="math inline">\(1\)</span> <span class="math inline">\(r\)</span> := <span class="math inline">\(r + 1\)</span> <span class="math inline">\(n\)</span> := <span class="math inline">\(n\)</span> div <span class="math inline">\(2\)</span> return <span class="math inline">\(r\)</span> <span class="math inline">\(\{ r~\textrm{holds the result of the}~\log~\textrm{operation}\}\)</span></p>
+</div>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(n &gt; 1\)</span>?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"> <span class="math inline">\(6\)</span> </td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 class="unnumbered" id="base-expansion-algorithms">Base expansion algorithms</h1>
+<p><span><strong>Two algorithms for constructing base <span class="math inline">\(b\)</span> expansion from decimal representation</strong></span></p>
+<p><span><strong>Algorithm 1</strong></span>: Start with highest power of <span class="math inline">\(b\)</span>, i.e. at left-most coefficient of expansion</p>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{logb}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(r\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(n\)</span> &gt; <span class="math inline">\(1\)</span> <span class="math inline">\(r\)</span> := <span class="math inline">\(r + 1\)</span> <span class="math inline">\(n\)</span> := <span class="math inline">\(n\)</span> div <span class="math inline">\(b\)</span> return <span class="math inline">\(r\)</span> <span class="math inline">\(\{ r~\textrm{holds the result of the}~\log~\textrm{operation}\}\)</span></p>
+</div>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{baseb1}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(v\)</span> := <span class="math inline">\(n\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(logb(n,b) + 1\)</span> for <span class="math inline">\(i\)</span> := <span class="math inline">\(1\)</span> to <span class="math inline">\(k\)</span> <span class="math inline">\(a_{k-i}\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(v \geq b^{k-i}\)</span> <span class="math inline">\(a_{k-i}\)</span> := <span class="math inline">\(a_{k-i} + 1\)</span> <span class="math inline">\(v\)</span> := <span class="math inline">\(v -  b^{k-i}\)</span> return <span class="math inline">\((a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}\)</span></p>
+</div>
+</div>
+<p><span><strong>Algorithm 2</strong></span>: Start with right-most coefficient of expansion</p>
+<div class="multicols">
+<p><span>2</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(k\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(a_k\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(q \neq 0\)</span>?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{baseb2}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(q\)</span> := <span class="math inline">\(n\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(q  \neq 0\)</span> <span class="math inline">\(a_{k}\)</span> := <span class="math inline">\(q\)</span> mod <span class="math inline">\(b\)</span> <span class="math inline">\(q\)</span> := <span class="math inline">\(q\)</span> div <span class="math inline">\(b\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(k+1\)</span> return <span class="math inline">\((a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}\)</span></p>
+</div>
+<p>Idea: <span>(when <span class="math inline">\(k &gt; 1\)</span>)</span> <span class="math inline">\(n = a_{k-1} b^{k-1} + \cdot+ a_1 b + a_0 = b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0\)</span> so <span class="math inline">\(a_0 = n \textbf{ mod } b\)</span> and <span class="math inline">\(a_{k-1} b^{k-2} + \cdots + a_1 = n \textbf{ div } b\)</span>.</p>
+</div>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Algorithm 1 for the base 3 expansion of <span class="math inline">\(17\)</span></th>
+<th style="text-align: left;">Algorithm 2 for the base 3 expansion of <span class="math inline">\(17\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
 </body>
 </html>
