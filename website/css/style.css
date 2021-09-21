@@ -7,6 +7,7 @@
     background-color: #182B49;
     position: fixed;
     width: 100%;
+    z-index: 6;
 }
 
 .topnav a {
