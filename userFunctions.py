@@ -273,12 +273,14 @@ def create_unit_boxes():
 		if ('Due Dates' in unitData[i]):
 			for assignment in unitData[i]['Due Dates']:
 				#if link is provided use that link
-				link = ""
+				link = "<a href=\""
 				if('link' in assignment):
-					link=assignment['link']
+					link += assignment['link']
+					link += "\">"+ assignment['name'] + "</a>"
             	#else refer to the assignments page (default)
 				else:
-					link="assignments.html"
+					link +="assignments.html"
+					link += "\" target=\"_blank\">"+ assignment['name'] + "</a>"
 				#add due date of assignment based on unit-settings or, if not present, based on assignmentData
 				assignmentDict = next((assnt for assnt in assignmentData if assnt["name"] == assignment['name']), False)
 				due = ""
@@ -288,7 +290,7 @@ def create_unit_boxes():
 				elif(assignmentDict and 'due' in assignmentDict):
 					due+= "Due: "
 					due+= assignmentDict['due']
-				boxString += "<dd> <a href=\"""" +link+ """\">"""+assignment['name']+"""</a> <div class="badge due">"""+due+"""</div> </dd>\n"""
+				boxString += "<dd>" + link + "<div class=\"badge due\">"+due+"</div> </dd>\n"
 		
 		boxString += "</dl></div></div>"
 		
