@@ -270,8 +270,8 @@ def create_unit_boxes():
 		boxString += "</dd>"
     	#Assignments
 		boxString += """<dt>Due Dates</dt> \n"""
-		if ('Assignments' in unitData[i]):
-			for assignment in unitData[i]['Assignments']:
+		if ('Due Dates' in unitData[i]):
+			for assignment in unitData[i]['Due Dates']:
 				#if link is provided use that link
 				link = ""
 				if('link' in assignment):
