@@ -81,7 +81,7 @@ h3 {
 
 .column a:hover{
     text-decoration: underline;
-    font-size: 110%;
+    font-size: 105%;
 }
 
 .column dd{
@@ -443,5 +443,8 @@ dd{
   overflow: hidden;
 }
 
-
+.badge {
+    background-color: #182B49;
+    font-weight: 400;
+}
 

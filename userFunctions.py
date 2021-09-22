@@ -294,7 +294,7 @@ def create_unit_boxes():
 		boxString += "</div><br><br>"
 
 
-	print(boxString)
+	# print(boxString)
  	#collapsible script 
 	boxString += """<script>
 	var coll = document.getElementsByClassName("collapsible");
