@@ -232,6 +232,17 @@ ul {
     text-decoration: none;
 }
 
+.button.coll{
+    background: #00629B;
+    border: 2px solid #00629B;
+}
+
+.button.coll:hover {
+    color: #00629B;
+    background: white;
+    text-decoration: none;
+}
+
 .button.PDF {
     background: #C69214;
     border: 2px solid #C69214;
@@ -428,7 +439,7 @@ dd{
 }
 
 .collapsible {
-  background-color: #e6e1d9;
+  background-color: white;
   width: 100%;
   border: none;
   text-align: left;
@@ -447,4 +458,5 @@ dd{
     background-color: #182B49;
     font-weight: 400;
 }
+
 

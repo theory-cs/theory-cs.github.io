@@ -225,8 +225,8 @@ head_html = {
 
 def create_unit_boxes():
 	#variables used in for loop
-	boxString =""" <button onclick="expandCollapseAll(0)">Expand All Boxes</button>
-				<button onclick="expandCollapseAll(1)">Collapse All Boxes</button>"""
+	boxString =""" <button class="button coll" onclick="expandCollapseAll(0)">Expand All Boxes</button>
+				<button class="button coll" onclick="expandCollapseAll(1)">Collapse All Boxes</button><br><br>"""
 
 	for i in range(len(unitData)):
 		unitNumber = i+1
