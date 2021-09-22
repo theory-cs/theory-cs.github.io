@@ -438,16 +438,20 @@ def create_assignment():
 		
 		#format all filenames if addExtensions is true
 		if(element['addExtensions']):
-			pdf="../output/assignments/"+element['file']+".pdf"
-			tex="../notes/assignments-flat/"+element['file']+".tex"
-			html="../output/assignments/"+element['file']+".html"
+			pdf="../output/assignments/"+element['name']+".pdf"
+			tex="../notes/assignments-flat/"+element['name']+".tex"
+			html="../output/assignments/"+element['name']+".html"
 		else:
-			pdf="../output/assignments/"+element['file']+".pdf"
+			pdf="../output/assignments/"+element['name']+".pdf"
 			
 		#heading and collapsible card stuff
 		cardID = element['name'].replace(" ", "").lower()
+
+		#format assignment name, as namme is just file name
+		assignmentName= element['name'].replace("-", " ").title().replace("Cse20F21","")
+
 		templateString += """<div class="card" id=\""""+cardID+"""\"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-		href="#collapse"""+ cardID+"\"> "+element['name']+"""</a> </div> <div id="collapse""" + cardID+ """""
+		href="#collapse"""+ cardID+"\"> "+assignmentName+"""</a> </div> <div id="collapse""" + cardID+ """""
       	class="collapse" data-parent="#accordion"><div class="card-body">"""
 
     	#Assignment Information
