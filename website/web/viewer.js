@@ -13614,7 +13614,7 @@ class BasePreferences {
         "pdfBugEnabled": false,
         "renderer": "canvas",
         "renderInteractiveForms": true,
-        "sidebarViewOnLoad": -1,
+        "sidebarViewOnLoad": 0,
         "scrollModeOnLoad": -1,
         "spreadModeOnLoad": -1,
         "textLayerMode": 1,
