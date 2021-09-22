@@ -154,7 +154,7 @@
 
 </div>
 <h1 class="unnumbered" id="ratings-encoding">Ratings encoding</h1>
-<p>In the table below, each row represents a user’s ratings of movies:  (check) indicates the person liked the movie,  (x) that they didn’t, and <span class="math inline">\(\bullet\)</span> (dot) that they didn’t rate it one way or another (neutral rating or didn’t watch).</p>
+<p>In the table below, each row represents a user’s ratings of movies:  (check) indicates the person liked the movie,  (x) that they didn’t, and <span class="math inline">\(\bullet\)</span> (dot) that they didn’t rate it one way or another (neutral rating or didn’t watch). Can encode these ratings numerically with <span class="math inline">\(1\)</span> for  (check), <span class="math inline">\(-1\)</span> for  (x), and <span class="math inline">\(0\)</span> for <span class="math inline">\(\bullet\)</span> (dot).</p>
 <div class="center">
 <table>
 <thead>
@@ -199,20 +199,30 @@
 </table>
 </div>
 <h1 class="unnumbered" id="defining-sets">Defining sets</h1>
+<p><span><em>To define sets:</em></span></p>
 <p>To define a set using <span><strong>roster method</strong></span>, explicitly list its elements. That is, start with <span class="math inline">\(\{\)</span> then list elements of the set separated by commas and close with <span class="math inline">\(\}\)</span>.</p>
 <p>To define a set using <span><strong>set builder definition</strong></span>, either form “The set of all <span class="math inline">\(x\)</span> from the universe <span class="math inline">\(U\)</span> such that <span class="math inline">\(x\)</span> is ..." by writing <span class="math display">\[\{x \in U \mid ...x... \}\]</span> or form “the collection of all outputs of some operation when the input ranges over the universe <span class="math inline">\(U\)</span>" by writing <span class="math display">\[\{ ...x... \mid x\in U \}\]</span></p>
-<p>We use the symbol <span class="math inline">\(\in\)</span> as “is an element of” to indicate membership in a set.</p>
-<p><span><strong>Example sets</strong></span>: For each of the following, identify whether it’s defined using the roster method or set builder notation and give an example element.</p>
+<p>We use the symbol <span class="math inline">\(\in\)</span> as “is an element of” to indicate membership in a set.<br />
+<span><strong>Example sets</strong></span>: For each of the following, identify whether it’s defined using the roster method or set builder notation and give an example element.</p>
 <ul>
-<li><p><span class="math inline">\(\{ -1, 1\}\)</span></p></li>
-<li><p><span class="math inline">\(\{0, 0 \}\)</span></p></li>
-<li><p><span class="math inline">\(\{-1, 0, 1 \}\)</span></p></li>
-<li><p><span class="math inline">\(\{(x,x,x) \mid x \in \{-1,0,1\} \}\)</span></p></li>
-<li><p><span class="math inline">\(\{ \}\)</span></p></li>
-<li><p><span class="math inline">\(\{ x \in \mathbb{Z} \mid x \geq 0 \}\)</span></p></li>
-<li><p><span class="math inline">\(\{ x \in \mathbb{Z}  \mid x &gt; 0 \}\)</span></p></li>
-<li><p><span class="math inline">\(\{\texttt{A},\texttt{C},\texttt{U},\texttt{G}\}\)</span></p></li>
-<li><p><span class="math inline">\(\{\texttt{A}\texttt{U}\texttt{G}, \texttt{U}\texttt{A}\texttt{G}, \texttt{U}\texttt{G}\texttt{A}, \texttt{U}\texttt{A}\texttt{A}\}\)</span></p></li>
+<li><p><span class="math inline">\(\{ -1, 1\}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{0, 0 \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{-1, 0, 1 \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{(x,x,x) \mid x \in \{-1,0,1\} \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{ \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{ x \in \mathbb{Z} \mid x \geq 0 \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{ x \in \mathbb{Z}  \mid x &gt; 0 \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{\texttt{A},\texttt{C},\texttt{U},\texttt{G}\}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{\texttt{A}\texttt{U}\texttt{G}, \texttt{U}\texttt{A}\texttt{G}, \texttt{U}\texttt{G}\texttt{A}, \texttt{U}\texttt{A}\texttt{A}\}\)</span><br />
+</p></li>
 </ul>
 <h1 class="unnumbered" id="defining-functions-ratings">Defining functions ratings</h1>
 <p>Recall our representation of Netflix users’ ratings of movies as <span class="math inline">\(n\)</span>-tuples, where <span class="math inline">\(n\)</span> is the number of movies in the database. Each component of the <span class="math inline">\(n\)</span>-tuple is <span class="math inline">\(-1\)</span> (didn’t like the movie), <span class="math inline">\(0\)</span> (neutral rating or didn’t watch the movie), or <span class="math inline">\(1\)</span> (liked the movie).</p>

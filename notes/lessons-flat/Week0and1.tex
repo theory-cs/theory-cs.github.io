@@ -158,18 +158,20 @@ cademic year, sign and submit this form to the research contact at retentionstud
 What data should we encode about each Netflix account holder to help us make effective recommendations?
 
 \vfill
+\vfill
 
 In machine learning, clustering can be used to group similar data for prediction and recommendation.  For example,
 each Netflix user's viewing history can be represented as a $n$-tuple indicating their preferences about
 movies in the database, where $n$ is the number of movies in the database.  People with similar tastes in movies can then be clustered to provide recommendations
 of movies for one another.  Mathematically, clustering is based on a notion of distance between pairs of $n$-tuples.
-
-\vfill
  
 
 In the table  below,  each row represents a user's ratings of movies: 
 \cmark~(check) indicates the person liked the movie, \xmark~(x)
-that they didn't, and $\bullet$ (dot) that they didn't rate it one way or another (neutral rating or didn't watch).
+that they didn't, and $\bullet$ (dot) that they didn't rate it one way or 
+another (neutral rating or didn't watch). Can encode
+these ratings numerically with $1$ for \cmark~(check), $-1$ for \xmark~(x), 
+and $0$ for $\bullet$ (dot).
 
 \begin{center}
 \begin{tabular}{c|ccc||c}
@@ -277,9 +279,9 @@ When $n=2$, the 2-tuple is called an {\bf ordered pair}.
 
 A string of length $0$ is called the {\bf empty string} and is denoted $\lambda$.
 
-A set with no elements is called the {\bf empty set} and is denoted $\{\}$ or $\emptyset$.
+A set with no elements is called the {\bf empty set} and is denoted $\{\}$ or $\emptyset$. 
 
-\vfill 
+{\it To define sets:}
 
 To define a set using {\bf roster method}, explicitly list its elements. That is,
 start with $\{$ then list elements of 
@@ -292,22 +294,23 @@ or form ``the collection of all outputs of some operation when the input ranges 
 by writing
 \[\{ ...x... \mid x\in U \}\]
 
-We use the symbol $\in$ as ``is an element of'' to indicate membership in a set.
+We use the symbol $\in$ as ``is an element of'' to indicate membership in a set.\\
+
 
 {\bf Example sets}: For each of the following, identify whether it's defined using the roster method
 or set builder notation and give an example element.
 \begin{itemize}
-    \item[]$\{ -1, 1\}$
-    \item[]$\{0, 0 \}$
-    \item[]$\{-1, 0, 1 \}$
-    \item[]$\{(x,x,x) \mid x \in \{-1,0,1\} \}$
-    \item[]$\{ \}$
-    \item[]$\{ x \in \mathbb{Z} \mid x \geq 0 \}$
-    \item[]$\{ x \in \mathbb{Z}  \mid x > 0 \}$
-    \item[]$\{\A,\C,\U,\G\}$ 
-    \item[]$\{\A\U\G, \U\A\G, \U\G\A, \U\A\A \}$
+    \item[]$\{ -1, 1\}$\\
+    \item[]$\{0, 0 \}$\\
+    \item[]$\{-1, 0, 1 \}$\\
+    \item[]$\{(x,x,x) \mid x \in \{-1,0,1\} \}$\\
+    \item[]$\{ \}$\\
+    \item[]$\{ x \in \mathbb{Z} \mid x \geq 0 \}$\\
+    \item[]$\{ x \in \mathbb{Z}  \mid x > 0 \}$\\
+    \item[]$\{\A,\C,\U,\G\}$ \\
+    \item[]$\{\A\U\G, \U\A\G, \U\G\A, \U\A\A \}$\\
 \end{itemize}
-\vfill 
+ 
 
 RNA is made up of strands of four different bases that encode genomic information
 in specific ways.\\
