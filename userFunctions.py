@@ -225,7 +225,8 @@ head_html = {
 
 def create_unit_boxes():
 	#variables used in for loop
-	boxString =""
+	boxString =""" <button onclick="expandCollapseAll(0)">Expand All Boxes</button>
+				<button onclick="expandCollapseAll(1)">Collapse All Boxes</button>"""
 
 	for i in range(len(unitData)):
 		unitNumber = i+1
@@ -327,6 +328,36 @@ def create_unit_boxes():
 		//coll[0].classList.toggle("active");
     	//var content = coll[0].nextElementSibling;
 		//content.style.display = "block";
+	}
+
+	function expandCollapseAll(bool, multiple) {
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+		console.log(i);
+		
+		for (i = 0; i < coll.length; i++) {
+
+			console.log(i);
+			sideBtnString="#sideBtn";
+			sideBtnString+=(i+1);
+			let sideBtn = document.querySelector(sideBtnString);
+
+			//coll[i].classList.toggle("active");
+    		var content = coll[i].nextElementSibling;
+
+			if(bool==0){
+				//expand all 
+				content.style.display = "block";
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+			}
+			else{
+				 //collapse all
+				content.style.display = "none";
+				sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+			}
+		}
+
+		return bool;
 	}
 	</script>"""
 		
