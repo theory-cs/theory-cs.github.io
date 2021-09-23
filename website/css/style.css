@@ -417,7 +417,7 @@ dd{
     border: 3px solid #00629B;
     /*background:#B6B1A9;*/
     /*background:#e6e1d9;*/
-    background: white;
+    background: lightgray;
     border-color: #00C6D7;
     border-width: 9%;
     border-style: outset;
@@ -428,6 +428,10 @@ dd{
     box-shadow: 2px 2px #B6B1A9;
     
     
+}
+
+.box.actv {
+    background: white;
 }
 
 .column {

@@ -240,13 +240,13 @@ def create_unit_boxes():
 		
 		#box heading and subheading/description
 		if(unitData[i]['ExpandInCalendar']):
-			boxString += """<div class="box"><button type="button" class="collapsible active"> \n"""
+			boxString += """<div class="box actv"><button type="button" class="collapsible active"> \n"""
 			boxString += """<h2 style= "line-height:40px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-down'></i> 
 				""" + heading + "</h2> </button> "
 			boxString += """<div class="boxContent" style="display: block;"> <p> """+ info + """</p>"""
 		else:
-			boxString += """<div class="box"><button type="button" class="collapsible"> \n"""
-			boxString += """<h2 style= "line-height:40px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-right'></i> 
+			boxString += """<div class="box"><button type="button" class="collapsible" style="background-color: lightgray;"> \n"""
+			boxString += """<h2 style= "line-height:20px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-right'></i> 
 				""" + heading + "</h2> </button> "
 			boxString += """<div class="boxContent" style="display: none;"> <p> """+ info + """</p>"""
 			
@@ -290,7 +290,7 @@ def create_unit_boxes():
 				elif(assignmentDict and 'due' in assignmentDict):
 					due+= "Due: "
 					due+= assignmentDict['due']
-				boxString += "<dd>" + link + "<div class=\"badge due\">"+due+"</div> </dd>\n"
+				boxString += "<dd>" + link + " <div class=\"badge due\">"+due+"</div> </dd>\n"
 		
 		boxString += "</dl></div></div>"
 		
@@ -327,9 +327,6 @@ def create_unit_boxes():
 		});
 
 
-		//coll[0].classList.toggle("active");
-    	//var content = coll[0].nextElementSibling;
-		//content.style.display = "block";
 	}
 
 	function expandCollapseAll(bool, multiple) {
