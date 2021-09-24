@@ -253,8 +253,8 @@ def create_unit_boxes():
 		boxString += "<hr>"
 		
 		#list begins
-		boxString += """<div class="column"> <dl> \n"""
-		
+		#boxString += """<div class="column"> <dl> \n"""
+		boxString += """<div><dl> \n"""
 		#Learning Materials (link to contents on weekly page)
 		boxString += """<dt>Learning Materials</dt><dd>"""		
 		#pdfs
