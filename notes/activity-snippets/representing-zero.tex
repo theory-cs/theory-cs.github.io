@@ -3,25 +3,37 @@
 
 {\bf Representing $0$}:
 
-\vfill
-\newpage
-{\bf Fixed-width addition}: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands.  {\it Does this give the right value for the sum?}
-\begin{multicols}{3}
-\begin{align*}
-   & (1~ 1~ 0~ 1~ 0~ 0)_{2,6}\\
-+ & (0~ 0~ 0~ 1~ 0~ 1)_{2,6}\\
-&\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\
-\end{align*}
+So far, the definitions of base expansions treat
+positive and negative integers. What about $0$?
 
-\begin{align*}
-   & [1~ 1~ 0~ 1~ 0~ 0]_{s,6}\\
-+ & [0~ 0~ 0~ 1~ 0~ 1]_{s,6}\\
-&\overline{\phantom{(1~1~1~0~0~1)_2}}\\
-\end{align*}
-
-\begin{align*}
-   & [1~ 1~ 0~ 1~ 0~ 0]_{2c,6}\\
-+ & [0~ 0~ 0~ 1~ 0~ 1]_{2c,6}\\
-&\overline{\phantom{(1~1~1~0~0~1)_2}}\\
-\end{align*}
-\end{multicols}
+\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
+   \hline
+   & & To  represent a {\bf non-negative} integer $n$ & To represent a {\bf non-positive} integer $-n$\\
+   \hline
+   && &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
+   $[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
+   $[1a_{w-2} \cdots a_0]_{s,w}$
+   , where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && (a) & (b)\\
+   \hline
+   &&  &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
+   $[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && (c) & (d) \\
+   \hline
+\end{tabular}
