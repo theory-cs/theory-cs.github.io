@@ -13,4 +13,5 @@ generated/*
 *.pyc
 __pycache__/*
 notes/drafts/*
+notes/assignments-solutions/*
 archive/*
