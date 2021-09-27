@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>todoapp</title>
+  <title>Week2</title>
   <style>
     html {
       line-height: 1.5;
@@ -153,454 +153,7 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="netflix-intro">Netflix intro</h1>
-<p>What data should we encode about each Netflix account holder to help us make effective recommendations?</p>
-<p>In machine learning, clustering can be used to group similar data for prediction and recommendation. For example, each Netflix user’s viewing history can be represented as a <span class="math inline">\(n\)</span>-tuple indicating their preferences about movies in the database, where <span class="math inline">\(n\)</span> is the number of movies in the database. People with similar tastes in movies can then be clustered to provide recommendations of movies for one another. Mathematically, clustering is based on a notion of distance between pairs of <span class="math inline">\(n\)</span>-tuples.</p>
-<h1 class="unnumbered" id="data-types">Data types</h1>
-<div class="center">
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span><strong>Term</strong></span></td>
-<td style="text-align: left;"><span><strong>Examples</strong></span>:</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(add additional examples from class)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span><strong>set</strong></span> unordered collection of elements</td>
-<td style="text-align: left;"><span class="math inline">\(7 \in \{43, 7, 9 \}\)</span> <span class="math inline">\(2 \notin \{43, 7, 9 \}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span><em>repetition doesn’t matter</em></span></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span><em>Equal sets agree on membership of all elements</em></span></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span><strong><span class="math inline">\(n\)</span>-tuple</strong></span> ordered sequence of elements with <span class="math inline">\(n\)</span> “slots" (<span class="math inline">\(n &gt;0\)</span>)</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span><em>repetition matters, fixed length</em></span></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span><em>Equal <span class="math inline">\(n\)</span>-tuples have corresponding components equal</em></span></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span><strong>string</strong></span> ordered finite sequence of elements each from specified set</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span><em>repetition matters, arbitrary finite length</em></span></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span><em>Equal strings have same length and corresponding characters equal</em></span></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><span><em>Special cases</em></span>:</p>
-<p>When <span class="math inline">\(n=2\)</span>, the 2-tuple is called an <span><strong>ordered pair</strong></span>.</p>
-<p>A string of length <span class="math inline">\(0\)</span> is called the <span><strong>empty string</strong></span> and is denoted <span class="math inline">\(\lambda\)</span>.</p>
-<p>A set with no elements is called the <span><strong>empty set</strong></span> and is denoted <span class="math inline">\(\{\}\)</span> or <span class="math inline">\(\emptyset\)</span>.</p>
-<h1 class="unnumbered" id="set-operations">Set operations</h1>
-<p><span><strong>Pro-tip</strong></span>: the meaning of writing one element next to another like <span class="math inline">\(xy\)</span> depends on the data-types of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. When <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are strings, the convention is that <span class="math inline">\(xy\)</span> is the result of string concatenation. When <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are numbers, the convention is that <span class="math inline">\(xy\)</span> is the result of multiplication. This is (one of the many reasons) why is it very important to declare the data-type of variables before we use them.</p>
-<p><span><em>Fill in the missing entries in the table</em></span>:</p>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span><strong>Set</strong></span></th>
-<th style="text-align: center;"><span><strong>Example elements in this set</strong></span>:</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
-<td style="text-align: center;"><code>A</code><code>C</code><code>G</code><code>U</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><span class="math inline">\((\texttt{A}, \texttt{C})\)</span> <span class="math inline">\((\texttt{U}, \texttt{U})\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(B \times \{-1,0,1\}\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\{-1,0,1\} \times B\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><span class="math inline">\((0,0,0)\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\} \circ  \{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><span class="math inline">\(\texttt{G}\texttt{G}\texttt{G}\texttt{G}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 class="unnumbered" id="defining-functions">Defining functions</h1>
-<p>Example: The absolute value function</p>
-<p><span><strong>Domain</strong></span></p>
-<p><span><strong>Codomain</strong></span></p>
-<p><span><strong>Rule</strong></span></p>
-<h1 class="unnumbered" id="defining-functions-recursively">Defining functions recursively</h1>
-<p>When the domain of a function is a <span><em>recursively defined set</em></span>, the rule assigning images to domain elements (outputs) can also be defined recursively.</p>
-<p>Recall: The set of RNA strands <span class="math inline">\(S\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
-\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S, \texttt{U}\in S, \texttt{G}\in S \\
-\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
-\end{array}\]</span> where <span class="math inline">\(sb\)</span> is string concatenation.</p>
-<p><span><strong>Definition</strong></span> (Of a function, recursively) A function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is defined by: <span class="math display">\[\begin{array}{llll}
-&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
-\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
-\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
-\end{array}\]</span></p>
-<p>The domain of <em>rnalen</em> is<br />
-The codomain of <em>rnalen</em> is<br />
-Example function application: <span class="math display">\[rnalen(\texttt{A}\texttt{C}\texttt{U}) = \phantom{1+ rnalen(\texttt{A}\texttt{C}) = 1 + (1 + rnalen(\texttt{A}) ) = 1 + ( 1 + 1) = 3}\]</span></p>
-<p><span><em>Extra example</em></span>: A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is defined recursively: <span><em>fill in codomain and sample function applications</em></span> <span class="math display">\[\begin{array}{llll}
-&amp; &amp; \textit{basecount} : S \times B &amp; \to \phantom{\mathbb{N}} \\
-\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(b_1, b_2) &amp; =
-        \begin{cases}
-            1 &amp; \textrm{when } b_1 = b_2 \\
-            0 &amp; \textrm{when } b_1 \neq b_2 \\
-        \end{cases} \\
-\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(s b_1, b_2) &amp; =
-        \begin{cases}
-            1 + \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 = b_2 \\
-            \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 \neq b_2 \\
-        \end{cases}
-\end{array}\]</span></p>
-<p><span class="math inline">\(basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{A}) = \hspace{5in}\)</span><br />
-<span class="math inline">\(basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{G}) = \hspace{5in}\)</span><br />
-<span><em>Extra example</em></span>: The function which outputs <span class="math inline">\(2^n\)</span> when given a nonnegative integer <span class="math inline">\(n\)</span> can be defined recursively, because its domain is the set of nonnegative integers.</p>
-<h1 class="unnumbered" id="why-represent-numbers">Why represent numbers</h1>
-<p>Modeling uses data-types that are encoded in a computer.</p>
-<p>The details of the encoding impact the efficiency of algorithms we use to understand the systems we are modeling and the impacts of these algorithms on the people using the systems.</p>
-<p>Case study: how to encode numbers?</p>
-<h1 class="unnumbered" id="base-expansion-definition">Base expansion definition</h1>
-<p><span><strong>Definition</strong></span> For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span> a positive integer, the <span><strong>base <span class="math inline">\(b\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{k-1} \cdots a_1 a_0)_b\]</span> where <span class="math inline">\(k\)</span> is a positive integer, <span class="math inline">\(a_0, a_1, \ldots, a_{k-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span>, <span class="math inline">\(a_{k-1} \neq  0\)</span>, and <span class="math display">\[n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0\]</span></p>
-<p>Notice: <span><em>The base <span class="math inline">\(b\)</span> expansion of a positive integer <span class="math inline">\(n\)</span> is a string over the alphabet <span class="math inline">\(\{x \in \mathbb{N} \mid x &lt; b\}\)</span> whose leftmost character is nonzero.</em></span></p>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Base <span class="math inline">\(b\)</span></th>
-<th style="text-align: center;">Collection of possible coefficients in base <span class="math inline">\(b\)</span> expansion of a positive integer</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Binary (<span class="math inline">\(b=2\)</span>)</td>
-<td style="text-align: center;"><span class="math inline">\(\{0,1\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Ternary (<span class="math inline">\(b=3\)</span>)</td>
-<td style="text-align: center;"><span class="math inline">\(\{0,1, 2\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Octal (<span class="math inline">\(b=8\)</span>)</td>
-<td style="text-align: center;"><span class="math inline">\(\{0,1, 2, 3, 4, 5, 6, 7\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Decimal (<span class="math inline">\(b=10\)</span>)</td>
-<td style="text-align: center;"><span class="math inline">\(\{0,1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Hexadecimal (<span class="math inline">\(b=16\)</span>)</td>
-<td style="text-align: center;"><span class="math inline">\(\{0,1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">letter coefficient symbols represent numerical values <span class="math inline">\((A)_{16} = (10)_{10}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><span class="math inline">\((B)_{16} = (11)_{10} ~~(C)_{16} = (12)_{10} ~~
- (D)_{16} = (13)_{10} ~~ (E)_{16} = (14)_{10} ~~ (F)_{16} = (15)_{10}\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 class="unnumbered" id="base-expansion-examples">Base expansion examples</h1>
-<p><span><em>Examples</em></span>:</p>
-<p><span class="math inline">\((1401)_{2}\)</span></p>
-<p><span class="math inline">\((1401)_{10}\)</span></p>
-<p><span class="math inline">\((1401)_{16}\)</span></p>
-<h1 class="unnumbered" id="algorithm-definition">Algorithm definition</h1>
-<h1 class="unnumbered" id="algorithm-half">Algorithm half</h1>
-<div class="algorithm">
-<p>procedure <span class="math inline">\(\textit{half}\)</span>(<span class="math inline">\(n\)</span>: a positive integer) <span class="math inline">\(r\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(n\)</span> &gt; <span class="math inline">\(1\)</span> <span class="math inline">\(r\)</span> := <span class="math inline">\(r + 1\)</span> <span class="math inline">\(n\)</span> := <span class="math inline">\(n - 2\)</span> return <span class="math inline">\(r\)</span> <span class="math inline">\(\{ r~\textrm{holds the result of the operation}\}\)</span></p>
-</div>
-<div class="multicols">
-<p><span>2</span></p>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(n &gt; 1\)</span>?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"> <span class="math inline">\(6\)</span> </td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(n &gt; 1\)</span>?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"> <span class="math inline">\(5\)</span> </td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h1 class="unnumbered" id="algorithm-log">Algorithm log</h1>
-<div class="algorithm">
-<p>procedure <span class="math inline">\(\textit{log}\)</span>(<span class="math inline">\(n\)</span>: a positive integer) <span class="math inline">\(r\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(n\)</span> &gt; <span class="math inline">\(1\)</span> <span class="math inline">\(r\)</span> := <span class="math inline">\(r + 1\)</span> <span class="math inline">\(n\)</span> := <span class="math inline">\(half(n)\)</span> return <span class="math inline">\(r\)</span> <span class="math inline">\(\{ r~\textrm{holds the result of the}~\log~\textrm{operation}\}\)</span></p>
-</div>
-<div class="multicols">
-<p><span>2</span></p>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(n &gt; 1\)</span>?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"> <span class="math inline">\(8\)</span> </td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(n &gt; 1\)</span>?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"> <span class="math inline">\(6\)</span> </td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h1 class="unnumbered" id="division-algorithm">Division algorithm</h1>
-<p><span><strong>Integer division and remainders</strong></span> (aka The Division Algorithm) Let <span class="math inline">\(n\)</span> be an integer and <span class="math inline">\(d\)</span> a positive integer. There are unique integers <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>, with <span class="math inline">\(0 \leq r &lt; d\)</span>, such that <span class="math inline">\(n = dq + r\)</span>. In this case, <span class="math inline">\(d\)</span> is called the divisor, <span class="math inline">\(n\)</span> is called the dividend, <span class="math inline">\(q\)</span> is called the quotient, and <span class="math inline">\(r\)</span> is called the remainder. We write <span class="math inline">\(q=n \textbf{ div } d\)</span> and <span class="math inline">\(r=n \textbf{ mod } d\)</span>.</p>
-<p><em>Extra example</em>: How do <span class="math inline">\(\textbf{ div }\)</span> and <span class="math inline">\(\textbf{ mod }\)</span> compare to <span class="math inline">\(/\)</span> and <span class="math inline">\(\%\)</span> in Java and python?</p>
-<h1 class="unnumbered" id="base-expansion-algorithms">Base expansion algorithms</h1>
-<p><span><strong>Two algorithms for constructing base <span class="math inline">\(b\)</span> expansion from decimal representation</strong></span></p>
-<p><span><strong>Most significant first</strong></span>: Start with left-most coefficient of expansion</p>
-<div class="multicols">
-<p><span>2</span></p>
-<div class="algorithm">
-<p>procedure <span class="math inline">\(\textit{logb}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(r\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(n\)</span> &gt; <span class="math inline">\(1\)</span> <span class="math inline">\(r\)</span> := <span class="math inline">\(r + 1\)</span> <span class="math inline">\(n\)</span> := <span class="math inline">\(n\)</span> div <span class="math inline">\(b\)</span> return <span class="math inline">\(r\)</span> <span class="math inline">\(\{ r~\textrm{holds the result of the}~\log_b~\textrm{operation}\}\)</span></p>
-</div>
-<div class="algorithm">
-<p>procedure <span class="math inline">\(\textit{baseb1}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(v\)</span> := <span class="math inline">\(n\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(logb(n,b) + 1\)</span> for <span class="math inline">\(i\)</span> := <span class="math inline">\(1\)</span> to <span class="math inline">\(k\)</span> <span class="math inline">\(a_{k-i}\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(v \geq b^{k-i}\)</span> <span class="math inline">\(a_{k-i}\)</span> := <span class="math inline">\(a_{k-i} + 1\)</span> <span class="math inline">\(v\)</span> := <span class="math inline">\(v -  b^{k-i}\)</span> return <span class="math inline">\((a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}\)</span></p>
-</div>
-</div>
-<p><span><strong>Least significant first</strong></span>: Start with right-most coefficient of expansion</p>
-<div class="multicols">
-<p><span>2</span></p>
-<p>Idea: <span>(when <span class="math inline">\(k &gt; 1\)</span>)</span> <span class="math display">\[\begin{aligned}
-      n &amp;= a_{k-1} b^{k-1} + \cdots + a_1 b + a_0 \\
-        &amp;= b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0\end{aligned}\]</span> so <span class="math inline">\(a_0 = n \textbf{ mod } b\)</span> and <span class="math inline">\(a_{k-1} b^{k-2} + \cdots + a_1 = n \textbf{ div } b\)</span>.</p>
-<div class="algorithm">
-<p>procedure <span class="math inline">\(\textit{baseb2}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(q\)</span> := <span class="math inline">\(n\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(q  \neq 0\)</span> <span class="math inline">\(a_{k}\)</span> := <span class="math inline">\(q\)</span> mod <span class="math inline">\(b\)</span> <span class="math inline">\(q\)</span> := <span class="math inline">\(q\)</span> div <span class="math inline">\(b\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(k+1\)</span> return <span class="math inline">\((a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}\)</span></p>
-</div>
-</div>
-<h1 class="unnumbered" id="base-expansion-review">Base expansion review</h1>
+<h1 class="unnumbered" id="monday-october-4">Monday October 4</h1>
 <p>Find and fix any and all mistakes with the following:</p>
 <ul>
 <li><p><span class="math inline">\((1)_2 = (1)_8\)</span></p></li>
@@ -608,7 +161,6 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <li><p><span class="math inline">\((20)_{10} = (10100)_2\)</span></p></li>
 <li><p><span class="math inline">\((35)_8 = (1D)_{16}\)</span></p></li>
 </ul>
-<h1 class="unnumbered" id="base-conversion-algorithm">Base conversion algorithm</h1>
 <p><span><em>Recall the definition of base expansion we discussed:</em></span></p>
 <p><span><strong>Definition</strong></span> For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span> a positive integer, the <span><strong>base <span class="math inline">\(b\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{k-1} \cdots a_1 a_0)_b\]</span> where <span class="math inline">\(k\)</span> is a positive integer, <span class="math inline">\(a_0, a_1, \ldots, a_{k-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span>, <span class="math inline">\(a_{k-1} \neq  0\)</span>, and <span class="math display">\[n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0\]</span></p>
 <p>Notice: <span><em>The base <span class="math inline">\(b\)</span> expansion of a positive integer <span class="math inline">\(n\)</span> is a string over the alphabet <span class="math inline">\(\{x \in \mathbb{N} \mid x &lt; b\}\)</span> whose leftmost character is nonzero.</em></span></p>
@@ -674,9 +226,7 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 </table>
 </div>
 <p>We write an algorithm for converting from base <span class="math inline">\(b_1\)</span> expansion to base <span class="math inline">\(b_2\)</span> expansion:</p>
-<h1 class="unnumbered" id="fixed-width-definition">Fixed width definition</h1>
 <p><span><strong>Definition</strong></span> For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span>, <span class="math inline">\(w\)</span> a positive integer, and <span class="math inline">\(n\)</span> a nonnegative integer <span class="math inline">\(\underline{\phantom{\hspace{1in}}}\)</span>,   the <span><strong>base <span class="math inline">\(b\)</span> fixed-width <span class="math inline">\(w\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{w-1} \cdots a_1 a_0)_{b,w}\]</span> where <span class="math inline">\(a_0, a_1, \ldots, a_{w-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span> and <span class="math display">\[n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0\]</span></p>
-<h1 class="unnumbered" id="fixed-width-example">Fixed width example</h1>
 <div class="center">
 <table>
 <tbody>
@@ -725,7 +275,6 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 </tbody>
 </table>
 </div>
-<h1 class="unnumbered" id="fixed-width-fractional-definition">Fixed width fractional definition</h1>
 <p><span><strong>Definition</strong></span> For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span>, <span class="math inline">\(w\)</span> a positive integer, <span class="math inline">\(w&#39;\)</span> a positive integer, and <span class="math inline">\(x\)</span> a real number the <span><strong>base <span class="math inline">\(b\)</span> fixed-width expansion of <span class="math inline">\(x\)</span> with integer part width <span class="math inline">\(w\)</span> and fractional part width <span class="math inline">\(w&#39;\)</span></strong></span> is <span class="math inline">\((a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w&#39;})_{b,w,w&#39;}\)</span> where <span class="math inline">\(a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w&#39;}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span> and <span class="math display">\[\underline{\phantom{x \geq a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  c_{w&#39;} b^{-w&#39;}}}\]</span> and <span class="math display">\[\underline{\phantom{x &lt; a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  (c_{w&#39;} +1) b^{-w&#39;}}}\]</span></p>
 <div class="center">
 <table>
@@ -775,7 +324,44 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 </div>
 <p><img src="../../resources/images/ArithmeticDemo.png" style="width:2in" alt="image" /></p>
 <p>Note: Java uses floating point, not fixed width representation, but similar rounding errors appear in both.</p>
-<h1 class="unnumbered" id="expansion-summary">Expansion summary</h1>
+<h2 class="unnumbered" id="review-week-2-monday">Review: Week 2 Monday</h2>
+<ol>
+<li><p>Recall the definitions from class for number representations for <span><strong>base <span class="math inline">\(b\)</span> expansion of <span class="math inline">\(n\)</span></strong></span>, <span><strong>base <span class="math inline">\(b\)</span> fixed-width <span class="math inline">\(w\)</span> expansion of <span class="math inline">\(n\)</span></strong></span>, and <span><strong>base <span class="math inline">\(b\)</span> fixed-width expansion of <span class="math inline">\(x\)</span> with integer part width <span class="math inline">\(w\)</span> and fractional part width <span class="math inline">\(w&#39;\)</span></strong></span>.</p>
+<p>For example, the base <span class="math inline">\(2\)</span> (binary) expansion of <span class="math inline">\(4\)</span> is <span class="math inline">\(\qquad
+(100)_2 \qquad\)</span> and the base <span class="math inline">\(2\)</span> (binary) fixed-width <span class="math inline">\(8\)</span> expansion of <span class="math inline">\(4\)</span> is <span class="math inline">\(\qquad
+(00000100)_{2,8} \qquad\)</span> and the base <span class="math inline">\(2\)</span> (binary) fixed-width expansion of <span class="math inline">\(4\)</span> with integer part width <span class="math inline">\(3\)</span> and fractional part width <span class="math inline">\(2\)</span> of <span class="math inline">\(4\)</span> is <span class="math inline">\(\qquad
+(100.00)_{2,3,2} \qquad\)</span></p>
+<p>Compute the listed expansions. Enter your number using the notation for base expansions with parentheses but without subscripts. For example, if your answer were <span class="math inline">\((100)_{2,3}\)</span> you would type <code>(100)2,3</code> into Gradescope.</p>
+<ol>
+<li><p>Give the binary (base <span class="math inline">\(2\)</span>) expansion of the number whose octal (base <span class="math inline">\(8\)</span>) expansion is <span class="math display">\[(371)_8\]</span></p></li>
+<li><p>Give the decimal (base <span class="math inline">\(10\)</span>) expansion of the number whose octal (base <span class="math inline">\(8\)</span>) expansion is <span class="math display">\[(371)_8\]</span></p></li>
+<li><p>Give the octal (base <span class="math inline">\(8\)</span>) fixed-width <span class="math inline">\(3\)</span> expansion of <span class="math inline">\((9)_{10}\)</span>?</p></li>
+<li><p>Give the ternary (base <span class="math inline">\(3\)</span>) fixed-width <span class="math inline">\(8\)</span> expansion of <span class="math inline">\((9)_{10}\)</span>?</p></li>
+<li><p>Give the hexadecimal (base <span class="math inline">\(16\)</span>) fixed-width <span class="math inline">\(6\)</span> expansion of <span class="math inline">\((16711935)_{10}\)</span>?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p></li>
+<li><p>Give the hexadecimal (base <span class="math inline">\(16\)</span>) fixed-width <span class="math inline">\(4\)</span> expansion of <span class="math display">\[(1011~ 1010 ~ 1001~ 0000 )_2\]</span> Note: the spaces between each group of 4 bits above are for your convenience only. How might they help your calculations?</p></li>
+<li><p>Give the binary fixed width expansion of <span class="math inline">\(0.125\)</span> with integer part width <span class="math inline">\(2\)</span> and fractional part width <span class="math inline">\(4\)</span>.</p></li>
+<li><p>Give the binary fixed width expansion of <span class="math inline">\(0.1\)</span> with integer part width <span class="math inline">\(2\)</span> and fractional part width <span class="math inline">\(3\)</span>.</p></li>
+</ol></li>
+<li><p>Select all and only the correct choices below.</p>
+<ol>
+<li><p>Suppose you were told that the positive integer <span class="math inline">\(n_1\)</span> has the property that <span class="math inline">\(n_1 \textbf{ div } 2 = 0\)</span>. Which of the following can you conclude?</p>
+<ol>
+<li><p><span class="math inline">\(n_1\)</span> has a binary (base <span class="math inline">\(2\)</span>) expansion</p></li>
+<li><p><span class="math inline">\(n_1\)</span> has a ternary (base <span class="math inline">\(3\)</span>) expansion</p></li>
+<li><p><span class="math inline">\(n_1\)</span> has a hexadecimal (base <span class="math inline">\(16\)</span>) expansion</p></li>
+<li><p><span class="math inline">\(n_1\)</span> has a base <span class="math inline">\(2\)</span> fixed-width <span class="math inline">\(1\)</span> expansion</p></li>
+<li><p><span class="math inline">\(n_1\)</span> has a base <span class="math inline">\(2\)</span> fixed-width <span class="math inline">\(20\)</span> expansion</p></li>
+</ol></li>
+<li><p>Suppose you were told that the positive integer <span class="math inline">\(n_2\)</span> has the property that <span class="math inline">\(n_2 \textbf{ mod } 4 = 0\)</span>. Which of the following can you conclude?</p>
+<ol>
+<li><p>the leftmost symbol in the binary (base <span class="math inline">\(2\)</span>) expansion of <span class="math inline">\(n_2\)</span> is <span class="math inline">\(1\)</span></p></li>
+<li><p>the leftmost symbol in the base <span class="math inline">\(4\)</span> expansion of <span class="math inline">\(n_2\)</span> is <span class="math inline">\(1\)</span></p></li>
+<li><p>the rightmost symbol in the base <span class="math inline">\(4\)</span> expansion of <span class="math inline">\(n_2\)</span> is <span class="math inline">\(0\)</span></p></li>
+<li><p>the rightmost symbol in the octal (base <span class="math inline">\(8\)</span>) expansion of <span class="math inline">\(n_2\)</span> is <span class="math inline">\(0\)</span></p></li>
+</ol></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="wednesday-october-6">Wednesday October 6</h1>
 <div class="center">
 <table>
 <tbody>
@@ -798,7 +384,6 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 </tbody>
 </table>
 </div>
-<h1 class="unnumbered" id="negative-int-expansions">Negative int expansions</h1>
 <p><span><strong>Representing negative integers in binary</strong></span>: Fix a positive integer width for the representation <span class="math inline">\(w\)</span>, <span class="math inline">\(w &gt;1\)</span>.</p>
 <table>
 <thead>
@@ -824,7 +409,6 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 </tr>
 </tbody>
 </table>
-<h1 class="unnumbered" id="calculating-2s-complement">Calculating 2s complement</h1>
 <p>For positive integer <span class="math inline">\(n\)</span>, to represent <span class="math inline">\(-n\)</span> in <span class="math inline">\(2\)</span>s complement with width <span class="math inline">\(w\)</span>,</p>
 <ul>
 <li><p>Calculate <span class="math inline">\(2^{w-1} - n\)</span>, convert result to binary fixed-width <span class="math inline">\(w-1\)</span>, pad with leading <span class="math inline">\(1\)</span>, or</p></li>
@@ -832,7 +416,6 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <li><p>Convert <span class="math inline">\(n\)</span> to binary fixed-width, flip bits, add 1 (ignore overflow)</p></li>
 </ul>
 <p><span><em>Challenge: use definitions to explain why each of these approaches works.</em></span></p>
-<h1 class="unnumbered" id="representing-zero">Representing zero</h1>
 <p><span><strong>Representing <span class="math inline">\(0\)</span></strong></span>:</p>
 <p>So far, the definitions of base expansions treat positive and negative integers. What about <span class="math inline">\(0\)</span>?</p>
 <table>
@@ -859,7 +442,6 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 </tr>
 </tbody>
 </table>
-<h1 class="unnumbered" id="fixed-width-addition">Fixed width addition</h1>
 <p><span><strong>Fixed-width addition</strong></span>: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands. <span><em>Does this give the right value for the sum?</em></span></p>
 <div class="multicols">
 <p><span>3</span> <span class="math display">\[\begin{aligned}
@@ -875,9 +457,43 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 + &amp; [0~ 0~ 0~ 1~ 0~ 1]_{2c,6}\\
 &amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\\end{aligned}\]</span></p>
 </div>
-<h1 class="unnumbered" id="circuits-basics">Circuits basics</h1>
+<h2 class="unnumbered" id="review-week-2-wednesday">Review: Week 2 Wednesday</h2>
+<ol>
+<li><p>Recall the definitions of signed integer representations from class: sign-magnitude and 2s complement.</p>
+<ol>
+<li><p>Give the 2s complement width 6 representation of the number represented in binary fixed-width 5 representation as <span class="math inline">\((00101)_{2,5}\)</span>.</p></li>
+<li><p>Give the 2s complement width 6 representation of the number represented in binary fixed-width 5 representation as <span class="math inline">\((10101)_{2,5}\)</span>.</p></li>
+<li><p>Give the 2s complement width 4 representation of the number represented in sign-magnitude width 4 as <span class="math inline">\([1111]_{s,4}\)</span>.</p></li>
+<li><p>Give the sign magnitude width 4 representation of the number represented in 2s complement width 4 as <span class="math inline">\([1111]_{2c,4}\)</span>.</p></li>
+<li><p>Give the sign magnitude width 6 representation of the number represented in sign magnitude width 4 as <span class="math inline">\([1111]_{s,4}\)</span>.</p></li>
+<li><p>Give the 2s complement width 6 representation of the number represented in 2s complement width 4 as <span class="math inline">\([1111]_{2c,4}\)</span>.</p></li>
+</ol></li>
+<li><p>Recall the definitions of signed integer representations from class: sign-magnitude and 2s complement.</p>
+<ol>
+<li><p>In binary fixed-width addition (adding one bit at time, using the usual column-by-column and carry arithmetic, and ignoring the carry from the leftmost column), we get: <span class="math display">\[\begin{aligned}
+        &amp;1110  \qquad  \text{first summand}\\
+        +&amp;0100 \qquad  \text{second summand}\\
+        &amp;\overline{0010} \qquad \text{result}
+    \end{aligned}\]</span> Select all and only the true statements below:</p>
+<ol>
+<li><p>When interpreting each of the summands and the result in binary fixed-width 4, the result represents the actual value of the sum of the summands.</p></li>
+<li><p>When interpreting each of the summands and the sum in sign-magnitude width 4, the result represents the actual value of the sum of the summands.</p></li>
+<li><p>When interpreting each of the summands and the sum in 2s complement width 4, the result represents the actual value of the sum of the summands.</p></li>
+</ol></li>
+<li><p>In binary fixed-width addition (adding one bit at time, using the usual column-by-column and carry arithmetic, and ignoring the carry from the leftmost column), we get: <span class="math display">\[\begin{aligned}
+        &amp;0110  \qquad  \text{first summand}\\
+        +&amp;0111 \qquad  \text{second summand}\\
+        &amp;\overline{1101} \qquad \text{result}
+    \end{aligned}\]</span> Select all and only the true statements below:</p>
+<ol>
+<li><p>When interpreting each of the summands and the result in binary fixed-width 4, the result represents the actual value of the sum of the summands.</p></li>
+<li><p>When interpreting each of the summands and the sum in sign-magnitude width 4, the result represents the actual value of the sum of the summands.</p></li>
+<li><p>When interpreting each of the summands and the sum in 2s complement width 4, the result represents the actual value of the sum of the summands.</p></li>
+</ol></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="friday-october-8">Friday October 8</h1>
 <p>In a <span><strong>combinatorial circuit</strong></span> (also known as a <span><strong>logic circuit</strong></span>), we have <span><strong>logic gates</strong></span> connected by <span><strong>wires</strong></span>. The inputs to the circuits are the values set on the input wires: possible values are 0 (low) or 1 (high). The values flow along the wires from left to right. A wire may be split into two or more wires, indicated with a filled-in circle (representing solder). Values stay the same along a wire. When one or more wires flow into a gate, the output value of that gate is computed from the input values based on the gate’s definition table. Outputs of gates may become inputs to other gates.</p>
-<h1 class="unnumbered" id="logic-gates-definitions">Logic gates definitions</h1>
 <div class="multicols">
 <p><span>2</span></p>
 <div class="center">
@@ -990,7 +606,6 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <p><img src="../../resources/images/NOTx.png" style="height:0.5in" alt="image" /></p>
 </div>
 </div>
-<h1 class="unnumbered" id="digital-circuits-basic-examples">Digital circuits basic examples</h1>
 <p><span><strong>Example digital circuit</strong></span>:</p>
 <div class="multicols">
 <p><span>2</span></p>
@@ -1000,7 +615,6 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <p>Output when <span class="math inline">\(x=1, y=0, z=0, w = 1\)</span> is <u></u> Output when <span class="math inline">\(x=1, y=1, z=1, w = 1\)</span> is <u></u> Output when <span class="math inline">\(x=0, y=0, z=0, w = 1\)</span> is <u></u></p>
 </div>
 <p>Draw a logic circuit with inputs <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> whose output is always <span class="math inline">\(0\)</span>. <span><em>Can you use exactly 1 gate?</em></span></p>
-<h1 class="unnumbered" id="half-adder-circuit">Half adder circuit</h1>
 <p><span><strong>Fixed-width addition</strong></span>: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands. In many cases, this gives representation of the correct value for the sum when we interpret the summands in fixed-width binary or in 2s complement.</p>
 <p>For single column:</p>
 <div class="center">
@@ -1046,7 +660,6 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <div class="center">
 <p><img src="../../resources/images/half-adder.png" style="width:1.5in" alt="image" /></p>
 </div>
-<h1 class="unnumbered" id="two-bit-adder-circuit">Two bit adder circuit</h1>
 <p>Draw a logic circuit that implements fixed-width 2 binary addition:</p>
 <ul>
 <li><p>Inputs <span class="math inline">\(x_0, y_0, x_1, y_1\)</span> represent <span class="math inline">\((x_1  x_0)_{2,2}\)</span> and <span class="math inline">\((y_1 y_0)_{2,2}\)</span></p></li>
@@ -1064,5 +677,48 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <p><span class="math inline">\(z_2 = \underline{\phantom{(c_0 \land x_1) \oplus ((c_0 \oplus x_1)\land y_1)}\hspace{1.5in}}\)</span></p>
 <p><img src="../../resources/images/width-2-adder.png" style="width:1.7in" alt="image" /></p>
 <p><span><em>Extra example</em></span> Describe how to generalize this addition circuit for larger width inputs.</p>
+<h2 class="unnumbered" id="review-week-2-friday">Review: Week 2 Friday</h2>
+<ol>
+<li><ol>
+<li><p>Consider the logic circuit</p>
+<div class="center">
+<p><img src="../../resources/images/review-circuit-1.png" style="width:2in" alt="image" /></p>
+</div>
+<p>Calculate the value of the output of this circuit (<span class="math inline">\(y_1\)</span>) for each of the following settings(s) of input values.</p>
+<ol>
+<li><p><span class="math inline">\(x_1 = 1\)</span>, <span class="math inline">\(x_2 = 1\)</span></p></li>
+<li><p><span class="math inline">\(x_1 = 1\)</span>, <span class="math inline">\(x_2 = 0\)</span></p></li>
+<li><p><span class="math inline">\(x_1 = 0\)</span>, <span class="math inline">\(x_2 = 1\)</span></p></li>
+<li><p><span class="math inline">\(x_1 = 0\)</span>, <span class="math inline">\(x_2 = 0\)</span></p></li>
+</ol></li>
+<li><p>Consider the logic circuit</p>
+<div class="center">
+<p><img src="../../resources/images/review-circuit-2.png" style="width:2in" alt="image" /></p>
+</div>
+<p>For which of the following settings(s) of input values is the output <span class="math inline">\(y_1 = 0\)</span>, <span class="math inline">\(y_2 = 1\)</span>. (Select all and only those that apply.)</p>
+<ol>
+<li><p><span class="math inline">\(x_1 = 0\)</span>, <span class="math inline">\(x_2 = 0\)</span>, <span class="math inline">\(x_3 = 0\)</span>, and <span class="math inline">\(x_4 = 0\)</span></p></li>
+<li><p><span class="math inline">\(x_1 = 1\)</span>, <span class="math inline">\(x_2 = 1\)</span>, <span class="math inline">\(x_3 = 1\)</span>, and <span class="math inline">\(x_4 = 1\)</span></p></li>
+<li><p><span class="math inline">\(x_1 = 1\)</span>, <span class="math inline">\(x_2 = 0\)</span>, <span class="math inline">\(x_3 = 0\)</span>, and <span class="math inline">\(x_4 = 1\)</span></p></li>
+<li><p><span class="math inline">\(x_1 = 0\)</span>, <span class="math inline">\(x_2 = 0\)</span>, <span class="math inline">\(x_3 = 1\)</span>, and <span class="math inline">\(x_4 = 1\)</span></p></li>
+</ol></li>
+</ol></li>
+<li><p>Recall this circuit from class:</p>
+<div class="center">
+<p><img src="../../resources/images/circuitEx.png" style="width:1.2in" alt="image" /></p>
+</div>
+<p>Which of the following is true about all possible input values <span class="math inline">\(x,y,z,w\)</span>? (Select all and only choices that are true for all values).</p>
+<ol>
+<li><p>The output <span class="math inline">\(out\)</span> is set to <span class="math inline">\(1\)</span> exactly when <span class="math inline">\(x\)</span> is <span class="math inline">\(0\)</span>, and it is set to <span class="math inline">\(0\)</span> otherwise.</p></li>
+<li><p>The output <span class="math inline">\(out\)</span> is set to <span class="math inline">\(1\)</span> exactly when <span class="math inline">\((xyzw)_{2,4} &lt; 8\)</span>, and it is set to <span class="math inline">\(0\)</span> otherwise.</p></li>
+<li><p>The output <span class="math inline">\(out\)</span> is set to <span class="math inline">\(1\)</span> exactly when <span class="math inline">\((wzyx)_{2,4}\)</span> is an even integer, and it is set to <span class="math inline">\(0\)</span> otherwise.</p></li>
+</ol></li>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>This matches a frequent debugging task – sometimes a program will show a number formatted as a base <span class="math inline">\(10\)</span> integer that is much better understood with another representation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 </body>
 </html>

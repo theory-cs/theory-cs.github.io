@@ -545,5 +545,469 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <p>procedure <span class="math inline">\(\textit{baseb2}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(q\)</span> := <span class="math inline">\(n\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(q  \neq 0\)</span> <span class="math inline">\(a_{k}\)</span> := <span class="math inline">\(q\)</span> mod <span class="math inline">\(b\)</span> <span class="math inline">\(q\)</span> := <span class="math inline">\(q\)</span> div <span class="math inline">\(b\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(k+1\)</span> return <span class="math inline">\((a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}\)</span></p>
 </div>
 </div>
+<h1 class="unnumbered" id="base-expansion-review">Base expansion review</h1>
+<p>Find and fix any and all mistakes with the following:</p>
+<ul>
+<li><p><span class="math inline">\((1)_2 = (1)_8\)</span></p></li>
+<li><p><span class="math inline">\((142)_{10} = (142)_{16}\)</span></p></li>
+<li><p><span class="math inline">\((20)_{10} = (10100)_2\)</span></p></li>
+<li><p><span class="math inline">\((35)_8 = (1D)_{16}\)</span></p></li>
+</ul>
+<h1 class="unnumbered" id="base-conversion-algorithm">Base conversion algorithm</h1>
+<p><span><em>Recall the definition of base expansion we discussed:</em></span></p>
+<p><span><strong>Definition</strong></span> For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span> a positive integer, the <span><strong>base <span class="math inline">\(b\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{k-1} \cdots a_1 a_0)_b\]</span> where <span class="math inline">\(k\)</span> is a positive integer, <span class="math inline">\(a_0, a_1, \ldots, a_{k-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span>, <span class="math inline">\(a_{k-1} \neq  0\)</span>, and <span class="math display">\[n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0\]</span></p>
+<p>Notice: <span><em>The base <span class="math inline">\(b\)</span> expansion of a positive integer <span class="math inline">\(n\)</span> is a string over the alphabet <span class="math inline">\(\{x \in \mathbb{N} \mid x &lt; b\}\)</span> whose leftmost character is nonzero.</em></span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Base <span class="math inline">\(b\)</span></th>
+<th style="text-align: center;">Collection of possible coefficients in base <span class="math inline">\(b\)</span> expansion of a positive integer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Binary (<span class="math inline">\(b=2\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ternary (<span class="math inline">\(b=3\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1, 2\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Octal (<span class="math inline">\(b=8\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1, 2, 3, 4, 5, 6, 7\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Decimal (<span class="math inline">\(b=10\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Hexadecimal (<span class="math inline">\(b=16\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\{0,1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">letter coefficient symbols represent numerical values <span class="math inline">\((A)_{16} = (10)_{10}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\((B)_{16} = (11)_{10} ~~(C)_{16} = (12)_{10} ~~
+ (D)_{16} = (13)_{10} ~~ (E)_{16} = (14)_{10} ~~ (F)_{16} = (15)_{10}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We write an algorithm for converting from base <span class="math inline">\(b_1\)</span> expansion to base <span class="math inline">\(b_2\)</span> expansion:</p>
+<h1 class="unnumbered" id="fixed-width-definition">Fixed width definition</h1>
+<p><span><strong>Definition</strong></span> For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span>, <span class="math inline">\(w\)</span> a positive integer, and <span class="math inline">\(n\)</span> a nonnegative integer <span class="math inline">\(\underline{\phantom{\hspace{1in}}}\)</span>,   the <span><strong>base <span class="math inline">\(b\)</span> fixed-width <span class="math inline">\(w\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{w-1} \cdots a_1 a_0)_{b,w}\]</span> where <span class="math inline">\(a_0, a_1, \ldots, a_{w-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span> and <span class="math display">\[n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0\]</span></p>
+<h1 class="unnumbered" id="fixed-width-example">Fixed width example</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Decimal</td>
+<td style="text-align: center;">Binary</td>
+<td style="text-align: center;">Binary fixed-width <span class="math inline">\(10\)</span></td>
+<td style="text-align: center;">Binary fixed-width <span class="math inline">\(7\)</span></td>
+<td style="text-align: center;">Binary fixed-width <span class="math inline">\(4\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(b=10\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b=2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b=2\)</span>, <span class="math inline">\(w =  10\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b=2\)</span>, <span class="math inline">\(w =  7\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b=2\)</span>, <span class="math inline">\(w =  4\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((20)_{10}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(a)</td>
+<td style="text-align: center;">(b)</td>
+<td style="text-align: center;">(c)</td>
+<td style="text-align: center;">(d)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="fixed-width-fractional-definition">Fixed width fractional definition</h1>
+<p><span><strong>Definition</strong></span> For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span>, <span class="math inline">\(w\)</span> a positive integer, <span class="math inline">\(w&#39;\)</span> a positive integer, and <span class="math inline">\(x\)</span> a real number the <span><strong>base <span class="math inline">\(b\)</span> fixed-width expansion of <span class="math inline">\(x\)</span> with integer part width <span class="math inline">\(w\)</span> and fractional part width <span class="math inline">\(w&#39;\)</span></strong></span> is <span class="math inline">\((a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w&#39;})_{b,w,w&#39;}\)</span> where <span class="math inline">\(a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w&#39;}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span> and <span class="math display">\[\underline{\phantom{x \geq a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  c_{w&#39;} b^{-w&#39;}}}\]</span> and <span class="math display">\[\underline{\phantom{x &lt; a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  (c_{w&#39;} +1) b^{-w&#39;}}}\]</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(3.75\)</span> in fixed-width binary,</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">integer part width <span class="math inline">\(2\)</span>,</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">fractional part width <span class="math inline">\(8\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0.1\)</span> in fixed-width binary,</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">integer part width <span class="math inline">\(2\)</span>,</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">fractional part width <span class="math inline">\(8\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="../../resources/images/ArithmeticDemo.png" style="width:2in" alt="image" /></p>
+<p>Note: Java uses floating point, not fixed width representation, but similar rounding errors appear in both.</p>
+<h1 class="unnumbered" id="expansion-summary">Expansion summary</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>base <span class="math inline">\(b\)</span> expansion of <span class="math inline">\(n\)</span></strong></span></td>
+<td style="text-align: left;"><span><strong>base <span class="math inline">\(b\)</span> fixed-width <span class="math inline">\(w\)</span> expansion of <span class="math inline">\(n\)</span></strong></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span> a positive integer, the <span><strong>base <span class="math inline">\(b\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math inline">\((a_{k-1} \cdots a_1 a_0)_b\)</span> where <span class="math inline">\(k\)</span> is a positive integer, <span class="math inline">\(a_0, a_1, \ldots, a_{k-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span>, <span class="math inline">\(a_{k-1} \neq  0\)</span>, and <span class="math inline">\(n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0\)</span></td>
+<td style="text-align: left;">For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span>, <span class="math inline">\(w\)</span> a positive integer, and <span class="math inline">\(n\)</span> a nonnegative integer with <span class="math inline">\(n &lt;  b^w\)</span>, the <span><strong>base <span class="math inline">\(b\)</span> fixed-width <span class="math inline">\(w\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math inline">\((a_{w-1} \cdots a_1 a_0)_{b,w}\)</span> where <span class="math inline">\(a_0, a_1, \ldots, a_{w-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span> and <span class="math inline">\(n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="negative-int-expansions">Negative int expansions</h1>
+<p><span><strong>Representing negative integers in binary</strong></span>: Fix a positive integer width for the representation <span class="math inline">\(w\)</span>, <span class="math inline">\(w &gt;1\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: left;">To represent a positive integer <span class="math inline">\(n\)</span></th>
+<th style="text-align: left;">To represent a negative integer <span class="math inline">\(-n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">&amp; <span class="math inline">\([ 0a_{w-2} \cdots a_0]_{s,w}\)</span>, where <span class="math inline">\(n =  (a_{w-2} \cdots a_0)_{2,w-1}\)</span>&amp; <span class="math inline">\([1a_{w-2} \cdots a_0]_{s,w}\)</span> , where <span class="math inline">\(n =  (a_{w-2} \cdots a_0)_{2,w-1}\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="calculating-2s-complement">Calculating 2s complement</h1>
+<p>For positive integer <span class="math inline">\(n\)</span>, to represent <span class="math inline">\(-n\)</span> in <span class="math inline">\(2\)</span>s complement with width <span class="math inline">\(w\)</span>,</p>
+<ul>
+<li><p>Calculate <span class="math inline">\(2^{w-1} - n\)</span>, convert result to binary fixed-width <span class="math inline">\(w-1\)</span>, pad with leading <span class="math inline">\(1\)</span>, or</p></li>
+<li><p>Express <span class="math inline">\(-n\)</span> as a sum of powers of <span class="math inline">\(2\)</span>, where the leftmost <span class="math inline">\(2^{w-1}\)</span> is negative weight, or</p></li>
+<li><p>Convert <span class="math inline">\(n\)</span> to binary fixed-width, flip bits, add 1 (ignore overflow)</p></li>
+</ul>
+<p><span><em>Challenge: use definitions to explain why each of these approaches works.</em></span></p>
+<h1 class="unnumbered" id="representing-zero">Representing zero</h1>
+<p><span><strong>Representing <span class="math inline">\(0\)</span></strong></span>:</p>
+<p>So far, the definitions of base expansions treat positive and negative integers. What about <span class="math inline">\(0\)</span>?</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: left;">To represent a <span><strong>non-negative</strong></span> integer <span class="math inline">\(n\)</span></th>
+<th style="text-align: left;">To represent a <span><strong>non-positive</strong></span> integer <span class="math inline">\(-n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">&amp; <span class="math inline">\([ 0a_{w-2} \cdots a_0]_{s,w}\)</span>, where <span class="math inline">\(n =  (a_{w-2} \cdots a_0)_{2,w-1}\)</span>&amp; <span class="math inline">\([1a_{w-2} \cdots a_0]_{s,w}\)</span> , where <span class="math inline">\(n =  (a_{w-2} \cdots a_0)_{2,w-1}\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="fixed-width-addition">Fixed width addition</h1>
+<p><span><strong>Fixed-width addition</strong></span>: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands. <span><em>Does this give the right value for the sum?</em></span></p>
+<div class="multicols">
+<p><span>3</span> <span class="math display">\[\begin{aligned}
+   &amp; (1~ 1~ 0~ 1~ 0~ 0)_{2,6}\\
++ &amp; (0~ 0~ 0~ 1~ 0~ 1)_{2,6}\\
+&amp;\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+   &amp; [1~ 1~ 0~ 1~ 0~ 0]_{s,6}\\
++ &amp; [0~ 0~ 0~ 1~ 0~ 1]_{s,6}\\
+&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+   &amp; [1~ 1~ 0~ 1~ 0~ 0]_{2c,6}\\
++ &amp; [0~ 0~ 0~ 1~ 0~ 1]_{2c,6}\\
+&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\\end{aligned}\]</span></p>
+</div>
+<h1 class="unnumbered" id="circuits-basics">Circuits basics</h1>
+<p>In a <span><strong>combinatorial circuit</strong></span> (also known as a <span><strong>logic circuit</strong></span>), we have <span><strong>logic gates</strong></span> connected by <span><strong>wires</strong></span>. The inputs to the circuits are the values set on the input wires: possible values are 0 (low) or 1 (high). The values flow along the wires from left to right. A wire may be split into two or more wires, indicated with a filled-in circle (representing solder). Values stay the same along a wire. When one or more wires flow into a gate, the output value of that gate is computed from the input values based on the gate’s definition table. Outputs of gates may become inputs to other gates.</p>
+<h1 class="unnumbered" id="logic-gates-definitions">Logic gates definitions</h1>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Inputs</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(x\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(y\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x \text{ AND } y\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<p><img src="../../resources/images/xANDy.png" style="height:0.6in" alt="image" /></p>
+</div>
+</div>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Inputs</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(x\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(y\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x \text{ XOR } y\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<p><img src="../../resources/images/xXORy.png" style="height:0.4in" alt="image" /></p>
+</div>
+</div>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Input</td>
+<td style="text-align: center;">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(x\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\text{NOT } x\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<p><img src="../../resources/images/NOTx.png" style="height:0.5in" alt="image" /></p>
+</div>
+</div>
+<h1 class="unnumbered" id="digital-circuits-basic-examples">Digital circuits basic examples</h1>
+<p><span><strong>Example digital circuit</strong></span>:</p>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<p><img src="../../resources/images/circuitEx.png" style="width:1.2in" alt="image" /></p>
+</div>
+<p>Output when <span class="math inline">\(x=1, y=0, z=0, w = 1\)</span> is <u></u> Output when <span class="math inline">\(x=1, y=1, z=1, w = 1\)</span> is <u></u> Output when <span class="math inline">\(x=0, y=0, z=0, w = 1\)</span> is <u></u></p>
+</div>
+<p>Draw a logic circuit with inputs <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> whose output is always <span class="math inline">\(0\)</span>. <span><em>Can you use exactly 1 gate?</em></span></p>
+<h1 class="unnumbered" id="half-adder-circuit">Half adder circuit</h1>
+<p><span><strong>Fixed-width addition</strong></span>: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands. In many cases, this gives representation of the correct value for the sum when we interpret the summands in fixed-width binary or in 2s complement.</p>
+<p>For single column:</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;" colspan="2">Input</td>
+<td style="text-align: center;" colspan="2">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(x_0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(y_0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(s_0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(c_0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<p><img src="../../resources/images/half-adder.png" style="width:1.5in" alt="image" /></p>
+</div>
+<h1 class="unnumbered" id="two-bit-adder-circuit">Two bit adder circuit</h1>
+<p>Draw a logic circuit that implements fixed-width 2 binary addition:</p>
+<ul>
+<li><p>Inputs <span class="math inline">\(x_0, y_0, x_1, y_1\)</span> represent <span class="math inline">\((x_1  x_0)_{2,2}\)</span> and <span class="math inline">\((y_1 y_0)_{2,2}\)</span></p></li>
+<li><p>Outputs <span class="math inline">\(z_0, z_1, z_2\)</span> represent <span class="math inline">\((z_2  z_1 z_0)_{2,3} = (x_1  x_0)_{2,2} + (y_1 y_0)_{2,2}\)</span> (may require up to width <span class="math inline">\(3\)</span>)</p></li>
+</ul>
+<p><span><em>First approach</em></span>: half-adder for each column, then combine carry from right column with sum of left column</p>
+<p>Write expressions for the circuit output values in terms of input values:</p>
+<p><span class="math inline">\(z_0 = \underline{\phantom{x_0 \oplus y_0\hspace{3in}}}\)</span></p>
+<p><span class="math inline">\(z_1 = \underline{\phantom{(x_1 \oplus y_1) \oplus c_0}\hspace{2.5in}}\)</span></p>
+<p><span class="math inline">\(z_2 = \underline{\phantom{(c_0 \land (x_1 \oplus y_1)) \oplus c_1}\hspace{2in}}\)</span><br />
+<span><em>Second approach</em></span>: for middle column, first add carry from right column to <span class="math inline">\(x_1\)</span>, then add result to <span class="math inline">\(y_1\)</span></p>
+<p>Write expressions for the circuit output values in terms of input values:</p>
+<p><span class="math inline">\(z_0 = \underline{\phantom{x_0 \oplus y_0}\hspace{3in}}\)</span></p>
+<p><span class="math inline">\(z_1 = \underline{ \phantom{(c_0 \oplus x_1) \oplus y_1}\hspace{2.4in}}\)</span></p>
+<p><span class="math inline">\(z_2 = \underline{\phantom{(c_0 \land x_1) \oplus ((c_0 \oplus x_1)\land y_1)}\hspace{1.5in}}\)</span></p>
+<p><img src="../../resources/images/width-2-adder.png" style="width:1.7in" alt="image" /></p>
+<p><span><em>Extra example</em></span> Describe how to generalize this addition circuit for larger width inputs.</p>
 </body>
 </html>

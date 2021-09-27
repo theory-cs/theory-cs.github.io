@@ -521,4 +521,453 @@ return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b
 
 \vfill
 \vfill \vfill
+\section*{Base expansion review}
+
+
+Find and fix any and all mistakes with the following:
+\begin{itemize}
+\item[(a)] $(1)_2 = (1)_8$
+\item[(b)] $(142)_{10} = (142)_{16}$
+\item[(c)] $(20)_{10} = (10100)_2$
+\item[(d)] $(35)_8 = (1D)_{16}$
+\end{itemize} \vfill
+\section*{Base conversion algorithm}
+
+
+{\it Recall the definition of base expansion we discussed:}
+
+
+
+{\bf Definition} For $b$ an integer greater than $1$ and $n$ a positive integer, 
+the {\bf base $b$ expansion of $n$}  is
+\[
+(a_{k-1} \cdots a_1 a_0)_b
+\]
+where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ 
+are nonnegative integers less than $b$, $a_{k-1} \neq  0$, and
+\[
+n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0
+\]
+
+Notice: {\it The base $b$ expansion of a positive integer $n$ is a string over the alphabet 
+$\{x \in \mathbb{N} \st x < b\}$
+whose leftmost character is nonzero.}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Base $b$ & Collection of possible coefficients in base $b$ expansion of  a positive integer \\
+\hline
+& \\
+Binary ($b=2$) & $\{0,1\}$ \\
+\hline
+& \\
+Ternary ($b=3$) & $\{0,1, 2\}$ \\
+\hline
+& \\
+Octal ($b=8$) & $\{0,1, 2, 3, 4, 5, 6, 7\}$\\
+\hline
+& \\
+Decimal ($b=10$) & $\{0,1, 2, 3, 4, 5, 6, 7, 8, 9\}$\\
+\hline
+& \\
+Hexadecimal ($b=16$) &  $\{0,1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F\}$\\
+& letter coefficient symbols represent numerical values $(A)_{16} = (10)_{10}$\\
+&$(B)_{16} = (11)_{10} ~~(C)_{16} = (12)_{10} ~~
+ (D)_{16} = (13)_{10} ~~ (E)_{16} = (14)_{10} ~~ (F)_{16} = (15)_{10} $\\
+\hline
+\end{tabular}
+\end{center}
+
+ 
+We write an algorithm for converting from base $b_1$ expansion to base $b_2$ expansion:
+
+\phantom{
+Earlier, we saw (two different) algorithms for, given 
+a target base $b$, converting from decimal to base $b$ expansions. 
+We will use either one of these as a subroutine in this algorithm.\\
+Given a base expansion in base $b_1$:\\
+Step 1: Use the definition of base expansion to calculate the value of
+    this number (in decimal).\\
+Step 2: Use the Least Significant First algorithm to write this value in 
+    base $b_2$ and output the result.
+}
+\vspace{200pt} \vfill
+\section*{Fixed width definition}
+
+
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+and $n$ a nonnegative integer
+$\underline{\phantom{\hspace{1in}}}$, ~
+the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
+\[
+(a_{w-1} \cdots a_1 a_0)_{b,w}
+\]
+where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
+\[
+n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0
+\]
+ \vfill
+\section*{Fixed width example}
+
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Decimal &  Binary  & Binary fixed-width $10$& Binary fixed-width $7$ & Binary fixed-width $4$\\
+    $b=10$ & $b=2$ & $b=2$, $w =  10$& $b=2$, $w =  7$& $b=2$, $w =  4$ \\
+    \hline 
+    &&&&  \\
+    $(20)_{10}$&\phantom{$(10100)_{2}$\qquad\qquad}&&  &\\
+    &&&&  \\
+    &(a)&(b)&(c)&(d)  \\
+    \hline
+    \end{tabular}
+    \end{center}
+ \vfill
+\section*{Fixed width fractional definition}
+
+
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, $w'$ a positive  integer, and $x$ a real number the {\bf base $b$ fixed-width expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
+$(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w'})_{b,w,w'}$
+where  $a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w'}$ are nonnegative integers less than $b$ and
+$$\underline{\phantom{x \geq a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  c_{w'} b^{-w'}}}$$
+and
+$$\underline{\phantom{x < a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  (c_{w'} +1) b^{-w'}}}$$
+
+\begin{center}
+\begin{tabular}{|c|p{5in}|}
+\hline
+& \\
+$3.75$  in fixed-width binary,& \\
+integer part width $2$,&\\
+ fractional part width $8$ & \\
+& \\
+\hline
+& \\
+$0.1$  in fixed-width binary, & \\
+integer part width $2$, &\\
+ fractional part width $8$ & \\
+& \\
+\hline
+\end{tabular}
+\end{center}
+
+\includegraphics[width=2in]{../../resources/images/ArithmeticDemo.png}
+
+Note: Java uses floating point, not fixed width representation, but similar rounding errors appear in both.
+ \vfill
+\section*{Expansion summary}
+
+
+\begin{center}
+    \begin{tabular}{|p{3.7in}|p{3.7in}|}
+    \hline 
+    &   \\
+    {\bf base $b$ expansion of $n$}  & {\bf base $b$ fixed-width $w$ expansion of $n$}  \\
+    & \\
+    \hline  
+    For $b$ an integer greater than $1$ and $n$ a positive integer, 
+    the {\bf base $b$ expansion of $n$}  is $(a_{k-1} \cdots a_1 a_0)_b$
+    where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ are nonnegative integers less than $b$, $a_{k-1} \neq  0$, and $n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0$
+    & 
+    For $b$ an integer greater than $1$, $w$ a positive integer, and $n$ a nonnegative integer
+    with $n <  b^w$, the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
+    $(a_{w-1} \cdots a_1 a_0)_{b,w}$
+    where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and 
+    $n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0$\\
+    \hline
+    \end{tabular}
+\end{center} \vfill
+\section*{Negative int expansions}
+
+
+{\bf Representing negative integers in binary}: Fix a positive integer  width for the representation  $w$, $w >1$.
+
+\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
+\hline
+& & To  represent a positive integer $n$ & To represent a negative integer $-n$\\
+\hline
+&& &  \\
+&\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
+$[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
+$[1a_{w-2} \cdots a_0]_{s,w}$
+, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+&& & \\
+&& Example $n=17$, $w=7$:  & Example $-n=-17$, $w=7$: \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+\hline
+&&  &  \\
+&\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
+$[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+&& & \\
+&& Example $n=17$, $w=7$:  & Example $-n=-17$, $w=7$: \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+\hline
+&&  &  \\
+\parbox[t]{1.5mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{{\it Extra example:}}}} 
+& \parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{1s complement}}} &
+$[0a_{w-2} \cdots a_0]_{1c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1\bar{a}_{w-2} \cdots \bar{a}_0]_{1c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$ and we define  $\bar{0} = 1$ and $\bar{1} = 0$.\\
+&& & \\
+&& Example $n=17$, $w=7$:  & Example $-n=-17$, $w=7$: \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+\hline
+\end{tabular} \vfill
+\section*{Calculating 2s complement}
+
+
+For positive integer $n$, to represent $-n$ in 
+$2$s complement with width $w$,
+\begin{itemize}
+    \item Calculate $2^{w-1} - n$, convert 
+    result to binary fixed-width $w-1$, pad 
+    with leading $1$, or
+    \item Express $-n$ as a sum of powers of $2$, 
+    where the leftmost $2^{w-1}$ is negative weight, or
+    \item Convert $n$ to binary fixed-width, 
+    flip bits, add 1 (ignore overflow)
+\end{itemize}
+
+{\it Challenge: use definitions to explain why
+each of these approaches works.} \vfill
+\section*{Representing zero}
+
+
+{\bf Representing $0$}:
+
+So far, the definitions of base expansions treat
+positive and negative integers. What about $0$?
+
+\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
+   \hline
+   & & To  represent a {\bf non-negative} integer $n$ & To represent a {\bf non-positive} integer $-n$\\
+   \hline
+   && &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
+   $[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
+   $[1a_{w-2} \cdots a_0]_{s,w}$
+   , where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && (a) & (b)\\
+   \hline
+   &&  &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
+   $[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && (c) & (d) \\
+   \hline
+\end{tabular} \vfill
+\section*{Fixed width addition}
+
+
+{\bf Fixed-width addition}: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands.  {\it Does this give the right value for the sum?}
+\begin{multicols}{3}
+\begin{align*}
+   & (1~ 1~ 0~ 1~ 0~ 0)_{2,6}\\
++ & (0~ 0~ 0~ 1~ 0~ 1)_{2,6}\\
+&\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\
+\end{align*}
+
+\begin{align*}
+   & [1~ 1~ 0~ 1~ 0~ 0]_{s,6}\\
++ & [0~ 0~ 0~ 1~ 0~ 1]_{s,6}\\
+&\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+\end{align*}
+
+\begin{align*}
+   & [1~ 1~ 0~ 1~ 0~ 0]_{2c,6}\\
++ & [0~ 0~ 0~ 1~ 0~ 1]_{2c,6}\\
+&\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+\end{align*}
+\end{multicols} \vfill
+\section*{Circuits basics}
+
+
+In a {\bf combinatorial circuit} (also known as
+a {\bf logic circuit}), we have {\bf logic gates} 
+connected
+by {\bf wires}. The inputs to the circuits are the 
+values set on the input wires: possible
+values are 0 (low) or 1 (high). The values
+flow along the wires from left to right.
+A wire may be split into two or more wires, 
+indicated with a filled-in circle (representing
+solder). Values stay the same along a wire. When 
+one or more wires flow into a gate, the output 
+value of that gate is computed
+from the input values based on the gate's definition
+table. Outputs of gates may become inputs to other
+gates.  \vfill
+\section*{Logic gates definitions}
+
+
+\begin{multicols}{2}
+\begin{center}\begin{tabular}{cc|c}
+Inputs &  & Output \\
+$x$ & $y$ & $x \text{ AND } y$  \\
+\hline
+$1$ & $1$ & $1$\\
+$1$ & $0$ & $0$\\
+$0$ & $1$ & $0$\\
+$0$ & $0$ & $0$\\
+\end{tabular}\end{center}
+\columnbreak
+\begin{center}\includegraphics[height=0.6in]{../../resources/images/xANDy.png} \end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+\begin{center}\begin{tabular}{cc|c}
+Inputs &  & Output \\
+$x$ & $y$ & $x \text{ XOR } y$  \\
+\hline
+$1$ & $1$ & $0$\\
+$1$ & $0$ & $1$\\
+$0$ & $1$ & $1$\\
+$0$ & $0$ & $0$\\
+\end{tabular}\end{center}
+\columnbreak
+\begin{center}\includegraphics[height=0.4in]{../../resources/images/xXORy.png} \end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+\begin{center}\begin{tabular}{c|c}
+Input  & Output \\
+$x$ & $\text{NOT } x$  \\
+\hline
+$1$ & $0$\\
+$0$ & $1$\\
+\end{tabular}\end{center}
+\columnbreak
+\begin{center}\includegraphics[height=0.5in]{../../resources/images/NOTx.png} \end{center}
+\end{multicols}
+
+%
+ \vfill
+\section*{Digital circuits basic examples}
+
+
+{\bf Example digital circuit}: 
+
+\begin{multicols}{2}
+\begin{center}
+   \includegraphics[width=1.2in]{../../resources/images/circuitEx.png} 
+\end{center}
+\columnbreak
+Output when $x=1, y=0, z=0, w = 1$ is \underline{\phantom{$~~~0~~~$}}
+Output when $x=1, y=1, z=1, w = 1$ is \underline{\phantom{$~~~0~~~$}}
+Output when $x=0, y=0, z=0, w = 1$ is \underline{\phantom{$~~~0~~~$}}
+\phantom{Output when $x=0, y=0, z=0, w = 0$ is \underline{\phantom{$~~~0~~~$}}}
+\end{multicols}
+
+
+
+Draw a logic circuit with inputs $x$ and $y$ whose output  is always $0$.  {\it  Can you use exactly 1 gate?}
+
+
+\vspace{40pt} \vfill
+\section*{Half adder circuit}
+
+
+{\bf Fixed-width addition}: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands.  In many cases, this gives representation of the correct value for the sum when we interpret the summands
+in fixed-width binary or in 2s complement.
+
+For single column:
+\begin{center}
+\begin{tabular}{cc|cc}
+\multicolumn{2}{c|}{Input}  & \multicolumn{2}{|c}{Output}  \\
+$x_0$ & $y_0$ & $s_0$ & $c_0$  \\
+\hline
+$1$ & $1$ & \phantom{$0$} & \phantom{$1$} \\
+$1$ & $0$ & \phantom{$1$} & \phantom{$0$}\\
+$0$ & $1$ & \phantom{$1$} & \phantom{$0$}\\
+$0$ & $0$ & \phantom{$0$} & \phantom{$0$}\\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\includegraphics[width=1.5in]{../../resources/images/half-adder.png}
+\end{center} \vfill
+\section*{Two bit adder circuit}
+
+
+Draw a logic circuit that implements fixed-width 2 binary addition:
+\begin{itemize}
+\item Inputs  $x_0, y_0, x_1, y_1$ represent $(x_1  x_0)_{2,2}$ and $(y_1 y_0)_{2,2}$
+\item Outputs  $z_0, z_1, z_2$ represent $(z_2  z_1 z_0)_{2,3} = (x_1  x_0)_{2,2} + (y_1 y_0)_{2,2}$ (may require up to width  $3$)
+\end{itemize}
+
+{\it First approach}: half-adder for each column, then combine carry from right column with sum of left column
+
+\vfill
+
+
+
+Write expressions for the circuit output values in terms of input values:
+
+
+
+$z_0 = \underline{\phantom{x_0 \oplus y_0\hspace{3in}}}$
+
+
+
+$z_1 = \underline{\phantom{(x_1 \oplus y_1) \oplus c_0}\hspace{2.5in}}$ \phantom{where $c_0 = x_0 \land y_0$}
+
+
+
+$z_2 = \underline{\phantom{(c_0 \land (x_1 \oplus y_1)) \oplus c_1}\hspace{2in}}$ \phantom{where $c_1 = x_1 \land y_1$}\\
+
+{\it Second approach}: for middle column, first add carry from right column to $x_1$, then add result to $y_1$
+
+\vfill
+
+
+Write expressions for the circuit output values in terms of input values:
+
+
+
+$z_0 = \underline{\phantom{x_0 \oplus y_0}\hspace{3in}}$
+
+
+
+$z_1 = \underline{ \phantom{(c_0 \oplus x_1) \oplus y_1}\hspace{2.4in}}$ \phantom{where $c_0 = x_0 \land y_0$}
+
+
+
+$z_2 = \underline{\phantom{(c_0 \land x_1) \oplus ((c_0 \oplus x_1)\land y_1)}\hspace{1.5in}}$
+
+
+\includegraphics[width=1.7in]{../../resources/images/width-2-adder.png}
+\vspace{100pt}
+
+{\it Extra example} Describe how to generalize this addition circuit for larger width inputs.
+
+ \vfill
 \end{document}
