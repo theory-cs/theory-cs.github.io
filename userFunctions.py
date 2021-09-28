@@ -240,12 +240,14 @@ def create_unit_boxes():
 		
 		#box heading and subheading/description
 		if(unitData[i]['ExpandInCalendar']):
-			boxString += """<div class="box actv"><button type="button" class="collapsible active"> \n"""
+			boxString += """<div class="box active" style="background-color: white;" id="box"""+str(unitNumber)+""""><button type="button" class="collapsible active" 
+			style="background-color: white;"> \n"""
 			boxString += """<h2 style= "line-height:40px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-down'></i> 
 				""" + heading + "</h2> </button> "
 			boxString += """<div class="boxContent" style="display: block;"> <p> """+ info + """</p>"""
 		else:
-			boxString += """<div class="box"><button type="button" class="collapsible" style="background-color: lightgray;"> \n"""
+			boxString += """<div class="box" style="background-color: lightgray;" id="box"""+str(unitNumber)+""""><button type="button" class="collapsible"
+			style="background-color: lightgray;"> \n"""
 			boxString += """<h2 style= "line-height:20px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-right'></i> 
 				""" + heading + "</h2> </button> "
 			boxString += """<div class="boxContent" style="display: none;"> <p> """+ info + """</p>"""
@@ -306,7 +308,10 @@ def create_unit_boxes():
 	for (i = 0; i < coll.length; i++) {
 		sideBtnString="#sideBtn";
 		sideBtnString+=(i+1);
+		boxString="#box";
+		boxString +=(i+1);
 		let sideBtn = document.querySelector(sideBtnString);
+		let box = document.querySelector(boxString);
 
   		coll[i].addEventListener("click", function() {
     		this.classList.toggle("active");
@@ -314,9 +319,13 @@ def create_unit_boxes():
     	
 			if (content.style.display === "block") {
       			content.style.display = "none";
+				box.style.background = "lightgray";
+				this.style.background = "lightgray";
     		} 
 			else {
       			content.style.display = "block";
+				box.style.background = "white";
+				this.style.background = "white";
     		}
 			if(this.classList.contains("active")){
 				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
@@ -339,7 +348,10 @@ def create_unit_boxes():
 			console.log(i);
 			sideBtnString="#sideBtn";
 			sideBtnString+=(i+1);
+			boxString="#box";
+			boxString +=(i+1);
 			let sideBtn = document.querySelector(sideBtnString);
+			let box = document.querySelector(boxString);
 
 			//coll[i].classList.toggle("active");
     		var content = coll[i].nextElementSibling;
@@ -348,11 +360,15 @@ def create_unit_boxes():
 				//expand all 
 				content.style.display = "block";
 				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+				coll[i].style.background= "white";
+				box.style.background="white";
 			}
 			else{
 				 //collapse all
 				content.style.display = "none";
 				sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+				coll[i].style.background= "lightgray";
+				box.style.background="lightgray";
 			}
 		}
 
@@ -470,19 +486,21 @@ def create_assignment():
 			templateString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
 			href= """ + html + """ target="HTML">Raw HTML</a>"""
         
-    	#Solutions on/off buttons 
+		#id of pdf.js element formatting
+		pdfjsID = element['name'].replace(" ", "-")
+    	
+		#Solutions on/off buttons 
 		if('solutionsFile' in element):
-        	#id of pdf.js element formatting
-			pdfjsID = element['name'].replace(" ", "-")
+        	
 			
 			templateString += """ <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions On</a>
 			<a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions Off</a> """
 
-       		#annotations on
+       		#solutions on
 			templateString += """ <script> document.getElementById("solutionsOnButton"""+str(collapseVar)+ """/").onclick = function() {annotations(1,
 			\""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};"""
             
-        	#annotations off
+        	#solutions off
 			templateString +="""document.getElementById("solutionsOffButton"""+str(collapseVar)+ """/").onclick = function() {annotations(0,
 			\""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};
 			</script>"""
