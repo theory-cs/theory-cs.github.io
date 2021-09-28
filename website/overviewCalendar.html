@@ -113,9 +113,9 @@
 		<h1> Discrete Math for CS</h1>
 
      <button class="button coll" onclick="expandCollapseAll(0)">Expand All Boxes</button>
-				<button class="button coll" onclick="expandCollapseAll(1)">Collapse All Boxes</button><br><br><div class="box active" style="background-color: white;" id="box1"><button type="button" class="collapsible active" 
+				<button class="button coll" onclick="expandCollapseAll(1)">Collapse All Boxes</button><br><br><div class="box" style="background-color: white;" id="box1"><button type="button" class="collapsible active" 
 			style="background-color: white;"> 
-<h2 style= "line-height:40px;"> <i id="sideBtn1" class='bx bx-caret-down'></i> 
+<h2 style= "line-height:20px;"> <i id="sideBtn1" class='bx bx-caret-down'></i> 
 				Week 0 and 1: Introduction and data types</h2> </button> <div class="boxContent" style="display: block;"> <p>  Dates: 9/24/21 - 10/1/21<br> Welcome! See you Friday 9/24 in Galbraith Hall. Lecture will be in WLH 2001 on Monday 9/27 and Wednesday 9/29. It will be via Zoom on Friday Oct 1. Please take our <a href="https://forms.gle/gvibFnNixxqcWbaU8" target="_blank">pre-class survey.</a> </p><hr><div><dl> 
 <dt>Learning Materials</dt><dd><a href="unit1.html#Notes" >Notes</a>&emsp;<a href="unit1.html#Intro-video" >Intro video</a>&emsp;<a href="unit1.html#Lecture-podcast" >Lecture podcast</a>&emsp;<a href="unit1.html#Lecture-Hall-(Week-0)" >Lecture Hall (Week 0)</a>&emsp;<a href="unit1.html#Lecture-Hall-(Week-1-and-beyond)" >Lecture Hall (Week 1 and beyond)</a>&emsp;</dd><dt>Due Dates</dt> 
 <dd><a href="https://gradescope.com">Review Quiz</a> <div class="badge due">Due: 10/1/21 at 5pm</div> </dd>
@@ -200,6 +200,7 @@
 		boxString +=(i+1);
 		let sideBtn = document.querySelector(sideBtnString);
 		let box = document.querySelector(boxString);
+		let h2 = document.querySelector("h2");
 
   		coll[i].addEventListener("click", function() {
     		this.classList.toggle("active");
@@ -209,11 +210,13 @@
       			content.style.display = "none";
 				box.style.background = "lightgray";
 				this.style.background = "lightgray";
+				h2.style.lineHeight="20px";
     		} 
 			else {
       			content.style.display = "block";
 				box.style.background = "white";
 				this.style.background = "white";
+				h2.style.lineHeight="20px";
     		}
 			if(this.classList.contains("active")){
 				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
