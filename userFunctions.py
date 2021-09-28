@@ -240,9 +240,9 @@ def create_unit_boxes():
 		
 		#box heading and subheading/description
 		if(unitData[i]['ExpandInCalendar']):
-			boxString += """<div class="box active" style="background-color: white;" id="box"""+str(unitNumber)+""""><button type="button" class="collapsible active" 
+			boxString += """<div class="box" style="background-color: white;" id="box"""+str(unitNumber)+""""><button type="button" class="collapsible active" 
 			style="background-color: white;"> \n"""
-			boxString += """<h2 style= "line-height:40px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-down'></i> 
+			boxString += """<h2 style= "line-height:20px;"> <i id="sideBtn"""+ str(unitNumber)+ """" class='bx bx-caret-down'></i> 
 				""" + heading + "</h2> </button> "
 			boxString += """<div class="boxContent" style="display: block;"> <p> """+ info + """</p>"""
 		else:
@@ -312,6 +312,7 @@ def create_unit_boxes():
 		boxString +=(i+1);
 		let sideBtn = document.querySelector(sideBtnString);
 		let box = document.querySelector(boxString);
+		let h2 = document.querySelector("h2");
 
   		coll[i].addEventListener("click", function() {
     		this.classList.toggle("active");
@@ -321,11 +322,13 @@ def create_unit_boxes():
       			content.style.display = "none";
 				box.style.background = "lightgray";
 				this.style.background = "lightgray";
+				h2.style.lineHeight="20px";
     		} 
 			else {
       			content.style.display = "block";
 				box.style.background = "white";
 				this.style.background = "white";
+				h2.style.lineHeight="20px";
     		}
 			if(this.classList.contains("active")){
 				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
