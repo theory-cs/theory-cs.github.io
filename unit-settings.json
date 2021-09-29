@@ -18,8 +18,12 @@
                 "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/2KbOaCLS-cQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
             },
             {
-                "name": "Lecture podcast",
+                "name": "Lecture and Discussion podcast",
                 "embedCode": "<p><a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">See videos on podcast.ucsd.edu</a></p>"
+            },
+            {
+                "name": "Discussion slides",
+                "embedCode": "<p><a href=\"../files/DiscussionWeek1.pptx\">Download pptx slides</a></p>"
             },
             {
                 "name": "Lecture Hall (Week 0)",
