@@ -304,7 +304,7 @@ the {\bf base $b$ expansion of $n$}  is
 where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ 
 are nonnegative integers less than $b$, $a_{k-1} \neq  0$, and
 \[
-n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0
+n =  \sum_{i=0}^{k-1} a_{i} b^{i}
 \]
 
 Notice: {\it The base $b$ expansion of a positive integer $n$ is a string over the alphabet 
@@ -546,7 +546,7 @@ the {\bf base $b$ expansion of $n$}  is
 where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ 
 are nonnegative integers less than $b$, $a_{k-1} \neq  0$, and
 \[
-n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0
+n =  \sum_{i=0}^{k-1} a_{i} b^{i}
 \]
 
 Notice: {\it The base $b$ expansion of a positive integer $n$ is a string over the alphabet 
@@ -605,7 +605,7 @@ the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
 \]
 where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
 \[
-n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0
+n =  \sum_{i=0}^{w-1} a_{i} b^{i}
 \]
  \vfill
 \section*{Fixed width example}
@@ -628,12 +628,14 @@ n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0
 \section*{Fixed width fractional definition}
 
 
-{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, $w'$ a positive  integer, and $x$ a real number the {\bf base $b$ fixed-width expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+$w'$ a positive  integer, and $x$ a real number the {\bf base $b$ fixed-width 
+expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
 $(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w'})_{b,w,w'}$
 where  $a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w'}$ are nonnegative integers less than $b$ and
-$$\underline{\phantom{x \geq a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  c_{w'} b^{-w'}}}$$
-and
-$$\underline{\phantom{x < a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  (c_{w'} +1) b^{-w'}}}$$
+$$x \geq \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=0}^{w'}  c_{j} b^{-j} \hfill
+\textrm{\qquad and \qquad}
+\hfill x < \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'} c_{j} b^{-j} + b^{-w'}$$
 
 \begin{center}
 \begin{tabular}{|c|p{5in}|}
@@ -669,7 +671,8 @@ Note: Java uses floating point, not fixed width representation, but similar roun
     \hline  
     For $b$ an integer greater than $1$ and $n$ a positive integer, 
     the {\bf base $b$ expansion of $n$}  is $(a_{k-1} \cdots a_1 a_0)_b$
-    where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ are nonnegative integers less than $b$, $a_{k-1} \neq  0$, and $n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0$
+    where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ are nonnegative integers 
+    less than $b$, $a_{k-1} \neq  0$, and $n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0$
     & 
     For $b$ an integer greater than $1$, $w$ a positive integer, and $n$ a nonnegative integer
     with $n <  b^w$, the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
