@@ -154,15 +154,35 @@
 
 </div>
 <ol>
+<li><p>True or False: A recursive definition of the set of integers <span class="math inline">\(\mathbb{Z}\)</span> is <span class="math display">\[\begin{array}{ll}
+        \textrm{Basis Step: } &amp; 20 \in \mathbb{Z} \\
+        \textrm{Recursive Step: } &amp; \textrm{If } x \in \mathbb{Z} \textrm{, then } x-1 \in \mathbb{Z}
+        \end{array}\]</span></p>
+<blockquote>
+<p><span><em>Key idea: <span>To define a set, we need to specify which elements are in and which elements are out. A description that gives some, but not all, integers is not a definition of the set of integers.</span></em></span></p>
+</blockquote></li>
 <li><p>When <span class="math inline">\(B = \{ \texttt{A}, \texttt{C}, \texttt{U}\, \texttt{G}\}\)</span> is the set of RNA bases, consider the recursively defined set <span class="math inline">\(X\)</span> given by:</p>
 <ul>
 <li><p>Basis Step: <span class="math inline">\(\texttt{A}\texttt{A}\in X\)</span>, <span class="math inline">\(\texttt{C}\texttt{C}\in X\)</span>, <span class="math inline">\(\texttt{U}\texttt{U}\in X\)</span>, <span class="math inline">\(\texttt{G}\texttt{G}\in X\)</span></p></li>
 <li><p>Recursive Step: If <span class="math inline">\(x \in X\)</span> and <span class="math inline">\(b \in B\)</span> then <span class="math inline">\(bxb \in X\)</span></p></li>
 </ul>
 <p>where <span class="math inline">\(bxb\)</span> is the result of string concatenations.</p>
-<p>Give three example elements of <span class="math inline">\(X\)</span> and an English description of the set.</p></li>
-<li><p>Write in roster method the set given by the Cartesian product <span class="math display">\[\{1,2\} \times \{a,b,c\}\]</span></p></li>
-<li><p>Consider the function <span class="math inline">\(d_2: \textrm{The set of ordered pairs of ratings $4$-tuples} \to \mathbb{R}\)</span> given by <span class="math display">\[d_2 (~( (x_1, x_2, x_3, x_4), (y_1, y_2, y_3, y_4)~)~) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}\]</span> Let <span class="math inline">\(z = (1,1,1,1)\)</span> be a ratings <span class="math inline">\(4\)</span>-tuple and consider the set <span class="math display">\[\{ x \mid d_2 ( ~(x,z)~) = 1 \}\]</span> Rewrite this set using the roster method.</p></li>
+<p>Give three example elements of <span class="math inline">\(X\)</span> and an English description of the set.</p>
+<blockquote>
+<p><span><em>Key idea: <span>To build new example elements we can start with an element from the basis step and then apply a rule from the recursive step finitely many times.</span></em></span></p>
+</blockquote></li>
+<li><p>Write in roster method the set given by the Cartesian product <span class="math display">\[\{1,2\} \times \{a,b,c\}\]</span></p>
+<blockquote>
+<p><span><em>Key idea: <span>Cartesian product does not require the sets to have the same size as one another or to have the same types of elements as one another.</span></em></span></p>
+</blockquote></li>
+<li><p>Consider the function <span class="math inline">\(d_2: \textrm{The set of ordered pairs of ratings $4$-tuples} \to \mathbb{R}\)</span> given by <span class="math display">\[d_2 (~( (x_1, x_2, x_3, x_4), (y_1, y_2, y_3, y_4)~)~) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}\]</span> Let <span class="math inline">\(z = (1,1,1,1)\)</span> be a ratings <span class="math inline">\(4\)</span>-tuple and consider the set <span class="math display">\[\{ x \mid d_2 ( ~(x,z)~) = 1 \}\]</span> Rewrite this set using the roster method.</p>
+<blockquote>
+<p><span><em>Key idea: <span>The input to this function is an ordered pair each of whose components is a ratings <span class="math inline">\(4\)</span>-tuple.</span></em></span></p>
+</blockquote></li>
+<li><p>Rewrite the set <span class="math display">\[\{ rnalen(x) \mid x \in S \textrm{ and } rnalen(x) &lt; 2 \}\]</span> using the roster method.</p>
+<blockquote>
+<p><span><em>Key idea: <span>The set builder definition for this set can be read as “The collection of all outputs of the function <span class="math inline">\(rnalen\)</span> when the input is taken from the set of RNA strands for which <span class="math inline">\(rnalen\)</span> gives value less than <span class="math inline">\(2\)</span>.” Informally, we consider just RNA strands whose <span class="math inline">\(rnalen\)</span> value is less than <span class="math inline">\(2\)</span> and collect their <span class="math inline">\(rnalen\)</span> values into our set.</span></em></span></p>
+</blockquote></li>
 </ol>
 </body>
 </html>
