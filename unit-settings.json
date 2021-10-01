@@ -9,7 +9,7 @@
                 "name": "Notes",
                 "addExtensions": true,
                 "file": "Week0and1",
-                "annotatedFile": "Week0and1-annotated.pdf" 
+                "annotatedFile": "Week0and1-annotated.pdf"
             }
         ],
         "embed": [
@@ -23,7 +23,7 @@
             },
             {
                 "name": "Discussion slides",
-                "embedCode": "<p><a href=\"../files/DiscussionWeek1.pptx\">Download pptx slides</a></p>"
+                "embedCode": "<p><a href=\"../files/DiscussionWeek1annotated.pptx\">Download pptx slides</a></p>"
             },
             {
                 "name": "Lecture Hall (Week 0)",
@@ -193,7 +193,7 @@
                 "due": "11/19/21 at 5pm"
             }
         ]
-    },  
+    },
     {
         "header": "Week 10",
         "Topics": "Relations and Clustering",
@@ -231,6 +231,3 @@
         ]
     }
 ]
-
-
-
