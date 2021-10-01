@@ -19,7 +19,7 @@
             },
             {
                 "name": "Lecture and Discussion podcast",
-                "embedCode": "<p><a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">See videos on podcast.ucsd.edu</a></p>"
+                "embedCode": "<p>SEe <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a> for Week 0 Friday and Week 1 Monday and Wednesday. See <a href=\"https://youtu.be/4i47EJ4yNaY\" target=\"_blank\">Week 1 Friday video on YouTube</a></p>"
             },
             {
                 "name": "Discussion slides",
@@ -54,7 +54,12 @@
                 "file": "Week2"
             }
         ],
-        "embed": [],
+        "embed": [
+            {
+                "name": "Lecture and Discussion podcast",
+                "embedCode": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a> for Week 0 Friday and Week 1 Monday and Wednesday. See <a href=\"https://youtu.be/4i47EJ4yNaY\" target=\"_blank\">Week 1 Friday video on YouTube</a></p>"
+            }
+        ],
         "Due Dates": [
             {
                 "name": "hw1-definitions-and-notation-CSE20F21"
