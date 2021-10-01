@@ -329,21 +329,22 @@
 <p>The domain of <em>rnalen</em> is<br />
 The codomain of <em>rnalen</em> is<br />
 Example function application: <span class="math display">\[rnalen(\texttt{A}\texttt{C}\texttt{U}) = \phantom{1+ rnalen(\texttt{A}\texttt{C}) = 1 + (1 + rnalen(\texttt{A}) ) = 1 + ( 1 + 1) = 3}\]</span></p>
-<p><span><em>Extra example</em></span>: A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is defined recursively: <span><em>fill in codomain and sample function applications</em></span> <span class="math display">\[\begin{array}{llll}
-&amp; &amp; \textit{basecount} : S \times B &amp; \to \phantom{\mathbb{N}} \\
-\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(b_1, b_2) &amp; =
+<p><span><em>Extra example</em></span>: A function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is defined recursively:</p>
+<p><span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(~(b_1, b_2)~) &amp; =
         \begin{cases}
             1 &amp; \textrm{when } b_1 = b_2 \\
             0 &amp; \textrm{when } b_1 \neq b_2 \\
         \end{cases} \\
-\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(s b_1, b_2) &amp; =
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(~(s b_1, b_2)~) &amp; =
         \begin{cases}
-            1 + \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 = b_2 \\
-            \textit{basecount}(s, b_2) &amp; \textrm{when } b_1 \neq b_2 \\
+            1 + \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 \neq b_2 \\
         \end{cases}
 \end{array}\]</span></p>
-<p><span class="math inline">\(basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{A}) = \hspace{5in}\)</span><br />
-<span class="math inline">\(basecount(\texttt{A}\texttt{C}\texttt{U},\texttt{G}) = \hspace{5in}\)</span><br />
+<p><span class="math inline">\(basecount(~(\texttt{A}\texttt{C}\texttt{U},\texttt{A})~) = basecount( ~(\texttt{A}\texttt{C}, \texttt{A})~) = basecount(~(\texttt{A}, \texttt{A})~) = 1\)</span><br />
+<span class="math inline">\(basecount(~(\texttt{A}\texttt{C}\texttt{U},\texttt{G})~) = basecount( ~(\texttt{A}\texttt{C}, \texttt{G})~) = basecount(~(\texttt{A}, \texttt{G})~) = 0\)</span><br />
 <span><em>Extra example</em></span>: The function which outputs <span class="math inline">\(2^n\)</span> when given a nonnegative integer <span class="math inline">\(n\)</span> can be defined recursively, because its domain is the set of nonnegative integers.</p>
 <h1 class="unnumbered" id="why-represent-numbers">Why represent numbers</h1>
 <p>Modeling uses data-types that are encoded in a computer.</p>

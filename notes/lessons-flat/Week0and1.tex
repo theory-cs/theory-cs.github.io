@@ -640,28 +640,29 @@ rnalen(\A\C\U) = \phantom{1+ rnalen(\A\C) = 1 + (1 + rnalen(\A) ) = 1 + ( 1 + 1)
 
 \vfill
 
-{\it Extra example}: A function \textit{basecount} that computes the number of a given base $b$ appearing in a RNA strand $s$ is defined recursively:  {\it fill in codomain and sample function
-applications}
+{\it Extra example}: A function \textit{basecount} that computes the number of a given base 
+$b$ appearing in a RNA strand $s$ is defined recursively:
+    
 \[
 \begin{array}{llll}
-& & \textit{basecount} : S \times B & \to \phantom{\mathbb{N}} \\
-\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(b_1, b_2) & =
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
         \begin{cases}
             1 & \textrm{when } b_1 = b_2 \\
             0 & \textrm{when } b_1 \neq b_2 \\
         \end{cases} \\
-\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(s b_1, b_2) & =
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
         \begin{cases}
-            1 + \textit{basecount}(s, b_2) & \textrm{when } b_1 = b_2 \\
-            \textit{basecount}(s, b_2) & \textrm{when } b_1 \neq b_2 \\
+            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
         \end{cases}
 \end{array}
 \]
 
-$basecount(\A\C\U,\A) = \hspace{5in}$\\
+$basecount(~(\A\C\U,\A)~) = basecount( ~(\A\C, \A)~) = basecount(~(\A, \A)~) = 1$\\
 
 
-$basecount(\A\C\U,\G) = \hspace{5in}$\\
+$basecount(~(\A\C\U,\G)~) = basecount( ~(\A\C, \G)~) = basecount(~(\A, \G)~) = 0$\\
 
 
 \vfill
