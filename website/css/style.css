@@ -39,7 +39,8 @@ h1 {
     font-style: normal;
     font-weight: bolder;
     font-size: 300%;
-    line-height: 87px;
+    line-height: normal;
+    margin-top: 10%;
     color: #182B49;
 }
 
