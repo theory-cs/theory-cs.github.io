@@ -897,46 +897,31 @@ Draw a logic circuit that implements fixed-width 2 binary addition:
 
 {\it First approach}: half-adder for each column, then combine carry from right column with sum of left column
 
-\vfill
-
-
 
 Write expressions for the circuit output values in terms of input values:
-
-
 
 $z_0 = \underline{\phantom{x_0 \oplus y_0\hspace{3in}}}$
 
-
-
 $z_1 = \underline{\phantom{(x_1 \oplus y_1) \oplus c_0}\hspace{2.5in}}$ \phantom{where $c_0 = x_0 \land y_0$}
-
-
 
 $z_2 = \underline{\phantom{(c_0 \land (x_1 \oplus y_1)) \oplus c_1}\hspace{2in}}$ \phantom{where $c_1 = x_1 \land y_1$}\\
 
-{\it Second approach}: for middle column, first add carry from right column to $x_1$, then add result to $y_1$
+\includegraphics[width=1.7in]{../../resources/images/width-2-adder.png}
 
-\vfill
+
+
+{\it Second approach}: for middle column, first add carry from right column to $x_1$, then add result to $y_1$
 
 
 Write expressions for the circuit output values in terms of input values:
 
-
-
 $z_0 = \underline{\phantom{x_0 \oplus y_0}\hspace{3in}}$
-
-
 
 $z_1 = \underline{ \phantom{(c_0 \oplus x_1) \oplus y_1}\hspace{2.4in}}$ \phantom{where $c_0 = x_0 \land y_0$}
 
-
-
 $z_2 = \underline{\phantom{(c_0 \land x_1) \oplus ((c_0 \oplus x_1)\land y_1)}\hspace{1.5in}}$
 
-
-\includegraphics[width=1.7in]{../../resources/images/width-2-adder.png}
-\vspace{100pt}
+\vfill
 
 {\it Extra example} Describe how to generalize this addition circuit for larger width inputs.
 
