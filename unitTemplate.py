@@ -31,8 +31,8 @@ for i in range(0,len(unitData)):
             #.tex/.html button
             if( unitData[i]['pdfs'][j]['addExtensions']):
                 #.tex
-                pdfString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
-                    href=""" + tex + """ download>TeX</a> """
+                pdfString += """ <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
+                    href=""" + tex + """ download>LaTeX</a> """
                 #.html
                 pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
                     href= """ + html + """ target="HTML">Raw HTML</a>"""

@@ -483,8 +483,8 @@ def create_assignment():
     	#html and tex download buttons
 		if(element['addExtensions']):
         	#.tex
-			templateString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
-			href=""" + tex + """ download>TeX</a> """
+			templateString += """ <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
+			href=""" + tex + """ download>LaTeX</a> """
 
         	#.html
 			templateString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 

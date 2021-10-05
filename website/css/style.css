@@ -280,12 +280,12 @@ ul {
     text-decoration: none;
 }
 
-.button.TeX {
+.button.LaTeX {
     background: #182B49;
     border: 2px solid #182B49;
 }
 
-.button.TeX:hover {
+.button.LaTeX:hover {
     color: #182B49;
     background: white;
     text-decoration: none;

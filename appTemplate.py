@@ -23,8 +23,8 @@ for (k,v) in appData.items():
     href="""+pdf+""" download>PDF</a>"""
 
     #.tex Download button
-    pdfString += """ <a tabindex = "2" class="button TeX" aria-label="Download .TeX" 
-    href=""" + tex + """ download>TeX</a> """
+    pdfString += """ <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
+    href=""" + tex + """ download>LaTeX</a> """
 
     #Raw HTML button 
     pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
