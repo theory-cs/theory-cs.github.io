@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CSE20F21" />
+  <title>HW2 Numbers</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">HW2 Numbers</h1>
+<p class="author">CSE20F21</p>
+<p class="date">Due: Tuesday, October 12, 2021 at 11:00PM on Gradescope</p>
+</header>
+<p><span><strong>In this assignment,</strong></span></p>
+<p>You will consider multiple number representations and how they connect to applications in computer science. You will also practice tracing and working with algorithms.</p>
+<p>Instructions and academic integrity reminders for all homework assignments in CSE20 this quarter are on the class website and on the hw1-definitions-and-notations assignment.</p>
+<p>You will submit this assignment via Gradescope (<a href="https://www.gradescope.com">https://www.gradescope.com</a>) in the assignment called “hw2-numbers”.</p>
+<p><span><strong>Resources</strong></span>: To review the topics you are working with for this assignment, see the class material from Friday of Week 1 and Monday and Wednesday of Week 2. We will post frequently asked questions and our answers to them in a pinned Piazza post.</p>
+<p><span><strong>Assigned questions</strong></span></p>
+<ol>
+<li><p>(<span><em>Graded for fair effort completeness</em></span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>) Pick a nonnegative integer between 100 and 1000 (inclusive) and express it using at least three different representations, at least two of which must be ones discussed in class. Include at least one trace of using procedure <span class="math inline">\(baseb1\)</span> from page 16 of the Week 0 and 1 notes to calculate the base <span class="math inline">\(b_1\)</span> expansion of your number (for your choice of <span class="math inline">\(b_1\)</span>) and include at least one trace of using procedure <span class="math inline">\(baseb2\)</span> from page 16 of the Week 0 and 1 notes to calculate the base <span class="math inline">\(b_2\)</span> expansion of your number (for your choice of <span class="math inline">\(b_2\)</span>).</p>
+<p><span><em>Extra; not for credit:</em></span> Consider choosing representations that might be useful in some way; what would make one representation more useful than another?</p></li>
+<li><p>In this question, we will use recursive definitions to give a precise description of the set of strings that form octal (base <span class="math inline">\(8\)</span>) expansions and the values of those expansions. Let’s start by defining the set of possible coefficients <span class="math display">\[C_8 = \{ 0, 1, 2, 3, 4, 5, 6, 7\}\]</span></p>
+<ol>
+<li><p>(<span><em>Graded for fair effort completeness</em></span>) Fill in the recursive definition of the set of all strings that form octal expansions, <span class="math inline">\(S_8\)</span>:</p>
+<p><span><strong>Definition</strong></span> The set <span class="math inline">\(S_8\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
+    \textrm{Basis Step: } &amp; \textrm{If } x \in \underline{\phantom{\hspace{2in}}} \textrm{, then } x \in S_8\\
+    \textrm{Recursive Step: } &amp; \textrm{If } s \in S_8 \textrm{ and } x \in C_8 \textrm{, then }
+    \underline{\phantom{\hspace{2in}}} \in S_8
+    \end{array}\]</span></p></li>
+<li><p>(<span><em>Graded for correctness</em></span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>) Consider the function <span class="math inline">\(v_8: S_8 \to \mathbb{Z}^+\)</span> defined recursively by</p>
+<blockquote>
+<p>Basis Step: If <span class="math inline">\(x \in C_8\)</span>, then <span class="math inline">\(v_8 (x) = x\)</span>.</p>
+<p>Recursive Step: If <span class="math inline">\(s \in S_8\)</span> and <span class="math inline">\(x \in C_8\)</span>, then <span class="math inline">\(v_8 (sx) = 8v_8(s) + x\)</span>, where the input <span class="math inline">\(sx\)</span> is the result of string concatenation and the output <span class="math inline">\(8 v_8 (s)\)</span> is the result of integer multiplication.</p>
+</blockquote>
+<p>Calculate <span class="math inline">\(v_8(104)\)</span>, including all steps in your calculation and justifications for them.</p></li>
+<li><p>(<span><em>Graded for fair effort completeness</em></span>) It turns out<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> that for any string <span class="math inline">\(u\)</span> in <span class="math inline">\(S_8\)</span>, the value of the octal expansion <span class="math inline">\((u)_8\)</span> equals <span class="math inline">\(v_8(u)\)</span>. Using this fact, write an expression relating the value of <span class="math inline">\((u000)_8\)</span> to the value of <span class="math inline">\((u)_8\)</span> and justify it.</p></li>
+</ol></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Recall that, mathematically, a color can be represented as a <span class="math inline">\(3\)</span>-tuple <span class="math inline">\((r, g, b)\)</span> where <span class="math inline">\(r\)</span> represents the red component, <span class="math inline">\(g\)</span> the green component, <span class="math inline">\(b\)</span> the blue component and where each of <span class="math inline">\(r\)</span>, <span class="math inline">\(g\)</span>, <span class="math inline">\(b\)</span> must be from the collection <span class="math inline">\(\{x \in \mathbb{N}\mid 0 \leq x \leq 255 \}\)</span>.</p>
+<p>As an <span><strong>alternative</strong></span> representation, in this assignment we’ll use base <span class="math inline">\(16\)</span> fixed-width expansions to represent colors as single numbers.</p>
+<p><span><strong>Definition</strong></span>: A <span><strong>hex color</strong></span> is a nonnegative integer less than or equal to <span class="math inline">\(16777215\)</span>. For <span class="math inline">\(n\)</span> a hex color, we define its red, green, and blue components by first writing its base <span class="math inline">\(16\)</span> fixed-width <span class="math inline">\(6\)</span> expansion <span class="math display">\[n = (r_1r_2g_1g_2b_1b_2)_{16,6}\]</span> and then defining <span class="math inline">\((r_1r_2)_{16,2}\)</span> is the red component, <span class="math inline">\((g_1g_2)_{16,2}\)</span> is the green component, and <span class="math inline">\((b_1b_2)_{16,2}\)</span> is the blue component.</p>
+<hr />
+<p><span><em>Sample response that can be used as reference for the detail expected in your answer:</em></span></p>
+<p>In RGB codes<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> white is represented as maximum red, maximum green, and maximum blue and so has <span class="math inline">\((FF)_{16,2}\)</span> as each of these components. This means that the hex color for white is <span class="math inline">\((FFFFFF)_{16,6}\)</span> which is the value <span class="math display">\[15\cdot 16^5 + 15 \cdot 16^4 + 15 \cdot 16^3 + 15 \cdot 16^2 + 15 \cdot 16^1 + 15 \cdot 16^0 
+        = 16^6 - 1 = 16777215\]</span></p>
+<hr />
+<ol>
+<li><p>Write the hex color representing red (with no green or blue) in base <span class="math inline">\(16\)</span> fixed-width <span class="math inline">\(6\)</span> and also calculate its value (using usual mathematical conventions). Include your (clear, correct, complete) calculations.</p></li>
+<li><p>Write the hex color representing green (with no red or blue) in base <span class="math inline">\(16\)</span> fixed-width <span class="math inline">\(6\)</span> and also calculate its value (using usual mathematical conventions). Include your (clear, correct, complete) calculations.</p></li>
+<li><p>Write the hex color representing blue (with no red or green) in base <span class="math inline">\(16\)</span> fixed-width <span class="math inline">\(6\)</span> and also calculate its values (using usual mathematical conventions). Include your (clear, correct, complete) calculations.</p></li>
+<li><p>The human eye can’t distinguish between some hex colors because of physical limitations. Give an example of two hex colors <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> such that they look indistinguishable (the colors they represent are very very similar) but <span class="math display">\[c_1 - c_2 &gt; 50000\]</span> Justify your choice with (clear, correct, complete) calculations and/or references to definitions, and connecting these calculations and/or definitions with the desired properties. Include squares with each of your two colors so that we can see how indistinguishable they are.</p>
+<p>Pro tip: To show a color, you can use the following LaTeX source code:</p>
+<p><code>\definecolor{UCSDaccent}{RGB}{0,198,215}</code></p>
+<p><code>\textcolor{UCSDaccent}{\rule{1cm}{1cm}}</code></p>
+<p>which produces</p>
+<div style="color: UCSDaccent">
+<hr />
+</div>
+<p>Notice that the code to define the color uses the decimal-like values for each of the red, green, and blue components. For the UCSD accent color we defined, the base <span class="math inline">\(16\)</span> fixed-width <span class="math inline">\(2\)</span> values are: red is <span class="math inline">\((00)_{16,2}\)</span>, green is <span class="math inline">\((C6)_{16,2}\)</span>, blue is <span class="math inline">\((D7)_{16,2}\)</span>.</p>
+<p><span><em>Extra; not for credit:</em></span> What does this mean about the choice of hex color for representing colors? What are advantages and disadvantages of this representation?</p></li>
+</ol></li>
+<li><p>(<span><em>Graded for correctness</em></span>) In class (Week 2 notes page 7), we discussed fixed-width addition. In this question we will look at fixed-width multiplication. The algorithm for fixed-width multiplication is to multiply using the usual long-multiplication algorithm (column-by-column and carry), and dropping all leftmost columns so the result is the same width as the input terms. For each of the examples below, consider whether this algorithm gives the correct value for the product of the two numbers, based on the way the bitstrings are interpreted.</p>
+<hr />
+<p><span><em>Sample response that can be used as reference for the detail expected in your answer:</em></span></p>
+<p>The fixed-width <span class="math inline">\(5\)</span> multiplication of <span class="math inline">\([00101]_{2c,5}\)</span> and <span class="math inline">\([00101]_{2c,5}\)</span> does not give the correct value for the product, as we can see from the following calculation.</p>
+<p>First, we calculate the values: <span class="math display">\[[00101]_{2c,5} = 0\cdot (-2^4) + 0\cdot 2^3 + 1 \cdot 2^2 + 0\cdot 2^1 + 1 \cdot 2^0 = 4 + 1 = 5\]</span> so the correct value for the product is <span class="math inline">\(5 \cdot 5 = 25\)</span>, which cannot be represented in 2s complement width 5 (the largest positive number that can be represented in 2s complement width 5 is <span class="math inline">\([01111]_{2c,5} = 8 + 4 + 2 + 1 = 15\)</span>).</p>
+<p>When we perform the fixed-width <span class="math inline">\(5\)</span> multiplication algorithm: <span class="math display">\[\begin{aligned}
+            &amp; 0~ 0~ 1~ 0~ 1\\
+     \times &amp; 0~ 0~ 1~ 0~ 1\\
+     &amp;\overline{0~ 0~ 1~ 0~ 1}\\
+     + {0~} &amp; {0~0~0~0~~}\\
+     + {0~0~} &amp; {1~0~1~~}\\
+     \overline{\phantom{0~0~}}&amp;\overline{1~ 1~ 0~ 0~ 1}\\
+    \end{aligned}\]</span></p>
+<p>we get <span class="math inline">\([11001]_{2c,5} = 1\cdot (-2^4) + 1 \cdot 2^3 + 0 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 = -16 + 8 + 1 = -7\)</span>, which is not the required value.</p>
+<hr />
+<ol>
+<li><p>Does the fixed-width <span class="math inline">\(5\)</span> multiplication of <span class="math inline">\([11101]_{2c,5}\)</span> and <span class="math inline">\([11011]_{2c,5}\)</span> give the correct value for the product? Justify your answer with (clear, correct, complete) calculations and/or references to definitions, and connecting these calculations and/or definitions with your answer.</p></li>
+<li><p>Does the fixed-width <span class="math inline">\(5\)</span> multiplication of <span class="math inline">\([00100]_{2c,5}\)</span> and <span class="math inline">\([11100]_{2c,5}\)</span> give the correct value for the product? Justify your answer with (clear, correct, complete) calculations and/or references to definitions, and connecting these calculations and/or definitions with your answer.</p></li>
+</ol></li>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>This means you will get full credit so long as your submission demonstrates honest effort to answer the question. You will not be penalized for incorrect answers.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>This means your solution will be evaluated not only on the correctness of your answers, but on your ability to present your ideas clearly and logically. You should explain how you arrived at your conclusions, using mathematically sound reasoning. Whether you use formal proof techniques or write a more informal argument for why something is true, your answers should always be well-supported. Your goal should be to convince the reader that your results and methods are sound.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>We’ll be able to prove this in Week 7 or so, once we’ve talked about induction.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>You can use online tools to visualize the colors associated with different values for the red, green, and blue components, e.g. <a href="https://www.w3schools.com/colors/colors_rgb.asp">https://www.w3schools.com/colors/colors_rgb.asp</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
