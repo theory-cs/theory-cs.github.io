@@ -744,7 +744,7 @@ $2$s complement with width $w$,
     with leading $1$, or
     \item Express $-n$ as a sum of powers of $2$, 
     where the leftmost $2^{w-1}$ is negative weight, or
-    \item Convert $n$ to binary fixed-width, 
+    \item Convert $n$ to binary fixed-width $w$, 
     flip bits, add 1 (ignore overflow)
 \end{itemize}
 
@@ -755,7 +755,7 @@ each of these approaches works.} \vfill
 
 {\bf Representing $0$}:
 
-So far, the definitions of base expansions treat
+So far, we have representations for
 positive and negative integers. What about $0$?
 
 \begin{tabular}{|cc|p{3.4in}|p{3.7in}|}

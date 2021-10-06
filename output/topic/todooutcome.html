@@ -777,12 +777,12 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <ul>
 <li><p>Calculate <span class="math inline">\(2^{w-1} - n\)</span>, convert result to binary fixed-width <span class="math inline">\(w-1\)</span>, pad with leading <span class="math inline">\(1\)</span>, or</p></li>
 <li><p>Express <span class="math inline">\(-n\)</span> as a sum of powers of <span class="math inline">\(2\)</span>, where the leftmost <span class="math inline">\(2^{w-1}\)</span> is negative weight, or</p></li>
-<li><p>Convert <span class="math inline">\(n\)</span> to binary fixed-width, flip bits, add 1 (ignore overflow)</p></li>
+<li><p>Convert <span class="math inline">\(n\)</span> to binary fixed-width <span class="math inline">\(w\)</span>, flip bits, add 1 (ignore overflow)</p></li>
 </ul>
 <p><span><em>Challenge: use definitions to explain why each of these approaches works.</em></span></p>
 <h1 class="unnumbered" id="representing-zero">Representing zero</h1>
 <p><span><strong>Representing <span class="math inline">\(0\)</span></strong></span>:</p>
-<p>So far, the definitions of base expansions treat positive and negative integers. What about <span class="math inline">\(0\)</span>?</p>
+<p>So far, we have representations for positive and negative integers. What about <span class="math inline">\(0\)</span>?</p>
 <table>
 <thead>
 <tr class="header">
