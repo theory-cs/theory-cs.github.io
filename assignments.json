@@ -3,7 +3,8 @@
       "name": "hw1-definitions-and-notation-CSE20F21",
       "addExtensions": true,
       "due": "10/5/21 at 11pm",
-      "Information": "This is a group optional assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw1-sol-CSE20F21.pdf"
    },
    {
       "name": "hw2-numbers-CSE20F21",
