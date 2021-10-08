@@ -4,11 +4,15 @@
 {\bf (Some) logical equivalences}
 
 \begin{tabular}{llp{3in}}
-$\lnot ( \lnot p)$ & & {\bf Double negation}\\
+$\lnot ( \lnot p) \equiv p$ & & {\bf Double negation}\\
+&& \\
 $p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
+&& \\
 $(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
+&& \\
 $p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Domination} aka 
 short circuit evaluation\\
+&& \\
 $\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}
 \end{tabular}
 
