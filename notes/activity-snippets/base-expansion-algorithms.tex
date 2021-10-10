@@ -8,7 +8,7 @@
 \begin{algorithm}[caption={Calculating integer part of $\log_b$}]
 procedure $\textit{logb}$($n, b$: positive integers with $b > 1$)
 $r$ := $0$
-while $n$ > $1$
+while $n$ > $b-1$
   $r$ := $r + 1$
   $n$ := $n$ div $b$
 return $r$ $\{ r~\textrm{holds the result of the}~\log_b~\textrm{operation}\}$
