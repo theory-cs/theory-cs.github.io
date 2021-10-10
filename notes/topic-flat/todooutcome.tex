@@ -441,7 +441,7 @@ and $r$ is called the remainder. We write $q=n \textbf{ div } d$ and $r=n \textb
 \begin{algorithm}[caption={Calculating integer part of $\log_b$}]
 procedure $\textit{logb}$($n, b$: positive integers with $b > 1$)
 $r$ := $0$
-while $n$ > $1$
+while $n$ > $b-1$
   $r$ := $r + 1$
   $n$ := $n$ div $b$
 return $r$ $\{ r~\textrm{holds the result of the}~\log_b~\textrm{operation}\}$
@@ -927,4 +927,399 @@ $z_2 = \underline{\phantom{(c_0 \land x_1) \oplus ((c_0 \oplus x_1)\land y_1)}\h
 {\it Extra example} Describe how to generalize this addition circuit for larger width inputs.
 
  \vfill
+\section*{Logical operators}
+
+
+{\bf Logical operators} aka propositional connectives
+
+\begin{tabular}{lccccp{4in}}
+{\bf Conjunction} & AND & $\land$ &\verb|\land| & 2 inputs & Evaluates to $T$ exactly when {\bf both} inputs are $T$\\
+{\bf Exclusive or} & XOR & $\oplus$ &\verb|\oplus| & 2 inputs & Evaluates to $T$ exactly when {\bf exactly one} of inputs is $T$\\
+{\bf Disjunction} & OR & $\lor$ &\verb|\lor| & 2 inputs & Evaluates to $T$ exactly when {\bf at least one} of inputs is $T$\\
+{\bf Negation} & NOT & $\lnot$ &\verb|\lnot| & 1 input & Evaluates to $T$ exactly when its input is $F$\\
+\end{tabular} \vfill
+\section*{Logical operators truth tables}
+
+
+\begin{center}
+\begin{tabular}{cc||c|c|c}
+\multicolumn{2}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+& & {\bf Conjunction} &  {\bf Exclusive or} & {\bf Disjunction} \\
+$p$ & $q$ & $p \land q$ &  $p  \oplus  q$ & $p \lor  q$ \\
+\hline
+$T$ & $T$ & $T$ & $F$ & $T$\\
+$T$ & $F$ & $F$ & $T$ & $T$\\
+$F$ & $T$ & $F$ & $T$ & $T$\\
+$F$ & $F$ & $F$ & $F$ & $F$\\
+\hline
+& & \includegraphics[width=0.5in]{../../resources/images/xANDy.png}
+&  \includegraphics[width=0.5in]{../../resources/images/xXORy.png}
+&  \includegraphics[width=0.5in]{../../resources/images/xORy.png}
+\end{tabular}
+\qquad \qquad\qquad
+\begin{tabular}{c||c}
+Input & Output \\
+& {\bf Negation} \\
+$p$ & $\lnot p$ \\
+\hline
+$T$ & $F$ \\
+$F$ & $T$\\
+\hline & \includegraphics[width=0.5in]{../../resources/images/NOTx.png}
+\end{tabular}
+\end{center}
+ \vfill
+\section*{Logical operators example truth table}
+
+
+\begin{center}
+    \begin{tabular}{ccc||p{3in}|c|c}
+    \multicolumn{3}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+    $p$ & $q$ & $r$  &  &  $(p \land q) \oplus (~ ( p \oplus q) \land r~)$ & $(p \land q) \vee (~ ( p \oplus q) \land r~)$ \\
+    \hline
+    $T$ & $T$  & $T$ &   && \\
+    $T$ & $T$  & $F$ &   && \\
+    $T$ & $F$  & $T$ &   && \\
+    $T$ & $F$  & $F$ &   && \\
+    $F$ & $T$  & $T$ &   && \\
+    $F$ & $T$  & $F$ &   && \\
+    $F$ & $F$  & $T$ &   && \\
+    $F$ & $F$  & $F$ &   && \\
+    \end{tabular}
+\end{center}
+    \vfill \vfill
+\section*{Truth table to compound proposition}
+
+
+Given a truth table, how do we find an expression
+using the input variables and logical operators that has the 
+output values specified in this table?
+
+{\it Application}: design a circuit given a desired input-output relationship.
+
+\begin{center}
+\begin{tabular}{cc||cc}
+\multicolumn{2}{c||}{Input}  &\multicolumn{2}{c}{Output}\\
+$p$ & $q$& $mystery_1$ & $mystery_2$\\
+\hline
+$T$ & $T$  & $T$ & $F$\\
+$T$ & $F$  & $T$ & $F$\\
+$F$ & $T$  & $F$ & $F$\\
+$F$ & $F$  & $T$ & $T$\\
+\end{tabular}
+\end{center}
+
+
+Expressions that have output $mystery_1$ are
+
+\vspace{100pt}
+
+Expressions that have output $mystery_2$ are
+
+\vspace{100pt}
+ \vfill
+\section*{Dnf cnf definition}
+
+
+{\bf  Definition} An expression built of variables and logical 
+operators is in {\bf disjunctive normal form}  (DNF) means
+that it is an OR of ANDs of variables and their negations.
+
+{\bf  Definition} An expression built of variables and logical 
+operators is in {\bf conjunctive normal form}  (CNF) means
+that it is an AND of ORs of variables and their negations.
+ \vfill
+\section*{Dnf cnf example}
+
+
+
+
+{\it Extra example}: An expression that has output ? is: 
+
+\begin{tabular}{ccc||c}
+    \multicolumn{3}{c||}{Input}  & Output\\
+    $p$ & $q$ & $r$  &  ?\\
+    \hline
+    $T$ & $T$  & $T$ & $T$ \\
+    $T$ & $T$  & $F$ & $T$ \\
+    $T$ & $F$  & $T$ & $F$ \\
+    $T$ & $F$  & $F$ & $T$ \\
+    $F$ & $T$  & $T$ & $F$ \\
+    $F$ & $T$  & $F$ & $F$ \\
+    $F$ & $F$  & $T$ & $T$ \\
+    $F$ & $F$  & $F$ & $F$ \\
+\end{tabular}
+
+\vfill
+
+ \vfill
+\section*{Compound proposition definitions}
+
+
+{\bf Proposition}: Declarative sentence that is true or false (not both).
+
+{\bf Propositional variable}: Variable that represents a proposition.
+
+{\bf Compound proposition}: New proposition formed from existing propositions (potentially) using logical operators.
+{\it Note}: A propositional variable is one example of a compound proposition.
+
+{\bf Truth table}: Table with one row for each of the possible combinations of truth values of the input and 
+    an additional column that shows the truth value of the result of the operation corresponding to a particular row.
+    
+ \vfill
+\section*{Logical equivalence}
+
+
+{\bf Logical equivalence }: Two compound  propositions are {\bf logically  equivalent} means that  they 
+have the  same  truth  values for all settings of truth  values to their propositional  variables.
+
+{\bf Tautology}:  A compound proposition that evaluates to true
+for all settings of truth  values to its propositional  variables; it is  abbreviated $T$.
+
+{\bf Contradiction}: A compound proposition that  evaluates  to  false 
+for  all settings of truth  values to its propositional  variables; it  is abbreviated $F$.
+
+{\bf Contingency}: A compound proposition that is neither a tautology nor a contradiction.
+ \vfill
+\section*{Tautology contradiction contingency examples}
+
+
+Label each of the following as a tautology, contradiction, or contingency.
+
+$p \land p$
+
+$p \oplus p$
+
+$p \lor p$
+
+$p \lor \lnot p$
+
+$p \land \lnot p$ \vfill
+\section*{Logical equivalence extra example}
+
+
+{\it Extra Example}: Which of the  compound propositions in the table below are logically equivalent?
+\begin{center}
+\begin{tabular}{cc||c|c|c|c|c}
+\multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+$p$ & $q$ & $\lnot (p \land \lnot q)$ & $\lnot (\lnot p  \lor \lnot q)$ &  $(\lnot p \lor  q)$
+& $(\lnot q \lor \lnot p)$ & $(p \land q)$  \\
+\hline
+$T$ & $T$ & &&&&\\
+$T$ & $F$ & &&&&\\
+$F$ & $T$ & &&&&\\
+$F$ & $F$ & &&&&\\
+\end{tabular}
+\end{center} \vfill
+\section*{Logical operators full truth table}
+
+
+\begin{center}
+    \begin{tabular}{cc||c|c|c|c|c}
+    \multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+     & & Conjunction &  Exclusive or & Disjunction  &  Conditional & Biconditional  \\
+    $p$ & $q$ & $p \wedge q$ &  $p  \oplus  q$ & $p \vee  q$ & $p \to q$ & $p \leftrightarrow q$\\
+    \hline
+    $T$ & $T$ & $T$ & $F$ & $T$ & $T$& $T$\\
+    $T$ & $F$ & $F$ & $T$ & $T$ & $F$& $F$\\
+    $F$ & $T$ & $F$ & $T$ & $T$ & $T$& $F$\\
+    $F$ & $F$ & $F$ & $F$ & $F$ & $T$& $T$\\
+    \hline
+    && ``$p$ and $q$'' & ``$p$ xor $q$'' & ``$p$ or $q$'' & ``if $p$ then $q$'' & ``$p$ if and only if $q$''
+    \end{tabular}
+\end{center}
+     \vfill
+\section*{Hypothesis conclusion}
+
+
+The only way to make  the conditional statement $p \to q$ false is to \underline{\phantom{\hspace{3in}}}\\
+
+\begin{tabular}{llll}
+The {\bf  hypothesis}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} &
+The {\bf  antecedent}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} \\
+&&&  \\
+The {\bf  conclusion}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}&
+The {\bf  consequent}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}\\
+&&&  \\
+\end{tabular}
+ \vfill
+\section*{Converse inverse contrapositive}
+
+
+The {\bf converse}  of $p \to q$ is \underline{\phantom{ $q \to p$\hspace{1.6in}}}\\
+
+The {\bf inverse}  of $p \to q$ is \underline{\phantom{ $\lnot p \to \lnot q$\hspace{1.6in}}}\\
+
+The {\bf contrapositive}  of $p \to q$ is \underline{\phantom{$\lnot q \to \lnot p$\hspace{1.6in}}} \\
+ \vfill
+\section*{Compound propositions precedence}
+
+
+Order of operations (Precedence) for logical operators: 
+
+Negation, then conjunction / disjunction, then conditional / biconditionals.
+
+Example: $\lnot p \lor \lnot q$ means $(\lnot p) \lor (\lnot q)$.
+ \vfill
+\section*{Logical equivalence identities}
+
+
+{\bf (Some) logical equivalences}
+
+{\it Can replace $p$ and $q$ with any compound proposition}
+
+\begin{tabular}{llp{3in}}
+$\lnot ( \lnot p) \equiv p$ & & {\bf Double negation}\\
+&& \\
+&& \\
+$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
+&& \\
+&& \\
+$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
+&& \\
+&& \\
+$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Domination} aka 
+short circuit evaluation\\
+&& \\
+&& \\
+$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\\
+&& \\
+\end{tabular}
+
+\begin{tabular}{llp{3in}}
+$p \to q \equiv \lnot p \lor q$ & & \\
+&& \\
+&& \\
+$p \to q \equiv \lnot q \to \lnot p$ & &{\bf Contrapositive} \\
+&& \\
+&& \\
+$\lnot (p \to q) \equiv p\land \lnot q$  & &\\
+&& \\
+&& \\
+$\lnot( p \leftrightarrow q) \equiv p \oplus q$ && \\
+&& \\
+&& \\
+$p \leftrightarrow q \equiv q \leftrightarrow p$ &&\\
+&& \\
+\end{tabular}
+
+{\it Extra examples}:
+
+$p \leftrightarrow q$ is not logically equivalent to $p \land q$ because \underline{\phantom{\hspace{4in}}} 
+
+$p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\hspace{4in}}} 
+ \vfill
+\section*{Logical operators english synonyms}
+
+
+{\bf Common ways to express logical operators in English}:
+
+{\bf Negation} $\lnot p$ can be said in English as 
+\begin{itemize}
+\item Not $p$.
+\item It's not the case that $p$.
+\item $p$ is false.
+\end{itemize}
+
+{\bf Conjunction} $p \land q$ can be said in English as
+\begin{itemize}
+    \item $p$ and $q$.
+    \item Both $p$ and $q$ are true.
+    \item $p$ but $q$.
+\end{itemize}
+
+{\bf Exclusive or} $p \oplus q$ can be said in English as
+\begin{itemize}
+    \item $p$ or $q$, but not both.
+    \item Exactly one of $p$ and $q$ is true.
+\end{itemize}
+
+{\bf Disjunction} $p \lor q$ can be said in English as
+\begin{itemize}
+    \item $p$ or $q$, or both.
+    \item $p$ or $q$ (inclusive).
+    \item At least one of $p$ and $q$ is true.
+\end{itemize}
+
+{\bf Conditional} $p \to q$ can be said in English as
+\begin{multicols}{2}
+\begin{itemize}
+    \item if $p$, then $q$.
+    \item $p$ is sufficient for $q$.
+    \item $q$ when $p$.
+    \item $q$ whenever $p$.
+    \item $p$ implies $q$.
+    \item $q$ follows from $p$.
+    \item $p$ is sufficient for $q$.
+    \item $q$ is necessary for $p$.
+    \item $p$ only if $q$.
+\end{itemize}
+\end{multicols}
+
+{\bf Biconditional}
+\begin{itemize}
+    \item $p$ if and only if $q$.
+    \item $p$ iff $q$.
+    \item If $p$ then $q$, and conversely.
+    \item $p$ is necessary and sufficient for $q$.
+\end{itemize} \vfill
+\section*{Compound propositions translation}
+
+
+{\bf Translation}: Express each of the following sentences as compound propositions, using
+the given propositions.
+
+\begin{multicols}{2}
+``A sufficient condition for the warranty to be good is that you bought the computer less than a year ago"
+\columnbreak
+\begin{align*}
+w &\text{ is  ``the warranty is good"} \\
+b &\text{ is  ``you bought the computer less than a year ago"} \\
+\end{align*}
+\end{multicols}
+\vfill
+
+\begin{multicols}{2}
+``Whenever the message was sent from an unknown system, it is scanned for viruses."
+\columnbreak
+\begin{align*}
+s &\text{ is  ``The message is scanned for viruses"} \\
+u &\text{ is  ``The message was sent from an unknown system"} \\
+\end{align*}
+\end{multicols}
+\vfill
+
+\begin{multicols}{2}
+``I will complete my to-do list only if I put a reminder in my calendar"
+\columnbreak
+\begin{align*}
+d &\text{ is  ``I will complete my to-do list"} \\
+c &\text{ is  ``I put a reminder in my calendar"} \\
+\end{align*}
+\end{multicols}
+\vfill \vfill
+\section*{Consistency def}
+
+
+{\bf Definition}: A collection of  compound  propositions
+is called {\bf consistent} if  there
+is  an assignment  of  truth values
+to  the  propositional variables that makes
+each of the compound propositions  true.
+ \vfill
+\section*{Consistency example}
+
+
+{\bf Consistency}: 
+\begin{quote}
+Whenever the system software is being upgraded, users cannot access the file system. 
+If users can access the file system, then they can save new files. 
+If users cannot save new files, then the system software is not being upgraded.
+\end{quote}
+
+\begin{enumerate}
+\item Translate to symbolic compound propositions
+\vfill
+\item Look for some truth assignment to the propositional variables for which all the compound propositions output $T$
+\vfill
+\end{enumerate} \vfill
 \end{document}

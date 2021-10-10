@@ -530,7 +530,7 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <div class="multicols">
 <p><span>2</span></p>
 <div class="algorithm">
-<p>procedure <span class="math inline">\(\textit{logb}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(r\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(n\)</span> &gt; <span class="math inline">\(1\)</span> <span class="math inline">\(r\)</span> := <span class="math inline">\(r + 1\)</span> <span class="math inline">\(n\)</span> := <span class="math inline">\(n\)</span> div <span class="math inline">\(b\)</span> return <span class="math inline">\(r\)</span> <span class="math inline">\(\{ r~\textrm{holds the result of the}~\log_b~\textrm{operation}\}\)</span></p>
+<p>procedure <span class="math inline">\(\textit{logb}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(r\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(n\)</span> &gt; <span class="math inline">\(b-1\)</span> <span class="math inline">\(r\)</span> := <span class="math inline">\(r + 1\)</span> <span class="math inline">\(n\)</span> := <span class="math inline">\(n\)</span> div <span class="math inline">\(b\)</span> return <span class="math inline">\(r\)</span> <span class="math inline">\(\{ r~\textrm{holds the result of the}~\log_b~\textrm{operation}\}\)</span></p>
 </div>
 <div class="algorithm">
 <p>procedure <span class="math inline">\(\textit{baseb1}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(v\)</span> := <span class="math inline">\(n\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(logb(n,b) + 1\)</span> for <span class="math inline">\(i\)</span> := <span class="math inline">\(1\)</span> to <span class="math inline">\(k\)</span> <span class="math inline">\(a_{k-i}\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(v \geq b^{k-i}\)</span> <span class="math inline">\(a_{k-i}\)</span> := <span class="math inline">\(a_{k-i} + 1\)</span> <span class="math inline">\(v\)</span> := <span class="math inline">\(v -  b^{k-i}\)</span> return <span class="math inline">\((a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}\)</span></p>
@@ -1012,5 +1012,743 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <p><span class="math inline">\(z_1 = \underline{ \phantom{(c_0 \oplus x_1) \oplus y_1}\hspace{2.4in}}\)</span></p>
 <p><span class="math inline">\(z_2 = \underline{\phantom{(c_0 \land x_1) \oplus ((c_0 \oplus x_1)\land y_1)}\hspace{1.5in}}\)</span></p>
 <p><span><em>Extra example</em></span> Describe how to generalize this addition circuit for larger width inputs.</p>
+<h1 class="unnumbered" id="logical-operators">Logical operators</h1>
+<p><span><strong>Logical operators</strong></span> aka propositional connectives</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Conjunction</strong></span></td>
+<td style="text-align: center;">AND</td>
+<td style="text-align: center;"><span class="math inline">\(\land\)</span></td>
+<td style="text-align: center;"><code>\land</code></td>
+<td style="text-align: center;">2 inputs</td>
+<td style="text-align: left;">Evaluates to <span class="math inline">\(T\)</span> exactly when <span><strong>both</strong></span> inputs are <span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Exclusive or</strong></span></td>
+<td style="text-align: center;">XOR</td>
+<td style="text-align: center;"><span class="math inline">\(\oplus\)</span></td>
+<td style="text-align: center;"><code>\oplus</code></td>
+<td style="text-align: center;">2 inputs</td>
+<td style="text-align: left;">Evaluates to <span class="math inline">\(T\)</span> exactly when <span><strong>exactly one</strong></span> of inputs is <span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Disjunction</strong></span></td>
+<td style="text-align: center;">OR</td>
+<td style="text-align: center;"><span class="math inline">\(\lor\)</span></td>
+<td style="text-align: center;"><code>\lor</code></td>
+<td style="text-align: center;">2 inputs</td>
+<td style="text-align: left;">Evaluates to <span class="math inline">\(T\)</span> exactly when <span><strong>at least one</strong></span> of inputs is <span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Negation</strong></span></td>
+<td style="text-align: center;">NOT</td>
+<td style="text-align: center;"><span class="math inline">\(\lnot\)</span></td>
+<td style="text-align: center;"><code>\lnot</code></td>
+<td style="text-align: center;">1 input</td>
+<td style="text-align: left;">Evaluates to <span class="math inline">\(T\)</span> exactly when its input is <span class="math inline">\(F\)</span></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="logical-operators-truth-tables">Logical operators truth tables</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;" colspan="2">Input</td>
+<td style="text-align: center;" colspan="3">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span><strong>Conjunction</strong></span></td>
+<td style="text-align: center;"><span><strong>Exclusive or</strong></span></td>
+<td style="text-align: center;"><span><strong>Disjunction</strong></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p \land q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p  \oplus  q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p \lor  q\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img src="../../resources/images/xANDy.png" style="width:0.5in" alt="image" /></td>
+<td style="text-align: center;"><img src="../../resources/images/xXORy.png" style="width:0.5in" alt="image" /></td>
+<td style="text-align: center;"><img src="../../resources/images/xORy.png" style="width:0.5in" alt="image" /></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Input</td>
+<td style="text-align: center;">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span><strong>Negation</strong></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\lnot p\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img src="../../resources/images/NOTx.png" style="width:0.5in" alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="logical-operators-example-truth-table">Logical operators example truth table</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;" colspan="3">Input</td>
+<td style="text-align: center;" colspan="3">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(r\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><span class="math inline">\((p \land q) \oplus (~ ( p \oplus q) \land r~)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((p \land q) \vee (~ ( p \oplus q) \land r~)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="truth-table-to-compound-proposition">Truth table to compound proposition</h1>
+<p>Given a truth table, how do we find an expression using the input variables and logical operators that has the output values specified in this table?</p>
+<p><span><em>Application</em></span>: design a circuit given a desired input-output relationship.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;" colspan="2">Input</td>
+<td style="text-align: center;" colspan="2">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(mystery_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(mystery_2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Expressions that have output <span class="math inline">\(mystery_1\)</span> are</p>
+<p>Expressions that have output <span class="math inline">\(mystery_2\)</span> are</p>
+<h1 class="unnumbered" id="dnf-cnf-definition">Dnf cnf definition</h1>
+<p><span><strong>Definition</strong></span> An expression built of variables and logical operators is in <span><strong>disjunctive normal form</strong></span> (DNF) means that it is an OR of ANDs of variables and their negations.</p>
+<p><span><strong>Definition</strong></span> An expression built of variables and logical operators is in <span><strong>conjunctive normal form</strong></span> (CNF) means that it is an AND of ORs of variables and their negations.</p>
+<h1 class="unnumbered" id="dnf-cnf-example">Dnf cnf example</h1>
+<p><span><em>Extra example</em></span>: An expression that has output ? is:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;" colspan="3">Input</td>
+<td style="text-align: center;">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(r\)</span></td>
+<td style="text-align: center;">?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="compound-proposition-definitions">Compound proposition definitions</h1>
+<p><span><strong>Proposition</strong></span>: Declarative sentence that is true or false (not both).</p>
+<p><span><strong>Propositional variable</strong></span>: Variable that represents a proposition.</p>
+<p><span><strong>Compound proposition</strong></span>: New proposition formed from existing propositions (potentially) using logical operators. <span><em>Note</em></span>: A propositional variable is one example of a compound proposition.</p>
+<p><span><strong>Truth table</strong></span>: Table with one row for each of the possible combinations of truth values of the input and an additional column that shows the truth value of the result of the operation corresponding to a particular row.</p>
+<h1 class="unnumbered" id="logical-equivalence">Logical equivalence</h1>
+<p><span><strong>Logical equivalence</strong> </span>: Two compound propositions are <span><strong>logically equivalent</strong></span> means that they have the same truth values for all settings of truth values to their propositional variables.</p>
+<p><span><strong>Tautology</strong></span>: A compound proposition that evaluates to true for all settings of truth values to its propositional variables; it is abbreviated <span class="math inline">\(T\)</span>.</p>
+<p><span><strong>Contradiction</strong></span>: A compound proposition that evaluates to false for all settings of truth values to its propositional variables; it is abbreviated <span class="math inline">\(F\)</span>.</p>
+<p><span><strong>Contingency</strong></span>: A compound proposition that is neither a tautology nor a contradiction.</p>
+<h1 class="unnumbered" id="tautology-contradiction-contingency-examples">Tautology contradiction contingency examples</h1>
+<p>Label each of the following as a tautology, contradiction, or contingency.</p>
+<p><span class="math inline">\(p \land p\)</span></p>
+<p><span class="math inline">\(p \oplus p\)</span></p>
+<p><span class="math inline">\(p \lor p\)</span></p>
+<p><span class="math inline">\(p \lor \lnot p\)</span></p>
+<p><span class="math inline">\(p \land \lnot p\)</span></p>
+<h1 class="unnumbered" id="logical-equivalence-extra-example">Logical equivalence extra example</h1>
+<p><span><em>Extra Example</em></span>: Which of the compound propositions in the table below are logically equivalent?</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;" colspan="2">Input</td>
+<td style="text-align: center;" colspan="5">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\lnot (p \land \lnot q)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\lnot (\lnot p  \lor \lnot q)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((\lnot p \lor  q)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((\lnot q \lor \lnot p)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((p \land q)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="logical-operators-full-truth-table">Logical operators full truth table</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;" colspan="2">Input</td>
+<td style="text-align: center;" colspan="5">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Conjunction</td>
+<td style="text-align: center;">Exclusive or</td>
+<td style="text-align: center;">Disjunction</td>
+<td style="text-align: center;">Conditional</td>
+<td style="text-align: center;">Biconditional</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p \wedge q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p  \oplus  q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p \vee  q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p \to q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p \leftrightarrow q\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">“<span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>”</td>
+<td style="text-align: center;">“<span class="math inline">\(p\)</span> xor <span class="math inline">\(q\)</span>”</td>
+<td style="text-align: center;">“<span class="math inline">\(p\)</span> or <span class="math inline">\(q\)</span>”</td>
+<td style="text-align: center;">“if <span class="math inline">\(p\)</span> then <span class="math inline">\(q\)</span>”</td>
+<td style="text-align: center;">“<span class="math inline">\(p\)</span> if and only if <span class="math inline">\(q\)</span>”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="hypothesis-conclusion">Hypothesis conclusion</h1>
+<p>The only way to make the conditional statement <span class="math inline">\(p \to q\)</span> false is to <u></u><br />
+</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">The <span><strong>hypothesis</strong></span> of <span class="math inline">\(p \to q\)</span> is</td>
+<td style="text-align: left;"><u></u></td>
+<td style="text-align: left;">The <span><strong>antecedent</strong></span> of <span class="math inline">\(p \to q\)</span> is</td>
+<td style="text-align: left;"><u></u></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The <span><strong>conclusion</strong></span> of <span class="math inline">\(p \to q\)</span> is</td>
+<td style="text-align: left;"><u></u></td>
+<td style="text-align: left;">The <span><strong>consequent</strong></span> of <span class="math inline">\(p \to q\)</span> is</td>
+<td style="text-align: left;"><u></u></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="converse-inverse-contrapositive">Converse inverse contrapositive</h1>
+<p>The <span><strong>converse</strong></span> of <span class="math inline">\(p \to q\)</span> is <u></u><br />
+The <span><strong>inverse</strong></span> of <span class="math inline">\(p \to q\)</span> is <u></u><br />
+The <span><strong>contrapositive</strong></span> of <span class="math inline">\(p \to q\)</span> is <u></u><br />
+</p>
+<h1 class="unnumbered" id="compound-propositions-precedence">Compound propositions precedence</h1>
+<p>Order of operations (Precedence) for logical operators:</p>
+<p>Negation, then conjunction / disjunction, then conditional / biconditionals.</p>
+<p>Example: <span class="math inline">\(\lnot p \lor \lnot q\)</span> means <span class="math inline">\((\lnot p) \lor (\lnot q)\)</span>.</p>
+<h1 class="unnumbered" id="logical-equivalence-identities">Logical equivalence identities</h1>
+<p><span><strong>(Some) logical equivalences</strong></span></p>
+<p><span><em>Can replace <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> with any compound proposition</em></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\lnot ( \lnot p) \equiv p\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span><strong>Double negation</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(p \lor q \equiv q \lor p\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(p \land q \equiv q \land p\)</span></td>
+<td style="text-align: left;"><span><strong>Commutativity</strong></span> Ordering of terms</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\((p \lor q) \lor r  \equiv p \lor (q \lor r)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\((p \land q) \land r  \equiv p \land (q \land r)\)</span></td>
+<td style="text-align: left;"><span><strong>Associativity</strong></span> Grouping of terms</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(p \land F \equiv F\)</span> <span class="math inline">\(p \lor T \equiv T\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(p \land T \equiv p\)</span> <span class="math inline">\(p \lor F \equiv p\)</span></td>
+<td style="text-align: left;"><span><strong>Domination</strong></span> aka short circuit evaluation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\lnot (p \land q) \equiv \lnot p \lor \lnot q\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\lnot (p \lor q) \equiv \lnot p \land\lnot q\)</span></td>
+<td style="text-align: left;"><span><strong>DeMorgan’s Laws</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(p \to q \equiv \lnot p \lor q\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(p \to q \equiv \lnot q \to \lnot p\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span><strong>Contrapositive</strong></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\lnot (p \to q) \equiv p\land \lnot q\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\lnot( p \leftrightarrow q) \equiv p \oplus q\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(p \leftrightarrow q \equiv q \leftrightarrow p\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><span><em>Extra examples</em></span>:</p>
+<p><span class="math inline">\(p \leftrightarrow q\)</span> is not logically equivalent to <span class="math inline">\(p \land q\)</span> because <u></u></p>
+<p><span class="math inline">\(p \to q\)</span> is not logically equivalent to <span class="math inline">\(q \to p\)</span> because <u></u></p>
+<h1 class="unnumbered" id="logical-operators-english-synonyms">Logical operators english synonyms</h1>
+<p><span><strong>Common ways to express logical operators in English</strong></span>:</p>
+<p><span><strong>Negation</strong></span> <span class="math inline">\(\lnot p\)</span> can be said in English as</p>
+<ul>
+<li><p>Not <span class="math inline">\(p\)</span>.</p></li>
+<li><p>It’s not the case that <span class="math inline">\(p\)</span>.</p></li>
+<li><p><span class="math inline">\(p\)</span> is false.</p></li>
+</ul>
+<p><span><strong>Conjunction</strong></span> <span class="math inline">\(p \land q\)</span> can be said in English as</p>
+<ul>
+<li><p><span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>.</p></li>
+<li><p>Both <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are true.</p></li>
+<li><p><span class="math inline">\(p\)</span> but <span class="math inline">\(q\)</span>.</p></li>
+</ul>
+<p><span><strong>Exclusive or</strong></span> <span class="math inline">\(p \oplus q\)</span> can be said in English as</p>
+<ul>
+<li><p><span class="math inline">\(p\)</span> or <span class="math inline">\(q\)</span>, but not both.</p></li>
+<li><p>Exactly one of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> is true.</p></li>
+</ul>
+<p><span><strong>Disjunction</strong></span> <span class="math inline">\(p \lor q\)</span> can be said in English as</p>
+<ul>
+<li><p><span class="math inline">\(p\)</span> or <span class="math inline">\(q\)</span>, or both.</p></li>
+<li><p><span class="math inline">\(p\)</span> or <span class="math inline">\(q\)</span> (inclusive).</p></li>
+<li><p>At least one of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> is true.</p></li>
+</ul>
+<p><span><strong>Conditional</strong></span> <span class="math inline">\(p \to q\)</span> can be said in English as</p>
+<div class="multicols">
+<p><span>2</span></p>
+<ul>
+<li><p>if <span class="math inline">\(p\)</span>, then <span class="math inline">\(q\)</span>.</p></li>
+<li><p><span class="math inline">\(p\)</span> is sufficient for <span class="math inline">\(q\)</span>.</p></li>
+<li><p><span class="math inline">\(q\)</span> when <span class="math inline">\(p\)</span>.</p></li>
+<li><p><span class="math inline">\(q\)</span> whenever <span class="math inline">\(p\)</span>.</p></li>
+<li><p><span class="math inline">\(p\)</span> implies <span class="math inline">\(q\)</span>.</p></li>
+<li><p><span class="math inline">\(q\)</span> follows from <span class="math inline">\(p\)</span>.</p></li>
+<li><p><span class="math inline">\(p\)</span> is sufficient for <span class="math inline">\(q\)</span>.</p></li>
+<li><p><span class="math inline">\(q\)</span> is necessary for <span class="math inline">\(p\)</span>.</p></li>
+<li><p><span class="math inline">\(p\)</span> only if <span class="math inline">\(q\)</span>.</p></li>
+</ul>
+</div>
+<p><span><strong>Biconditional</strong></span></p>
+<ul>
+<li><p><span class="math inline">\(p\)</span> if and only if <span class="math inline">\(q\)</span>.</p></li>
+<li><p><span class="math inline">\(p\)</span> iff <span class="math inline">\(q\)</span>.</p></li>
+<li><p>If <span class="math inline">\(p\)</span> then <span class="math inline">\(q\)</span>, and conversely.</p></li>
+<li><p><span class="math inline">\(p\)</span> is necessary and sufficient for <span class="math inline">\(q\)</span>.</p></li>
+</ul>
+<h1 class="unnumbered" id="compound-propositions-translation">Compound propositions translation</h1>
+<p><span><strong>Translation</strong></span>: Express each of the following sentences as compound propositions, using the given propositions.</p>
+<div class="multicols">
+<p><span>2</span> “A sufficient condition for the warranty to be good is that you bought the computer less than a year ago" <span class="math display">\[\begin{aligned}
+w &amp;\text{ is  ``the warranty is good&quot;} \\
+b &amp;\text{ is  ``you bought the computer less than a year ago&quot;} \\\end{aligned}\]</span></p>
+</div>
+<div class="multicols">
+<p><span>2</span> “Whenever the message was sent from an unknown system, it is scanned for viruses." <span class="math display">\[\begin{aligned}
+s &amp;\text{ is  ``The message is scanned for viruses&quot;} \\
+u &amp;\text{ is  ``The message was sent from an unknown system&quot;} \\\end{aligned}\]</span></p>
+</div>
+<div class="multicols">
+<p><span>2</span> “I will complete my to-do list only if I put a reminder in my calendar" <span class="math display">\[\begin{aligned}
+d &amp;\text{ is  ``I will complete my to-do list&quot;} \\
+c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\\end{aligned}\]</span></p>
+</div>
+<h1 class="unnumbered" id="consistency-def">Consistency def</h1>
+<p><span><strong>Definition</strong></span>: A collection of compound propositions is called <span><strong>consistent</strong></span> if there is an assignment of truth values to the propositional variables that makes each of the compound propositions true.</p>
+<h1 class="unnumbered" id="consistency-example">Consistency example</h1>
+<p><span><strong>Consistency</strong></span>:</p>
+<blockquote>
+<p>Whenever the system software is being upgraded, users cannot access the file system. If users can access the file system, then they can save new files. If users cannot save new files, then the system software is not being upgraded.</p>
+</blockquote>
+<ol>
+<li><p>Translate to symbolic compound propositions</p></li>
+<li><p>Look for some truth assignment to the propositional variables for which all the compound propositions output <span class="math inline">\(T\)</span></p></li>
+</ol>
 </body>
 </html>
