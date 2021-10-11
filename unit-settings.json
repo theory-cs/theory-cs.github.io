@@ -46,7 +46,7 @@
         "header": "Week 2",
         "Topics": "Number representations",
         "CalendarInfo": " Dates: 10/4/21-10/8/21",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "pdfs": [
             {
                 "name": "Notes",
@@ -80,7 +80,7 @@
         "header": "Week 3",
         "Topics": "Circuits and Propositional Logic",
         "CalendarInfo": " Dates: 10/11/21-10/15/21",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "pdfs": [
             {
             "name": "Notes",
