@@ -941,6 +941,8 @@ $z_2 = \underline{\phantom{(c_0 \land x_1) \oplus ((c_0 \oplus x_1)\land y_1)}\h
 \section*{Logical operators truth tables}
 
 
+Truth tables: Input-output tables where we use $T$ for $1$ and $F$ for $0$.
+
 \begin{center}
 \begin{tabular}{cc||c|c|c}
 \multicolumn{2}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
@@ -1151,6 +1153,24 @@ The {\bf inverse}  of $p \to q$ is \underline{\phantom{ $\lnot p \to \lnot q$\hs
 
 The {\bf contrapositive}  of $p \to q$ is \underline{\phantom{$\lnot q \to \lnot p$\hspace{1.6in}}} \\
  \vfill
+\section*{Compound propositions recursive definition}
+
+
+We can use a recursive definition to describe all 
+compound propositions that use propositional variables 
+from a specified collection.  Here's the definition
+for all compound propositions whose propositional variables 
+are in $\{p, q\}$.
+
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & p \textrm{ and } q \textrm{ are each a compound proposition} \\
+\textrm{Recursive Step: } & \textrm{If } x \textrm{ is a compound proposition then so is } (\lnot x) 
+\textrm{ and if } \\
+& x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
+&(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
+\end{array}
+\] \vfill
 \section*{Compound propositions precedence}
 
 
@@ -1214,6 +1234,8 @@ $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\
 {\bf Common ways to express logical operators in English}:
 
 {\bf Negation} $\lnot p$ can be said in English as 
+
+\vspace{-20pt}
 \begin{itemize}
 \item Not $p$.
 \item It's not the case that $p$.
@@ -1221,6 +1243,8 @@ $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\
 \end{itemize}
 
 {\bf Conjunction} $p \land q$ can be said in English as
+
+\vspace{-20pt}
 \begin{itemize}
     \item $p$ and $q$.
     \item Both $p$ and $q$ are true.
@@ -1228,12 +1252,16 @@ $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\
 \end{itemize}
 
 {\bf Exclusive or} $p \oplus q$ can be said in English as
+
+\vspace{-20pt}
 \begin{itemize}
     \item $p$ or $q$, but not both.
     \item Exactly one of $p$ and $q$ is true.
 \end{itemize}
 
 {\bf Disjunction} $p \lor q$ can be said in English as
+
+\vspace{-20pt}
 \begin{itemize}
     \item $p$ or $q$, or both.
     \item $p$ or $q$ (inclusive).
@@ -1241,6 +1269,7 @@ $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\
 \end{itemize}
 
 {\bf Conditional} $p \to q$ can be said in English as
+
 \begin{multicols}{2}
 \begin{itemize}
     \item if $p$, then $q$.
@@ -1256,30 +1285,14 @@ $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\
 \end{multicols}
 
 {\bf Biconditional}
+
+\vspace{-20pt}
 \begin{itemize}
     \item $p$ if and only if $q$.
     \item $p$ iff $q$.
     \item If $p$ then $q$, and conversely.
     \item $p$ is necessary and sufficient for $q$.
 \end{itemize} \vfill
-\section*{Compound propositions recursive definition}
-
-
-We can use a recursive definition to describe all 
-compound propositions that use propositional variables 
-from a specified collection.  Here's the definition
-for all compound propositions whose propositional variables 
-are in $\{p, q\}$.
-
-\[
-\begin{array}{ll}
-\textrm{Basis Step: } & p \textrm{ and } q \textrm{ are each a compound proposition} \\
-\textrm{Recursive Step: } & \textrm{If } x \textrm{ is a compound proposition then so is } (\lnot x) 
-\textrm{ and if } \\
-& x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
-&(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
-\end{array}
-\] \vfill
 \section*{Compound propositions translation}
 
 

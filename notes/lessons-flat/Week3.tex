@@ -76,6 +76,8 @@
 {\bf Negation} & NOT & $\lnot$ &\verb|\lnot| & 1 input & Evaluates to $T$ exactly when its input is $F$\\
 \end{tabular} 
 
+Truth tables: Input-output tables where we use $T$ for $1$ and $F$ for $0$.
+
 \begin{center}
 \begin{tabular}{cc||c|c|c}
 \multicolumn{2}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
@@ -180,6 +182,50 @@ that it is an AND of ORs of variables and their negations.
 \vfill
 
  \newpage
+\subsection*{Review: Week 3 Monday}
+\begin{enumerate}
+    \item 
+
+\begin{enumerate}
+    \item Consider the logic circuit
+    \begin{center}
+    \includegraphics[width=2in]{../../resources/images/review-circuit-3.png}
+    \end{center}
+    For which of the following settings(s) of input values is the output
+    $y_1 =  0$? (Select all and only those that apply.)
+    \begin{enumerate}
+        \item $x_1 = 0$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 0$
+        \item $x_1 = 1$, $x_2 = 1$, $x_3 = 1$, and $x_4 = 1$
+        \item $x_1 = 1$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 1$
+        \item $x_1 = 0$, $x_2 = 0$, $x_3 = 1$, and $x_4 = 1$
+    \end{enumerate}
+    \item Consider the logic circuits
+    \begin{center}
+    \includegraphics[width=2in]{../../resources/images/review-circuit-1.png}
+    \qquad \qquad \qquad
+    \includegraphics[width=2in]{../../resources/images/review-circuit-4.png}
+    \end{center}
+    For which  of the following settings(s) of input values do the outputs
+    of these  circuits have the  same value, i.e.\ $y_1 =  z_1$? 
+    (Select all and only those that apply.)
+    \begin{enumerate}
+        \item $x_1 = 1$, $x_2 = 1$
+        \item $x_1 = 1$, $x_2 = 0$
+        \item $x_1 = 0$, $x_2 = 1$
+        \item $x_1 = 0$, $x_2 = 0$
+    \end{enumerate}    
+    
+\end{enumerate}     \item 
+
+For each of the following compound propositions, determine
+if it is in DNF, CNF, both, or neither.
+
+\begin{enumerate}
+    \item $(x \lor y \lor z) \land (x \land \lnot y \land z)$
+    \item $\lnot (x \land y \land z) \land \lnot (\lnot x \land y \land \lnot z)$
+\end{enumerate} \end{enumerate}
+\newpage
+\section*{Wednesday October 13}
 
 
 {\bf Proposition}: Declarative sentence that is true or false (not both).
@@ -233,51 +279,6 @@ $F$ & $T$ & &&&&\\
 $F$ & $F$ & &&&&\\
 \end{tabular}
 \end{center} \vfill
-\newpage
-\subsection*{Review: Week 3 Monday}
-\begin{enumerate}
-    \item 
-
-\begin{enumerate}
-    \item Consider the logic circuit
-    \begin{center}
-    \includegraphics[width=2in]{../../resources/images/review-circuit-3.png}
-    \end{center}
-    For which of the following settings(s) of input values is the output
-    $y_1 =  0$? (Select all and only those that apply.)
-    \begin{enumerate}
-        \item $x_1 = 0$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 0$
-        \item $x_1 = 1$, $x_2 = 1$, $x_3 = 1$, and $x_4 = 1$
-        \item $x_1 = 1$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 1$
-        \item $x_1 = 0$, $x_2 = 0$, $x_3 = 1$, and $x_4 = 1$
-    \end{enumerate}
-    \item Consider the logic circuits
-    \begin{center}
-    \includegraphics[width=2in]{../../resources/images/review-circuit-1.png}
-    \qquad \qquad \qquad
-    \includegraphics[width=2in]{../../resources/images/review-circuit-4.png}
-    \end{center}
-    For which  of the following settings(s) of input values do the outputs
-    of these  circuits have the  same value, i.e.\ $y_1 =  z_1$? 
-    (Select all and only those that apply.)
-    \begin{enumerate}
-        \item $x_1 = 1$, $x_2 = 1$
-        \item $x_1 = 1$, $x_2 = 0$
-        \item $x_1 = 0$, $x_2 = 1$
-        \item $x_1 = 0$, $x_2 = 0$
-    \end{enumerate}    
-    
-\end{enumerate}     \item 
-
-For each of the following compound propositions, determine
-if it is in DNF, CNF, both, or neither.
-
-\begin{enumerate}
-    \item $(x \lor y \lor z) \land (x \land \lnot y \land z)$
-    \item $\lnot (x \land y \land z) \land \lnot (\lnot x \land y \land \lnot z)$
-\end{enumerate} \end{enumerate}
-\newpage
-\section*{Wednesday October 13}
 
 
 \begin{center}
@@ -315,6 +316,22 @@ The {\bf inverse}  of $p \to q$ is \underline{\phantom{ $\lnot p \to \lnot q$\hs
 The {\bf contrapositive}  of $p \to q$ is \underline{\phantom{$\lnot q \to \lnot p$\hspace{1.6in}}} \\
  \vfill
 
+
+We can use a recursive definition to describe all 
+compound propositions that use propositional variables 
+from a specified collection.  Here's the definition
+for all compound propositions whose propositional variables 
+are in $\{p, q\}$.
+
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & p \textrm{ and } q \textrm{ are each a compound proposition} \\
+\textrm{Recursive Step: } & \textrm{If } x \textrm{ is a compound proposition then so is } (\lnot x) 
+\textrm{ and if } \\
+& x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
+&(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
+\end{array}
+\] 
 
 Order of operations (Precedence) for logical operators: 
 
@@ -369,59 +386,6 @@ $p \leftrightarrow q$ is not logically equivalent to $p \land q$ because \underl
 
 $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\hspace{4in}}} 
  \newpage
-
-
-{\bf Common ways to express logical operators in English}:
-
-{\bf Negation} $\lnot p$ can be said in English as 
-\begin{itemize}
-\item Not $p$.
-\item It's not the case that $p$.
-\item $p$ is false.
-\end{itemize}
-
-{\bf Conjunction} $p \land q$ can be said in English as
-\begin{itemize}
-    \item $p$ and $q$.
-    \item Both $p$ and $q$ are true.
-    \item $p$ but $q$.
-\end{itemize}
-
-{\bf Exclusive or} $p \oplus q$ can be said in English as
-\begin{itemize}
-    \item $p$ or $q$, but not both.
-    \item Exactly one of $p$ and $q$ is true.
-\end{itemize}
-
-{\bf Disjunction} $p \lor q$ can be said in English as
-\begin{itemize}
-    \item $p$ or $q$, or both.
-    \item $p$ or $q$ (inclusive).
-    \item At least one of $p$ and $q$ is true.
-\end{itemize}
-
-{\bf Conditional} $p \to q$ can be said in English as
-\begin{multicols}{2}
-\begin{itemize}
-    \item if $p$, then $q$.
-    \item $p$ is sufficient for $q$.
-    \item $q$ when $p$.
-    \item $q$ whenever $p$.
-    \item $p$ implies $q$.
-    \item $q$ follows from $p$.
-    \item $p$ is sufficient for $q$.
-    \item $q$ is necessary for $p$.
-    \item $p$ only if $q$.
-\end{itemize}
-\end{multicols}
-
-{\bf Biconditional}
-\begin{itemize}
-    \item $p$ if and only if $q$.
-    \item $p$ iff $q$.
-    \item If $p$ then $q$, and conversely.
-    \item $p$ is necessary and sufficient for $q$.
-\end{itemize} \newpage
 \subsection*{Review: Week 3 Wednesday}
 \begin{enumerate}
     \item 
@@ -464,21 +428,69 @@ For each of the following propositions, indicate exactly one of:
 \section*{Friday October 15}
 
 
-We can use a recursive definition to describe all 
-compound propositions that use propositional variables 
-from a specified collection.  Here's the definition
-for all compound propositions whose propositional variables 
-are in $\{p, q\}$.
+{\bf Common ways to express logical operators in English}:
 
-\[
-\begin{array}{ll}
-\textrm{Basis Step: } & p \textrm{ and } q \textrm{ are each a compound proposition} \\
-\textrm{Recursive Step: } & \textrm{If } x \textrm{ is a compound proposition then so is } (\lnot x) 
-\textrm{ and if } \\
-& x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
-&(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
-\end{array}
-\] \newpage
+{\bf Negation} $\lnot p$ can be said in English as 
+
+\vspace{-20pt}
+\begin{itemize}
+\item Not $p$.
+\item It's not the case that $p$.
+\item $p$ is false.
+\end{itemize}
+
+{\bf Conjunction} $p \land q$ can be said in English as
+
+\vspace{-20pt}
+\begin{itemize}
+    \item $p$ and $q$.
+    \item Both $p$ and $q$ are true.
+    \item $p$ but $q$.
+\end{itemize}
+
+{\bf Exclusive or} $p \oplus q$ can be said in English as
+
+\vspace{-20pt}
+\begin{itemize}
+    \item $p$ or $q$, but not both.
+    \item Exactly one of $p$ and $q$ is true.
+\end{itemize}
+
+{\bf Disjunction} $p \lor q$ can be said in English as
+
+\vspace{-20pt}
+\begin{itemize}
+    \item $p$ or $q$, or both.
+    \item $p$ or $q$ (inclusive).
+    \item At least one of $p$ and $q$ is true.
+\end{itemize}
+
+{\bf Conditional} $p \to q$ can be said in English as
+
+\begin{multicols}{2}
+\begin{itemize}
+    \item if $p$, then $q$.
+    \item $p$ is sufficient for $q$.
+    \item $q$ when $p$.
+    \item $q$ whenever $p$.
+    \item $p$ implies $q$.
+    \item $q$ follows from $p$.
+    \item $p$ is sufficient for $q$.
+    \item $q$ is necessary for $p$.
+    \item $p$ only if $q$.
+\end{itemize}
+\end{multicols}
+
+{\bf Biconditional}
+
+\vspace{-20pt}
+\begin{itemize}
+    \item $p$ if and only if $q$.
+    \item $p$ iff $q$.
+    \item If $p$ then $q$, and conversely.
+    \item $p$ is necessary and sufficient for $q$.
+\end{itemize} \newpage
+\newpage
 
 
 {\bf Translation}: Express each of the following sentences as compound propositions, using
