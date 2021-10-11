@@ -90,7 +90,7 @@
      <div id="mySidebar" class="collapsedSidebar">
 			<a href=courseInfo.html class="homeMobile"> CSE 20 Fall 2021</a> <!--NAME-->
 		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
-			<a href=overviewCalendar.html>Calendar</a><a href= "unit1.html"">Week 0 and 1</a><a href= "unit2.html"">Week 2</a><a href= "unit3.html"">Week 3</a><a href= "unit4.html"">Week 4</a><a href= "unit5.html"">Week 5</a><a href= "unit6.html"">Week 6</a><a href= "unit7.html"">Week 7</a><a href= "unit8.html"">Week 8</a><a href= "unit9.html"">Week 9</a><a href= "unit10.html"">Week 10</a><a href= "unit11.html"">Finals week</a> </div>
+			<a href=overviewCalendar.html>Calendar</a><a href="assignments.html"> Assignments </a><a href= "unit1.html"">Week 0 and 1</a><a href= "unit2.html"">Week 2</a><a href= "unit3.html"">Week 3</a><a href= "unit4.html"">Week 4</a><a href= "unit5.html"">Week 5</a><a href= "unit6.html"">Week 6</a><a href= "unit7.html"">Week 7</a><a href= "unit8.html"">Week 8</a><a href= "unit9.html"">Week 9</a><a href= "unit10.html"">Week 10</a><a href= "unit11.html"">Finals week</a> </div>
 
 		<div class="openbutton">
 			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
@@ -194,6 +194,37 @@
 	var coll = document.getElementsByClassName("collapsible");
 	var i;
 	
+	var boxNumber;
+	var expanded; 
+	url = window.location.href;
+
+	queryString();
+
+	function queryString(box){
+		var qInd;
+		var boxValue;
+		var expandedValue;
+		var valuesAdded = 0; 
+
+		for( i=0; i<url.length; i++){
+			if(url[i]==="="){
+				valuesAdded++;
+				i++; //go to value next to = 
+
+				//boxNumber must always be before expanded, 
+				// and both have one character values (0 or 1)
+				if(valuesAdded == 1){
+					boxValue = url[i]; 
+				}
+				else {
+					expandedValue = url[i];
+				}
+				
+				console.log("value: "+url[i]);
+			}
+		}
+	}
+	
 	for (i = 0; i < coll.length; i++) {
 		sideBtnString="#sideBtn";
 		sideBtnString+=(i+1);
@@ -226,18 +257,12 @@
 			sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
 			}
 		});
-
-
 	}
 
 	function expandCollapseAll(bool, multiple) {
 		var coll = document.getElementsByClassName("collapsible");
 		var i;
-		console.log(i);
-		
 		for (i = 0; i < coll.length; i++) {
-
-			console.log(i);
 			sideBtnString="#sideBtn";
 			sideBtnString+=(i+1);
 			boxString="#box";
@@ -266,6 +291,8 @@
 
 		return bool;
 	}
+
+
 	</script>
   
       <h2>Office hours</h2>
