@@ -63,7 +63,11 @@
             {
                 "name": "Discussion slides",
                 "embedCode": "<p><a href=\"../files/DiscussionWeek2.pptx\">Download pptx slides</a></p>"
-            }
+	    },
+	    {
+                "name": "Discussion slides with Annotation",
+                "embedCode": "<p><a href=\"../files/DiscussionWeek2annotated.pptx\">Download pptx slides</a></p>"
+	    }
         ],
         "Due Dates": [
             {
