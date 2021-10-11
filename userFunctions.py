@@ -199,6 +199,7 @@ for i in range(0,len(unitData)):
 	unitButtonsContent += "</li>"
 
 unitMobileButtonsContent = ""
+unitMobileButtonsContent += "<a href=\"assignments.html\"> Assignments </a>"
 for i in range(0,len(unitData)):
 	unitMobileButtonsContent += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
 
@@ -306,6 +307,37 @@ def create_unit_boxes():
 	var coll = document.getElementsByClassName("collapsible");
 	var i;
 	
+	var boxNumber;
+	var expanded; 
+	url = window.location.href;
+
+	queryString();
+
+	function queryString(box){
+		var qInd;
+		var boxValue;
+		var expandedValue;
+		var valuesAdded = 0; 
+
+		for( i=0; i<url.length; i++){
+			if(url[i]==="="){
+				valuesAdded++;
+				i++; //go to value next to = 
+
+				//boxNumber must always be before expanded, 
+				// and both have one character values (0 or 1)
+				if(valuesAdded == 1){
+					boxValue = url[i]; 
+				}
+				else {
+					expandedValue = url[i];
+				}
+				
+				console.log("value: "+url[i]);
+			}
+		}
+	}
+	
 	for (i = 0; i < coll.length; i++) {
 		sideBtnString="#sideBtn";
 		sideBtnString+=(i+1);
@@ -338,18 +370,12 @@ def create_unit_boxes():
 			sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
 			}
 		});
-
-
 	}
 
 	function expandCollapseAll(bool, multiple) {
 		var coll = document.getElementsByClassName("collapsible");
 		var i;
-		console.log(i);
-		
 		for (i = 0; i < coll.length; i++) {
-
-			console.log(i);
 			sideBtnString="#sideBtn";
 			sideBtnString+=(i+1);
 			boxString="#box";
@@ -378,6 +404,8 @@ def create_unit_boxes():
 
 		return bool;
 	}
+
+
 	</script>"""
 		
 	return boxString
