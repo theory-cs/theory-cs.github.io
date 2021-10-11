@@ -914,6 +914,14 @@ The <span><strong>contrapositive</strong></span> of <span class="math inline">\(
 </ol></li>
 </ol>
 <h1 class="unnumbered" id="friday-october-15">Friday October 15</h1>
+<p>We can use a recursive definition to describe all compound propositions that use propositional variables from a specified collection. Here’s the definition for all compound propositions whose propositional variables are in <span class="math inline">\(\{p, q\}\)</span>.</p>
+<p><span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; p \textrm{ and } q \textrm{ are each a compound proposition} \\
+\textrm{Recursive Step: } &amp; \textrm{If } x \textrm{ is a compound proposition then so is } (\lnot x) 
+\textrm{ and if } \\
+&amp; x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
+&amp;(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
+\end{array}\]</span></p>
 <p><span><strong>Translation</strong></span>: Express each of the following sentences as compound propositions, using the given propositions.</p>
 <div class="multicols">
 <p><span>2</span> “A sufficient condition for the warranty to be good is that you bought the computer less than a year ago" <span class="math display">\[\begin{aligned}

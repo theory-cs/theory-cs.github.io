@@ -464,6 +464,23 @@ For each of the following propositions, indicate exactly one of:
 \section*{Friday October 15}
 
 
+We can use a recursive definition to describe all 
+compound propositions that use propositional variables 
+from a specified collection.  Here's the definition
+for all compound propositions whose propositional variables 
+are in $\{p, q\}$.
+
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & p \textrm{ and } q \textrm{ are each a compound proposition} \\
+\textrm{Recursive Step: } & \textrm{If } x \textrm{ is a compound proposition then so is } (\lnot x) 
+\textrm{ and if } \\
+& x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
+&(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
+\end{array}
+\] \newpage
+
+
 {\bf Translation}: Express each of the following sentences as compound propositions, using
 the given propositions.
 
@@ -547,7 +564,8 @@ on campus'', $g$ is ``logging in'', and $u$ is ``use UCSD-Guest network''.
     \item $u \to (c \land \lnot g)$
     \item $u \leftrightarrow (c \land \lnot g)$
 \end{enumerate}
-\end{enumerate}     \item 
+\end{enumerate}
+\vspace{20pt}     \item 
 
 For each of  the following  system specifications, 
 identify the compound propositions  that give their
@@ -592,7 +610,7 @@ propositions is consistent.
         \item \begin{align*} &\neg (P \wedge C) \to \neg  S  \\ & C \to H  \\ & W \wedge H \\ & W \to  \neg P \\ & S \end{align*}
         \item \begin{align*} &(P \wedge  C)  \to S  \\ &  C \to H\\ & W  \to  H \\  & W \to P \\ & S\end{align*}
         \item \begin{align*} & S  \to (P \wedge C)  \\ &  C \to H\\ & H  \to  W \\  & W \to \neg P \\ & S\end{align*}
-\end{enumerate}
+    \end{enumerate}
 
 \end{enumerate} \end{enumerate}
 \end{document}
