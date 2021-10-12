@@ -117,25 +117,123 @@
             <h2>Subtopics</h2>
 
             <div id="accordion">
-                <div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-      href="#collapse1"> drawing circuits</a> </div> <div id="collapse1""
-      class="collapse" data-parent="#accordion"><div class="card-body"> <p> Learning Goal: Drawing a logical circuit to implement a compound proposition</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+                <div class="box outcome"  id="box1"><button type="button" class="collapsible"
+			"> 
+<h2 style= "line-height:20px;"> <i id="sideBtn1" class='bx bx-caret-right'></i> 
+			drawing circuits</h2> </button> <div class="boxContent" style="display: none;"> <hr> <p> Learning Goal: Drawing a logical circuit to implement a compound proposition</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
       href=../output/topic/draw-circuits.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
       href=../notes/topic-flat/draw-circuits.tex download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
       href= ../output/topic/draw-circuits.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="drawing circuits" src="web/viewer.html?file=../../output/topic/draw-circuits.pdf" 
-      title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-      href="#collapse2"> tracing circuits</a> </div> <div id="collapse2""
-      class="collapse" data-parent="#accordion"><div class="card-body"> <p> Learning Goal: Tracing a logical circuit to determine the values on output wires</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+      title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div><div class="box outcome"  id="box2"><button type="button" class="collapsible"
+			"> 
+<h2 style= "line-height:20px;"> <i id="sideBtn2" class='bx bx-caret-right'></i> 
+			tracing circuits</h2> </button> <div class="boxContent" style="display: none;"> <hr> <p> Learning Goal: Tracing a logical circuit to determine the values on output wires</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
       href=../output/topic/trace-circuits.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
       href=../notes/topic-flat/trace-circuits.tex download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
       href= ../output/topic/trace-circuits.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="tracing circuits" src="web/viewer.html?file=../../output/topic/trace-circuits.pdf" 
-      title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-      href="#collapse3"> applications of number representations</a> </div> <div id="collapse3""
-      class="collapse" data-parent="#accordion"><div class="card-body"> <p> Learning Goal: Determining the properties of positional number representations, including overflow and bit operations</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+      title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div><div class="box outcome"  id="box3"><button type="button" class="collapsible"
+			"> 
+<h2 style= "line-height:20px;"> <i id="sideBtn3" class='bx bx-caret-right'></i> 
+			applications of number representations</h2> </button> <div class="boxContent" style="display: none;"> <hr> <p> Learning Goal: Determining the properties of positional number representations, including overflow and bit operations</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
       href=../output/topic/applications-num-rep.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
       href=../notes/topic-flat/applications-num-rep.tex download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
       href= ../output/topic/applications-num-rep.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="applications of number representations" src="web/viewer.html?file=../../output/topic/applications-num-rep.pdf" 
-      title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div>
+      title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div><script>
+	  var coll = document.getElementsByClassName("collapsible");
+	  var i;
+	
+	  var boxValue;
+	  var expandedValue; 
+	  url = window.location.href;
+
+	  queryString(boxValue, expandedValue);
+
+	  function queryString(boxValue, expandedValue){
+		  var qInd;
+		  var valuesAdded = 0; 
+
+		  for( i=0; i<url.length; i++){
+			  if(url[i]==="="){
+				  valuesAdded++;
+				  i++; //go to value next to = 
+
+				  //boxNumber must always be before expanded, 
+				  // and both have one character values (0 or 1)
+				if(valuesAdded == 1){
+					boxValue = url[i]; 
+				}
+				else {
+					expandedValue = url[i];
+				}
+				
+				console.log("value: "+url[i]);
+			}
+		}
+	}
+	
+	for (i = 0; i < coll.length; i++) {
+		sideBtnString="#sideBtn";
+		sideBtnString+=(i+1);
+		boxString="#box";
+		boxString +=(i+1);
+		let sideBtn = document.querySelector(sideBtnString);
+		let box = document.querySelector(boxString);
+		let h2 = document.querySelector("h2");
+
+  		coll[i].addEventListener("click", function() {
+    		this.classList.toggle("active");
+    		var content = this.nextElementSibling;
+    	
+			if (content.style.display === "block") {
+      			content.style.display = "none";
+				h2.style.lineHeight="20px";
+    		} 
+			else {
+      			content.style.display = "block";
+				h2.style.lineHeight="20px";
+    		}
+			if(this.classList.contains("active")){
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+			}
+			else {
+			sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+			}
+		});
+	}
+
+	function expandCollapseAll(bool, multiple) {
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+		for (i = 0; i < coll.length; i++) {
+			sideBtnString="#sideBtn";
+			sideBtnString+=(i+1);
+			boxString="#box";
+			boxString +=(i+1);
+			let sideBtn = document.querySelector(sideBtnString);
+			let box = document.querySelector(boxString);
+
+			//coll[i].classList.toggle("active");
+    		var content = coll[i].nextElementSibling;
+
+			if(bool==0){
+				//expand all 
+				content.style.display = "block";
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+				coll[i].style.background= "white";
+				box.style.background="white";
+			}
+			else{
+				 //collapse all
+				content.style.display = "none";
+				sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+				coll[i].style.background= "lightgray";
+				box.style.background="lightgray";
+			}
+		}
+
+		return bool;
+	}
+  </script>
             </div>
             
         </div>
