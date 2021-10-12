@@ -89,8 +89,9 @@
             {
             "name": "Notes",
             "addExtensions": true,
-            "file": "Week3"
-        }],
+            "file": "Week3",
+            "annotatedFile": "Week3-annotated.pdf"
+            }],
         "embed": [
             {
                 "name": "Lecture and Discussion podcast",
