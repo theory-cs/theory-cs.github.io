@@ -436,6 +436,7 @@ def create_outcome_boxes():
 
 			#list children of 2nd tier children (subtopics under outcomes, these will be included on the webpage for the outcomes as PDFs and menu options)
 			if(bool(outcomeData[i]['Children'][j]['Children'])):
+				childNum = 0;
 				for k in outcomeData[i]['Children'][j]['Children']:
 					boxString += "<dd>" + k + "</dd>\n"
 				

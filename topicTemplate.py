@@ -22,9 +22,10 @@ for big in outcomeData:
       tex="../notes/topic-flat/" + file + ".tex"
             
       #heading and collapsible card stuff
-      pdfString += """<div class="card"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-      href="#collapse"""+ str(collapseVar)+"\"> "+small+"""</a> </div> <div id="collapse""" + str(collapseVar)+ """""
-      class="collapse" data-parent="#accordion"><div class="card-body">"""
+      pdfString += """<div class="box outcome"  id="box"""+str(collapseVar)+""""><button type="button" class="collapsible"
+			"> \n"""
+      pdfString += """<h2 style= "line-height:20px;"> <i id="sideBtn"""+ str(collapseVar)+ """" class='bx bx-caret-right'></i> 
+			""" + small + """</h2> </button> <div class="boxContent" style="display: none;"> <hr>"""
             
       #Learning Goal
       pdfString += """ <p> Learning Goal: """+ outcomeData[big]['Children'][med]['Children'][small]['Description']+"""</p>"""
@@ -46,11 +47,107 @@ for big in outcomeData:
       title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
       #closing div for collapsible menu item 
-      pdfString += """</div></div></div>"""
+      pdfString += """</div></div>"""
             
       #increment collapseVar
       collapseVar += 1
 
+    pdfString += """<script>
+	  var coll = document.getElementsByClassName("collapsible");
+	  var i;
+	
+	  var boxValue;
+	  var expandedValue; 
+	  url = window.location.href;
+
+	  queryString(boxValue, expandedValue);
+
+	  function queryString(boxValue, expandedValue){
+		  var qInd;
+		  var valuesAdded = 0; 
+
+		  for( i=0; i<url.length; i++){
+			  if(url[i]==="="){
+				  valuesAdded++;
+				  i++; //go to value next to = 
+
+				  //boxNumber must always be before expanded, 
+				  // and both have one character values (0 or 1)
+				if(valuesAdded == 1){
+					boxValue = url[i]; 
+				}
+				else {
+					expandedValue = url[i];
+				}
+				
+				console.log("value: "+url[i]);
+			}
+		}
+	}
+	
+	for (i = 0; i < coll.length; i++) {
+		sideBtnString="#sideBtn";
+		sideBtnString+=(i+1);
+		boxString="#box";
+		boxString +=(i+1);
+		let sideBtn = document.querySelector(sideBtnString);
+		let box = document.querySelector(boxString);
+		let h2 = document.querySelector("h2");
+
+  		coll[i].addEventListener("click", function() {
+    		this.classList.toggle("active");
+    		var content = this.nextElementSibling;
+    	
+			if (content.style.display === "block") {
+      			content.style.display = "none";
+				h2.style.lineHeight="20px";
+    		} 
+			else {
+      			content.style.display = "block";
+				h2.style.lineHeight="20px";
+    		}
+			if(this.classList.contains("active")){
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+			}
+			else {
+			sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+			}
+		});
+	}
+
+	function expandCollapseAll(bool, multiple) {
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+		for (i = 0; i < coll.length; i++) {
+			sideBtnString="#sideBtn";
+			sideBtnString+=(i+1);
+			boxString="#box";
+			boxString +=(i+1);
+			let sideBtn = document.querySelector(sideBtnString);
+			let box = document.querySelector(boxString);
+
+			//coll[i].classList.toggle("active");
+    		var content = coll[i].nextElementSibling;
+
+			if(bool==0){
+				//expand all 
+				content.style.display = "block";
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+				coll[i].style.background= "white";
+				box.style.background="white";
+			}
+			else{
+				 //collapse all
+				content.style.display = "none";
+				sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+				coll[i].style.background= "lightgray";
+				box.style.background="lightgray";
+			}
+		}
+
+		return bool;
+	}
+  </script>"""
     #Information Section
     infoString = "<p>"+ outcomeData[big]['Children'][med]['Description']+ "</p>" 
     
