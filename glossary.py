@@ -18,14 +18,23 @@ outcome = collections.OrderedDict(sorted(outcome.items()))
 
 
 content = ""
+content += "<h1> "
 alphabet = []
 for i in outcome:
     # print(i)
     if(i[0] not in alphabet):
         alphabet.append(i[0])
+        content += """<a href=\"glossary.html#""" + i[0] + """\">"""
+        content += i[0]
+        content += " </a>"
+        content += " | "
+content = content[:-2]
+content += " </h1>\n"
+
+
 
 for j in alphabet:
-    content += "<h1>" + j + "</h1>\n"
+    content += """<h1 id=\"""" + j + """\">""" + j + "</h1>\n"
     # print(j)
     for key in outcome:
         # print(key)
