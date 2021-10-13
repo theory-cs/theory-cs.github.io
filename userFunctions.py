@@ -298,7 +298,7 @@ def create_unit_boxes():
 		
 		boxString += "</dl></div></div>"
 		
-		boxString += "</div><br><br>"
+		boxString += "</div><br>"
 
 
 	# print(boxString)
@@ -448,12 +448,13 @@ def create_outcome_boxes():
 	return boxString
 
 def create_application_boxes():
-	boxString = """<div class="box"> \n"""
+	boxString = ""
+	# boxString = """<div class="box"> \n"""
 	#big for loop begin
 	for i in appData:
 		file = i.replace(" ", "-").lower()+".html"
-		boxString += """<h2> <i style= "font-size: 75%;" class='bx bxs-chevron-right-square'></i> <a href= \"""" + file + """\" style="color: #182B49; text-decoration: none; font-size: 75%; font-weight: normal;" >""" + i + """</a></h2>"""
-	boxString += "</div><br><br>"
+		boxString += """<h2 style="line-height: 60px;"> <i class='bx bxs-chevron-right-square'></i> <a href= \"""" + file + """\" style="color: #182B49; text-decoration: none; font-weight: 500;" >""" + i + """</a></h2>\n"""
+	# boxString += "</div><br><br>"
 	return boxString
 
 def create_copyright():
