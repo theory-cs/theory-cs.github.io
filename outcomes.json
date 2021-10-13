@@ -3,39 +3,28 @@
         "Description": "Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.",
         "Icon": "<i class='bx bxs-paper-plane'></i>",
         "Children": {
-            "Connections with other courses": {
-                "Description": "Explore applications in CS through multiple perspectives, including software, hardware, and theory.",
-                "Children": {
-                    "drawing circuits": {
-                        "Description": "Drawing a logical circuit to implement a compound proposition",
-                        "filename": "draw-circuits"
-                    },
-                    "tracing circuits": {
-                        "Description": "Tracing a logical circuit to determine the values on output wires",
-                        "filename": "trace-circuits"
-                    },
-                    "applications of number representations": {
-                        "Description": "Determining the properties of positional number representations, including overflow and bit operations",
-                        "filename": "applications-num-rep"
-                    }
-                },
-                "Icon": "C",
-                "file": "connect.html"
-            },
             "Model systems": {
-                "Description": "Model systems with tools from discrete mathematics and reason about implications of modelling choices.",
+                "Description": "Model systems with tools from discrete mathematics and reason about implications of modelling choices. Explore applications in CS through multiple perspectives, including software, hardware, and theory.",
                 "Children": {
-                    "modeling clusters": {
-                        "Description": "Modeling data with partitions and functions",
-                        "filename": "clusters"
-                    },
                     "data types": {
                         "Description": "Selecting and representing appropriate data types and using notation conventions to clearly communicate choices",
                         "filename": "data-types"
                     },
+                    "circuits": {
+                        "Description": "Connecting logical circuits and compound proposition and tracing to calcluate output values",
+                        "filename": "circuits"
+                    },
+                    "applications of number representations": {
+                        "Description": "Determining the properties of positional number representations, including overflow and bit operations",
+                        "filename": "applications-num-rep"
+                    },
                     "linked lists": {
                         "Description": "Modeling data structures, such as linked lists or trees, as recursively defined data structures",
                         "filename": "linked-lists"
+                    },
+                    "modeling clusters": {
+                        "Description": "Modeling data with partitions and functions",
+                        "filename": "clusters"
                     }
                 },
                 "Icon": "S",
@@ -44,6 +33,18 @@
             "Translate": {
                 "Description": "Translate between different representations to illustrate a concept.",
                 "Children": {
+                    "translating": {
+                        "Description": "Translating between symbolic and English versions of statements using precise mathematical language",
+                        "filename": "translate-sentences"
+                    },
+                    "trace algorithms": {
+                        "Description": "Tracing algorithms specified in pseudocode",
+                        "filename": "algorithms"
+                    },
+                    "representing numbers": {
+                        "Description": "Representing numbers using positional representations, including decimal, binary, hexadecimal, fixed-width representations, and 2s complement",
+                        "filename": "num-rep"
+                    },
                     "compound propositions and truth tables": {
                         "Description": "Translating between truth tables (tables of values) and compound propositions",
                         "filename": "propositions-tables"
@@ -51,18 +52,6 @@
                     "graph representations of relations": {
                         "Description": "Drawing graph representations of relations and functions e.g. Hasse diagram and partition diagram",
                         "filename": "graph-relations"
-                    },
-                    "representing numbers": {
-                        "Description": "Representing numbers using positional representations, including decimal, binary, hexadecimal, fixed-width representations, and 2s complement",
-                        "filename": "num-rep"
-                    },
-                    "trace algorithms": {
-                        "Description": "Tracing algorithms specified in pseudocode",
-                        "filename": "algorithms"
-                    },
-                    "translating": {
-                        "Description": "Translating between symbolic and English versions of statements using precise mathematical language",
-                        "filename": "translate-sentences"
                     }
                 },
                 "Icon": "T",
@@ -77,22 +66,6 @@
             "Propositional and predicate logic": {
                 "Description": "Reason about the truth or falsity of complicated statements using Boolean connectives, quantifiers, and basic operations.",
                 "Children": {
-                    "evidence for quantified statements": {
-                        "Description": "Determining what evidence is required to establish that a quantified statement is true or false",
-                        "filename": "evidence-quantified"
-                    },
-                    "quantified statement proofs": {
-                        "Description": "Evaluating quantified statements about finite and infinite domains",
-                        "filename": "quantified-statement-proofs"
-                    },
-                    "cnf and dnf": {
-                        "Description": "Rewriting compound propositions using normal forms",
-                        "filename": "cnf-and-dnf"
-                    },
-                    "consistency": {
-                        "Description": "Judging whether a collection of propositions is consistent",
-                        "filename": "consistency"
-                    },
                     "evaluating compound propositions": {
                         "Description": "Evaluating compound propositions",
                         "filename": "evaluate-compound-propositions"
@@ -105,9 +78,25 @@
                         "Description": "Judging logical equivalence of compound propositions using truth tables",
                         "filename": "log-equiv-via-tables"
                     },
+                    "cnf and dnf": {
+                        "Description": "Rewriting compound propositions using normal forms",
+                        "filename": "cnf-and-dnf"
+                    },
+                    "consistency": {
+                        "Description": "Judging whether a collection of propositions is consistent",
+                        "filename": "consistency"
+                    },
                     "variants of conditionals": {
                         "Description": "Writing the converse, contrapositive, and inverse of a given conditional statement",
                         "filename": "variants-conditionals"
+                    },
+                    "evidence for quantified statements": {
+                        "Description": "Determining what evidence is required to establish that a quantified statement is true or false",
+                        "filename": "evidence-quantified"
+                    },
+                    "quantified statement proofs": {
+                        "Description": "Evaluating quantified statements about finite and infinite domains",
+                        "filename": "quantified-statement-proofs"
                     }
                 },
                 "Icon": "L",
@@ -116,10 +105,6 @@
             "Proof strategies and valid arguments": {
                 "Description": "Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.",
                 "Children": {
-                    "applying proof strategy": {
-                        "Description": "Carrying out a given proof strategy to prove a given statement",
-                        "filename": "applying-proof-strategy"
-                    },
                     "identifying proof strategy in proof": {
                         "Description": "Identifying the proof strategies used in a given proof",
                         "filename": "identifying-proof-strategy"
@@ -128,17 +113,21 @@
                         "Description": "Identifying which proof strategies are applicable to prove a given compound proposition based on its logical structure",
                         "filename": "structure-to-strategy"
                     },
+                    "applying proof strategy": {
+                        "Description": "Carrying out a given proof strategy to prove a given statement",
+                        "filename": "applying-proof-strategy"
+                    },
                     "universal generalization": {
                         "Description": "Carrying out a universal generalization argument to prove that a universal statement is true",
                         "filename": "universal-generalization"
                     },
-                    "using proofs to evaluate": {
-                        "Description": "Using proofs to as knowledge discovery tools to decide whether a statement is true or false",
-                        "filename": "proofs-to-evaluate"
-                    },
                     "contradiction proofs": {
                         "Description": "Tracing and/or modifying a proof by contradiction",
                         "filename": "contradiction-proofs"
+                    },
+                    "using proofs to evaluate": {
+                        "Description": "Using proofs to as knowledge discovery tools to decide whether a statement is true or false",
+                        "filename": "proofs-to-evaluate"
                     }
                 },
                 "Icon": "P",
@@ -170,10 +159,6 @@
             "Modular Arithmetic": {
                 "Description": "Reason about modular arithmetic.",
                 "Children": {
-                    "congruence mod n": {
-                        "Description": "Applying the definition of congruence modulo n and modular arithmetic",
-                        "filename": "congruence-mod-n"
-                    },
                     "div and mod": {
                         "Description": "Using the definitions of the div and mod operators on integers",
                         "filename": "div-and-mod"
@@ -181,6 +166,10 @@
                     "divisibility and primes": {
                         "Description": "Using divisibility and primality predicates",
                         "filename": "divisibility-and-primes"
+                    },
+                    "congruence mod n": {
+                        "Description": "Applying the definition of congruence modulo n and modular arithmetic",
+                        "filename": "congruence-mod-n"
                     }
                 },
                 "Icon": "M",
@@ -226,29 +215,29 @@
             "Mathematical definitions and notation": {
                 "Description": "Use precise notation to encode meaning and present arguments concisely and clearly",
                 "Children": {
-                    "truth table definitions": {
-                        "Description": "Listing the truth tables of atomic boolean functions (and, or, xor, not, if, iff)",
-                        "filename": "truth-tables"
-                    },
                     "write set definition": {
                         "Description": "Precisely describing a set using appropriate notation e.g. roster method, set builder notation, and recursive definitions",
                         "filename": "set-definitions"
                     },
-                    "classify cardinality": {
-                        "Description": "Classifying sets into: finite sets, countably infinite sets, uncountable sets",
-                        "filename": "classify-cardinality"
+                    "important sets": {
+                        "Description": "Defining important sets of numbers, e.g. set of integers, set of rational numbers",
+                        "filename": "important-sets"
                     },
                     "function and relation definitions": {
                         "Description": "Defining functions, predicates, and binary relations using multiple representations",
                         "filename": "define-functions-and-relations"
                     },
+                    "truth table definitions": {
+                        "Description": "Listing the truth tables of atomic boolean functions (and, or, xor, not, if, iff)",
+                        "filename": "truth-tables"
+                    },
                     "functions for cardinality": {
                         "Description": "Using functions to compare cardinality of sets",
                         "filename": "functions-for-cardinality"
                     },
-                    "important sets": {
-                        "Description": "Defining important sets of numbers, e.g. set of integers, set of rational numbers",
-                        "filename": "important-sets"
+                    "classify cardinality": {
+                        "Description": "Classifying sets into: finite sets, countably infinite sets, uncountable sets",
+                        "filename": "classify-cardinality"
                     }
                 },
                 "Icon": "N",
