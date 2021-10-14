@@ -57,33 +57,38 @@ for big in outcomeData:
 	  var i;
 	
 	  var boxValue;
-	  var expandedValue; 
 	  url = window.location.href;
+	  var qInd;
+	  var valuesAdded = 0; 
 
-	  queryString(boxValue, expandedValue);
-
-	  function queryString(boxValue, expandedValue){
-		  var qInd;
-		  var valuesAdded = 0; 
-
-		  for( i=0; i<url.length; i++){
-			  if(url[i]==="="){
-				  valuesAdded++;
-				  i++; //go to value next to = 
-
-				  //boxNumber must always be before expanded, 
-				  // and both have one character values (0 or 1)
-				if(valuesAdded == 1){
-					boxValue = url[i]; 
-				}
-				else {
-					expandedValue = url[i];
-				}
-				
-				console.log("value: "+url[i]);
+	 for( i=0; i<url.length; i++){
+	   if(url[i]==="="){
+			valuesAdded++;
+			i++; //go to value next to = 
+				//boxNumber must always be before expanded, 
+				// and both have one character values (0 or 1)
+		
+			if(valuesAdded == 1){
+				boxValue = url[i]; 
 			}
+				
 		}
 	}
+	
+	//debug
+	console.log("boxValue: "+boxValue);
+	
+	//open certain box based on query string values 
+	selectBox = "#box"+boxValue;
+	let sBox = document.querySelector(selectBox);
+	selectSideBtn= "#sideBtn"+boxValue;
+	let sSideBtn = document.querySelector(selectSideBtn);
+
+	coll[boxValue-1].style.background= "white";
+	sBox.style.background="white";
+	var content = coll[boxValue-1].nextElementSibling;
+	content.style.display = "block";
+	sSideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
 	
 	for (i = 0; i < coll.length; i++) {
 		sideBtnString="#sideBtn";
@@ -93,6 +98,8 @@ for big in outcomeData:
 		let sideBtn = document.querySelector(sideBtnString);
 		let box = document.querySelector(boxString);
 		let h2 = document.querySelector("h2");
+
+		
 
   		coll[i].addEventListener("click", function() {
     		this.classList.toggle("active");
@@ -147,6 +154,8 @@ for big in outcomeData:
 
 		return bool;
 	}
+
+
   </script>"""
     #Information Section
     infoString = "<p>"+ outcomeData[big]['Children'][med]['Description']+ "</p>" 
