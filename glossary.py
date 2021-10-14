@@ -6,12 +6,15 @@ import collections
 outcomeData = json.loads(open("outcomes.json").read())
 
 outcome = {}
-
+count = 1
 for big in outcomeData:
   for med in outcomeData[big]['Children']:
+    count = 1
     for small in outcomeData[big]['Children'][med]['Children']:
         # print(small)
-        outcome[small] = outcomeData[big]['Children'][med]['file']
+        # print(count)
+        outcome[small + str(count)] = outcomeData[big]['Children'][med]['file']
+        count += 1
 
 outcome = collections.OrderedDict(sorted(outcome.items()))
 # print(outcome)
@@ -39,10 +42,11 @@ for j in alphabet:
     for key in outcome:
         # print(key)
         if(key[0] == j):
-            content += """<p><a href=\"""" + outcome[key]  + """\">""" + key +"""</a></p>\n"""
+            content += """<p><a href=\"""" + outcome[key]  + """?box=""" + key[len(key) -1] + """\">""" + key[:-1] +"""</a></p>\n"""
+            # print(content)
     content += "\n"
 
-print(content)
+# print(content)
 
 glossaryTemplate = open("templates/glossaryTemplate.html", "r")
 templateString = Template(glossaryTemplate.read())
