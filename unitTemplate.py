@@ -48,7 +48,9 @@ for i in range(0,len(unitData)):
                 #annotations on
                 pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(1,
                 \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};"""
-            
+                
+                #pdfString += """<label class="switch"><input type="checkbox"><span class="slider round" id="annotationsOnButton"></span> </label>"""
+
                 #annotations off
                 pdfString +="""document.getElementById("annotationsOffButton").onclick = function() {annotations(0,
                 \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};
