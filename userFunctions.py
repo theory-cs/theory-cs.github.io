@@ -412,6 +412,7 @@ def create_unit_boxes():
 
 def create_outcome_boxes():
 	boxString = ""
+	childNum = 1
 	#big for loop begin
 	for i in outcomeData:
 
@@ -436,9 +437,11 @@ def create_outcome_boxes():
 
 			#list children of 2nd tier children (subtopics under outcomes, these will be included on the webpage for the outcomes as PDFs and menu options)
 			if(bool(outcomeData[i]['Children'][j]['Children'])):
-				childNum = 0;
+				#reset counter
+				childNum = 1 
 				for k in outcomeData[i]['Children'][j]['Children']:
-					boxString += "<dd>" + k + "</dd>\n"
+					boxString += """<dd> <a href=\""""+outcomeData[i]['Children'][j]['file']+"""?box=""" +str(childNum)+"""\" >""" + k + """</a> </dd>\n"""
+					childNum+=1
 				
 				boxString += "</dl>"
 
