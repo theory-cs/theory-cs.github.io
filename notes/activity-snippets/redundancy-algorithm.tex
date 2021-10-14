@@ -3,7 +3,7 @@
 
 Consider the following algorithm to introduce redundancy in a string of $0$s and $1$s.
 \begin{algorithm}[caption={Create redundancy by repeating each bit three times}]
-procedure $\textit{redun3}$($a_{k-1} \cdots a_0$: a binary string)
+procedure $\textit{redun3}$($a_{k-1} \cdots a_0$: a nonempty bitstring)
 for $i$ := $0$ to $k-1$
   $c_{3i}$ := $a_i$
   $c_{3i+1}$ := $a_i$
@@ -12,7 +12,7 @@ return $c_{3k-1} \cdots c_0$
 \end{algorithm}
 
 \begin{algorithm}[caption={Decode sequence of bits using majority rule on consecutive three bit sequences}]
-procedure $\textit{decode3}$($c_{3k-1} \cdots c_0$: a binary string whose length is an integer multiple of $3$)
+procedure $\textit{decode3}$($c_{3k-1} \cdots c_0$: a nonempty bitstring whose length is an integer multiple of $3$)
 for $i$ := $0$ to $k-1$
   if exactly two or three of $c_{3i}, c_{3i+1}, c_{3i+2}$ are set to $1$
     $a_i$ := 1
@@ -26,7 +26,7 @@ Give a recursive definition of the set of outputs of the $redun3$ procedure, $Ou
 \vspace{-20pt}
 
 \begin{itemize}
-\item[] {\bf Basis step}: \underline{ \phantom{$\lambda \in Out$ \qquad}}
+\item[] {\bf Basis step}: \underline{ \phantom{$000 \in Out$ and $111 \in Out$ \qquad}}
 \item[] {\bf Recursive step}: \underline{\phantom{If $x \in Out$ then $x000 \in Out$ and $x111 \in Out$} }
 %(where $x000$ and $x111$
 %are the results of string concatenation).
@@ -44,7 +44,7 @@ but the receiver is still able to decode the original message.
 
 {\it Challenge: what is the biggest number of errors you can introduce?} 
 
-Building a circuit for line 3 in $decode$ procedure: given three input bits, we need to determine whether the
+Building a circuit for lines 3-6 in $decode$ procedure: given three input bits, we need to determine whether the
 majority is a $0$ or a $1$.
 
 \begin{center}
