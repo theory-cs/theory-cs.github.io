@@ -1,12 +1,6 @@
 %! app: TODOapp
 %! outcome: TODOoutcome
 
-Real-life representations are often prone to corruptions.  Biological codes, like RNA, 
-may mutate naturally\footnote{Mutations of specific RNA codons have been linked to many disorders and cancers.}
-and during measurement; cosmic radiation and other ambient noise 
-can flip bits in computer storage\footnote{This RadioLab podcast episode
-goes into more detail on bit flips: \url{https://www.wnycstudios.org/story/bit-flip}}. 
-One way to recover from corrupted data is to exploit redundancy.  
 Consider the following algorithm to introduce redundancy in a string of $0$s and $1$s.
 \begin{algorithm}[caption={Create redundancy by repeating each bit three times}]
 procedure $\textit{redun3}$($a_{k-1} \cdots a_0$: a binary string)
