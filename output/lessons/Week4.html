@@ -258,20 +258,26 @@
 <p>Fill in the blanks input so that <span class="math inline">\(\textit{deletion}(~(\underline{\phantom{\texttt{G}\texttt{G}}}, \underline{\phantom{1}})~) =  \texttt{G}\)</span></p>
 <h2 class="unnumbered" id="review">Review</h2>
 <ol>
-<li><p>In this question, we will consider how to build a logic circuit with inputs <span class="math inline">\(x_0\)</span>, <span class="math inline">\(y_0\)</span>, <span class="math inline">\(x_1\)</span>, <span class="math inline">\(y_1\)</span> and output <span class="math inline">\(z\)</span> such that <span class="math inline">\(z = 1\)</span> exactly when <span class="math inline">\((x_1x_0)_{2,2} &lt; (y_1y_0)_{2,2}\)</span> and <span class="math inline">\(z = 0\)</span> exactly when <span class="math inline">\((x_1x_0)_{2,2} \geq (y_1y_0)_{2,2}\)</span>.</p>
+<li><p><br />
+</p>
+<p>In this question, we will consider how to build a logic circuit with inputs <span class="math inline">\(x_0\)</span>, <span class="math inline">\(y_0\)</span>, <span class="math inline">\(x_1\)</span>, <span class="math inline">\(y_1\)</span> and output <span class="math inline">\(z\)</span> such that <span class="math inline">\(z = 1\)</span> exactly when <span class="math inline">\((x_1x_0)_{2,2} &lt; (y_1y_0)_{2,2}\)</span> and <span class="math inline">\(z = 0\)</span> exactly when <span class="math inline">\((x_1x_0)_{2,2} \geq (y_1y_0)_{2,2}\)</span>.</p>
 <ol>
 <li><p>The first step towards designing this logic circuit is to construct its input-output table. How many rows does this table have (not including the header row labelling the columns)?</p></li>
 <li><p>What is the output for the row whose input values are <span class="math inline">\(x_0 = 0\)</span>, <span class="math inline">\(y_0 = 1\)</span>, <span class="math inline">\(x_1 = 1\)</span>, <span class="math inline">\(y_1 = 0\)</span>?</p></li>
 <li><p>What is the output for the row whose input values are <span class="math inline">\(x_0 = 0\)</span>, <span class="math inline">\(y_0 = 1\)</span>, <span class="math inline">\(x_1 = 0\)</span>, <span class="math inline">\(y_1 = 1\)</span>?</p></li>
 </ol></li>
-<li><p>Recall the procedures <span class="math inline">\(redun3\)</span> and <span class="math inline">\(decode3\)</span> from class.</p>
+<li><p><br />
+</p>
+<p>Recall the procedures <span class="math inline">\(redun3\)</span> and <span class="math inline">\(decode3\)</span> from class.</p>
 <ol>
 <li><p>Give the output of <span class="math inline">\(redun3(100)\)</span>.</p></li>
 <li><p>If the output of running <span class="math inline">\(redun3\)</span> is <span class="math inline">\(000000111000111\)</span>, what was its input?</p></li>
 <li><p>Give the output of <span class="math inline">\(decode3(100)\)</span>.</p></li>
 <li><p>How many distinct possible inputs to <span class="math inline">\(decode3\)</span> give the output <span class="math inline">\(01\)</span>?</p></li>
 </ol></li>
-<li><p>Recall the procedures <span class="math inline">\(mutation\)</span> and <span class="math inline">\(intertion\)</span> and <span class="math inline">\(deletion\)</span> from class.</p>
+<li><p><br />
+</p>
+<p>Recall the procedures <span class="math inline">\(mutation\)</span> and <span class="math inline">\(intertion\)</span> and <span class="math inline">\(deletion\)</span> from class.</p>
 <ol>
 <li><p>Trace the pseudocode to find the output of <span class="math inline">\(\textit{mutation}(~ (\texttt{A}\texttt{U}\texttt{C}, 2, \texttt{U}) ~)\)</span></p></li>
 <li><p>Trace the pseudocode to find the output of <span class="math inline">\(\textit{insertion}(~(\texttt{A}\texttt{U}\texttt{C}, 1, \texttt{G})~)\)</span></p></li>
@@ -381,7 +387,9 @@
 <p>Example where <span class="math inline">\(F_{\texttt{A}}\)</span> evaluates to <span class="math inline">\(F\)</span> is <u></u></p>
 <h2 class="unnumbered" id="review-1">Review</h2>
 <ol>
-<li><p>Recall the predicates <span class="math inline">\(V(x)\)</span>, <span class="math inline">\(N(x)\)</span>, and <span class="math inline">\(Mystery(x)\)</span> on domain <span class="math inline">\(\{000,001,010,011,100,101,110,111\}\)</span> from class. Which of the following is true? (Select all and only that apply.)</p>
+<li><p><br />
+</p>
+<p>Recall the predicates <span class="math inline">\(V(x)\)</span>, <span class="math inline">\(N(x)\)</span>, and <span class="math inline">\(Mystery(x)\)</span> on domain <span class="math inline">\(\{000,001,010,011,100,101,110,111\}\)</span> from class. Which of the following is true? (Select all and only that apply.)</p>
 <ol>
 <li><p><span class="math inline">\(\left( \forall x ~V(x) \right) \lor \left( \forall x ~N(x) \right)\)</span></p></li>
 <li><p><span class="math inline">\(\left( \exists x ~V(x) \right) \land \left( \exists x~N(x) \right) \land \left( \exists x~Mystery(x)\right)\)</span></p></li>
@@ -389,7 +397,9 @@
 <li><p><span class="math inline">\(\forall x ~(~V(x) \oplus N(x)~)\)</span></p></li>
 <li><p><span class="math inline">\(\forall x ~(~Mystery(x) \to V(x)~)\)</span></p></li>
 </ol></li>
-<li><p>Consider the following predicates, each of which has as its domain the set of all bitstrings whose leftmost bit is <span class="math inline">\(1\)</span></p>
+<li><p><br />
+</p>
+<p>Consider the following predicates, each of which has as its domain the set of all bitstrings whose leftmost bit is <span class="math inline">\(1\)</span></p>
 <p><span class="math inline">\(E(x)\)</span> is <span class="math inline">\(T\)</span> exactly when <span class="math inline">\((x)_{2}\)</span> is even, and is <span class="math inline">\(F\)</span> otherwise</p>
 <p><span class="math inline">\(L(x)\)</span> is <span class="math inline">\(T\)</span> exactly when <span class="math inline">\((x)_2 &lt; 3\)</span>, and is <span class="math inline">\(F\)</span> otherwise</p>
 <p><span class="math inline">\(M(x)\)</span> is <span class="math inline">\(T\)</span> exactly when <span class="math inline">\((x)_2 &gt; 256\)</span> and is <span class="math inline">\(F\)</span> otherwise.</p>
@@ -404,7 +414,9 @@
 </ol></li>
 <li><p>Is there a bitstring of width (where width is the number of bits) <span class="math inline">\(6\)</span> at which <span class="math inline">\(M(x)\)</span> evaluates to <span class="math inline">\(T\)</span>?</p></li>
 </ol></li>
-<li><p>For this question, we will use the following predicate.</p>
+<li><p><br />
+</p>
+<p>For this question, we will use the following predicate.</p>
 <p><span class="math inline">\(F_{\texttt{A}}\)</span> with domain <span class="math inline">\(S\)</span> is defined recursively by:</p>
 <ul>
 <li><p>Basis step: <span class="math inline">\(F_{\texttt{A}}(\texttt{A}) = T\)</span>, <span class="math inline">\(F_{\texttt{A}}(\texttt{C}) = F_{\texttt{A}}(\texttt{G}) = F_{\texttt{A}}(\texttt{U}) = F\)</span></p></li>
@@ -466,7 +478,9 @@
 <p><span><strong>Alternating nested quantifiers</strong></span></p>
 <h2 class="unnumbered" id="review-2">Review</h2>
 <ol>
-<li><p>Recall the predicate <span class="math inline">\(L\)</span> with domain <span class="math inline">\(S \times \mathbb{Z}^+\)</span> from class, <span class="math inline">\(L(~(s,n)~)\)</span> means <span class="math inline">\(rnalen(s) = n\)</span>. Which of the following is true? (Select all and only that apply.)</p>
+<li><p><br />
+</p>
+<p>Recall the predicate <span class="math inline">\(L\)</span> with domain <span class="math inline">\(S \times \mathbb{Z}^+\)</span> from class, <span class="math inline">\(L(~(s,n)~)\)</span> means <span class="math inline">\(rnalen(s) = n\)</span>. Which of the following is true? (Select all and only that apply.)</p>
 <ol>
 <li><p><span class="math inline">\(\exists s \in S ~\exists n \in \mathbb{Z}^+ ~L(~(s,n)~)\)</span></p></li>
 <li><p><span class="math inline">\(\exists s \in S ~\forall n \in \mathbb{Z}^+ ~L(~(s,n)~)\)</span></p></li>
@@ -474,7 +488,9 @@
 <li><p><span class="math inline">\(\forall s \in S ~\exists n \in \mathbb{Z}^+ ~L(~(s,n)~)\)</span></p></li>
 <li><p><span class="math inline">\(\exists n \in \mathbb{Z}^+ ~\forall s \in S ~L(~(s,n)~)\)</span></p></li>
 </ol></li>
-<li><p>Recall the predicate <span class="math inline">\(BC\)</span> with domain <span class="math inline">\(S \times B \times \mathbb{N}\)</span> from class, <span class="math inline">\(BC(~(s,b,n)~)\)</span> means <span class="math inline">\(basecount(~(s,b)~) = n\)</span>. Match each sentence to its English translation.</p>
+<li><p><br />
+</p>
+<p>Recall the predicate <span class="math inline">\(BC\)</span> with domain <span class="math inline">\(S \times B \times \mathbb{N}\)</span> from class, <span class="math inline">\(BC(~(s,b,n)~)\)</span> means <span class="math inline">\(basecount(~(s,b)~) = n\)</span>. Match each sentence to its English translation, or select none of the above.</p>
 <ol>
 <li><p><span class="math inline">\(\forall s \in S ~\exists n \in \mathbb{N} ~\forall b \in B ~basecount(~(s,b)~) = n\)</span></p></li>
 <li><p><span class="math inline">\(\forall s \in S ~\forall b \in B ~\exists n \in \mathbb{N} ~basecount(~(s,b)~) = n\)</span></p></li>
