@@ -16,7 +16,7 @@ for big in outcomeData:
     for small in outcomeData[big]['Children'][med]['Children']:
       
       #format pdf/html/tex file names
-      file = outcomeData[big]['Children'][med]['Children'][small]['filename']
+      file = small.replace(" ", "-")
       pdf="../output/topic/" + file + ".pdf"
       html="../output/topic/" + file + ".html"
       tex="../notes/topic-flat/" + file + ".tex"

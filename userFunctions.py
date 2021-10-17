@@ -14,7 +14,6 @@ def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon
 	sidebarButtons+="""><div class="logo-details"><div class="logo_name">
 	<i class='bx bx-home-smile'></i> </div> """
 
-
 	sidebarButtons += """ <a href=""" + titleHref +""" class="logo_name">""" + titleName + """</a> <!--NAME-->
 			<i class='bx bx-chevron-right' id="btn" ></i>
 			</div>
@@ -162,12 +161,12 @@ for big in outcomeData:
 		#only put icon in sidebar of 2nd tier topics that have children 
 		if(bool(outcomeData[big]['Children'][med]['Children'])):
 			outcomeButtonsContent += "<li>"
-			outcomeButtonsContent += """<a href= \"""" +outcomeData[big]['Children'][med]['file'] + """\" aria-label="Go to """ + med + """ ">"""
+			outcomeButtonsContent += """<a href= \"""" +outcomeData[big]['Children'][med]['file'] + """?box=1\" aria-label="Go to """ + med + """ ">"""
 			outcomeButtonsContent += """<i><p class="icons">&nbsp;&nbsp;""" + outcomeData[big]['Children'][med]['Icon'] + """</p></i>"""
 			outcomeButtonsContent += """<span class="links_name"> """ + med + """</span>"""
 			outcomeButtonsContent += "</a>"
 			outcomeButtonsContent += """<span class="tooltip"> """ + med + """</span>"""
-			outcomeButtonsContent += "</li>"
+			outcomeButtonsContent += "</li>\n"
 
 outcomeMobileButtonsContent = ""
 for big in outcomeData:
@@ -429,7 +428,7 @@ def create_outcome_boxes():
 
 			#add link to page of 2nd tier children with subtopics (only link to pages of 2nd tier children with content)
 			if(bool(outcomeData[i]['Children'][j]['Children'])):
-				boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href=\"""" + outcomeData[i]['Children'][j]['file'] + """\" >""" + j + """</a></dt> \n"""
+				boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href=\"""" + outcomeData[i]['Children'][j]['file'] + """?box=1\" >""" + j + """</a></dt> \n"""
 				
 			else:
 				boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href="javascript:void(0)" >""" + j + """</a></dt> \n"""
