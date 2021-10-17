@@ -30,14 +30,8 @@ return $a_{k-1} \cdots a_0$
 
 Give a recursive definition of the set of outputs of the $redun3$ procedure, $Out$,
 
-\vspace{-20pt}
+\phantom{{\bf Basis step}: $000 \in Out$ and $111 \in Out$\\ {\bf Recursive step}: If $x \in Out$ then $x000 \in Out$ and $x111 \in Out$ (where $x000$ and $x111$ are the results of string concatenation).}
 
-\begin{itemize}
-\item[] {\bf Basis step}: \underline{ \phantom{$000 \in Out$ and $111 \in Out$ \qquad}}
-\item[] {\bf Recursive step}: \underline{\phantom{If $x \in Out$ then $x000 \in Out$ and $x111 \in Out$} }
-%(where $x000$ and $x111$
-%are the results of string concatenation).
-\end{itemize} 
 
 Consider the message $m = 0001$ so that the sender calculates $redun3(m) = redun3(0001) = 000000000111$.
 
@@ -46,7 +40,6 @@ errors into the message so that the signal received by the
 receiver is $\underline{\phantom{010100010101}}$
 but the receiver is still able to decode the original message.
 
-\vspace{-10pt}
 
 {\it Challenge: what is the biggest number of errors you can introduce?} 
 

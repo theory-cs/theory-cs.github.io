@@ -1,50 +1,27 @@
 %! app: TODOapp
 %! outcome: TODOoutcome
 
-{\bf Example predicates on $S$}
-
-\vspace{-20pt}
+{\bf Example predicates on $S$, the set of RNA strands (an infinite set)}
 
 
-\begin{center}
-\begin{tabular}{|p{4in}p{3.5in}|}
-\hline
-& \\
-$H(s) = T$ & Truth set of $H$ is \underline{\phantom{$S$\hspace{1in}}}\\
-\hline
-$L_3(s) = \begin{cases}
-T &\qquad\text{if $rnalen(s) = 3$} \\
-F & \qquad\text{otherwise}
-\end{cases}$ & 
-Strand where $L_3$ evaluates to $T$ is e.g.\underline{\phantom{$\A\A\A$~\hspace{0.3in}}}
+$H: S \to \{T, F\}$ where $H(s) = T$ for all $s$.
 
-\vspace{10pt}
+Truth set of $H$ is \underline{\phantom{$S$\hspace{1in}}}\\
 
-Strand where $L_3$ evaluates to $F$ is e.g. \underline{\phantom{$\A\A\U\A$\hspace{0.3in}}}\\
-\hline
-& \\
-$F_{\A}$ is defined recursively by: 
+$F_{\A}: S \to \{T, F\}$  defined recursively by: 
 
 ~~Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
 
-~~Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$& 
+~~Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$.
+
 Strand where $F_{\A}$ evaluates to $T$ is e.g.\underline{\phantom{$\A\C\G$~\hspace{0.3in}}}
 
-\vspace{10pt}
-
 Strand where $F_{\A}$ evaluates to $F$ is e.g. \underline{\phantom{$\U\A\C\U$\hspace{0.3in}}}\\
-\hline
-& \\
+
 $P_{\A\U\C}$ is defined as the predicate whose truth set
 is the collection of RNA strands where the string $\A\U\C$
-is a substring (appears inside $s$, in order and consecutively)& 
+is a substring (appears inside $s$, in order and consecutively)
+
 Strand where $P_{\A\U\C}$ evaluates to $T$ is e.g.\underline{\phantom{$\A\A\A$~\hspace{0.3in}}}
 
-\vspace{10pt}
-
 Strand where $P_{\A\U\C}$ evaluates to $F$ is e.g. \underline{\phantom{$\A\A\U\A$\hspace{0.3in}}}\\
-\hline
-\end{tabular}
-\end{center}
-
-\vfill

@@ -1,8 +1,7 @@
 %! app: TODOapp
 %! outcome: TODOoutcome
 
-Recall the functions \textit{mutation}, \textit{insertion}, and \textit{deletion} defined in class.
-For this question, we will use the following predicates.
+For this question, we will use the following predicate.
 
 $F_{\A}$ with domain $S$ is defined recursively by: 
 \begin{itemize}
@@ -10,33 +9,7 @@ $F_{\A}$ with domain $S$ is defined recursively by:
 \item[]Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$
 \end{itemize}
 
-$P_{\A\U\C}$ with domain $S$ is defined as the predicate whose truth set
-is the collection of RNA strands where the string $\A\U\C$
-is a substring (appears inside $s$, in order and consecutively)
-
-$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
-\[
-L( s, n) = \begin{cases}
-T &\qquad\text{if $rnalen(s) = n$}\\
-F &\qquad\text{otherwise}\\
-\end{cases}
-\]
-
-$Mut$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
-\[
-Mut(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ mutation(s_1, k, b) = s_2~)
-\]
-$Ins$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
-\[
-Ins(s_1,s_2) = \exists k\in \mathbb{Z^+} \exists b \in B (~ insertion(s_1, k, b) = s_2~)
-\]
-$Del$ with domain $S \times S$ is defined by, for $s_1 \in S$ and $s_2 \in S$,
-\[
-Del(s_1,s_2) = \exists k\in \mathbb{Z^+} (~ deletion(s_1, k) = s_2~)
-\]
-
-\begin{enumerate}
-\item Which of the following is true? (Select  all and only that apply.)
+Which of the following is true? (Select  all and only that apply.)
  \begin{enumerate}
     \item $F_\A ( \A\A)$
     \item $F_\A ( \A\C)$
@@ -47,22 +20,3 @@ Del(s_1,s_2) = \exists k\in \mathbb{Z^+} (~ deletion(s_1, k) = s_2~)
     \item $F_\A ( \C\G)$
     \item $F_\A ( \C\U)$
  \end{enumerate}    
-\item Which of the following is true? (Select  all and only that apply.)
- \begin{enumerate}
-    \item $\exists s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))$
-    \item $\exists s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))$
-    \item $\forall n \in \mathbb{Z}^+~\exists s \in S ~(L(s,n))$
-    \item $\forall s \in S ~\exists n \in \mathbb{Z}^+ ~(L(s,n))$
-    \item $\exists n \in \mathbb{Z}^+ ~\forall s \in S ~(L(s,n))$
-    \item $\forall s \in S ~\forall n \in \mathbb{Z}^+ ~(L(s,n))$
- \end{enumerate} 
-\item Which of the following is true? (Select  all and only that apply.)
- \begin{enumerate}
-    \item $\exists s \in S ~Mut(s,s)$
-    \item $\forall s \in S ~Mut(s,s)$
-    \item $\exists s \in S ~Ins(s,\A)$
-    \item $\exists s \in S ~Ins(\A,s)$
-    \item $\exists s \in S ~Del(s,\A)$
-    \item $\forall s \in S ~Del(s,\A)$
- \end{enumerate} 
-\end{enumerate}
