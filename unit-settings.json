@@ -101,10 +101,13 @@
                 "name": "CNF and DNF overview",
                 "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/I2KLt_lhzDg\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
             },
-            { 
+            {
                 "name": "Discussion slides",
                 "embedCode": "<p><a href=\"../files/DiscussionWeek3.pptx\">Download pptx slides</a></p>"
-            }
+	    },{
+	    	"name": "Discussion slides with Annotation",
+	    	"embedCode": "<p><a href=\"../files/DiscussionWeek3annotated.pptx\">Download pptx slides</a></p>"
+	    }
         ],
         "Due Dates": [
             {
