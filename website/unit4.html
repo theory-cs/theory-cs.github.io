@@ -121,24 +121,7 @@
 		<div class="daily">
 		</div>
 
-		<script>
-			function annotations(sw, notes, annotated,id) {
-				var doc;
-				var drive;
-
-				//0 value means annotations are off 
-				if (sw == 0) {
-					doc = "web/viewer.html?file=../"+notes
-				} 
-
-				//1 value turns annotations on
-				else {
-					doc = "web/viewer.html?file=../" +annotated
-				}
-				
-                document.getElementById(id).src = doc;
-			}
-		</script>
+		
 				
 		<!---Non-annotated notes will be the default-->
 		<p>
@@ -152,7 +135,31 @@
                     href= ../output/lessons/Week4.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="" src="web/viewer.html?file=../../output/lessons/Week4.pdf" 
                 title="webviewer" frameborder="0" width="100%" height="600"></iframe> 
         </div>
-        
+        <script>
+			const toggle = document.querySelector('.toggle input')
+
+			toggle.addEventListener('click', () => {
+    		const onOff = toggle.parentNode.querySelector('.onoff')
+    		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
+			})
+			
+			function annotations(notes, annotated,id) {
+				var doc;
+				var drive;
+				const toggle = document.querySelector('.toggle input')
+				//0 value means annotations are off 
+				if (toggle.checked) {
+					doc = "web/viewer.html?file=../"+notes
+				} 
+
+				//1 value turns annotations on
+				else {
+					doc = "web/viewer.html?file=../" +annotated
+				}
+				
+                document.getElementById(id).src = doc;
+			}
+		</script>
         <br><br>	
 		
        <div id="embeddedLinks">
