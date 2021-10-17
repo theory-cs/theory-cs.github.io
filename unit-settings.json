@@ -126,8 +126,18 @@
         "Topics": "Predicate Logic",
         "CalendarInfo": " Dates: 10/18/21-10/22/21",
         "ExpandInCalendar": false,
-        "pdfs": [],
-        "embed": [],
+        "pdfs": [ 
+            {
+            "name": "Notes",
+            "addExtensions": true,
+            "file": "Week4"
+            }],
+        "embed": [
+                {
+                    "name": "Lecture and Discussion podcast",
+                    "embedCode": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a>.</p>"
+                }
+        ],
         "Due Dates": [
             {
                 "name": "Review Quiz",
