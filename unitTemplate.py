@@ -40,21 +40,26 @@ for i in range(0,len(unitData)):
             pdfjsID =""
             #Annotations on/off buttons 
             if('annotatedFile' in unitData[i]['pdfs'][j]):
-                pdfString += """ <a tabindex = "2" class="button on" aria-label="Annotations On" id="annotationsOnButton" href="javascript:void(0)" >Annotations On</a>
-					<a tabindex = "2" class="button off" aria-label="Annotations Off" id="annotationsOffButton" href="javascript:void(0)" >Annotations Off</a> """
+                pdfString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
+                                <span class="onoff">OFF</span>
+                                            <input type="checkbox" />
+                                            <span class="slider round" id="annotationsOnButton"></span>
+                                            </label> <br>"""
+
+                #pdfString += """ <a tabindex = "2" class="button on" aria-label="Annotations On" id="annotationsOnButton" href="javascript:void(0)" >Annotations On</a>
+				#	<a tabindex = "2" class="button off" aria-label="Annotations Off" id="annotationsOffButton" href="javascript:void(0)" >Annotations Off</a> """
 
                 #id of pdf.js element formatting
                 pdfjsID = unitData[i]['pdfs'][j]['name'].replace(" ", "-")
                 #annotations on
-                pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(1,
-                \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};"""
+                pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
+                 \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")}; </script>"""
                 
-                #pdfString += """<label class="switch"><input type="checkbox"><span class="slider round" id="annotationsOnButton"></span> </label>"""
-
+               
                 #annotations off
-                pdfString +="""document.getElementById("annotationsOffButton").onclick = function() {annotations(0,
-                \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};
-                </script>"""
+                # pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(0,
+                # \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};
+                #</script>"""
 
             #if addExtensions is false, then the displayed pdf will be in the files directory 
             if(not unitData[i]['pdfs'][j]['addExtensions']): 

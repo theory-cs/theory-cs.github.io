@@ -23,13 +23,30 @@ $unitHead
 		<div class="daily">
 		</div>
 
-		<script>
-			function annotations(sw, notes, annotated,id) {
+		
+				
+		<!---Non-annotated notes will be the default-->
+		<p>
+			
+		</p>
+
+		<div id="PDF">
+            $PDF
+        </div>
+        <script>
+			const toggle = document.querySelector('.toggle input')
+
+			toggle.addEventListener('click', () => {
+    		const onOff = toggle.parentNode.querySelector('.onoff')
+    		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
+			})
+			
+			function annotations(notes, annotated,id) {
 				var doc;
 				var drive;
-
+				const toggle = document.querySelector('.toggle input')
 				//0 value means annotations are off 
-				if (sw == 0) {
+				if (toggle.checked) {
 					doc = "web/viewer.html?file=../"+notes
 				} 
 
@@ -41,16 +58,6 @@ $unitHead
                 document.getElementById(id).src = doc;
 			}
 		</script>
-				
-		<!---Non-annotated notes will be the default-->
-		<p>
-			
-		</p>
-
-		<div id="PDF">
-            $PDF
-        </div>
-        
         <br><br>	
 		
        <div id="embeddedLinks">
