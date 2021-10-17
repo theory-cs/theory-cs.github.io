@@ -6,15 +6,13 @@ $B = \{\A,\U,\G,\C\}$.
 We define the functions 
 \[
   \textit{mutation}: S \times \mathbb{Z}^+ \times B \to S
-\]
-\[
+\qquad \qquad
   \textit{insertion}: S \times \mathbb{Z}^+ \times B \to S
 \]
 \[
   \textit{deletion}: \{ s\in S \mid rnalen(s) > 1\} \times \mathbb{Z}^+ \to S
+  \qquad \qquad \textrm{with rules}
 \]
-with rules
-as described by the pseudocode below:
 
 \begin{algorithm}
 procedure $\textit{mutation}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)

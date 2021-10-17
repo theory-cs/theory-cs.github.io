@@ -1,0 +1,43 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+{\bf Using functions to define predicates}:
+
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( ~(s, n)~) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+
+$BC$ with domain $S \times B \times \mathbb{N}$ is defined by, for $s \in S$ and $b \in B$ and $n \in \mathbb{N}$,
+\[
+BC(~(s, b, n)~) = \begin{cases}
+T &\qquad\text{if $basecount(s,b) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+
+
+Element where $L$ evaluates to $T$: $\underline{\phantom{(\A, 1)\hspace{0.2in}}}$
+
+Element where $BC$ evaluates to $T$: $\underline{\phantom{(\A, \A1)\hspace{0.2in}}}$ \\
+
+Element where $L$ evaluates to $F$: $\underline{\phantom{(\A, 2)\hspace{0.2in}}}$ 
+
+Element where $BC$ evaluates to $F$: $\underline{\phantom{(\A, \C, 1)\hspace{0.2in}}}$ \\
+
+
+$\exists t ~BC(t)$ \qquad In English: \underline{\phantom{There exists an ordered $3$-tuple 
+%of strand, base, and nonnegative integer
+at which the predicate $BC$ evaluates to $T$.}}
+
+Witness that proves this existential quantification is true: \underline{\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}}
+
+$\forall (s,b,n) ~(~BC(~(s,b,n)~)~)$  \qquad In English: \underline{\phantom{For all ordered $3$-tuples
+%of strand, base, and nonnegative integer
+the predicate $BC$ evaluates to $T$.}}
+
+Counterexample that proves this universal quantification is false: \underline{\phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}}
+
