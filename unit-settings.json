@@ -84,7 +84,7 @@
         "header": "Week 3",
         "Topics": "Circuits and Propositional Logic",
         "CalendarInfo": " Dates: 10/11/21-10/15/21",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "pdfs": [
             {
             "name": "Notes",
@@ -128,7 +128,7 @@
         "header": "Week 4",
         "Topics": "Predicate Logic",
         "CalendarInfo": " Dates: 10/18/21-10/22/21",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "pdfs": [ 
             {
             "name": "Notes",

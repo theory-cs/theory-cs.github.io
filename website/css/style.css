@@ -495,7 +495,7 @@ dd{
   position:relative; top:7px;left: 10px;
   display: inline-block;
   cursor: pointer;
-  background-color: #333;
+  background-color: #fd5d00;
   transition: 0.4s;
   width:    40px;
   height: 24px;
@@ -513,8 +513,8 @@ dd{
 }
 
 input:checked + .slider {
-  background-color: #fd5d00;
-  box-shadow: 0 0 12px #fd5d00;
+  background-color: green;
+  box-shadow: 0 0 12px green;
 }
 
 input:checked + .slider:before {
