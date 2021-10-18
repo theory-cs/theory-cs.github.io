@@ -133,7 +133,8 @@
             {
             "name": "Notes",
             "addExtensions": true,
-            "file": "Week4"
+            "file": "Week4",
+            "annotatedFile": "Week4s-annotated.pdf"
             }],
         "embed": [
                 {
