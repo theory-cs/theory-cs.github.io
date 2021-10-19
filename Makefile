@@ -78,7 +78,7 @@ generated/notes/lessons-flat/%.tex: generated/notes/lessons/%.tex resources/less
 	mkdir -p generated/notes/lessons-flat; cd generated/notes/lessons; latexpand $(<F) > ../lessons-flat/$(<F)
 
 # Build website by copying over files, notes, resources, html, and style files to generated directory
-static-pages: generated-files generated-resources generated-notes  generated-notes-activity-snippets generated-website generated-website-css
+static-pages: generated-files generated-resources generated-notes generated-website 
 
 # Directory files has instructor-added content, e.g. annotated pdfs and slides
 generated-files: $(patsubst files/%,generated/files/%,$(wildcard files/*))
@@ -97,31 +97,34 @@ generated/resources/%: resources/%
 # Directory notes contains tex files for outcomes and topics 
 generated-notes: $(patsubst notes/%,generated/notes/%,$(wildcard notes/*))
 
-generated/notes/%: notes/%
-	mkdir -p generated/notes
-	cp -R $< $@
+generated/notes/%: notes/% ./notes/*/*
+	mkdir -p $@
+	cp -R $</ $@
 
-# Directory notes/activity-snippets contains tex files for outcomes and topics 
-generated-notes-activity-snippets: $(patsubst notes/activity-snippets/%,generated/notes/activity-snippets/%,$(wildcard notes/activity-snippets/*))
+# # Directory notes/activity-snippets contains tex files for outcomes and topics 
+# generated-notes-activity-snippets: $(patsubst notes/activity-snippets/%,generated/notes/activity-snippets/%,$(wildcard notes/activity-snippets/*))
 
-generated/notes/activity-snippets/%: notes/activity-snippets/%
-	mkdir -p generated/notes/activity-snippets
-	cp $< $@
+# generated/notes/activity-snippets/%: notes/activity-snippets/%
+# 	mkdir -p generated/notes/activity-snippets
+# 	cp $< $@
 
 # Directory website and website-manual-to-automate contain all static components of site
-generated-website: $(patsubst website/%,generated/website/%,$(wildcard website/*))
+generated-website: $(patsubst website/%,generated/website/%,$(wildcard website/*)) $(patsubst custom-html/%,generated/website/%,$(wildcard custom-html/*))
 
-generated/website/%: website/%
-	mkdir -p generated/website
-	cp -R $< $@
+generated/website/%: website/% website/*/* website/* 
+	mkdir -p $@
+	cp -R $</ $@
+
+generated/website/%: custom-html/% 
+	cp $< $@
 
 # Directory website/css contains styling information that may change when pages are updated, 
 # for example, the contents of the sidebar depend on the number of lessons, outcomes, and applications
-generated-website-css:  $(patsubst website/css/%,generated/website/css/%,$(wildcard website/css/*))
+# generated-website-css:  $(patsubst website/css/%,generated/website/css/%,$(wildcard website/css/*))
 
-generated/website/css/%: website/css/%
-	mkdir -p generated/website/css
-	cp $< $@
+# generated/website/css/%: website/css/%
+# 	mkdir -p generated/website/css
+# 	cp $< $@
 
 # Building dynamic html pages based on unit template, topic (TODO: rename as outcome) template
 # application template, and overview pages. These dynamic html pages are created
