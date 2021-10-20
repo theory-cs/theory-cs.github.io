@@ -1,6 +1,41 @@
+from os import remove
 from string import Template
 import json
 from userFunctions import *
+from zipfile import ZipFile
+import re
+from os.path import basename
+
+#function which creates zip file with all images and tex file 
+def zip_file(filename):
+    path= "generated/notes/lessons-flat/"+filename+".tex"
+    texFile = open(path, "r")
+    zipObj = ZipFile("generated/notes/lessons-flat/"+filename+".zip", 'w')
+    zipObj.write(path, basename(path))
+
+    #image list 
+    imageList = [] 
+    
+    texString = texFile.readlines()
+    
+    for line in texString: 
+        if ("\includegraphics" in line):
+            imageFile = re.findall(r'\{.*?\}', line)
+            for element in imageFile :
+                if "/images" in element:
+                    element = element.replace("{","").replace("}","").replace("../","")
+                    imageList.append(element) 
+    
+    
+    imageList = list(set(imageList))
+
+    #DEBUG
+    #print(filename)
+    #print(imageList)
+
+    for element in imageList:
+        zipObj.write(element, basename(element))       
+    
 
 # returns unit-settings JSON file as a dictionary
 unitData = json.loads(open("unit-settings.json").read())
@@ -19,7 +54,11 @@ for i in range(0,len(unitData)):
             if(unitData[i]['pdfs'][j]['addExtensions']):
                 #format all filenames 
                 pdf= "../output/lessons/"+unitData[i]['pdfs'][j]['file']+".pdf"
-                tex= "../notes/lessons-flat/"+unitData[i]['pdfs'][j]['file']+".tex"
+
+                #create zip files 
+                zip_file(unitData[i]['pdfs'][j]['file'])
+                tex = "../notes/lessons-flat/"+unitData[i]['pdfs'][j]['file']+".zip"
+
                 html="../output/lessons/"+unitData[i]['pdfs'][j]['file']+".html"
             else:
                 pdf=unitData[i]['pdfs'][j]['file']
@@ -46,20 +85,12 @@ for i in range(0,len(unitData)):
                                             <span class="slider round" id="annotationsOnButton"></span>
                                             </label> <br>"""
 
-                #pdfString += """ <a tabindex = "2" class="button on" aria-label="Annotations On" id="annotationsOnButton" href="javascript:void(0)" >Annotations On</a>
-				#	<a tabindex = "2" class="button off" aria-label="Annotations Off" id="annotationsOffButton" href="javascript:void(0)" >Annotations Off</a> """
-
                 #id of pdf.js element formatting
                 pdfjsID = unitData[i]['pdfs'][j]['name'].replace(" ", "-")
                 #annotations on
                 pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
                  \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")}; </script>"""
                 
-               
-                #annotations off
-                # pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(0,
-                # \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")};
-                #</script>"""
 
             #if addExtensions is false, then the displayed pdf will be in the files directory 
             if(not unitData[i]['pdfs'][j]['addExtensions']): 
@@ -116,3 +147,7 @@ for i in range(0,len(unitData)):
 
 # Closing files
 unitTemplate.close()
+
+
+
+    
