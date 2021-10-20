@@ -1,5 +1,13 @@
 %! app: TODOapp
 %! outcome: TODOoutcome
 
-{\bf Definition}:  An integer $p$ greater than $1$ is called {\bf prime} if the only positive factors of 
-$p$ are $1$ and $p$. A positive integer that is greater than $1$ and is not prime is called composite. 
+{\bf Definition}:  An integer $p$ greater than $1$ is called {\bf prime} means 
+the only positive factors of 
+$p$ are $1$ and $p$. A positive integer that is greater than $1$ and is not prime 
+is called composite. \\
+
+A formal definition of the predicate $Pr$ over the domain $\mathbb{Z}$ 
+which evaluates to T exactly when evaluated on a prime integer is:
+\[
+    (x > 1) \land \forall a( ~ (~ a > 0 \land F(a,x) ~) \to (a = 1 \lor a = x) ~)
+\]
