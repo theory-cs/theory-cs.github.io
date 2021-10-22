@@ -2078,6 +2078,115 @@ c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\\end{aligned}\]</sp
 <p><span><strong>Nested quantifiers</strong></span></p>
 <h1 class="unnumbered" id="alternating-quantifiers">Alternating quantifiers</h1>
 <p><span><strong>Alternating nested quantifiers</strong></span></p>
+<h1 class="unnumbered" id="proof-strategies-road-map">Proof strategies road map</h1>
+<p>We now have propositional and predicate logic that can help us express statements about any domain. We will develop proof strategies to craft valid argument for proving that such statements are true or disproving them (by showing they are false). We will practice these strategies with statements about sets and numbers, both because they are familiar and because they can be used to build cryptographic systems. Then we will apply proof strategies more broadly to prove statements about data structures and machine learning applications.</p>
+<h1 class="unnumbered" id="proof-strategies-quantification-finite-domain">Proof strategies quantification finite domain</h1>
+<p>When a predicate <span class="math inline">\(P(x)\)</span> is over a <span><strong>finite</strong></span> domain:</p>
+<ul>
+<li><p>To show that <span class="math inline">\(\forall x  P(x)\)</span> is true: check that <span class="math inline">\(P(x)\)</span> evaluates to <span class="math inline">\(T\)</span> at each domain element by evaluating over and over.</p></li>
+<li><p>To show that <span class="math inline">\(\forall x  P(x)\)</span> is false: find one counterexample, a domain element where <span class="math inline">\(P(x)\)</span> evaluates to <span class="math inline">\(F\)</span>.</p></li>
+<li><p>To show that <span class="math inline">\(\exists x  P(x)\)</span> is true: find one witness, a domain element where <span class="math inline">\(P(x)\)</span> evaluates to <span class="math inline">\(T\)</span>.</p></li>
+<li><p>To show that <span class="math inline">\(\exists x  P(x)\)</span> is false: check that <span class="math inline">\(P(x)\)</span> evaluates to <span class="math inline">\(F\)</span> at each domain element by evaluating over and over.</p></li>
+</ul>
+<h1 class="unnumbered" id="proof-strategy-universal-exhaustion">Proof strategy universal exhaustion</h1>
+<h1 class="unnumbered" id="proof-strategy-universal-generalization">Proof strategy universal generalization</h1>
+<h1 class="unnumbered" id="sets-definitions">Sets definitions</h1>
+<p><span><strong>Definitions</strong></span>:</p>
+<p>A <span><strong>set</strong></span> is an unordered collection of elements. When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math inline">\(A = B\)</span> (set equality) means <span class="math display">\[\forall x  ( x\in A \leftrightarrow x \in B)\]</span></p>
+<p>When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math inline">\(A \subseteq B\)</span> (“<span class="math inline">\(A\)</span> is a <span><strong>subset</strong></span> of <span class="math inline">\(B\)</span>") means <span class="math display">\[\forall x  (x \in A  \to x  \in B)\]</span></p>
+<p>When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math inline">\(A \subsetneq B\)</span> (“<span class="math inline">\(A\)</span> is a <span><strong>proper subset</strong></span> of <span class="math inline">\(B\)</span>") means <span class="math display">\[(A\subseteq B) \wedge  (A \neq B)\]</span></p>
+<p>To prove that one set is a subset of another …</p>
+<p>To prove that two sets are equal …</p>
+<h1 class="unnumbered" id="sets-equality-example">Sets equality example</h1>
+<p>Example: <span class="math inline">\(\{ 43, 7, 9 \} = \{ 7, 43, 9, 7\}\)</span></p>
+<h1 class="unnumbered" id="proof-strategies-conditionals">Proof strategies conditionals</h1>
+<h1 class="unnumbered" id="proof-strategies-proof-by-cases">Proof strategies proof by cases</h1>
+<h1 class="unnumbered" id="proof-strategies-ands">Proof strategies ands</h1>
+<h1 class="unnumbered" id="sets-basic-proofs">Sets basic proofs</h1>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\{ \texttt{A},  \texttt{C},  \texttt{U},  \texttt{G}\} \subseteq \{ \texttt{A}\texttt{A}, \texttt{A}\texttt{C}, \texttt{A}\texttt{U}, \texttt{A}\texttt{G}\}\)</span></p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: For some set <span class="math inline">\(B\)</span>, <span class="math inline">\(\emptyset \in B\)</span>.</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: For every set <span class="math inline">\(B\)</span>, <span class="math inline">\(\emptyset \in B\)</span>.</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: The empty set is a subset of every set.</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: The empty set is a proper subset of every set.</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\{ 4, 6 \} \subseteq \{ n \mid  \exists c \in \mathbb{Z} ( n = 4c) \}\)</span></p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\{ 4, 6 \} \subseteq \{ n ~\textbf{mod}~10 \mid  \exists c \in \mathbb{Z} ( n = 4c) \}\)</span></p>
+<h1 class="unnumbered" id="set-operations-union-intersection-powerset">Set operations union intersection powerset</h1>
+<p><span><strong>Cartesian product</strong></span>: When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math display">\[A \times  B = \{ (a,b) \mid a \in A  \wedge b  \in B \}\]</span></p>
+<p>Example: <span class="math inline">\(\{43, 9\} \times  \{9, \mathbb{Z}\}  =\)</span></p>
+<p>Example: <span class="math inline">\(\mathbb{Z} \times \emptyset  =\)</span></p>
+<p><span><strong>Union</strong></span>: When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math display">\[A \cup  B = \{ x \mid x \in A  \vee x \in B \}\]</span></p>
+<p>Example: <span class="math inline">\(\{43, 9\} \cup \{9, \mathbb{Z}\}  =\)</span></p>
+<p>Example: <span class="math inline">\(\mathbb{Z} \cup \emptyset  =\)</span></p>
+<p><span><strong>Intersection</strong></span>: When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math display">\[A \cap  B = \{ x \mid x \in A  \wedge x \in B \}\]</span> Example: <span class="math inline">\(\{43, 9\} \cap \{9,\mathbb{Z}\}  =\)</span></p>
+<p>Example: <span class="math inline">\(\mathbb{Z} \cap \emptyset  =\)</span></p>
+<p><span><strong>Set difference</strong></span>: When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets,</p>
+<p><span class="math display">\[A -  B = \{ x \mid x \in A  \wedge x \notin B \}\]</span></p>
+<p>Example: <span class="math inline">\(\{43, 9\} - \{9, \mathbb{Z}\}  =\)</span></p>
+<p>Example: <span class="math inline">\(\mathbb{Z} - \emptyset  =\)</span></p>
+<p><span><strong>Disjoint sets</strong></span>: sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint means <span class="math inline">\(A \cap  B  = \emptyset\)</span></p>
+<p>Example: <span class="math inline">\(\{43, 9\}, \{9, \mathbb{Z}\}\)</span> are not disjoint</p>
+<p>Example: The sets <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(\emptyset\)</span> are disjoint</p>
+<p><span><strong>Power set</strong></span>: When <span class="math inline">\(U\)</span> is a set, <span class="math inline">\(\mathcal{P}(U) = \{ X \mid X \subseteq U\}\)</span></p>
+<p>Example: <span class="math inline">\(\mathcal{P}(\{43, 9\}) =\)</span></p>
+<p>Example: <span class="math inline">\(\mathcal{P}(\emptyset) =\)</span></p>
+<h1 class="unnumbered" id="sets-basic-proofs-operations">Sets basic proofs operations</h1>
+<p>Let <span class="math inline">\(W =  \mathcal{P}(  \{ 1,2,3,4,5\} )\)</span></p>
+<p>Example elements in <span class="math inline">\(W\)</span> are:</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\forall  A \in W\,  \forall B \in W\,  \left( A \subseteq B
+~\to ~ \mathcal{P}(A) \subseteq \mathcal{P}(B) \right)\)</span></p>
+<p><span><em>Extra example</em></span>: <span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\forall  A \in W\,  \forall B \in W\,  \left( \mathcal{P}(A)  =\mathcal{P}(B)
+~\to ~ A = B \right)\)</span></p>
+<p><span><em>Extra example</em></span>: <span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\forall  A \in W\,  \forall B \in W\, \forall C  \in W\,  \left( A\cup B  = A \cup  C
+~\to ~ B = C \right)\)</span></p>
+<h1 class="unnumbered" id="proofs-signposting">Proofs signposting</h1>
+<p><span><strong>Assume</strong></span> …, we <span><strong>want to show</strong></span> that ….</p>
+<p>Let …be an <span><strong>arbitrary</strong></span> ….</p>
+<h1 class="unnumbered" id="numbers-facts">Numbers facts</h1>
+<ol>
+<li><p>Addition and multiplication of real numbers are each commutative and associative.</p></li>
+<li><p>The product of two positive numbers is positive, of two negative numbers is positive, and of a positive and a negative number is negative.</p></li>
+<li><p>The sum of two integers, the product of two integers, and the difference between two integers are each integers.</p></li>
+<li><p>For every integer <span class="math inline">\(x\)</span> there is no integer strictly between <span class="math inline">\(x\)</span> and <span class="math inline">\(x+1\)</span>,</p></li>
+<li><p>When <span class="math inline">\(a, b\)</span> are positive integers, <span class="math inline">\(ab \geq a\)</span> and <span class="math inline">\(ab \geq b\)</span>.</p></li>
+</ol>
+<h1 class="unnumbered" id="factoring-definition">Factoring definition</h1>
+<p><span><strong>Definition</strong></span>: When <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are integers and <span class="math inline">\(a\)</span> is nonzero, <span><strong><span class="math inline">\(a\)</span> divides <span class="math inline">\(b\)</span></strong></span> means there is an integer <span class="math inline">\(c\)</span> such that <span class="math inline">\(b = ac\)</span> .</p>
+<p>Symbolically, <span class="math inline">\(F(~(a,b)~) = \phantom{\exists c\in \mathbb{Z}~(b=ac)}\)</span> and is a predicate over the domain <u></u></p>
+<p>Other (synonymous) ways to say that <span class="math inline">\(F(~(a,b)~)\)</span> is true:</p>
+<div class="center">
+<p><span class="math inline">\(a\)</span> is a <span><strong>factor</strong></span> of <span class="math inline">\(b\)</span> <span class="math inline">\(a\)</span> is a <span><strong>divisor</strong></span> of <span class="math inline">\(b\)</span> <span class="math inline">\(b\)</span> is a <span><strong>multiple</strong></span> of <span class="math inline">\(a\)</span> <span class="math inline">\(a | b\)</span></p>
+</div>
+<p>When <span class="math inline">\(a\)</span> is a positive integer and <span class="math inline">\(b\)</span> is any integer, <span class="math inline">\(a | b\)</span> exactly when <span class="math inline">\(b \textbf{ mod } a = 0\)</span></p>
+<p>When <span class="math inline">\(a\)</span> is a positive integer and <span class="math inline">\(b\)</span> is any integer, <span class="math inline">\(a | b\)</span> exactly <span class="math inline">\(b = a \cdot (b \textbf{ div } a)\)</span></p>
+<h1 class="unnumbered" id="factoring-translation-examples">Factoring translation examples</h1>
+<p><span><em>Translate these quantified statements by matching to English statement on right.</em></span></p>
+<div class="multicols">
+<p><span>2</span> <span class="math inline">\(\exists a\in \mathbb{Z}^{\neq 0} ~(~F(a,a)~)\)</span></p>
+<p><span class="math inline">\(\exists a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(a,a)~)\)</span></p>
+<p><span class="math inline">\(\forall a\in \mathbb{Z}^{\neq 0} ~(~F(a,a)~)\)</span></p>
+<p><span class="math inline">\(\forall a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(a,a)~)\)</span></p>
+<p>Every nonzero integer is a factor of itself.</p>
+<p>No nonzero integer is a factor of itself.</p>
+<p>At least one nonzero integer is a factor of itself.</p>
+<p>Some nonzero integer is not a factor of itself.</p>
+</div>
+<h1 class="unnumbered" id="factoring-basic-claims">Factoring basic claims</h1>
+<p><span><strong>Claim</strong></span>: Every nonzero integer is a factor of itself.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p><span><strong>Prove</strong></span> or <span><strong>Disprove</strong></span>: There is a nonzero integer that does not divide its square.</p>
+<p><span><strong>Prove</strong></span> or <span><strong>Disprove</strong></span>: Every positive factor of a positive integer is less than or equal to it.</p>
+<h1 class="unnumbered" id="factoring-basic-claims-continued">Factoring basic claims continued</h1>
+<p><span><strong>Claim</strong></span>: Every nonzero integer is a factor of itself and every nonzero integer divides its square.</p>
+<h1 class="unnumbered" id="prime-number-def">Prime number def</h1>
+<p><span><strong>Definition</strong></span>: An integer <span class="math inline">\(p\)</span> greater than <span class="math inline">\(1\)</span> is called <span><strong>prime</strong></span> means the only positive factors of <span class="math inline">\(p\)</span> are <span class="math inline">\(1\)</span> and <span class="math inline">\(p\)</span>. A positive integer that is greater than <span class="math inline">\(1\)</span> and is not prime is called composite.<br />
+A formal definition of the predicate <span class="math inline">\(Pr\)</span> over the domain <span class="math inline">\(\mathbb{Z}\)</span> which evaluates to T exactly when evaluated on a prime integer is: <span class="math display">\[(x &gt; 1) \land \forall a( ~ (~ a &gt; 0 \land F(a,x) ~) \to (a = 1 \lor a = x) ~)\]</span></p>
+<h1 class="unnumbered" id="primes-basic-claims">Primes basic claims</h1>
+<p><span><strong>True or False</strong></span>: The statement “There are three consecutive positive integers that are prime."</p>
+<p><span><em>Hint</em></span>: These numbers would be of the form <span class="math inline">\(p, p+1, p+2\)</span> (where <span class="math inline">\(p\)</span> is a positive integer).</p>
+<p><span><strong>Proof</strong></span>: We need to show <u></u></p>
+<p><span><strong>True or False</strong></span>: The statement “There are three consecutive odd positive integers that are prime."</p>
+<p><span><em>Hint</em></span>: These numbers would be of the form <span class="math inline">\(p, p+2, p+4\)</span> (where <span class="math inline">\(p\)</span> is an odd positive integer).</p>
+<p><span><strong>Proof</strong></span>: We need to show <u></u></p>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
