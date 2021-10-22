@@ -56,7 +56,7 @@ for i in range(0,len(unitData)):
                 pdf= "../output/lessons/"+unitData[i]['pdfs'][j]['file']+".pdf"
 
                 #create zip files 
-                #zip_file(unitData[i]['pdfs'][j]['file'])
+                zip_file(unitData[i]['pdfs'][j]['file'])
                 tex = "../notes/lessons-flat/"+unitData[i]['pdfs'][j]['file']+".zip"
 
                 html="../output/lessons/"+unitData[i]['pdfs'][j]['file']+".html"

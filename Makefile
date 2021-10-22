@@ -34,14 +34,14 @@ generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/assignments/*.te
 
 
 # Iterate over all changed .tex files in notes and run target for them in new folder, then generate flat versions if needed
-latex: lessonsLatex appLatex topicLatex assignmentsLatex app-latexpand topic-latexpand lessons-latexpand assignments-latexpand
+latex: lessonsLatex appLatex topicLatex assignmentsLatex lessons-latexpand app-latexpand topic-latexpand assignments-latexpand
 lessonsLatex: $(patsubst notes/lessons/%.tex,generated/output/lessons/%.pdf,$(wildcard notes/lessons/*.tex))
 appLatex: $(patsubst generated/notes/app/%.tex,generated/output/app/%.pdf,$(wildcard generated/notes/app/*.tex))
 topicLatex: $(patsubst generated/notes/topic/%.tex,generated/output/topic/%.pdf,$(wildcard generated/notes/topic/*.tex))
 assignmentsLatex: $(patsubst notes/assignments/%.tex,generated/output/assignments/%.pdf,$(wildcard notes/assignments/*.tex))
 topic-latexpand: $(patsubst generated/notes/topic/%.tex,generated/notes/topic-flat/%.tex,$(wildcard generated/notes/topic/*.tex))
 app-latexpand: $(patsubst generated/notes/app/%.tex,generated/notes/app-flat/%.tex,$(wildcard generated/notes/app/*.tex))
-lessons-latexpand: $(patsubst generated/notes/lessons/%.tex,generated/notes/lessons-flat/%.tex,$(wildcard generated/notes/lessons/*.tex))
+lessons-latexpand: $(patsubst notes/lessons/%.tex,generated/notes/lessons-flat/%.tex,$(wildcard notes/lessons/*.tex))
 assignments-latexpand: $(patsubst notes/assignments/%.tex,generated/notes/assignments-flat/%.tex,$(wildcard notes/assignments/*.tex))
 
 # Typesetting all .tex files in notes/lessons directory MIA:added dependency on activity-snippets
@@ -74,7 +74,7 @@ generated/notes/app-flat/%.tex: generated/notes/app/%.tex resources/lesson-head.
 	mkdir -p generated/notes/app-flat; cd generated/notes/app; latexpand $(<F) > ../app-flat/$(<F)
 
 # generate expanded/flat version of lessons compiled tex files
-generated/notes/lessons-flat/%.tex: generated/notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+generated/notes/lessons-flat/%.tex: generated/notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex 
 	mkdir -p generated/notes/lessons-flat; cd generated/notes/lessons; latexpand $(<F) > ../lessons-flat/$(<F)
 
 # Build website by copying over files, notes, resources, html, and style files to generated directory
