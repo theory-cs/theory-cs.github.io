@@ -155,7 +155,13 @@
         "Topics": "Proof Strategies",
         "CalendarInfo": " Dates: 10/25/21-10/29/21",
         "ExpandInCalendar": false,
-        "pdfs": [],
+        "pdfs": [
+            {
+            "name": "Notes",
+            "addExtensions": true,
+            "file": "Week5"
+
+            }],
         "embed": [],
         "Due Dates": [
             {
