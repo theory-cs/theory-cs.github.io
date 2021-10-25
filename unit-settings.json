@@ -163,7 +163,8 @@
             {
             "name": "Notes",
             "addExtensions": true,
-            "file": "Week5"
+            "file": "Week5",
+            "annotatedFile": "Week5-annotated.pdf"
             }],
         "embed": [],
         "Due Dates": [
