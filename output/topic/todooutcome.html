@@ -2040,13 +2040,14 @@ c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\\end{aligned}\]</sp
 <p>A <span><strong>set</strong></span> is an unordered collection of elements. When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math inline">\(A = B\)</span> (set equality) means <span class="math display">\[\forall x  ( x\in A \leftrightarrow x \in B)\]</span></p>
 <p>When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math inline">\(A \subseteq B\)</span> (“<span class="math inline">\(A\)</span> is a <span><strong>subset</strong></span> of <span class="math inline">\(B\)</span>") means <span class="math display">\[\forall x  (x \in A  \to x  \in B)\]</span></p>
 <p>When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math inline">\(A \subsetneq B\)</span> (“<span class="math inline">\(A\)</span> is a <span><strong>proper subset</strong></span> of <span class="math inline">\(B\)</span>") means <span class="math display">\[(A\subseteq B) \wedge  (A \neq B)\]</span></p>
-<p>To prove that one set is a subset of another …</p>
-<p>To prove that two sets are equal …</p>
-<h1 class="unnumbered" id="sets-equality-example">Sets equality example</h1>
-<p>Example: <span class="math inline">\(\{ 43, 7, 9 \} = \{ 7, 43, 9, 7\}\)</span></p>
 <h1 class="unnumbered" id="proof-strategies-conditionals">Proof strategies conditionals</h1>
 <h1 class="unnumbered" id="proof-strategies-proof-by-cases">Proof strategies proof by cases</h1>
 <h1 class="unnumbered" id="proof-strategies-ands">Proof strategies ands</h1>
+<h1 class="unnumbered" id="sets-proof-strategies">Sets proof strategies</h1>
+<p>To prove that one set is a subset of another, e.g. to show <span class="math inline">\(A \subseteq B\)</span>:</p>
+<p>To prove that two sets are equal, e.g. to show <span class="math inline">\(A = B\)</span>:</p>
+<h1 class="unnumbered" id="sets-equality-example">Sets equality example</h1>
+<p>Example: <span class="math inline">\(\{ 43, 7, 9 \} = \{ 7, 43, 9, 7\}\)</span></p>
 <h1 class="unnumbered" id="sets-basic-proofs">Sets basic proofs</h1>
 <p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\{ \texttt{A},  \texttt{C},  \texttt{U},  \texttt{G}\} \subseteq \{ \texttt{A}\texttt{A}, \texttt{A}\texttt{C}, \texttt{A}\texttt{U}, \texttt{A}\texttt{G}\}\)</span></p>
 <p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: For some set <span class="math inline">\(B\)</span>, <span class="math inline">\(\emptyset \in B\)</span>.</p>
@@ -2055,6 +2056,7 @@ c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\\end{aligned}\]</sp
 <p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: The empty set is a proper subset of every set.</p>
 <p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\{ 4, 6 \} \subseteq \{ n \mid  \exists c \in \mathbb{Z} ( n = 4c) \}\)</span></p>
 <p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\{ 4, 6 \} \subseteq \{ n ~\textbf{mod}~10 \mid  \exists c \in \mathbb{Z} ( n = 4c) \}\)</span></p>
+<h1 class="unnumbered" id="proofs-signposting">Proofs signposting</h1>
 <h1 class="unnumbered" id="set-operations-union-intersection-powerset">Set operations union intersection powerset</h1>
 <p><span><strong>Cartesian product</strong></span>: When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, <span class="math display">\[A \times  B = \{ (a,b) \mid a \in A  \wedge b  \in B \}\]</span></p>
 <p>Example: <span class="math inline">\(\{43, 9\} \times  \{9, \mathbb{Z}\}  =\)</span></p>
@@ -2083,9 +2085,6 @@ c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\\end{aligned}\]</sp
 ~\to ~ A = B \right)\)</span></p>
 <p><span><em>Extra example</em></span>: <span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: <span class="math inline">\(\forall  A \in W\,  \forall B \in W\, \forall C  \in W\,  \left( A\cup B  = A \cup  C
 ~\to ~ B = C \right)\)</span></p>
-<h1 class="unnumbered" id="proofs-signposting">Proofs signposting</h1>
-<p><span><strong>Assume</strong></span> …, we <span><strong>want to show</strong></span> that ….</p>
-<p>Let …be an <span><strong>arbitrary</strong></span> ….</p>
 <h1 class="unnumbered" id="numbers-facts">Numbers facts</h1>
 <ol>
 <li><p>Addition and multiplication of real numbers are each commutative and associative.</p></li>
@@ -2106,10 +2105,10 @@ c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\\end{aligned}\]</sp
 <h1 class="unnumbered" id="factoring-translation-examples">Factoring translation examples</h1>
 <p><span><em>Translate these quantified statements by matching to English statement on right.</em></span></p>
 <div class="multicols">
-<p><span>2</span> <span class="math inline">\(\exists a\in \mathbb{Z}^{\neq 0} ~(~F(a,a)~)\)</span></p>
-<p><span class="math inline">\(\exists a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(a,a)~)\)</span></p>
-<p><span class="math inline">\(\forall a\in \mathbb{Z}^{\neq 0} ~(~F(a,a)~)\)</span></p>
-<p><span class="math inline">\(\forall a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(a,a)~)\)</span></p>
+<p><span>2</span> <span class="math inline">\(\exists a\in \mathbb{Z}^{\neq 0} ~(~F(~(a,a)~)~)\)</span></p>
+<p><span class="math inline">\(\exists a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(~(a,a)~)~)\)</span></p>
+<p><span class="math inline">\(\forall a\in \mathbb{Z}^{\neq 0} ~(~F(~(a,a)~)~)\)</span></p>
+<p><span class="math inline">\(\forall a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(~(a,a)~)~)\)</span></p>
 <p>Every nonzero integer is a factor of itself.</p>
 <p>No nonzero integer is a factor of itself.</p>
 <p>At least one nonzero integer is a factor of itself.</p>
@@ -2122,10 +2121,12 @@ c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\\end{aligned}\]</sp
 <p><span><strong>Prove</strong></span> or <span><strong>Disprove</strong></span>: Every positive factor of a positive integer is less than or equal to it.</p>
 <h1 class="unnumbered" id="factoring-basic-claims-continued">Factoring basic claims continued</h1>
 <p><span><strong>Claim</strong></span>: Every nonzero integer is a factor of itself and every nonzero integer divides its square.</p>
+<h1 class="unnumbered" id="factoring-even-odd">Factoring even odd</h1>
+<p><span><strong>Definition</strong></span>: an integer <span class="math inline">\(n\)</span> is <span><strong>even</strong></span> means that there is an integer <span class="math inline">\(a\)</span> such that <span class="math inline">\(n = 2a\)</span>; an integer <span class="math inline">\(n\)</span> is <span><strong>odd</strong></span> means that there is an integer <span class="math inline">\(a\)</span> such that <span class="math inline">\(n = 2a+1\)</span>. Equivalently, an integer <span class="math inline">\(n\)</span> is <span><strong>even</strong></span> means <span class="math inline">\(n ~\textbf{ mod }~2 = 0\)</span>; an integer <span class="math inline">\(n\)</span> is <span><strong>odd</strong></span> means <span class="math inline">\(n ~\textbf{ mod }~2 = 1\)</span>. Also, an integer is even if and only if it is not odd.</p>
 <h1 class="unnumbered" id="prime-number-def">Prime number def</h1>
-<p><span><strong>Definition</strong></span>: An integer <span class="math inline">\(p\)</span> greater than <span class="math inline">\(1\)</span> is called <span><strong>prime</strong></span> means the only positive factors of <span class="math inline">\(p\)</span> are <span class="math inline">\(1\)</span> and <span class="math inline">\(p\)</span>. A positive integer that is greater than <span class="math inline">\(1\)</span> and is not prime is called composite.<br />
-A formal definition of the predicate <span class="math inline">\(Pr\)</span> over the domain <span class="math inline">\(\mathbb{Z}\)</span> which evaluates to T exactly when evaluated on a prime integer is: <span class="math display">\[(x &gt; 1) \land \forall a( ~ (~ a &gt; 0 \land F(a,x) ~) \to (a = 1 \lor a = x) ~)\]</span></p>
+<p><span><strong>Definition</strong></span>: An integer <span class="math inline">\(p\)</span> greater than <span class="math inline">\(1\)</span> is called <span><strong>prime</strong></span> means the only positive factors of <span class="math inline">\(p\)</span> are <span class="math inline">\(1\)</span> and <span class="math inline">\(p\)</span>. A positive integer that is greater than <span class="math inline">\(1\)</span> and is not prime is called composite.</p>
 <h1 class="unnumbered" id="primes-basic-claims">Primes basic claims</h1>
+<p><span><em>Extra examples</em></span>: Use the definition to prove that <span class="math inline">\(1\)</span> is not prime, <span class="math inline">\(2\)</span> is prime, <span class="math inline">\(3\)</span> is prime, <span class="math inline">\(4\)</span> is not prime, <span class="math inline">\(5\)</span> is prime, <span class="math inline">\(6\)</span> is not prime, and <span class="math inline">\(7\)</span> is prime.</p>
 <p><span><strong>True or False</strong></span>: The statement “There are three consecutive positive integers that are prime."</p>
 <p><span><em>Hint</em></span>: These numbers would be of the form <span class="math inline">\(p, p+1, p+2\)</span> (where <span class="math inline">\(p\)</span> is a positive integer).</p>
 <p><span><strong>Proof</strong></span>: We need to show <u></u></p>

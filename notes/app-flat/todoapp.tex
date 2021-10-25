@@ -1939,23 +1939,7 @@ When $A$ and  $B$ are sets, $A \subseteq B$ (``$A$ is a {\bf subset} of $B$") me
 When $A$ and  $B$ are sets,  $A \subsetneq B$ (``$A$ is a {\bf proper subset} of $B$") means 
 \[
     (A\subseteq B) \wedge  (A \neq B)
-\]
-
-To prove that one set is a subset of another \ldots
-
-\vspace{50pt}
-
-To prove that two sets are equal \ldots
-
-\vspace{50pt}
- \vfill
-\section*{Sets equality example}
-
-
-Example: $\{ 43, 7, 9 \} = \{ 7, 43, 9, 7\}$
-
-\vspace{50pt}
- \vfill
+\] \vfill
 \section*{Proof strategies conditionals}
 
 
@@ -1970,7 +1954,13 @@ we can assume $p$ is true and use that assumption to show $q$ is true.
 {\bf New! Proof of conditional by contrapositive proof}: To prove that the implication $p \to q$ is true, 
 we can assume $q$ is false and use that assumption to show $p$ is also false.
 }}
- \vfill
+
+\fbox{\parbox{\linewidth}{
+
+{\bf New! Proof of disjuction using equivalent conditional}: To prove that the 
+disjunction $p \lor q$ is true, we can rewrite it equivalently as $\lnot p \to q$ and
+then use direct proof or contrapositive proof.
+}} \vfill
 \section*{Proof strategies proof by cases}
 
 
@@ -1995,38 +1985,74 @@ is  true; and, subgoal (2) prove $q$ is true.
  
  To show that $p \land q$ is false, it's enough to prove that $\lnot q$.
 }} \vfill
+\section*{Sets proof strategies}
+
+
+To prove that one set is a subset of another, e.g. to show $A \subseteq B$:
+
+\vspace{50pt}
+
+To prove that two sets are equal, e.g. to show $A = B$:
+
+\vspace{50pt}
+ \vfill
+\section*{Sets equality example}
+
+
+Example: $\{ 43, 7, 9 \} = \{ 7, 43, 9, 7\}$
+
+\vspace{50pt}
+ \vfill
 \section*{Sets basic proofs}
 
 
 {\bf Prove} or {\bf  disprove}: $\{ \A,  \C,  \U,  \G\} \subseteq \{ \A\A, \A\C, \A\U, \A\G \}$ 
 
-\vspace{80pt}
+\vspace{150pt}
 
 {\bf Prove} or {\bf  disprove}: For some set $B$, $\emptyset \in B$.
 
-\vspace{80pt}
+\vspace{150pt}
 
 {\bf Prove} or {\bf  disprove}: For every set $B$, $\emptyset \in B$.
 
-\vspace{80pt}
+\vspace{150pt}
 
 {\bf Prove} or {\bf  disprove}: The empty set is a subset of every set.
 
-\vspace{80pt}
+\vspace{150pt}
 
 {\bf Prove} or {\bf  disprove}: The empty set is a proper subset of every set.
 
-\vspace{80pt}
+\vspace{150pt}
 
 {\bf Prove} or {\bf  disprove}: $\{ 4, 6 \} \subseteq \{ n \mid  \exists c \in \mathbb{Z} ( n = 4c) \} $
 
-\vspace{80pt}
+\vspace{150pt}
 
 {\bf Prove} or {\bf  disprove}: $\{ 4, 6 \} \subseteq \{ n ~\textbf{mod}~10 \mid  \exists c \in \mathbb{Z} ( n = 4c) \} $
 
-\vspace{80pt}
+\vspace{150pt}
 
  \vfill
+\section*{Proofs signposting}
+
+
+\fbox{\parbox{\textwidth}{
+
+\vspace{10pt}
+
+Consider \ldots, an {\bf arbitrary} \ldots.
+{\bf Assume} \ldots, we {\bf want to show} that \ldots. Which is what was needed,
+so the proof is complete $\square$.
+
+\vspace{20pt} {\it or, in other words:} \vspace{20pt}
+
+Let \ldots be an {\bf arbitrary} \ldots. {\bf Assume} \ldots, {\bf WTS} that \ldots {\bf QED}.
+
+\vspace{10pt}
+
+}} \vfill
 \section*{Set operations union intersection powerset}
 
 
@@ -2107,15 +2133,6 @@ Example elements in $W$ are:
 ~\to ~ B = C \right)$
 
 \vspace{20pt} \vfill
-\section*{Proofs signposting}
-
-
-
-{\bf Assume} \ldots, we {\bf want to show} that \ldots.
-
-\vspace{20pt}
-
-Let \ldots be an {\bf arbitrary} \ldots.  \vfill
 \section*{Numbers facts}
 
 
@@ -2167,13 +2184,13 @@ exactly $b = a \cdot (b \textbf{ div } a)$ \vfill
 {\it Translate these quantified statements by matching to English statement on right.}
 
 \begin{multicols}{2}
-$\exists a\in \mathbb{Z}^{\neq 0} ~(~F(a,a)~)$
+$\exists a\in \mathbb{Z}^{\neq 0} ~(~F(~(a,a)~)~)$
 
-$\exists a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(a,a)~)$
+$\exists a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(~(a,a)~)~)$
 
-$\forall a\in \mathbb{Z}^{\neq 0} ~(~F(a,a)~)$
+$\forall a\in \mathbb{Z}^{\neq 0} ~(~F(~(a,a)~)~)$
 
-$\forall a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(a,a)~)$
+$\forall a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(~(a,a)~)~)$
 
 
 Every nonzero integer is a factor of itself.
@@ -2213,21 +2230,26 @@ every nonzero integer divides its square.
 
 \vspace{250pt}
  \vfill
+\section*{Factoring even odd}
+
+
+{\bf Definition}: an integer $n$ is {\bf even} means that there is an integer $a$ such that $n = 2a$; 
+an integer $n$ is {\bf odd} means that there is an integer $a$ such that $n = 2a+1$.  Equivalently, 
+an integer $n$ is {\bf even} means $n ~\textbf{ mod }~2 = 0$; an integer $n$ is {\bf odd} means $n ~\textbf{ mod }~2 = 1$.  
+Also, an integer is even if and only if it is not odd.
+ \vfill
 \section*{Prime number def}
 
 
 {\bf Definition}:  An integer $p$ greater than $1$ is called {\bf prime} means 
 the only positive factors of 
 $p$ are $1$ and $p$. A positive integer that is greater than $1$ and is not prime 
-is called composite. \\
-
-A formal definition of the predicate $Pr$ over the domain $\mathbb{Z}$ 
-which evaluates to T exactly when evaluated on a prime integer is:
-\[
-    (x > 1) \land \forall a( ~ (~ a > 0 \land F(a,x) ~) \to (a = 1 \lor a = x) ~)
-\]
- \vfill
+is called composite. \vfill
 \section*{Primes basic claims}
+
+
+{\it Extra examples}: Use the definition to prove that $1$ is not prime, $2$ is prime, $3$
+is prime, $4$ is not prime, $5$ is prime, $6$ is not prime, and $7$ is prime.
 
 
 {\bf True or False}: The statement ``There are three consecutive positive integers that are prime."
@@ -2236,7 +2258,7 @@ which evaluates to T exactly when evaluated on a prime integer is:
 
 {\bf Proof}: We need to show \underline{\phantom{$\exists p \in \mathbb{Z}^+ ~(~Pr(p) \land Pr(p+1) \land Pr(p+2)~)$}}
 
-\vfill
+\vspace{200pt}
 
 {\bf True or False}: The statement ``There are three consecutive odd positive integers that are prime."
 
@@ -2244,6 +2266,6 @@ which evaluates to T exactly when evaluated on a prime integer is:
 
 {\bf Proof}: We need to show \underline{\phantom{$\exists p \in \mathbb{Z}^+ ~(~(p \textbf{ mod } 2 = 1 \land Pr(p) \land Pr(p+2) \land Pr(p+4)~)$}}
 
-\vfill
+\vspace{200pt}
  \vfill
 \end{document}
