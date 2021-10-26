@@ -9,7 +9,7 @@ from os.path import basename
 #function which creates zip file with all images and tex file 
 def zip_file(filename):
     path= "generated/notes/lessons-flat/"+filename+".tex"
-    texFile = open(path, "r")
+    texFile = open(path, "r+")
     zipObj = ZipFile("generated/notes/lessons-flat/"+filename+".zip", 'w')
     zipObj.write(path, basename(path))
 
@@ -26,12 +26,22 @@ def zip_file(filename):
                     element = element.replace("{","").replace("}","").replace("../","")
                     imageList.append(element) 
     
+    # newTexString = ""
+    # for line in texString: 
+    #     if ("\includegraphics" in line):
+    #         newTexString += line.replace("../","").replace("resources/images/","")
+    #         texFile.write(newTexString)
+    #     else : 
+    #         newTexString += line
     
+    
+
+
     imageList = list(set(imageList))
 
     #DEBUG
-    #print(filename)
-    #print(imageList)
+    print(filename)
+    print(imageList)
 
     for element in imageList:
         zipObj.write(element, basename(element))       
