@@ -9,42 +9,55 @@ from os.path import basename
 #function which creates zip file with all images and tex file 
 def zip_file(filename):
     path= "generated/notes/lessons-flat/"+filename+".tex"
+    newPath= "generated/notes/lessons-flat/new-"+filename+".tex"
     texFile = open(path, "r+")
     zipObj = ZipFile("generated/notes/lessons-flat/"+filename+".zip", 'w')
-    zipObj.write(path, basename(path))
+    newTexFile = open(newPath, "w")
 
     #image list 
     imageList = [] 
-    
+
     texString = texFile.readlines()
     
-    for line in texString: 
+    newTexString = ""
+    
+    newTexFile.write(newTexString)
+
+    for line in texString:
+        if ("\includegraphics" in line):
+            replaced = line.replace("../","").replace("resources/images/","")
+            #DEBUG
+            #print(replaced)
+            newTexString += replaced 
+        else : 
+            newTexString += line
+        
         if ("\includegraphics" in line):
             imageFile = re.findall(r'\{.*?\}', line)
             for element in imageFile :
                 if "/images" in element:
                     element = element.replace("{","").replace("}","").replace("../","")
                     imageList.append(element) 
-    
-    # newTexString = ""
-    # for line in texString: 
-    #     if ("\includegraphics" in line):
-    #         newTexString += line.replace("../","").replace("resources/images/","")
-    #         texFile.write(newTexString)
-    #     else : 
-    #         newTexString += line
-    
-    
 
-
+    newTexFile.write(newTexString)
     imageList = list(set(imageList))
 
     #DEBUG
-    print(filename)
-    print(imageList)
+    #nlines=texString.count('\n')
+    #print(nlines)
+    #print(filename)
+    #print(imageList)
 
-    for element in imageList:
-        zipObj.write(element, basename(element))       
+    if(len(imageList)!=0):
+        zipObj.write(newPath,basename(newPath))
+        for element in imageList:
+            zipObj.write(element, basename(element)) 
+        return "../notes/lessons-flat/"+filename+".zip"
+    else: 
+        return "../notes/lessons-flat/"+filename+".tex"
+
+
+   
     
 
 # returns unit-settings JSON file as a dictionary
@@ -64,11 +77,10 @@ for i in range(0,len(unitData)):
             if(unitData[i]['pdfs'][j]['addExtensions']):
                 #format all filenames 
                 pdf= "../output/lessons/"+unitData[i]['pdfs'][j]['file']+".pdf"
-
+                
                 #create zip files 
-                zip_file(unitData[i]['pdfs'][j]['file'])
-                tex = "../notes/lessons-flat/"+unitData[i]['pdfs'][j]['file']+".zip"
-
+                tex = zip_file(unitData[i]['pdfs'][j]['file'])
+                
                 html="../output/lessons/"+unitData[i]['pdfs'][j]['file']+".html"
             else:
                 pdf=unitData[i]['pdfs'][j]['file']
