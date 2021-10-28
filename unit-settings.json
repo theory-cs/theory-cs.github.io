@@ -166,11 +166,15 @@
             "file": "Week5",
             "annotatedFile": "Week5-annotated.pdf"
             }],
-        "embed": [                
+        "embed": [
             {
             "name": "Lecture and Discussion podcast",
             "embedCode": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a>.</p>"
-            }
+            },
+	    {
+		"name": "Discussion slides",
+		"embedCode": "<p><a href=\"../files/DiscussionWeek5.pptx\">Download pptx slides</a></p>"
+	    }
         ],
         "Due Dates": [
             {
