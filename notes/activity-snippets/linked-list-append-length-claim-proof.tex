@@ -1,0 +1,47 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+{\bf Claim}: $\forall l \in L ~ (~length(~append(~(l, 100)~)~) > length(l)~)$
+
+{\bf Proof:} By structural induction on $L$, we have two cases:
+
+{\bf Basis Step}
+
+    \begin{tabular}{l p{3.5in}}
+     1. \textbf{To Show} $length(~append(~([], 100)~)~) > length(~[]~)$
+    & Because $[]$ is the only element defined in the basis step of $L$, 
+    we only need to prove that the property holds for $[]$.\\
+    &  \\
+     2. \textbf{To Show} $length(~(100,[])~) > length(~[]~)$
+    &  By basis step in definition of $append$.\\
+    &  \\
+     3. \textbf{To Show} $(1 +length(~[]~)) > length(~[]~)$
+    &  By recursive step in definition of $length$.\\
+    &  \\    
+     4. \textbf{To Show} $1+0 > 0$
+    &  By basis step in definition of $length$.\\
+    &  \\    
+    5. $T$
+    & By properties of integers \\
+    &  \\    
+    QED & Because we got to $T$ only by rewriting \textbf{To Show} to equivalent statements, using well-defined proof techniques, and applying definitions. \\
+    \end{tabular}
+
+{\bf Recursive Step}
+
+Consider an arbitrary: $l' \in L$, $n \in \mathbb{N}$, and we  assume
+as the {\bf induction hypothesis} that:
+\[
+length(~append(~(l', 100~)~)~) > length(l')
+\]
+Our goal is to show that $length(~append( ~(~(n,l'), 100~)~)~) > length(~(n,l')~)$ is also true. 
+We start by working with
+one side of the candidate inequality:
+\begin{align*}
+LHS &= length(~append( ~(~ (n,l'), 100~)~)~) \\
+&= length(~(n, append(~(l', 100)~)~ )~) \qquad \text{by the recursive definition of $append$}\\
+&= 1 + length(~ append(~(l', 100)~) ~) \qquad \text{by the recursive definition of $length$}\\
+&> 1+ length(l')  \qquad \text{by the induction hypothesis}\\
+&= length( (n,l') )  \qquad \text{by the recursive definition of $length$}\\
+&= RHS 
+\end{align*}

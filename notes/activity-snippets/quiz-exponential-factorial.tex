@@ -1,0 +1,65 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+Consider the following function definitions
+\[
+    2^n: \mathbb{N} \to \mathbb{N} \text{ given by } 2^0 = 1 ~~\text{ and }~~
+    2^{n+1} = 2 \cdot 2^n  
+\]
+\[
+    n!: \mathbb{N} \to \mathbb{N} \text{ given by } 0! = 1 ~~\text{ and }~~
+    (n+1)! = (n+1) n!
+\]
+\begin{enumerate}
+\item Select all and only true statements below: 
+    \begin{enumerate}
+        \item $2^0 < 0!$
+        \item $2^1 < 1!$
+        \item $2^2 < 2!$
+        \item $2^3 < 3!$
+        \item $2^4 < 4!$
+        \item $2^5 < 5!$
+        \item $2^6 < 6!$
+        \item $2^7 < 7!$
+    \end{enumerate}
+
+\item Fill in the blanks in the following proof.
+
+{\bf Claim}: For all integers $n$ greater than or equal to $4$, $2^n < n!$ \\
+
+{\bf Proof}: We proceed by mathematical induction on the set of integers greater than or equal to $4$.
+
+{\bf Basis step}: Using the \underline{\hspace{0.2in}BLANK 1\hspace{0.2in}}, 
+\[
+    2^4 = 2 \cdot 2^3 = 2 \cdot 2 \cdot 2^2 = 2 \cdot 2 \cdot 2 \cdot 2^1 =
+    2 \cdot 2 \cdot 2 \cdot 2 \cdot 2^0 =
+    2 \cdot 2 \cdot 2 \cdot 2 \cdot 1 = 16 
+\]
+and
+\[
+    4! = 4 \cdot 3! = 4 \cdot 3 \cdot 2! 
+    = 4 \cdot 3 \cdot 2 \cdot 1! = 4 \cdot 3 \cdot 2 \cdot 1 \cdot 0!
+    = 4 \cdot 3 \cdot 2 \cdot 1 \cdot 1 = 24
+\]
+Since $16 < 24$, we have proved that $2^4 < 4!$~, as required.\\
+
+{\bf Recursive step}: Consider an arbitrary integer $k$ that 
+is greater than or equal to $4$
+and assume as the \underline{\hspace{0.2in}BLANK 2\hspace{0.2in}}, 
+that $2^k < k!$~. We want to show that $2^{k+1} < (k+1)!$~.
+\begin{align*}
+    2^{k+1} &= 2 \cdot 2^{k} \qquad \text{by }\underline{\hspace{0.2in}BLANK 3\hspace{0.2in}}\\
+        &< 2 \cdot k! \qquad \text{by }\underline{\hspace{0.2in}BLANK 4\hspace{0.2in}}\\
+        &< k \cdot k! \qquad \text{by }\underline{\hspace{0.2in}BLANK 5\hspace{0.2in}}\\
+        &< (k+1) \cdot k!  \qquad \text{by }\underline{\hspace{0.2in}BLANK 6\hspace{0.2in}}\\
+        &= (k+1)!  \qquad \text{by }\underline{\hspace{0.2in}BLANK 7\hspace{0.2in}}\\
+\end{align*}
+as required.
+
+\begin{enumerate}
+    \item properties of addition, multiplication, and $<$ for real numbers
+    \item definitions of the functions $2^n$ and $n!$
+    \item definition of $k$
+    \item induction hypothesis
+\end{enumerate}
+\end{enumerate}
