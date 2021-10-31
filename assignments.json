@@ -17,7 +17,8 @@
       "name": "hw3-circuits-and-logic-CSE20F21",
       "addExtensions": true,
       "due": "10/26/21 at 11pm",
-      "Information": "This is a group optional assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw3-sol-CSE20F21.pdf"
    },
    {
       "name": "hw4-proofs-and-sets-CSE20F21",

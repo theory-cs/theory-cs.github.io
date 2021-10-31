@@ -168,6 +168,10 @@
             }],
         "embed": [                
             {
+                "name": "Motivation for proofs about primes",
+                "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://youtu.be/LARELuWHn6E\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            },
+            {
             "name": "Lecture and Discussion podcast",
             "embedCode": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a>.</p>"
             }
@@ -185,8 +189,8 @@
     },
     {
         "header": "Week 6",
-        "Topics": "Proofs and Sets",
-        "CalendarInfo": " Dates: 11/1/21-11/5/21",
+        "Topics": "Proofs, Recursion, and Induction",
+        "CalendarInfo": " Dates: 11/1/21-11/5/21. Monday's lecture session is on Zoom, log in with your @ucsd.edu account https://ucsd.zoom.us/j/97431852722 Meeting ID: 974 3185 2722. Wednesday and Friday sessions in person.",
         "ExpandInCalendar": false,
         "pdfs": [],
         "embed": [],
@@ -207,7 +211,7 @@
     },
     {
         "header": "Week 7",
-        "Topics": "Induction",
+        "Topics": "More recursion and induction",
         "CalendarInfo": " Dates: 11/8/21-11/12/21",
         "ExpandInCalendar": false,
         "pdfs": [],
