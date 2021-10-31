@@ -9,22 +9,38 @@ def zip_file(filename, view):
     if(view == "chronological"):
         path= "generated/notes/lessons-flat/"+filename+".tex"
         newPath= "generated/notes/lessons-flat/new-"+filename+".tex"
-        zipObj = ZipFile("generated/notes/lessons-flat/"+filename+".zip", 'w')
+        try:
+            zipObj = ZipFile("generated/notes/lessons-flat/"+filename+".zip", 'w')
+        except IOError as e:
+            print(e)
+            return
         newTexFile = open(newPath, "w")
     elif(view == "outcome"):
         path= "generated/notes/topic-flat/"+filename+".tex"
         newPath= "generated/notes/topic-flat/new-"+filename+".tex"
-        zipObj = ZipFile("generated/notes/topic-flat/"+filename+".zip", 'w')
+        try: 
+            zipObj = ZipFile("generated/notes/topic-flat/"+filename+".zip", 'w')
+        except IOError as e:
+            print(e)
+            return
         newTexFile = open(newPath, "w")
     elif(view == "application"):
         path= "generated/notes/app-flat/"+filename+".tex"
         newPath= "generated/notes/app-flat/new-"+filename+".tex"
-        zipObj = ZipFile("generated/notes/app-flat/"+filename+".zip", 'w')
+        try: 
+            zipObj = ZipFile("generated/notes/app-flat/"+filename+".zip", 'w')
+        except IOError as e:
+            print(e)
+            return
         newTexFile = open(newPath, "w")
     elif(view == "assignments"):
         path= "generated/notes/assignments-flat/"+filename+".tex"
         newPath= "generated/notes/assignments-flat/new-"+filename+".tex"
-        zipObj = ZipFile("generated/notes/assignments-flat/"+filename+".zip", 'w')
+        try:
+            zipObj = ZipFile("generated/notes/assignments-flat/"+filename+".zip", 'w')
+        except IOError as e:
+            print(e)
+            return
         newTexFile = open(newPath, "w")
 
     try: 
