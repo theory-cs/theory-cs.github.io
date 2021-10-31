@@ -1,0 +1,11 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+{\bf Definition} The function $append : L \times \mathbb{N} \to L$ that 
+adds an element at the end of a linked list is defined by
+\[
+\begin{array}{llll}
+\textrm{Basis Step:} & \textrm{If } m \in \mathbb{N}\textrm{ then } & \phantom{append(~([], m)~)} & \phantom{= (m, []) }\\
+\textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{ and }m \in \mathbb{N}\textrm{, then  } & \phantom{append(~(~(n, l), m~)~) } &\phantom{= (n, append(~(l, m)~)~)}
+\end{array}
+\]
