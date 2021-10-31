@@ -1,6 +1,6 @@
 from string import Template
 import json
-
+from createZip import *
 
 websiteData = json.loads(open("website-settings.json").read())
 
@@ -490,7 +490,11 @@ def create_assignment():
 		#format all filenames if addExtensions is true
 		if(element['addExtensions']):
 			pdf="../output/assignments/"+element['name']+".pdf"
-			tex="../notes/assignments-flat/"+element['name']+".tex"
+			tex= zip_file(element['name'],"assignments")
+
+			if(not tex):
+				tex = ""
+
 			html="../output/assignments/"+element['name']+".html"
 		else:
 			pdf="../output/assignments/"+element['name']+".pdf"

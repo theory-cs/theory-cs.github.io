@@ -1,6 +1,7 @@
 from string import Template
 import json
 from userFunctions import *
+from createZip import *
   
 # returns unit-settings JSON file as a dictionary
 appData = json.loads(open("applications.json").read())
@@ -16,7 +17,11 @@ for (k,v) in appData.items():
     pdf="../output/app/"+file+".pdf"
     html="../output/app/"+file+".html"
     #where will tex file for applications be shown? 
-    tex="../notes/app-flat/"+file+".tex"
+    print("file: "+file)
+    tex= zip_file(file, "application")
+    print(tex)
+    if(tex == None):
+        tex=""
             
     #.pdf Download button
     pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 

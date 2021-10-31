@@ -2,63 +2,7 @@ from os import remove
 from string import Template
 import json
 from userFunctions import *
-from zipfile import ZipFile
-import re
-from os.path import basename
-
-#function which creates zip file with all images and tex file 
-def zip_file(filename):
-    path= "generated/notes/lessons-flat/"+filename+".tex"
-    newPath= "generated/notes/lessons-flat/new-"+filename+".tex"
-    texFile = open(path, "r+")
-    zipObj = ZipFile("generated/notes/lessons-flat/"+filename+".zip", 'w')
-    newTexFile = open(newPath, "w")
-
-    #image list 
-    imageList = [] 
-
-    texString = texFile.readlines()
-    
-    newTexString = ""
-    
-    newTexFile.write(newTexString)
-
-    for line in texString:
-        if ("\includegraphics" in line):
-            replaced = line.replace("../","").replace("resources/images/","")
-            #DEBUG
-            #print(replaced)
-            newTexString += replaced 
-        else : 
-            newTexString += line
-        
-        if ("\includegraphics" in line):
-            imageFile = re.findall(r'\{.*?\}', line)
-            for element in imageFile :
-                if "/images" in element:
-                    element = element.replace("{","").replace("}","").replace("../","")
-                    imageList.append(element) 
-
-    newTexFile.write(newTexString)
-    imageList = list(set(imageList))
-
-    #DEBUG
-    #nlines=texString.count('\n')
-    #print(nlines)
-    #print(filename)
-    #print(imageList)
-
-    if(len(imageList)!=0):
-        zipObj.write(newPath,basename(newPath))
-        for element in imageList:
-            zipObj.write(element, basename(element)) 
-        return "../notes/lessons-flat/"+filename+".zip"
-    else: 
-        return "../notes/lessons-flat/"+filename+".tex"
-
-
-   
-    
+from createZip import *
 
 # returns unit-settings JSON file as a dictionary
 unitData = json.loads(open("unit-settings.json").read())
@@ -79,7 +23,7 @@ for i in range(0,len(unitData)):
                 pdf= "../output/lessons/"+unitData[i]['pdfs'][j]['file']+".pdf"
                 
                 #create zip files 
-                tex = zip_file(unitData[i]['pdfs'][j]['file'])
+                tex = zip_file(unitData[i]['pdfs'][j]['file'], "chronological")
                 
                 html="../output/lessons/"+unitData[i]['pdfs'][j]['file']+".html"
             else:

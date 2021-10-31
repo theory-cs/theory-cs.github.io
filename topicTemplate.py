@@ -1,60 +1,62 @@
 from string import Template
 import json
 from userFunctions import *
+from createZip import *
 
 # Opening JSON file
 outcomeData = json.loads(open("outcomes.json").read())
 
 #main for loop begin
 for big in outcomeData:
-  for med in outcomeData[big]['Children']:
-
-    #extract and format all PDFs and associated buttons
-    pdfString = ""
-    collapseVar = 1
-
-    for small in outcomeData[big]['Children'][med]['Children']:
-      
-      #format pdf/html/tex file names
-      file = small.replace(" ", "-")
-      pdf="../output/topic/" + file + ".pdf"
-      html="../output/topic/" + file + ".html"
-      tex="../notes/topic-flat/" + file + ".tex"
-            
-      #heading and collapsible card stuff
-      pdfString += """<div class="box outcome"  id="box"""+str(collapseVar)+""""><button type="button" class="collapsible"
+	for med in outcomeData[big]['Children']:
+		pdfString = ""
+		collapseVar = 1
+		for small in outcomeData[big]['Children'][med]['Children']:
+			print("file: "+file)
+			tex= zip_file(file, "outcome")
+			if(tex == None):
+				tex=""
+			print("tex: "+tex)
+			
+			
+			file = small.replace(" ", "-")
+			pdf="../output/topic/" + file + ".pdf"
+			html="../output/topic/" + file + ".html"
+			
+			pdfString += """<div class="box outcome"  id="box"""+str(collapseVar)+""""><button type="button" class="collapsible"
 			"> \n"""
-      pdfString += """<h2 style= "line-height:20px;"> <i id="sideBtn"""+ str(collapseVar)+ """" class='bx bx-caret-right'></i> 
+			pdfString += """<h2 style= "line-height:20px;"> <i id="sideBtn"""+ str(collapseVar)+ """" class='bx bx-caret-right'></i> 
 			""" + small + """</h2> </button> <div class="boxContent" style="display: none;"> <hr>"""
             
-      #Learning Goal
-      pdfString += """ <p> Learning Goal: """+ outcomeData[big]['Children'][med]['Children'][small]['Description']+"""</p>"""
+      		#Learning Goal
+			pdfString += """ <p> Learning Goal: """+ outcomeData[big]['Children'][med]['Children'][small]['Description']+"""</p>"""
             
-      #.pdf Download button
-      pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-      href="""+pdf+""" download>PDF</a>"""
+      		#.pdf Download button
+			pdfString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+      		href="""+pdf+""" download>PDF</a>"""
 
-      #.tex Download button
-      pdfString += """ <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
-      href=""" + tex + """ download>LaTeX</a> """
+      		#.tex Download button
+			pdfString += """ <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
+      		href=""" + tex + """ download>LaTeX</a> """
 
-      #Raw HTML button 
-      pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-      href= """ + html + """ target="HTML">Raw HTML</a>"""
+      		#Raw HTML button 
+			pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+      		href= """ + html + """ target="HTML">Raw HTML</a>"""
         
-      #pdf.js embed 
-      pdfString += """ <br> <iframe class="PDFjs" id=\""""+ small +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
-      title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
+      		#pdf.js embed 
+			pdfString += """ <br> <iframe class="PDFjs" id=\""""+ small +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
+      		title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 
-      #closing div for collapsible menu item 
-      pdfString += """</div></div>"""
+      		#closing div for collapsible menu item 
+			pdfString += """</div></div>"""
             
-      #increment collapseVar
-      collapseVar += 1
+      		#increment collapseVar
+			collapseVar += 1
 
-    pdfString += """<script>
-	  var coll = document.getElementsByClassName("collapsible");
-	  var i;
+	pdfString += """<script>
+		
+		var coll = document.getElementsByClassName("collapsible");
+	  	var i;
 	
 	  var boxValue;
 	  url = window.location.href;
@@ -156,29 +158,28 @@ for big in outcomeData:
 	}
 
 
-  </script>"""
-    #Information Section
-    infoString = "<p>"+ outcomeData[big]['Children'][med]['Description']+ "</p>" 
+  	</script>"""
+	#Information Section
+	infoString = "<p>"+ outcomeData[big]['Children'][med]['Description']+ "</p>" 
     
     
     #open topicTemplate html file and read it into a string 
-    topicTemplate = open("templates/topicTemplate.html", "r")
-    templateString = Template(topicTemplate.read())
+	topicTemplate = open("templates/topicTemplate.html", "r")
+	templateString = Template(topicTemplate.read())
 
-
-    page_variables = site_variables.copy()
-    page_variables.update(dict(
+	page_variables = site_variables.copy()
+	page_variables.update(dict(
     heading = med,
     Information = infoString, 
     collapsibleMenu = pdfString
     ))
 
     #substitute settings outcomeData with appropriate variables 
-    result = templateString.substitute(page_variables)
-
-    resultFile = open("generated/website/"+outcomeData[big]['Children'][med]['file'], "w")
-    resultFile.write(result)
-    resultFile.close()
+	result = templateString.substitute(page_variables)
+	
+	resultFile = open("generated/website/"+outcomeData[big]['Children'][med]['file'], "w")
+	resultFile.write(result)
+	resultFile.close()
 
 #end for loop
 
