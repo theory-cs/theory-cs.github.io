@@ -192,7 +192,12 @@
         "Topics": "Proofs, Recursion, and Induction",
         "CalendarInfo": " Dates: 11/1/21-11/5/21. Monday's lecture session is on Zoom, log in with your @ucsd.edu account https://ucsd.zoom.us/j/97431852722 Meeting ID: 974 3185 2722. Wednesday and Friday sessions in person.",
         "ExpandInCalendar": false,
-        "pdfs": [],
+        "pdfs": [
+            {
+            "name": "Notes",
+            "addExtensions": true,
+            "file": "Week6"
+            }],
         "embed": [],
         "Due Dates": [
             {
