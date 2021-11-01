@@ -11,9 +11,9 @@ for entry in os.scandir(files):
     if entry.is_file():
         str = entry.name
         if("html" in str):
-            print("https://discrete-math-for-cs.github.io/website/" + entry.name)
+            # print("https://discrete-math-for-cs.github.io/website/" + entry.name)
             arr.append("https://discrete-math-for-cs.github.io/website/" + entry.name)
-print(arr)
+# print(arr)
 
 with open('generated/website/sitemap.txt', 'w') as f:
     for i in range(len(arr)):
