@@ -12,11 +12,10 @@ for big in outcomeData:
 		pdfString = ""
 		collapseVar = 1
 		for small in outcomeData[big]['Children'][med]['Children']:
-			print("file: "+file)
 			tex= zip_file(file, "outcome")
 			if(tex == None):
 				tex=""
-			print("tex: "+tex)
+			
 			
 			
 			file = small.replace(" ", "-")

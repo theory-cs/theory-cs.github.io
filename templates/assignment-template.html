@@ -11,7 +11,24 @@ $unitHead
 		$unitMobileSidebar
 
 
+		<script>
+			function annotations(sw, notes, annotated,id) {
+				var doc;
+				var drive;
 
+				//0 value means annotations are off 
+				if (sw == 0) {
+					doc = "web/viewer.html?file=../"+notes
+				}  
+
+				//1 value turns annotations on
+				else {
+					doc = "web/viewer.html?file=../" +annotated
+				}
+				
+                document.getElementById(id).src = doc;
+			}
+		</script>
 
 
 		<!-- Overview -->
@@ -34,7 +51,7 @@ $unitHead
 
 
 	</div>
-
+	
 
 	<!-- jQuery Version 1.11.1 -->
 	<script src="js/jquery.js"></script>

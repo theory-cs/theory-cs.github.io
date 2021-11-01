@@ -24,6 +24,8 @@ for i in range(0,len(unitData)):
                 
                 #create zip files 
                 tex = zip_file(unitData[i]['pdfs'][j]['file'], "chronological")
+                if(tex == None):
+                    tex=""
                 
                 html="../output/lessons/"+unitData[i]['pdfs'][j]['file']+".html"
             else:
