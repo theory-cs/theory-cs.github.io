@@ -3,7 +3,8 @@
 
 The set $\mathbb{N}$ is recursively defined.
 Therefore, the function $sumPow: \mathbb{N} \to \mathbb{N}$
-which computes, for input $i$, the sum of the first $i$ powers of $2$ is defined
+which computes, for input $i$, the sum of the nonnegative powers of $2$
+up to and including exponent $i$ is defined
 recursively by
 
 \begin{alignat*}{2}
@@ -35,7 +36,7 @@ Fill in the blanks in the following proof of
 Evaluating each side: $LHS = sumPow(0) = 1$ by the basis case in the recursive definition
 of $sumPow$; $RHS = 2^{0+1} - 1 = 2^1 - 1 = 2-1 = 1$. Since $1=1$, the equality holds.
 
-{\bf Recursive step} Consider arbitrary natural number $n$ and assume, as the 
+{\bf Recursive case}: Consider arbitrary natural number $n$ and assume, as the 
 \underline{\phantom{Induction Hypothesis (IH)}} that $sumPow(n) = 2^{n+1} - 1$. We need to show that
 \underline{\phantom{$sumPow(n+1) = 2^{(n+1) + 1} - 1$}}.  Evaluating each side: 
 \[
@@ -48,5 +49,3 @@ RHS = 2^{(n+1)+1}- 1 \overset{\text{exponent rules}}{=} 2 \cdot 2^{n+1} -1  = \l
 Thus, $LHS = RHS$. The structural induction is complete and we have proved the universal generalization.
 $\square$
 
-
-{\it Challenge:} Connect the function $sumPow$ to binary expansions of positive integers.

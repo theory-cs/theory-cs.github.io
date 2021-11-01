@@ -2078,6 +2078,266 @@ c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\\end{aligned}\]</sp
 <p><span><strong>Nested quantifiers</strong></span></p>
 <h1 class="unnumbered" id="alternating-quantifiers-strategies-rna-examples">Alternating quantifiers strategies rna examples</h1>
 <p><span><strong>Alternating nested quantifiers</strong></span></p>
+<h1 class="unnumbered" id="rna-rnalen-basecount-definitions-1">Rna rnalen basecount definitions</h1>
+<p><span><em>Recall the definitions</em></span>: The set of RNA strands <span class="math inline">\(S\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S, \texttt{U}\in S, \texttt{G}\in S \\
+\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}\]</span> where <span class="math inline">\(sb\)</span> is string concatenation.</p>
+<p>The function <em>rnalen</em> that computes the length of RNA strands in <span class="math inline">\(S\)</span> is defined recursively by: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp; \textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 + \textit{rnalen}(s)
+\end{array}\]</span></p>
+<p>The function <em>basecount</em> that computes the number of a given base <span class="math inline">\(b\)</span> appearing in a RNA strand <span class="math inline">\(s\)</span> is defined recursively by: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(~(b_1, b_2)~) &amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(~(s b_1, b_2)~) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="alternating-quantifiers-proofs-rna-examples">Alternating quantifiers proofs rna examples</h1>
+<p>Which proof strategies could be used to prove each of the following statements?</p>
+<p><span><em>Hint: first translate the statements to English and identify the main logical structure.</em></span></p>
+<p><span class="math inline">\(\forall s \in S~(~rnalen(s) &gt; 0~)\)</span></p>
+<p><span class="math inline">\(\forall b \in B~\exists s \in S~(~basecount(~(s,b)~)~ &gt; 0~)\)</span></p>
+<p><span class="math inline">\(\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) &gt; 0~)\)</span></p>
+<p><span class="math inline">\(\exists s \in S \, (\textit{rnalen(s)} = \textit{basecount}(~(s, \texttt{A})~)\)</span></p>
+<p><span class="math inline">\(\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \texttt{A})~))\)</span></p>
+<h1 class="unnumbered" id="structural-induction-motivating-example-rna">Structural induction motivating example rna</h1>
+<p><span><strong>Claim</strong></span> <span class="math inline">\(\forall s \in S ~(~rnalen(s) &gt; 0~)\)</span></p>
+<p><span><strong>Proof</strong></span>: Let <span class="math inline">\(s\)</span> be an arbitrary RNA strand. By the recursive definition of <span class="math inline">\(S\)</span>, either <span class="math inline">\(s \in B\)</span> or there is some strand <span class="math inline">\(s_0\)</span> and some base <span class="math inline">\(b\)</span> such that <span class="math inline">\(s = s_0 b\)</span>. We will show that the inequality holds for both cases.</p>
+<p><span><span class="math inline">\(\phantom{Basis}\)</span></span> <span><strong>Case</strong></span>: Assume <span class="math inline">\(s \in B\)</span>. We need to show <span class="math inline">\(rnalen(s) &gt; 0\)</span>. By the basis step in the definition of <span class="math inline">\(rnalen\)</span>, <span class="math display">\[rnalen(s) = 1\]</span> which is greater than <span class="math inline">\(0\)</span>, as required.</p>
+<p><span><span class="math inline">\(\phantom{Recursive}\)</span></span> <span><strong>Case</strong></span>: Assume there is some strand <span class="math inline">\(s_0\)</span> and some base <span class="math inline">\(b\)</span> such that <span class="math inline">\(s = s_0 b\)</span>. We will show <span><em>(the stronger claim)</em></span> that <span class="math display">\[\forall u \in S ~\forall b \in B ~( ~\textit{rnalen}(u) &gt;0  \to 
+    \textit{rnalen}(ub) &gt;0 ~)\]</span> Consider an arbitrary RNA strand <span class="math inline">\(u\)</span> and an arbitrary base <span class="math inline">\(b\)</span>, and assume towards a direct proof,<span class="math inline">\(~~{\phantom{ this is the induction hypothesis}}~~\)</span> that <span class="math display">\[rnalen(u) &gt; 0\]</span> We need to show that <span class="math inline">\(rnalen(ub) &gt; 0\)</span>. <span class="math display">\[rnalen(ub) = 1 + rnalen (u) &gt; 1 + 0 = 1 &gt; 0\]</span> as required.</p>
+<h1 class="unnumbered" id="proof-strategies-structural-induction">Proof strategies structural induction</h1>
+<h1 class="unnumbered" id="structural-induction-example-rnalen-basecount">Structural induction example rnalen basecount</h1>
+<p><span><strong>Claim</strong></span> <span class="math inline">\(\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \texttt{A})~))\)</span>:</p>
+<p><span><strong>Proof</strong></span>: We proceed by structural induction on the recursively defined set <span class="math inline">\(S\)</span>.</p>
+<p><span><strong>Basis Case</strong></span>: We need to prove that the inequality holds for each element in the basis step of the recursive definition of <span class="math inline">\(S\)</span>. Need to show <span class="math display">\[\begin{aligned}
+          &amp;(~ rnalen(\texttt{A}) \geq basecount(~(\texttt{A}, \texttt{A})~)~) \land (~ rnalen(\texttt{C}) \geq basecount(~(\texttt{C}, \texttt{A})~)~) \\
+    \land &amp; (~ rnalen(\texttt{U}) \geq basecount(~(\texttt{U}, \texttt{A})~)~) \land (~ rnalen(\texttt{G}) \geq basecount(~(\texttt{G}, \texttt{A})~)~)\end{aligned}\]</span> We calculate, using the definitions of <span class="math inline">\(rnalen\)</span> and <span class="math inline">\(basecount\)</span>:</p>
+<p><span><strong>Recursive Case</strong></span>: We will prove that <span class="math display">\[\forall u \in S ~\forall b \in B ~( ~rnalen(u) \geq basecount(~(u, \texttt{A})~) \to 
+    rnalen(ub) \geq basecount(~(ub, \texttt{A})~)\]</span></p>
+<p>Consider arbitrary RNA strand <span class="math inline">\(u\)</span> and arbitrary base <span class="math inline">\(b\)</span>. Assume, as the <span><strong>induction hypothesis</strong></span>, that <span class="math inline">\(rnalen(u) \geq basecount(~(u,\texttt{A})~)\)</span>. We need to show that <span class="math inline">\(rnalen(ub) \geq basecount(~(ub, \texttt{A})~)\)</span>.</p>
+<p>Using the recursive step in the definition of the function <span class="math inline">\(rnalen\)</span>: <span class="math display">\[rnalen(ub) = 1 + rnalen(u)\]</span> The recursive step in the definition of the function <span class="math inline">\(basecount\)</span> has two cases. We notice that <span class="math inline">\(b = \texttt{A}\lor b \neq \texttt{A}\)</span> and we proceed by cases.</p>
+<p><span><em>Case i.</em></span> Assume <span class="math inline">\(b = \texttt{A}\)</span>.</p>
+<p>Using the first case in the recursive step in the definition of the function <span class="math inline">\(basecount\)</span>: <span class="math display">\[basecount(~(ub, \texttt{A})~) = 1 + basecount(~(u,\texttt{A})~)\]</span> By the <span><strong>induction hypothesis</strong></span>, we know that <span class="math inline">\(basecount(~(u,\texttt{A})~) \leq rnalen(u)\)</span> so: <span class="math display">\[basecount(~(ub, \texttt{A})~) = 1 + basecount(~(u,\texttt{A})~) \leq 1 + rnalen(u) = rnalen (ub)\]</span> and, thus, <span class="math inline">\(basecount(~(ub,\texttt{A})~) \leq rnalen(ub)\)</span>, as required.</p>
+<p><span><em>Case ii.</em></span> Assume <span class="math inline">\(b \neq \texttt{A}\)</span>.</p>
+<p>Using the second case in the recursive step in the definition of the function <span class="math inline">\(basecount\)</span>: <span class="math display">\[basecount(~(ub, \texttt{A})~) = basecount(~(u,\texttt{A})~)\]</span> By the <span><strong>induction hypothesis</strong></span>, we know that <span class="math inline">\(basecount(~(u,\texttt{A})~) \leq rnalen(u)\)</span> so: <span class="math display">\[basecount(~(ub, \texttt{A})~) = basecount(~(u,\texttt{A})~) \leq rnalen(u) &lt; 1 + rnalen(u) = rnalen (ub)\]</span> and, thus, <span class="math inline">\(basecount(~(ub,\texttt{A})~) \leq rnalen(ub)\)</span>, as required.</p>
+<h1 class="unnumbered" id="quiz-basecount-rnalen-induction">Quiz basecount rnalen induction</h1>
+<p>Recall the definitions of the functions <span class="math inline">\(rnalen\)</span> and <span class="math inline">\(basecount\)</span> from class.</p>
+<ol>
+<li><p>Select all and only options that give a witness for the existential quantification <span class="math display">\[\exists s \in S ~(~rnalen(s) = basecount(~(s,\texttt{U})~)~)\]</span></p>
+<ol>
+<li><p><span class="math inline">\(\texttt{A}\)</span></p></li>
+<li><p><span class="math inline">\(\texttt{U}\texttt{U}\)</span></p></li>
+<li><p><span class="math inline">\(\texttt{C}\texttt{U}\)</span></p></li>
+<li><p><span class="math inline">\((\texttt{U}, 1)\)</span></p></li>
+<li><p>None of the above.</p></li>
+</ol></li>
+<li><p>Select all and only options that give a counterexample for the universal quantification <span class="math display">\[\forall s \in S ~(~rnalen(s) &gt; basecount(~(s,\texttt{G})~)~)\]</span></p>
+<ol>
+<li><p><span class="math inline">\(\texttt{U}\)</span></p></li>
+<li><p><span class="math inline">\(\texttt{G}\texttt{G}\)</span></p></li>
+<li><p><span class="math inline">\(\texttt{A}\texttt{G}\)</span></p></li>
+<li><p><span class="math inline">\(\texttt{C}\texttt{U}\texttt{G}\)</span></p></li>
+<li><p>None of the above.</p></li>
+</ol></li>
+<li><p>Select all and only the true statements</p>
+<ol>
+<li><p><span class="math inline">\(\forall s \in S ~\exists b \in B ~\left(~rnalen(s) = basecount(~(s,b)~)~ \right)\)</span></p></li>
+<li><p><span class="math inline">\(\exists s \in S ~\forall b \in B ~\left(~rnalen(s) = basecount(~(s,b)~)~ \right)\)</span></p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \forall s_1 \in S~\forall s_2 \in S ~&amp;\forall b \in B ~\big( ~\big( rnalen(s_1) = basecount(~(s_1,b)~) \\
+    &amp;\land rnalen(s_2) = basecount(~(s_2,b)~) \land rnalen(s_1) = rnalen(s_2) \big) \to s_1 = s_2  \big)\end{aligned}\]</span></p></li>
+<li><p>None of the above.</p></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="proofs-signposting-kinds-of-claims">Proofs signposting kinds of claims</h1>
+<p>To organize our proofs, it’s useful to highlight which claims are most important for our overall goals. We use some terminology to describe different roles statements can have.</p>
+<p><span><strong>Theorem</strong></span>: Statement that can be shown to be true, usually an important one.</p>
+<p>Less important theorems can be called <span><strong>proposition</strong></span>, <span><strong>fact</strong></span>, <span><strong>result</strong></span>, <span><strong>claim</strong></span>.</p>
+<p><span><strong>Lemma</strong></span>: A less important theorem that is useful in proving a theorem.</p>
+<p><span><strong>Corollary</strong></span>: A theorem that can be proved directly after another one has been proved, without needing a lot of extra work.</p>
+<p><span><strong>Invariant</strong></span>: A theorem that describes a property that is true about an algorithm or system no matter what inputs are used.</p>
+<h1 class="unnumbered" id="structural-induction-example-robot-grid">Structural induction example robot grid</h1>
+<div class="center">
+<p><img src="../../resources/images/robot-grid.png" style="width:3in" alt="image" /></p>
+</div>
+<p><span><strong>Theorem</strong></span>: A robot on an infinite 2-dimensional integer grid starts at <span class="math inline">\((0,0)\)</span> and at each step moves to diagonally adjacent grid point. This robot can / cannot <span>(<span><em>circle one</em></span>)</span> reach <span class="math inline">\((1,0)\)</span>.</p>
+<p><span><strong>Definition</strong></span> The set of positions the robot can visit <span class="math inline">\(P\)</span> is defined by: <span class="math display">\[\begin{array}{ll}
+    \textrm{Basis Step: } &amp; (0,0) \in P \\
+    \textrm{Recursive Step: } &amp; \textrm{If } (x,y) \in P  \textrm{, then } 
+    \phantom{(x+1, y+1), (x+1, y-1), (x-1, y-1), (x-1, y+1)} \textrm{ are also in } P
+\end{array}\]</span></p>
+<p><span><em>Example elements of <span class="math inline">\(P\)</span> are</em></span>:</p>
+<p><span><strong>Lemma</strong></span>: <span class="math inline">\(\forall (x,y) \in P( (x+y \textrm{ is an even integer})~)\)</span></p>
+<p><span><em>Why are we calling this a lemma?</em></span></p>
+<p>Proof of theorem using lemma: To show is <span class="math inline">\((1,0) \notin P\)</span>. Rewriting the lemma to explicitly restrict the domain of the universal, we have <span class="math inline">\(\forall (x,y) ~(~ (x,y) \in P  \to (x+y \textrm{ is an even integer})~)\)</span>. Since the universal is true, <span class="math inline">\((~ (1,0) \in P \to (1+0 \textrm{ is an even integer})~)\)</span> is a true statement. Evaluating the conclusion of this conditional statement: By definition of long division, since <span class="math inline">\(1 = 0 \cdot 2 + 1\)</span> (where <span class="math inline">\(0 \in \mathbb{Z}\)</span> and <span class="math inline">\(1 \in \mathbb{Z}\)</span> and <span class="math inline">\(0 \leq 1 &lt; 2\)</span> mean that <span class="math inline">\(0\)</span> is the quotient and <span class="math inline">\(1\)</span> is the remainder), <span class="math inline">\(1 ~\textrm{\bf mod}~ 2 = 1\)</span> which is not <span class="math inline">\(0\)</span> so the conclusion is false. A true conditional with a false conclusion must have a false hypothesis. Thus, <span class="math inline">\((1,0) \notin P\)</span>, QED. <span class="math inline">\(\square\)</span></p>
+<p>Proof of lemma by structural induction:</p>
+<p><span><strong>Basis Step</strong></span>:</p>
+<p><span><strong>Recursive Step</strong></span>: Consider arbitrary <span class="math inline">\((x,y) \in P\)</span>. To show is: <span class="math display">\[(x+y \text{ is an even integer}) \to (\text{sum of coordinates of next position is even integer})\]</span> Assume <span><strong>as the induction hypothesis, IH</strong></span> that:</p>
+<h1 class="unnumbered" id="structural-induction-example-sum-of-powers">Structural induction example sum of powers</h1>
+<p>The set <span class="math inline">\(\mathbb{N}\)</span> is recursively defined. Therefore, the function <span class="math inline">\(sumPow: \mathbb{N} \to \mathbb{N}\)</span> which computes, for input <span class="math inline">\(i\)</span>, the sum of the nonnegative powers of <span class="math inline">\(2\)</span> up to and including exponent <span class="math inline">\(i\)</span> is defined recursively by</p>
+<p><span class="math display">\[\begin{aligned}
+{2}
+    \text{Basis step:  } \qquad &amp; sumPow(0) = 1 &amp;\\
+    \text{Recursive step:  } &amp; \text{If } x \in \mathbb{N} \text{, then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}\end{aligned}\]</span></p>
+<p><span class="math inline">\(sumPow(0) =\)</span></p>
+<p><span class="math inline">\(sumPow(1) =\)</span></p>
+<p><span class="math inline">\(sumPow(2) =\)</span></p>
+<p>Fill in the blanks in the following proof of <span class="math display">\[\forall n \in \mathbb{N}~(sumPow(n) = 2^{n+1} - 1)\]</span></p>
+<p><span><strong>Proof</strong></span>: Since <span class="math inline">\(\mathbb{N}\)</span> is recursively defined, we proceed by <u></u>.</p>
+<p><span><strong>Basis case</strong></span>: We need to show that <u></u>. Evaluating each side: <span class="math inline">\(LHS = sumPow(0) = 1\)</span> by the basis case in the recursive definition of <span class="math inline">\(sumPow\)</span>; <span class="math inline">\(RHS = 2^{0+1} - 1 = 2^1 - 1 = 2-1 = 1\)</span>. Since <span class="math inline">\(1=1\)</span>, the equality holds.</p>
+<p><span><strong>Recursive case</strong></span>: Consider arbitrary natural number <span class="math inline">\(n\)</span> and assume, as the <u></u> that <span class="math inline">\(sumPow(n) = 2^{n+1} - 1\)</span>. We need to show that <u></u>. Evaluating each side: <span class="math display">\[LHS = sumPow(n+1) \overset{\text{rec def}}{=} sumPow(n)  + 2^{n+1}\overset{\text{IH}}{=} (2^{n+1} - 1) + 2^{n+1}.\]</span> <span class="math display">\[RHS = 2^{(n+1)+1}- 1 \overset{\text{exponent rules}}{=} 2 \cdot 2^{n+1} -1  = \left(2^{n+1} + 2^{n+1} \right) - 1
+\overset{\text{regrouping}}{=}  (2^{n+1} - 1) + 2^{n+1}\]</span> Thus, <span class="math inline">\(LHS = RHS\)</span>. The structural induction is complete and we have proved the universal generalization. <span class="math inline">\(\square\)</span></p>
+<h1 class="unnumbered" id="proof-strategy-mathematical-induction">Proof strategy mathematical induction</h1>
+<h1 class="unnumbered" id="linked-lists-definition">Linked lists definition</h1>
+<p><span><strong>Definition</strong></span> The set of linked lists of natural numbers <span class="math inline">\(L\)</span> is defined recursively by <span class="math display">\[\begin{array}{ll}
+    \textrm{Basis Step: } &amp; [] \in L \\
+    \textrm{Recursive Step: } &amp; \textrm{If } l \in L\textrm{ and }n \in \mathbb{N} \textrm{, then } (n, l) \in L
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="linked-lists-examples">Linked lists examples</h1>
+<p>Visually:</p>
+<p>Example: the list with two nodes whose first node has <span class="math inline">\(20\)</span> and whose second node has <span class="math inline">\(42\)</span></p>
+<h1 class="unnumbered" id="linked-list-length-definition">Linked list length definition</h1>
+<p><span><strong>Definition</strong></span>: The length of a linked list of natural numbers <span class="math inline">\(L\)</span>, <span class="math inline">\(length: L \to \mathbb{N}\)</span> is defined by <span class="math display">\[\begin{array}{llll}
+\textrm{Basis Step:} &amp;  &amp; length(~[]~) &amp;= 0 \\
+\textrm{Recursive Step:} &amp; \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{, then  } &amp; length(~(n, l)~)  &amp;= 1+ length(l)
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="linked-lists-prepend-definition">Linked lists prepend definition</h1>
+<p><span><strong>Definition</strong></span>: The function <span class="math inline">\(prepend : L \times \mathbb{N} \to L\)</span> that adds an element at the front of a linked list is defined by <span class="math display">\[\phantom{prepend(~(l, n)~) = (n, l)}\]</span></p>
+<h1 class="unnumbered" id="linked-list-append-definition">Linked list append definition</h1>
+<p><span><strong>Definition</strong></span> The function <span class="math inline">\(append : L \times \mathbb{N} \to L\)</span> that adds an element at the end of a linked list is defined by <span class="math display">\[\begin{array}{llll}
+\textrm{Basis Step:} &amp; \textrm{If } m \in \mathbb{N}\textrm{ then } &amp; \phantom{append(~([], m)~)} &amp; \phantom{= (m, []) }\\
+\textrm{Recursive Step:} &amp; \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{ and }m \in \mathbb{N}\textrm{, then  } &amp; \phantom{append(~(~(n, l), m~)~) } &amp;\phantom{= (n, append(~(l, m)~)~)}
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="linked-list-append-length-claim-proof">Linked list append length claim proof</h1>
+<p><span><strong>Claim</strong></span>: <span class="math inline">\(\forall l \in L ~ (~length(~append(~(l, 100)~)~) &gt; length(l)~)\)</span></p>
+<p><span><strong>Proof:</strong></span> By structural induction on <span class="math inline">\(L\)</span>, we have two cases:</p>
+<p><span><strong>Basis Step</strong></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. <strong>To Show</strong> <span class="math inline">\(length(~append(~([], 100)~)~) &gt; length(~[]~)\)</span></td>
+<td style="text-align: left;">Because <span class="math inline">\([]\)</span> is the only element defined in the basis step of <span class="math inline">\(L\)</span>, we only need to prove that the property holds for <span class="math inline">\([]\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2. <strong>To Show</strong> <span class="math inline">\(length(~(100,[])~) &gt; length(~[]~)\)</span></td>
+<td style="text-align: left;">By basis step in definition of <span class="math inline">\(append\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3. <strong>To Show</strong> <span class="math inline">\((1 +length(~[]~)) &gt; length(~[]~)\)</span></td>
+<td style="text-align: left;">By recursive step in definition of <span class="math inline">\(length\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4. <strong>To Show</strong> <span class="math inline">\(1+0 &gt; 0\)</span></td>
+<td style="text-align: left;">By basis step in definition of <span class="math inline">\(length\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5. <span class="math inline">\(T\)</span></td>
+<td style="text-align: left;">By properties of integers</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QED</td>
+<td style="text-align: left;">Because we got to <span class="math inline">\(T\)</span> only by rewriting <strong>To Show</strong> to equivalent statements, using well-defined proof techniques, and applying definitions.</td>
+</tr>
+</tbody>
+</table>
+<p><span><strong>Recursive Step</strong></span></p>
+<p>Consider an arbitrary: <span class="math inline">\(l&#39; \in L\)</span>, <span class="math inline">\(n \in \mathbb{N}\)</span>, and we assume as the <span><strong>induction hypothesis</strong></span> that: <span class="math display">\[length(~append(~(l&#39;, 100~)~)~) &gt; length(l&#39;)\]</span> Our goal is to show that <span class="math inline">\(length(~append( ~(~(n,l&#39;), 100~)~)~) &gt; length(~(n,l&#39;)~)\)</span> is also true. We start by working with one side of the candidate inequality: <span class="math display">\[\begin{aligned}
+LHS &amp;= length(~append( ~(~ (n,l&#39;), 100~)~)~) \\
+&amp;= length(~(n, append(~(l&#39;, 100)~)~ )~) \qquad \text{by the recursive definition of $append$}\\
+&amp;= 1 + length(~ append(~(l&#39;, 100)~) ~) \qquad \text{by the recursive definition of $length$}\\
+&amp;&gt; 1+ length(l&#39;)  \qquad \text{by the induction hypothesis}\\
+&amp;= length( (n,l&#39;) )  \qquad \text{by the recursive definition of $length$}\\
+&amp;= RHS \end{aligned}\]</span></p>
+<h1 class="unnumbered" id="linked-list-example-each-length">Linked list example each length</h1>
+<p>Prove or disprove: <span class="math inline">\(\forall n \in \mathbb{N} ~\exists l \in L ~(~length(l) = n~)\)</span></p>
+<h1 class="unnumbered" id="quiz-linked-list-definitions">Quiz linked list definitions</h1>
+<p>Recall the definition of linked lists from class.</p>
+<p>Consider this (incomplete) definition:</p>
+<p><span><strong>Definition</strong></span> The function <span class="math inline">\(\textit{increment} : \underline{\hspace{6em}}\)</span> that adds 1 to the data in each node of a linked list is defined by: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{increment} : \underline{\hspace{3em}} &amp; \to \underline{\hspace{3em}} \\
+\textrm{Basis Step:} &amp; &amp; \textit{increment}([]) &amp; = [] \\
+\textrm{Recursive Step:} &amp; \textrm{If } l \in L, n \in \mathbb{N} &amp; \textit{increment}((n, l)) &amp; = (1 + n, \textit{increment}(l))
+\end{array}\]</span></p>
+<p>Consider this (incomplete) definition:</p>
+<p><span><strong>Definition</strong></span> The function <span class="math inline">\(\textit{sum} : L \to \mathbb{N}\)</span> that adds together all the data in nodes of the list is defined by: <span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{sum} : L &amp; \to \mathbb{N} \\
+\textrm{Basis Step:} &amp; &amp; \textit{sum}([]) &amp; = 0 \\
+\textrm{Recursive Step:} &amp; \textrm{If } l \in L, n \in \mathbb{N} &amp; \textit{sum}((n, l)) &amp; = \underline{\hspace{8em}}
+\end{array}\]</span></p>
+<p>You will compute a sample function application and then fill in the blanks for the domain and codomain of each of these functions.</p>
+<ol>
+<li><p>Based on the definition, what is the result of <span class="math inline">\(\textit{increment}((4, (2, (7, []))))\)</span>? Write your answer directly with no spaces.</p></li>
+<li><p>Which of the following describes the domain and codomain of <em>increment</em>?</p>
+<div class="multicols">
+<p><span>2</span></p>
+<ol>
+<li><p>The domain is <span class="math inline">\(L\)</span> and the codomain is <span class="math inline">\(\mathbb{N}\)</span></p></li>
+<li><p>The domain is <span class="math inline">\(L\)</span> and the codomain is <span class="math inline">\(\mathbb{N} \times L\)</span></p></li>
+<li><p>The domain is <span class="math inline">\(L \times \mathbb{N}\)</span> and the codomain is <span class="math inline">\(L\)</span></p></li>
+<li><p>The domain is <span class="math inline">\(L \times \mathbb{N}\)</span> and the codomain is <span class="math inline">\(\mathbb{N}\)</span></p></li>
+<li><p>The domain is <span class="math inline">\(L\)</span> and the codomain is <span class="math inline">\(L\)</span></p></li>
+<li><p>None of the above</p></li>
+</ol>
+</div></li>
+<li><p>Assuming we would like <span class="math inline">\(sum((5, (6, [])))\)</span> to evaluate to <span class="math inline">\(11\)</span> and <span class="math inline">\(sum((3, (1, (8, []))))\)</span> to evaluate to <span class="math inline">\(12\)</span>, which of the following could be used to fill in the definition of the recursive case of <em>sum</em>?</p>
+<div class="multicols">
+<p><span>2</span></p>
+<ol>
+<li><p><span class="math inline">\(\begin{cases}
+            1 + \textit{sum}(l) &amp; \textrm{when } n \neq 0 \\
+            \textit{sum}(l) &amp; \textrm{when } n = 0 \\
+        \end{cases}\)</span></p></li>
+<li><p><span class="math inline">\(1 + \textit{sum}(l)\)</span></p></li>
+<li><p><span class="math inline">\(n + \textit{increment}(l)\)</span></p></li>
+<li><p><span class="math inline">\(n + \textit{sum}(l)\)</span></p></li>
+<li><p>None of the above</p></li>
+</ol>
+</div></li>
+<li><p>Choose only and all of the following statements that are <strong>well-defined</strong>; that is, they correctly reflect the domains and codomains of the functions and quantifiers, and respect the notational conventions we use in this class. Note that a well-defined statement may be true or false.</p>
+<div class="multicols">
+<p><span>2</span></p>
+<ol>
+<li><p><span class="math inline">\(\forall l \in L \, (\textit{sum}(l))\)</span></p></li>
+<li><p><span class="math inline">\(\exists l \in L \, (\textit{sum}(l) \land \textit{length}(l))\)</span></p></li>
+<li><p><span class="math inline">\(\forall l \in L \, (\textit{sum}(\textit{increment}(l)) = 10)\)</span></p></li>
+<li><p><span class="math inline">\(\exists l \in L \, (\textit{sum}(\textit{increment}(l)) = 10)\)</span></p></li>
+<li><p><span class="math inline">\(\forall l \in L \, \forall n \in \mathbb{N} \, ((n \times l) \subseteq L)\)</span></p></li>
+<li><p><span class="math inline">\(\forall l_1 \in L \, \exists l_2 \in L \, (\textit{increment}(\textit{sum}(l_1)) = l_2)\)</span></p></li>
+<li><p><span class="math inline">\(\forall l \in L \, (\textit{length}(\textit{increment}(l)) = \textit{length}(l))\)</span></p></li>
+</ol>
+</div></li>
+<li><p>Choose only and all of the statements in the previous part that are both well-defined and true.</p></li>
+</ol>
 <h1 class="unnumbered" id="proof-strategies-road-map">Proof strategies road map</h1>
 <p>We now have propositional and predicate logic that can help us express statements about any domain. We will develop proof strategies to craft valid argument for proving that such statements are true or disproving them (by showing they are false). We will practice these strategies with statements about sets and numbers, both because they are familiar and because they can be used to build cryptographic systems. Then we will apply proof strategies more broadly to prove statements about data structures and machine learning applications.</p>
 <h1 class="unnumbered" id="proof-strategies-quantification-finite-domain">Proof strategies quantification finite domain</h1>
