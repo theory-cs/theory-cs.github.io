@@ -264,7 +264,7 @@
     \phantom{(x+1, y+1), (x+1, y-1), (x-1, y-1), (x-1, y+1)} \textrm{ are also in } P
 \end{array}\]</span></p>
 <p><span><em>Example elements of <span class="math inline">\(P\)</span> are</em></span>:</p>
-<p><span><strong>Lemma</strong></span>: <span class="math inline">\(\forall (x,y) \in P( (x+y \textrm{ is an even integer})~)\)</span></p>
+<p><span><strong>Lemma</strong></span>: <span class="math inline">\(\forall (x,y) \in P( x+y \textrm{ is an even integer}~)\)</span></p>
 <p><span><em>Why are we calling this a lemma?</em></span></p>
 <p>Proof of theorem using lemma: To show is <span class="math inline">\((1,0) \notin P\)</span>. Rewriting the lemma to explicitly restrict the domain of the universal, we have <span class="math inline">\(\forall (x,y) ~(~ (x,y) \in P  \to (x+y \textrm{ is an even integer})~)\)</span>. Since the universal is true, <span class="math inline">\((~ (1,0) \in P \to (1+0 \textrm{ is an even integer})~)\)</span> is a true statement. Evaluating the conclusion of this conditional statement: By definition of long division, since <span class="math inline">\(1 = 0 \cdot 2 + 1\)</span> (where <span class="math inline">\(0 \in \mathbb{Z}\)</span> and <span class="math inline">\(1 \in \mathbb{Z}\)</span> and <span class="math inline">\(0 \leq 1 &lt; 2\)</span> mean that <span class="math inline">\(0\)</span> is the quotient and <span class="math inline">\(1\)</span> is the remainder), <span class="math inline">\(1 ~\textrm{\bf mod}~ 2 = 1\)</span> which is not <span class="math inline">\(0\)</span> so the conclusion is false. A true conditional with a false conclusion must have a false hypothesis. Thus, <span class="math inline">\((1,0) \notin P\)</span>, QED. <span class="math inline">\(\square\)</span></p>
 <p>Proof of lemma by structural induction:</p>
@@ -315,7 +315,7 @@
 <p>Select all and only the true statements below about the relationship between structural induction and mathematical induction.</p>
 <ol>
 <li><p>Both structural induction and mathematical induction are proof strategies that may be useful when proving universal claims about recursively defined sets.</p></li>
-<li><p>Mathematical induction is a special cae of structural induction, for the case when the domain of quantification is <span class="math inline">\(\{ n \in \mathbb{Z} \mid n \geq b\}\)</span> for some integer <span class="math inline">\(b\)</span>.</p></li>
+<li><p>Mathematical induction is a special case of structural induction, for the case when the domain of quantification is <span class="math inline">\(\{ n \in \mathbb{Z} \mid n \geq b\}\)</span> for some integer <span class="math inline">\(b\)</span>.</p></li>
 <li><p>Universal claims about the set of all integers may be proved using structural induction but not using mathematical induction.</p></li>
 </ol></li>
 <li><p><br />

@@ -109,24 +109,6 @@
 		
 
 
-		<script>
-			function annotations(sw, notes, annotated, id) {
-				var doc;
-				var drive;
-
-				//0 value means annotations are off 
-				if (sw == 0) {
-					doc = "web/viewer.html?file=../" + notes
-				}
-
-				//1 value turns annotations on
-				else {
-					doc = "web/viewer.html?file=../" + annotated
-				}
-
-				document.getElementById(id).src = doc;
-			}
-		</script>
 
 
 
@@ -143,62 +125,134 @@
 				<div class="card" id="hw1-definitions-and-notation-cse20f21"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
 		href="#collapsehw1-definitions-and-notation-cse20f21"> Hw1 Definitions And Notation </a> </div> <div id="collapsehw1-definitions-and-notation-cse20f21""
       	class="collapse" data-parent="#accordion"><div class="card-body"> <p> This is a group optional assignment</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-		href=../output/assignments/hw1-definitions-and-notation-CSE20F21.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
-			href=../notes/assignments-flat/hw1-definitions-and-notation-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-			href= ../output/assignments/hw1-definitions-and-notation-CSE20F21.html target="HTML">Raw HTML</a> <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton1/" href="javascript:void(0)" >Solutions On</a>
-			<a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton1/" href="javascript:void(0)" >Solutions Off</a>  <script> document.getElementById("solutionsOnButton1/").onclick = function() {annotations(1,
-			"../output/assignments/hw1-definitions-and-notation-CSE20F21.pdf","../files/hw1-sol-CSE20F21.pdf", "hw1-definitions-and-notation-CSE20F21")};document.getElementById("solutionsOffButton1/").onclick = function() {annotations(0,
-			"../output/assignments/hw1-definitions-and-notation-CSE20F21.pdf","../files/hw1-sol-CSE20F21.pdf", "hw1-definitions-and-notation-CSE20F21")};
+		href=../output/assignments/hw1-definitions-and-notation-CSE20F21.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
+			href=../notes/assignments-flat/hw1-definitions-and-notation-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+			href= ../output/assignments/hw1-definitions-and-notation-CSE20F21.html target="HTML">Raw HTML</a><div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspSolutions:&nbsp</div><label class="toggle">
+                                <span class="onoff">OFF</span>
+                                            <input type="checkbox" />
+                                            <span class="slider round" id="annotationsOnButton"></span>
+                                            </label> <br> <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
+                 "../output/assignments/hw1-definitions-and-notation-CSE20F21.pdf","../files/hw1-sol-CSE20F21.pdf", "hw1-definitions-and-notation-CSE20F21")};
+			const toggle = document.querySelector('.toggle input')
+
+			toggle.addEventListener('click', () => {
+    		const onOff = toggle.parentNode.querySelector('.onoff')
+    		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
+			})
+			
+			function annotations(notes, annotated,id) {
+				var doc;
+				var drive;
+				//0 value means annotations are off 
+				if (toggle.checked) {
+					doc = "web/viewer.html?file=../"+notes
+				} 
+
+				//1 value turns annotations on
+				else {
+					doc = "web/viewer.html?file=../" +annotated
+				}
+				
+                document.getElementById(id).src = doc;
+			}
 			</script> <br> <iframe class="PDFjs" id="hw1-definitions-and-notation-CSE20F21" src="web/viewer.html?file=../../output/assignments/hw1-definitions-and-notation-CSE20F21.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card" id="hw2-numbers-cse20f21"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
 		href="#collapsehw2-numbers-cse20f21"> Hw2 Numbers </a> </div> <div id="collapsehw2-numbers-cse20f21""
       	class="collapse" data-parent="#accordion"><div class="card-body"> <p> This is a group optional assignment</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-		href=../output/assignments/hw2-numbers-CSE20F21.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
-			href=../notes/assignments-flat/hw2-numbers-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-			href= ../output/assignments/hw2-numbers-CSE20F21.html target="HTML">Raw HTML</a> <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton2/" href="javascript:void(0)" >Solutions On</a>
-			<a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton2/" href="javascript:void(0)" >Solutions Off</a>  <script> document.getElementById("solutionsOnButton2/").onclick = function() {annotations(1,
-			"../output/assignments/hw2-numbers-CSE20F21.pdf","../files/hw2-sol-CSE20F21.pdf", "hw2-numbers-CSE20F21")};document.getElementById("solutionsOffButton2/").onclick = function() {annotations(0,
-			"../output/assignments/hw2-numbers-CSE20F21.pdf","../files/hw2-sol-CSE20F21.pdf", "hw2-numbers-CSE20F21")};
+		href=../output/assignments/hw2-numbers-CSE20F21.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
+			href=../notes/assignments-flat/hw2-numbers-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+			href= ../output/assignments/hw2-numbers-CSE20F21.html target="HTML">Raw HTML</a><div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspSolutions:&nbsp</div><label class="toggle">
+                                <span class="onoff">OFF</span>
+                                            <input type="checkbox" />
+                                            <span class="slider round" id="annotationsOnButton"></span>
+                                            </label> <br> <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
+                 "../output/assignments/hw2-numbers-CSE20F21.pdf","../files/hw2-sol-CSE20F21.pdf", "hw2-numbers-CSE20F21")};
+			const toggle = document.querySelector('.toggle input')
+
+			toggle.addEventListener('click', () => {
+    		const onOff = toggle.parentNode.querySelector('.onoff')
+    		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
+			})
+			
+			function annotations(notes, annotated,id) {
+				var doc;
+				var drive;
+				//0 value means annotations are off 
+				if (toggle.checked) {
+					doc = "web/viewer.html?file=../"+notes
+				} 
+
+				//1 value turns annotations on
+				else {
+					doc = "web/viewer.html?file=../" +annotated
+				}
+				
+                document.getElementById(id).src = doc;
+			}
 			</script> <br> <iframe class="PDFjs" id="hw2-numbers-CSE20F21" src="web/viewer.html?file=../../output/assignments/hw2-numbers-CSE20F21.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card" id="hw3-circuits-and-logic-cse20f21"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
 		href="#collapsehw3-circuits-and-logic-cse20f21"> Hw3 Circuits And Logic </a> </div> <div id="collapsehw3-circuits-and-logic-cse20f21""
       	class="collapse" data-parent="#accordion"><div class="card-body"> <p> This is a group optional assignment</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-		href=../output/assignments/hw3-circuits-and-logic-CSE20F21.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
-			href=../notes/assignments-flat/hw3-circuits-and-logic-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-			href= ../output/assignments/hw3-circuits-and-logic-CSE20F21.html target="HTML">Raw HTML</a> <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton3/" href="javascript:void(0)" >Solutions On</a>
-			<a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton3/" href="javascript:void(0)" >Solutions Off</a>  <script> document.getElementById("solutionsOnButton3/").onclick = function() {annotations(1,
-			"../output/assignments/hw3-circuits-and-logic-CSE20F21.pdf","../files/hw3-sol-CSE20F21.pdf", "hw3-circuits-and-logic-CSE20F21")};document.getElementById("solutionsOffButton3/").onclick = function() {annotations(0,
-			"../output/assignments/hw3-circuits-and-logic-CSE20F21.pdf","../files/hw3-sol-CSE20F21.pdf", "hw3-circuits-and-logic-CSE20F21")};
+		href=../output/assignments/hw3-circuits-and-logic-CSE20F21.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
+			href=../notes/assignments-flat/hw3-circuits-and-logic-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+			href= ../output/assignments/hw3-circuits-and-logic-CSE20F21.html target="HTML">Raw HTML</a><div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspSolutions:&nbsp</div><label class="toggle">
+                                <span class="onoff">OFF</span>
+                                            <input type="checkbox" />
+                                            <span class="slider round" id="annotationsOnButton"></span>
+                                            </label> <br> <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
+                 "../output/assignments/hw3-circuits-and-logic-CSE20F21.pdf","../files/hw3-sol-CSE20F21.pdf", "hw3-circuits-and-logic-CSE20F21")};
+			const toggle = document.querySelector('.toggle input')
+
+			toggle.addEventListener('click', () => {
+    		const onOff = toggle.parentNode.querySelector('.onoff')
+    		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
+			})
+			
+			function annotations(notes, annotated,id) {
+				var doc;
+				var drive;
+				//0 value means annotations are off 
+				if (toggle.checked) {
+					doc = "web/viewer.html?file=../"+notes
+				} 
+
+				//1 value turns annotations on
+				else {
+					doc = "web/viewer.html?file=../" +annotated
+				}
+				
+                document.getElementById(id).src = doc;
+			}
 			</script> <br> <iframe class="PDFjs" id="hw3-circuits-and-logic-CSE20F21" src="web/viewer.html?file=../../output/assignments/hw3-circuits-and-logic-CSE20F21.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card" id="hw4-proofs-and-sets-cse20f21"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
 		href="#collapsehw4-proofs-and-sets-cse20f21"> Hw4 Proofs And Sets </a> </div> <div id="collapsehw4-proofs-and-sets-cse20f21""
       	class="collapse" data-parent="#accordion"><div class="card-body"> <p> This is a group optional assignment</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-		href=../output/assignments/hw4-proofs-and-sets-CSE20F21.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
-			href=../notes/assignments-flat/hw4-proofs-and-sets-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+		href=../output/assignments/hw4-proofs-and-sets-CSE20F21.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
+			href=../notes/assignments-flat/hw4-proofs-and-sets-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
 			href= ../output/assignments/hw4-proofs-and-sets-CSE20F21.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="hw4-proofs-and-sets-CSE20F21" src="web/viewer.html?file=../../output/assignments/hw4-proofs-and-sets-CSE20F21.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card" id="hw5-induction-cse20f21"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
 		href="#collapsehw5-induction-cse20f21"> Hw5 Induction </a> </div> <div id="collapsehw5-induction-cse20f21""
       	class="collapse" data-parent="#accordion"><div class="card-body"> <p> This is a group optional assignment</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-		href=../output/assignments/hw5-induction-CSE20F21.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
-			href= download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+		href=../output/assignments/hw5-induction-CSE20F21.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
+			href= download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
 			href= ../output/assignments/hw5-induction-CSE20F21.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="hw5-induction-CSE20F21" src="web/viewer.html?file=../../output/assignments/hw5-induction-CSE20F21.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card" id="hw6-induction-cse20f21"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
 		href="#collapsehw6-induction-cse20f21"> Hw6 Induction </a> </div> <div id="collapsehw6-induction-cse20f21""
       	class="collapse" data-parent="#accordion"><div class="card-body"> <p> This is a group optional assignment</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-		href=../output/assignments/hw6-induction-CSE20F21.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
-			href= download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+		href=../output/assignments/hw6-induction-CSE20F21.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
+			href= download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
 			href= ../output/assignments/hw6-induction-CSE20F21.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="hw6-induction-CSE20F21" src="web/viewer.html?file=../../output/assignments/hw6-induction-CSE20F21.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card" id="hw7-proof-numbers-cardinality-cse20f21"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
 		href="#collapsehw7-proof-numbers-cardinality-cse20f21"> Hw7 Proof Numbers Cardinality </a> </div> <div id="collapsehw7-proof-numbers-cardinality-cse20f21""
       	class="collapse" data-parent="#accordion"><div class="card-body"> <p> This is a group optional assignment</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-		href=../output/assignments/hw7-proof-numbers-cardinality-CSE20F21.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
-			href= download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+		href=../output/assignments/hw7-proof-numbers-cardinality-CSE20F21.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
+			href= download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
 			href= ../output/assignments/hw7-proof-numbers-cardinality-CSE20F21.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="hw7-proof-numbers-cardinality-CSE20F21" src="web/viewer.html?file=../../output/assignments/hw7-proof-numbers-cardinality-CSE20F21.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div><div class="card" id="project-cse20f21"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
 		href="#collapseproject-cse20f21"> Project </a> </div> <div id="collapseproject-cse20f21""
       	class="collapse" data-parent="#accordion"><div class="card-body"> <p> Part 1 due: 10/14/2021<br>Part 2 due: 11/4/2021<br>Part 3 due: 12/2/2021,<br>This is an Individual Assignment</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
-		href=../output/assignments/project-CSE20F21.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
-			href=../notes/assignments-flat/project-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+		href=../output/assignments/project-CSE20F21.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
+			href=../notes/assignments-flat/project-CSE20F21.tex download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
 			href= ../output/assignments/project-CSE20F21.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="project-CSE20F21" src="web/viewer.html?file=../../output/assignments/project-CSE20F21.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div></div>
 			</div>
