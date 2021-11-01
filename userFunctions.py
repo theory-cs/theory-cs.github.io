@@ -519,11 +519,11 @@ def create_assignment():
     	#html and tex download buttons
 		if(element['addExtensions']):
         	#.tex
-			templateString += """ <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
+			templateString += """ <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
 			href=""" + tex + """ download>LaTeX</a> """
 
         	#.html
-			templateString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+			templateString += """ <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
 			href= """ + html + """ target="HTML">Raw HTML</a>"""
         
 		#id of pdf.js element formatting
@@ -533,16 +533,36 @@ def create_assignment():
 		if('solutionsFile' in element):
         	
 			
-			templateString += """ <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions On</a>
-			<a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions Off</a> """
+			templateString+= """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspSolutions:&nbsp</div><label class="toggle">
+                                <span class="onoff">OFF</span>
+                                            <input type="checkbox" />
+                                            <span class="slider round" id="annotationsOnButton"></span>
+                                            </label> <br>"""
+			#annotations on
+			templateString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
+                 \""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};
+			const toggle = document.querySelector('.toggle input')
 
-       		#solutions on
-			templateString += """ <script> document.getElementById("solutionsOnButton"""+str(collapseVar)+ """/").onclick = function() {annotations(1,
-			\""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};"""
-            
-        	#solutions off
-			templateString +="""document.getElementById("solutionsOffButton"""+str(collapseVar)+ """/").onclick = function() {annotations(0,
-			\""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};
+			toggle.addEventListener('click', () => {
+    		const onOff = toggle.parentNode.querySelector('.onoff')
+    		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
+			})
+			
+			function annotations(notes, annotated,id) {
+				var doc;
+				var drive;
+				//0 value means annotations are off 
+				if (toggle.checked) {
+					doc = "web/viewer.html?file=../"+notes
+				} 
+
+				//1 value turns annotations on
+				else {
+					doc = "web/viewer.html?file=../" +annotated
+				}
+				
+                document.getElementById(id).src = doc;
+			}
 			</script>"""
             
     	#pdf.js embed 
