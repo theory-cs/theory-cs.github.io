@@ -52,20 +52,20 @@ for big in outcomeData:
       		#increment collapseVar
 			collapseVar += 1
 
-	pdfString += """<script>
+		pdfString += """<script>
 		
-		var coll = document.getElementsByClassName("collapsible");
-	  	var i;
+			var coll = document.getElementsByClassName("collapsible");
+	  		var i;
 	
-	  var boxValue;
-	  url = window.location.href;
-	  var qInd;
-	  var valuesAdded = 0; 
+	  		var boxValue;
+	  		url = window.location.href;
+	  		var qInd;
+	  		var valuesAdded = 0; 
 
-	 for( i=0; i<url.length; i++){
-	   if(url[i]==="="){
-			valuesAdded++;
-			i++; //go to value next to = 
+	 		for( i=0; i<url.length; i++){
+	   			if(url[i]==="="){
+					valuesAdded++;
+					i++; //go to value next to = 
 				//boxNumber must always be before expanded, 
 				// and both have one character values (0 or 1)
 		
@@ -73,36 +73,36 @@ for big in outcomeData:
 				boxValue = url[i]; 
 			}
 				
-		}
-	}
+			}
+			}
 	
-	//debug
-	console.log("boxValue: "+boxValue);
+			//debug
+			console.log("boxValue: "+boxValue);
 	
-	//open certain box based on query string values 
-	selectBox = "#box"+boxValue;
-	let sBox = document.querySelector(selectBox);
-	selectSideBtn= "#sideBtn"+boxValue;
-	let sSideBtn = document.querySelector(selectSideBtn);
+			//open certain box based on query string values 
+			selectBox = "#box"+boxValue;
+			let sBox = document.querySelector(selectBox);
+			selectSideBtn= "#sideBtn"+boxValue;
+			let sSideBtn = document.querySelector(selectSideBtn);
 
-	coll[boxValue-1].style.background= "white";
-	sBox.style.background="white";
-	var content = coll[boxValue-1].nextElementSibling;
-	content.style.display = "block";
-	sSideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+			coll[boxValue-1].style.background= "white";
+			sBox.style.background="white";
+			var content = coll[boxValue-1].nextElementSibling;
+			content.style.display = "block";
+			sSideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
 	
-	for (i = 0; i < coll.length; i++) {
-		sideBtnString="#sideBtn";
-		sideBtnString+=(i+1);
-		boxString="#box";
-		boxString +=(i+1);
-		let sideBtn = document.querySelector(sideBtnString);
-		let box = document.querySelector(boxString);
-		let h2 = document.querySelector("h2");
+			for (i = 0; i < coll.length; i++) {
+			sideBtnString="#sideBtn";
+			sideBtnString+=(i+1);
+			boxString="#box";
+			boxString +=(i+1);
+			let sideBtn = document.querySelector(sideBtnString);
+			let box = document.querySelector(boxString);
+			let h2 = document.querySelector("h2");
 
 		
 
-  		coll[i].addEventListener("click", function() {
+  			coll[i].addEventListener("click", function() {
     		this.classList.toggle("active");
     		var content = this.nextElementSibling;
     	
@@ -120,13 +120,13 @@ for big in outcomeData:
 			else {
 			sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
 			}
-		});
-	}
+			});
+			}
 
-	function expandCollapseAll(bool, multiple) {
-		var coll = document.getElementsByClassName("collapsible");
-		var i;
-		for (i = 0; i < coll.length; i++) {
+			function expandCollapseAll(bool, multiple) {
+			var coll = document.getElementsByClassName("collapsible");
+			var i;
+			for (i = 0; i < coll.length; i++) {
 			sideBtnString="#sideBtn";
 			sideBtnString+=(i+1);
 			boxString="#box";
@@ -151,34 +151,34 @@ for big in outcomeData:
 				coll[i].style.background= "lightgray";
 				box.style.background="lightgray";
 			}
-		}
+				}
 
-		return bool;
-	}
+				return bool;
+			}
 
 
-  	</script>"""
-	#Information Section
-	infoString = "<p>"+ outcomeData[big]['Children'][med]['Description']+ "</p>" 
+  			</script>"""
+		#Information Section
+		infoString = "<p>"+ outcomeData[big]['Children'][med]['Description']+ "</p>" 
     
     
-    #open topicTemplate html file and read it into a string 
-	topicTemplate = open("templates/topicTemplate.html", "r")
-	templateString = Template(topicTemplate.read())
+    	#open topicTemplate html file and read it into a string 
+		topicTemplate = open("templates/topicTemplate.html", "r")
+		templateString = Template(topicTemplate.read())
 
-	page_variables = site_variables.copy()
-	page_variables.update(dict(
-    heading = med,
-    Information = infoString, 
-    collapsibleMenu = pdfString
-    ))
+		page_variables = site_variables.copy()
+		page_variables.update(dict(
+    	heading = med,
+    	Information = infoString, 
+    	collapsibleMenu = pdfString
+    	))
 
-    #substitute settings outcomeData with appropriate variables 
-	result = templateString.substitute(page_variables)
+    	#substitute settings outcomeData with appropriate variables 
+		result = templateString.substitute(page_variables)
 	
-	resultFile = open("generated/website/"+outcomeData[big]['Children'][med]['file'], "w")
-	resultFile.write(result)
-	resultFile.close()
+		resultFile = open("generated/website/"+outcomeData[big]['Children'][med]['file'], "w")
+		resultFile.write(result)
+		resultFile.close()
 
 #end for loop
 
