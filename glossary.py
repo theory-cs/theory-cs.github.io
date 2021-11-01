@@ -2,16 +2,8 @@ from string import Template
 import json
 from userFunctions import *
 import collections
-from string import Template
-import os
-from os import listdir
-from os.path import isfile, join
-import linecache
-
-
 
 outcomeData = json.loads(open("outcomes.json").read())
-num = "1234567890"
 
 outcome = {}
 count = 1
@@ -23,20 +15,6 @@ for big in outcomeData:
         # print(count)
         outcome[small + str(count)] = outcomeData[big]['Children'][med]['file']
         count += 1
-
-files = "notes/activity-snippets"
-arr = []
-newarr = []
-for entry in os.scandir(files):
-    if entry.is_file():
-        file = entry.name[:-4]
-        str = file.replace("-", " ")
-        # print(str)
-        if("definition" in str):
-            outcome[str] = (file + ".html")
-            # print(str)
-
-
 
 outcome = collections.OrderedDict(sorted(outcome.items()))
 # print(outcome)
@@ -63,13 +41,9 @@ for j in alphabet:
     # print(j)
     for key in outcome:
         # print(key)
-        # print(key[len(key) -1])
-
         if(key[0] == j):
-            if(key[len(key) -1] in num):
-                content += """<p><a href=\"""" + outcome[key]  + """?box=""" + key[len(key) -1] + """\">""" + key[:-1] +"""</a></p>\n"""
-            else:
-                content += """<p><a href=\"""" + outcome[key]  + """\">""" + key +"""</a></p>\n"""
+            content += """<p><a href=\"""" + outcome[key]  + """?box=""" + key[len(key) -1] + """\">""" + key[:-1] +"""</a></p>\n"""
+            # print(content)
     content += "\n"
 
 # print(content)

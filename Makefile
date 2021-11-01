@@ -138,12 +138,11 @@ dynamic-pages:
 	python3 sitemap.py
 
 #Building html versions of all .tex files in notes/lessons directory 
-tex-html : lessons-tex-html app-tex-html topic-tex-html assignments-tex-html activity-snippets-tex-html
+tex-html : lessons-tex-html app-tex-html topic-tex-html assignments-tex-html
 lessons-tex-html : $(patsubst notes/lessons/%.tex,generated/output/lessons/%.html,$(wildcard notes/lessons/*.tex))
 app-tex-html : $(patsubst generated/notes/app/%.tex,generated/output/app/%.html,$(wildcard generated/notes/app/*.tex))
 topic-tex-html : $(patsubst generated/notes/topic/%.tex,generated/output/topic/%.html,$(wildcard generated/notes/topic/*.tex))
 assignments-tex-html : $(patsubst notes/assignments/%.tex,generated/output/assignments/%.html,$(wildcard notes/assignments/*.tex))
-activity-snippets-tex-html: $(patsubst notes/activity-snippets/%.tex,generated/output/activity-snippets/%.html,$(wildcard notes/activity-snippets/*.tex))
 
 generated/output/lessons/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/lessons/$(@F)
@@ -156,9 +155,6 @@ generated/output/topic/%.html: generated/notes/topic/%.tex resources/lesson-head
 
 generated/output/assignments/%.html: notes/assignments/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd notes/assignments; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/assignments/$(@F)
-
-generated/output/activity-snippets/%.html: notes/activity-snippets/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
-	cd notes/activity-snippets; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/activity-snippets/$(@F)
 
 # Removing all auxiliary typesetting files from output directory and its subdirectories
 clean-tex: 
