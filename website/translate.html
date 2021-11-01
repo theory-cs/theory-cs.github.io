@@ -162,18 +162,18 @@
       		href= ../output/topic/graph-representations-of-relations.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="graph representations of relations" src="web/viewer.html?file=../../output/topic/graph-representations-of-relations.pdf" 
       		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div><script>
 		
-		var coll = document.getElementsByClassName("collapsible");
-	  	var i;
+			var coll = document.getElementsByClassName("collapsible");
+	  		var i;
 	
-	  var boxValue;
-	  url = window.location.href;
-	  var qInd;
-	  var valuesAdded = 0; 
+	  		var boxValue;
+	  		url = window.location.href;
+	  		var qInd;
+	  		var valuesAdded = 0; 
 
-	 for( i=0; i<url.length; i++){
-	   if(url[i]==="="){
-			valuesAdded++;
-			i++; //go to value next to = 
+	 		for( i=0; i<url.length; i++){
+	   			if(url[i]==="="){
+					valuesAdded++;
+					i++; //go to value next to = 
 				//boxNumber must always be before expanded, 
 				// and both have one character values (0 or 1)
 		
@@ -181,36 +181,36 @@
 				boxValue = url[i]; 
 			}
 				
-		}
-	}
+			}
+			}
 	
-	//debug
-	console.log("boxValue: "+boxValue);
+			//debug
+			console.log("boxValue: "+boxValue);
 	
-	//open certain box based on query string values 
-	selectBox = "#box"+boxValue;
-	let sBox = document.querySelector(selectBox);
-	selectSideBtn= "#sideBtn"+boxValue;
-	let sSideBtn = document.querySelector(selectSideBtn);
+			//open certain box based on query string values 
+			selectBox = "#box"+boxValue;
+			let sBox = document.querySelector(selectBox);
+			selectSideBtn= "#sideBtn"+boxValue;
+			let sSideBtn = document.querySelector(selectSideBtn);
 
-	coll[boxValue-1].style.background= "white";
-	sBox.style.background="white";
-	var content = coll[boxValue-1].nextElementSibling;
-	content.style.display = "block";
-	sSideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+			coll[boxValue-1].style.background= "white";
+			sBox.style.background="white";
+			var content = coll[boxValue-1].nextElementSibling;
+			content.style.display = "block";
+			sSideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
 	
-	for (i = 0; i < coll.length; i++) {
-		sideBtnString="#sideBtn";
-		sideBtnString+=(i+1);
-		boxString="#box";
-		boxString +=(i+1);
-		let sideBtn = document.querySelector(sideBtnString);
-		let box = document.querySelector(boxString);
-		let h2 = document.querySelector("h2");
+			for (i = 0; i < coll.length; i++) {
+			sideBtnString="#sideBtn";
+			sideBtnString+=(i+1);
+			boxString="#box";
+			boxString +=(i+1);
+			let sideBtn = document.querySelector(sideBtnString);
+			let box = document.querySelector(boxString);
+			let h2 = document.querySelector("h2");
 
 		
 
-  		coll[i].addEventListener("click", function() {
+  			coll[i].addEventListener("click", function() {
     		this.classList.toggle("active");
     		var content = this.nextElementSibling;
     	
@@ -228,13 +228,13 @@
 			else {
 			sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
 			}
-		});
-	}
+			});
+			}
 
-	function expandCollapseAll(bool, multiple) {
-		var coll = document.getElementsByClassName("collapsible");
-		var i;
-		for (i = 0; i < coll.length; i++) {
+			function expandCollapseAll(bool, multiple) {
+			var coll = document.getElementsByClassName("collapsible");
+			var i;
+			for (i = 0; i < coll.length; i++) {
 			sideBtnString="#sideBtn";
 			sideBtnString+=(i+1);
 			boxString="#box";
@@ -259,13 +259,13 @@
 				coll[i].style.background= "lightgray";
 				box.style.background="lightgray";
 			}
-		}
+				}
 
-		return bool;
-	}
+				return bool;
+			}
 
 
-  	</script>
+  			</script>
             </div>
             
         </div>
