@@ -31,7 +31,7 @@ for entry in os.scandir(files):
         str = file.replace("-", " ")
         # print(str)
         if("definition" in str):
-            outcome[str] = (file + ".html")
+            outcome[str] = (file)
 
 outcome = collections.OrderedDict(sorted(outcome.items()))
 # print(outcome)
@@ -62,7 +62,7 @@ for j in alphabet:
             if(key[len(key) -1] in num):
                 content += """<p><a href=\"""" + outcome[key]  + """?box=""" + key[len(key) -1] + """\">""" + key[:-1] +"""</a></p>\n"""
             else:
-                content += """<p><a href=\"""" + outcome[key]  + """\">""" + key +"""</a></p>\n"""
+                content += """<p><a href=\"../notes/activity-snippets/""" + outcome[key]  + """.tex\" download>""" + key +"""</a></p>\n"""
     content += "\n"
 
 # print(content)
