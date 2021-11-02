@@ -9,8 +9,11 @@ from os.path import isfile, join
 import linecache
 
 outcomeData = json.loads(open("outcomes.json").read())
+applicationData = json.loads(open("applications.json").read())
 num = "1234567890"
 
+
+# Outcome
 outcome = {}
 count = 1
 for big in outcomeData:
@@ -22,6 +25,14 @@ for big in outcomeData:
         outcome[small + str(count)] = outcomeData[big]['Children'][med]['file']
         count += 1
 
+# Application
+for key in applicationData:
+    print(key)
+    html = key.replace(" ", "-").lower()+".html"
+    print(html)
+    outcome[key.lower()] = html
+
+# Definition in activity-snippets --> go to the earliest week that the activity-snippet is used and the specific part
 files = "notes/activity-snippets"
 arr = []
 newarr = []
@@ -37,6 +48,8 @@ outcome = collections.OrderedDict(sorted(outcome.items()))
 # print(outcome)
 
 
+
+# Alphabetical view on top
 content = ""
 content += "<h1> "
 alphabet = []
@@ -52,7 +65,7 @@ content = content[:-2]
 content += " </h1>\n"
 
 
-
+# Each alphabet content
 for j in alphabet:
     content += """<h1 id=\"""" + j + """\">""" + j + "</h1>\n"
     # print(j)
@@ -62,7 +75,8 @@ for j in alphabet:
             if(key[len(key) -1] in num):
                 content += """<p><a href=\"""" + outcome[key]  + """?box=""" + key[len(key) -1] + """\">""" + key[:-1] +"""</a></p>\n"""
             else:
-                content += """<p><a href=\"../notes/activity-snippets/""" + outcome[key]  + """.tex\" download>""" + key +"""</a></p>\n"""
+                content += """<p><a href=\"""" + outcome[key]  + """\">""" + key +"""</a></p>\n"""
+                # content += """<p><a href=\"../notes/activity-snippets/""" + outcome[key]  + """\">""" + key +"""</a></p>\n"""
     content += "\n"
 
 # print(content)
