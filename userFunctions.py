@@ -511,7 +511,7 @@ def create_assignment():
 
     	#Assignment Information
 		templateString += """ <p> """+ element['Information']+"""</p>"""
-		if(element["due"]):
+		if("due" in element):
 			templateString += """ <p> Due: """ + element["due"] + """</p>"""
 
     	#.pdf Download button
