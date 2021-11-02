@@ -104,7 +104,8 @@
             {
                 "name": "Discussion slides",
                 "embedCode": "<p><a href=\"../files/DiscussionWeek3.pptx\">Download pptx slides</a></p>"
-	    },{
+	        },
+            {
 	    	"name": "Discussion slides with Annotation",
 	    	"embedCode": "<p><a href=\"../files/DiscussionWeek3annotated.pptx\">Download pptx slides</a></p>"
 	    }
@@ -196,9 +197,15 @@
             {
             "name": "Notes",
             "addExtensions": true,
-            "file": "Week6"
+            "file": "Week6",
+            "annotatedFile": "Week6-annotated.pdf"
             }],
-        "embed": [],
+        "embed": [
+            {
+                "name": "Lecture and Discussion podcast",
+                "embedCode": "<p>See <a href=\"https://youtu.be/6AMKAaAK6sI\" target=\"_blank\">Week 6 Monday video on YouTube</a>. See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a> for Week 6 Wednesday and Friday.</p>"
+            }
+        ],
         "Due Dates": [
             {
                 "name": "hw4-propositional-and-predicate-logic-CSE20F21"
