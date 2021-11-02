@@ -113,22 +113,17 @@
 		
 
 	  <div class="calendar-margin">
-
+          <!--Search Box-->
+          <!--Credit : https://www.aspsnippets.com/questions/211834/How-to-search-text-on-web-page-similar-to-CTRL-F-using-jQuery/-->
           <div class="searchContend_h">
         <div class="ui-grid-c">
-            <div class="ui-block-a">
-                <input name="text-12" id="text-12" value="" type="text" class="textSearchvalue_h" />
-            </div>
-            <div class="ui-block-b">
+                <input name="text-12" id="text-12" value="" type="text" class="textSearchvalue_h"
+                 />
                 <a href="#" class="searchButtonClickText_h searchButton">Search</a>
-            </div>
-            <div class="ui-block-c">
-                <a href="#" class="next_h">Next</a>
-            </div>
-            <div class="ui-block-d">
-                <a href="#" class="previous_h">Previous</a>
-            </div>
-            <div id="realTimeContents">
+                <a href="#" class="next_h nextButton" aria-label="previous result"><i class='bx bx-chevron-left'></i></a>
+                <a href="#" class="previous_h nextButton" aria-label="next result"><i class='bx bx-chevron-right'></i></a>
+                
+                
                 <h1 style="line-height: 87px;"> Glossary</h1>
 
                 <h1> <a href="glossary.html#a">a </a> | <a href="glossary.html#b">b </a> | <a href="glossary.html#c">c </a> | <a href="glossary.html#d">d </a> | <a href="glossary.html#e">e </a> | <a href="glossary.html#f">f </a> | <a href="glossary.html#g">g </a> | <a href="glossary.html#i">i </a> | <a href="glossary.html#l">l </a> | <a href="glossary.html#m">m </a> | <a href="glossary.html#p">p </a> | <a href="glossary.html#q">q </a> | <a href="glossary.html#r">r </a> | <a href="glossary.html#s">s </a> | <a href="glossary.html#t">t </a> | <a href="glossary.html#u">u </a> | <a href="glossary.html#v">v </a> | <a href="glossary.html#w">w </a>  </h1>
@@ -240,8 +235,10 @@
 <p><a href="notation.html?box=1">write set definition</a></p>
 
 
-            </div>
+                
         </div>
+    </div>
+
     </div>
 		
 		
@@ -251,7 +248,7 @@
     <script type="text/javascript">
         function searchAndHighlight(searchTerm, selector) {
             if (searchTerm) {               
-                var selector = selector || "#realTimeContents"; //use body as selector if none provided
+                var selector = selector;//use body as selector if none provided
                 var searchTermRegEx = new RegExp(searchTerm, "ig");
                 var matches = $(selector).text().match(searchTermRegEx);
                 if (matches != null && matches.length > 0) {

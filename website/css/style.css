@@ -558,3 +558,15 @@ margin: 0 -4px;
     font-size: 100%; 
 }
 
+.nextButton{
+    background: #528ce2;
+    color:white;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+    padding: 0.2% 0.8%;
+    border: 2px solid #528ce2;
+    font-weight: 700;
+    font-size: 100%; 
+}
