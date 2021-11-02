@@ -511,6 +511,8 @@ def create_assignment():
 
     	#Assignment Information
 		templateString += """ <p> """+ element['Information']+"""</p>"""
+		if(element["due"]):
+			templateString += """ <p> Due: """ + element["due"] + """</p>"""
 
     	#.pdf Download button
 		templateString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
