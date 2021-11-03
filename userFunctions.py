@@ -1,6 +1,6 @@
 from string import Template
 import json
-from createZip import *
+from create_zip import *
 
 websiteData = json.loads(open("website-settings.json").read())
 
@@ -505,9 +505,11 @@ def create_assignment():
 		#format assignment name, as namme is just file name
 		assignmentName= element['name'].replace("-", " ").title().replace("Cse20F21","")
 
-		templateString += """<div class="card" id=\""""+cardID+"""\"> <div class="card-header"> <a class="card-link" data-toggle="collapse" 
-		href="#collapse"""+ cardID+"\"> "+assignmentName+"""</a> </div> <div id="collapse""" + cardID+ """""
-      	class="collapse" data-parent="#accordion"><div class="card-body">"""
+		templateString += """<div class="box outcome"  id="box"""+str(collapseVar)+""""><button type="button" class="collapsible"
+			"> \n"""
+		templateString += """<h2 style= "line-height:20px;"> <i id="sideBtn"""+ str(collapseVar)+ """" class='bx bx-caret-right'></i> 
+			""" + assignmentName + """</h2> </button> <div class="boxContent" style="display: none;"> <hr>"""
+            
 
     	#Assignment Information
 		templateString += """ <p> """+ element['Information']+"""</p>"""
@@ -534,25 +536,151 @@ def create_assignment():
 		#Solutions on/off buttons 
 		if('solutionsFile' in element):
         	
-			
-			templateString += """ <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions On</a>
-			<a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions Off</a> """
-
-       		#solutions on
-			templateString += """ <script> document.getElementById("solutionsOnButton"""+str(collapseVar)+ """/").onclick = function() {annotations(1,
-			\""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};"""
-            
-        	#solutions off
-			templateString +="""document.getElementById("solutionsOffButton"""+str(collapseVar)+ """/").onclick = function() {annotations(0,
-			\""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};
-			</script>"""
+			templateString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspSolutions:&nbsp</div><label class="toggle
+			"""+str(collapseVar)+"""">
+                <span class="onoff"""+str(collapseVar)+"""\">OFF</span>
+            	<input type="checkbox" />
+                <span class="slider round" id="annotationsOnButton"></span>
+                </label> <br>"""
+				
+			templateString += """<script> document.getElementById("annotationsOnButton").onclick = function() {annotations(\""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")}; </script>"""
+        	
             
     	#pdf.js embed 
 		templateString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
+		#script for solutions 
+		templateString += """<script>
+			 toggle = document.querySelector('.toggle input')
 
+			toggle.addEventListener('click', () => {
+    		 onOff = toggle.parentNode.querySelector('.onoff"""+str(collapseVar)+"""')
+    		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
+			})
+			
+			function annotations(notes, annotated,id) {
+				var doc;
+				var drive;
+				 toggle = document.querySelector('.toggle input')
+				//0 value means annotations are off 
+				if (toggle.checked) {
+					doc = "web/viewer.html?file=../"+notes
+				} 
+
+				//1 value turns annotations on
+				else {
+					doc = "web/viewer.html?file=../" +annotated
+				}
+				
+                document.getElementById(id).src = doc;
+			}
+		</script>"""
     	#closing div for collapsible menu item 
-		templateString += """</div></div></div>"""
+		templateString += """</div></div>"""
+            
+      	
+
+	templateString += """<script>
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+	
+	var boxNumber;
+	var expanded; 
+	url = window.location.href;
+
+	queryString();
+
+	function queryString(box){
+		var qInd;
+		var boxValue;
+		var expandedValue;
+		var valuesAdded = 0; 
+
+		for( i=0; i<url.length; i++){
+			if(url[i]==="="){
+				valuesAdded++;
+				i++; //go to value next to = 
+
+				//boxNumber must always be before expanded, 
+				// and both have one character values (0 or 1)
+				if(valuesAdded == 1){
+					boxValue = url[i]; 
+				}
+				else {
+					expandedValue = url[i];
+				}
+				
+				console.log("value: "+url[i]);
+			}
+		}
+	}
+	
+	for (i = 0; i < coll.length; i++) {
+		sideBtnString="#sideBtn";
+		sideBtnString+=(i+1);
+		boxString="#box";
+		boxString +=(i+1);
+		console.log(boxString);
+		let sideBtn = document.querySelector(sideBtnString);
+		let box = document.querySelector(boxString);
+		let h2 = document.querySelector("h2");
+
+  		coll[i].addEventListener("click", function() {
+    		this.classList.toggle("active");
+    		var content = this.nextElementSibling;
+    	
+			if (content.style.display === "block") {
+      			content.style.display = "none";
+				h2.style.lineHeight="20px";
+    		} 
+			else {
+      			content.style.display = "block";
+				h2.style.lineHeight="20px";
+    		}
+			if(this.classList.contains("active")){
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+			}
+			else {
+			sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+			}
+		});
+	}
+
+	function expandCollapseAll(bool, multiple) {
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+		for (i = 0; i < coll.length; i++) {
+			sideBtnString="#sideBtn";
+			sideBtnString+=(i+1);
+			boxString="#box";
+			boxString +=(i+1);
+			let sideBtn = document.querySelector(sideBtnString);
+			let box = document.querySelector(boxString);
+
+			//coll[i].classList.toggle("active");
+    		var content = coll[i].nextElementSibling;
+
+			if(bool==0){
+				//expand all 
+				content.style.display = "block";
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+				coll[i].style.background= "white";
+				box.style.background="white";
+			}
+			else{
+				 //collapse all
+				content.style.display = "none";
+				sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+				coll[i].style.background= "lightgray";
+				box.style.background="lightgray";
+			}
+		}
+
+		return bool;
+	}
+
+
+	</script>"""
 		
 	return templateString
 

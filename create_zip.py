@@ -6,6 +6,7 @@ from os.path import basename
 #function which creates zip file with all images and tex file 
 def zip_file(filename, view): 
     path = ""; newPath=  ""; texFile=""; zipObj= ""; newTexFile = "";
+    #pass in prefix instead of view 
     if(view == "chronological"):
         path= "generated/notes/lessons-flat/"+filename+".tex"
         newPath= "generated/notes/lessons-flat/new-"+filename+".tex"
@@ -14,6 +15,7 @@ def zip_file(filename, view):
         except IOError as e:
             print(e)
             return
+        #newPath opened 
         newTexFile = open(newPath, "w")
     elif(view == "outcome"):
         path= "generated/notes/topic-flat/"+filename+".tex"
@@ -58,6 +60,8 @@ def zip_file(filename, view):
     
     newTexFile.write(newTexString)
 
+
+    #TODO: combine these two conditionals/loops
     for line in texString:
         if ("\includegraphics" in line):
             replaced = line.replace("../","").replace("resources/images/","")
@@ -67,6 +71,8 @@ def zip_file(filename, view):
         else : 
             newTexString += line
         
+        #include graphics in regex 
+        #TODO: handles edge case where ... is on the same line as image
         if ("\includegraphics" in line):
             imageFile = re.findall(r'\{.*?\}', line)
             for element in imageFile :
@@ -88,7 +94,7 @@ def zip_file(filename, view):
         for element in imageList:
             zipObj.write(element, basename(element)) 
         
-        
+        #TODO: condense through parameters
         if(view == "chronological"):
             return "../notes/lessons-flat/"+filename+".zip"
         elif(view == "outcome"):

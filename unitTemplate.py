@@ -2,7 +2,7 @@ from os import remove
 from string import Template
 import json
 from userFunctions import *
-from createZip import *
+from create_zip import *
 
 # returns unit-settings JSON file as a dictionary
 unitData = json.loads(open("unit-settings.json").read())

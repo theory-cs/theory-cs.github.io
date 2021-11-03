@@ -1,7 +1,7 @@
 from string import Template
 import json
 from userFunctions import *
-from createZip import *
+from create_zip import *
 
 # Opening JSON file
 outcomeData = json.loads(open("outcomes.json").read())

@@ -1,7 +1,7 @@
 from string import Template
 import json
 from userFunctions import *
-from createZip import *
+from create_zip import *
   
 # returns unit-settings JSON file as a dictionary
 appData = json.loads(open("applications.json").read())
@@ -19,7 +19,9 @@ for (k,v) in appData.items():
     #where will tex file for applications be shown? 
     print("file: "+file)
     tex= zip_file(file, "application")
-    print(tex)
+    #print(tex)
+
+    #TODO: comment when this condition is happening 
     if(tex == None):
         tex=""
             
