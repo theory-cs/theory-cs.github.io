@@ -27,9 +27,9 @@ for big in outcomeData:
 
 # Application
 for key in applicationData:
-    print(key)
+    # print(key)
     html = key.replace(" ", "-").lower()+".html"
-    print(html)
+    # print(html)
     outcome[key.lower() + "#"] = html
 
 # Definition in activity-snippets --> go to the earliest week that the activity-snippet is used and the specific part
@@ -44,8 +44,9 @@ for entry in os.scandir(files):
         if("definition" in strName):
             outcome[strName] = (file)
 
+
 outcome = collections.OrderedDict(sorted(outcome.items()))
-# print(outcome)
+print(outcome)
 
 
 
@@ -70,25 +71,24 @@ files = "notes/lessons"
 
 # key is week and value is activity snippets
 contents = {}
-week = 1
 
 for entry in os.scandir(files):
     file = open(entry, 'r').readlines()
     if (len(file) > 0) and ("Week" in entry.name):
+        week = entry.name.replace(".tex", "")
         for line in file:
             if ("\input" in line) and ("definition" in line) and ("lesson-head" not in line):
                 cut = "{../activity-snippets/"
                 line = line[line.index(cut) + len(cut):].replace("}", "").replace(".tex","").replace("\n", "").replace("-", " ")
-                print(line)
+                # print(line)
                 # TO DO : REMOVE WHITESPACE AND CLEAN TEX, ADD TO DICTIONARY
                 if(line not in contents):
                     contents[line] = []
                 contents[line].append(week)
 
                 # print(line[line.index(cut) + len(cut):])
-        week += 1
 
-
+print(contents)
 # Each alphabet content
 for j in alphabet:
     content += """<h1 id=\"""" + j + """\">""" + j + "</h1>\n"
@@ -105,8 +105,15 @@ for j in alphabet:
             else:
                 if(key in contents):
                     whatWeek = str(contents[key][0])
-                    print(whatWeek)
-                    content += """<p>""" + key + """   {<a href=\"../output/lessons/Week""" + whatWeek  + """.html\">Definition</a>}</p>\n"""
+                    # print(key + " in " + whatWeek + "\n")
+                    content += """<p>""" + key + """   {<a href=\"../output/lessons/""" + whatWeek  + """.html\">Definition</a>}"""
+                    content += """{Week(s) included: """
+                    for weeks in contents[key]:
+                        numonly = weeks[-1:]
+                        print(numonly)
+                        content += """<a href=\"unit""" + numonly  + """.html#Notes\">""" + weeks + """&nbsp</a>"""
+                        print(weeks)
+                    content += """}</p>"""
     content += "\n"
 
 # print(content)
