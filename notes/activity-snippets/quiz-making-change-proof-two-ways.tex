@@ -1,9 +1,19 @@
 %! app: TODOapp
-%! outcome: structural induction proofs, induction flavors, mathematical induction proofs
+%! outcome: TODOoutcome
 
-\setlength{\columnseprule}{0.4pt}
-\begin{multicols}{2}
-{\bf  Proof of $\star$ by mathematical induction} ($b=8$)
+In this question, we'll consider two possible 
+proofs of the statement
+\[
+    \forall n  \in  \mathbb{Z}^{\geq 8}  \exists x \in \mathbb{N}  \exists y \in \mathbb{N}  (  5x+3y =  n)
+\]
+
+{\it Note}: one way of thinking about this statement is that 
+if we had postage stamps worth $5$ cents and $3$ cents, 
+we could use some (nonnegative) number of them to 
+pay any amount of postage above $8$ cents.
+
+\begin{enumerate}
+\item First approach: {\bf Proof of $\star$ by mathematical induction} ($b=8$)
 
 {\bf Basis step}:  WTS property is true about  $8$
 \vspace{50pt}
@@ -21,7 +31,8 @@ are used for $n$.
 {\it Case 1}:  Assume $x \geq  1$.
 Define $x' = x-1$ and $y'=y+2$ (both in  $\mathbb{N}$ by case assumption).
 
-\vspace{-15pt}
+
+
 
 Calculating:
 \begin{align*}
@@ -42,12 +53,7 @@ Calculating:
 &\overset{\text{IH and case}}{=} n+10-9 =  n+1
 \end{align*}
 
-\vspace{1in}
-
-\columnbreak
-
-
-{\bf Proof of $\star$ by strong induction} ($b=8$ and $j=2$)
+\item  Second approach: {\bf Proof of $\star$ by strong induction} ($b=8$ and $j=2$)
 
 {\bf Basis step}:  WTS property is true about  $8, 9, 10$
 \vspace{50pt}
@@ -58,8 +64,4 @@ WTS
 that there are nonnegative integers $x', y'$ such
 that  $n+1 = 5x' +  3y'$.
 
-\vspace{200pt}
-\end{multicols}
-
-
-\vfill
+\end{enumerate}
