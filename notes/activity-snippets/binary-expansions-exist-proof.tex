@@ -1,23 +1,46 @@
 %! app: TODOapp
-%! outcome: representing numbers, induction flavors
+%! outcome: TODOoutcome
 
-{\bf  Representing positive integers}
+{\bf Theorem}: Every positive integer is a sum of (one or more) distinct powers of $2$.
+{\it binary expansions exist!}
+
+Recall the definition for binary expansion:
+
+\input{../activity-snippets/base-expansion-binary.tex}
 
 
-{\bf Theorem}: Every positive integer is a sum of (one or more) distinct powers of $2$. {\it  
-binary expansions exist!}
+The idea in the ``Least significant first" algorithm 
+for computing binary expansions is that the binary
+expansion of $n \textbf{ div } 2$ forms part of the binary expansion of $n$. We can use this 
+idea in a proof by strong induction that binary expansions exist for all 
+positive integers $n$.
 
-
+\newpage
 
 {\bf Proof by strong induction}, with $b=1$ and $j=0$.
 
 
 {\bf Basis step}:  WTS property is true about  $1$.
 
+\phantom{Choose $a_0 = 1$, then $(a_0)_2 = 1 \cdot 2^0 = 1$.}
 
 {\bf Recursive step}: Consider an arbitrary integer $n \geq 1$.
 Assume (as the IH) that the property is true about  each of $1, \ldots, n$.  
-WTS that the property is true about  $n+1$.
+
+WTS that the property is true about $n+1$.
+
+{\it Idea}: We will apply the IH to $(n+1) \textbf{ div } 2$.
+
+{\it Why is this ok?}
+
+\phantom{Notice that $(n+1) \textbf{ div } 2$ is greater than or equal to 
+$1$ and less than or equal to $n$ because $n \geq 1$.}
 
 
-\vfill
+{\it Why is this helpful?}
+
+The IH gives $a_{k-1}, \ldots, a_0$ such that each $a_i$ is $0$ or $1$, $a_{k-1} = 1$, 
+and $\sum_{i=0}^{k-1} a_i = (n+1) \textbf{ div } 2$. Consider the sequence of 
+coefficients
+$c_{i} = a_{i-1}$ for $i$ between $1$ and $k$, and $c_0 = (n+1) \textbf{ mod } 2$.
+Then $\sum_{i=0}^k c_i = 2 \sum_{i=0}^{k-1} a_i + c_0 = n+1$.
