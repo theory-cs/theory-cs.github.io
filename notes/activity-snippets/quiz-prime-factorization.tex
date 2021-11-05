@@ -1,40 +1,15 @@
 %! app: TODOapp
 %! outcome:  induction flavors, mathematical induction proofs, strong induction proofs
 
-Recall that an integer $p$ greater than $1$ is called {\bf prime} if the only positive factors of 
-$p$ are $1$ and $p$. Fill in the following blanks in the proof of the {\bf Theorem}: 
-Every positive integer {\it greater than 1} is a product of (one or more) primes.
 
-{\bf Proof}: We proceed by \underline{~~~BLANK for part (a)~~~}.
-\begin{itemize}
-\item[] Basis step: We want to show that the property is about $2$. Since $2$ is itself prime,
-it is already written as a product of (one) prime.
-\item[] Recursive step: Consider an arbitrary integer $n \geq 2$.  Assume, as the induction hypothesis,
-that \underline{~~~BLANK for part (c)~~~}. We want to show that $n+1$ can be written 
-as a product of primes.  There are two cases to consider: $n+1$ is itself prime or it is composite.
-In the first case, we assume $n+1$ is prime and then immediately it is written as a product
-of (one) prime so we are done.  In the second case, we assume that $n+1$ is composite
-so there are integers $x$ and $y$ where $n+1 = xy$ and each of them is between $2$ and $n$
-(inclusive).  Therefore, the induction hypothesis applies to each of $x$ and $y$ so each 
-of these factors of $n+1$ can be written as a product of primes.  Multiplying these products together, 
-we get a product of primes that gives $n+1$, as required.  Since both cases give the necessary
-conclusion, the proof by cases for the recursive step is complete.
-\end{itemize}
+Recall that a prime factorization is a product of primes (potentially with some of the primes
+occurring more than once).
+Select all and only the correct prime factorizations of positive integers.
+
 \begin{enumerate}
-\item  The proof technique used here is:
-    \begin{enumerate}
-        \item Structural induction
-        \item Mathematical induction
-        \item Strong induction
-    \end{enumerate}
-\item How many basis steps are used in this proof?
-\newpage
-\item What is the induction hypothesis?
-\begin{enumerate}
-\item That $n$ can be written as a product of (one or more) primes.
-\item That each integer between $0$ and $n$ (inclusive) can be written as a product of (one or more) primes.
-\item That each integer between $1$ and $n+1$ (inclusive) can be written as a product of (one or more) primes.
-\item That each integer between $2$ and $n$ (inclusive) can be written as a product of (one or more) primes.
-\item That each integer between $3$ and $n+1$ (inclusive) can be written as a product of (one or more) primes.
-\end{enumerate}
+    \item $2\cdot 2 \cdot 2 \cdot 2$
+    \item $3$
+    \item $3 \cdot 4 \cdot 5$
+    \item $17 \cdot 21$
+    \item $2 \cdot 11$
 \end{enumerate}
