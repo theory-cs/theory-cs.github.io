@@ -1,0 +1,13 @@
+%! app: TODOapp
+%! outcome: divisibility and primes, important sets
+
+{\bf Lemma}: For any integers $p, q$ (not both zero), 
+$gcd \left(~ \left(~\frac{p}{gcd(~(p,q)~)}, \frac{q}{gcd(~(p,q)~)} ~\right) ~\right) = 1$
+
+{\it In other words, can reduce to relatively prime integers by dividing by gcd.}
+
+{\bf Proof}: Consider arbitrary integers $p, q$ and assume $p \neq 0$. Want to show
+\[
+    \forall x \in \mathbb{Z}^{\neq 0} \left( ~\left( x | \frac{p}{gcd(~(p,q)} \land x |\frac{q}{gcd(~(p,q)} \right) \to 
+    x \leq 1 \right)
+\]
