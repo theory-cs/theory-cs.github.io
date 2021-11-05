@@ -208,7 +208,11 @@
             {
                 "name": "Lecture and Discussion podcast",
                 "embedCode": "<p>See <a href=\"https://youtu.be/6AMKAaAK6sI\" target=\"_blank\">Week 6 Monday video on YouTube</a>. See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a> for Week 6 Wednesday and Friday.</p>"
-            }
+            },
+	    {
+		"name": "Discussion slides",
+		"embedCode": "<p><a href=\"../files/DiscussionWeek6.pptx\">Download pptx slides</a></p>"
+	    }
         ],
         "Due Dates": [
             {
