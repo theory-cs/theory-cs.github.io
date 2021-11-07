@@ -8,22 +8,23 @@ proofs of the statement
 \]
 
 \begin{enumerate}
-\item First approach, using mathematical induction ($b=8$)
+\item First approach, using mathematical induction ($b=8$).
 
-{\bf Basis step}:  WTS property is true about  $8$
+{\bf Basis step}:  WTS property is true about $8$.
 Consider the witnesses $x = 1$, $y=1$. These 
 are nonnegative integers and $5 \cdot 1 + 3 \cdot 1 = 8$, as
 required.
 
 {\bf Recursive step}: Consider an  arbitrary  $n \geq 8$.
-Assume (as the  IH) that  there are nonnegative integers
+Assume (as the induction hypothesis, IH) that there are nonnegative integers
 $x, y$ such that $n =  5x +  3y$.  WTS
 that there are nonnegative integers $x', y'$ such
 that  $n+1 = 5x' +  3y'$.  We consider two cases, 
-depending on  whether  any  $5$ cent coins
+depending on  whether  any  $5$ cent stamps
 are used for $n$.
 
-{\it Case 1}:  Assume $x \geq  1$.
+{\it Case 1}:  Assume $x \geq  1$ (we assume that at least one
+$5$ cent stamp is used for $n$).
 Define $x' = x-1$ and $y'=y+2$ (both in  $\mathbb{N}$ by case assumption).
 
 
@@ -44,6 +45,9 @@ Calculating:
 &\overset{\text{rearranging}} = 3y +10 -9 \\
 &\overset{\text{IH and case}}{=} n+10-9 =  n+1
 \end{align*}
+
+Since the goal has been proved from each case, the proof by cases is complete and
+we have proved the recursive step. $\square$\\
 
 
 Why was the recursive step split into two cases?
@@ -85,15 +89,14 @@ Choosing \underline{Blank 2} works because
     5x' + 3y' = 5x + 3y + 3 = (n+1) - 3 + 3 = n+1.
 \]
 
-
-\begin{enumerate}
-    \item Choose a true and useful statement to fill in Blank 1.
+Choose a true and useful statement to fill in Blank 1.
     \begin{enumerate}
         \item $n \geq 10$ and hence $(n+1) - 3 \geq 8$
         \item $n \geq 8$ and hence $(n+1) \geq 9$
         \item $n \geq 8$ and hence $(n+1) \geq 9$
     \end{enumerate}
-    \item Choose the appropriate statement to fill in Blank 2.
+
+Choose the appropriate statement to fill in Blank 2.
     \begin{enumerate}
         \item $x' = x, y' = y$
         \item $x' = x+1, y' = y+1$
@@ -103,5 +106,4 @@ Choosing \underline{Blank 2} works because
         \item $x' = x-1, y' = y$
         \item $x' = x, y' = y-1$
     \end{enumerate}
-\end{enumerate}
 \end{enumerate}

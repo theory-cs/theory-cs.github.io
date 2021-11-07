@@ -1,0 +1,57 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+{\bf Goal}:  The square root of $2$ is not a rational number.  In other words: $\neg \exists x \in \mathbb{Q} ( x^2 -  2 = 0)$
+
+{\bf Attempted proof}: The definition of the set of rational numbers is the collection of fractions $p/q$ where $p$ is an integer and $q$ is a nonzero integer. Looking for a {\bf witness} $p$ and $q$, we can write the square root of $2$ as the fraction 
+$\sqrt{2 }/1$, where $1$ is a nonzero integer. Since the numerator is not in the domain, this witness is not allowed, and we have shown that the square root of $2$ is not a fraction of integers (with nonzero denominator). Thus, the square root of $2$ is not rational.
+
+
+{\it The problem in the above attempted proof is that} \underline{\phantom{it only considers one candidate witness
+and does not prove that no witnesses exist.}}
+
+
+{\bf Lemma 1:} For every two integers $a$ and  $b$, not both zero, with  $gcd(~(a,b)~) = 1$, it is not the case that both $a$
+is  even and $b$ is even.
+
+
+{\bf Lemma 2:} For every integer  $x$, $x$ is  even if and only if $x^2$  is even.
+
+
+{\bf Proof}: Towards a proof by contradiction, we will define a statement 
+$r$ such that $\sqrt{2} \in \mathbb{Q} \to (r \land \lnot r)$. 
+
+Assume that $\sqrt{2} \in \mathbb{Q}$. Namely, there are positive integers
+$p, q$ such that 
+\[
+    \sqrt{2} = \frac{p}{q}
+\]
+Let $a= \frac{p}{gcd( ~(p,q)~)}$, $b = \frac{q}{gcd(~(p,q)~)}$, then 
+\[
+    \sqrt{2} = \frac{a}{b} \qquad \text{and} \qquad gcd(~(a,b)~) = 1
+\]
+
+By Lemma 1, $a$ and $b$ are not both even. We define $r$ to be the 
+statement ``$a$ is even and $b$ is even'', and we have proved $\lnot r$.
+
+Squaring both sides and clearing denominator: $2b^2 = a^2$.
+
+By definition of even, since $b^2$ is an integer$, a^2$ is even.
+
+By Lemma 2, this guarantees that $a$ is even too. So, by 
+definition of even, there is some integer (call it $c$), such that $a = 2c$.
+
+Plugging into the equation:
+\[
+    2b^2 = a^2 = (2c)^2 = 4c^2
+\]
+and dividing both sides by $2$
+\[
+    b^2 = 2c^2
+\]
+and since $c^2$ is an integer, $b^2$ is even. By Lemma 2, $b$ is even too.
+Thus, $a$ is even and $b$ is even and we have proved $r$. 
+
+In other words, assuming that $\sqrt{2} \in \mathbb{Q}$ guarantees $r \land \lnot r$, 
+which is impossible, so $\sqrt{2} \notin \mathbb{Q}$. QED
+

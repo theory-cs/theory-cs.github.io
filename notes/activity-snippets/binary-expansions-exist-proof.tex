@@ -28,7 +28,7 @@ positive integers $n$.
 
 {\bf Recursive step}: Consider an arbitrary integer $n \geq 1$.
 
-Assume (as the IH) that the property is true about  each of $1, \ldots, n$.  
+Assume (as the strong induction hypothesis, IH) that the property is true about  each of $1, \ldots, n$.  
 
 WTS that the property is true about $n+1$.
 
@@ -42,7 +42,9 @@ $1$ and less than or equal to $n$ because $n \geq 1$.}
 
 {\it Why is this helpful?}
 
-By the IH, there are values $a_{k-1}, \ldots, a_0$ such that each $a_i$ is $0$ or $1$, $a_{k-1} = 1$, 
+By the IH, we can write $(n+1) \textbf{ div } 2$ as 
+a sum of powers of $2$. In other words, 
+there are values $a_{k-1}, \ldots, a_0$ such that each $a_i$ is $0$ or $1$, $a_{k-1} = 1$, 
 and
 \[
     \sum_{i=0}^{k-1} a_i 2^i = (n+1) \textbf{ div } 2   
@@ -65,3 +67,5 @@ Calculating:
     &= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &\qquad &\text{by definition of $c_0$} \\
     &= n+1 &\qquad&\text{by definition of long division}
 \end{alignat*}
+
+Thus, $n+1$ can be expressed as a sum of powers of $2$, as required.
