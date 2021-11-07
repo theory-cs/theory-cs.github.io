@@ -1,0 +1,49 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+We will consider two ways for calculating the gcd. In each 
+part of the question, you'll calculate $gcd(~(306, 120)~$).
+
+\begin{enumerate}
+\item The first approach uses some of the claims we proved in class
+to get the following algorithm:
+\input{../activity-snippets/algorithm-Euclidean.tex}
+
+Tracing this algorithm, lines 2 and 3 initialize the variables 
+\[
+    x:= 306 \qquad y:=120
+\]
+Entering the while loop, the variable $r$ is initialized to
+\[
+    r:= 66
+\]
+because $306 = 2 \cdot 120 + 66$ so $306 \textbf{ mod } 120 = 66$.
+Calculate and fill in the updated value of $r$ in each subsequent iteration
+of the {\bf while} loop, and then give the value of $gcd(~(306, 120)~$).
+
+\item The second approach uses the representation of positive integers
+greater than $1$ as products of primes. To calculate $gcd(~(a,b)~)$ we 
+find the prime factorizations of each of $a$ and $b$, and then calculate
+the number that results from multiplying together terms $p^c$ where $p$ is 
+a prime that appears in {\it both} prime factorizations of $a$ and $b$
+and $c$ is the {\it minimum} number of times $p$ appears in the two factorizations.
+
+Select the prime factorizations for $306$ and $120$ and express their 
+$gcd$ as a product of powers of primes.
+
+Possible factorizations:
+\begin{enumerate}
+        \item $306 = 2 \cdot 153$, $120 = 2 \cdot 60$
+        \item $306 = 1 \cdot 2 \cdot 3 \cdot 3 \cdot 17$, $120 = 1 \cdot 3 \cdot 5 \cdot 8$
+        \item $306 = 2 \cdot 3 \cdot 3 \cdot 17$, $120 = 2 \cdot 2 \cdot 2 \cdot 3 \cdot 5$
+\end{enumerate}
+
+Possible $gcd$ choices:
+\begin{enumerate}
+\item $2$
+\item $2 \cdot 3$
+\item $5 \cdot 17$
+\item $2^3 \cdot 3^2$
+\item $2^3 \cdot 3^2 \cdot 5 \cdot 8 \cdot 17$
+\end{enumerate}
+\end{enumerate}
