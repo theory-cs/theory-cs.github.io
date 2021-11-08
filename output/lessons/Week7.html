@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week7</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="monday-november-8">Monday November 8</h1>
+<h2 class="unnumbered" id="visualizing-induction">Visualizing induction</h2>
+<div class="center">
+<p><img src="../../resources/images/Domino_Cascade.jpeg" style="width:2in" alt="image" /></p>
+<p><span>Wikimedia commons<br />
+<a href="https://creativecommons.org/licenses/by/2.0/legalcode">https://creativecommons.org/licenses/by/2.0/legalcode</a> </span></p>
+</div>
+<p><span><strong>Theorem</strong></span>: Every positive integer is a sum of (one or more) distinct powers of <span class="math inline">\(2\)</span>. <span><em>Binary expansions exist!</em></span></p>
+<p>Recall the definition for binary expansion:</p>
+<p><span><strong>Definition</strong></span> For <span class="math inline">\(n\)</span> a positive integer, the <span><strong>binary expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{k-1} \cdots a_1 a_0)_b\]</span> where <span class="math inline">\(k\)</span> is a positive integer, <span class="math inline">\(a_0, a_1, \ldots, a_{k-1}\)</span> are each <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, <span class="math inline">\(a_{k-1} \neq  0\)</span>, and <span class="math display">\[n =  \sum_{i=0}^{k-1} a_{i} b^{i}\]</span></p>
+<p>The idea in the “Least significant first" algorithm for computing binary expansions is that the binary expansion of <span><em>half</em></span> a number becomes <span><em>part</em></span> of the binary expansion of the number of itself. We can use this idea in a proof by strong induction that binary expansions exist for all positive integers <span class="math inline">\(n\)</span>.</p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span class="math inline">\(b=1\)</span> and <span class="math inline">\(j=0\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(1\)</span>.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary integer <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Assume (as the strong induction hypothesis, IH) that the property is true about each of <span class="math inline">\(1, \ldots, n\)</span>.</p>
+<p>WTS that the property is true about <span class="math inline">\(n+1\)</span>.</p>
+<p><span><em>Idea</em></span>: We will apply the IH to <span class="math inline">\((n+1) \textbf{ div } 2\)</span>.</p>
+<p><span><em>Why is this ok?</em></span></p>
+<p><span><em>Why is this helpful?</em></span></p>
+<p>By the IH, we can write <span class="math inline">\((n+1) \textbf{ div } 2\)</span> as a sum of powers of <span class="math inline">\(2\)</span>. In other words, there are values <span class="math inline">\(a_{k-1}, \ldots, a_0\)</span> such that each <span class="math inline">\(a_i\)</span> is <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, <span class="math inline">\(a_{k-1} = 1\)</span>, and <span class="math display">\[\sum_{i=0}^{k-1} a_i 2^i = (n+1) \textbf{ div } 2\]</span> Define the collection of coefficients <span class="math display">\[c_{j} = 
+   \begin{cases}
+        a_{j-1} \qquad&amp;\text{if $1 \leq j \leq k$}\\
+        (n+1) \textbf{ mod } 2 &amp;\text{if $j = 0$}
+   \end{cases}\]</span> Calculating: <span class="math display">\[\begin{aligned}
+{2}
+    \sum_{j=0}^k c_j 2^j &amp;= c_0 + \sum_{j=1}^k c_j 2^j 
+    = c_0 + \sum_{i=0}^{k-1} c_{i+1} 2^{i+1} &amp;\qquad &amp;\text{re-indexing the summation}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} c_{i+1}2^i &amp;\qquad &amp;\text{factoring out a $2$ from each term in the sum}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} a_{i} 2^i &amp;\qquad &amp;\text{by definition of $c_{i+1}$}\\
+    &amp;= c_0 + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by IH} \\
+    &amp;= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$} \\
+    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}\end{aligned}\]</span></p>
+<p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a sum of powers of <span class="math inline">\(2\)</span>, as required.</p>
+<h3 class="unnumbered" id="representing-positive-integers-with-primes">Representing positive integers with primes</h3>
+<p><span><strong>Theorem</strong></span>: Every positive integer <span><em>greater than 1</em></span> is a product of (one or more) primes.</p>
+<p><span><strong>Before we prove, let’s try some examples</strong></span>:</p>
+<p><span class="math inline">\(20 =\)</span></p>
+<p><span class="math inline">\(100 =\)</span></p>
+<p><span class="math inline">\(5 =\)</span></p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span class="math inline">\(b=2\)</span> and <span class="math inline">\(j=0\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(2\)</span>.</p>
+<p>Since <span class="math inline">\(2\)</span> is itself prime, it is already written as a product of (one) prime.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary integer <span class="math inline">\(n \geq 2\)</span>. Assume (as the strong induction hypothesis, IH) that the property is true about each of <span class="math inline">\(2, \ldots, n\)</span>. WTS that the property is true about <span class="math inline">\(n+1\)</span>: We want to show that <span class="math inline">\(n+1\)</span> can be written as a product of primes. Notice that <span class="math inline">\(n+1\)</span> is itself prime or it is composite.</p>
+<p><span><em>Case 1</em></span>: assume <span class="math inline">\(n+1\)</span> is prime and then immediately it is written as a product of (one) prime so we are done.</p>
+<p><span><em>Case 2</em></span>: assume that <span class="math inline">\(n+1\)</span> is composite so there are integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> where <span class="math inline">\(n+1 = xy\)</span> and each of them is between <span class="math inline">\(2\)</span> and <span class="math inline">\(n\)</span> (inclusive). Therefore, the induction hypothesis applies to each of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> so each of these factors of <span class="math inline">\(n+1\)</span> can be written as a product of primes. Multiplying these products together, we get a product of primes that gives <span class="math inline">\(n+1\)</span>, as required.</p>
+<p>Since both cases give the necessary conclusion, the proof by cases for the recursive step is complete.</p>
+<h3 class="unnumbered" id="sending-old-fashioned-mail-with-postage-stamps">Sending old-fashioned mail with postage stamps</h3>
+<p>Suppose we had postage stamps worth <span class="math inline">\(5\)</span> cents and <span class="math inline">\(3\)</span> cents. Which number of cents can we form using these stamps? In other words, which postage can we pay?</p>
+<p><span class="math inline">\(11\)</span>?</p>
+<p><span class="math inline">\(15\)</span>?</p>
+<p><span class="math inline">\(4\)</span>?</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;CanPay(0) \land \lnot CanPay(1) \land \lnot CanPay(2) \land \\
+    &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6) \\
+    &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8} CanPay(n)\end{aligned}\]</span></p>
+<p>where the predicate <span class="math inline">\(CanPay\)</span> with domain <span class="math inline">\(\mathbb{N}\)</span> is <span class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y \in \mathbb{N}  ( 5x+3y = n)\]</span></p>
+<p><span><strong>Proof</strong></span> (idea): First, explicitly give witnesses or general arguments for postages between <span class="math inline">\(0\)</span> and <span class="math inline">\(7\)</span>. To prove the universal claim, we can use mathematical induction or strong induction.</p>
+<p><span><em>Approach 1, mathematical induction</em></span>: if we have stamps that add up to <span class="math inline">\(n\)</span> cents, need to use them (and others) to give <span class="math inline">\(n+1\)</span> cents. How do we get <span class="math inline">\(1\)</span> cent with just <span class="math inline">\(3\)</span>-cent and <span class="math inline">\(5\)</span>-cent stamps?</p>
+<p>Either <u>take away a <span class="math inline">\(5\)</span>-cent stamps and add two <span class="math inline">\(3\)</span>-cent stamps</u>,</p>
+<p>or <u>take away three <span class="math inline">\(3\)</span>-cent stamps and add two <span class="math inline">\(5\)</span>-cent stamps</u>.</p>
+<p>The details of this proof by mathematical induction are making sure we have enough stamps to use one of these approaches.</p>
+<p><span><em>Approach 2, strong induction</em></span>: assuming we know how to make postage for <span><strong>all</strong></span> smaller values (greater than or equal to <span class="math inline">\(8\)</span>), when we need to make <span class="math inline">\(n+1\)</span> cents, <u>add one <span class="math inline">\(3\)</span> cent stamp to however we make <span class="math inline">\((n+1) - 3\)</span> cents</u>.</p>
+<p>The details of this proof by strong induction are making sure we stay in the domain of the universal when applying the induction hypothesis.</p>
+<h2 class="unnumbered" id="review">Review</h2>
+<ol>
+<li><p><br />
+</p>
+<p>In class, we proved the theorem that: Every positive integer is a sum of (one or more) distinct powers of <span class="math inline">\(2\)</span>.</p>
+<p>What’s wrong with the following <span><em>attempted</em></span> proof of this fact?</p>
+<p><span><strong>Attempted proof by mathematical induction</strong></span>, with <span class="math inline">\(b=1\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS <span class="math inline">\(1\)</span> can be written as a sum of (one or more) distinct powers of <span class="math inline">\(2\)</span>. Since <span class="math inline">\(1 =2^0\)</span>, we are done.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary integer <span class="math inline">\(n \geq 1\)</span>. By the IH, we can write <span class="math inline">\(n\)</span> as a sum of distinct powers of <span class="math inline">\(2\)</span>. Since <span class="math inline">\(1 = 2^0\)</span>, it is a power of <span class="math inline">\(2\)</span> and we can add it as a term to this sum of powers of <span class="math inline">\(2\)</span>. When we do so, the terms sum to <span class="math inline">\(n+1\)</span> and we are done.</p>
+<ol>
+<li><p>The basis step is not sufficient.</p></li>
+<li><p>The induction hypothesis is not stated correctly.</p></li>
+<li><p>It’s wrong to say that <span class="math inline">\(1\)</span> is a power of <span class="math inline">\(2\)</span>.</p></li>
+<li><p>Adding the <span class="math inline">\(2^0\)</span> to the sum of powers doesn’t give the correct value.</p></li>
+<li><p>Adding the <span class="math inline">\(2^0\)</span> to the sum of powers is problematic for a different reason.</p></li>
+</ol></li>
+<li><p><br />
+</p>
+<p>Recall that a prime factorization is a product of primes (potentially with some of the primes occurring more than once). Select all and only the correct prime factorizations of positive integers.</p>
+<ol>
+<li><p><span class="math inline">\(2\cdot 2 \cdot 2 \cdot 2\)</span></p></li>
+<li><p><span class="math inline">\(3\)</span></p></li>
+<li><p><span class="math inline">\(3 \cdot 4 \cdot 5\)</span></p></li>
+<li><p><span class="math inline">\(17 \cdot 21\)</span></p></li>
+<li><p><span class="math inline">\(2 \cdot 11\)</span></p></li>
+</ol></li>
+<li><p>In this question, we’ll consider two possible proofs of the statement <span class="math display">\[\forall n  \in  \mathbb{Z}^{\geq 8}  \exists x \in \mathbb{N}  \exists y \in \mathbb{N}  (  5x+3y =  n)\]</span></p>
+<ol>
+<li><p>First approach, using mathematical induction (<span class="math inline">\(b=8\)</span>).</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(8\)</span>. Consider the witnesses <span class="math inline">\(x = 1\)</span>, <span class="math inline">\(y=1\)</span>. These are nonnegative integers and <span class="math inline">\(5 \cdot 1 + 3 \cdot 1 = 8\)</span>, as required.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary <span class="math inline">\(n \geq 8\)</span>. Assume (as the induction hypothesis, IH) that there are nonnegative integers <span class="math inline">\(x, y\)</span> such that <span class="math inline">\(n =  5x +  3y\)</span>. WTS that there are nonnegative integers <span class="math inline">\(x&#39;, y&#39;\)</span> such that <span class="math inline">\(n+1 = 5x&#39; +  3y&#39;\)</span>. We consider two cases, depending on whether any <span class="math inline">\(5\)</span> cent stamps are used for <span class="math inline">\(n\)</span>.</p>
+<p><span><em>Case 1</em></span>: Assume <span class="math inline">\(x \geq  1\)</span> (we assume that at least one <span class="math inline">\(5\)</span> cent stamp is used for <span class="math inline">\(n\)</span>). Define <span class="math inline">\(x&#39; = x-1\)</span> and <span class="math inline">\(y&#39;=y+2\)</span> (both in <span class="math inline">\(\mathbb{N}\)</span> by case assumption).</p>
+<p>Calculating: <span class="math display">\[\begin{aligned}
+5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(x-1) +  3(y+2)  = 5x -  5 +3y +   6  \\
+&amp;\overset{\text{rearranging}} = (5x+3y) -5  + 6\\
+&amp; \overset{\text{IH}}{=} n-5+6 =  n+1\end{aligned}\]</span></p>
+<p><span><em>Case 2</em></span>: Assume <span class="math inline">\(x = 0\)</span>. Therefore <span class="math inline">\(n  = 3y\)</span>, so since <span class="math inline">\(n \geq 8\)</span>, <span class="math inline">\(y \geq 3\)</span>. Define <span class="math inline">\(x&#39; = 2\)</span> and <span class="math inline">\(y&#39;=y-3\)</span> (both in <span class="math inline">\(\mathbb{N}\)</span> by case assumption). Calculating: <span class="math display">\[\begin{aligned}
+5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(2) +  3(y-3)  = 10  +3y -9  \\
+&amp;\overset{\text{rearranging}} = 3y +10 -9 \\
+&amp;\overset{\text{IH and case}}{=} n+10-9 =  n+1\end{aligned}\]</span></p>
+<p>Since the goal has been proved from each case, the proof by cases is complete and we have proved the recursive step. <span class="math inline">\(\square\)</span><br />
+Why was the recursive step split into two cases?</p>
+<ol>
+<li><p>Because there are two variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> that need witnesses.</p></li>
+<li><p>Because the statement has alternating quantifiers <span class="math inline">\(\forall\)</span> and <span class="math inline">\(\exists\)</span></p></li>
+<li><p>Because the witness values need to be nonnegative and subtraction may lead to negative values.</p></li>
+<li><p>Because the domain is all integers greater than or equal to <span class="math inline">\(8\)</span>.</p></li>
+<li><p>Because there are two steps in the recursive definition of <span class="math inline">\(\mathbb{N}\)</span></p></li>
+</ol></li>
+<li><p>Second approach, by strong induction (<span class="math inline">\(b=8\)</span> and <span class="math inline">\(j=2\)</span>)</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(8, 9, 10\)</span></p>
+<ul>
+<li><p>Consider the witnesses <span class="math inline">\(x = 1\)</span>, <span class="math inline">\(y=1\)</span>. These are nonnegative integers and <span class="math inline">\(5 \cdot 1 + 3 \cdot 1 = 8\)</span>, as required.</p></li>
+<li><p>Consider the witnesses <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(y=3\)</span>. These are nonnegative integers and <span class="math inline">\(5 \cdot 0 + 3 \cdot 3 = 9\)</span>, as required.</p></li>
+<li><p>Consider the witnesses <span class="math inline">\(x = 2\)</span>, <span class="math inline">\(y=0\)</span>. These are nonnegative integers and <span class="math inline">\(5 \cdot 2 + 3 \cdot 0 = 10\)</span>, as required.</p></li>
+</ul>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary <span class="math inline">\(n \geq 10\)</span>. Assume, as the strong induction hypothesis, that the property is true about each of <span class="math inline">\(8, 9, 10, \ldots, n\)</span>. WTS that there are nonnegative integers <span class="math inline">\(x&#39;, y&#39;\)</span> such that <span class="math inline">\(n+1 = 5x&#39; +  3y&#39;\)</span>.</p>
+<p>Since <u>Blank 1</u>, by the strong induction hypothesis, there are nonnegative integers <span class="math inline">\(x, y\)</span> such that <span class="math inline">\((n+1) - 3 = 5x + 3y\)</span>. Choosing <u>Blank 2</u> works because <span class="math display">\[5x&#39; + 3y&#39; = 5x + 3y + 3 = (n+1) - 3 + 3 = n+1.\]</span></p>
+<p>Choose a true and useful statement to fill in Blank 1.</p>
+<ol>
+<li><p><span class="math inline">\(n \geq 10\)</span> and hence <span class="math inline">\((n+1) - 3 \geq 8\)</span></p></li>
+<li><p><span class="math inline">\(n \geq 8\)</span> and hence <span class="math inline">\((n+1)-3 \geq 8\)</span></p></li>
+<li><p><span class="math inline">\(n \geq 8\)</span> and hence <span class="math inline">\((n+1) \geq 9\)</span></p></li>
+</ol>
+<p>Choose the appropriate statement to fill in Blank 2.</p>
+<ol>
+<li><p><span class="math inline">\(x&#39; = x, y&#39; = y\)</span></p></li>
+<li><p><span class="math inline">\(x&#39; = x+1, y&#39; = y+1\)</span></p></li>
+<li><p><span class="math inline">\(x&#39; = x+1, y&#39; = y\)</span></p></li>
+<li><p><span class="math inline">\(x&#39; = x, y&#39; = y+1\)</span></p></li>
+<li><p><span class="math inline">\(x&#39; = x-1, y&#39; = y-1\)</span></p></li>
+<li><p><span class="math inline">\(x&#39; = x-1, y&#39; = y\)</span></p></li>
+<li><p><span class="math inline">\(x&#39; = x, y&#39; = y-1\)</span></p></li>
+</ol></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="wednesday-november-10">Wednesday November 10</h1>
+<h3 class="unnumbered" id="finding-a-winning-strategy-for-a-game">Finding a winning strategy for a game</h3>
+<p>Consider the following game: two players start with two (equal) piles of jellybeans in front of them. They take turns removing any positive integer number of jellybeans at a time from one of two piles in front of them in turns.</p>
+<p>The player who removes the last jellybean wins the game.</p>
+<p>Which player (if any) has a strategy to guarantee to win the game?</p>
+<p>Try out some games, starting with <span class="math inline">\(1\)</span> jellybean in each pile, then <span class="math inline">\(2\)</span> jellybeans in each pile, then <span class="math inline">\(3\)</span> jellybeans in each pile. Who wins in each game?</p>
+<p>Notice that reasoning about the strategy for the <span class="math inline">\(1\)</span> jellybean game is easier than about the strategy for the <span class="math inline">\(2\)</span> jellybean game.</p>
+<p><span><em>Formulate a winning strategy by working to transform the game to a simpler one we know we can win.</em></span></p>
+<p><span><em>Player 2’s Strategy</em></span>: Take the same number of jellybeans that Player 1 did, but from the opposite pile.</p>
+<p><span><em>Why is this a good idea</em></span>: If Player 2 plays this strategy, at the next turn Player 1 faces a game with the same setup as the original, just with fewer jellybeans in the two piles. Then Player 2 can keep playing this strategy to win.</p>
+<p><span><strong>Claim</strong></span>: Player 2’s strategy guarantees they will win the game.</p>
+<p><span><strong>Proof</strong></span>: By strong induction, we will prove that for all positive integers <span class="math inline">\(n\)</span>, Player 2’s strategy guarantees a win in the game that starts with <span class="math inline">\(n\)</span> jellybeans in each pile.</p>
+<p><span><strong>Basis step</strong></span>: WTS Player 2’s strategy guarantees a win when each pile starts with <span class="math inline">\(1\)</span> jellybean.</p>
+<p>In this case, Player 1 has to take the jellybean from one of the piles (because they can’t take from both piles at once). Following the strategy, Player 2 takes the jellybean from the other pile, and wins because this is the last jellybean.</p>
+<p><span><strong>Recursive step</strong></span>: Let <span class="math inline">\(n\)</span> be a positive integer. As the strong induction hypothesis, assume that Player 2’s strategy guarantees a win in the games where there are <span class="math inline">\(1, 2, \ldots, n\)</span> many jellybeans in each pile at the start of the game.</p>
+<p>WTS that Player 2’s strategy guarantees a win in the game where there are <span class="math inline">\(n+1\)</span> in the jellybeans in each pile at the start of the game.</p>
+<p>In this game, the first move has Player 1 take some number, call it <span class="math inline">\(c\)</span> (where <span class="math inline">\(1 \leq c \leq n+1\)</span>), of jellybeans from one of the piles. Playing according to their strategy, Player 2 then takes the same number of jellybeans from the other pile.</p>
+<p>Notice that <span class="math inline">\((c = n+1) \lor (c \leq n)\)</span>.</p>
+<p><span><em>Case 1</em></span>: Assume <span class="math inline">\(c = n+1\)</span>, then in their first move, Player 2 wins because they take all of the second pile, which includes the last jellybean.</p>
+<p><span><em>Case 2</em></span>: Assume <span class="math inline">\(c \leq n\)</span>. Then after Player 2’s first move, the two piles have an equal number of jellybeans. The number of jellybeans in each pile is <span class="math display">\[(n+1) - c\]</span> and, since <span class="math inline">\(1 \leq c \leq n\)</span>, this number is between <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span>. Thus, at this stage of the game, the game appears identical to a new game where the two piles have an equal number of jellybeans between <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span>. Thus, the strong induction hypothesis applies, and Player 2’s strategy guarantees they win.</p>
+<h2 class="unnumbered" id="least-and-greatest">Least and greatest</h2>
+<p>For a set of numbers <span class="math inline">\(X\)</span>, how do you formalize “there is a greatest <span class="math inline">\(X\)</span>” or “there is a least <span class="math inline">\(X\)</span>”?</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: There is a least prime number.</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: There is a greatest integer.</p>
+<p><span><em>Approach 1, De Morgan’s and universal generalization</em></span>:</p>
+<p><span><em>Approach 2, proof by contradiction</em></span>:</p>
+<p><span><em>Extra examples</em></span>: Prove or disprove that <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span> each have a least and a greatest element.</p>
+<h2 class="unnumbered" id="review-1">Review</h2>
+<ol>
+<li><p><br />
+</p>
+<p>Recall the game Nim from class.</p>
+<ol>
+<li><p>Why did we use strong induction to prove that Player 2’s strategy guarantees a win?</p>
+<ol>
+<li><p>Because there are two players in the game.</p></li>
+<li><p>Because each turn can involve a player taking some positive number of jellybeans from a pile, not just one jellybean.</p></li>
+<li><p>Because the strategy player 2 uses depends on what player 1 does.</p></li>
+<li><p>Because the set of natural numbers is recursively defined.</p></li>
+</ol></li>
+<li><p>If we modify the game so that in each turn, a player could take jellybeans from one or both piles, which player has a winning strategy?</p>
+<ol>
+<li><p>Player 1.</p></li>
+<li><p>Player 2.</p></li>
+<li><p>Neither in general, the existence of a winning strategy for the players depends on how many jellybeans are in each pile to start.</p></li>
+</ol></li>
+<li><p>If we modify the game so that in each turn, a player must take exactly one jellybean, which player has a winning strategy?</p>
+<ol>
+<li><p>Player 1.</p></li>
+<li><p>Player 2.</p></li>
+<li><p>Neither in general, the existence of a winning strategy for the players depends on how many jellybeans are in each pile to start.</p></li>
+</ol></li>
+</ol></li>
+<li><p><br />
+</p>
+<p>We will prove that there is no greatest prime number</p>
+<p><span><strong>Proof</strong></span> Assume, towards a <u>BLANK1</u>, that there is a greatest prime number, call it <span class="math inline">\(n_{BIG}\)</span>. In particular, this means that there are finitely many primes. Let’s label them in order <span class="math inline">\(p_1, \ldots, p_n\)</span> where <span class="math inline">\(p_1 = 2\)</span> and <span class="math inline">\(p_n = n_{BIG}\)</span>. Choose <span class="math inline">\(r =\)</span> <u>BLANK2</u>. We proved in class that <span class="math inline">\(r\)</span> is <span><strong>true</strong></span>. It remains to show that (under our assumption) <span class="math inline">\(r\)</span> is <span><strong>false</strong></span>, because that would complete the contradiction argument. Define the integer <span class="math display">\[C = (p_1 \cdots p_n) + 1\]</span> This is a positive integer greater than <span class="math inline">\(1\)</span>. However, we will show that it does not have any prime factors and thus is not a product of primes. By our assumption, the only prime numbers are <span class="math inline">\(p_1, \ldots, 
+p_n\)</span>. Thus, to show that <span class="math inline">\(C\)</span> does not have any prime factors means to show that <span class="math inline">\(p_i\)</span> is not a factor of <span class="math inline">\(C\)</span> for each value of <span class="math inline">\(i\)</span> from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>. Towards a universal generalization, let <span class="math inline">\(i\)</span> be an arbitrary between <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span> (inclusive). We need to prove that <span class="math inline">\(p_i\)</span> is not a factor of <span class="math inline">\(C\)</span>. By definition of <span class="math inline">\(C\)</span>, <span class="math display">\[C = p_i ( p_1 \cdots p_{i-1} p_{i+1} \cdots p_n) + 1\]</span> so <span class="math inline">\(C \textbf{ div } p_i = p_1 \cdots p_{i-1} p_{i+1} \cdots p_n\)</span> and <span class="math inline">\(C \textbf{ mod } p_i = 1\)</span> (because <span class="math inline">\(p_i &gt; 1\)</span> since it is prime). Since <span class="math inline">\(C \textbf{ mod } p_i \neq 0\)</span>, <span class="math inline">\(p_i\)</span> is not a factor of <span class="math inline">\(C\)</span>. Thus <span class="math inline">\(C\)</span> witnesses that the universal claim is false, and we have proved that <span class="math inline">\(r\)</span> is false.</p>
+<ol>
+<li><p>BLANK1</p>
+<ol>
+<li><p>universal generalization</p></li>
+<li><p>proof of existential by witness</p></li>
+<li><p>direct proof</p></li>
+<li><p>proof by contrapositive</p></li>
+<li><p>proof by cases</p></li>
+<li><p>proof by contradiction</p></li>
+</ol></li>
+<li><p>BLANK2</p>
+<ol>
+<li><p>The least prime number is <span class="math inline">\(2\)</span>.</p></li>
+<li><p>There is a greatest prime number.</p></li>
+<li><p>There is a least prime number.</p></li>
+<li><p>Every positive integer greater than <span class="math inline">\(1\)</span> is a product of primes.</p></li>
+<li><p>Every positive integer has a base expansion.</p></li>
+<li><p>There is a greatest integer.</p></li>
+<li><p>There is no greatest integer.</p></li>
+</ol></li>
+</ol></li>
+<li><p><br />
+</p>
+<p>Select all and only the situations in which the given proof strategy would be available.</p>
+<ol>
+<li><p>When might it be appropriate to use induction?</p>
+<ol>
+<li><p>To prove that an existential claim over the set of integers is true.</p></li>
+<li><p>To prove that a universal claim over the real numbers is true.</p></li>
+<li><p>To prove that a conditional claim is true.</p></li>
+<li><p>None of the above.</p></li>
+</ol></li>
+<li><p>When might it be appropriate to use proof by contradiction?</p>
+<ol>
+<li><p>To prove that an existential claim over the set of integers is true.</p></li>
+<li><p>To prove that a universal claim over the real numbers is true.</p></li>
+<li><p>To prove that a conditional claim is true.</p></li>
+<li><p>None of the above.</p></li>
+</ol></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="friday-november-12">Friday November 12</h1>
+<p><span><strong>Definition</strong></span>: <span><strong>Greatest common divisor</strong></span> Let <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> be integers, not both zero. The largest integer <span class="math inline">\(d\)</span> such that <span class="math inline">\(d\)</span> is a factor of <span class="math inline">\(a\)</span> and <span class="math inline">\(d\)</span> is a factor of <span class="math inline">\(b\)</span> is called the greatest common divisor of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and is denoted by <span class="math inline">\(gcd(~(a, b)~)\)</span>.</p>
+<p>Why do we restrict to the situation where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are not both zero?</p>
+<p>Calculate <span class="math inline">\(gcd(~(10,15)~)\)</span></p>
+<p>Calculate <span class="math inline">\(gcd(~(10,20)~)\)</span></p>
+<p><span><strong>Claim</strong></span>: For any integers <span class="math inline">\(a,b\)</span> (not both zero), <span class="math inline">\(gcd(~(a,b)~) \geq 1\)</span>.</p>
+<p><span><strong>Proof</strong></span>: <span><em>Show that <span class="math inline">\(1\)</span> is a common factor of any two integers, so since the gcd is the greatest common factor it is greater than or equal to any common factor.</em></span></p>
+<p><span><strong>Claim</strong></span>: For any positive integers <span class="math inline">\(a,b\)</span>, <span class="math inline">\(gcd(~(a,b)~) \leq a\)</span> and <span class="math inline">\(gcd( ~(a,b)~) \leq b\)</span>.</p>
+<p><span><strong>Proof</strong></span> <span><em>Using the definition of gcd and the fact that factors of a positive integers are than or equal to that integer.</em></span></p>
+<p><span><strong>Claim</strong></span>: For any positive integers <span class="math inline">\(a,b\)</span>, if <span class="math inline">\(a\)</span> divides <span class="math inline">\(b\)</span> then <span class="math inline">\(gcd(~(a,b)~) = a\)</span>.</p>
+<p><span><strong>Proof</strong></span> <span><em>Using previous claim and definition of gcd.</em></span></p>
+<p><span><strong>Claim</strong></span>: For any positive integers <span class="math inline">\(a,b,c\)</span>, if there is some integer <span class="math inline">\(q\)</span> such that <span class="math inline">\(a = bq + c\)</span>, <span class="math display">\[gcd(~(a,b)~) = gcd (~(b,c)~)\]</span> <span><strong>Proof</strong></span> <span><em>Prove that any common divisor of <span class="math inline">\(a,b\)</span> divides <span class="math inline">\(c\)</span> and that any common divisor of <span class="math inline">\(b,c\)</span> divides <span class="math inline">\(a\)</span>.</em></span></p>
+<p><span><strong>Lemma</strong></span>: For any integers <span class="math inline">\(p, q\)</span> (not both zero), <span class="math inline">\(gcd \left(~ \left(~\frac{p}{gcd(~(p,q)~)}, \frac{q}{gcd(~(p,q)~)} ~\right) ~\right) = 1\)</span> . In other words, can reduce to relatively prime integers by dividing by gcd.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p>Let <span class="math inline">\(x\)</span> be arbitrary positive integer and assume that <span class="math inline">\(x\)</span> is a factor of each of <span class="math inline">\(\frac{p}{gcd(~(p,q)~)}\)</span> and <span class="math inline">\(\frac{q}{gcd(~(p,q)~)}\)</span>. This gives integers <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> such that <span class="math display">\[\alpha x = \frac{p}{gcd(~(p,q)~)} \qquad \qquad \beta x = \frac{q}{gcd(~(p,q)~)}\]</span> Multiplying both sides by the denominator in the RHS: <span class="math display">\[\alpha x \cdot gcd(~(p,q)~)= p \qquad \qquad \beta x \cdot gcd(~(p,q)~)= q\]</span> In other words, <span class="math inline">\(x \cdot gcd(~(p,q)~)\)</span> is a common divisor of <span class="math inline">\(p, q\)</span>. By definition of <span class="math inline">\(gcd\)</span>, this means <span class="math display">\[x \cdot gcd (~(p,q)~) \leq gcd (~(p,q)~)\]</span> and since <span class="math inline">\(gcd(~(p,q)~)\)</span> is positive, this means, <span class="math inline">\(x \leq 1\)</span>.</p>
+<h2 class="unnumbered" id="sets-of-numbers">Sets of numbers</h2>
+<p>We’ve seen multiple representations of the set of positive integers (using base expansions and using prime factorization). Now we’re going to expand our attention to other sets of numbers as well.</p>
+<p>The <span><strong>set of rational numbers</strong></span>, <span class="math inline">\(\mathbb{Q}\)</span> is defined as <span class="math display">\[\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
+\text{~~~~or, equivalently,~~~~}
+\{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in \mathbb{Z}^+ ( p =  x \cdot q) \}\]</span></p>
+<p><span><em>Extra practice</em></span>: Use the definition of set equality to prove that the definitions above give the same set.</p>
+<p>We have the following subset relationships between sets of numbers:</p>
+<p><span class="math display">\[\mathbb{Z}^{+} \subsetneq \mathbb{N} \subsetneq \mathbb{Z} \subsetneq \mathbb{Q} \subsetneq \mathbb{R}\]</span></p>
+<p>Which of the proper subset inclusions above can you prove?</p>
+<p><span><strong>Goal</strong></span>: The square root of <span class="math inline">\(2\)</span> is not a rational number. In other words: <span class="math inline">\(\neg \exists x \in \mathbb{Q} ( x^2 -  2 = 0)\)</span></p>
+<p><span><strong>Attempted proof</strong></span>: The definition of the set of rational numbers is the collection of fractions <span class="math inline">\(p/q\)</span> where <span class="math inline">\(p\)</span> is an integer and <span class="math inline">\(q\)</span> is a nonzero integer. Looking for a <span><strong>witness</strong></span> <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>, we can write the square root of <span class="math inline">\(2\)</span> as the fraction <span class="math inline">\(\sqrt{2 }/1\)</span>, where <span class="math inline">\(1\)</span> is a nonzero integer. Since the numerator is not in the domain, this witness is not allowed, and we have shown that the square root of <span class="math inline">\(2\)</span> is not a fraction of integers (with nonzero denominator). Thus, the square root of <span class="math inline">\(2\)</span> is not rational.</p>
+<p><span><em>The problem in the above attempted proof is that</em></span> <u></u></p>
+<p><span><strong>Lemma 1:</strong></span> For every two integers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, not both zero, with <span class="math inline">\(gcd(~(a,b)~) = 1\)</span>, it is not the case that both <span class="math inline">\(a\)</span> is even and <span class="math inline">\(b\)</span> is even.</p>
+<p><span><strong>Lemma 2:</strong></span> For every integer <span class="math inline">\(x\)</span>, <span class="math inline">\(x\)</span> is even if and only if <span class="math inline">\(x^2\)</span> is even.</p>
+<p><span><strong>Proof</strong></span>: Towards a proof by contradiction, we will define a statement <span class="math inline">\(r\)</span> such that <span class="math inline">\(\sqrt{2} \in \mathbb{Q} \to (r \land \lnot r)\)</span>.</p>
+<p>Assume that <span class="math inline">\(\sqrt{2} \in \mathbb{Q}\)</span>. Namely, there are positive integers <span class="math inline">\(p, q\)</span> such that <span class="math display">\[\sqrt{2} = \frac{p}{q}\]</span> Let <span class="math inline">\(a= \frac{p}{gcd( ~(p,q)~)}\)</span>, <span class="math inline">\(b = \frac{q}{gcd(~(p,q)~)}\)</span>, then <span class="math display">\[\sqrt{2} = \frac{a}{b} \qquad \text{and} \qquad gcd(~(a,b)~) = 1\]</span></p>
+<p>By Lemma 1, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are not both even. We define <span class="math inline">\(r\)</span> to be the statement “<span class="math inline">\(a\)</span> is even and <span class="math inline">\(b\)</span> is even”, and we have proved <span class="math inline">\(\lnot r\)</span>.</p>
+<p>Squaring both sides and clearing denominator: <span class="math inline">\(2b^2 = a^2\)</span>.</p>
+<p>By definition of even, since <span class="math inline">\(b^2\)</span> is an integer<span class="math inline">\(, a^2\)</span> is even.</p>
+<p>By Lemma 2, this guarantees that <span class="math inline">\(a\)</span> is even too. So, by definition of even, there is some integer (call it <span class="math inline">\(c\)</span>), such that <span class="math inline">\(a = 2c\)</span>.</p>
+<p>Plugging into the equation: <span class="math display">\[2b^2 = a^2 = (2c)^2 = 4c^2\]</span> and dividing both sides by <span class="math inline">\(2\)</span> <span class="math display">\[b^2 = 2c^2\]</span> and since <span class="math inline">\(c^2\)</span> is an integer, <span class="math inline">\(b^2\)</span> is even. By Lemma 2, <span class="math inline">\(b\)</span> is even too. Thus, <span class="math inline">\(a\)</span> is even and <span class="math inline">\(b\)</span> is even and we have proved <span class="math inline">\(r\)</span>.</p>
+<p>In other words, assuming that <span class="math inline">\(\sqrt{2} \in \mathbb{Q}\)</span> guarantees <span class="math inline">\(r \land \lnot r\)</span>, which is impossible, so <span class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>. QED</p>
+<h2 class="unnumbered" id="review-2">Review</h2>
+</body>
+</html>

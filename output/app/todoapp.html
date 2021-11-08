@@ -2448,6 +2448,133 @@ LHS &amp;= length(~append( ~(~ (n,l&#39;), 100~)~)~) \\
 </div></li>
 <li><p>Choose only and all of the statements in the previous part that are both well-defined and true.</p></li>
 </ol>
+<h1 class="unnumbered" id="proof-strategy-mathematical-induction-1">Proof strategy mathematical induction</h1>
+<h1 class="unnumbered" id="proof-strategy-strong-induction">Proof strategy strong induction</h1>
+<h1 class="unnumbered" id="binary-expansions-exist-proof">Binary expansions exist proof</h1>
+<p><span><strong>Theorem</strong></span>: Every positive integer is a sum of (one or more) distinct powers of <span class="math inline">\(2\)</span>. <span><em>Binary expansions exist!</em></span></p>
+<p>Recall the definition for binary expansion:</p>
+<p><span><strong>Definition</strong></span> For <span class="math inline">\(n\)</span> a positive integer, the <span><strong>binary expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{k-1} \cdots a_1 a_0)_b\]</span> where <span class="math inline">\(k\)</span> is a positive integer, <span class="math inline">\(a_0, a_1, \ldots, a_{k-1}\)</span> are each <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, <span class="math inline">\(a_{k-1} \neq  0\)</span>, and <span class="math display">\[n =  \sum_{i=0}^{k-1} a_{i} b^{i}\]</span></p>
+<p>The idea in the “Least significant first" algorithm for computing binary expansions is that the binary expansion of <span><em>half</em></span> a number becomes <span><em>part</em></span> of the binary expansion of the number of itself. We can use this idea in a proof by strong induction that binary expansions exist for all positive integers <span class="math inline">\(n\)</span>.</p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span class="math inline">\(b=1\)</span> and <span class="math inline">\(j=0\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(1\)</span>.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary integer <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Assume (as the strong induction hypothesis, IH) that the property is true about each of <span class="math inline">\(1, \ldots, n\)</span>.</p>
+<p>WTS that the property is true about <span class="math inline">\(n+1\)</span>.</p>
+<p><span><em>Idea</em></span>: We will apply the IH to <span class="math inline">\((n+1) \textbf{ div } 2\)</span>.</p>
+<p><span><em>Why is this ok?</em></span></p>
+<p><span><em>Why is this helpful?</em></span></p>
+<p>By the IH, we can write <span class="math inline">\((n+1) \textbf{ div } 2\)</span> as a sum of powers of <span class="math inline">\(2\)</span>. In other words, there are values <span class="math inline">\(a_{k-1}, \ldots, a_0\)</span> such that each <span class="math inline">\(a_i\)</span> is <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, <span class="math inline">\(a_{k-1} = 1\)</span>, and <span class="math display">\[\sum_{i=0}^{k-1} a_i 2^i = (n+1) \textbf{ div } 2\]</span> Define the collection of coefficients <span class="math display">\[c_{j} = 
+   \begin{cases}
+        a_{j-1} \qquad&amp;\text{if $1 \leq j \leq k$}\\
+        (n+1) \textbf{ mod } 2 &amp;\text{if $j = 0$}
+   \end{cases}\]</span> Calculating: <span class="math display">\[\begin{aligned}
+{2}
+    \sum_{j=0}^k c_j 2^j &amp;= c_0 + \sum_{j=1}^k c_j 2^j 
+    = c_0 + \sum_{i=0}^{k-1} c_{i+1} 2^{i+1} &amp;\qquad &amp;\text{re-indexing the summation}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} c_{i+1}2^i &amp;\qquad &amp;\text{factoring out a $2$ from each term in the sum}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} a_{i} 2^i &amp;\qquad &amp;\text{by definition of $c_{i+1}$}\\
+    &amp;= c_0 + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by IH} \\
+    &amp;= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$} \\
+    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}\end{aligned}\]</span></p>
+<p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a sum of powers of <span class="math inline">\(2\)</span>, as required.</p>
+<h1 class="unnumbered" id="fundamental-theorem-proof">Fundamental theorem proof</h1>
+<p><span><strong>Theorem</strong></span>: Every positive integer <span><em>greater than 1</em></span> is a product of (one or more) primes.</p>
+<p><span><strong>Before we prove, let’s try some examples</strong></span>:</p>
+<p><span class="math inline">\(20 =\)</span></p>
+<p><span class="math inline">\(100 =\)</span></p>
+<p><span class="math inline">\(5 =\)</span></p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span class="math inline">\(b=2\)</span> and <span class="math inline">\(j=0\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(2\)</span>.</p>
+<p>Since <span class="math inline">\(2\)</span> is itself prime, it is already written as a product of (one) prime.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary integer <span class="math inline">\(n \geq 2\)</span>. Assume (as the strong induction hypothesis, IH) that the property is true about each of <span class="math inline">\(2, \ldots, n\)</span>. WTS that the property is true about <span class="math inline">\(n+1\)</span>: We want to show that <span class="math inline">\(n+1\)</span> can be written as a product of primes. Notice that <span class="math inline">\(n+1\)</span> is itself prime or it is composite.</p>
+<p><span><em>Case 1</em></span>: assume <span class="math inline">\(n+1\)</span> is prime and then immediately it is written as a product of (one) prime so we are done.</p>
+<p><span><em>Case 2</em></span>: assume that <span class="math inline">\(n+1\)</span> is composite so there are integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> where <span class="math inline">\(n+1 = xy\)</span> and each of them is between <span class="math inline">\(2\)</span> and <span class="math inline">\(n\)</span> (inclusive). Therefore, the induction hypothesis applies to each of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> so each of these factors of <span class="math inline">\(n+1\)</span> can be written as a product of primes. Multiplying these products together, we get a product of primes that gives <span class="math inline">\(n+1\)</span>, as required.</p>
+<p>Since both cases give the necessary conclusion, the proof by cases for the recursive step is complete.</p>
+<h1 class="unnumbered" id="strong-induction-making-change-proof-idea">Strong induction making change proof idea</h1>
+<p>Suppose we had postage stamps worth <span class="math inline">\(5\)</span> cents and <span class="math inline">\(3\)</span> cents. Which number of cents can we form using these stamps? In other words, which postage can we pay?</p>
+<p><span class="math inline">\(11\)</span>?</p>
+<p><span class="math inline">\(15\)</span>?</p>
+<p><span class="math inline">\(4\)</span>?</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;CanPay(0) \land \lnot CanPay(1) \land \lnot CanPay(2) \land \\
+    &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6) \\
+    &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8} CanPay(n)\end{aligned}\]</span></p>
+<p>where the predicate <span class="math inline">\(CanPay\)</span> with domain <span class="math inline">\(\mathbb{N}\)</span> is <span class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y \in \mathbb{N}  ( 5x+3y = n)\]</span></p>
+<p><span><strong>Proof</strong></span> (idea): First, explicitly give witnesses or general arguments for postages between <span class="math inline">\(0\)</span> and <span class="math inline">\(7\)</span>. To prove the universal claim, we can use mathematical induction or strong induction.</p>
+<p><span><em>Approach 1, mathematical induction</em></span>: if we have stamps that add up to <span class="math inline">\(n\)</span> cents, need to use them (and others) to give <span class="math inline">\(n+1\)</span> cents. How do we get <span class="math inline">\(1\)</span> cent with just <span class="math inline">\(3\)</span>-cent and <span class="math inline">\(5\)</span>-cent stamps?</p>
+<p>Either <u>take away a <span class="math inline">\(5\)</span>-cent stamps and add two <span class="math inline">\(3\)</span>-cent stamps</u>,</p>
+<p>or <u>take away three <span class="math inline">\(3\)</span>-cent stamps and add two <span class="math inline">\(5\)</span>-cent stamps</u>.</p>
+<p>The details of this proof by mathematical induction are making sure we have enough stamps to use one of these approaches.</p>
+<p><span><em>Approach 2, strong induction</em></span>: assuming we know how to make postage for <span><strong>all</strong></span> smaller values (greater than or equal to <span class="math inline">\(8\)</span>), when we need to make <span class="math inline">\(n+1\)</span> cents, <u>add one <span class="math inline">\(3\)</span> cent stamp to however we make <span class="math inline">\((n+1) - 3\)</span> cents</u>.</p>
+<p>The details of this proof by strong induction are making sure we stay in the domain of the universal when applying the induction hypothesis.</p>
+<h1 class="unnumbered" id="strong-induction-nim">Strong induction nim</h1>
+<p>Consider the following game: two players start with two (equal) piles of jellybeans in front of them. They take turns removing any positive integer number of jellybeans at a time from one of two piles in front of them in turns.</p>
+<p>The player who removes the last jellybean wins the game.</p>
+<p>Which player (if any) has a strategy to guarantee to win the game?</p>
+<p>Try out some games, starting with <span class="math inline">\(1\)</span> jellybean in each pile, then <span class="math inline">\(2\)</span> jellybeans in each pile, then <span class="math inline">\(3\)</span> jellybeans in each pile. Who wins in each game?</p>
+<p>Notice that reasoning about the strategy for the <span class="math inline">\(1\)</span> jellybean game is easier than about the strategy for the <span class="math inline">\(2\)</span> jellybean game.</p>
+<p><span><em>Formulate a winning strategy by working to transform the game to a simpler one we know we can win.</em></span></p>
+<p><span><em>Player 2’s Strategy</em></span>: Take the same number of jellybeans that Player 1 did, but from the opposite pile.</p>
+<p><span><em>Why is this a good idea</em></span>: If Player 2 plays this strategy, at the next turn Player 1 faces a game with the same setup as the original, just with fewer jellybeans in the two piles. Then Player 2 can keep playing this strategy to win.</p>
+<p><span><strong>Claim</strong></span>: Player 2’s strategy guarantees they will win the game.</p>
+<p><span><strong>Proof</strong></span>: By strong induction, we will prove that for all positive integers <span class="math inline">\(n\)</span>, Player 2’s strategy guarantees a win in the game that starts with <span class="math inline">\(n\)</span> jellybeans in each pile.</p>
+<p><span><strong>Basis step</strong></span>: WTS Player 2’s strategy guarantees a win when each pile starts with <span class="math inline">\(1\)</span> jellybean.</p>
+<p>In this case, Player 1 has to take the jellybean from one of the piles (because they can’t take from both piles at once). Following the strategy, Player 2 takes the jellybean from the other pile, and wins because this is the last jellybean.</p>
+<p><span><strong>Recursive step</strong></span>: Let <span class="math inline">\(n\)</span> be a positive integer. As the strong induction hypothesis, assume that Player 2’s strategy guarantees a win in the games where there are <span class="math inline">\(1, 2, \ldots, n\)</span> many jellybeans in each pile at the start of the game.</p>
+<p>WTS that Player 2’s strategy guarantees a win in the game where there are <span class="math inline">\(n+1\)</span> in the jellybeans in each pile at the start of the game.</p>
+<p>In this game, the first move has Player 1 take some number, call it <span class="math inline">\(c\)</span> (where <span class="math inline">\(1 \leq c \leq n+1\)</span>), of jellybeans from one of the piles. Playing according to their strategy, Player 2 then takes the same number of jellybeans from the other pile.</p>
+<p>Notice that <span class="math inline">\((c = n+1) \lor (c \leq n)\)</span>.</p>
+<p><span><em>Case 1</em></span>: Assume <span class="math inline">\(c = n+1\)</span>, then in their first move, Player 2 wins because they take all of the second pile, which includes the last jellybean.</p>
+<p><span><em>Case 2</em></span>: Assume <span class="math inline">\(c \leq n\)</span>. Then after Player 2’s first move, the two piles have an equal number of jellybeans. The number of jellybeans in each pile is <span class="math display">\[(n+1) - c\]</span> and, since <span class="math inline">\(1 \leq c \leq n\)</span>, this number is between <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span>. Thus, at this stage of the game, the game appears identical to a new game where the two piles have an equal number of jellybeans between <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span>. Thus, the strong induction hypothesis applies, and Player 2’s strategy guarantees they win.</p>
+<h1 class="unnumbered" id="proof-strategy-proof-by-contradiction">Proof strategy proof by contradiction</h1>
+<h1 class="unnumbered" id="least-greatest-proofs">Least greatest proofs</h1>
+<p>For a set of numbers <span class="math inline">\(X\)</span>, how do you formalize “there is a greatest <span class="math inline">\(X\)</span>” or “there is a least <span class="math inline">\(X\)</span>”?</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: There is a least prime number.</p>
+<p><span><strong>Prove</strong></span> or <span><strong>disprove</strong></span>: There is a greatest integer.</p>
+<p><span><em>Approach 1, De Morgan’s and universal generalization</em></span>:</p>
+<p><span><em>Approach 2, proof by contradiction</em></span>:</p>
+<p><span><em>Extra examples</em></span>: Prove or disprove that <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span> each have a least and a greatest element.</p>
+<h1 class="unnumbered" id="gcd-definition">Gcd definition</h1>
+<p><span><strong>Definition</strong></span>: <span><strong>Greatest common divisor</strong></span> Let <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> be integers, not both zero. The largest integer <span class="math inline">\(d\)</span> such that <span class="math inline">\(d\)</span> is a factor of <span class="math inline">\(a\)</span> and <span class="math inline">\(d\)</span> is a factor of <span class="math inline">\(b\)</span> is called the greatest common divisor of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and is denoted by <span class="math inline">\(gcd(~(a, b)~)\)</span>.</p>
+<h1 class="unnumbered" id="gcd-examples">Gcd examples</h1>
+<p>Why do we restrict to the situation where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are not both zero?</p>
+<p>Calculate <span class="math inline">\(gcd(~(10,15)~)\)</span></p>
+<p>Calculate <span class="math inline">\(gcd(~(10,20)~)\)</span></p>
+<h1 class="unnumbered" id="gcd-basic-claims">Gcd basic claims</h1>
+<p><span><strong>Claim</strong></span>: For any integers <span class="math inline">\(a,b\)</span> (not both zero), <span class="math inline">\(gcd(~(a,b)~) \geq 1\)</span>.</p>
+<p><span><strong>Proof</strong></span>: <span><em>Show that <span class="math inline">\(1\)</span> is a common factor of any two integers, so since the gcd is the greatest common factor it is greater than or equal to any common factor.</em></span></p>
+<p><span><strong>Claim</strong></span>: For any positive integers <span class="math inline">\(a,b\)</span>, <span class="math inline">\(gcd(~(a,b)~) \leq a\)</span> and <span class="math inline">\(gcd( ~(a,b)~) \leq b\)</span>.</p>
+<p><span><strong>Proof</strong></span> <span><em>Using the definition of gcd and the fact that factors of a positive integers are than or equal to that integer.</em></span></p>
+<p><span><strong>Claim</strong></span>: For any positive integers <span class="math inline">\(a,b\)</span>, if <span class="math inline">\(a\)</span> divides <span class="math inline">\(b\)</span> then <span class="math inline">\(gcd(~(a,b)~) = a\)</span>.</p>
+<p><span><strong>Proof</strong></span> <span><em>Using previous claim and definition of gcd.</em></span></p>
+<p><span><strong>Claim</strong></span>: For any positive integers <span class="math inline">\(a,b,c\)</span>, if there is some integer <span class="math inline">\(q\)</span> such that <span class="math inline">\(a = bq + c\)</span>, <span class="math display">\[gcd(~(a,b)~) = gcd (~(b,c)~)\]</span> <span><strong>Proof</strong></span> <span><em>Prove that any common divisor of <span class="math inline">\(a,b\)</span> divides <span class="math inline">\(c\)</span> and that any common divisor of <span class="math inline">\(b,c\)</span> divides <span class="math inline">\(a\)</span>.</em></span></p>
+<h1 class="unnumbered" id="gcd-lemma-relatively-prime">Gcd lemma relatively prime</h1>
+<p><span><strong>Lemma</strong></span>: For any integers <span class="math inline">\(p, q\)</span> (not both zero), <span class="math inline">\(gcd \left(~ \left(~\frac{p}{gcd(~(p,q)~)}, \frac{q}{gcd(~(p,q)~)} ~\right) ~\right) = 1\)</span> . In other words, can reduce to relatively prime integers by dividing by gcd.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p>Let <span class="math inline">\(x\)</span> be arbitrary positive integer and assume that <span class="math inline">\(x\)</span> is a factor of each of <span class="math inline">\(\frac{p}{gcd(~(p,q)~)}\)</span> and <span class="math inline">\(\frac{q}{gcd(~(p,q)~)}\)</span>. This gives integers <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> such that <span class="math display">\[\alpha x = \frac{p}{gcd(~(p,q)~)} \qquad \qquad \beta x = \frac{q}{gcd(~(p,q)~)}\]</span> Multiplying both sides by the denominator in the RHS: <span class="math display">\[\alpha x \cdot gcd(~(p,q)~)= p \qquad \qquad \beta x \cdot gcd(~(p,q)~)= q\]</span> In other words, <span class="math inline">\(x \cdot gcd(~(p,q)~)\)</span> is a common divisor of <span class="math inline">\(p, q\)</span>. By definition of <span class="math inline">\(gcd\)</span>, this means <span class="math display">\[x \cdot gcd (~(p,q)~) \leq gcd (~(p,q)~)\]</span> and since <span class="math inline">\(gcd(~(p,q)~)\)</span> is positive, this means, <span class="math inline">\(x \leq 1\)</span>.</p>
+<h1 class="unnumbered" id="rational-numbers-definition">Rational numbers definition</h1>
+<p>The <span><strong>set of rational numbers</strong></span>, <span class="math inline">\(\mathbb{Q}\)</span> is defined as <span class="math display">\[\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
+\text{~~~~or, equivalently,~~~~}
+\{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in \mathbb{Z}^+ ( p =  x \cdot q) \}\]</span></p>
+<p><span><em>Extra practice</em></span>: Use the definition of set equality to prove that the definitions above give the same set.</p>
+<h1 class="unnumbered" id="sets-numbers-subsets">Sets numbers subsets</h1>
+<p>We have the following subset relationships between sets of numbers:</p>
+<p><span class="math display">\[\mathbb{Z}^{+} \subsetneq \mathbb{N} \subsetneq \mathbb{Z} \subsetneq \mathbb{Q} \subsetneq \mathbb{R}\]</span></p>
+<p>Which of the proper subset inclusions above can you prove?</p>
+<h1 class="unnumbered" id="proof-by-contradiction-irrational">Proof by contradiction irrational</h1>
+<p><span><strong>Goal</strong></span>: The square root of <span class="math inline">\(2\)</span> is not a rational number. In other words: <span class="math inline">\(\neg \exists x \in \mathbb{Q} ( x^2 -  2 = 0)\)</span></p>
+<p><span><strong>Attempted proof</strong></span>: The definition of the set of rational numbers is the collection of fractions <span class="math inline">\(p/q\)</span> where <span class="math inline">\(p\)</span> is an integer and <span class="math inline">\(q\)</span> is a nonzero integer. Looking for a <span><strong>witness</strong></span> <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>, we can write the square root of <span class="math inline">\(2\)</span> as the fraction <span class="math inline">\(\sqrt{2 }/1\)</span>, where <span class="math inline">\(1\)</span> is a nonzero integer. Since the numerator is not in the domain, this witness is not allowed, and we have shown that the square root of <span class="math inline">\(2\)</span> is not a fraction of integers (with nonzero denominator). Thus, the square root of <span class="math inline">\(2\)</span> is not rational.</p>
+<p><span><em>The problem in the above attempted proof is that</em></span> <u></u></p>
+<p><span><strong>Lemma 1:</strong></span> For every two integers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, not both zero, with <span class="math inline">\(gcd(~(a,b)~) = 1\)</span>, it is not the case that both <span class="math inline">\(a\)</span> is even and <span class="math inline">\(b\)</span> is even.</p>
+<p><span><strong>Lemma 2:</strong></span> For every integer <span class="math inline">\(x\)</span>, <span class="math inline">\(x\)</span> is even if and only if <span class="math inline">\(x^2\)</span> is even.</p>
+<p><span><strong>Proof</strong></span>: Towards a proof by contradiction, we will define a statement <span class="math inline">\(r\)</span> such that <span class="math inline">\(\sqrt{2} \in \mathbb{Q} \to (r \land \lnot r)\)</span>.</p>
+<p>Assume that <span class="math inline">\(\sqrt{2} \in \mathbb{Q}\)</span>. Namely, there are positive integers <span class="math inline">\(p, q\)</span> such that <span class="math display">\[\sqrt{2} = \frac{p}{q}\]</span> Let <span class="math inline">\(a= \frac{p}{gcd( ~(p,q)~)}\)</span>, <span class="math inline">\(b = \frac{q}{gcd(~(p,q)~)}\)</span>, then <span class="math display">\[\sqrt{2} = \frac{a}{b} \qquad \text{and} \qquad gcd(~(a,b)~) = 1\]</span></p>
+<p>By Lemma 1, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are not both even. We define <span class="math inline">\(r\)</span> to be the statement “<span class="math inline">\(a\)</span> is even and <span class="math inline">\(b\)</span> is even”, and we have proved <span class="math inline">\(\lnot r\)</span>.</p>
+<p>Squaring both sides and clearing denominator: <span class="math inline">\(2b^2 = a^2\)</span>.</p>
+<p>By definition of even, since <span class="math inline">\(b^2\)</span> is an integer<span class="math inline">\(, a^2\)</span> is even.</p>
+<p>By Lemma 2, this guarantees that <span class="math inline">\(a\)</span> is even too. So, by definition of even, there is some integer (call it <span class="math inline">\(c\)</span>), such that <span class="math inline">\(a = 2c\)</span>.</p>
+<p>Plugging into the equation: <span class="math display">\[2b^2 = a^2 = (2c)^2 = 4c^2\]</span> and dividing both sides by <span class="math inline">\(2\)</span> <span class="math display">\[b^2 = 2c^2\]</span> and since <span class="math inline">\(c^2\)</span> is an integer, <span class="math inline">\(b^2\)</span> is even. By Lemma 2, <span class="math inline">\(b\)</span> is even too. Thus, <span class="math inline">\(a\)</span> is even and <span class="math inline">\(b\)</span> is even and we have proved <span class="math inline">\(r\)</span>.</p>
+<p>In other words, assuming that <span class="math inline">\(\sqrt{2} \in \mathbb{Q}\)</span> guarantees <span class="math inline">\(r \land \lnot r\)</span>, which is impossible, so <span class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>. QED</p>
 <section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
