@@ -4,83 +4,71 @@ import re
 from os.path import basename
 
 #function which creates zip file with all images and tex file 
-def zip_file(filename, view): 
-    path = ""; newPath=  ""; texFile=""; zipObj= ""; newTexFile = "";
-    #pass in prefix instead of view 
-    if(view == "chronological"):
-        path= "generated/notes/lessons-flat/"+filename+".tex"
-        newPath= "generated/notes/lessons-flat/new-"+filename+".tex"
-        try:
-            zipObj = ZipFile("generated/notes/lessons-flat/"+filename+".zip", 'w')
-        except IOError as e:
-            print(e)
-            return
-        #newPath opened 
-        newTexFile = open(newPath, "w")
-    elif(view == "outcome"):
-        path= "generated/notes/topic-flat/"+filename+".tex"
-        newPath= "generated/notes/topic-flat/new-"+filename+".tex"
-        try: 
-            zipObj = ZipFile("generated/notes/topic-flat/"+filename+".zip", 'w')
-        except IOError as e:
-            print(e)
-            return
-        newTexFile = open(newPath, "w")
-    elif(view == "application"):
-        path= "generated/notes/app-flat/"+filename+".tex"
-        newPath= "generated/notes/app-flat/new-"+filename+".tex"
-        try: 
-            zipObj = ZipFile("generated/notes/app-flat/"+filename+".zip", 'w')
-        except IOError as e:
-            print(e)
-            return
-        newTexFile = open(newPath, "w")
-    elif(view == "assignments"):
-        path= "generated/notes/assignments-flat/"+filename+".tex"
-        newPath= "generated/notes/assignments-flat/new-"+filename+".tex"
-        try:
-            zipObj = ZipFile("generated/notes/assignments-flat/"+filename+".zip", 'w')
-        except IOError as e:
-            print(e)
-            return
-        newTexFile = open(newPath, "w")
-
+def zip_file(filename, path): 
+    #this is the current path of the tex file 
+    currentPath = "generated/notes/"+path+"/"+filename+".tex" 
+    
+    #new path of the tex file
+    newPath=  "generated/notes/"+path+"/new-"+filename+".tex"
+    
+    #file object of the tex file, opened from current path
+    texFile=""; 
     try: 
-            texFile = open(path, "r+")
+            texFile = open(currentPath, "r+")
     except IOError as e:
             print(e)
             return
-
-    #image list 
-    imageList = [] 
-
     texString = texFile.readlines()
-    
+
+    #contents of new tex file will be in this string
+    newTexFile = open(newPath, "w") 
     newTexString = ""
     
-    newTexFile.write(newTexString)
+
+    #zip object created with tex file and associated images
+    zipObj= ""; 
+    try:
+        zipObj = ZipFile("generated/notes/"+path+"/"+filename+".zip", 'w')
+    except IOError as e:
+        print(e)
+        return
+    
+    
+
+    #image list with image file names such as "image.png"
+    imageList = [] 
 
 
-    #TODO: combine these two conditionals/loops
+    #what this for loop does: 
+    #1. finds the lines starting with include graphics and alters 
+    #the path of the images from ../../resources/images/image.png, to just be
+    #image.png 
+    #2. stores the image file name ("image.png") in imageList in order to write it 
+    #to the zip file
     for line in texString:
         if ("\includegraphics" in line):
             replaced = line.replace("../","").replace("resources/images/","")
             #DEBUG
             #print(replaced)
-            newTexString += replaced 
-        else : 
-            newTexString += line
-        
-        #include graphics in regex 
-        #TODO: handles edge case where ... is on the same line as image
-        if ("\includegraphics" in line):
+            #newTexString += replaced 
+            
+            #include graphics in regex 
+            #handles edge case where things like "\begin{center}"  
+            # is on the same line as image, as we are taking the filename from between brackets 
+            # and "center" does not count as an image name
             imageFile = re.findall(r'\{.*?\}', line)
             for element in imageFile :
                 if "/images" in element:
                     element = element.replace("{","").replace("}","").replace("../","")
                     imageList.append(element) 
+        else : 
+            newTexString += line
+        
 
+    #write replaced image file paths into the new tex files 
     newTexFile.write(newTexString)
+
+    #set(imageList) will remove any duplicates of the same image file name 
     imageList = list(set(imageList))
 
     #DEBUG
@@ -94,21 +82,10 @@ def zip_file(filename, view):
         for element in imageList:
             zipObj.write(element, basename(element)) 
         
-        #TODO: condense through parameters
-        if(view == "chronological"):
-            return "../notes/lessons-flat/"+filename+".zip"
-        elif(view == "outcome"):
-            return "../notes/topic-flat/"+filename+".zip"
-        elif(view == "application"):
-            return "../notes/app-flat/"+filename+".zip"
-        elif(view == "assignments"):
-            return "../notes/assignments-flat/"+filename+".zip"
+        return "../notes/"+path+"/"+filename+".zip" 
     else: 
-        if(view == "chronological"):
-            return "../notes/lessons-flat/"+filename+".tex"
-        elif(view == "outcome"):
-            return "../notes/topic-flat/"+filename+".tex"
-        elif(view == "application"):
-            return "../notes/app-flat/"+filename+".tex"
-        elif(view == "assignments"):
-            return "../notes/assignments-flat/"+filename+".tex"
+        
+        return "../notes/"+path+"/"+filename+".tex"
+
+#DEBUG test
+#zip_file("Week2", "lessons-flat")

@@ -18,7 +18,7 @@ for (k,v) in appData.items():
     html="../output/app/"+file+".html"
     #where will tex file for applications be shown? 
     print("file: "+file)
-    tex= zip_file(file, "application")
+    tex= zip_file(file, "app-flat")
     #print(tex)
 
     #TODO: comment when this condition is happening 

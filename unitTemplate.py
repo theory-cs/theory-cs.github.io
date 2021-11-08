@@ -23,7 +23,7 @@ for i in range(0,len(unitData)):
                 pdf= "../output/lessons/"+unitData[i]['pdfs'][j]['file']+".pdf"
                 
                 #create zip files 
-                tex = zip_file(unitData[i]['pdfs'][j]['file'], "chronological")
+                tex = zip_file(unitData[i]['pdfs'][j]['file'], "lessons-flat")
                 if(tex == None):
                     tex=""
                 

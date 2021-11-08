@@ -490,7 +490,7 @@ def create_assignment():
 		#format all filenames if addExtensions is true
 		if(element['addExtensions']):
 			pdf="../output/assignments/"+element['name']+".pdf"
-			tex= zip_file(element['name'],"assignments")
+			tex= zip_file(element['name'],"assignments-flat")
 
 			if(not tex):
 				tex = ""
