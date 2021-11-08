@@ -103,20 +103,25 @@ for j in alphabet:
                 if(key in contents):
                     whatWeek = str(contents[key][0])
                     # print(key + " in " + whatWeek + "\n")
-                    content += """<p>""" + key + """   {<a href=\"../output/lessons/""" + whatWeek  + """.html\">Definition</a>}"""
+                    if(("definition" in key) and ("definitions" != key)):
+                        # print(key)
+                        title = key.replace("definitions","").replace("definition","").strip()
+                    else:
+                        title = key
+                    content += """<p>""" + title + """   {<a href=\"../output/lessons/""" + whatWeek  + """.html\">Definition</a>}"""
                     content += """{Week(s) included: """
                     for weeks in contents[key]:
                         numonly = weeks[-1:]
-                        print(numonly)
+                        # print(numonly)
                         content += """<a href=\"unit""" + numonly  + """.html#Notes\">""" + weeks + """&nbsp</a>"""
-                        print(weeks)
+                        # print(weeks)
                     content += """}</p>"""
     content += "\n"
 
 # print(content)
 
-glossaryTemplate = open("templates/glossaryTemplate.html", "r")
-templateString = Template(glossaryTemplate.read())
+glossary_template = open("templates/glossary_template.html", "r")
+templateString = Template(glossary_template.read())
 
 page_variables = site_variables.copy()
 page_variables.update(dict(
@@ -131,5 +136,5 @@ resultFile = open("generated/website/glossary.html", "w")
 resultFile.write(result)
 resultFile.close()
         
-glossaryTemplate.close()
+glossary_template.close()
 
