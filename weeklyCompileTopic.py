@@ -91,10 +91,22 @@ for filename in os.listdir(weeklyDirectory):
 
             # Get the second line of each file and clean the string
             snippetsDirectory= "notes/activity-snippets/"
-            particularLine = linecache.getline(snippetsDirectory+snippetsFile, 2).replace("%! outcome:", "").replace("\n", "").strip()
+
+
+            # Get the line which %! app: is there (without hard coding)
+            activitysnippet = open(snippetsDirectory+snippetsFile, "r")
+            
+            particularLine = ""
+
+            for theline in activitysnippet:
+                if("%! outcome:" in theline):
+                    particularLine = theline.replace("%! outcome:", "").replace("\n", "").strip()
+                    break
+
+            # particularLine = linecache.getline(snippetsDirectory+snippetsFile, 2).replace("%! outcome:", "").replace("\n", "").strip()
             
             #debug
-            #print(particularLine)
+            print(particularLine)
     
 
             # Split small outcomes with the delimiter ", " into a list

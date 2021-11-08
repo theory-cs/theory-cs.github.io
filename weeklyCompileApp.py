@@ -50,12 +50,12 @@ weekNumber = UNGROUPED
 
 weeklyDirectory = "notes/lessons"
 for filename in os.listdir(weeklyDirectory):
-    #print(filename)
+    # print(filename)
     weekly = open (weeklyDirectory+"/"+filename, "r")
 
     #remove .tex extension from filename
     editFilename= filename.replace(".tex","")
-    #debug: print("editFilename: "+editFilename)
+    # debug: print("editFilename: "+editFilename)
 
     #get week number/order from unit-settings.json file, this will be the order in which files appear on the website
     for element in unitData:
@@ -67,17 +67,17 @@ for filename in os.listdir(weeklyDirectory):
                     weekNumber= unitData.index(element)+1
 
                 #debug
-                #print(pdf['file'])
-                #print(" index: "+str(unitData.index(element)+1))
+                # print(pdf['file'])
+                # print(" index: "+str(unitData.index(element)+1))
     
     
     #debug
     #print(filename+" "+str(weekNumber))
     
 
-    Lines = weekly.readlines()
+    lines = weekly.readlines()
 
-    for line in Lines: 
+    for line in lines: 
         if (line.startswith("\input{../")) and not ("lesson-head.tex" in line):
             
             snippetsFile= line.replace("\input{../activity-snippets/", "").replace("}","").replace("\n", "")
@@ -87,10 +87,25 @@ for filename in os.listdir(weeklyDirectory):
 
             # Get the second line of each file and clean the string
             snippetsDirectory= "notes/activity-snippets/"
-            particularLine = linecache.getline(snippetsDirectory+snippetsFile, 1).replace("%! app:", "").replace("\n", "").strip()
+
+
+            # Get the line which %! app: is there (without hard coding)
+            activitysnippet = open(snippetsDirectory+snippetsFile, "r")
+            
+            particularLine = ""
+
+            for theline in activitysnippet:
+                if("%! app:" in theline):
+                    particularLine = theline.replace("%! app:", "").replace("\n", "").strip()
+                    break
+
+
+
+            # particularLine = linecache.getline(snippetsDirectory+snippetsFile, 1).replace("%! app:", "").replace("\n", "").strip()
             
             #debug
-            #print(particularLine)
+            # print(snippetsFile)
+            # print(particularLine)
     
 
             # Split small outcomes with the delimiter ", " into a list

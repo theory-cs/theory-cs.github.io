@@ -81,12 +81,9 @@ for entry in os.scandir(files):
                 cut = "{../activity-snippets/"
                 line = line[line.index(cut) + len(cut):].replace("}", "").replace(".tex","").replace("\n", "").replace("-", " ")
                 # print(line)
-                # TO DO : REMOVE WHITESPACE AND CLEAN TEX, ADD TO DICTIONARY
                 if(line not in contents):
                     contents[line] = []
                 contents[line].append(week)
-
-                # print(line[line.index(cut) + len(cut):])
 
 print(contents)
 # Each alphabet content
