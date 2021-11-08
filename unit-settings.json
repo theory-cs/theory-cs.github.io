@@ -234,7 +234,13 @@
         "Topics": "More recursion and induction",
         "CalendarInfo": " Dates: 11/8/21-11/12/21",
         "ExpandInCalendar": false,
-        "pdfs": [],
+        "pdfs": [
+            {
+                "name": "Notes",
+                "addExtensions": true,
+                "file": "Week7"
+            }
+        ],
         "embed": [],
         "Due Dates": [
             {
