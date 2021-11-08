@@ -44,9 +44,9 @@ for (k,v) in appData.items():
     #increment collapseVar
     collapseVar += 1
     
-    #open unitTemplate html file and read it into a string 
-    appTemplate = open("templates/appTemplate.html", "r")
-    templateString = Template(appTemplate.read())
+    #open app_template html file and read it into a string 
+    app_template = open("templates/app_template.html", "r")
+    templateString = Template(app_template.read())
 
     page_variables = site_variables.copy()
     page_variables.update(dict(
@@ -65,4 +65,4 @@ for (k,v) in appData.items():
 
 
 # Closing files
-appTemplate.close()
+app_template.close()

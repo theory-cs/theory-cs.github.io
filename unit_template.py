@@ -90,9 +90,9 @@ for i in range(0,len(unitData)):
 
 
 
-    #open unitTemplate html file and read it into a string 
-    unitTemplate = open("templates/unitTemplate.html", "r")
-    templateString = Template(unitTemplate.read())
+    #open unit_template html file and read it into a string 
+    unit_template = open("templates/unit_template.html", "r")
+    templateString = Template(unit_template.read())
 
     page_variables = site_variables.copy()
     page_variables.update(dict(
@@ -114,7 +114,7 @@ for i in range(0,len(unitData)):
 
 
 # Closing files
-unitTemplate.close()
+unit_template.close()
 
 
 

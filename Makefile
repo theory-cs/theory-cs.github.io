@@ -28,8 +28,8 @@ generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/assignments/*.te
 	mkdir -p generated/notes
 	mkdir -p generated/notes/app
 	mkdir -p generated/notes/topic
-	python3 weeklyCompileApp.py
-	python3 weeklyCompileTopic.py
+	python3 weekly_compile_app.py
+	python3 weekly_compile_topic.py
 	touch generated/last-index.txt
 
 
@@ -131,9 +131,9 @@ generated/website/%: custom-html/%
 # directly in the generated directory
 dynamic-pages: 
 	python3 template.py
-	python3 unitTemplate.py
-	python3 topicTemplate.py
-	python3 appTemplate.py
+	python3 unit_template.py
+	python3 topic_template.py
+	python3 app_template.py
 	python3 glossary.py
 	python3 sitemap.py
 

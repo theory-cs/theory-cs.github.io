@@ -15,7 +15,7 @@ import linecache
 from userFunctions import *
 
 import json
-from weeklyCompileApp import UNGROUPED
+from weekly_compile_app import UNGROUPED
 outcomes = json.loads(open("outcomes.json").read())
 settings = json.loads(open("website-settings.json").read())
 
@@ -106,7 +106,7 @@ for filename in os.listdir(weeklyDirectory):
             # particularLine = linecache.getline(snippetsDirectory+snippetsFile, 2).replace("%! outcome:", "").replace("\n", "").strip()
             
             #debug
-            print(particularLine)
+            # print(particularLine)
     
 
             # Split small outcomes with the delimiter ", " into a list
