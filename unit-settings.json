@@ -196,7 +196,7 @@
         "header": "Week 6",
         "Topics": "Proofs, Recursion, and Induction",
         "CalendarInfo": " Dates: 11/1/21-11/5/21. Monday's lecture session is on Zoom, log in with your @ucsd.edu account https://ucsd.zoom.us/j/97431852722 Meeting ID: 974 3185 2722. Wednesday and Friday sessions in person.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "pdfs": [
             {
             "name": "Notes",
@@ -233,7 +233,7 @@
         "header": "Week 7",
         "Topics": "More recursion and induction",
         "CalendarInfo": " Dates: 11/8/21-11/12/21",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "pdfs": [
             {
                 "name": "Notes",
