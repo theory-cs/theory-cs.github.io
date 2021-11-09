@@ -12,7 +12,7 @@
 from string import Template
 import os
 import linecache
-from userFunctions import *
+from user_functions import *
 
 import json
 apps = json.loads(open("applications.json").read())

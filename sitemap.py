@@ -3,7 +3,7 @@ import os
 from os import listdir
 from os.path import isfile, join
 import linecache
-from userFunctions import *
+from user_functions import *
 
 files = "generated/website"
 arr = []

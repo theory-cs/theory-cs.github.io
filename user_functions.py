@@ -206,15 +206,15 @@ for i in range(0,len(unitData)):
 
 
 sidebars = {
-	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overviewApplication.html", "Overview", "'bx bxs-shapes'", appButtonsContent,bool(False)),
-	'topic': build_sidebar("index.html", websiteData['Global Class Name'], "overviewTopic.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent, bool(False)),
-	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overviewCalendar.html", "Calendar", "'bx bx-calendar'", unitButtonsContent, bool(True)),
+	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overview_application.html", "Overview", "'bx bxs-shapes'", appButtonsContent,bool(False)),
+	'topic': build_sidebar("index.html", websiteData['Global Class Name'], "overview_topic.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent, bool(False)),
+	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overview_calendar.html", "Calendar", "'bx bx-calendar'", unitButtonsContent, bool(True)),
 }
 
 mobile_sidebars = {
-	'application': build_mobile_sidebar("index.html", websiteData['Global Class Name'], "overviewApplication.html", "Overview", appMobileButtonsContent),
-	'topic': build_mobile_sidebar("index.html", websiteData['Global Class Name'], "overviewTopic.html", "Overview", outcomeMobileButtonsContent),
-	'unit': build_mobile_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overviewCalendar.html", "Calendar", unitMobileButtonsContent),
+	'application': build_mobile_sidebar("index.html", websiteData['Global Class Name'], "overview_application.html", "Overview", appMobileButtonsContent),
+	'topic': build_mobile_sidebar("index.html", websiteData['Global Class Name'], "overview_topic.html", "Overview", outcomeMobileButtonsContent),
+	'unit': build_mobile_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overview_calendar.html", "Calendar", unitMobileButtonsContent),
 }
 
 head_html = {
@@ -526,7 +526,7 @@ def create_assignment():
 				if element["name"] in assignment["name"]:
 					if "due" in assignment:
 						dueDate = assignment["due"]
-						print(element['name']+"\ndue: "+dueDate)
+						# print(element['name']+"\ndue: "+dueDate)
 
 		templateString += """ <p> Due: """ + dueDate + """</p>"""
     	#.pdf Download button

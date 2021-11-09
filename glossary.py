@@ -1,6 +1,6 @@
 from string import Template
 import json
-from userFunctions import *
+from user_functions import *
 import collections
 from string import Template
 import os

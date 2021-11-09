@@ -23,9 +23,9 @@
 
  outcomes.json: contains first, second, and third tier learning outcomes of Discrete Maths (specifically CSE 20) and the attributes of each outcome
     
-    First tier outcome (top-level key) (str) : these are program/theory outcomes and are displayed as box titles on overviewTopic.html
+    First tier outcome (top-level key) (str) : these are program/theory outcomes and are displayed as box titles on overview_topic.html
         Description (str): description of the first tier outcome
-        Icon (str): html code of the icon featured beside the first tier outcome on the overviewTopic.html (i.e. a paper airplane)
+        Icon (str): html code of the icon featured beside the first tier outcome on the overview_topic.html (i.e. a paper airplane)
     
     Second tier outcome (child of top-level key) (str): these are the sidebar menu options and are individual web pages
         Description (str): description of the second tier outcome

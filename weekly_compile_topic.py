@@ -12,7 +12,7 @@
 from string import Template
 import os
 import linecache
-from userFunctions import *
+from user_functions import *
 
 import json
 from weekly_compile_app import UNGROUPED

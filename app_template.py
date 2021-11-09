@@ -1,6 +1,6 @@
 from string import Template
 import json
-from userFunctions import *
+from user_functions import *
 from create_zip import *
   
 # returns unit-settings JSON file as a dictionary

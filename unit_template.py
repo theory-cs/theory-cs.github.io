@@ -1,7 +1,7 @@
 from os import remove
 from string import Template
 import json
-from userFunctions import *
+from user_functions import *
 from create_zip import *
 
 # returns unit-settings JSON file as a dictionary
@@ -92,11 +92,11 @@ for i in range(0,len(unitData)):
     if('embedYoutube' in unitData[i]):
         for j in range(len(unitData[i]['embedYoutube'])):
             youtubeEmbedLink = unitData[i]['embedYoutube'][j]['link'].replace("https://youtu.be/","").replace("https://www.youtube.com/embed/","")
-            print(youtubeEmbedLink)
+            # print(youtubeEmbedLink)
             embedID =  unitData[i]['embedYoutube'][j]['name'].replace(" ","-")
             embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embedYoutube'][j]['name']+"</h2>"
             embedString += "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/"+youtubeEmbedLink+"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            print("src=\"https://www.youtube.com/embed/"+unitData[i]['embedYoutube'][j]['link']+"\"")
+            # print("src=\"https://www.youtube.com/embed/"+unitData[i]['embedYoutube'][j]['link']+"\"")
 
 
     #open unit_template html file and read it into a string 
