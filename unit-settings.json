@@ -143,6 +143,12 @@
             "file": "Week4",
             "annotatedFile": "Week4-annotated.pdf"
             }],
+        "embedYoutube": [
+            {
+                "name": "Example translation to predicatte logic",
+                "link": "https://youtu.be/cw2nbPM0aX4"
+            }
+        ],
         "embed": [
                 {
                     "name": "Lecture and Discussion podcast",
@@ -175,10 +181,18 @@
             }],
         "embedYoutube": [
             {
+                "name": "Set operations: Definitions and Venn diagrams",
+                "link": "https://youtu.be/k0_kRwZ6WBA"
+            },
+            {
                 "name": "Motivation for proofs about primes",
                 "link": "https://youtu.be/LARELuWHn6E"
-            }],
-        
+            },
+            {
+                "name": "Examples for proof strategies: Universal conditional statement",
+                "link": "https://youtu.be/zgUXEiPw9fw"
+            }
+        ],
         "embed":[{
             "name": "Lecture and Discussion podcast",
             "embedCode": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a>.</p>"
