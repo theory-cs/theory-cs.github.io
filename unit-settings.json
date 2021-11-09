@@ -71,7 +71,8 @@
         ],
         "Due Dates": [
             {
-                "name": "hw1-definitions-and-notation-CSE20F21"
+                "name": "hw1-definitions-and-notation-CSE20F21",
+                "due": "10/5/21 at 11pm"
             },
             {
                 "name": "Review Quiz",
@@ -112,7 +113,8 @@
         ],
         "Due Dates": [
             {
-                "name": "hw2-numbers-CSE20F21"
+                "name": "hw2-numbers-CSE20F21",
+                "due": "10/12/21 at 11pm"
             },
             {
                 "name": "project-CSE20F21",
@@ -183,7 +185,8 @@
         ],
         "Due Dates": [
             {
-                "name": "hw3-circuits-and-logic-CSE20F21"
+                "name": "hw3-circuits-and-logic-CSE20F21",
+                "due": "10/26/21 at 11pm"
             },
             {
                 "name": "Review Quiz",
@@ -216,7 +219,8 @@
         ],
         "Due Dates": [
             {
-                "name": "hw4-propositional-and-predicate-logic-CSE20F21"
+                "name": "hw4-proofs-and-sets-CSE20F21",
+                "due": "11/2/21 at 11pm"
             },
             {
                 "name": "project-CSE20F21",
@@ -265,7 +269,8 @@
         "embed": [],
         "Due Dates": [
             {
-                "name": "hw5-proofs-and-sets-CSE20F21"
+                "name": "hw5-proofs-and-induction-CSE20F21",
+                "due": "11/16/21 at 11pm"
             },
             {
                 "name": "Review Quiz",
@@ -283,7 +288,8 @@
         "embed": [],
         "Due Dates": [
             {
-                "name": "hw6-induction-CSE20F21"
+                "name": "hw6-induction-CSE20F21",
+                "due": "11/23/21 at 11pm"
             },
             {
                 "name": "Review Quiz",
@@ -301,7 +307,8 @@
         "embed": [],
         "Due Dates": [
             {
-                "name": "hw7-proof-numbers-cardinality-CSE20F21"
+                "name": "hw7-proof-numbers-cardinality-CSE20F21",
+                "due": "11/30/21 at 11pm"
             },
             {
                 "name": "project-CSE20F21",

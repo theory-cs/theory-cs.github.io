@@ -513,9 +513,15 @@ def create_assignment():
 
     	#Assignment Information
 		templateString += """ <p> """+ element['Information']+"""</p>"""
-		if("due" in element):
-			templateString += """ <p> Due: """ + element["due"] + """</p>"""
+		dueDate = ""; 
+		for week in unitData:
+			for assignment in week['Due Dates']:
+				if element["name"] in assignment["name"]:
+					if "due" in assignment:
+						dueDate = assignment["due"]
+						print(element['name']+"\ndue: "+dueDate)
 
+		templateString += """ <p> Due: """ + dueDate + """</p>"""
     	#.pdf Download button
 		templateString += """ <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
 		href="""+pdf+""" download>PDF</a>"""

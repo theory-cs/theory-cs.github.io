@@ -1,4 +1,3 @@
-from userFunctions import *
 from zipfile import ZipFile
 import re
 from os.path import basename
@@ -17,7 +16,7 @@ def zip_file(filename, path):
             texFile = open(currentPath, "r+")
     except IOError as e:
             print(e)
-            return
+            return ""
     texString = texFile.readlines()
 
     #contents of new tex file will be in this string
@@ -31,7 +30,7 @@ def zip_file(filename, path):
         zipObj = ZipFile("generated/notes/"+path+"/"+filename+".zip", 'w')
     except IOError as e:
         print(e)
-        return
+        return ""
     
     
 
