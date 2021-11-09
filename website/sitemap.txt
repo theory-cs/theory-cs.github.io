@@ -12,15 +12,15 @@ https://discrete-math-for-cs.github.io/website/logic.html
 https://discrete-math-for-cs.github.io/website/recommendation-systems.html
 https://discrete-math-for-cs.github.io/website/proofs.html
 https://discrete-math-for-cs.github.io/website/systems.html
-https://discrete-math-for-cs.github.io/website/overviewTopic.html
 https://discrete-math-for-cs.github.io/website/unit2.html
 https://discrete-math-for-cs.github.io/website/bioinformatics.html
+https://discrete-math-for-cs.github.io/website/overview_application.html
 https://discrete-math-for-cs.github.io/website/numbers.html
 https://discrete-math-for-cs.github.io/website/unit1.html
 https://discrete-math-for-cs.github.io/website/glossary.html
 https://discrete-math-for-cs.github.io/website/courseInfo.html
 https://discrete-math-for-cs.github.io/website/induction.html
-https://discrete-math-for-cs.github.io/website/overviewApplication.html
+https://discrete-math-for-cs.github.io/website/overview_topic.html
 https://discrete-math-for-cs.github.io/website/codes-and-information.html
 https://discrete-math-for-cs.github.io/website/overviewCalendar.html
 https://discrete-math-for-cs.github.io/website/unit7.html
