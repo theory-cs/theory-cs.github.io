@@ -87,7 +87,16 @@ for i in range(0,len(unitData)):
         for j in range(len(unitData[i]['embed'])):
             embedID =  unitData[i]['embed'][j]['name'].replace(" ","-")
             embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embed'][j]['name']+"</h2>"+ unitData[i]['embed'][j]['embedCode']
-
+    
+    
+    if('embedYoutube' in unitData[i]):
+        for j in range(len(unitData[i]['embedYoutube'])):
+            youtubeEmbedLink = unitData[i]['embedYoutube'][j]['link'].replace("https://youtu.be/","").replace("https://www.youtube.com/embed/","")
+            print(youtubeEmbedLink)
+            embedID =  unitData[i]['embedYoutube'][j]['name'].replace(" ","-")
+            embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embedYoutube'][j]['name']+"</h2>"
+            embedString += "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/"+youtubeEmbedLink+"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            print("src=\"https://www.youtube.com/embed/"+unitData[i]['embedYoutube'][j]['link']+"\"")
 
 
     #open unit_template html file and read it into a string 

@@ -14,10 +14,6 @@
         ],
         "embed": [
             {
-                "name": "Intro video",
-                "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/2KbOaCLS-cQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            },
-            {
                 "name": "Lecture and Discussion podcast",
                 "embedCode": "<p>SEe <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a> for Week 0 Friday and Week 1 Monday and Wednesday. See <a href=\"https://youtu.be/4i47EJ4yNaY\" target=\"_blank\">Week 1 Friday video on YouTube</a></p>"
             },
@@ -32,6 +28,12 @@
             {
                 "name": "Lecture Hall (Week 1 and beyond)",
                 "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/553665\" height=\"600px\" width=\"100%\" frameBorder=\"0\"></iframe>"
+            }
+        ],
+        "embedYoutube":[
+            {
+                "name": "Intro video",
+                "link": "https://www.youtube.com/embed/2KbOaCLS-cQ"
             }
         ],
         "Due Dates": [
@@ -99,10 +101,6 @@
                 "embedCode": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a>.</p>"
             },
             {
-                "name": "CNF and DNF overview",
-                "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/I2KLt_lhzDg\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            },
-            {
                 "name": "Discussion slides",
                 "embedCode": "<p><a href=\"../files/DiscussionWeek3.pptx\">Download pptx slides</a></p>"
 	        },
@@ -110,6 +108,12 @@
 	    	"name": "Discussion slides with Annotation",
 	    	"embedCode": "<p><a href=\"../files/DiscussionWeek3annotated.pptx\">Download pptx slides</a></p>"
 	    }
+        ],
+        "embedYoutube":[
+            {
+                "name": "CNF and DNF overview",
+                "link": "https://www.youtube.com/embed/I2KLt_lhzDg"
+            }
         ],
         "Due Dates": [
             {
@@ -169,20 +173,21 @@
             "file": "Week5",
             "annotatedFile": "Week5-annotated.pdf"
             }],
-        "embed": [
+        "embedYoutube": [
             {
                 "name": "Motivation for proofs about primes",
-                "embedCode": "<iframe height=\"600px\" width=\"100%\" src=\"https://youtu.be/LARELuWHn6E\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            },
-            {
+                "link": "https://youtu.be/LARELuWHn6E"
+            }],
+        
+        "embed":[{
             "name": "Lecture and Discussion podcast",
             "embedCode": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a>.</p>"
-            },
+        },
 	    {
 		"name": "Discussion slides",
 		"embedCode": "<p><a href=\"../files/DiscussionWeek5.pptx\">Download pptx slides</a></p>"
-	    }
-        ],
+	    }],
+        
         "Due Dates": [
             {
                 "name": "hw3-circuits-and-logic-CSE20F21",
@@ -207,15 +212,18 @@
             "file": "Week6",
             "annotatedFile": "Week6-annotated.pdf"
             }],
-        "embed": [
+        "embedYoutube": [
             {
-                "name": "Lecture and Discussion podcast",
-                "embedCode": "<p>See <a href=\"https://youtu.be/6AMKAaAK6sI\" target=\"_blank\">Week 6 Monday video on YouTube</a>. See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a> for Week 6 Wednesday and Friday.</p>"
-            },
-	    {
+                "name": "Week 6 Monday",
+                "link": "https://youtu.be/6AMKAaAK6sI"
+            }],
+	    "embed":[{
 		"name": "Discussion slides",
 		"embedCode": "<p><a href=\"../files/DiscussionWeek6.pptx\">Download pptx slides</a></p>"
-	    }
+	    },
+        {"name":"Lecture and Discussion Podcast",
+        "embedCode":"See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a> for Week 6 Wednesday and Friday.</p>"
+        }
         ],
         "Due Dates": [
             {
