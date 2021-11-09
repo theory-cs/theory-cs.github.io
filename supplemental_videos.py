@@ -8,7 +8,34 @@ from create_zip import *
 unitData = json.loads(open("unit-settings.json").read())
 
 
+
+
+titleArray = []
+idArray = []
 embedString = ""
+for i in range(0,len(unitData)):
+    if('embedYoutube' in unitData[i]):
+        for j in range(len(unitData[i]['embedYoutube'])): 
+            titleArray.append(unitData[i]['embedYoutube'][j]['name'])
+            embedID =  unitData[i]['embedYoutube'][j]['name'].replace(" ","-")
+            idArray.append(embedID)
+
+print(titleArray)
+print(idArray)
+
+# Alphabetical view on top
+embedString = ""
+
+for i in range(0, len(titleArray)):
+    embedString += "<p> "
+    embedString += """<a href=\"supplemental_videos.html#""" + idArray[i] + """\">"""
+    embedString += titleArray[i]
+    embedString += " </a>"
+    embedString += " </p>\n"
+
+
+
+
 for i in range(0,len(unitData)):
 
     if('embedYoutube' in unitData[i]):
@@ -22,8 +49,8 @@ for i in range(0,len(unitData)):
 
 print(embedString)
 
-youtube_template = open("templates/youtube_template.html", "r")
-templateString = Template(youtube_template.read())
+supplemental_videos_template = open("templates/supplemental_videos_template.html", "r")
+templateString = Template(supplemental_videos_template.read())
 
 page_variables = site_variables.copy()
 page_variables.update(dict(
@@ -35,7 +62,7 @@ page_variables.update(dict(
 result = templateString.substitute(page_variables)
 
 
-resultFile = open("generated/website/youtube_links.html", "w")
+resultFile = open("generated/website/supplemental_videos.html", "w")
 resultFile.write(result)
 resultFile.close()
 
@@ -43,5 +70,5 @@ resultFile.close()
 
 
 # Closing files
-youtube_template.close()
+supplemental_videos_template.close()
         

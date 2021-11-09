@@ -136,7 +136,7 @@ dynamic-pages:
 	python3 app_template.py
 	python3 glossary.py
 	python3 sitemap.py
-	python3 youtube_links.py
+	python3 supplemental_videos.py
 
 #Building html versions of all .tex files in notes/lessons directory 
 tex-html : lessons-tex-html app-tex-html topic-tex-html assignments-tex-html activity-snippets-tex-html
