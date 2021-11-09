@@ -1,5 +1,4 @@
 https://discrete-math-for-cs.github.io/website/unit9.html
-https://discrete-math-for-cs.github.io/website/youtube_links.html
 https://discrete-math-for-cs.github.io/website/unit5.html
 https://discrete-math-for-cs.github.io/website/conventions.html
 https://discrete-math-for-cs.github.io/website/index.html
@@ -20,6 +19,7 @@ https://discrete-math-for-cs.github.io/website/overview_application.html
 https://discrete-math-for-cs.github.io/website/numbers.html
 https://discrete-math-for-cs.github.io/website/unit1.html
 https://discrete-math-for-cs.github.io/website/glossary.html
+https://discrete-math-for-cs.github.io/website/supplemental_videos.html
 https://discrete-math-for-cs.github.io/website/courseInfo.html
 https://discrete-math-for-cs.github.io/website/induction.html
 https://discrete-math-for-cs.github.io/website/overview_topic.html
