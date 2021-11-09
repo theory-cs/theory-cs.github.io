@@ -32,7 +32,7 @@
         ],
         "embedYoutube":[
             {
-                "name": "Intro video",
+                "name": "(Video) Course Intro",
                 "link": "https://www.youtube.com/embed/2KbOaCLS-cQ"
             }
         ],
@@ -111,7 +111,7 @@
         ],
         "embedYoutube":[
             {
-                "name": "CNF and DNF overview",
+                "name": "(Video) CNF and DNF overview",
                 "link": "https://www.youtube.com/embed/I2KLt_lhzDg"
             }
         ],
@@ -145,7 +145,7 @@
             }],
         "embedYoutube": [
             {
-                "name": "Example translation to predicatte logic",
+                "name": "(Video) Example translation to predicate logic",
                 "link": "https://youtu.be/cw2nbPM0aX4"
             }
         ],
@@ -181,15 +181,23 @@
             }],
         "embedYoutube": [
             {
-                "name": "Set operations: Definitions and Venn diagrams",
+                "name": "(Video) Set equality",
+                "link": "https://youtu.be/DMMEIHv7ftQ"
+            },
+            {
+                "name": "(Video) Subset inclusion",
+                "link": "https://youtu.be/s0LTAbEjSsc"
+            },
+            {
+                "name": "(Video) Set operations: Definitions and Venn diagrams",
                 "link": "https://youtu.be/k0_kRwZ6WBA"
             },
             {
-                "name": "Motivation for proofs about primes",
+                "name": "(Video) Motivation for proofs about primes",
                 "link": "https://youtu.be/LARELuWHn6E"
             },
             {
-                "name": "Examples for proof strategies: Universal conditional statement",
+                "name": "(Video) Examples for proof strategies: Universal conditional statement",
                 "link": "https://youtu.be/zgUXEiPw9fw"
             }
         ],
@@ -228,9 +236,22 @@
             }],
         "embedYoutube": [
             {
-                "name": "Week 6 Monday",
+                "name": "(Video) Week 6 Monday",
                 "link": "https://youtu.be/6AMKAaAK6sI"
-            }],
+            },
+            {
+                "name": "(Video) Comparing induction strategies",
+                "link": "https://youtu.be/4xAhIngGwcU"
+            },
+            {
+                "name": "(Video) Mathematical induction strategy",
+                "link": "https://youtu.be/t26yTPA5-Os"
+            },
+            {
+                "name": "(Video) Mathematical induction example",
+                "link": "https://youtu.be/3VpOoSEVm3E"
+            }
+        ],
 	    "embed":[{
 		"name": "Discussion slides",
 		"embedCode": "<p><a href=\"../files/DiscussionWeek6.pptx\">Download pptx slides</a></p>"
