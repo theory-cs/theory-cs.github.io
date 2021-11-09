@@ -86,7 +86,7 @@ for i in range(0,len(unitData)):
         # print("embed in "+str(i+1))
         for j in range(len(unitData[i]['embed'])):
             embedID =  unitData[i]['embed'][j]['name'].replace(" ","-")
-            embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embed'][j]['name']+"</h2>"+ unitData[i]['embed'][j]['embedCode']
+            embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embed'][j]['name']+"</h2>"+ unitData[i]['embed'][j]['embedCode']+"\n"
     
     
     if('embedYoutube' in unitData[i]):

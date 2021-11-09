@@ -270,6 +270,13 @@ def create_unit_boxes():
 			for embed in unitData[i]['embed']: 
 				embedID = embed['name'].replace(" ", "-")
 				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ embedID+"""\" >""" + embed['name'] + """</a>&emsp;"""
+		
+		#embed youtube
+		if('embedYoutube' in unitData[i]):
+			for embedYoutube in unitData[i]['embedYoutube']: 
+				embedID = embedYoutube['name'].replace(" ", "-")
+				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ embedID+"""\" >""" + embedYoutube['name'] + """</a>&emsp;"""
+
 		boxString += "</dd>"
     	#Assignments
 		boxString += """<dt>Due Dates</dt> \n"""
