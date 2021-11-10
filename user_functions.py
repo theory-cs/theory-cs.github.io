@@ -227,7 +227,8 @@ head_html = {
 def create_unit_boxes():
 	#variables used in for loop
 
-	boxString = """<p><a href=\"supplemental_videos.html\"> Supplemental Videos </a></p>"""
+	boxString = ""
+	# boxString = """<p><a href=\"supplemental_videos.html\"> Supplemental Videos </a></p>"""
 	boxString += """ <button class="button coll" onclick="expandCollapseAll(0)">Expand All Boxes</button>
 				<button class="button coll" onclick="expandCollapseAll(1)">Collapse All Boxes</button><br><br>"""
 

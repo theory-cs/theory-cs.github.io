@@ -108,7 +108,8 @@ for j in alphabet:
                         title = key.replace("definitions","").replace("definition","").strip()
                     else:
                         title = key
-                    content += """<p>""" + title + """   {<a href=\"../output/lessons/""" + whatWeek  + """.html\">Definition</a>}"""
+                    print(key.replace(" ", "-"))
+                    content += """<p>""" + title + """   {<a href=\"../output/activity-snippets-flat/""" + key.replace(" ", "-")  + """.pdf\">Definition</a>}"""
                     content += """{Week(s) included: """
                     for weeks in contents[key]:
                         numonly = weeks[-1:]

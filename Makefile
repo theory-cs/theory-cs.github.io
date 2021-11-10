@@ -62,6 +62,11 @@ generated/output/topic/%.pdf: generated/notes/topic/%.tex resources/lesson-head.
 generated/output/assignments/%.pdf: notes/assignments/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/output/assignments; cd notes/assignments; pdflatex -output-directory ../../generated/output/assignments $(<F) 
 
+
+# Typesetting all .tex files in generated/notes/activity-snippets-flat directory
+generated/output/assignments/%.pdf: generated/notes/activity-snippets-flat/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/output/activity-snippets; cd generated/notes/activity-snippets-flat; pdflatex -output-directory ../../output/activity-snippets-flat $(<F) 
+
 # generate expanded/flat version of assignments compiled tex files
 generated/notes/assignments-flat/%.tex: notes/assignments/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
 	mkdir -p generated/notes/assignments-flat; cd notes/assignments; latexpand $(<F) > ../../generated/notes/assignments-flat/$(<F)
