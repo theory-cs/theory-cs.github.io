@@ -35,11 +35,12 @@ generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/assignments/*.te
 
 
 # Iterate over all changed .tex files in notes and run target for them in new folder, then generate flat versions if needed
-latex: lessonsLatex appLatex topicLatex assignmentsLatex lessons-latexpand app-latexpand topic-latexpand assignments-latexpand
+latex: lessonsLatex appLatex topicLatex assignmentsLatex activitySnippetsLatex lessons-latexpand app-latexpand topic-latexpand assignments-latexpand
 lessonsLatex: $(patsubst notes/lessons/%.tex,generated/output/lessons/%.pdf,$(wildcard notes/lessons/*.tex))
 appLatex: $(patsubst generated/notes/app/%.tex,generated/output/app/%.pdf,$(wildcard generated/notes/app/*.tex))
 topicLatex: $(patsubst generated/notes/topic/%.tex,generated/output/topic/%.pdf,$(wildcard generated/notes/topic/*.tex))
 assignmentsLatex: $(patsubst notes/assignments/%.tex,generated/output/assignments/%.pdf,$(wildcard notes/assignments/*.tex))
+activitySnippetsLatex: $(patsubst generated/notes/activity-snippets-flat/%.tex,generated/output/activity-snippets/%.pdf,$(wildcard generated/notes/activity-snippets-flat/*.tex))
 topic-latexpand: $(patsubst generated/notes/topic/%.tex,generated/notes/topic-flat/%.tex,$(wildcard generated/notes/topic/*.tex))
 app-latexpand: $(patsubst generated/notes/app/%.tex,generated/notes/app-flat/%.tex,$(wildcard generated/notes/app/*.tex))
 lessons-latexpand: $(patsubst notes/lessons/%.tex,generated/notes/lessons-flat/%.tex,$(wildcard notes/lessons/*.tex))
@@ -64,8 +65,8 @@ generated/output/assignments/%.pdf: notes/assignments/%.tex resources/assignment
 
 
 # Typesetting all .tex files in generated/notes/activity-snippets-flat directory
-generated/output/assignments/%.pdf: generated/notes/activity-snippets-flat/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
-	mkdir -p generated/output/activity-snippets; cd generated/notes/activity-snippets-flat; pdflatex -output-directory ../../output/activity-snippets-flat $(<F) 
+generated/output/activity-snippets/%.pdf: generated/notes/activity-snippets-flat/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex
+	mkdir -p generated/output/activity-snippets; cd generated/notes/activity-snippets-flat; pdflatex -output-directory ../../output/activity-snippets $(<F) 
 
 # generate expanded/flat version of assignments compiled tex files
 generated/notes/assignments-flat/%.tex: notes/assignments/%.tex resources/assignment-head.tex resources/discrete-math-packages.tex

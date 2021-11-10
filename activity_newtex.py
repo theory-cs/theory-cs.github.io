@@ -88,15 +88,9 @@ for filename in os.listdir(directoryFolder):
         for line in lines:
             strNew += line
 
-        strNew += "\end{document}"
+        strNew += "\n\end{document}"
         print(strNew)
 
         resultFile = open("generated/notes/activity-snippets-flat/" + filename, "w")
         resultFile.write(strNew)
         resultFile.close()
-    
-
-        print(filename)
-    
-
-        print("DIVIDER\n")
