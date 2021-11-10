@@ -24,6 +24,7 @@ for big in outcomeData:
         # print(count)
         outcome[small + str(count)] = outcomeData[big]['Children'][med]['file']
         count += 1
+# print(outcome)
 
 # Application
 for key in applicationData:
@@ -46,7 +47,7 @@ for entry in os.scandir(files):
 
 
 outcome = collections.OrderedDict(sorted(outcome.items()))
-print(outcome)
+# print(outcome)
 
 
 
@@ -85,7 +86,7 @@ for entry in os.scandir(files):
                     contents[line] = []
                 contents[line].append(week)
 
-print(contents)
+# print(contents)
 # Each alphabet content
 for j in alphabet:
     content += """<h1 id=\"""" + j + """\">""" + j + "</h1>\n"
@@ -108,8 +109,8 @@ for j in alphabet:
                         title = key.replace("definitions","").replace("definition","").strip()
                     else:
                         title = key
-                    print(key.replace(" ", "-"))
-                    content += """<p>""" + title + """   {<a href=\"../output/activity-snippets-flat/""" + key.replace(" ", "-")  + """.pdf\" download>Definition</a>}"""
+                    # print(key.replace(" ", "-"))
+                    content += """<p>""" + title + """   {<a href=\"../output/activity-snippets/""" + key.replace(" ", "-")  + """.pdf\" download>Definition</a>}"""
                     content += """{Week(s) included: """
                     for weeks in contents[key]:
                         numonly = weeks[-1:]
