@@ -28,6 +28,7 @@ generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/assignments/*.te
 	mkdir -p generated/notes
 	mkdir -p generated/notes/app
 	mkdir -p generated/notes/topic
+	mkdir -p generated/notes/activity-snippets-flat
 	python3 weekly_compile_app.py
 	python3 weekly_compile_topic.py
 	touch generated/last-index.txt
@@ -137,6 +138,7 @@ dynamic-pages:
 	python3 glossary.py
 	python3 sitemap.py
 	python3 supplemental_videos.py
+	python3 activity_newtex.py
 
 #Building html versions of all .tex files in notes/lessons directory 
 tex-html : lessons-tex-html app-tex-html topic-tex-html assignments-tex-html activity-snippets-tex-html
