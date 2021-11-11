@@ -122,7 +122,7 @@ for j in alphabet:
                         # print(numonly)
                         content += """<a href=\"unit""" + numonly  + """.html#Notes\">""" + weeks + """&nbsp</a>"""
                         # print(weeks)
-                    content += """}</p>
+                    content += """}</p><br>
                     <div class="glossaryPDFDiv" id="pdfDiv"""+str(pdfCount)+"""\"  style="display:none;"> 
                     <iframe class="PDFjs" src=\"web/viewer.html?file=../../output/activity-snippets/"""+ key.replace(" ", "-")+""".pdf\"
                     title="webviewer" frameborder="0" width="70%" height="400"></iframe>
