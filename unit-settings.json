@@ -1,7 +1,7 @@
 [
     {
         "header": "Week 0 and 1",
-        "Topics": "Introduction and data types",
+        "outcomes": "Introduction and data types",
         "CalendarInfo": " Dates: 9/24/21 - 10/1/21<br> Welcome! See you Friday 9/24 in Galbraith Hall. Lecture will be in WLH 2001 on Monday 9/27 and Wednesday 9/29. It will be via Zoom on Friday Oct 1. Please take our <a href=\"https://forms.gle/gvibFnNixxqcWbaU8\" target=\"_blank\">pre-class survey.</a> ",
         "ExpandInCalendar": false,
         "pdfs": [
@@ -46,7 +46,7 @@
     },
     {
         "header": "Week 2",
-        "Topics": "Number representations",
+        "outcomes": "Number representations",
         "CalendarInfo": " Dates: 10/4/21-10/8/21",
         "ExpandInCalendar": false,
         "pdfs": [
@@ -85,7 +85,7 @@
     },
     {
         "header": "Week 3",
-        "Topics": "Circuits and Propositional Logic",
+        "outcomes": "Circuits and Propositional Logic",
         "CalendarInfo": " Dates: 10/11/21-10/15/21",
         "ExpandInCalendar": false,
         "pdfs": [
@@ -133,7 +133,7 @@
     },
     {
         "header": "Week 4",
-        "Topics": "Predicate Logic",
+        "outcomes": "Predicate Logic",
         "CalendarInfo": " Dates: 10/18/21-10/22/21",
         "ExpandInCalendar": false,
         "pdfs": [
@@ -169,7 +169,7 @@
     },
     {
         "header": "Week 5",
-        "Topics": "Proof Strategies",
+        "outcomes": "Proof Strategies",
         "CalendarInfo": " Dates: 10/25/21-10/29/21",
         "ExpandInCalendar": false,
         "pdfs": [
@@ -224,7 +224,7 @@
     },
     {
         "header": "Week 6",
-        "Topics": "Proofs, Recursion, and Induction",
+        "outcomes": "Proofs, Recursion, and Induction",
         "CalendarInfo": " Dates: 11/1/21-11/5/21. Monday's lecture session is on Zoom, log in with your @ucsd.edu account https://ucsd.zoom.us/j/97431852722 Meeting ID: 974 3185 2722. Wednesday and Friday sessions in person.",
         "ExpandInCalendar": false,
         "pdfs": [
@@ -278,7 +278,7 @@
     },
     {
         "header": "Week 7",
-        "Topics": "More recursion and induction",
+        "outcomes": "More recursion and induction",
         "CalendarInfo": " Dates: 11/8/21-11/12/21",
         "ExpandInCalendar": true,
         "pdfs": [
@@ -305,7 +305,7 @@
     },
     {
         "header": "Week 8",
-        "Topics": "Functions and Cardinality",
+        "outcomes": "Functions and Cardinality",
         "CalendarInfo": " Dates: 11/15/21-11/19/21",
         "ExpandInCalendar": false,
         "pdfs": [],
@@ -324,7 +324,7 @@
     },
     {
         "header": "Week 9",
-        "Topics": "Relations and Modular Arithmetic",
+        "outcomes": "Relations and Modular Arithmetic",
         "CalendarInfo": " Dates: 11/22/21-11/26/21. No class on 11/26 due to UCSD Holiday (Thanksgiving).",
         "ExpandInCalendar": false,
         "pdfs": [],
@@ -343,7 +343,7 @@
     },
     {
         "header": "Week 10",
-        "Topics": "Relations and Clustering",
+        "outcomes": "Relations and Clustering",
         "CalendarInfo": " Dates: 11/29/21-12/3/21",
         "ExpandInCalendar": false,
         "pdfs": [],
@@ -366,7 +366,7 @@
     },
     {
         "header": "Finals week",
-        "Topics": "Final exam",
+        "outcomes": "Final exam",
         "CalendarInfo": " Dates: 12/6/21-12/10/21",
         "ExpandInCalendar": false,
         "pdfs": [],

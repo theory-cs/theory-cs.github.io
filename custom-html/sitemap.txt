@@ -14,7 +14,7 @@ https://discrete-math-for-cs.github.io/website/unit8.html
 https://discrete-math-for-cs.github.io/website/unit9.html
 https://discrete-math-for-cs.github.io/website/unit10.html
 https://discrete-math-for-cs.github.io/website/unit11.html
-https://discrete-math-for-cs.github.io/website/overview_topic.html
+https://discrete-math-for-cs.github.io/website/overview_outcome.html
 https://discrete-math-for-cs.github.io/website/connect.html
 https://discrete-math-for-cs.github.io/website/systems.html
 https://discrete-math-for-cs.github.io/website/translate.html

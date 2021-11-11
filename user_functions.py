@@ -5,7 +5,7 @@ from create_zip import *
 websiteData = json.loads(open("website-settings.json").read())
 
 
-# "application" | "unit" | "topic" -> HTML (for the sidebar)
+# "application" | "unit" | "outcome" -> HTML (for the sidebar)
 def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon, buttonsContent, smallWidth):
 	sidebarButtons = """ <div class="sidebar\""""
 	#unit view must have smaller width
@@ -158,7 +158,7 @@ outcomeData = json.loads(open("outcomes.json").read())
 outcomeButtonsContent = ""
 for big in outcomeData:
 	for med in outcomeData[big]['Children']:
-		#only put icon in sidebar of 2nd tier topics that have children 
+		#only put icon in sidebar of 2nd tier outcomes that have children 
 		if(bool(outcomeData[big]['Children'][med]['Children'])):
 			outcomeButtonsContent += "<li>"
 			outcomeButtonsContent += """<a href= \"""" +outcomeData[big]['Children'][med]['file'] + """?box=1\" aria-label="Go to """ + med + """ ">"""
@@ -171,7 +171,7 @@ for big in outcomeData:
 outcomeMobileButtonsContent = ""
 for big in outcomeData:
 	for med in outcomeData[big]['Children']:
-		#only put icon in sidebar of 2nd tier topics that have children 
+		#only put icon in sidebar of 2nd tier outcomes that have children 
 		if(bool(outcomeData[big]['Children'][med]['Children'])):
 			outcomeMobileButtonsContent += """<a href= \"""" + outcomeData[big]['Children'][med]['file'] + """\"">""" + med + """</a>"""
 
@@ -207,19 +207,19 @@ for i in range(0,len(unitData)):
 
 sidebars = {
 	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overview_application.html", "Overview", "'bx bxs-shapes'", appButtonsContent,bool(False)),
-	'topic': build_sidebar("index.html", websiteData['Global Class Name'], "overview_topic.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent, bool(False)),
+	'outcome': build_sidebar("index.html", websiteData['Global Class Name'], "overview_outcome.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent, bool(False)),
 	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overview_calendar.html", "Calendar", "'bx bx-calendar'", unitButtonsContent, bool(True)),
 }
 
 mobile_sidebars = {
 	'application': build_mobile_sidebar("index.html", websiteData['Global Class Name'], "overview_application.html", "Overview", appMobileButtonsContent),
-	'topic': build_mobile_sidebar("index.html", websiteData['Global Class Name'], "overview_topic.html", "Overview", outcomeMobileButtonsContent),
+	'outcome': build_mobile_sidebar("index.html", websiteData['Global Class Name'], "overview_outcome.html", "Overview", outcomeMobileButtonsContent),
 	'unit': build_mobile_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overview_calendar.html", "Calendar", unitMobileButtonsContent),
 }
 
 head_html = {
 	'application': build_head_html(websiteData['Global Class Name']),
-	'topic': build_head_html(websiteData['Global Class Name']),
+	'outcome': build_head_html(websiteData['Global Class Name']),
 	'unit': build_head_html(websiteData['Course Offering Title']),
 	'others': build_head_html(websiteData['Global Class Name'])
 }
@@ -236,8 +236,8 @@ def create_unit_boxes():
 		unitNumber = i+1
     	#set appropriate variables for top calendar information section and title 
 		heading=unitData[i]['header']
-		if('Topics' in unitData[i]):
-			heading+=": " + unitData[i]['Topics']
+		if('outcomes' in unitData[i]):
+			heading+=": " + unitData[i]['outcomes']
 		info=""
 		if('CalendarInfo' in unitData[i]):
 			info+=unitData[i]['CalendarInfo']
@@ -436,7 +436,7 @@ def create_outcome_boxes():
 		
 		for j in outcomeData[i]['Children']:
 
-			#add link to page of 2nd tier children with subtopics (only link to pages of 2nd tier children with content)
+			#add link to page of 2nd tier children with suboutcomes (only link to pages of 2nd tier children with content)
 			if(bool(outcomeData[i]['Children'][j]['Children'])):
 				boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href=\"""" + outcomeData[i]['Children'][j]['file'] + """?box=1\" >""" + j + """</a></dt> \n"""
 				
@@ -444,7 +444,7 @@ def create_outcome_boxes():
 				boxString += """<dt><i class='bx bx-subdirectory-right' ></i><a href="javascript:void(0)" >""" + j + """</a></dt> \n"""
 			
 
-			#list children of 2nd tier children (subtopics under outcomes, these will be included on the webpage for the outcomes as PDFs and menu options)
+			#list children of 2nd tier children (suboutcomes under outcomes, these will be included on the webpage for the outcomes as PDFs and menu options)
 			if(bool(outcomeData[i]['Children'][j]['Children'])):
 				#reset counter
 				childNum = 1 
@@ -733,15 +733,15 @@ def write_if_different(filename, contents):
 def create_site_variables():
 	return {
 		'applicationSidebar': sidebars['application'],
-		'outcomeSidebar': sidebars['topic'],
+		'outcomeSidebar': sidebars['outcome'],
 		'unitSidebar': sidebars['unit'],
 
 		'applicationMobileSidebar': mobile_sidebars['application'],
-		'outcomeMobileSidebar': mobile_sidebars['topic'],
+		'outcomeMobileSidebar': mobile_sidebars['outcome'],
 		'unitMobileSidebar': mobile_sidebars['unit'],
 
 		'applicationHead': head_html['application'],
-		'outcomeHead': head_html['topic'],
+		'outcomeHead': head_html['outcome'],
 		'unitHead': head_html['unit'],
 		'othersHead': head_html['others'],
 

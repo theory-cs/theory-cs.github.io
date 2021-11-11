@@ -1,13 +1,13 @@
 # This program creates dictionary that matches
-# topics to weeks in which they are discussed and then
-# produces .tex files for each topic
+# outcomes to weeks in which they are discussed and then
+# produces .tex files for each outcome
 # with snippets ordered chronologically by weeks
 #
-# Input: outcomes.json specifies all topics
+# Input: outcomes.json specifies all outcomes
 # website-settings are global settings (ungrouped snippets)
 # unit-settings.json helps find the order of the weeks each snippet appears in
 #
-#Output: compiled .tex files for each Topic with corresponding snippets
+#Output: compiled .tex files for each outcome with corresponding snippets
 
 from string import Template
 import os
@@ -178,4 +178,4 @@ for key in lowLevelsDict:
 
         result += "\end{document}"
 
-        write_if_different("generated/notes/topic/"+ key + ".tex", result)
+        write_if_different("generated/notes/outcome/"+ key + ".tex", result)

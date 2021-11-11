@@ -12,15 +12,15 @@ for big in outcomeData:
 		pdfString = ""
 		collapseVar = 1
 		for small in outcomeData[big]['Children'][med]['Children']:
-			tex= zip_file(file, "topic-flat")
+			tex= zip_file(file, "outcome-flat")
 			if(tex == None):
 				tex=""
 			
 			
 			
 			file = small.replace(" ", "-")
-			pdf="../output/topic/" + file + ".pdf"
-			html="../output/topic/" + file + ".html"
+			pdf="../output/outcome/" + file + ".pdf"
+			html="../output/outcome/" + file + ".html"
 			
 			pdfString += """<div class="box outcome"  id="box"""+str(collapseVar)+""""><button type="button" class="collapsible"
 			"> \n"""
@@ -162,9 +162,9 @@ for big in outcomeData:
 		infoString = "<p>"+ outcomeData[big]['Children'][med]['Description']+ "</p>" 
     
     
-    	#open topic_template html file and read it into a string 
-		topic_template = open("templates/topic_template.html", "r")
-		templateString = Template(topic_template.read())
+    	#open outcome_template html file and read it into a string 
+		outcome_template = open("templates/outcome_template.html", "r")
+		templateString = Template(outcome_template.read())
 
 		page_variables = site_variables.copy()
 		page_variables.update(dict(
@@ -184,4 +184,4 @@ for big in outcomeData:
 
 
 # Closing files
-topic_template.close()
+outcome_template.close()
