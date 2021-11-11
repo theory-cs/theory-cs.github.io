@@ -87,6 +87,7 @@ for entry in os.scandir(files):
                 contents[line].append(week)
 
 # print(contents)
+pdfCount = 0
 # Each alphabet content
 for j in alphabet:
     content += """<h1 id=\"""" + j + """\">""" + j + "</h1>\n"
@@ -102,6 +103,7 @@ for j in alphabet:
                 # content += """<p><a href=\"../notes/activity-snippets/""" + outcome[key]  + """\">""" + key +"""</a></p>\n"""
             else:
                 if(key in contents):
+                    pdfCount += 1; 
                     whatWeek = str(contents[key][0])
                     # print(key + " in " + whatWeek + "\n")
                     if(("definition" in key) and ("definitions" != key)):
@@ -109,15 +111,32 @@ for j in alphabet:
                         title = key.replace("definitions","").replace("definition","").strip()
                     else:
                         title = key
-                    # print(key.replace(" ", "-"))
-                    content += """<p>""" + title + """   {<a href=\"../output/activity-snippets/""" + key.replace(" ", "-")  + """.pdf\" download>Definition</a>}"""
+                    #print(key.replace(" ", "-"))
+                    pdfPath = "../output/activity-snippets/"+key.replace(" ", "-")+".pdf"
+                    content += """<p style="display: inline-block;">""" + title + """<a onclick="showDiv"""+str(pdfCount)+"""()" href="javascript:void(0)"> Definition</a>"""
+                    
+                    #content += """<p>""" + title +"""{<a href=\"../output/activity-snippets/""" + key.replace(" ", "-")  + """.pdf\" download>Definition</a>}"""
                     content += """{Week(s) included: """
                     for weeks in contents[key]:
                         numonly = weeks[-1:]
                         # print(numonly)
                         content += """<a href=\"unit""" + numonly  + """.html#Notes\">""" + weeks + """&nbsp</a>"""
                         # print(weeks)
-                    content += """}</p>"""
+                    content += """}</p>
+                    <div class="glossaryPDFDiv" id="pdfDiv"""+str(pdfCount)+"""\"  style="display:none;"> 
+                    <iframe class="PDFjs" src=\"web/viewer.html?file=../../output/activity-snippets/"""+ key.replace(" ", "-")+""".pdf\"
+                    title="webviewer" frameborder="0" width="70%" height="400"></iframe>
+                    
+                    </div>
+                    
+                    
+                    
+                    <script>
+                    function showDiv"""+str(pdfCount)+"""() {
+                    document.getElementById("pdfDiv"""+str(pdfCount)+"""\").style.display = "block";
+                    }
+                    </script>
+                    """
     content += "\n"
 
 # print(content)
