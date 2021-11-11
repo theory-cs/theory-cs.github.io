@@ -75,7 +75,7 @@ def build_mobile_sidebar(titleHref, titleName, overviewHref, overviewName, mobil
 	mobileSidebarButtons += """ </div>
 
 		<div class="openbutton">
-			<button class="openbtn"  onclick="openNav()">☰ Open Sidebar</button> 
+			<button class="openbtn"  onclick="openNav()">☰ Menu</button> 
 		</div> 
 		  
 		<script>

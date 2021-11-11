@@ -113,10 +113,10 @@ for j in alphabet:
                         title = key
                     #print(key.replace(" ", "-"))
                     pdfPath = "../output/activity-snippets/"+key.replace(" ", "-")+".pdf"
-                    content += """<p style="display: inline-block;">""" + title + """<a onclick="showDiv"""+str(pdfCount)+"""()" href="javascript:void(0)"> Definition</a>"""
+                    content += """<p style="display: inline-block;">""" + title + """ {<a onclick="showDiv"""+str(pdfCount)+"""()" href="javascript:void(0)">Definition</a>"""
                     
                     #content += """<p>""" + title +"""{<a href=\"../output/activity-snippets/""" + key.replace(" ", "-")  + """.pdf\" download>Definition</a>}"""
-                    content += """{Week(s) included: """
+                    content += """}{Week(s) included: """
                     for weeks in contents[key]:
                         numonly = weeks[-1:]
                         # print(numonly)
