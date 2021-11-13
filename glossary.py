@@ -133,7 +133,14 @@ for j in alphabet:
                     
                     <script>
                     function showDiv"""+str(pdfCount)+"""() {
-                    document.getElementById("pdfDiv"""+str(pdfCount)+"""\").style.display = "block";
+                    var element = document.getElementById('pdfDiv"""+str(pdfCount)+"""'),
+                    style = window.getComputedStyle(element);
+                    if(style.getPropertyValue('display')=== 'none'){
+                        document.getElementById("pdfDiv"""+str(pdfCount)+"""\").style.display = "block";
+                    }
+                    else{
+                        document.getElementById("pdfDiv"""+str(pdfCount)+"""\").style.display = "none";
+                    }
                     }
                     </script>
                     """
