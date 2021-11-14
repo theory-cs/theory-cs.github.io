@@ -1,0 +1,56 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+Recall the definitions from previous assignments and class: 
+The bases of RNA are elements of the set 
+$B  = \{\A, \C, \G, \U \}$. The set of RNA strands $S$ is defined (recursively) by:
+
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+
+For $b$ an integer greater than $1$ and $n$ a positive integer, 
+the {\bf base $b$ expansion of $n$}  is
+\[
+(a_{k-1} \cdots a_1 a_0)_b
+\]
+where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ are nonnegative integers less than $b$, $a_{k-1} \neq  0$, and
+\[
+n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0
+\]
+
+For $b$ an integer greater than $1$, $w$ a positive integer, and $n$ a nonnegative integer
+with $n < b^w$,
+the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
+\[
+(a_{w-1} \cdots a_1 a_0)_{b,w}
+\]
+where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
+\[
+n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0
+\]
+For $b$ an integer greater than $1$, $w$ a positive integer, $w'$ a positive  integer, and $x$ a real number
+the {\bf base $b$ fixed-width expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
+\[
+(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w'})_{b,w,w'}
+\]
+where  $a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w'}$ are nonnegative integers less than $b$ and
+$$x \geq a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  c_{w'} b^{-w'}$$
+and
+$$x < a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  (c_{w'} +1) b^{-w'}$$
+
+
+For each set below, determine if it is empty, nonempty and finite, countably infinite, or uncountable.
+
+{\it Challenge - not to hand in}: how would you prove this?
+
+\begin{enumerate}
+\item $B$
+\item $S$
+\item $\{ x \in \mathbb{N} ~\mid~ x = (4102)_3 \}$
+\item $\{ x \in \mathbb{R} ~\mid~ \text{$x$ has a binary fixed-width $5$ expansion} \}$
+\item $\{ x \in \mathbb{R} ~\mid~ x = (0.10)_{(2,1,2)} \}$
+\end{enumerate}
