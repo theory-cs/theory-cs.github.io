@@ -284,7 +284,7 @@
         "header": "Week 7",
         "outcomes": "More recursion and induction",
         "CalendarInfo": " Dates: 11/8/21-11/12/21",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "pdfs": [
             {
                 "name": "Notes",
@@ -311,7 +311,7 @@
         "header": "Week 8",
         "outcomes": "Functions and Cardinality",
         "CalendarInfo": " Dates: 11/15/21-11/19/21",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "pdfs": [
             {
                 "name": "Notes",
