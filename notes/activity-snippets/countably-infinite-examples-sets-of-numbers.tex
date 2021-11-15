@@ -1,0 +1,53 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+{\bf Natural numbers} $\mathbb{N}$ \hfill {\it List}:  $0~~1~~2~~3~~4~~5~~6~~7~~8~~9~~10 \ldots$
+
+$identity: \mathbb{N} \to \mathbb{N}$ with $identity(n) = n$
+
+{\it Claim}: $identity$ is a bijection. {\it Proof}: Ex. \hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{N}|~$
+
+{\bf Positive integers} $\mathbb{Z}^+$ \hfill {\it List}:  $1~~2~~3~~4~~5~~6~~7~~8~~9~~10~~11\ldots$
+
+$positives: \mathbb{N} \to \mathbb{Z}^+$ with $positives(n) = n+1$
+
+{\it Claim}: $positives$ is a bijection.  {\it Proof}: Ex.\hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{Z}^+|$
+
+{\bf Negative integers $\mathbb{Z}^-$}\hfill  {\it List}: $-1$~$-2$~$-3$~$-4$~$-5$~$-6$~$-7$~$-8$~$-9$~$-10$~$-11$\ldots
+
+$negatives: \mathbb{N} \to \mathbb{Z}^-$ with $negatives(n) = -n-1$
+
+{\it Claim}: $negatives$ is a bijection. \hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{Z}^-|$
+
+{\it Proof}: We need to show it is a well-defined function that is one-to-one and onto.
+
+\begin{itemize}
+\item Well-defined? 
+
+Consider an arbitrary element of the domain, $n \in \mathbb{N}$. We need to show it maps to exactly one element of $\mathbb{Z}^-$.
+
+\vfill
+
+\item One-to-one?
+
+
+Consider arbitrary elements of the domain $a, b \in \mathbb{N}$. We need to show that 
+$$\left(~negatives(a) = negatives(b) ~\right) \to (a=b)$$
+
+\vfill
+
+\item Onto?
+
+Consider arbitrary element of the codomain $b \in \mathbb{Z}^-$. We need witness in $\mathbb{N}$ that maps to $b$.
+
+\vfill
+\end{itemize}
+
+{\bf Integers} $\mathbb{Z}$ \hfill {\it List}:  $0~-1~~1~-2~~2~-3~~3~-4~~4~-5~~5$\ldots
+
+$f: \mathbb{Z} \to \mathbb{N}$ with $f(x) = \begin{cases}2x &\text{if $x \geq 0$} \\-2x-1 &\text{if $x < 0$} \end{cases}$
+
+{\it Claim}: $f$ is a bijection.  {\it Proof}: Ex.\hfill {\bf Corollary}: $ | \mathbb{Z} | = |\mathbb{N}|$
+\newpage
+
+

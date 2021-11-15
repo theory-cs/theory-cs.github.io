@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.11.13)  13 NOV 2021 05:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.11.15)  15 NOV 2021 05:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -662,15 +662,10 @@ LaTeX Font Info:    Trying to load font information for U+wasy on input line 66
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 
-Package lastpage Warning: Rerun to get the references right on input line 76.
+Package lastpage Warning: Rerun to get the references right on input line 70.
 
 
 AED: lastpage setting LastPage
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 66--76
-[] 
- []
-
 [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
@@ -688,19 +683,19 @@ Package rerunfilecheck Info: Checksums for `bijection-definition.out':
 (rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14095 strings out of 478994
- 209900 string characters out of 5858183
- 527236 words of memory out of 5000000
- 31361 multiletter control sequences out of 15000+600000
- 410593 words of font info for 55 fonts, out of 8000000 for 9000
+ 14088 strings out of 478994
+ 209837 string characters out of 5858183
+ 524236 words of memory out of 5000000
+ 31357 multiletter control sequences out of 15000+600000
+ 409729 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,16n,74p,281b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,11n,74p,281b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 Output written on ../../output/activity-snippets/bijection-definition.pdf (1 pa
-ge, 44070 bytes).
+ge, 41458 bytes).
 PDF statistics:
  30 PDF objects out of 1000 (max. 8388607)
  22 compressed objects within 1 object stream

@@ -1,0 +1,73 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+Consider the following functions:
+
+\[
+\begin{array}{l|l}
+\begin{array}{ll}
+f : \mathbb{Z} &\to \mathbb{N} \\
+f(n) & = \begin{cases}
+  0 & \textrm{ when } n = 0 \\
+  (-2 \cdot n) - 1 & \textrm{ when } n < 0 \\
+  2 \cdot n & \textrm{ when } n > 0
+\end{cases}
+\end{array}
+&
+\begin{array}{ll}
+g : \mathbb{Z} &\to \mathbb{N} \\
+g(n) & = \begin{cases}
+  -1 \cdot n & \textrm{ when } n < 0 \\
+  n & \textrm{ when } n \geq 0
+\end{cases}
+\end{array} \\
+\hline
+
+\begin{array}{ll}
+h : \mathbb{N} &\to \mathbb{Z} \\
+h(n) & = \begin{cases}
+  (-2 \cdot n) + 1 & \textrm{ when } n \textrm{ is even } \\
+  2 \cdot n & \textrm{ when } n \textrm{ is odd }
+\end{cases}
+\end{array}
+&
+\begin{array}{ll}
+q : \mathbb{N} &\to \mathbb{Z} \\
+q(n) & = \begin{cases}
+  -1 \cdot ((n + 1) \textbf{ div } 2) & \textrm{ when } n \textrm{ is odd} \\
+  n \textbf{ div } 2 & \textrm{ when } n \textrm{ is even} \\
+\end{cases}
+\end{array} \\
+\end{array}
+\]
+
+\begin{enumerate}
+\item What is the result of $f(-3)$?
+
+\item What is the result of $q(f(-4))$?
+
+ {\it Notice we are looking at function composition here: first apply $f$ and then apply 
+ $q$ to the result.}
+
+\item What is the result of $f(h(4))$? 
+
+{\it Notice we are looking at function composition here: first apply $h$ and then apply 
+$f$ to the result.}
+
+\item What is the result of $g(-4)$?
+
+\item What is the result of $g(4)$?
+
+\item Consider the following statements, and indicate if they are true for each of $f$, $g$, $h$, and $q$.
+
+\begin{enumerate}[label=\roman*.]
+    \item This function is one-to-one.
+    \item This function is onto.
+    \item This function is a bijection.
+    \item This function could serve as a witness for $|\mathbb{Z}| \leq |\mathbb{N}|$.
+    \item This function could serve as a witness for $|\mathbb{Z}| \geq |\mathbb{N}|$.
+    \item This function could serve as a witness for $|\mathbb{N}| \leq |\mathbb{Z}|$.
+    \item This function could serve as a witness for $|\mathbb{N}| \geq |\mathbb{Z}|$.
+\end{enumerate}
+
+\end{enumerate}

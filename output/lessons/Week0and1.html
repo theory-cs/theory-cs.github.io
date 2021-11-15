@@ -427,6 +427,11 @@
 <p>RNA is made up of strands of four different bases that encode genomic information in specific ways.<br />
 The bases are elements of the set <span class="math inline">\(B  = \{\texttt{A}, \texttt{C}, \texttt{U}, \texttt{G}\}\)</span>.</p>
 <p>Formally, to define the set of all RNA strands, we need more than roster method or set builder descriptions.</p>
+<p><span><strong>New! Recursive Definitions of Sets</strong></span>: The set <span class="math inline">\(S\)</span> (pick a name) is defined by: <span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \textrm{Specify finitely many elements of } S\\
+\textrm{Recursive Step: } &amp; \textrm{Give rule(s) for creating a new element of } S \textrm{ from known values existing in } S, \\
+&amp; \textrm{and potentially other values}. \\
+\end{array}\]</span> The set <span class="math inline">\(S\)</span> then consists of all and only elements that are put in <span class="math inline">\(S\)</span> by finitely many (a nonnegative integer number) of applications of the recursive step after the basis step.</p>
 <p><span><strong>Definition</strong></span> The set of nonnegative integers <span class="math inline">\(\mathbb{N}\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
 \textrm{Basis Step: } &amp; \phantom{0 \in \mathbb{N}} \\
 \textrm{Recursive Step: } &amp; \phantom{\textrm{If } n \in \mathbb{N} \textrm{, then } n+1 \in \mathbb{N}}
@@ -449,8 +454,6 @@ The bases are elements of the set <span class="math inline">\(B  = \{\texttt{A},
 \end{array}\]</span></p>
 <p><span><em>Notation:</em></span> We call the set of bitstrings <span class="math inline">\(\{0,1\}^*\)</span>.</p>
 <p>Examples:</p>
-<p>RNA is made up of strands of four different bases that encode genomic information in specific ways.<br />
-The bases are elements of the set <span class="math inline">\(B  = \{\texttt{A}, \texttt{C}, \texttt{U}, \texttt{G}\}\)</span>.</p>
 <h2 class="unnumbered" id="review-week-1-monday">Review: Week 1 Monday</h2>
 <ol>
 <li><p>Colors can be described as amounts of red, green, and blue mixed together<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Mathematically, a color can be represented as a <span class="math inline">\(3\)</span>-tuple <span class="math inline">\((r, g, b)\)</span> where <span class="math inline">\(r\)</span> represents the red component, <span class="math inline">\(g\)</span> the green component, <span class="math inline">\(b\)</span> the blue component and where each of <span class="math inline">\(r\)</span>, <span class="math inline">\(g\)</span>, <span class="math inline">\(b\)</span> must be a value from this collection of numbers:</p>
