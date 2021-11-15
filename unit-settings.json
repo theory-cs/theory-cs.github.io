@@ -312,7 +312,13 @@
         "outcomes": "Functions and Cardinality",
         "CalendarInfo": " Dates: 11/15/21-11/19/21",
         "ExpandInCalendar": false,
-        "pdfs": [],
+        "pdfs": [
+            {
+                "name": "Notes",
+                "addExtensions": true,
+                "file": "Week8"
+            }
+        ],
         "embed": [],
         "Due Dates": [
             {
