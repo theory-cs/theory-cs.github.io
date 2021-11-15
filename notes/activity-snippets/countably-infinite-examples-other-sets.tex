@@ -12,37 +12,56 @@ Bijection using alphabetical-ish ordering
 of strands
 \end{center}
 
-\vspace{100pt}
+\vspace{50pt}
 
 
 {\bf Claim}: $L$ is countably infinite
-\begin{center}
+
 \begin{multicols}{2}
-One-to-one function from $\mathbb{N}$ to $L$ 
+\begin{align*}
+    &list: \mathbb{N} \to L \\
+    &list(n) = (n, []) \\
+    &
+\end{align*}
 
-One-to-one function from $L$ to $\mathbb{N}$
+\begin{align*}
+    &toNum: L \to \mathbb{N} \\
+    &toNum([]) = 0 \\
+    &toNum( ~(n,l)~) = 2^n 3^toNum(l) \qquad \text{for $n \in \mathbb{N}$, $l \in L$}
+\end{align*}
 \end{multicols}
-\end{center}
-
-
-\vspace{100pt}
+\vspace{30pt}
 
 {\bf Claim}: $|\mathbb{Z}^+| = |\mathbb{Q}|$ 
 
 One-to-one function from $\mathbb{Z}^+$ to $\mathbb{Q}$
+is $f_1: \mathbb{Z} \to \mathbb{Q}$ with $f_1(n) = n$ for all 
+$n \in \mathbb{N}$.
+
+\vspace{30pt}
 
 
-\vspace{100pt}
+\begin{align*}
+    &f_2: \mathbb{Q} \to \mathbb{Z} \times \mathbb{Z} \\
+    &f_2(x) = \begin{cases}
+        (0,1) & \text{if $x = 0$} \\
+        (p,q) & \text{if $x = \frac{p}{q}$,}\\
+                & \text{$gcd(p,q) = 1$, $q > 0$}
+    \end{cases}
+\end{align*}
+\begin{multicols}{2}
+\begin{align*}
+    &f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times \mathbb{Z}^+ \\
+    &f_3(~(x,y)~) = \begin{cases}
+        (2x+2, 2y+2) & \text{if $x \geq 0, y \geq 0$} \\
+        (-2x-1, 2y+2) & \text{if $x < 0, y \geq 0$} \\
+        (2x+2, -2y+1) & \text{if $x \geq 0, y < 0$} \\
+        (-2x-1, -2y-1) & \text{if $x < 0, y < 0$} \\
+    \end{cases}
+\end{align*}
 
-\begin{center}
-\begin{multicols}{3}
-One-to-one function from $\mathbb{Q}$ to $\mathbb{Z} \times \mathbb{Z}$
-
-One-to-one function from $\mathbb{Z} \times \mathbb{Z}$ to $\mathbb{Z}^+ \times \mathbb{Z}^+$
-
-One-to-one function from $\mathbb{Z}^+ \times \mathbb{Z}^+$ to $\mathbb{Z}^+$
+\begin{align*}
+    &f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
+    &f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{align*}
 \end{multicols}
-\end{center}
-
-
-\vspace{100pt}
