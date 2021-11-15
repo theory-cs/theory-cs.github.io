@@ -3143,4 +3143,646 @@ In other words, assuming that $\sqrt{2} \in \mathbb{Q}$ guarantees $r \land \lno
 which is impossible, so $\sqrt{2} \notin \mathbb{Q}$. QED
 
  \vfill
+\section*{Sets numbers subsets}
+
+
+We have the following subset relationships between sets of numbers:
+
+\[
+    \mathbb{Z}^{+} \subsetneq \mathbb{N} \subsetneq \mathbb{Z} \subsetneq \mathbb{Q} \subsetneq \mathbb{R}
+\]
+
+
+Which of the proper subset inclusions above can you prove?
+
+\vspace{50pt} \vfill
+\section*{Finite sets definition}
+
+
+{\bf Definition}: A {\bf finite} set is one whose distinct elements can be counted by a natural number.
+ \vfill
+\section*{Cardinality motivation}
+
+
+{\bf Motivating question}: when can we say one set is {\it bigger than} another?
+
+Which is bigger? 
+\begin{itemize}
+    \item The set $\{1,2,3\}$ or the set $\{0,1,2,3\}$?
+    \item The set $\{0, \pi, \sqrt{2} \}$ or the set $\{\mathbb{N}, \mathbb{R}, \emptyset\}$?
+    \item The set $\mathbb{N}$ or the set $\mathbb{R}^+$?
+\end{itemize}
+
+{\it Which of the sets above are finite? infinite?} \vfill
+\section*{Cardinality rationale for functions}
+
+
+{\bf Key idea for cardinality}: Counting 
+distinct elements is a way of labelling elements
+with natural numbers. This is a function!
+In general, functions let us 
+associate elements of one set with those
+of another. If the association is ``{\it good}", 
+we get a correspondence between the elements of the subsets
+which can relate the sizes of the sets. \vfill
+\section*{Musical chairs analogy}
+
+
+{\it Analogy}: Musical chairs
+
+\begin{multicols}{2}
+\includegraphics[width=1.8in]{../../resources/images/musicalchairs.png}
+\columnbreak
+
+People try to sit down when the music stops
+
+Person\sun~ sits in Chair 1,
+Person\smiley~ sits in Chair 2,
+
+Person\frownie~  is left standing!
+\end{multicols}
+What does this say about the number of chairs and the number of people?
+
+\vspace{100pt} \vfill
+\section*{Well defined functions}
+
+
+Recall that a function is defined by its (1) domain, (2) codomain, and (3) rule assigning each 
+element in the domain exactly one element in the codomain. 
+The domain and codomain are nonempty sets.
+The rule can be depicted as a table, formula, English description, etc.
+
+A function can {\it fail to be well-defined} if there is some 
+domain element where the function rule doesn't give a
+unique codomain element. For example, the function rule might lead to 
+more than one potential image, or to an image outside of the codomain.
+
+
+{\it Example}: $f_A: \mathbb{R}^+ \to \mathbb{Q}$ with $f_A(x) = x$ is {\bf not} a well-defined function because
+
+\vspace{100pt}
+
+
+{\it Example}: $f_B: \mathbb{Q} \to \mathbb{Z}$ with $f_B\left(\frac{p}{q}\right) = p+q$ is {\bf not} a well-defined function because
+
+\vspace{100pt}
+
+
+{\it Example}: $f_C: \mathbb{Z} \to \mathbb{R}$ with $f_C(x) = \frac{x}{|x|}$ is {\bf not} a well-defined function because
+
+\vspace{100pt}
+ \vfill
+\section*{Injective function definition}
+
+
+{\bf Definition} : A function $f: D  \to C$ is {\bf one-to-one} (or  injective) 
+means for every $a,b$ in the domain $D$, 
+if $f(a) = f(b)$ then  $a=b$.
+
+Formally, $f: D  \to  C$ is  one-to-one  means $\underline{\phantom{\forall a \in D \forall b \in D ~(f(a) = f(b) \to a = b)}}$.
+ \vfill
+\section*{Injective functions visually}
+
+
+Informally, a function being one-to-one means ``no duplicate images''.
+
+\phantom{Draw finite domain, finite codomain picture with duplicate image.}
+\vspace{50pt} \vfill
+\section*{Cardinality lower bound definition}
+
+
+{\bf Definition}:  For nonempty sets $A, B$, we say that {\bf the  cardinality of $A$ is  no  bigger than the cardinality of $B$}, 
+and write $|A| \leq |B|$, to mean there is a  one-to-one function  with domain $A$  and codomain $B$.
+Also, we define $|\emptyset| \leq |B|$ for all sets $B$. \vfill
+\section*{Injective cardinality musical chairs}
+
+
+{\it In the analogy}: The function $sitter: \{ Chair1, Chair2\} \to \{ Person\sun, Person\smiley, Person\frownie \}$ given
+by $sitter(Chair1) = Person\sun$,  $sitter(Chair2) = Person\smiley$, is one-to-one and witnesses that 
+\[
+| \{ Chair1, Chair2\} | \leq |\{ Person\sun, Person\smiley, Person\frownie \}|
+\] \vfill
+\section*{Rna injective cardinality}
+
+
+Let $S_2$ be the set of RNA strands of length 2, formally $S_2 = \{ s \in S \mid rnalen(s) = 2\}$.
+
+{\bf True} or {\bf False}: $| \{\A,\U,\G,\C\} | \leq |S_2 |$ 
+
+{\it Why?}
+\vspace{80pt}
+
+{\bf True} or {\bf False}: $| \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} | \leq |S_2 |$
+
+{\it Why?}
+\vspace{80pt}
+ \vfill
+\section*{Surjective function definition}
+
+
+{\bf Definition}: A function $f: D  \to C$ is {\bf onto} (or  surjective) means for every $b$ in the codomain, 
+there  is an element $a$ in the domain with  $f(a) = b$.
+
+Formally, $f: D  \to  C$ is  onto  means $\underline{\phantom{\forall b \in C  \exists a \in D ( f(a) = b)}}$.
+ \vfill
+\section*{Surjective functions visually}
+
+
+Informally, a function being onto means ``every potential image is an actual image''.
+
+\phantom{Draw finite domain, finite codomain picture with duplicate image.}
+\vspace{50pt} \vfill
+\section*{Cardinality upper bound definition}
+
+
+{\bf Definition}:  For nonempty sets $A, B$, we say that {\bf the  cardinality of $A$ is  no  smaller than 
+the cardinality of  $B$}, and 
+write $|A| \geq |B|$, to mean there is an onto function  with domain $A$  and codomain $B$.
+Also, we define $|A| \geq |\emptyset|$ for all sets $A$.
+ \vfill
+\section*{Surjective cardinality musical chairs}
+
+
+{\it In the analogy}: The function $triedToSit: \{ Person\sun, Person\smiley, Person\frownie \} \to  \{ Chair1, Chair2\} $ given
+by $triedToSit(Person\sun) = Chair1$,  $triedToSit(Person\smiley) = Chair2$, 
+$triedToSit(Person\frownie) = Chair2$, is onto and witnesses that 
+\[
+ |\{ Person\sun, Person\smiley, Person\frownie \}| \geq | \{ Chair1, Chair2\} |
+\] \vfill
+\section*{Rna surjective cardinality}
+
+
+Let $S_2$ be the set of RNA strands of length 2.
+
+{\bf True} or {\bf False}: $ |S_2 | \geq | \{\A,\U,\G,\C\} |$
+
+{\it Why?}
+\vspace{80pt}
+
+{\bf True} or {\bf False}: $ |S_2 | \geq | \{\A,\U,\G,\C\} \times \{\A, \U, \G,\C\} |$
+
+{\it Why?}
+\vspace{80pt} \vfill
+\section*{Bijection definition}
+
+
+{\bf Definition} : A function $f: D  \to C$ is a {\bf bijection} means that it is both 
+one-to-one  and onto. The {\bf inverse} of a  bijection $f: D  \to  C$ is 
+the function $g: C  \to  D$  such that $g(b) = a$ iff  $f(a) =  b$.
+ \vfill
+\section*{Cardinality caution}
+
+
+{\it Caution}: we use 
+familiar symbols to define cardinality, like
+$| \phantom{\cdots} | \leq | \phantom{\cdots} |$
+and 
+$| \phantom{\cdots} | \geq | \phantom{\cdots} |$
+and 
+$| \phantom{\cdots} | = | \phantom{\cdots} |$, 
+but the meaning of these symbols depends on context.
+We've seen that vertical lines can mean absolute
+value (for real numbers), divisibility (for integers), 
+and now sizes (for sets). 
+
+Now we see that $\leq$ and $\geq$ can mean comparing
+numbers or comparing sizes of sets. When the sets being 
+compared are finite, the definitions 
+of $|A| \leq |B|$ agree. 
+
+But, properties of numbers cannot be assumed when comparing
+cardinalities of infinite sets.
+
+In a nutshell: cardinality of sets is defined via functions.
+This definition agrees with the usual notion of ``size'' for 
+finite sets. \vfill
+\section*{Cardinality properties}
+
+
+{\bf Properties of cardinality}
+\begin{align*}
+&\forall A ~ (~  |A| = |A| ~)\\
+&\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
+&\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| = |C|) ~\to ~ |A| = |C|~)
+\end{align*}
+
+{\it Extra practice with proofs:} Use the definitions of bijections to prove these properties. \vfill
+\section*{Cantor schroder bernstein theorem}
+
+
+{\bf Cantor-Schroder-Bernstein Theorem}: For all nonempty sets,
+\[
+|A| = |B| \qquad\text{if and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
+\qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq |A|)
+\]
+
+To prove $|A| = |B|$,  we can do any {\bf one} of the following
+
+\begin{itemize}\setlength{\itemsep}{-5pt}
+\item Prove there exists  a bijection $f:  A \to B$;
+\item Prove there exists a  bijection  $f: B  \to  A$;
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is one-to-one.
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is onto.
+\end{itemize} \vfill
+\section*{Countably infinite definition}
+
+
+{\bf Definition}: A set $A$ is {\bf countably infinite} means it is the 
+same size as $\mathbb{N}$.
+
+ \vfill
+\section*{Countably infinite examples sets of numbers}
+
+
+{\bf Natural numbers} $\mathbb{N}$ \hfill {\it List}:  $0~~1~~2~~3~~4~~5~~6~~7~~8~~9~~10 \ldots$
+
+$identity: \mathbb{N} \to \mathbb{N}$ with $identity(n) = n$
+
+{\it Claim}: $identity$ is a bijection. {\it Proof}: Ex. \hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{N}|~$
+
+{\bf Positive integers} $\mathbb{Z}^+$ \hfill {\it List}:  $1~~2~~3~~4~~5~~6~~7~~8~~9~~10~~11\ldots$
+
+$positives: \mathbb{N} \to \mathbb{Z}^+$ with $positives(n) = n+1$
+
+{\it Claim}: $positives$ is a bijection.  {\it Proof}: Ex.\hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{Z}^+|$
+
+{\bf Negative integers $\mathbb{Z}^-$}\hfill  {\it List}: $-1$~$-2$~$-3$~$-4$~$-5$~$-6$~$-7$~$-8$~$-9$~$-10$~$-11$\ldots
+
+$negatives: \mathbb{N} \to \mathbb{Z}^-$ with $negatives(n) = -n-1$
+
+{\it Claim}: $negatives$ is a bijection. \hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{Z}^-|$
+
+{\it Proof}: We need to show it is a well-defined function that is one-to-one and onto.
+
+\begin{itemize}
+\item Well-defined? 
+
+Consider an arbitrary element of the domain, $n \in \mathbb{N}$. We need to show it maps to exactly one element of $\mathbb{Z}^-$.
+
+\vfill
+
+\item One-to-one?
+
+
+Consider arbitrary elements of the domain $a, b \in \mathbb{N}$. We need to show that 
+$$\left(~negatives(a) = negatives(b) ~\right) \to (a=b)$$
+
+\vfill
+
+\item Onto?
+
+Consider arbitrary element of the codomain $b \in \mathbb{Z}^-$. We need witness in $\mathbb{N}$ that maps to $b$.
+
+\vfill
+\end{itemize}
+
+{\bf Integers} $\mathbb{Z}$ \hfill {\it List}:  $0~-1~~1~-2~~2~-3~~3~-4~~4~-5~~5$\ldots
+
+$f: \mathbb{Z} \to \mathbb{N}$ with $f(x) = \begin{cases}2x &\text{if $x \geq 0$} \\-2x-1 &\text{if $x < 0$} \end{cases}$
+
+{\it Claim}: $f$ is a bijection.  {\it Proof}: Ex.\hfill {\bf Corollary}: $ | \mathbb{Z} | = |\mathbb{N}|$
+\newpage
+
+
+ \vfill
+\section*{Countably infinite examples other sets}
+
+
+{\bf More examples of countably infinite sets}
+
+{\bf Claim}: $S$ is countably infinite
+
+{\it Similarly: The set of all strings over a specific alphabet is countably infinite.}
+\begin{center}
+Bijection using alphabetical-ish ordering
+(first order by length, then alphabetically among strings of same length) 
+of strands
+\end{center}
+
+\vspace{50pt}
+
+
+{\bf Claim}: $L$ is countably infinite
+
+\begin{multicols}{2}
+\begin{align*}
+    &list: \mathbb{N} \to L \\
+    &list(n) = (n, []) \\
+    &
+\end{align*}
+
+\begin{align*}
+    &toNum: L \to \mathbb{N} \\
+    &toNum([]) = 0 \\
+    &toNum( ~(n,l)~) = 2^n 3^toNum(l) \qquad \text{for $n \in \mathbb{N}$, $l \in L$}
+\end{align*}
+\end{multicols}
+\vspace{30pt}
+
+{\bf Claim}: $|\mathbb{Z}^+| = |\mathbb{Q}|$ 
+
+One-to-one function from $\mathbb{Z}^+$ to $\mathbb{Q}$
+is $f_1: \mathbb{Z} \to \mathbb{Q}$ with $f_1(n) = n$ for all 
+$n \in \mathbb{N}$.
+
+\vspace{30pt}
+
+
+\begin{align*}
+    &f_2: \mathbb{Q} \to \mathbb{Z} \times \mathbb{Z} \\
+    &f_2(x) = \begin{cases}
+        (0,1) & \text{if $x = 0$} \\
+        (p,q) & \text{if $x = \frac{p}{q}$,}\\
+                & \text{$gcd(p,q) = 1$, $q > 0$}
+    \end{cases}
+\end{align*}
+\begin{multicols}{2}
+\begin{align*}
+    &f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times \mathbb{Z}^+ \\
+    &f_3(~(x,y)~) = \begin{cases}
+        (2x+2, 2y+2) & \text{if $x \geq 0, y \geq 0$} \\
+        (-2x-1, 2y+2) & \text{if $x < 0, y \geq 0$} \\
+        (2x+2, -2y+1) & \text{if $x \geq 0, y < 0$} \\
+        (-2x-1, -2y-1) & \text{if $x < 0, y < 0$} \\
+    \end{cases}
+\end{align*}
+
+\begin{align*}
+    &f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
+    &f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{align*}
+\end{multicols} \vfill
+\section*{Cardinality categories}
+
+
+A set $A$ is {\bf finite} means it is empty or it is the same size as $\{ 1, \ldots, n \}$ for some $n \in \mathbb{N}$.
+
+A set $A$ is {\bf countably infinite} means it is the same size as $\mathbb{N}$. {\it Notice: 
+all countably infinite sets are the same size as each other.}
+
+A set $A$ is {\bf countable} means it is either finite or countably infinite.
+
+A set $A$ is {\bf uncountable} means it is not countable. \vfill
+\section*{Cardinality countability lemmas}
+
+
+{\bf Lemmas about countable and uncountable sets}
+
+{\bf Lemma}: If $A$ is a subset of a countable set, then it's countable.
+
+\vspace{80pt}
+
+{\bf Lemma}: If $A$ is a superset of an uncountable set, then it's uncountable.
+
+\vspace{80pt}
+
+{\bf Lemma}: If $A$ and $B$ are countable sets, then $A \cup B$ is countable
+and $A \cap B$ is countable.
+
+\vspace{80pt}
+
+{\bf Lemma}: If $A$ and $B$ are countable sets, then $A \times B$ is countable.
+
+{\it Generalize pairing ideas from $\mathbb{Z}^+ \times \mathbb{Z}^+$ to $\mathbb{Z}^+$}
+
+\vspace{50pt}
+
+{\bf Lemma}: If $A$ is a subset of $B$ , to show that $|A| = |B|$, 
+it's enough to give one-to-one function from $B$ to $A$ or an onto function 
+from $A$ to $B$.
+
+\vspace{80pt}
+ \vfill
+\section*{Cardinality power sets}
+
+
+{\it Recall}: When $U$ is a set, $\mathcal{P}(U) = \{ X \mid X \subseteq U\}$
+
+{\it Key idea}: For finite sets, the power set of a set has strictly greater size than the set itself.
+Does this extend to infinite sets?
+
+{\bf Definition}: For two sets $A, B$, we use the notation $|A| < |B|$ to denote
+$(~|A| \leq |B| ~) \land \lnot (~|A| = |B|)$.
+
+\begin{alignat*}{4}
+    &\emptyset = \{ \} \qquad &&\mathcal{P}(\emptyset) = \{ \emptyset \} \qquad &&|\emptyset| < |\mathcal{P}(\emptyset)| \\
+    &\{1 \} \qquad &&\mathcal{P}(\{1\}) = \{ \emptyset, \{1\} \} \qquad &&|\{1\}| < |\mathcal{P}(\{1\})| \\
+    &\{1,2 \} \qquad &&\mathcal{P}(\{1,2\}) = \{ \emptyset, \{1\}, \{2\}, \{1,2\} \} \qquad &&|\{1,2\}| < |\mathcal{P}(\{1,2\})| \\
+\end{alignat*}
+
+{\bf $\mathbb{N}$ and its power set}
+
+Example elements of $\mathbb{N}$ 
+
+\vspace{20pt}
+
+Example elements of $\mathcal{P}(\mathbb{N})$
+
+\vspace{20pt}
+
+{\bf Claim}: $| \mathbb{N} | \leq |\mathcal{P} ( \mathbb{N} ) |$
+
+\vspace{100pt}
+\newpage
+{\bf Claim}: There is an uncountable set.  Example: $\underline{\phantom{~~~\mathcal{P}(\mathbb{N})~~~}}$
+
+{\bf Proof}:  By definition of countable, since $\underline{\phantom{~~~\mathcal{P}(\mathbb{N})~~~}}$
+is not finite, {\bf to show} is $|\mathbb{N}| \neq  |\mathcal{P}(\mathbb{N})|$ .
+
+Rewriting using  the definition of  cardinality, {\bf to show} is
+
+\phantom{$\neg \exists f : \mathbb{N} \to \mathcal{P}(\mathbb{N})  ~~(f \text{ is a bijection})~~$}
+
+\phantom{or equivalently $\forall f : \mathbb{N} \to \mathcal{P}(\mathbb{N})  ~~(f \text{ is not a bijection})~~$}
+
+
+Towards a proof by  universal generalization,  consider  an arbitrary function $f:  \mathbb{N} \to\mathcal{P}(\mathbb{N})$.
+
+{\bf To show}: $f$ is not a bijection.  It's enough to show that $f$ is not onto.
+
+Rewriting using the definition of  onto, {\bf to show}:
+\[
+\neg  \forall  B \in  \mathcal{P}(\mathbb{N}) ~\exists a \in \mathbb{N}  ~(~f(a) =  B~)
+\]
+. By logical  equivalence, we can write this as an existential statement:
+\[
+\underline{\phantom{\qquad\qquad\exists B \in  \mathcal{P}(\mathbb{N}) ~\forall a \in \mathbb{N}  ~(~f(a) \neq  B~)\qquad\qquad}}
+\]
+In search of a witness, define the following  collection of nonnegative integers:
+\[
+D_f = \{ n \in \mathbb{N}  ~\mid~  n \notin f(n)  \}
+\]
+. By  definition  of power  set, since  all elements  of  $D_f$ are  in  $\mathbb{N}$,   $D_f \in \mathcal{P}(\mathbb{N})$.  It's enough to prove the following Lemma: 
+
+{\bf Lemma}: $\forall a \in \mathbb{N}  ~(~f(a) \neq  D_f~)$.
+
+
+{\bf Proof  of lemma}: \phantom{Towards universal  generalization, consider an arbitrary  $a \in \mathbb{N}$.
+By definition  of set equality, {\bf to show} is  $\exists  x ( \neg  (x \in f(a)~  \leftrightarrow  ~x \in D_f))$.
+For a witness, consider $x = a$.  There are two cases:  $a \in  f(a)~\vee~a \notin f(a)$. By definition 
+of $D_f$, each guarantees that $f(a) \neq  D_f$.}\\
+
+\vspace{50pt}
+
+By  the Lemma, we  have proved that $f$ is not onto, and since $f$ was arbitrary, there are no onto
+functions from $\mathbb{N}$ to $\mathcal{P}(\mathbb{N})$. QED
+
+
+{\bf Where does $D_f$ come from?} The idea is to build a set that would ``disagree" with 
+each of the images of $f$ about some element. 
+
+\begin{center}
+\begin{tabular}{c|c|ccccccc}
+$n \in \mathbb{N}$ & $f(n) = X_n$ &  Is $0   \in X_n$?   & Is $1 \in X_n$?  &  Is $2 \in X_n$?  &  Is $3 \in X_n$?  &
+ Is $4 \in X_n$?  &  \ldots & Is $n \in D_f$?\\
+\hline
+$0$ & $f(0) = X_0$ & {\bf  Y~/~N}  & Y~/~N & Y~/~N & Y~/~N &Y~/~N & \ldots & {\bf  N~/~Y }\\
+$1$ & $f(1) = X_1$ & Y~/~N  & {\bf  Y~/~N} & Y~/~N & Y~/~N & Y~/~N & \ldots & {\bf  N~/~Y }\\
+$2$ & $f(2) = X_2$ & Y~/~N  & Y~/~N & {\bf  Y~/~N} & Y~/~N &Y~/~N & \ldots & {\bf  N~/~Y }\\
+$3$ & $f(3) = X_3$ & Y~/~N  & Y~/~N & Y~/~N & {\bf  Y~/~N} & Y~/~N & \ldots & {\bf  N~/~Y }\\
+$4$ & $f(4) = X_4$ & Y~/~N  & Y~/~N & Y~/~N & Y~/~N &{\bf  Y~/~N} & \ldots & {\bf  N~/~Y }\\
+\vdots
+\end{tabular}
+\end{center} \vfill
+\section*{Cardinality rationals reals}
+
+
+{\bf Comparing $\mathbb{Q}$ and $\mathbb{R}$} 
+
+
+Both $\mathbb{Q}$ and $\mathbb{R}$ have no greatest element.
+
+Both $\mathbb{Q}$ and $\mathbb{R}$ have no least element.
+
+The quantified statement 
+\[
+    \forall x \forall y (x < y \to \exists z ( x < z < y) )
+\]
+is true about both $\mathbb{Q}$ and $\mathbb{R}$.
+
+Both $\mathbb{Q}$ and $\mathbb{R}$ are infinite. But, $\mathbb{Q}$ is countably infinite
+whereas $\mathbb{R}$ is uncountable.\\
+
+
+{\bf The set of real numbers}
+
+$\mathbb{Z} \subsetneq \mathbb{Q} \subsetneq \mathbb{R}$
+
+
+{\bf  Order axioms} (Rosen Appendix 1): 
+
+\begin{center}
+\begin{tabular}{p{1.2in}p{4in}}
+Reflexivity &  $\forall a \in  \mathbb{R} (a \leq a)$\\
+Antisymmetry &  $\forall a \in  \mathbb{R}~\forall b \in \mathbb{R}~(~(a \leq b~ \wedge ~b \leq a) \to (a=b)~)$\\
+Transitivity &  $\forall a \in  \mathbb{R}~\forall b \in \mathbb{R}~\forall c \in \mathbb{R}~
+(~(a \leq b \wedge b \leq c) ~\to  ~(a \leq c)~)$ \\
+Trichotomy & 
+$\forall a \in \mathbb{R}~\forall b \in \mathbb{R}~ ( ~(a=b ~\vee~ b > a ~\vee~ a  < b)  $
+\end{tabular}
+\end{center}
+
+
+{\bf  Completeness axioms} (Rosen Appendix 1): 
+
+
+\begin{center}
+\begin{tabular}{p{1.4in}p{6in}}
+Least upper bound &  Every nonempty set of real numbers that 
+is bounded  above has  a  least upper bound  
+\\
+Nested intervals &  For each sequence  of intervals  $[a_n , b_n]$
+where, for each $n$, $a_n < a_{n+1} < b_{n+1} < b_n$, there
+is at least one  real number $x$ such that, for all $n$, 
+$a_n \leq x \leq b_n$.\\
+\end{tabular}
+\end{center}
+
+Each real  number $r  \in  \mathbb{R}$ is described by a function to give better and better approximations
+\[
+x_r: \mathbb{Z}^+ \to \{0,1\}  \qquad  \text{where  $x_r(n ) =  n^{th} $ bit in  binary expansion of $r$}
+\]
+\begin{center}
+\begin{tabular}{|c|c|p{3.9in}|}
+\hline
+$r$ & Binary expansion & $x_r$ \\
+\hline
+$0.1$ & $0.00011001 \ldots$ &  $x_{0.1}(n) = \begin{cases} 0&\text{if $n > 1$ and $(n~\text{\bf mod}~4) =2$} \\
+0&\text{if $n=1$ or if $n > 1$ and $(n~\text{\bf mod}~4) =3$} \\1&\text{if $n > 1$ and $(n~\text{\bf mod}~4) =0$} \\
+1&\text{if $n > 1$ and $(n~\text{\bf mod}~4) =1$} \end{cases}$  \\
+&&  \\
+\hline
+$\sqrt{2} - 1 = 0.4142135 \ldots$  &$0.01101010\ldots$& Use linear approximations
+(tangent lines from calculus) to get algorithm for bounding error of successive operations. Define 
+$x_{\sqrt{2}-1}(n)$ to be  $n^{th}$ bit in approximation  that has error less than  $2^{-(n+1)}$.
+\\
+&& \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage 
+
+{\bf Claim}: $\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}$ is uncountable.
+
+{\it Approach 1}: Mimic proof that $\mathcal{P}(\mathbb{Z}^+)$ is uncountable.
+
+
+{\bf Proof}:  By definition of countable, since $\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}$
+is not finite, {\bf to show} is $|\mathbb{N}| \neq  |\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}|$ .
+
+
+{\bf To show} is
+$\forall f : \mathbb{Z}^+ \to \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}  ~~(f \text{ is not a bijection})~~$.
+Towards a proof by  universal generalization, consider  an arbitrary function 
+$f:  \mathbb{Z}^+ \to \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}$.
+{\bf To show}: $f$ is not a bijection.  It's enough to show that $f$ is not onto.
+Rewriting using the definition of  onto, {\bf to show}:
+\[
+\exists x \in \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \} ~\forall a \in \mathbb{N}  ~(~f(a) \neq  x~)
+\]
+In search of a witness, define the following  real number by defining its binary expansion
+\[
+d_f = 0.b_1 b_2 b_3 \cdots
+\]
+where $b_i = 1-b_{ii}$ where $b_{jk}$ is the coefficient of $2^{-k}$ in the binary expansion of $f(j)$.
+Since\footnote{There's a subtle imprecision in this part of the proof as presented, but it can be fixed.} $d_f \neq f(a)$ for any positive integer $a$, $f$ is not onto.
+
+
+{\it Approach 2}: Nested closed interval property
+
+{\bf To show} $f: \mathbb{N} \to \{  r \in \mathbb{R} ~\mid~ 0  \leq r ~\wedge~ r \leq 1 \}$ is not onto. 
+{\bf  Strategy}: Build
+a sequence of nested closed intervals that each avoid some $f(n)$.   Then  the real
+number that is in all of the intervals  can't be $f(n)$ for any $n$. Hence,  $f$ is not  onto.
+
+Consider the function $f: \mathbb{N} \to \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}$ with  $f(n) = \frac{1+\sin(n)}{2}$
+
+\begin{center}
+\begin{tabular}{c||p{1.65in} || p{3in} }
+$n$ &  $f(n)$& Interval that avoids $f(n)$ \\
+\hline
+$0$ & $0.5$ &  \\
+$1$ &$0.920735\ldots$  &  \\
+$2$ &$0.954649\ldots$ &  \\
+$3$ &$0.570560\ldots$ & \\
+$4$ &$0.121599\ldots $&  \\
+\vdots &  &\\
+\end{tabular}
+\end{center}
+  \vfill
+\section*{Cardinality uncountable examples}
+
+
+\begin{itemize}
+    \item The power set of any countably infinite set is uncountable. For example:
+    \[
+        \mathcal{P}(\mathbb{N}), \mathcal{P}(\mathbb{Z^+}), \mathcal{P}(\mathbb{Z})
+    \]
+    are each uncountable.
+    \item The closed interval $\{x \in \mathbb{R} ~|~ 0 \leq x \leq 1\}$, any other nonempty closed interval of real numbers whose endpoints are 
+    unequal, as well as the related intervals that exclude one or both of the endpoints.
+    \item The set of all real numbers $\mathbb{R}$ is uncountable and the set of irrational
+    real numbers $\overline{\mathbb{Q}}$ is uncountable.
+\end{itemize} \vfill
 \end{document}

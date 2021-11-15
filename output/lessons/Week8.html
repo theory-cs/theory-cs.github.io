@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week8</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="monday-november-15">Monday November 15</h1>
+<p>We have the following subset relationships between sets of numbers:</p>
+<p><span class="math display">\[\mathbb{Z}^{+} \subsetneq \mathbb{N} \subsetneq \mathbb{Z} \subsetneq \mathbb{Q} \subsetneq \mathbb{R}\]</span></p>
+<p>Which of the proper subset inclusions above can you prove?</p>
+<p><span><strong>Definition</strong></span>: A <span><strong>finite</strong></span> set is one whose distinct elements can be counted by a natural number.</p>
+<p><span><strong>Motivating question</strong></span>: when can we say one set is <span><em>bigger than</em></span> another?</p>
+<p>Which is bigger?</p>
+<ul>
+<li><p>The set <span class="math inline">\(\{1,2,3\}\)</span> or the set <span class="math inline">\(\{0,1,2,3\}\)</span>?</p></li>
+<li><p>The set <span class="math inline">\(\{0, \pi, \sqrt{2} \}\)</span> or the set <span class="math inline">\(\{\mathbb{N}, \mathbb{R}, \emptyset\}\)</span>?</p></li>
+<li><p>The set <span class="math inline">\(\mathbb{N}\)</span> or the set <span class="math inline">\(\mathbb{R}^+\)</span>?</p></li>
+</ul>
+<p><span><em>Which of the sets above are finite? infinite?</em></span></p>
+<p><span><strong>Key idea for cardinality</strong></span>: Counting distinct elements is a way of labelling elements with natural numbers. This is a function! In general, functions let us associate elements of one set with those of another. If the association is “<span><em>good</em></span>", we get a correspondence between the elements of the subsets which can relate the sizes of the sets.</p>
+<p><span><em>Analogy</em></span>: Musical chairs</p>
+<div class="multicols">
+<p><span>2</span> <img src="../../resources/images/musicalchairs.png" style="width:1.8in" alt="image" /></p>
+<p>People try to sit down when the music stops</p>
+<p>Person  sits in Chair 1, Person  sits in Chair 2,</p>
+<p>Person  is left standing!</p>
+</div>
+<p>What does this say about the number of chairs and the number of people?</p>
+<p>Recall that a function is defined by its (1) domain, (2) codomain, and (3) rule assigning each element in the domain exactly one element in the codomain. The domain and codomain are nonempty sets. The rule can be depicted as a table, formula, English description, etc.</p>
+<p>A function can <span><em>fail to be well-defined</em></span> if there is some domain element where the function rule doesn’t give a unique codomain element. For example, the function rule might lead to more than one potential image, or to an image outside of the codomain.</p>
+<p><span><em>Example</em></span>: <span class="math inline">\(f_A: \mathbb{R}^+ \to \mathbb{Q}\)</span> with <span class="math inline">\(f_A(x) = x\)</span> is <span><strong>not</strong></span> a well-defined function because</p>
+<p><span><em>Example</em></span>: <span class="math inline">\(f_B: \mathbb{Q} \to \mathbb{Z}\)</span> with <span class="math inline">\(f_B\left(\frac{p}{q}\right) = p+q\)</span> is <span><strong>not</strong></span> a well-defined function because</p>
+<p><span><em>Example</em></span>: <span class="math inline">\(f_C: \mathbb{Z} \to \mathbb{R}\)</span> with <span class="math inline">\(f_C(x) = \frac{x}{|x|}\)</span> is <span><strong>not</strong></span> a well-defined function because</p>
+<p><span><strong>Definition</strong></span> : A function <span class="math inline">\(f: D  \to C\)</span> is <span><strong>one-to-one</strong></span> (or injective) means for every <span class="math inline">\(a,b\)</span> in the domain <span class="math inline">\(D\)</span>, if <span class="math inline">\(f(a) = f(b)\)</span> then <span class="math inline">\(a=b\)</span>.</p>
+<p>Formally, <span class="math inline">\(f: D  \to  C\)</span> is one-to-one means <span class="math inline">\(\underline{\phantom{\forall a \in D \forall b \in D ~(f(a) = f(b) \to a = b)}}\)</span>.</p>
+<p>Informally, a function being one-to-one means “no duplicate images”.</p>
+<p><span><strong>Definition</strong></span>: For nonempty sets <span class="math inline">\(A, B\)</span>, we say that <span><strong>the cardinality of <span class="math inline">\(A\)</span> is no bigger than the cardinality of <span class="math inline">\(B\)</span></strong></span>, and write <span class="math inline">\(|A| \leq |B|\)</span>, to mean there is a one-to-one function with domain <span class="math inline">\(A\)</span> and codomain <span class="math inline">\(B\)</span>. Also, we define <span class="math inline">\(|\emptyset| \leq |B|\)</span> for all sets <span class="math inline">\(B\)</span>.</p>
+<p><span><em>In the analogy</em></span>: The function <span class="math inline">\(sitter: \{ Chair1, Chair2\} \to \{ Person\sun, Person\smiley, Person\frownie \}\)</span> given by <span class="math inline">\(sitter(Chair1) = Person\sun\)</span>, <span class="math inline">\(sitter(Chair2) = Person\smiley\)</span>, is one-to-one and witnesses that <span class="math display">\[| \{ Chair1, Chair2\} | \leq |\{ Person\sun, Person\smiley, Person\frownie \}|\]</span></p>
+<p>Let <span class="math inline">\(S_2\)</span> be the set of RNA strands of length 2, formally <span class="math inline">\(S_2 = \{ s \in S \mid rnalen(s) = 2\}\)</span>.</p>
+<p><span><strong>True</strong></span> or <span><strong>False</strong></span>: <span class="math inline">\(| \{\texttt{A},\texttt{U},\texttt{G},\texttt{C}\} | \leq |S_2 |\)</span></p>
+<p><span><em>Why?</em></span></p>
+<p><span><strong>True</strong></span> or <span><strong>False</strong></span>: <span class="math inline">\(| \{\texttt{A},\texttt{U},\texttt{G},\texttt{C}\} \times \{\texttt{A}, \texttt{U}, \texttt{G},\texttt{C}\} | \leq |S_2 |\)</span></p>
+<p><span><em>Why?</em></span></p>
+<p><span><strong>Definition</strong></span>: A function <span class="math inline">\(f: D  \to C\)</span> is <span><strong>onto</strong></span> (or surjective) means for every <span class="math inline">\(b\)</span> in the codomain, there is an element <span class="math inline">\(a\)</span> in the domain with <span class="math inline">\(f(a) = b\)</span>.</p>
+<p>Formally, <span class="math inline">\(f: D  \to  C\)</span> is onto means <span class="math inline">\(\underline{\phantom{\forall b \in C  \exists a \in D ( f(a) = b)}}\)</span>.</p>
+<p>Informally, a function being onto means “every potential image is an actual image”.</p>
+<p><span><strong>Definition</strong></span>: For nonempty sets <span class="math inline">\(A, B\)</span>, we say that <span><strong>the cardinality of <span class="math inline">\(A\)</span> is no smaller than the cardinality of <span class="math inline">\(B\)</span></strong></span>, and write <span class="math inline">\(|A| \geq |B|\)</span>, to mean there is an onto function with domain <span class="math inline">\(A\)</span> and codomain <span class="math inline">\(B\)</span>. Also, we define <span class="math inline">\(|A| \geq |\emptyset|\)</span> for all sets <span class="math inline">\(A\)</span>.</p>
+<p><span><em>In the analogy</em></span>: The function <span class="math inline">\(triedToSit: \{ Person\sun, Person\smiley, Person\frownie \} \to  \{ Chair1, Chair2\}\)</span> given by <span class="math inline">\(triedToSit(Person\sun) = Chair1\)</span>, <span class="math inline">\(triedToSit(Person\smiley) = Chair2\)</span>, <span class="math inline">\(triedToSit(Person\frownie) = Chair2\)</span>, is onto and witnesses that <span class="math display">\[|\{ Person\sun, Person\smiley, Person\frownie \}| \geq | \{ Chair1, Chair2\} |\]</span></p>
+<p>Let <span class="math inline">\(S_2\)</span> be the set of RNA strands of length 2.</p>
+<p><span><strong>True</strong></span> or <span><strong>False</strong></span>: <span class="math inline">\(|S_2 | \geq | \{\texttt{A},\texttt{U},\texttt{G},\texttt{C}\} |\)</span></p>
+<p><span><em>Why?</em></span></p>
+<p><span><strong>True</strong></span> or <span><strong>False</strong></span>: <span class="math inline">\(|S_2 | \geq | \{\texttt{A},\texttt{U},\texttt{G},\texttt{C}\} \times \{\texttt{A}, \texttt{U}, \texttt{G},\texttt{C}\} |\)</span></p>
+<p><span><em>Why?</em></span></p>
+<p><span><strong>Definition</strong></span> : A function <span class="math inline">\(f: D  \to C\)</span> is a <span><strong>bijection</strong></span> means that it is both one-to-one and onto. The <span><strong>inverse</strong></span> of a bijection <span class="math inline">\(f: D  \to  C\)</span> is the function <span class="math inline">\(g: C  \to  D\)</span> such that <span class="math inline">\(g(b) = a\)</span> iff <span class="math inline">\(f(a) =  b\)</span>.</p>
+<h2 class="unnumbered" id="cardinality-of-sets">Cardinality of sets</h2>
+<p>For nonempty sets <span class="math inline">\(A, B\)</span> we say <span class="math display">\[\begin{aligned}
+|A| \leq |B| &amp;\text{ means there is a one-to-one function with domain $A$, codomain $B$} \\
+|A| \geq |B| &amp;\text{ means there is an onto function with domain $A$, codomain $B$} \\
+|A| = |B| &amp;\text{ means there is a bijection with domain $A$, codomain $B$}\end{aligned}\]</span></p>
+<p>For all sets <span class="math inline">\(A\)</span>, we say <span class="math inline">\(|A| = |\emptyset|\)</span>, <span class="math inline">\(|\emptyset| = |A|\)</span> if and only if <span class="math inline">\(A = \emptyset\)</span>.</p>
+<p><span><em>Caution</em></span>: we use familiar symbols to define cardinality, like <span class="math inline">\(| \phantom{\cdots} | \leq | \phantom{\cdots} |\)</span> and <span class="math inline">\(| \phantom{\cdots} | \geq | \phantom{\cdots} |\)</span> and <span class="math inline">\(| \phantom{\cdots} | = | \phantom{\cdots} |\)</span>, but the meaning of these symbols depends on context. We’ve seen that vertical lines can mean absolute value (for real numbers), divisibility (for integers), and now sizes (for sets).</p>
+<p>Now we see that <span class="math inline">\(\leq\)</span> and <span class="math inline">\(\geq\)</span> can mean comparing numbers or comparing sizes of sets. When the sets being compared are finite, the definitions of <span class="math inline">\(|A| \leq |B|\)</span> agree.</p>
+<p>But, properties of numbers cannot be assumed when comparing cardinalities of infinite sets.</p>
+<p>In a nutshell: cardinality of sets is defined via functions. This definition agrees with the usual notion of “size” for finite sets.</p>
+<h1 class="unnumbered" id="review">Review</h1>
+<ol>
+<li><p><br />
+</p>
+<p>Select all and only the <span><strong>finite</strong></span> sets below.</p>
+<ol>
+<li><p><span class="math inline">\(X = \{ a,b,c\}\)</span></p></li>
+<li><p><span class="math inline">\(Y = \{ 1, 2, 3, 4, 5\}\)</span></p></li>
+<li><p><span class="math inline">\(Z = \{ 10, 20, 30 \}\)</span></p></li>
+<li><p><span class="math inline">\(\emptyset\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(\{ \emptyset \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ \mathbb{Z} \}\)</span></p></li>
+</ol></li>
+<li><p><br />
+Consider the following input-output definition tables with <span class="math inline">\(X = \{ a,b,c\}\)</span> and <span class="math inline">\(Y = \{ 1, 2, 3, 4, 5\}\)</span> and <span class="math inline">\(Z = \{ 10, 20, 30 \}\)</span></p>
+<div class="center">
+<div class="multicols">
+<p><span>3</span></p>
+<div class="tabular">
+<p><span>c</span> Table 1<br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Input</th>
+<th style="text-align: center;">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(20\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(30\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabular">
+<p><span>c</span> Table 2<br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Input</th>
+<th style="text-align: center;">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(b\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(c\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(5\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabular">
+<p><span>c</span> Table 3<br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Input</th>
+<th style="text-align: center;">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(20\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(30\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<ol>
+<li><p>Select all and only the tables that each define a well-defined function whose domain and codomain is each <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, or <span class="math inline">\(Z\)</span>.</p></li>
+<li><p>Select all and only the tables that each define a well-defined function (with domain <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> or <span class="math inline">\(Z\)</span> and with codomain <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> or <span class="math inline">\(Z\)</span>) and that is one-to-one.</p></li>
+<li><p>Select all and only the tables that each define a well-defined function (with domain <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> or <span class="math inline">\(Z\)</span> and with codomain <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> or <span class="math inline">\(Z\)</span>) and that is onto.</p></li>
+</ol></li>
+<li><p><br />
+</p>
+<p>Consider the following functions:</p>
+<p><span class="math display">\[\begin{array}{l|l}
+\begin{array}{ll}
+f : \mathbb{Z} &amp;\to \mathbb{N} \\
+f(n) &amp; = \begin{cases}
+  0 &amp; \textrm{ when } n = 0 \\
+  (-2 \cdot n) - 1 &amp; \textrm{ when } n &lt; 0 \\
+  2 \cdot n &amp; \textrm{ when } n &gt; 0
+\end{cases}
+\end{array}
+&amp;
+\begin{array}{ll}
+g : \mathbb{Z} &amp;\to \mathbb{N} \\
+g(n) &amp; = \begin{cases}
+  -1 \cdot n &amp; \textrm{ when } n &lt; 0 \\
+  n &amp; \textrm{ when } n \geq 0
+\end{cases}
+\end{array} \\
+\hline
+
+\begin{array}{ll}
+h : \mathbb{N} &amp;\to \mathbb{Z} \\
+h(n) &amp; = \begin{cases}
+  (-2 \cdot n) + 1 &amp; \textrm{ when } n \textrm{ is even } \\
+  2 \cdot n &amp; \textrm{ when } n \textrm{ is odd }
+\end{cases}
+\end{array}
+&amp;
+\begin{array}{ll}
+q : \mathbb{N} &amp;\to \mathbb{Z} \\
+q(n) &amp; = \begin{cases}
+  -1 \cdot ((n + 1) \textbf{ div } 2) &amp; \textrm{ when } n \textrm{ is odd} \\
+  n \textbf{ div } 2 &amp; \textrm{ when } n \textrm{ is even} \\
+\end{cases}
+\end{array} \\
+\end{array}\]</span></p>
+<ol>
+<li><p>What is the result of <span class="math inline">\(f(-3)\)</span>?</p></li>
+<li><p>What is the result of <span class="math inline">\(q(f(-4))\)</span>?</p>
+<p><span><em>Notice we are looking at function composition here: first apply <span class="math inline">\(f\)</span> and then apply <span class="math inline">\(q\)</span> to the result.</em></span></p></li>
+<li><p>What is the result of <span class="math inline">\(f(h(4))\)</span>?</p>
+<p><span><em>Notice we are looking at function composition here: first apply <span class="math inline">\(h\)</span> and then apply <span class="math inline">\(f\)</span> to the result.</em></span></p></li>
+<li><p>What is the result of <span class="math inline">\(g(-4)\)</span>?</p></li>
+<li><p>What is the result of <span class="math inline">\(g(4)\)</span>?</p></li>
+<li><p>Consider the following statements, and indicate if they are true for each of <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span>, <span class="math inline">\(h\)</span>, and <span class="math inline">\(q\)</span>.</p>
+<ol>
+<li><p>This function is one-to-one.</p></li>
+<li><p>This function is onto.</p></li>
+<li><p>This function is a bijection.</p></li>
+<li><p>This function could serve as a witness for <span class="math inline">\(|\mathbb{Z}| \leq |\mathbb{N}|\)</span>.</p></li>
+<li><p>This function could serve as a witness for <span class="math inline">\(|\mathbb{Z}| \geq |\mathbb{N}|\)</span>.</p></li>
+<li><p>This function could serve as a witness for <span class="math inline">\(|\mathbb{N}| \leq |\mathbb{Z}|\)</span>.</p></li>
+<li><p>This function could serve as a witness for <span class="math inline">\(|\mathbb{N}| \geq |\mathbb{Z}|\)</span>.</p></li>
+</ol></li>
+</ol></li>
+</ol>
+<h1 class="unnumbered" id="wednesday-november-17">Wednesday November 17</h1>
+<p><span><strong>Properties of cardinality</strong></span> <span class="math display">\[\begin{aligned}
+&amp;\forall A ~ (~  |A| = |A| ~)\\
+&amp;\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
+&amp;\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| = |C|) ~\to ~ |A| = |C|~)\end{aligned}\]</span></p>
+<p><span><em>Extra practice with proofs:</em></span> Use the definitions of bijections to prove these properties.</p>
+<p><span><strong>Cantor-Schroder-Bernstein Theorem</strong></span>: For all nonempty sets, <span class="math display">\[|A| = |B| \qquad\text{if and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
+\qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq |A|)\]</span></p>
+<p>To prove <span class="math inline">\(|A| = |B|\)</span>, we can do any <span><strong>one</strong></span> of the following</p>
+<ul>
+<li><p>Prove there exists a bijection <span class="math inline">\(f:  A \to B\)</span>;</p></li>
+<li><p>Prove there exists a bijection <span class="math inline">\(f: B  \to  A\)</span>;</p></li>
+<li><p>Prove there exists two functions <span class="math inline">\(f_1: A \to B\)</span>, <span class="math inline">\(f_2: B \to  A\)</span> where each of <span class="math inline">\(f_1, f_2\)</span> is one-to-one.</p></li>
+<li><p>Prove there exists two functions <span class="math inline">\(f_1: A \to B\)</span>, <span class="math inline">\(f_2: B \to  A\)</span> where each of <span class="math inline">\(f_1, f_2\)</span> is onto.</p></li>
+</ul>
+<p><span><strong>Definition</strong></span>: A set <span class="math inline">\(A\)</span> is <span><strong>countably infinite</strong></span> means it is the same size as <span class="math inline">\(\mathbb{N}\)</span>.</p>
+<p><span><strong>Natural numbers</strong></span> <span class="math inline">\(\mathbb{N}\)</span> : <span class="math inline">\(0~~1~~2~~3~~4~~5~~6~~7~~8~~9~~10 \ldots\)</span></p>
+<p><span class="math inline">\(identity: \mathbb{N} \to \mathbb{N}\)</span> with <span class="math inline">\(identity(n) = n\)</span></p>
+<p><span><em>Claim</em></span>: <span class="math inline">\(identity\)</span> is a bijection. <span><em>Proof</em></span>: Ex. : <span class="math inline">\(| \mathbb{N} | = |\mathbb{N}|~\)</span></p>
+<p><span><strong>Positive integers</strong></span> <span class="math inline">\(\mathbb{Z}^+\)</span> : <span class="math inline">\(1~~2~~3~~4~~5~~6~~7~~8~~9~~10~~11\ldots\)</span></p>
+<p><span class="math inline">\(positives: \mathbb{N} \to \mathbb{Z}^+\)</span> with <span class="math inline">\(positives(n) = n+1\)</span></p>
+<p><span><em>Claim</em></span>: <span class="math inline">\(positives\)</span> is a bijection. <span><em>Proof</em></span>: Ex.: <span class="math inline">\(| \mathbb{N} | = |\mathbb{Z}^+|\)</span></p>
+<p><span><strong>Negative integers <span class="math inline">\(\mathbb{Z}^-\)</span></strong></span>: <span class="math inline">\(-1\)</span> <span class="math inline">\(-2\)</span> <span class="math inline">\(-3\)</span> <span class="math inline">\(-4\)</span> <span class="math inline">\(-5\)</span> <span class="math inline">\(-6\)</span> <span class="math inline">\(-7\)</span> <span class="math inline">\(-8\)</span> <span class="math inline">\(-9\)</span> <span class="math inline">\(-10\)</span> <span class="math inline">\(-11\)</span>…</p>
+<p><span class="math inline">\(negatives: \mathbb{N} \to \mathbb{Z}^-\)</span> with <span class="math inline">\(negatives(n) = -n-1\)</span></p>
+<p><span><em>Claim</em></span>: <span class="math inline">\(negatives\)</span> is a bijection. : <span class="math inline">\(| \mathbb{N} | = |\mathbb{Z}^-|\)</span></p>
+<p><span><em>Proof</em></span>: We need to show it is a well-defined function that is one-to-one and onto.</p>
+<ul>
+<li><p>Well-defined?</p>
+<p>Consider an arbitrary element of the domain, <span class="math inline">\(n \in \mathbb{N}\)</span>. We need to show it maps to exactly one element of <span class="math inline">\(\mathbb{Z}^-\)</span>.</p></li>
+<li><p>One-to-one?</p>
+<p>Consider arbitrary elements of the domain <span class="math inline">\(a, b \in \mathbb{N}\)</span>. We need to show that <span class="math display">\[\left(~negatives(a) = negatives(b) ~\right) \to (a=b)\]</span></p></li>
+<li><p>Onto?</p>
+<p>Consider arbitrary element of the codomain <span class="math inline">\(b \in \mathbb{Z}^-\)</span>. We need witness in <span class="math inline">\(\mathbb{N}\)</span> that maps to <span class="math inline">\(b\)</span>.</p></li>
+</ul>
+<p><span><strong>Integers</strong></span> <span class="math inline">\(\mathbb{Z}\)</span> : <span class="math inline">\(0~-1~~1~-2~~2~-3~~3~-4~~4~-5~~5\)</span>…</p>
+<p><span class="math inline">\(f: \mathbb{Z} \to \mathbb{N}\)</span> with <span class="math inline">\(f(x) = \begin{cases}2x &amp;\text{if $x \geq 0$} \\-2x-1 &amp;\text{if $x &lt; 0$} \end{cases}\)</span></p>
+<p><span><em>Claim</em></span>: <span class="math inline">\(f\)</span> is a bijection. <span><em>Proof</em></span>: Ex.: <span class="math inline">\(| \mathbb{Z} | = |\mathbb{N}|\)</span></p>
+<p><span><strong>More examples of countably infinite sets</strong></span></p>
+<p><span><strong>Claim</strong></span>: <span class="math inline">\(S\)</span> is countably infinite</p>
+<p><span><em>Similarly: The set of all strings over a specific alphabet is countably infinite.</em></span></p>
+<div class="center">
+<p>Bijection using alphabetical-ish ordering (first order by length, then alphabetically among strings of same length) of strands</p>
+</div>
+<p><span><strong>Claim</strong></span>: <span class="math inline">\(L\)</span> is countably infinite</p>
+<div class="multicols">
+<p><span>2</span> <span class="math display">\[\begin{aligned}
+    &amp;list: \mathbb{N} \to L \\
+    &amp;list(n) = (n, []) \\
+    &amp;\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;toNum: L \to \mathbb{N} \\
+    &amp;toNum([]) = 0 \\
+    &amp;toNum( ~(n,l)~) = 2^n 3^toNum(l) \qquad \text{for $n \in \mathbb{N}$, $l \in L$}\end{aligned}\]</span></p>
+</div>
+<p><span><strong>Claim</strong></span>: <span class="math inline">\(|\mathbb{Z}^+| = |\mathbb{Q}|\)</span></p>
+<p>One-to-one function from <span class="math inline">\(\mathbb{Z}^+\)</span> to <span class="math inline">\(\mathbb{Q}\)</span> is <span class="math inline">\(f_1: \mathbb{Z} \to \mathbb{Q}\)</span> with <span class="math inline">\(f_1(n) = n\)</span> for all <span class="math inline">\(n \in \mathbb{N}\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;f_2: \mathbb{Q} \to \mathbb{Z} \times \mathbb{Z} \\
+    &amp;f_2(x) = \begin{cases}
+        (0,1) &amp; \text{if $x = 0$} \\
+        (p,q) &amp; \text{if $x = \frac{p}{q}$,}\\
+                &amp; \text{$gcd(p,q) = 1$, $q &gt; 0$}
+    \end{cases}\end{aligned}\]</span></p>
+<div class="multicols">
+<p><span>2</span> <span class="math display">\[\begin{aligned}
+    &amp;f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times \mathbb{Z}^+ \\
+    &amp;f_3(~(x,y)~) = \begin{cases}
+        (2x+2, 2y+2) &amp; \text{if $x \geq 0, y \geq 0$} \\
+        (-2x-1, 2y+2) &amp; \text{if $x &lt; 0, y \geq 0$} \\
+        (2x+2, -2y+1) &amp; \text{if $x \geq 0, y &lt; 0$} \\
+        (-2x-1, -2y-1) &amp; \text{if $x &lt; 0, y &lt; 0$} \\
+    \end{cases}\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
+    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}\end{aligned}\]</span></p>
+</div>
+<h2 class="unnumbered" id="review-1">Review</h2>
+<ol>
+<li><p>Consider the function <span class="math inline">\(f: \mathbb{N} \to  \mathbb{Z}\)</span> given by <span class="math inline">\(f(n)  =  \begin{cases}
+    n~\text{\bf div}~4  \qquad &amp;\text{if $n$ is even} \\
+    -( (n+1)~\text{\bf div}~4) \qquad &amp;\text{if $n$ is odd}
+\end{cases}\)</span></p>
+<p>Select all and only the true statements below.</p>
+<ol>
+<li><p><span class="math inline">\(f\)</span> is one-to-one</p></li>
+<li><p><span class="math inline">\(f\)</span> is onto</p></li>
+<li><p><span class="math inline">\(f\)</span> is a bijection</p></li>
+<li><p><span class="math inline">\(f\)</span> witnesses that <span class="math inline">\(|\mathbb{N}| \leq |\mathbb{Z}|\)</span></p></li>
+<li><p><span class="math inline">\(f\)</span> witnesses that <span class="math inline">\(|\mathbb{N}| \geq |\mathbb{Z}|\)</span></p></li>
+<li><p><span class="math inline">\(f\)</span> witnesses that <span class="math inline">\(|\mathbb{N}| = |\mathbb{Z}|\)</span></p></li>
+<li><p>There is a one-to-one function with domain <span class="math inline">\(\mathbb{N}\)</span> and codomain <span class="math inline">\(\mathbb{Z}\)</span></p></li>
+<li><p>There is an onto function with domain <span class="math inline">\(\mathbb{N}\)</span> and codomain <span class="math inline">\(\mathbb{Z}\)</span></p></li>
+<li><p>There is a bijection with domain <span class="math inline">\(\mathbb{N}\)</span> and codomain <span class="math inline">\(\mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(|\mathbb{N}| \leq |\mathbb{Z}|\)</span></p></li>
+<li><p><span class="math inline">\(|\mathbb{N}| \geq |\mathbb{Z}|\)</span></p></li>
+<li><p><span class="math inline">\(|\mathbb{N}| = |\mathbb{Z}|\)</span></p></li>
+</ol></li>
+<li><p><br />
+</p>
+<p><span><em>Goals for this question: Reason through multiple nested quantifiers. Fluently use the definition and properties of the set of rationals.</em> </span></p>
+<p>Recall the definition of the set of rational numbers, <span class="math inline">\(\mathbb{Q} = \left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}\)</span>. We define the set of <span><strong>irrational</strong></span> numbers <span class="math inline">\(\overline{\mathbb{Q}} = \mathbb{R} - \mathbb{Q}
+= \{ x \in \mathbb{R} \mid x \notin \mathbb{Q} \}\)</span>.</p>
+<div class="multicols">
+<p><span>2</span></p>
+<ol>
+<li><p><span class="math inline">\(\forall x \in \mathbb{Q} ~\forall y \in \mathbb{Q}~ \exists z \in \mathbb{Q} ~( x + y = z)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in \mathbb{Q} ~\forall y \in \mathbb{Q}~ \exists z \in \mathbb{Q} ~( x + z = y)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in \mathbb{Q} ~\forall y \in \mathbb{Q}~ \exists z \in \mathbb{Q} ~( x \cdot y = z)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in \mathbb{Q} ~\forall y \in \mathbb{Q} ~\exists z \in \mathbb{Q} ~( x \cdot z = y)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in \overline{\mathbb{Q}}~ \forall y \in \overline{\mathbb{Q}}~ \exists z \in \overline{\mathbb{Q}} ~( x + y = z)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in \overline{\mathbb{Q}}~ \forall y \in \overline{\mathbb{Q}}~ \exists z \in \overline{\mathbb{Q}}~( x + z = y)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in \overline{\mathbb{Q}} ~\forall y \in \overline{\mathbb{Q}}~ \exists z \in \overline{\mathbb{Q}} ~( x \cdot y = z)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in \overline{\mathbb{Q}} ~\forall y \in \overline{\mathbb{Q}}~ \exists z \in \overline{\mathbb{Q}}~( x \cdot z = y)\)</span></p></li>
+</ol>
+</div>
+<ol>
+<li><p>Which of the statements above (if any) could be <span><strong>disproved</strong></span> using the counterexample <span class="math inline">\(x = \frac{1}{2}\)</span>, <span class="math inline">\(y= \frac{3}{4}\)</span>?</p></li>
+<li><p>Which of the statements above (if any) could be <span><strong>disproved</strong></span> using the counterexample <span class="math inline">\(x = \sqrt{4}\)</span>, <span class="math inline">\(y= \sqrt{3}\)</span>?</p></li>
+<li><p>Which of the statements above (if any) could be <span><strong>disproved</strong></span> using the counterexample <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(y= 3\)</span>?</p></li>
+<li><p>Which of the statements above (if any) could be <span><strong>disproved</strong></span> using the counterexample <span class="math inline">\(x = \sqrt{2}\)</span>, <span class="math inline">\(y= 0\)</span>?</p></li>
+<li><p>Which of the statements above (if any) could be <span><strong>disproved</strong></span> using the counterexample <span class="math inline">\(x = \sqrt{2}\)</span>, <span class="math inline">\(y= -  \sqrt{2}\)</span>?</p></li>
+</ol>
+<p><em>Hint: we proved in class that <span class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>. You may also use the facts that <span class="math inline">\(\sqrt{3} \notin \mathbb{Q}\)</span> and <span class="math inline">\(-\sqrt{2} \notin \mathbb{Q}\)</span>.</em></p>
+<p>Bonus - not to hand in: prove these facts; that is, prove that <span class="math inline">\(\sqrt{3} \notin \mathbb{Q}\)</span> and <span class="math inline">\(-\sqrt{2} \notin \mathbb{Q}\)</span>.</p></li>
+</ol>
+<h1 class="unnumbered" id="friday-november-19">Friday November 19</h1>
+<h2 class="unnumbered" id="cardinality-categories">Cardinality categories</h2>
+<p>A set <span class="math inline">\(A\)</span> is <span><strong>finite</strong></span> means it is empty or it is the same size as <span class="math inline">\(\{ 1, \ldots, n \}\)</span> for some <span class="math inline">\(n \in \mathbb{N}\)</span>.</p>
+<p>A set <span class="math inline">\(A\)</span> is <span><strong>countably infinite</strong></span> means it is the same size as <span class="math inline">\(\mathbb{N}\)</span>. <span><em>Notice: all countably infinite sets are the same size as each other.</em></span></p>
+<p>A set <span class="math inline">\(A\)</span> is <span><strong>countable</strong></span> means it is either finite or countably infinite.</p>
+<p>A set <span class="math inline">\(A\)</span> is <span><strong>uncountable</strong></span> means it is not countable.</p>
+<p><span><strong>Lemmas about countable and uncountable sets</strong></span></p>
+<p><span><strong>Lemma</strong></span>: If <span class="math inline">\(A\)</span> is a subset of a countable set, then it’s countable.</p>
+<p><span><strong>Lemma</strong></span>: If <span class="math inline">\(A\)</span> is a superset of an uncountable set, then it’s uncountable.</p>
+<p><span><strong>Lemma</strong></span>: If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are countable sets, then <span class="math inline">\(A \cup B\)</span> is countable and <span class="math inline">\(A \cap B\)</span> is countable.</p>
+<p><span><strong>Lemma</strong></span>: If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are countable sets, then <span class="math inline">\(A \times B\)</span> is countable.</p>
+<p><span><em>Generalize pairing ideas from <span class="math inline">\(\mathbb{Z}^+ \times \mathbb{Z}^+\)</span> to <span class="math inline">\(\mathbb{Z}^+\)</span></em></span></p>
+<p><span><strong>Lemma</strong></span>: If <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(B\)</span> , to show that <span class="math inline">\(|A| = |B|\)</span>, it’s enough to give one-to-one function from <span class="math inline">\(B\)</span> to <span class="math inline">\(A\)</span> or an onto function from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>.</p>
+<h2 class="unnumbered" id="are-there-always-bigger-sets">Are there always *bigger* sets?</h2>
+<p><span><em>Recall</em></span>: When <span class="math inline">\(U\)</span> is a set, <span class="math inline">\(\mathcal{P}(U) = \{ X \mid X \subseteq U\}\)</span></p>
+<p><span><em>Key idea</em></span>: For finite sets, the power set of a set has strictly greater size than the set itself. Does this extend to infinite sets?</p>
+<p><span><strong>Definition</strong></span>: For two sets <span class="math inline">\(A, B\)</span>, we use the notation <span class="math inline">\(|A| &lt; |B|\)</span> to denote <span class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| = |B|)\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+{4}
+    &amp;\emptyset = \{ \} \qquad &amp;&amp;\mathcal{P}(\emptyset) = \{ \emptyset \} \qquad &amp;&amp;|\emptyset| &lt; |\mathcal{P}(\emptyset)| \\
+    &amp;\{1 \} \qquad &amp;&amp;\mathcal{P}(\{1\}) = \{ \emptyset, \{1\} \} \qquad &amp;&amp;|\{1\}| &lt; |\mathcal{P}(\{1\})| \\
+    &amp;\{1,2 \} \qquad &amp;&amp;\mathcal{P}(\{1,2\}) = \{ \emptyset, \{1\}, \{2\}, \{1,2\} \} \qquad &amp;&amp;|\{1,2\}| &lt; |\mathcal{P}(\{1,2\})| \\\end{aligned}\]</span></p>
+<p><span><strong><span class="math inline">\(\mathbb{N}\)</span> and its power set</strong></span></p>
+<p>Example elements of <span class="math inline">\(\mathbb{N}\)</span></p>
+<p>Example elements of <span class="math inline">\(\mathcal{P}(\mathbb{N})\)</span></p>
+<p><span><strong>Claim</strong></span>: <span class="math inline">\(| \mathbb{N} | \leq |\mathcal{P} ( \mathbb{N} ) |\)</span></p>
+<p><span><strong>Claim</strong></span>: There is an uncountable set. Example: <span class="math inline">\(\underline{\phantom{~~~\mathcal{P}(\mathbb{N})~~~}}\)</span></p>
+<p><span><strong>Proof</strong></span>: By definition of countable, since <span class="math inline">\(\underline{\phantom{~~~\mathcal{P}(\mathbb{N})~~~}}\)</span> is not finite, <span><strong>to show</strong></span> is <span class="math inline">\(|\mathbb{N}| \neq  |\mathcal{P}(\mathbb{N})|\)</span> .</p>
+<p>Rewriting using the definition of cardinality, <span><strong>to show</strong></span> is</p>
+<p>Towards a proof by universal generalization, consider an arbitrary function <span class="math inline">\(f:  \mathbb{N} \to\mathcal{P}(\mathbb{N})\)</span>.</p>
+<p><span><strong>To show</strong></span>: <span class="math inline">\(f\)</span> is not a bijection. It’s enough to show that <span class="math inline">\(f\)</span> is not onto.</p>
+<p>Rewriting using the definition of onto, <span><strong>to show</strong></span>: <span class="math display">\[\neg  \forall  B \in  \mathcal{P}(\mathbb{N}) ~\exists a \in \mathbb{N}  ~(~f(a) =  B~)\]</span> . By logical equivalence, we can write this as an existential statement: <span class="math display">\[\underline{\phantom{\qquad\qquad\exists B \in  \mathcal{P}(\mathbb{N}) ~\forall a \in \mathbb{N}  ~(~f(a) \neq  B~)\qquad\qquad}}\]</span> In search of a witness, define the following collection of nonnegative integers: <span class="math display">\[D_f = \{ n \in \mathbb{N}  ~\mid~  n \notin f(n)  \}\]</span> . By definition of power set, since all elements of <span class="math inline">\(D_f\)</span> are in <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(D_f \in \mathcal{P}(\mathbb{N})\)</span>. It’s enough to prove the following Lemma:</p>
+<p><span><strong>Lemma</strong></span>: <span class="math inline">\(\forall a \in \mathbb{N}  ~(~f(a) \neq  D_f~)\)</span>.</p>
+<p><span><strong>Proof of lemma</strong></span>:<br />
+</p>
+<p>By the Lemma, we have proved that <span class="math inline">\(f\)</span> is not onto, and since <span class="math inline">\(f\)</span> was arbitrary, there are no onto functions from <span class="math inline">\(\mathbb{N}\)</span> to <span class="math inline">\(\mathcal{P}(\mathbb{N})\)</span>. QED</p>
+<p><span><strong>Where does <span class="math inline">\(D_f\)</span> come from?</strong></span> The idea is to build a set that would “disagree" with each of the images of <span class="math inline">\(f\)</span> about some element.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n \in \mathbb{N}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(f(n) = X_n\)</span></th>
+<th style="text-align: center;">Is <span class="math inline">\(0   \in X_n\)</span>?</th>
+<th style="text-align: center;">Is <span class="math inline">\(1 \in X_n\)</span>?</th>
+<th style="text-align: center;">Is <span class="math inline">\(2 \in X_n\)</span>?</th>
+<th style="text-align: center;">Is <span class="math inline">\(3 \in X_n\)</span>?</th>
+<th style="text-align: center;">Is <span class="math inline">\(4 \in X_n\)</span>?</th>
+<th style="text-align: center;">…</th>
+<th style="text-align: center;">Is <span class="math inline">\(n \in D_f\)</span>?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(0) = X_0\)</span></td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong> </span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(1) = X_1\)</span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong> </span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(2) = X_2\)</span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong> </span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(3) = X_3\)</span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong> </span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(4) = X_4\)</span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong> </span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">⋮</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class="unnumbered" id="countable-vs.-uncountable-sets-of-numbers">Countable vs. uncountable: sets of numbers</h2>
+<p><span><strong>Comparing <span class="math inline">\(\mathbb{Q}\)</span> and <span class="math inline">\(\mathbb{R}\)</span></strong></span></p>
+<p>Both <span class="math inline">\(\mathbb{Q}\)</span> and <span class="math inline">\(\mathbb{R}\)</span> have no greatest element.</p>
+<p>Both <span class="math inline">\(\mathbb{Q}\)</span> and <span class="math inline">\(\mathbb{R}\)</span> have no least element.</p>
+<p>The quantified statement <span class="math display">\[\forall x \forall y (x &lt; y \to \exists z ( x &lt; z &lt; y) )\]</span> is true about both <span class="math inline">\(\mathbb{Q}\)</span> and <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Both <span class="math inline">\(\mathbb{Q}\)</span> and <span class="math inline">\(\mathbb{R}\)</span> are infinite. But, <span class="math inline">\(\mathbb{Q}\)</span> is countably infinite whereas <span class="math inline">\(\mathbb{R}\)</span> is uncountable.<br />
+<span><strong>The set of real numbers</strong></span></p>
+<p><span class="math inline">\(\mathbb{Z} \subsetneq \mathbb{Q} \subsetneq \mathbb{R}\)</span></p>
+<p><span><strong>Order axioms</strong></span> (Rosen Appendix 1):</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Reflexivity</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a \in  \mathbb{R} (a \leq a)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Antisymmetry</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a \in  \mathbb{R}~\forall b \in \mathbb{R}~(~(a \leq b~ \wedge ~b \leq a) \to (a=b)~)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Transitivity</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a \in  \mathbb{R}~\forall b \in \mathbb{R}~\forall c \in \mathbb{R}~
+(~(a \leq b \wedge b \leq c) ~\to  ~(a \leq c)~)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Trichotomy</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a \in \mathbb{R}~\forall b \in \mathbb{R}~ ( ~(a=b ~\vee~ b &gt; a ~\vee~ a  &lt; b)\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Completeness axioms</strong></span> (Rosen Appendix 1):</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Least upper bound</td>
+<td style="text-align: left;">Every nonempty set of real numbers that is bounded above has a least upper bound</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nested intervals</td>
+<td style="text-align: left;">For each sequence of intervals <span class="math inline">\([a_n , b_n]\)</span> where, for each <span class="math inline">\(n\)</span>, <span class="math inline">\(a_n &lt; a_{n+1} &lt; b_{n+1} &lt; b_n\)</span>, there is at least one real number <span class="math inline">\(x\)</span> such that, for all <span class="math inline">\(n\)</span>, <span class="math inline">\(a_n \leq x \leq b_n\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each real number <span class="math inline">\(r  \in  \mathbb{R}\)</span> is described by a function to give better and better approximations <span class="math display">\[x_r: \mathbb{Z}^+ \to \{0,1\}  \qquad  \text{where  $x_r(n ) =  n^{th} $ bit in  binary expansion of $r$}\]</span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
+<th style="text-align: center;">Binary expansion</th>
+<th style="text-align: left;"><span class="math inline">\(x_r\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0.1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.00011001 \ldots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{0.1}(n) = \begin{cases} 0&amp;\text{if $n &gt; 1$ and $(n~\text{\bf mod}~4) =2$} \\
+0&amp;\text{if $n=1$ or if $n &gt; 1$ and $(n~\text{\bf mod}~4) =3$} \\1&amp;\text{if $n &gt; 1$ and $(n~\text{\bf mod}~4) =0$} \\
+1&amp;\text{if $n &gt; 1$ and $(n~\text{\bf mod}~4) =1$} \end{cases}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\sqrt{2} - 1 = 0.4142135 \ldots\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.01101010\ldots\)</span></td>
+<td style="text-align: left;">Use linear approximations (tangent lines from calculus) to get algorithm for bounding error of successive operations. Define <span class="math inline">\(x_{\sqrt{2}-1}(n)\)</span> to be <span class="math inline">\(n^{th}\)</span> bit in approximation that has error less than <span class="math inline">\(2^{-(n+1)}\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Claim</strong></span>: <span class="math inline">\(\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}\)</span> is uncountable.</p>
+<p><span><em>Approach 1</em></span>: Mimic proof that <span class="math inline">\(\mathcal{P}(\mathbb{Z}^+)\)</span> is uncountable.</p>
+<p><span><strong>Proof</strong></span>: By definition of countable, since <span class="math inline">\(\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}\)</span> is not finite, <span><strong>to show</strong></span> is <span class="math inline">\(|\mathbb{N}| \neq  |\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}|\)</span> .</p>
+<p><span><strong>To show</strong></span> is <span class="math inline">\(\forall f : \mathbb{Z}^+ \to \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}  ~~(f \text{ is not a bijection})~~\)</span>. Towards a proof by universal generalization, consider an arbitrary function <span class="math inline">\(f:  \mathbb{Z}^+ \to \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}\)</span>. <span><strong>To show</strong></span>: <span class="math inline">\(f\)</span> is not a bijection. It’s enough to show that <span class="math inline">\(f\)</span> is not onto. Rewriting using the definition of onto, <span><strong>to show</strong></span>: <span class="math display">\[\exists x \in \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \} ~\forall a \in \mathbb{N}  ~(~f(a) \neq  x~)\]</span> In search of a witness, define the following real number by defining its binary expansion <span class="math display">\[d_f = 0.b_1 b_2 b_3 \cdots\]</span> where <span class="math inline">\(b_i = 1-b_{ii}\)</span> where <span class="math inline">\(b_{jk}\)</span> is the coefficient of <span class="math inline">\(2^{-k}\)</span> in the binary expansion of <span class="math inline">\(f(j)\)</span>. Since<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math inline">\(d_f \neq f(a)\)</span> for any positive integer <span class="math inline">\(a\)</span>, <span class="math inline">\(f\)</span> is not onto.</p>
+<p><span><em>Approach 2</em></span>: Nested closed interval property</p>
+<p><span><strong>To show</strong></span> <span class="math inline">\(f: \mathbb{N} \to \{  r \in \mathbb{R} ~\mid~ 0  \leq r ~\wedge~ r \leq 1 \}\)</span> is not onto. <span><strong>Strategy</strong></span>: Build a sequence of nested closed intervals that each avoid some <span class="math inline">\(f(n)\)</span>. Then the real number that is in all of the intervals can’t be <span class="math inline">\(f(n)\)</span> for any <span class="math inline">\(n\)</span>. Hence, <span class="math inline">\(f\)</span> is not onto.</p>
+<p>Consider the function <span class="math inline">\(f: \mathbb{N} \to \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}\)</span> with <span class="math inline">\(f(n) = \frac{1+\sin(n)}{2}\)</span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(f(n)\)</span></th>
+<th style="text-align: left;">Interval that avoids <span class="math inline">\(f(n)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.5\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.920735\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.954649\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.570560\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.121599\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">⋮</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class="unnumbered" id="other-examples-of-uncountable-sets">Other examples of uncountable sets</h2>
+<ul>
+<li><p>The power set of any countably infinite set is uncountable. For example: <span class="math display">\[\mathcal{P}(\mathbb{N}), \mathcal{P}(\mathbb{Z^+}), \mathcal{P}(\mathbb{Z})\]</span> are each uncountable.</p></li>
+<li><p>The closed interval <span class="math inline">\(\{x \in \mathbb{R} ~|~ 0 \leq x \leq 1\}\)</span>, any other nonempty closed interval of real numbers whose endpoints are unequal, as well as the related intervals that exclude one or both of the endpoints.</p></li>
+<li><p>The set of all real numbers <span class="math inline">\(\mathbb{R}\)</span> is uncountable and the set of irrational real numbers <span class="math inline">\(\overline{\mathbb{Q}}\)</span> is uncountable.</p></li>
+</ul>
+<h2 class="unnumbered" id="review-2">Review</h2>
+<ol>
+<li><p><br />
+</p>
+<p>The diagonalization argument constructs, for each function <span class="math inline">\(f:  \mathbb{N} \to  \mathcal{P}(\mathbb{N})\)</span>, a set <span class="math inline">\(D_f\)</span> defined as <span class="math display">\[D_f = \{ x \in \mathbb{N} \mid x \notin  f(x) \}\]</span> which has the property that, for all <span class="math inline">\(n \in \mathbb{N}\)</span>, <span class="math inline">\(f(n) \neq  D_f\)</span>. Consider the following two functions with domain <span class="math inline">\(\mathbb{N}\)</span> and codomain <span class="math inline">\(\mathcal{P}(\mathbb{N})\)</span> <span class="math display">\[f_1(x) =  \{  y \in  \mathbb{N} \mid y~\text{\bf mod}~3 = x~\text{\bf mod}~3  \}\]</span> <span class="math display">\[f_2(x) =  \{  y \in  \mathbb{N} \mid (y &gt; 0) \land
+(x ~\text{\bf mod}~y \neq  0)\}\]</span></p>
+<p>Select all and only the true statements below.</p>
+<ol>
+<li><p><span class="math inline">\(0 \in D_{f_1}\)</span></p></li>
+<li><p><span class="math inline">\(D_{f_1}\)</span> is infinite</p></li>
+<li><p><span class="math inline">\(D_{f_1}\)</span> is uncountable</p></li>
+<li><p><span class="math inline">\(1 \in D_{f_2}\)</span></p></li>
+<li><p><span class="math inline">\(D_{f_2}\)</span> is empty</p></li>
+<li><p><span class="math inline">\(D_{f_2}\)</span> is countably infinite</p></li>
+</ol></li>
+<li><p><br />
+</p>
+<p>Recall the definitions from previous assignments and class: The bases of RNA are elements of the set <span class="math inline">\(B  = \{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}\)</span>. The set of RNA strands <span class="math inline">\(S\)</span> is defined (recursively) by:</p>
+<p><span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S, \texttt{U}\in S, \texttt{G}\in S \\
+\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}\]</span></p>
+<p>For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span> a positive integer, the <span><strong>base <span class="math inline">\(b\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{k-1} \cdots a_1 a_0)_b\]</span> where <span class="math inline">\(k\)</span> is a positive integer, <span class="math inline">\(a_0, a_1, \ldots, a_{k-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span>, <span class="math inline">\(a_{k-1} \neq  0\)</span>, and <span class="math display">\[n =  a_{k-1} b^{k-1} + \cdots + a_1b + a_0\]</span></p>
+<p>For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span>, <span class="math inline">\(w\)</span> a positive integer, and <span class="math inline">\(n\)</span> a nonnegative integer with <span class="math inline">\(n &lt; b^w\)</span>, the <span><strong>base <span class="math inline">\(b\)</span> fixed-width <span class="math inline">\(w\)</span> expansion of <span class="math inline">\(n\)</span></strong></span> is <span class="math display">\[(a_{w-1} \cdots a_1 a_0)_{b,w}\]</span> where <span class="math inline">\(a_0, a_1, \ldots, a_{w-1}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span> and <span class="math display">\[n =  a_{w-1} b^{w-1} + \cdots + a_1b + a_0\]</span> For <span class="math inline">\(b\)</span> an integer greater than <span class="math inline">\(1\)</span>, <span class="math inline">\(w\)</span> a positive integer, <span class="math inline">\(w&#39;\)</span> a positive integer, and <span class="math inline">\(x\)</span> a real number the <span><strong>base <span class="math inline">\(b\)</span> fixed-width expansion of <span class="math inline">\(x\)</span> with integer part width <span class="math inline">\(w\)</span> and fractional part width <span class="math inline">\(w&#39;\)</span></strong></span> is <span class="math display">\[(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w&#39;})_{b,w,w&#39;}\]</span> where <span class="math inline">\(a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w&#39;}\)</span> are nonnegative integers less than <span class="math inline">\(b\)</span> and <span class="math display">\[x \geq a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  c_{w&#39;} b^{-w&#39;}\]</span> and <span class="math display">\[x &lt; a_{w-1} b^{w-1} +  \cdots + a_1 b + a_0 +  c_{1} b^{-1} + \cdots +  (c_{w&#39;} +1) b^{-w&#39;}\]</span></p>
+<p>For each set below, determine if it is empty, nonempty and finite, countably infinite, or uncountable.</p>
+<p><span><em>Challenge - not to hand in</em></span>: how would you prove this?</p>
+<ol>
+<li><p><span class="math inline">\(B\)</span></p></li>
+<li><p><span class="math inline">\(S\)</span></p></li>
+<li><p><span class="math inline">\(\{ x \in \mathbb{N} ~\mid~ x = (4102)_3 \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ x \in \mathbb{R} ~\mid~ \text{$x$ has a binary fixed-width $5$ expansion} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ x \in \mathbb{R} ~\mid~ x = (0.10)_{(2,1,2)} \}\)</span></p></li>
+</ol></li>
+</ol>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>There’s a subtle imprecision in this part of the proof as presented, but it can be fixed.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
