@@ -92,7 +92,7 @@ generated-files: $(patsubst files/%,generated/files/%,$(wildcard files/*))
 
 generated/files/%: files/%
 	mkdir -p generated/files
-	cp $< $@
+	cp -R $< $@
 
 # Directory resources has images and tex files used to create lessons
 generated-resources: $(patsubst resources/%,generated/resources/%,$(wildcard resources/*))
