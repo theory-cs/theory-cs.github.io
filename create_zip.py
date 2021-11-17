@@ -49,7 +49,7 @@ def zip_file(filename, path):
             replaced = line.replace("../","").replace("resources/images/","")
             #DEBUG
             #print(replaced)
-            #newTexString += replaced 
+            newTexString += replaced 
             
             #include graphics in regex 
             #handles edge case where things like "\begin{center}"  
