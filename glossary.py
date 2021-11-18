@@ -77,14 +77,19 @@ for entry in os.scandir(files):
     file = open(entry, 'r').readlines()
     if (len(file) > 0) and ("Week" in entry.name):
         week = entry.name.replace(".tex", "")
+        dateIncluded = ""
         for line in file:
+            if("\section*" in line):
+                dateIncluded = line.replace("\section*{","").replace("}","")
+                # print(dateIncluded)
             if ("\input" in line) and ("definition" in line) and ("lesson-head" not in line):
+                # print(line)
                 cut = "{../activity-snippets/"
                 line = line[line.index(cut) + len(cut):].replace("}", "").replace(".tex","").replace("\n", "").replace("-", " ")
                 # print(line)
                 if(line not in contents):
                     contents[line] = []
-                contents[line].append(week)
+                contents[line].append(week + " " + dateIncluded)
 
 # print(contents)
 pdfCount = 0
@@ -118,7 +123,8 @@ for j in alphabet:
                     #content += """<p>""" + title +"""{<a href=\"../output/activity-snippets/""" + key.replace(" ", "-")  + """.pdf\" download>Definition</a>}"""
                     content += """}{Week(s) included: """
                     for weeks in contents[key]:
-                        numonly = weeks[-1:]
+                        numVal = weeks.index(" ")
+                        numonly = weeks[:numVal][-1:]
                         # print(numonly)
                         content += """<a href=\"unit""" + numonly  + """.html#Notes\">""" + weeks + """&nbsp</a>"""
                         # print(weeks)
