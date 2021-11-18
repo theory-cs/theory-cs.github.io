@@ -544,9 +544,7 @@ box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); /* Opera 10.5+, IE 9.0 */
 padding: 1px 4px;
 margin: 0 -4px;
 }
-.content.secondary{
-margin-left: 160px;
-}
+
 .searchButton{
    background: #528ce2;
     color:white;
