@@ -22,7 +22,7 @@ for big in outcomeData:
     for small in outcomeData[big]['Children'][med]['Children']:
         outcome[small + str(count)] = outcomeData[big]['Children'][med]['file']
         count += 1
-        
+
 # Application
 for key in applicationData:
     html = key.replace(" ", "-").lower()+".html"
@@ -44,9 +44,11 @@ outcome = collections.OrderedDict(sorted(outcome.items()))
 
 # Alphabetical view on top
 content = ""
-content = """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
+content += """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
+content += """<p><a href="../output/lessons/complete-week.pdf" download>Complete week file</a></p>"""
 content += "<h1> "
 alphabet = []
+
 for i in outcome:
     if(i[0] not in alphabet):
         alphabet.append(i[0])
