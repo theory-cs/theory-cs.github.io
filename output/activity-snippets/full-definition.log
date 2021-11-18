@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.11.18)  18 NOV 2021 06:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.11.18)  18 NOV 2021 15:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -663,66 +663,70 @@ File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 ) [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 182--194
-[]
+Overfull \hbox (71.9974pt too wide) in paragraph at lines 198--209
+\OML/cmm/m/it/12 gcd\OT1/cmr/m/n/12 ( [](\OML/cmm/m/it/12 a; b\OT1/cmr/m/n/12 )
+ [])$. []
  []
 
-[3]
-Overfull \hbox (15.60254pt too wide) in paragraph at lines 299--344
+[3] [4]
+Overfull \hbox (15.60254pt too wide) in paragraph at lines 320--365
  [] 
  []
 
-[4]
-Overfull \hbox (6.29514pt too wide) in paragraph at lines 345--348
+[5]
+Overfull \hbox (6.29514pt too wide) in paragraph at lines 366--368
 \OT1/cmr/m/n/12 A re-la-tion $\OML/cmm/m/it/12 R$ \OT1/cmr/m/n/12 on a set $\OM
 L/cmm/m/it/12 A$ \OT1/cmr/m/n/12 is called \OT1/cmr/bx/n/12 an-ti-sym-met-ric \
 OT1/cmr/m/n/12 means $\OMS/cmsy/m/n/12 8\OML/cmm/m/it/12 a \OMS/cmsy/m/n/12 2 \
 OML/cmm/m/it/12 A []\OMS/cmsy/m/n/12 8\OML/cmm/m/it/12 b \OMS/cmsy/m/n/12 2 \OM
-L/cmm/m/it/12 A [] []$
+L/cmm/m/it/12 A [] []$ 
  []
 
-<../../resources/images/xANDy.png, id=81, 102.3825pt x 71.26625pt>
+<../../resources/images/xANDy.png, id=86, 102.3825pt x 71.26625pt>
 File: ../../resources/images/xANDy.png Graphic file (type png)
 <use ../../resources/images/xANDy.png>
 Package pdftex.def Info: ../../resources/images/xANDy.png  used on input line 3
-76.
+98.
 (pdftex.def)             Requested size: 62.29544pt x 43.36243pt.
-<../../resources/images/xXORy.png, id=83, 120.95187pt x 91.84312pt>
+<../../resources/images/xXORy.png, id=88, 120.95187pt x 91.84312pt>
 File: ../../resources/images/xXORy.png Graphic file (type png)
 <use ../../resources/images/xXORy.png>
-Package pdftex.def Info: ../../resources/images/xXORy.png  used on input line 3
-89.
+Package pdftex.def Info: ../../resources/images/xXORy.png  used on input line 4
+11.
 (pdftex.def)             Requested size: 38.06866pt x 28.90755pt.
 
-Overfull \vbox (11.38004pt too high) has occurred while \output is active []
+Overfull \vbox (39.12991pt too high) has occurred while \output is active []
 
 
-[5 <../../output/activity-snippets/../../resources/images/xANDy.png> <../../out
+Overfull \vbox (39.12991pt too high) has occurred while \output is active []
+
+
+[6 <../../output/activity-snippets/../../resources/images/xANDy.png> <../../out
 put/activity-snippets/../../resources/images/xXORy.png>]
-<../../resources/images/NOTx.png, id=91, 80.80188pt x 57.21375pt>
+<../../resources/images/NOTx.png, id=96, 80.80188pt x 57.21375pt>
 File: ../../resources/images/NOTx.png Graphic file (type png)
 <use ../../resources/images/NOTx.png>
-Package pdftex.def Info: ../../resources/images/NOTx.png  used on input line 40
-0.
+Package pdftex.def Info: ../../resources/images/NOTx.png  used on input line 42
+2.
 (pdftex.def)             Requested size: 51.0349pt x 36.135pt.
- [6 <../../output/activity-snippets/../../resources/images/NOTx.png>]
-Overfull \hbox (10.5948pt too wide) detected at line 538
+ [7 <../../output/activity-snippets/../../resources/images/NOTx.png>]
+Overfull \hbox (10.5948pt too wide) detected at line 560
 []
  []
 
-<../../resources/images/ArithmeticDemo.png, id=98, 316.0608pt x 289.08pt>
+<../../resources/images/ArithmeticDemo.png, id=104, 316.0608pt x 289.08pt>
 File: ../../resources/images/ArithmeticDemo.png Graphic file (type png)
 <use ../../resources/images/ArithmeticDemo.png>
 Package pdftex.def Info: ../../resources/images/ArithmeticDemo.png  used on inp
-ut line 566.
+ut line 589.
 (pdftex.def)             Requested size: 144.54pt x 132.20648pt.
-[7 <../../output/activity-snippets/../../resources/images/ArithmeticDemo.png>]
+[8 <../../output/activity-snippets/../../resources/images/ArithmeticDemo.png>]
 
-Package lastpage Warning: Rerun to get the references right on input line 644.
+Package lastpage Warning: Rerun to get the references right on input line 668.
 
 
 AED: lastpage setting LastPage
-[8] (../../output/activity-snippets/full-definition.aux)
+[9] (../../output/activity-snippets/full-definition.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -736,13 +740,13 @@ Package rerunfilecheck Info: Checksums for `full-definition.out':
 (rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14204 strings out of 478994
- 211418 string characters out of 5858183
+ 14205 strings out of 478994
+ 211424 string characters out of 5858183
  546216 words of memory out of 5000000
  31407 multiletter control sequences out of 15000+600000
  414765 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,18n,74p,1198b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,18n,74p,1198b,511s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -760,11 +764,11 @@ ve/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
 021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/20
 21/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texliv
 e/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ../../output/activity-snippets/full-definition.pdf (8 pages, 
-308582 bytes).
+Output written on ../../output/activity-snippets/full-definition.pdf (9 pages, 
+311051 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
- 49 named destinations out of 1000 (max. 500000)
+ 184 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

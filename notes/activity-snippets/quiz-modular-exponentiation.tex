@@ -1,0 +1,26 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+Modular exponentiation is required to carry out the Diffie-Helman protocol for 
+computing a shared secret over an unsecure channel.
+
+Consider the following algorithm for fast exponentiation (based on binary 
+expansion of the exponent).
+
+    \begin{algorithm}[caption={Modular Exponentation}]
+    procedure $modular~exponentiation$($b$: integer; 
+                 $n = (a_{k-1}a_{k-2} \ldots a_1 a_0)_2$, $m$: positive integers)
+    $x$ := $1$
+    $power$ := $b$ mod $m$
+    for $i$:= $0$ to $k-1$
+      if $a_i = 1$ then $x$:= $(x \cdot power)$ mod $m$
+      $power$ := $(power \cdot power)$ mod $m$
+    return $x$ $\{x~\textrm{equals}~b^n \textbf{ mod } m\} $
+    \end{algorithm}
+    
+    \begin{enumerate}
+        \item If we wanted to calculate $3^8 \textbf{ mod } 7$ what are the values of 
+        the paramenters $b$, $n$, and $m$? 
+        \item Give the output of the $modular~exponentiation$ algorithm 
+        with these parameters, i.e.\ calculate $3^8 \textbf{ mod } 7$.
+    \end{enumerate}
