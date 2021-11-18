@@ -108,19 +108,6 @@ where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
 n =  \sum_{i=0}^{w-1} a_{i} b^{i}
 \]
 
-An {\bf equivalence class} of an element $a \in A$ 
-with respect to an equivalence relation $R$ on the set $A$ is the set 
-\[
-    \{s \in A | (a, s) \in R \}
-\] 
-We write $[a]_R$ for this set, which is the equivalence class of $a$ with respect to $R$.
-A {\bf partition} of a set $A$ is a set of non-empty, disjoint subsets 
-$A_1, A_2, \cdots, A_n$ such that 
-\[
-    A = \bigcup_{i=1}^{n} A_i = \{ x \mid \exists i (x \in A_i) \}
-\]
-A relation is a {\bf partial ordering} (or partial order) means 
-it is reflexive, anitsymmetric, and transitive.
 
 Which of the following formalizes the definition of the predicate
 $Pr(x)$ over the set of integers, and evaluates to $T$ exactly when 
@@ -192,9 +179,7 @@ Which of the following are (recursive) definitions of the set of integers $\math
 \end{array}
 \]
 \end{enumerate}
-A relation $R$ on a set $A$ is called {\bf reflexive} 
-means $(a, a) \in R$ for every element $a \in A$. 
-
+A relation $R$ on a set $A$ is called {\bf reflexive} means $(a, a) \in R$ for every element $a \in A$. 
 {\bf Definition}: {\bf Greatest common divisor} Let $a$ and $b$ be integers, not both zero. The largest integer $d$ such that 
 $d$ is a  factor of $a$ and $d$ is a factor of  $b$ is called the greatest common divisor of $a$ and $b$ 
 and is denoted by $gcd(~(a, b)~)$.
@@ -272,7 +257,6 @@ blanks for the domain and codomain of each of these functions.
     
     \item Choose only and all of the statements in the previous part that are both well-defined and true.
 \end{enumerate}
-A relation is an {\bf equivalence relation} means it is reflexive, symmetric, and transitive.
 {\bf Definition}: When $A$ and $B$ are sets, we say any subset of $A \times B$ is a {\bf binary relation}. 
 A relation $R$ can also be represented as
 \begin{itemize}
@@ -311,11 +295,6 @@ When $A$ and  $B$ are sets,  $A \subsetneq B$ (``$A$ is a {\bf proper subset} of
 \[
     (A\subseteq B) \wedge  (A \neq B)
 \]
-For a partial ordering, its {\bf Hasse diagram} is a graph whose nodes (vertices) are the elements of the 
-domain of the binary relation and which are located such that nodes connected to nodes
-above them by (undirected) edges indicate that the relation holds between the lower node and the higher node. 
-Moreover, the diagram omits self-loops and omits edges that are guaranteed by transitivity.
-
 \begin{center}
 \begin{tabular}{|llp{9.8cm}|}
 \hline
@@ -365,7 +344,6 @@ square root & $\sqrt{9}$ & The non-negative square root of $9$ \\
 \end{center}
 A relation $R$ on a set $A$ is called {\bf antisymmetric} means 
 $\forall a \in A ~\forall b \in A~\left(~\left( ~(a,b) \in R \land (b,a) \in R ~\right) \to a=b~\right)$
-
 {\bf New! Recursive Definitions of Sets}: The set $S$ (pick a name) is defined by:
 \[
 \begin{array}{ll}
@@ -560,7 +538,6 @@ $b$ appearing in a RNA strand $s$ is defined recursively by:
 \]
 A relation $R$ on a set $A$ is called {\bf transitive} means 
 whenever $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$, for all $a, b, c \in A$.
-
 {\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
 $w'$ a positive  integer, and $x$ a real number the {\bf base $b$ fixed-width 
 expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
@@ -612,7 +589,6 @@ defined).
 \]
 A relation $R$ on a set $A$ is called {\bf symmetric} means 
 $(b, a) \in R$ whenever $(a, b) \in R$, for all $a, b \in A$. 
-
 We can use a recursive definition to describe all 
 compound propositions that use propositional variables 
 from a specified collection.  Here's the definition
