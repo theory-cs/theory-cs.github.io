@@ -1,0 +1,34 @@
+{\bf Application: Cryptography}
+
+{\bf Definition}: Let $a$ be a positive integer and $p$ be a 
+large\footnote{We leave the definition of ``large'' vague here, but 
+think hundreds of digits for practical applications. In practice, 
+we also need a particular relationship between $a$ and $p$ to hold, 
+which we leave out here.} prime number, both known to everyone. 
+Let $k_1$ be a secret large number known only to person $P_1$ (Alice) 
+and $k_2$ be a secret large number known only to person $P_2$ (Bob). 
+Let the {\bf Diffie-Helman shared key} for $a, p, k_1, k_2$ be 
+$(a^{k_1\cdot k_2} \textbf{ mod } p)$.
+
+
+{\bf Idea}: $P_1$ can quickly compute the Diffie-Helman shared key 
+knowing only $a, p, k_1$ and the result of $a^{k_2} \textbf{ mod } p$ 
+(that is, $P_1$ can compute the shared key without knowing $k_2$, 
+only $a^{k_2} \textbf{ mod } p$). Similarly, $P_2$ can 
+quickly compute the Diffie-Helman shared key knowing only 
+$a, p, k_2$ and the result of $a^{k_1} \textbf{ mod } p$ 
+(that is, $P_2$ can compute the shared key without knowing $k_1$, 
+only $a^{k_1} \textbf{ mod } p$). But, any person $P_3$ who 
+knows neither $k_1$ nor $k_2$ (but may know any and all of the other values) 
+cannot compute the shared secret efficiently.
+
+{\bf Key property for *shared* secret}: 
+\[
+    \forall a \in \mathbb{Z} \, \forall b \in \mathbb{Z} \, \forall g \in \mathbb{Z}^+ \, 
+    \forall n \in \mathbb{Z}^+ ((g^a \textbf{ mod } n)^b, (g^b \textbf{ mod } n)^a) \in R_{(\textbf{mod } n)}
+\]
+
+{\bf Key property for shared *secret*}:
+
+There are efficient algorithms to calculate the result of modular exponentiation 
+but there are no (known) efficient algorithms to calculate discrete logarithm.
