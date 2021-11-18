@@ -69,13 +69,15 @@
 |A| \geq |B| &\text{ means there is an onto function with domain $A$, codomain $B$} \\
 |A| = |B| &\text{ means there is a bijection with domain $A$, codomain $B$}
 \end{align*}
-For all sets $A$, we say $|A| = |\emptyset|$, $|\emptyset| = |A|$ if and only if $A = \emptyset$.{\bf Proposition}: Declarative sentence that is true or false (not both).
+For all sets $A$, we say $|A| = |\emptyset|$, $|\emptyset| = |A|$ if and only if $A = \emptyset$.
+{\bf Proposition}: Declarative sentence that is true or false (not both).
 {\bf Propositional variable}: Variable that represents a proposition.
 {\bf Compound proposition}: New proposition formed from existing propositions (potentially) using logical operators.
 {\it Note}: A propositional variable is one example of a compound proposition.
 {\bf Truth table}: Table with one row for each of the possible combinations of truth values of the input and 
     an additional column that shows the truth value of the result of the operation corresponding to a particular row.
     
+
 The {\bf universal quantification} of predicate $P(x)$ over
 domain $U$ is the statement ``$P(x)$ for all values of $x$ in the domain $U$''
 and is written $\forall x P(x)$ or $\forall x \in U ~P(x)$. 
@@ -89,10 +91,12 @@ When the domain is finite, existential quantification over the domain
 is equivalent to iterated {\it disjunction} (ors).
 An element for which $P(x) = F$ is called a {\bf counterexample} of $\forall x P(x)$.
 An element for which $P(x) = T$ is called a {\bf witness} of $\exists x P(x)$.
+
 {\bf Definition}: The {\bf truth  set} of a  predicate is the collection of all elements in its
 domain where the predicate evaluates to $T$.
 Notice that specifying the domain and the truth set is sufficient for defining
-a predicate.{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+a predicate.
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
 and $n$ a nonnegative integer
 $\underline{\phantom{\hspace{1in}}}$, ~
 the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
@@ -103,6 +107,8 @@ where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
 \[
 n =  \sum_{i=0}^{w-1} a_{i} b^{i}
 \]
+
+
 Which of the following formalizes the definition of the predicate
 $Pr(x)$ over the set of integers, and evaluates to $T$ exactly when 
 $x$ is prime. (Select all and only correct options.)
@@ -111,7 +117,8 @@ $x$ is prime. (Select all and only correct options.)
     \item $\lnot \exists a \in \mathbb{Z}^{\neq 0} ~(x > 1 \land (a=1 \lor a=x) \land F(~(a,x)~))$
     \item $(x > 1) \land \forall a \in \mathbb{Z}^{\neq 0}~( ~(~ a>0 \land F(~(a,x)~)~) \to (a=1 \lor a=x)~)$
     \item $(x > 1) \land \forall a \in \mathbb{Z}^{\neq 0}~( ~(~ a>1 \land \lnot (a=x) ~) \to \lnot F(~(a,x)~)~)$
-\end{enumerate}Colors can be described as amounts of red, green, and blue mixed together\footnote{This RGB representation
+\end{enumerate}
+Colors can be described as amounts of red, green, and blue mixed together\footnote{This RGB representation
 is common in web applications.  Many online tools are available to play around with mixing these colors, 
 e.g. \url{https://www.w3schools.com/colors/colors_rgb.asp}. }
 Mathematically, a color can be represented as a $3$-tuple $(r, g, b)$ where $r$
@@ -130,10 +137,12 @@ $\{$0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21
 \item \textbf{True} or \textbf{False}: Another way to write the collection of allowed values for red, green, and blue components is $$\{n \in \mathbb{Z}\mid 0 \leq n \leq 255 \}$$.
 \item \textbf{True} or \textbf{False}: Another way to write the collection of allowed values for red, green, and blue components is $$\{y \in \mathbb{Z}\mid -1 < y \leq 255 \}$$.
 \end{enumerate}
-\vfill{\bf Definition}:  For nonempty sets $A, B$, we say that {\bf the  cardinality of $A$ is  no  smaller than 
+\vfill
+{\bf Definition}:  For nonempty sets $A, B$, we say that {\bf the  cardinality of $A$ is  no  smaller than 
 the cardinality of  $B$}, and 
 write $|A| \geq |B|$, to mean there is an onto function  with domain $A$  and codomain $B$.
 Also, we define $|A| \geq |\emptyset|$ for all sets $A$.
+
 Which of the following are (recursive) definitions of the set of integers $\mathbb{Z}$?
 (Select True/False for each one.)
 \begin{enumerate}
@@ -169,12 +178,16 @@ Which of the following are (recursive) definitions of the set of integers $\math
 \textrm{ and } x+2 \in \mathbb{Z}
 \end{array}
 \]
-\end{enumerate}A relation $R$ on a set $A$ is called {\bf reflexive} means $(a, a) \in R$ for every element $a \in A$. {\bf Definition}: {\bf Greatest common divisor} Let $a$ and $b$ be integers, not both zero. The largest integer $d$ such that 
+\end{enumerate}
+A relation $R$ on a set $A$ is called {\bf reflexive} means $(a, a) \in R$ for every element $a \in A$. 
+{\bf Definition}: {\bf Greatest common divisor} Let $a$ and $b$ be integers, not both zero. The largest integer $d$ such that 
 $d$ is a  factor of $a$ and $d$ is a factor of  $b$ is called the greatest common divisor of $a$ and $b$ 
-and is denoted by $gcd(~(a, b)~)$.\fbox{\parbox{\textwidth}{%
+and is denoted by $gcd(~(a, b)~)$.
+\fbox{\parbox{\textwidth}{%
 {\bf New!} An algorithm is a finite sequence of precise instructions for solving a problem.
 \hfill
-}}Recall the definition of linked lists from class.
+}}
+Recall the definition of linked lists from class.
 Consider this (incomplete) definition:
 {\bf Definition} The function $\textit{increment} : \underline{\hspace{6em}}$ 
 that adds 1 to the data in each node of a linked list is defined by:
@@ -243,7 +256,8 @@ blanks for the domain and codomain of each of these functions.
     \end{multicols}
     
     \item Choose only and all of the statements in the previous part that are both well-defined and true.
-\end{enumerate}{\bf Definition}: When $A$ and $B$ are sets, we say any subset of $A \times B$ is a {\bf binary relation}. 
+\end{enumerate}
+{\bf Definition}: When $A$ and $B$ are sets, we say any subset of $A \times B$ is a {\bf binary relation}. 
 A relation $R$ can also be represented as
 \begin{itemize}
 \item A function $f_{TF} : A \times B \to \{T, F\}$
@@ -256,6 +270,7 @@ where, for $a \in A$ and $b \in B$, $f_{TF}(~(a,b)~) =
 $f_{\mathcal{P}}( a ) = \{ b \in B ~|~ (a,b) \in R \}$
 \end{itemize}
 When $A$ is a set, we say any subset of $A \times A$ is a (binary) {\bf relation} on $A$.
+
 {\bf Definition}: The {\bf Cartesian product} of the sets $A$ and $B$, 
 $A \times B$, is the set of all ordered pairs $(a, b)$, where $a \in A$ and $b \in B$. 
 That is: $A \times B = \{(a, b) \mid (a \in A) \land (b \in B)\}$.
@@ -265,7 +280,8 @@ set of ordered n-tuples $(a_1, a_2,...,a_n)$, where $a_i$ belongs to
 $A_i$ for $i = 1, 2,\ldots,n$. That is,
 \[
     A_1 \times A_2 \times \cdots \times A_n = \{(a_1, a_2,\ldots,a_n) \mid a_i \in A_i \textrm{ for } i = 1, 2,\ldots,n\}
-\]{\bf Definitions}:
+\]
+{\bf Definitions}:
 A {\bf set} is an  unordered collection of  elements.
 When $A$ and  $B$ are sets,  $A = B$ (set equality) means  
 \[
@@ -278,7 +294,8 @@ When $A$ and  $B$ are sets, $A \subseteq B$ (``$A$ is a {\bf subset} of $B$") me
 When $A$ and  $B$ are sets,  $A \subsetneq B$ (``$A$ is a {\bf proper subset} of $B$") means 
 \[
     (A\subseteq B) \wedge  (A \neq B)
-\]\begin{center}
+\]
+\begin{center}
 \begin{tabular}{|llp{9.8cm}|}
 \hline
 {\bf Term} & {\bf Notation Example(s)} & {\bf We say in English \ldots } \\
@@ -324,8 +341,10 @@ square root & $\sqrt{9}$ & The non-negative square root of $9$ \\
 %modulo, remainder & $n~\textbf{mod}~m$ & The remainder upon dividing $n$ by $m$ \\
 \hline
 \end{tabular}
-\end{center}A relation $R$ on a set $A$ is called {\bf antisymmetric} means 
-$\forall a \in A ~\forall b \in A~\left(~\left( ~(a,b) \in R \land (b,a) \in R ~\right) \to a=b~\right)${\bf New! Recursive Definitions of Sets}: The set $S$ (pick a name) is defined by:
+\end{center}
+A relation $R$ on a set $A$ is called {\bf antisymmetric} means 
+$\forall a \in A ~\forall b \in A~\left(~\left( ~(a,b) \in R \land (b,a) \in R ~\right) \to a=b~\right)$
+{\bf New! Recursive Definitions of Sets}: The set $S$ (pick a name) is defined by:
 \[
 \begin{array}{ll}
 \textrm{Basis Step: } & \textrm{Specify finitely many elements of } S\\
@@ -334,13 +353,15 @@ $\forall a \in A ~\forall b \in A~\left(~\left( ~(a,b) \in R \land (b,a) \in R ~
 \end{array}
 \]
 The set $S$ then consists of all and only elements that are put in $S$ by finitely many (a nonnegative integer number) of
-applications of the recursive step after the basis step.{\bf Definition}: The length of a linked list of natural numbers $L$, $length: L \to \mathbb{N}$ is defined by
+applications of the recursive step after the basis step.
+{\bf Definition}: The length of a linked list of natural numbers $L$, $length: L \to \mathbb{N}$ is defined by
 \[
 \begin{array}{llll}
 \textrm{Basis Step:} &  & length(~[]~) &= 0 \\
 \textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{, then  } & length(~(n, l)~)  &= 1+ length(l)
 \end{array}
 \]
+
 \begin{multicols}{2}
 \begin{center}\begin{tabular}{cc|c}
 Inputs &  & Output \\
@@ -412,9 +433,11 @@ $0$ & $1$\\
 %     \begin{center}\includegraphics[height=0.4in]{../../resources/images/xXORy.png} \end{center}& 
 %     \begin{center}\includegraphics[height=0.5in]{../../resources/images/NOTx.png} \end{center}
 %     \end{tabular}
-%     \end{center}{\bf Definition}:  For nonempty sets $A, B$, we say that {\bf the  cardinality of $A$ is  no  bigger than the cardinality of $B$}, 
+%     \end{center}
+{\bf Definition}:  For nonempty sets $A, B$, we say that {\bf the  cardinality of $A$ is  no  bigger than the cardinality of $B$}, 
 and write $|A| \leq |B|$, to mean there is a  one-to-one function  with domain $A$  and codomain $B$.
-Also, we define $|\emptyset| \leq |B|$ for all sets $B$.{\bf Definition} For $b$ an integer greater than $1$ and $n$ a positive integer, 
+Also, we define $|\emptyset| \leq |B|$ for all sets $B$.
+{\bf Definition} For $b$ an integer greater than $1$ and $n$ a positive integer, 
 the {\bf base $b$ expansion of $n$}  is
 \[
 (a_{k-1} \cdots a_1 a_0)_b
@@ -452,6 +475,7 @@ Hexadecimal ($b=16$) &  $\{0,1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F\}$\\
 \hline
 \end{tabular}
 \end{center}
+
 {\bf Definition}: When $a$ and $b$ are integers and $a$ is nonzero, 
 {\bf $a$ divides $b$} means there is an integer $c$ such that $b = ac$ . 
 Symbolically, $F(~(a,b)~) = \phantom{\exists c\in \mathbb{Z}~(b=ac)}$
@@ -468,14 +492,17 @@ $a | b$
 When $a$ is a positive integer and $b$ is any integer, $a | b$
 exactly when $b \textbf{ mod } a = 0$
 When $a$ is a positive integer and $b$ is any integer, $a | b$
-exactly $b = a \cdot (b \textbf{ div } a)${\bf Definition}: The function $prepend : L \times \mathbb{N} \to L$ that adds an element at the 
+exactly $b = a \cdot (b \textbf{ div } a)$
+{\bf Definition}: The function $prepend : L \times \mathbb{N} \to L$ that adds an element at the 
 front of a linked list is defined by
 \[
 \phantom{prepend(~(l, n)~) = (n, l)}
 \]
+
 {\bf Definition} : A function $f: D  \to C$ is a {\bf bijection} means that it is both 
 one-to-one  and onto. The {\bf inverse} of a  bijection $f: D  \to  C$ is 
 the function $g: C  \to  D$  such that $g(b) = a$ iff  $f(a) =  b$.
+
 {\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
 \[
 \begin{array}{ll}
@@ -508,8 +535,10 @@ $b$ appearing in a RNA strand $s$ is defined recursively by:
             \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
         \end{cases}
 \end{array}
-\]A relation $R$ on a set $A$ is called {\bf transitive} means 
-whenever $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$, for all $a, b, c \in A$.{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+\]
+A relation $R$ on a set $A$ is called {\bf transitive} means 
+whenever $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$, for all $a, b, c \in A$.
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
 $w'$ a positive  integer, and $x$ a real number the {\bf base $b$ fixed-width 
 expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
 $(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w'})_{b,w,w'}$
@@ -536,10 +565,12 @@ integer part width $2$, &\\
 \end{center}
 \includegraphics[width=2in]{../../resources/images/ArithmeticDemo.png}
 Note: Java uses floating point, not fixed width representation, but similar rounding errors appear in both.
+
 {\bf Definition}:  An integer $p$ greater than $1$ is called {\bf prime} means 
 the only positive factors of 
 $p$ are $1$ and $p$. A positive integer that is greater than $1$ and is not prime 
-is called composite.{\bf  Definition}: A  {\bf predicate}  is  a function from a given set (domain) to $\{T,F\}$.
+is called composite.
+{\bf  Definition}: A  {\bf predicate}  is  a function from a given set (domain) to $\{T,F\}$.
 A predicate can be applied, or {\bf evaluated} at, an element of the domain.
 Usually, a predicate {\it describes a  property} that domain elements may or may not have.
 Two predicates over the same domain are {\bf equivalent} means they evaluate to
@@ -548,14 +579,17 @@ input. In other words, they are equivalent means that they are equal as function
 To define a predicate, we must specify its domain and its value at each domain element.
 The rule assigning truth values to domain elements can be specified using a formula, 
 English description, in a table (if the domain is finite), or recursively (if the domain is recursively
-defined).{\bf Definition} The set of linked lists of natural numbers $L$ is defined recursively by
+defined).
+{\bf Definition} The set of linked lists of natural numbers $L$ is defined recursively by
 \[
 \begin{array}{ll}
     \textrm{Basis Step: } & [] \in L \\
     \textrm{Recursive Step: } & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N} \textrm{, then } (n, l) \in L
 \end{array}
-\]A relation $R$ on a set $A$ is called {\bf symmetric} means 
-$(b, a) \in R$ whenever $(a, b) \in R$, for all $a, b \in A$. We can use a recursive definition to describe all 
+\]
+A relation $R$ on a set $A$ is called {\bf symmetric} means 
+$(b, a) \in R$ whenever $(a, b) \in R$, for all $a, b \in A$. 
+We can use a recursive definition to describe all 
 compound propositions that use propositional variables 
 from a specified collection.  Here's the definition
 for all compound propositions whose propositional variables 
@@ -568,7 +602,9 @@ are in $\{p, q\}$.
 & x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
 &(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
 \end{array}
-\]{\bf Definition}: A {\bf finite} set is one whose distinct elements can be counted by a natural number.
+\]
+{\bf Definition}: A {\bf finite} set is one whose distinct elements can be counted by a natural number.
+
 The {\bf set  of rational numbers}, $\mathbb{Q}$  is defined as 
 \[
 \left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
@@ -576,6 +612,7 @@ The {\bf set  of rational numbers}, $\mathbb{Q}$  is defined as
 \{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in \mathbb{Z}^+ ( p =  x \cdot q) \}
 \]
 {\it Extra practice}: Use the definition of set equality to prove that the definitions above  give the same set.
+
 {\bf Definition} The function $append : L \times \mathbb{N} \to L$ that 
 adds an element at the end of a linked list is defined by
 \[
@@ -583,20 +620,25 @@ adds an element at the end of a linked list is defined by
 \textrm{Basis Step:} & \textrm{If } m \in \mathbb{N}\textrm{ then } & \phantom{append(~([], m)~)} & \phantom{= (m, []) }\\
 \textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{ and }m \in \mathbb{N}\textrm{, then  } & \phantom{append(~(~(n, l), m~)~) } &\phantom{= (n, append(~(l, m)~)~)}
 \end{array}
-\]{\bf  Definition} An expression built of variables and logical 
+\]
+{\bf  Definition} An expression built of variables and logical 
 operators is in {\bf disjunctive normal form}  (DNF) means
 that it is an OR of ANDs of variables and their negations.
 {\bf  Definition} An expression built of variables and logical 
 operators is in {\bf conjunctive normal form}  (CNF) means
 that it is an AND of ORs of variables and their negations.
+
 {\bf Definition}: A set $A$ is {\bf countably infinite} means it is the 
 same size as $\mathbb{N}$.
+
 {\bf Definition} : A function $f: D  \to C$ is {\bf one-to-one} (or  injective) 
 means for every $a,b$ in the domain $D$, 
 if $f(a) = f(b)$ then  $a=b$.
 Formally, $f: D  \to  C$ is  one-to-one  means $\underline{\phantom{\forall a \in D \forall b \in D ~(f(a) = f(b) \to a = b)}}$.
+
 {\bf Definition}: A function $f: D  \to C$ is {\bf onto} (or  surjective) means for every $b$ in the codomain, 
 there  is an element $a$ in the domain with  $f(a) = b$.
 Formally, $f: D  \to  C$ is  onto  means $\underline{\phantom{\forall b \in C  \exists a \in D ( f(a) = b)}}$.
+
 
 \end{document}
