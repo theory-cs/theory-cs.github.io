@@ -93,6 +93,8 @@ for filename in os.listdir(directoryFolder):
             strNew += line
             bigPDF += line
 
+        bigPDF += "\n"
+
         strNew += "\n\end{document}"
         # print(strNew)
 

@@ -20,17 +20,12 @@ for big in outcomeData:
   for med in outcomeData[big]['Children']:
     count = 1
     for small in outcomeData[big]['Children'][med]['Children']:
-        # print(small)
-        # print(count)
         outcome[small + str(count)] = outcomeData[big]['Children'][med]['file']
         count += 1
-# print(outcome)
-
+        
 # Application
 for key in applicationData:
-    # print(key)
     html = key.replace(" ", "-").lower()+".html"
-    # print(html)
     outcome[key.lower() + "#"] = html
 
 # Definition in activity-snippets --> go to the earliest week that the activity-snippet is used and the specific part
@@ -45,11 +40,7 @@ for entry in os.scandir(files):
         if("definition" in strName):
             outcome[strName] = (file)
 
-
 outcome = collections.OrderedDict(sorted(outcome.items()))
-# print(outcome)
-
-
 
 # Alphabetical view on top
 content = ""
@@ -57,7 +48,6 @@ content = """<p><a href="../output/activity-snippets/full-definition.pdf" downlo
 content += "<h1> "
 alphabet = []
 for i in outcome:
-    # print(i)
     if(i[0] not in alphabet):
         alphabet.append(i[0])
         content += """<a href=\"glossary.html#""" + i[0] + """\">"""
@@ -68,7 +58,7 @@ content = content[:-2]
 content += " </h1>\n"
 
 
-#  PART to get which activity snippets are included in each week
+# PART to get which activity snippets are included in each week
 files = "notes/lessons"
 
 # key is week and value is activity snippets
@@ -80,20 +70,19 @@ for entry in os.scandir(files):
         week = entry.name.replace(".tex", "")
         dateIncluded = ""
         for line in file:
+            # Get specific date which that activity-snippet was included
             if("\section*" in line):
                 dateIncluded = line.replace("\section*{","").replace("}","")
-                # print(dateIncluded)
             if ("\input" in line) and ("definition" in line) and ("lesson-head" not in line):
-                # print(line)
                 cut = "{../activity-snippets/"
                 line = line[line.index(cut) + len(cut):].replace("}", "").replace(".tex","").replace("\n", "").replace("-", " ")
-                # print(line)
+
                 if(line not in contents):
                     contents[line] = []
                 contents[line].append(week + " " + dateIncluded)
 
-# print(contents)
 pdfCount = 0
+
 # Each alphabet content
 for j in alphabet:
     content += """<h1 id=\"""" + j + """\">""" + j + "</h1>\n"
