@@ -1,0 +1,48 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+Fill in the blanks in the following proof that, for any equivalence relation $R$ on a set $A$,
+\[
+\forall a \in A ~\forall b \in A~\left( (a,b) \in R \leftrightarrow [a]_R\cap [b]_R \neq \emptyset \right)
+\]
+
+{\bf Proof}: Towards a  \textbf{(a)}$\underline{\phantom{\hspace{1.3in}}}$, consider arbitrary elements $a$, $b$ in $A$. We will 
+prove the biconditional statement by proving each direction of the conditional in turn.
+
+{\bf Goal 1}: we need to show $(a,b) \in R \to [a]_R\cap [b]_R \neq \emptyset$
+{\it Proof of Goal 1}: Assume towards a \textbf{(b)}$\underline{\phantom{\hspace{1.3in}}}$ 
+that $(a,b) \in R$. We will work to show
+that $[a]_R\cap [b]_R \neq \emptyset$. Namely, we need an element that is in both equivalence classes, that is, we
+ need to prove the existential claim $\exists x \in A ~(x \in [a]_{R} \land x \in [b]_{R})$. 
+ Towards a \textbf{(c)}$\underline{\phantom{\hspace{1.3in}}}$, consider $x = b$, 
+ an element of $A$ by definition. By \textbf{(d)}$\underline{\phantom{\hspace{1.3in}}}$  of $R$, we know that $(b,b) \in R$ 
+ and thus, $b \in [b]_{R}$.
+ By assumption in this proof, we have that $(a,b) \in R$, and so by  definition of equivalence classes, $b \in [a]_R$.
+ Thus, we have proved both conjuncts and this part of the proof is complete.
+ 
+{\bf Goal 2}: we need to show $[a]_R\cap [b]_R \neq \emptyset \to (a,b) \in R $
+{\it Proof of Goal 2}: Assume towards a \textbf{(e)}$\underline{\phantom{\hspace{1.3in}}}$ 
+that $[a]_R\cap [b]_R \neq \emptyset $. We will work to show
+that $(a,b) \in R$. By our assumption, the existential claim $\exists x \in A ~(x \in [a]_{R} \land x \in [b]_{R})$
+is true. Call $w$ a witness; thus, $w \in [a]_R$ and $w \in [b]_R$. 
+By  definition of equivalence classes, $w \in [a]_R$ means $(a,w) \in R$ and $w \in [b]_R$ means $(b,w) \in R$.
+By \textbf{(f)}$\underline{\phantom{\hspace{1.3in}}}$  of $R$, $(w,b) \in R$. By 
+\textbf{(g)}$\underline{\phantom{\hspace{1.3in}}}$ of $R$, since $(a,w) \in R$ and $(w,b) \in R$, we have that
+$(a,b) \in R$, as required for  this part of the proof.
+ 
+Consider the following expressions as options to fill in the two proofs above. Give your answer as one of the numbers below for each blank a-c. You may use some numbers for more than one blank, but each letter only uses one of the expressions below.
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\roman*]
+\item exhaustive proof
+\item proof by universal generalization
+\item proof of existential using a witness
+\item proof by cases
+\item direct proof
+\item proof by contrapositive
+\item proof by contradiction
+\item reflexivity
+\item symmetry
+\item transitivity
+\end{enumerate}
+\end{multicols}
