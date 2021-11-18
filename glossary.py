@@ -53,6 +53,7 @@ outcome = collections.OrderedDict(sorted(outcome.items()))
 
 # Alphabetical view on top
 content = ""
+content = """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
 content += "<h1> "
 alphabet = []
 for i in outcome:

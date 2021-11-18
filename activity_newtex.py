@@ -4,21 +4,7 @@ import linecache
 from user_functions import *
 
 
-directoryFolder = "notes/activity-snippets"
-for filename in os.listdir(directoryFolder):
-    # print(filename)
-    if("definition" in filename):
-        # print(filename)
-        weekly = open (directoryFolder+"/"+filename, "r")
-        
-        lines = weekly.readlines()
-
-        strNew = ""
-        for line in reversed(lines):
-            if(line.startswith("%!") or line.startswith("\n")):
-                lines.remove(line)
-        
-        strNew += r""" \documentclass[12pt, oneside]{article}
+opening = r""" \documentclass[12pt, oneside]{article}
 
 \usepackage[letterpaper, scale=0.89, centering]{geometry}
 \usepackage{fancyhdr}
@@ -84,13 +70,37 @@ for filename in os.listdir(directoryFolder):
         
         
         """
+bigPDF = opening
+
+
+directoryFolder = "notes/activity-snippets"
+for filename in os.listdir(directoryFolder):
+    # print(filename)
+    if("definition" in filename):
+        # print(filename)
+        weekly = open (directoryFolder+"/"+filename, "r")
+        
+        lines = weekly.readlines()
+
+        strNew = ""
+        for line in reversed(lines):
+            if(line.startswith("%!") or line.startswith("\n")):
+                lines.remove(line)
+        
+        strNew += opening
 
         for line in lines:
             strNew += line
+            bigPDF += line
 
         strNew += "\n\end{document}"
-        print(strNew)
+        # print(strNew)
 
         resultFile = open("generated/notes/activity-snippets-flat/" + filename, "w")
         resultFile.write(strNew)
         resultFile.close()
+
+bigPDF += "\n\end{document}"
+resultFile = open("generated/notes/activity-snippets-flat/full-definition.tex", "w")
+resultFile.write(bigPDF)
+resultFile.close()

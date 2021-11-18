@@ -6,7 +6,7 @@ from create_zip import *
 
 # returns unit-settings JSON file as a dictionary
 unitData = json.loads(open("unit-settings.json").read())
-
+websiteSettings = json.loads(open("website-settings.json").read())
 
 
 
@@ -20,12 +20,13 @@ for i in range(0,len(unitData)):
             embedID =  unitData[i]['embedYoutube'][j]['name'].replace(" ","-")
             idArray.append(embedID)
 
-print(titleArray)
-print(idArray)
+# print(titleArray)
+# print(idArray)
 
 # Alphabetical view on top
 embedString = ""
 
+embedString += "<p> Podcast: <a href =" + websiteData["Podcast"] + ">link</a>\n</p>"
 for i in range(0, len(titleArray)):
     embedString += "<p> "
     embedString += """<a href=\"supplemental_videos.html#""" + idArray[i] + """\">"""
@@ -47,7 +48,7 @@ for i in range(0,len(unitData)):
             embedString += "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/"+youtubeEmbedLink+"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
             # print("src=\"https://www.youtube.com/embed/"+unitData[i]['embedYoutube'][j]['link']+"\"")
 
-print(embedString)
+# print(embedString)
 
 supplemental_videos_template = open("templates/supplemental_videos_template.html", "r")
 templateString = Template(supplemental_videos_template.read())
