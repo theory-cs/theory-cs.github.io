@@ -62,7 +62,6 @@ def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon
 	return sidebarButtons
 
 
-
 def build_mobile_sidebar(titleHref, titleName, overviewHref, overviewName, mobileButtonsContent):
 	mobileSidebarButtons = """ <div id="mySidebar" class="collapsedSidebar">
 			<a href=""" + titleHref + """ class="homeMobile"> """ + titleName +"""</a> <!--NAME-->
@@ -179,28 +178,49 @@ for big in outcomeData:
 # Unit
 unitData = json.loads(open("unit-settings.json").read())
 assignmentData = json.loads(open("assignments.json").read()) #assignment information displays on calendar
-#unit buttons will have an additional assignments button
-unitButtonsContent = """<li>
-			<a href=\"assignments.html\" aria-label="Go to Assignments\">
-			<i class='bx bxs-detail'></i>
-			<span class="links_name"> Assignments </span>
-			</a>
-			<span class="tooltip">Assignments</span>
-			</li>"""
+sidebarButtonsUnitData = json.loads(open("sidebar_buttons_unit.json").read())
 
-for i in range(0,len(unitData)):
-	unitButtonsContent += "<li>"
-	unitButtonsContent += """<a href= " """ + 'unit'+str(i+1) + """.html" aria-label="Go to """ + unitData[i]['header'] + """ ">"""
-	unitButtonsContent += """<i><p class="icons">&nbsp;&nbsp;&nbsp;&nbsp;""" + str(i+1) + """</p></i>"""
-	unitButtonsContent += """<span class="links_name"> """ + unitData[i]['header'] + """</span>"""
-	unitButtonsContent += "</a>"
-	unitButtonsContent += """<span class="tooltip"> """ + unitData[i]['header'] + """</span>"""
-	unitButtonsContent += "</li>"
+def secondaryUnitBoxes():
+	#content for the non-mobile secondary unit sidebar (will have all of the weeks)
+	secondaryUnitButtonsContent = """<div class="sidebar secondary"id="unit2" style="margin-left: 78px; width: 70px;">
+			<ul class="nav-list"> """
 
+	for i in range(0,len(unitData)):
+		secondaryUnitButtonsContent += "<li>"
+		secondaryUnitButtonsContent += """<a href= " """ + 'unit'+str(i+1) + """.html" aria-label="Go to """ + unitData[i]['header'] + """ ">"""
+		secondaryUnitButtonsContent += """<i><p class="icons">&nbsp;&nbsp;&nbsp;&nbsp;""" + str(i+1) + """</p></i>"""
+		secondaryUnitButtonsContent += """<span class="links_name"> """ + unitData[i]['header'] + """</span>"""
+		secondaryUnitButtonsContent += "</a>"
+		secondaryUnitButtonsContent += """<span class="tooltip"> """ + unitData[i]['header'] + """</span>"""
+		secondaryUnitButtonsContent += "</li>"
+
+	secondaryUnitButtonsContent += "</ul> </div>"
+	return secondaryUnitButtonsContent
+
+print("TWO "+secondaryUnitBoxes())
+
+#MOBILE SIDEBAR!! 
 unitMobileButtonsContent = ""
+#another for loop for non-week links in sidebar_buttons_unit.json
 unitMobileButtonsContent += "<a href=\"assignments.html\"> Assignments </a>"
 for i in range(0,len(unitData)):
 	unitMobileButtonsContent += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
+
+#Primary Unit Sidebar (Non-week links)
+sidebarUnitButtonsContent = ""
+
+for element in sidebarButtonsUnitData:
+	link = element[0]
+	icon = element[1]
+	name = link.replace("_"," ").replace(".html","").title()
+	
+	sidebarUnitButtonsContent += "<li>"
+	sidebarUnitButtonsContent += """<a href= " """ + link + """" aria-label="Go to """ +name + """ ">"""
+	sidebarUnitButtonsContent += """<i class='"""+icon+"""'></i>"""
+	sidebarUnitButtonsContent += """<span class="links_name"> """ + name + """</span>"""
+	sidebarUnitButtonsContent += "</a>"
+	sidebarUnitButtonsContent += """<span class="tooltip"> """ + name + """</span>"""
+	sidebarUnitButtonsContent += "</li>"
 
 
 
@@ -208,7 +228,8 @@ for i in range(0,len(unitData)):
 sidebars = {
 	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overview_application.html", "Overview", "'bx bxs-shapes'", appButtonsContent,bool(False)),
 	'outcome': build_sidebar("index.html", websiteData['Global Class Name'], "overview_outcome.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent, bool(False)),
-	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overview_calendar.html", "Calendar", "'bx bx-calendar'", unitButtonsContent, bool(True)),
+	'unit': build_sidebar("courseInfo.html", websiteData['Course Offering Title'], "overview_calendar.html", "Calendar", "'bx bx-calendar'", sidebarUnitButtonsContent, bool(True)),
+	'unitSecondary': secondaryUnitBoxes()
 }
 
 mobile_sidebars = {
@@ -735,6 +756,7 @@ def create_site_variables():
 		'applicationSidebar': sidebars['application'],
 		'outcomeSidebar': sidebars['outcome'],
 		'unitSidebar': sidebars['unit'],
+		'unitSecondarySidebar': sidebars['unitSecondary'],
 
 		'applicationMobileSidebar': mobile_sidebars['application'],
 		'outcomeMobileSidebar': mobile_sidebars['outcome'],
