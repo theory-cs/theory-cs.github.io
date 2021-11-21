@@ -311,7 +311,7 @@
         "header": "Week 8",
         "outcomes": "Functions and Cardinality",
         "CalendarInfo": " Dates: 11/15/21-11/19/21",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "pdfs": [
             {
                 "name": "Notes",
@@ -342,9 +342,20 @@
         "header": "Week 9",
         "outcomes": "Relations and Modular Arithmetic",
         "CalendarInfo": " Dates: 11/22/21-11/26/21. No class on 11/26 due to UCSD Holiday (Thanksgiving).",
-        "ExpandInCalendar": false,
-        "pdfs": [],
-        "embed": [],
+        "ExpandInCalendar": true,
+        "pdfs": [
+            {
+                "name": "Notes",
+                "addExtensions": true,
+                "file": "Week9"
+            }
+        ],
+        "embed": [
+            {
+            "name": "Lecture and Discussion podcast",
+            "embedCode": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a>.</p>"
+            }
+        ],
         "Due Dates": [
             {
                 "name": "hw6-induction-CSE20F21",
