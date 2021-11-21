@@ -2898,6 +2898,251 @@ LHS &amp;= length(~append( ~(~ (n,l&#39;), 100~)~)~) \\
 <li><p>The closed interval <span class="math inline">\(\{x \in \mathbb{R} ~|~ 0 \leq x \leq 1\}\)</span>, any other nonempty closed interval of real numbers whose endpoints are unequal, as well as the related intervals that exclude one or both of the endpoints.</p></li>
 <li><p>The set of all real numbers <span class="math inline">\(\mathbb{R}\)</span> is uncountable and the set of irrational real numbers <span class="math inline">\(\overline{\mathbb{Q}}\)</span> is uncountable.</p></li>
 </ul>
+<h1 class="unnumbered" id="binary-relation-definition">Binary relation definition</h1>
+<p><span><strong>Definition</strong></span>: When <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets, we say any subset of <span class="math inline">\(A \times B\)</span> is a <span><strong>binary relation</strong></span>. A relation <span class="math inline">\(R\)</span> can also be represented as</p>
+<ul>
+<li><p>A function <span class="math inline">\(f_{TF} : A \times B \to \{T, F\}\)</span> where, for <span class="math inline">\(a \in A\)</span> and <span class="math inline">\(b \in B\)</span>, <span class="math inline">\(f_{TF}(~(a,b)~) = 
+\begin{cases} 
+    T \qquad&amp;\text{when } (a,b) \in R \\
+    F \qquad&amp;\text{when } (a,b) \notin R
+\end{cases}\)</span></p></li>
+<li><p>A function <span class="math inline">\(f_{\mathcal{P}} : A   \to \mathcal{P}(B)\)</span> where, for <span class="math inline">\(a \in A\)</span>, <span class="math inline">\(f_{\mathcal{P}}( a ) = \{ b \in B ~|~ (a,b) \in R \}\)</span></p></li>
+</ul>
+<p>When <span class="math inline">\(A\)</span> is a set, we say any subset of <span class="math inline">\(A \times A\)</span> is a (binary) <span><strong>relation</strong></span> on <span class="math inline">\(A\)</span>.</p>
+<h1 class="unnumbered" id="relations-as-graphs">Relations as graphs</h1>
+<p>For relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span>, we can represent this relation as a <span><strong>graph</strong></span>: a collection of nodes (vertices) and edges (arrows). The nodes of the graph are the elements of <span class="math inline">\(A\)</span> and there is an edge from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> exactly when <span class="math inline">\((a,b) \in R\)</span>.</p>
+<h1 class="unnumbered" id="binary-relation-examples">Binary relation examples</h1>
+<p><span><em>Example</em></span>: For <span class="math inline">\(A = \mathcal{P}(\mathbb{R})\)</span>, we can define the relation <span class="math inline">\(EQ_{\mathbb{R}}\)</span> on <span class="math inline">\(A\)</span> as <span class="math display">\[\{ (X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R}) ~|~ |X_1| = |X_2| \}\]</span></p>
+<p><span><em>Example</em></span>: Let <span class="math inline">\(R_{(\textbf{mod } n)}\)</span> be the set of all pairs of integers <span class="math inline">\((a, b)\)</span> such that <span class="math inline">\((a \textbf{ mod } n = b \textbf{ mod } n)\)</span>. Then <span class="math inline">\(a\)</span> is <span><strong>congruent to</strong></span> <span class="math inline">\(b\)</span> <strong>mod</strong> <span class="math inline">\(n\)</span> means <span class="math inline">\((a, b) \in R_{(\textbf{mod } n)}\)</span>. A common notation is to write this as <span class="math inline">\(a \equiv b (\textbf{mod } n)\)</span>.</p>
+<p><span class="math inline">\(R_{(\textbf{mod } n)}\)</span> is a relation on the set <span class="math inline">\(\underline{\hspace{25em}}\)</span></p>
+<p>Some example elements of <span class="math inline">\(R_{(\textbf{mod } 4)}\)</span> are:</p>
+<h1 class="unnumbered" id="reflexive-relation-definition">Reflexive relation definition</h1>
+<p>A relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span> is called <span><strong>reflexive</strong></span> means <span class="math inline">\((a, a) \in R\)</span> for every element <span class="math inline">\(a \in A\)</span>.</p>
+<h1 class="unnumbered" id="reflexive-relation-informally">Reflexive relation informally</h1>
+<p><span><em>Informally</em></span>, every element is related to itself.</p>
+<p><span><em>Graphically</em></span>, there are self-loops (edge from a node back to itself) at every node.</p>
+<h1 class="unnumbered" id="symmetric-relation-definition">Symmetric relation definition</h1>
+<p>A relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span> is called <span><strong>symmetric</strong></span> means <span class="math inline">\((b, a) \in R\)</span> whenever <span class="math inline">\((a, b) \in R\)</span>, for all <span class="math inline">\(a, b \in A\)</span>.</p>
+<h1 class="unnumbered" id="symmetric-relation-informally">Symmetric relation informally</h1>
+<p><span><em>Informally</em></span>, order doesn’t matter for this relation.</p>
+<p><span><em>Graphically</em></span>, every edge has a paired “backwards” edge so we might as well drop the arrows and think of edges as undirected.</p>
+<h1 class="unnumbered" id="transitive-relation-definition">Transitive relation definition</h1>
+<p>A relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span> is called <span><strong>transitive</strong></span> means whenever <span class="math inline">\((a, b) \in R\)</span> and <span class="math inline">\((b, c) \in R\)</span>, then <span class="math inline">\((a, c) \in R\)</span>, for all <span class="math inline">\(a, b, c \in A\)</span>.</p>
+<h1 class="unnumbered" id="transitive-relation-informally">Transitive relation informally</h1>
+<p><span><em>Informally</em></span>, chains of relations collapse.</p>
+<p><span><em>Graphically</em></span>, there’s a shortcut between any endpoints of a chain of edges.</p>
+<h1 class="unnumbered" id="antisymmetric-relation-definition">Antisymmetric relation definition</h1>
+<p>A relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span> is called <span><strong>antisymmetric</strong></span> means <span class="math inline">\(\forall a \in A ~\forall b \in A~\left(~\left( ~(a,b) \in R \land (b,a) \in R ~\right) \to a=b~\right)\)</span></p>
+<h1 class="unnumbered" id="antisymmetric-relation-informally">Antisymmetric relation informally</h1>
+<p><span><em>Informally</em></span>: the relation has directionality.</p>
+<p><span><em>Graphically</em></span>, can organize the nodes of the graph so that all non-self loop edges go up.</p>
+<h1 class="unnumbered" id="binary-relation-properties-examples">Binary relation properties examples</h1>
+<p>When the domain is <span class="math inline">\(\{ a,b,c,d,e,f,g,h\}\)</span> define a relation that is <span><strong>not reflexive</strong></span> and is <span><strong>not symmetric</strong></span> and is <span><strong>not transitive</strong></span>.</p>
+<p>When the domain is <span class="math inline">\(\{ a,b,c,d,e,f,g,h\}\)</span> define a relation that is <span><strong>not reflexive</strong></span> but is <span><strong>symmetric</strong></span> and is <span><strong>transitive</strong></span>.</p>
+<p>When the domain is <span class="math inline">\(\{ a,b,c,d,e,f,g,h\}\)</span> define a relation that is <span><strong>symmetric</strong></span> and is <span><strong>antisymmetric</strong></span>.</p>
+<p>Is the relation <span class="math inline">\(EQ_{\mathbb{R}}\)</span> reflexive? symmetric? transitive? antisymmetric?</p>
+<p>Is the relation <span class="math inline">\(R_{(\textbf{mod } 4)}\)</span> reflexive? symmetric? transitive? antisymmetric?</p>
+<p>Is the relation <span class="math inline">\(Sub\)</span> on <span class="math inline">\(W = \mathcal{P}(\{1,2,3,4,5\})\)</span> given by <span class="math inline">\(Sub = \{ (X,Y) \mid X \subseteq Y \}\)</span> reflexive? symmetric? transitive? antisymmetric?</p>
+<h1 class="unnumbered" id="equivalence-relation-definition">Equivalence relation definition</h1>
+<p>A relation is an <span><strong>equivalence relation</strong></span> means it is reflexive, symmetric, and transitive.</p>
+<h1 class="unnumbered" id="partial-order-definition">Partial order definition</h1>
+<p>A relation is a <span><strong>partial ordering</strong></span> (or partial order) means it is reflexive, antisymmetric, and transitive.</p>
+<h1 class="unnumbered" id="hasse-diagram-definition">Hasse diagram definition</h1>
+<p>For a partial ordering, its <span><strong>Hasse diagram</strong></span> is a graph whose nodes (vertices) are the elements of the domain of the binary relation and which are located such that nodes connected to nodes above them by (undirected) edges indicate that the relation holds between the lower node and the higher node. Moreover, the diagram omits self-loops and omits edges that are guaranteed by transitivity.</p>
+<h1 class="unnumbered" id="hasse-diagram-example">Hasse diagram example</h1>
+<p>Draw the Hasse diagram of the partial order on the set <span class="math inline">\(\{a,b,c,d,e,f,g\}\)</span> defined as <span class="math display">\[\begin{aligned}
+    \{  &amp;(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
+        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}\end{aligned}\]</span></p>
+<h1 class="unnumbered" id="partition-definition">Partition definition</h1>
+<p>A <span><strong>partition</strong></span> of a set <span class="math inline">\(A\)</span> is a set of non-empty, disjoint subsets <span class="math inline">\(A_1, A_2, \cdots, A_n\)</span> such that <span class="math display">\[A = \bigcup_{i=1}^{n} A_i = \{ x \mid \exists i (x \in A_i) \}\]</span></p>
+<h1 class="unnumbered" id="equivalence-class-definition">Equivalence class definition</h1>
+<p>An <span><strong>equivalence class</strong></span> of an element <span class="math inline">\(a \in A\)</span> with respect to an equivalence relation <span class="math inline">\(R\)</span> on the set <span class="math inline">\(A\)</span> is the set <span class="math display">\[\{s \in A | (a, s) \in R \}\]</span> We write <span class="math inline">\([a]_R\)</span> for this set, which is the equivalence class of <span class="math inline">\(a\)</span> with respect to <span class="math inline">\(R\)</span>.</p>
+<h1 class="unnumbered" id="congruence-classes-mod-four">Congruence classes mod four</h1>
+<p><span><em>Recall</em></span>: We say <span class="math inline">\(a\)</span> is <span><strong>congruent to</strong></span> <span class="math inline">\(b\)</span> <strong>mod</strong> <span class="math inline">\(n\)</span> means <span class="math inline">\((a, b) \in R_{(\textbf{mod } n)}\)</span>. A common notation is to write this as <span class="math inline">\(a \equiv b (\textbf{mod } n)\)</span>.</p>
+<p>We can partition the set of integers using equivalence classes of <span class="math inline">\(R_{(\textbf{mod } 4)}\)</span></p>
+<p><span class="math display">\[\begin{aligned}
+_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 0 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 1 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 1 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [2]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 2 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 2 \textbf{ mod } 4 = 0 \} = \{ 4c+2 \mid c \in \mathbb{Z}\} }\\
+    [3]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 3 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 3 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\\
+    [4]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 4 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 4 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [5]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 5 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 5 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [-1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv -1 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\end{aligned}\]</span> <span class="math display">\[\mathbb{Z} =  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}} ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+[3]_{R_{(\textbf{mod } 4)}}\]</span></p>
+<h1 class="unnumbered" id="modular-arithmetic-motivation">Modular arithmetic motivation</h1>
+<p>Integers are useful because they can be used to encode other objects and have multiple representations. However, infinite sets are sometimes expensive to work with computationally. Reducing our attention to a <span><em>partition of the integers</em></span> based on congrunce mod <span class="math inline">\(n\)</span>, where each part is represented by a (not too large) integer gives a useful compromise where many algebraic properties of the integers are preserved, and we also get the benefits of a finite domain. Moreover, modular arithmetic is well-suited to model any cyclic behavior.</p>
+<h1 class="unnumbered" id="congrunce-mod-n-lemma">Congrunce mod n lemma</h1>
+<p><span><strong>Lemma</strong></span> : For <span class="math inline">\(a, b \in \mathbb{Z}\)</span> and positive integer <span class="math inline">\(n\)</span>, <span class="math inline">\((a,b) \in R_{(\textbf{mod } n)}\)</span> if and only if <span class="math inline">\(n | a-b\)</span>.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<h1 class="unnumbered" id="modular-arithmetic-cycling-examples">Modular arithmetic cycling examples</h1>
+<p><span><strong>Application: Cycling</strong></span></p>
+<p>How many minutes past the hour are we at? <span class="math inline">\(+15 \textbf{ mod } 60\)</span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Time:</strong></span></td>
+<td style="text-align: center;">12:00pm</td>
+<td style="text-align: center;">12:15pm</td>
+<td style="text-align: center;">12:30pm</td>
+<td style="text-align: center;">12:45pm</td>
+<td style="text-align: center;">1:00pm</td>
+<td style="text-align: center;">1:15pm</td>
+<td style="text-align: center;">1:30pm</td>
+<td style="text-align: center;">1:45pm</td>
+<td style="text-align: center;">2:00pm</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>“Minutes past":</strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(30\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(45\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(30\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(45\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Replace each English letter by a letter that’s fifteen ahead of it in the alphabet <span class="math inline">\(+15 \textbf{ mod } 26\)</span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Original index:</strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(13\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(14\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(16\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(17\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(18\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(19\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(20\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(21\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(22\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(23\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(24\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(25\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Original letter:</strong></span></td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Z</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Shifted letter</strong></span>:</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Z</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">O</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Shifted index:</strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(16\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(17\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(18\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(19\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(20\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(21\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(22\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(23\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(24\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(25\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(13\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(14\)</span></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="modular-arithmetic">Modular arithmetic</h1>
+<p><span><strong>Modular arithmetic</strong></span>:</p>
+<p><span><strong>Lemma</strong></span>: For <span class="math inline">\(a, b \in \mathbb{Z}\)</span> and positive integer <span class="math inline">\(n\)</span>, if <span class="math inline">\(a \equiv b ~(\textbf{ mod } n)\)</span> and <span class="math inline">\(c \equiv d ~(\textbf{ mod } n)\)</span> then <span class="math inline">\(a+c \equiv b+d ~(\textbf{ mod } n)\)</span> and <span class="math inline">\(ac \equiv bd ~(\textbf{ mod } n)\)</span>. <span><strong>Informally</strong></span>: can bring mod “inside" and do it first, for addition and for multiplication.</p>
+<p><span class="math inline">\((102 + 48) \textbf{ mod } 10 = \underline{\phantom{\hspace{3in}}}\)</span></p>
+<p><span class="math inline">\((7 \cdot 10) \textbf{ mod } 5 = \underline{\phantom{\hspace{3.3in}}}\)</span></p>
+<p><span class="math inline">\((2^5) \textbf{ mod } 3 =  \underline{\phantom{\hspace{3.45in}}}\)</span></p>
 <section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
