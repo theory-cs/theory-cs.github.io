@@ -104,7 +104,7 @@ there is an edge from $a$ to $b$ exactly when $(a,b) \in R$.
 Then $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ means $(a, b) \in R_{(\textbf{mod } n)}$. A common notation is to write this as $a \equiv b (\textbf{mod } n)$.
 
 
-$R_{(\textbf{mod } n)}$ is a relation on the set $\underline{\hspace{25em}}$
+$R_{(\textbf{mod } n)}$ is a relation on the set $\underline{\phantom{\mathbb{Z}}\hspace{20em}}$
 
 
 Some example elements of $R_{(\textbf{mod } 4)}$ are: 
@@ -478,7 +478,9 @@ computing a shared secret over an unsecure channel.
 Consider the following algorithm for fast exponentiation (based on binary 
 expansion of the exponent).
 
-    \begin{algorithm}[caption={Modular Exponentation}]
+  
+
+\begin{algorithm}[caption={Modular Exponentation}]
     procedure $modular~exponentiation$($b$: integer; 
                  $n = (a_{k-1}a_{k-2} \ldots a_1 a_0)_2$, $m$: positive integers)
     $x$ := $1$
@@ -487,8 +489,7 @@ expansion of the exponent).
       if $a_i = 1$ then $x$:= $(x \cdot power)$ mod $m$
       $power$ := $(power \cdot power)$ mod $m$
     return $x$ $\{x~\textrm{equals}~b^n \textbf{ mod } m\} $
-    \end{algorithm}
-    
+\end{algorithm}     
     \begin{enumerate}
         \item If we wanted to calculate $3^8 \textbf{ mod } 7$ 
         using the modular exponentation algorithm above, what are the values of 
