@@ -2914,7 +2914,7 @@ LHS &amp;= length(~append( ~(~ (n,l&#39;), 100~)~)~) \\
 <h1 class="unnumbered" id="binary-relation-examples">Binary relation examples</h1>
 <p><span><em>Example</em></span>: For <span class="math inline">\(A = \mathcal{P}(\mathbb{R})\)</span>, we can define the relation <span class="math inline">\(EQ_{\mathbb{R}}\)</span> on <span class="math inline">\(A\)</span> as <span class="math display">\[\{ (X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R}) ~|~ |X_1| = |X_2| \}\]</span></p>
 <p><span><em>Example</em></span>: Let <span class="math inline">\(R_{(\textbf{mod } n)}\)</span> be the set of all pairs of integers <span class="math inline">\((a, b)\)</span> such that <span class="math inline">\((a \textbf{ mod } n = b \textbf{ mod } n)\)</span>. Then <span class="math inline">\(a\)</span> is <span><strong>congruent to</strong></span> <span class="math inline">\(b\)</span> <strong>mod</strong> <span class="math inline">\(n\)</span> means <span class="math inline">\((a, b) \in R_{(\textbf{mod } n)}\)</span>. A common notation is to write this as <span class="math inline">\(a \equiv b (\textbf{mod } n)\)</span>.</p>
-<p><span class="math inline">\(R_{(\textbf{mod } n)}\)</span> is a relation on the set <span class="math inline">\(\underline{\hspace{25em}}\)</span></p>
+<p><span class="math inline">\(R_{(\textbf{mod } n)}\)</span> is a relation on the set <span class="math inline">\(\underline{\phantom{\mathbb{Z}}\hspace{20em}}\)</span></p>
 <p>Some example elements of <span class="math inline">\(R_{(\textbf{mod } 4)}\)</span> are:</p>
 <h1 class="unnumbered" id="reflexive-relation-definition">Reflexive relation definition</h1>
 <p>A relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(A\)</span> is called <span><strong>reflexive</strong></span> means <span class="math inline">\((a, a) \in R\)</span> for every element <span class="math inline">\(a \in A\)</span>.</p>
@@ -2978,7 +2978,7 @@ _{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 0 ((
 [3]_{R_{(\textbf{mod } 4)}}\]</span></p>
 <h1 class="unnumbered" id="modular-arithmetic-motivation">Modular arithmetic motivation</h1>
 <p>Integers are useful because they can be used to encode other objects and have multiple representations. However, infinite sets are sometimes expensive to work with computationally. Reducing our attention to a <span><em>partition of the integers</em></span> based on congrunce mod <span class="math inline">\(n\)</span>, where each part is represented by a (not too large) integer gives a useful compromise where many algebraic properties of the integers are preserved, and we also get the benefits of a finite domain. Moreover, modular arithmetic is well-suited to model any cyclic behavior.</p>
-<h1 class="unnumbered" id="congrunce-mod-n-lemma">Congrunce mod n lemma</h1>
+<h1 class="unnumbered" id="congruence-mod-n-lemma">Congruence mod n lemma</h1>
 <p><span><strong>Lemma</strong></span> : For <span class="math inline">\(a, b \in \mathbb{Z}\)</span> and positive integer <span class="math inline">\(n\)</span>, <span class="math inline">\((a,b) \in R_{(\textbf{mod } n)}\)</span> if and only if <span class="math inline">\(n | a-b\)</span>.</p>
 <p><span><strong>Proof</strong></span>:</p>
 <h1 class="unnumbered" id="modular-arithmetic-cycling-examples">Modular arithmetic cycling examples</h1>
@@ -3147,7 +3147,7 @@ _{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 0 ((
 <hr />
 <ol>
 <li id="fn1" role="doc-endnote"><p>Mutations of specific RNA codons have been linked to many disorders and cancers.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>This RadioLab podcast episode goes into more detail on bit flips: <a href="https://www.wnycstudios.org/story/bit-flip">https://www.wnycstudios.org/story/bit-flip</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>This RadioLab podcast episode goes into more detail on bit flips: <a href="https://www.wnycstudios.org/story/bit-flip" class="uri">https://www.wnycstudios.org/story/bit-flip</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p>There’s a subtle imprecision in this part of the proof as presented, but it can be fixed.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
