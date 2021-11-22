@@ -26,7 +26,8 @@
    {
       "name": "hw5-proofs-and-induction-CSE20F21",
       "addExtensions": true,
-      "Information": "This is a group optional assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw5-sol-CSE20F21.pdf"
    },
    {
       "name": "hw6-proofs-numbers-cardinality-CSE20F21",
