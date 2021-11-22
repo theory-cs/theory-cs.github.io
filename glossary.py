@@ -44,7 +44,7 @@ outcome = collections.OrderedDict(sorted(outcome.items()))
 
 # Alphabetical view on top
 content = ""
-# content += """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
+content += """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
 # content += """<p><a href="../output/lessons/complete-week.pdf" download>Complete week file</a></p>"""
 content += "<h1> "
 alphabet = []
