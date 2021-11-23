@@ -572,3 +572,8 @@ margin-left: 160px;
     font-weight: 700;
     font-size: 100%; 
 }
+
+.glossaryPDFDiv{
+    resize: both;
+    overflow: auto;
+}
