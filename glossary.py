@@ -44,7 +44,7 @@ outcome = collections.OrderedDict(sorted(outcome.items()))
 
 # Alphabetical view on top
 content = ""
-content += """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
+# content += """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
 # content += """<p><a href="../output/lessons/complete-week.pdf" download>Complete week file</a></p>"""
 content += "<h1> "
 alphabet = []
@@ -109,7 +109,7 @@ for j in alphabet:
                     else:
                         title = key
                     #print(key.replace(" ", "-"))
-                    pdfPath = "../output/activity-snippets/"+key.replace(" ", "-")+".pdf"
+                    htmlPath = "../output/activity-snippets/"+key.replace(" ", "-")+".html"
                     content += """<p style="display: inline-block;">""" + title + """ {<a onclick="showDiv"""+str(pdfCount)+"""()" href="javascript:void(0)">Definition</a>"""
                     
                     #content += """<p>""" + title +"""{<a href=\"../output/activity-snippets/""" + key.replace(" ", "-")  + """.pdf\" download>Definition</a>}"""
@@ -120,12 +120,14 @@ for j in alphabet:
                         # print(numonly)
                         content += """<a href=\"unit""" + numonly  + """.html#Notes\">""" + weeks + """&nbsp</a>"""
                         # print(weeks)
+                        #<iframe class="PDFjs" src=\"web/viewer.html?file=../../output/activity-snippets/"""+ key.replace(" ", "-")+""".pdf\"title="webviewer" frameborder="0" width="70%" height="400"></iframe>
                     content += """}</p><br>
                     <div class="glossaryPDFDiv" id="pdfDiv"""+str(pdfCount)+"""\"  style="display:none;"> 
-                    <iframe class="PDFjs" src=\"web/viewer.html?file=../../output/activity-snippets/"""+ key.replace(" ", "-")+""".pdf\"
-                    title="webviewer" frameborder="0" width="70%" height="400"></iframe>
+                    <iframe width="73%" height="300" src=\""""+htmlPath+ """\" title="description"></iframe>
                     
                     </div>
+
+                    
                     
                     
                     
