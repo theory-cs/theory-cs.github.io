@@ -90,18 +90,18 @@ static-pages: generated-files generated-resources generated-notes generated-webs
 # Directory files has instructor-added content, e.g. annotated pdfs and slides
 generated-files: $(patsubst files/%,generated/files/%,$(wildcard files/*))
 
-generated/files/%: files/%
+generated/files/%: files/% ./files/*/*
 	mkdir -p generated/files
 	cp -R $< $@
 
 # Directory resources has images and tex files used to create lessons
 generated-resources: $(patsubst resources/%,generated/resources/%,$(wildcard resources/*))
 
-generated/resources/%: resources/%
+generated/resources/%: resources/% ./resources/*/*
 	mkdir -p generated/resources
 	cp -R $< $@
 
-# Directory notes contains tex files for outcomes and outcomes 
+# Directory notes contains tex files for assignments, lessons, and activity snippets
 generated-notes: $(patsubst notes/%,generated/notes/%,$(wildcard notes/*))
 
 generated/notes/%: notes/% ./notes/*/*
@@ -152,7 +152,7 @@ lessons-tex-html : $(patsubst notes/lessons/%.tex,generated/output/lessons/%.htm
 app-tex-html : $(patsubst generated/notes/app/%.tex,generated/output/app/%.html,$(wildcard generated/notes/app/*.tex))
 outcome-tex-html : $(patsubst generated/notes/outcome/%.tex,generated/output/outcome/%.html,$(wildcard generated/notes/outcome/*.tex))
 assignments-tex-html : $(patsubst notes/assignments/%.tex,generated/output/assignments/%.html,$(wildcard notes/assignments/*.tex))
-activity-snippets-tex-html: $(patsubst notes/assignments/%.tex,generated/output/assignments/%.html,$(wildcard notes/assignments/*.tex))
+activity-snippets-tex-html: $(patsubst generated/notes/activity-snippets-flat/%.tex,generated/output/activity-snippets/%.html,$(wildcard generated/notes/activity-snippets-flat/*.tex))
 
 generated/output/lessons/%.html: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd notes/lessons; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/lessons/$(@F)
@@ -166,8 +166,8 @@ generated/output/outcome/%.html: generated/notes/outcome/%.tex resources/lesson-
 generated/output/assignments/%.html: notes/assignments/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
 	cd notes/assignments; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../generated/output/assignments/$(@F)
 
-generated/output/activity-snippets/%.html: generated/notes/activity-snippets/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
-	cd generated/notes/activity-snippets; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/activity-snippets/$(@F)
+generated/output/activity-snippets/%.html: generated/notes/activity-snippets-flat/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex
+	cd generated/notes/activity-snippets-flat; pandoc --standalone --mathjax -f latex -t html $(<F) -o ../../output/activity-snippets/$(@F)
 
 # Removing all auxiliary typesetting files from output directory and its subdirectories
 clean-tex: 
@@ -176,3 +176,5 @@ clean-tex:
 	cd generated/output/app; rm -f *.out *.log *.aux
 	cd generated/output/outcome; rm -f *.out *.log *.aux
 	cd generated/output/assignments; rm -f *.out *.log *.aux
+	cd generated/output/activity-snippets; rm -f *.out *.log *.aux
+
