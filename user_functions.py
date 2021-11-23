@@ -203,6 +203,8 @@ print("TWO "+secondaryUnitBoxes())
 unitMobileButtonsContent = ""
 #another for loop for non-week links in sidebar_buttons_unit.json
 unitMobileButtonsContent += "<a href=\"assignments.html\"> Assignments </a>"
+unitMobileButtonsContent += "<a href=\"glossary.html\"> Glossary </a>"
+unitMobileButtonsContent += "<a href=\"supplemental_videos.html\"> Supplemental Videos </a>"
 for i in range(0,len(unitData)):
 	unitMobileButtonsContent += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
 
