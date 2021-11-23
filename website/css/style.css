@@ -184,6 +184,10 @@ table.cinereousTable thead th {
     div.content{
         margin-left: 10px;
     }
+
+    div.content.secondary{
+        margin-left: 0px;
+    }
 }
 
 p {
