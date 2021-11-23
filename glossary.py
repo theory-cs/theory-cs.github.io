@@ -122,8 +122,8 @@ for j in alphabet:
                         # print(weeks)
                         #<iframe class="PDFjs" src=\"web/viewer.html?file=../../output/activity-snippets/"""+ key.replace(" ", "-")+""".pdf\"title="webviewer" frameborder="0" width="70%" height="400"></iframe>
                     content += """}</p><br>
-                    <div class="glossaryPDFDiv" id="pdfDiv"""+str(pdfCount)+"""\"  style="display:none;"> 
-                    <iframe width="73%" height="300" src=\""""+htmlPath+ """\" title="description"></iframe>
+                    <div id="pdfDiv"""+str(pdfCount)+"""\"  style="display:none;"> 
+                    <iframe class="glossaryPDFDiv" width="73%" height="300" src=\""""+htmlPath+ """\" title="description"></iframe>
                     
                     </div>
 
