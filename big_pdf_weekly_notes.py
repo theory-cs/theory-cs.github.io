@@ -83,20 +83,30 @@ files = "notes/lessons"
 bigPDF = opening
 
 
+weekFiles = []
 for entry in os.scandir(files):
     file = open(entry, 'r').readlines()
     if (len(file) > 0) and ("Week" in entry.name):
-        for line in file:
+        weekFiles.append(entry.name)
+
+weekFiles = sorted(weekFiles)
+print(weekFiles)
+
+for thefiles in weekFiles:
+    file = open("notes/lessons/" + thefiles, 'r').readlines()
+    for line in file:
             # print("end{document}" not in line)
             if(("\input{../../resources/lesson-head.tex}" in line) or ("end{document}" in line)):
                 # bigPDF += line
-                print(line)
+                # print(line)
+                num = 0
             else:
                 bigPDF += line
 
+
 bigPDF += "\n\end{document}"
 
-print(bigPDF)
+# print(bigPDF)
 
 bigPDF += "\n\end{document}"
 resultFile = open("generated/notes/lessons/complete-week.tex", "w")

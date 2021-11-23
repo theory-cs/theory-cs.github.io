@@ -74,33 +74,41 @@ bigPDF = opening
 
 
 directoryFolder = "notes/activity-snippets"
+
+definition_array = []
 for filename in os.listdir(directoryFolder):
     # print(filename)
     if("definition" in filename):
         # print(filename)
-        weekly = open (directoryFolder+"/"+filename, "r")
+        definition_array.append(filename)
+
+definition_array = sorted(definition_array)
+print(definition_array)
+
+for filename in definition_array:
+    weekly = open (directoryFolder+"/"+filename, "r")
         
-        lines = weekly.readlines()
+    lines = weekly.readlines()
 
-        strNew = ""
-        for line in reversed(lines):
-            if(line.startswith("%!") or line.startswith("\n")):
-                lines.remove(line)
+    strNew = ""
+    for line in reversed(lines):
+        if(line.startswith("%!") or line.startswith("\n")):
+            lines.remove(line)
         
-        strNew += opening
+    strNew += opening
 
-        for line in lines:
-            strNew += line
-            bigPDF += line
+    for line in lines:
+        strNew += line
+        bigPDF += line
 
-        bigPDF += "\n"
+    bigPDF += "\n"
 
-        strNew += "\n\end{document}"
-        # print(strNew)
+    strNew += "\n\end{document}"
+    # print(strNew)
 
-        resultFile = open("generated/notes/activity-snippets-flat/" + filename, "w")
-        resultFile.write(strNew)
-        resultFile.close()
+    resultFile = open("generated/notes/activity-snippets-flat/" + filename, "w")
+    resultFile.write(strNew)
+    resultFile.close()
 
 bigPDF += "\n\end{document}"
 resultFile = open("generated/notes/activity-snippets-flat/full-definition.tex", "w")

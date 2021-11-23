@@ -145,6 +145,7 @@ dynamic-pages:
 	python3 sitemap.py
 	python3 supplemental_videos.py
 	python3 activity_newtex.py
+	python3 big_pdf_weekly_notes.py
 
 #Building html versions of all .tex files in notes/lessons directory 
 tex-html : lessons-tex-html app-tex-html outcome-tex-html assignments-tex-html activity-snippets-tex-html
