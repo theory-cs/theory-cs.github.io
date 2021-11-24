@@ -1,0 +1,29 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+{\it Recall:} 
+\input{../activity-snippets/equivalence-relation-definition.tex}
+\input{../activity-snippets/equivalence-class-definition.tex}
+\input{../activity-snippets/partition-definition.tex}
+
+{\bf Theorem}: Given an equivalence relation $E$ on set $U$,  $\{ [x]_{E} \mid x \in U  \}$ is a partition of $U$.
+
+{\bf Proof}: We need to show that each part of this potential partition is nonempty and is 
+disjoint from every other part, and that the union of all the parts is $U$.
+
+\begin{itemize}
+\item To show: For each  $a \in U$, $[a]_{E}  \neq  \emptyset$.  {\it This gives that each part is nonempty.}
+
+\vspace{200pt}
+
+\item To show: For each $a \in U$, there is some $b \in U$  such that $a \in [b]_{E}$.
+{\it This gives that the union of all the parts is $U$.}
+
+\vspace{200pt}
+
+\item To show: For each  $a,b  \in U$ , $(~(a,b)  \in  E ~)\to (~ [a]_{E}  = [b]_{E}~)$
+and  $(~(a,b)  \notin  E ~)\to (~ [a]_{E} \cap[b]_{E} = \emptyset~)$
+{\it This gives that parts are disjoint.}
+
+\vspace{400pt}
+\end{itemize}

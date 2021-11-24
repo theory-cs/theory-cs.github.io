@@ -1,16 +1,10 @@
 %! app: TODOapp
 %! outcome: TODOoutcome
 
-Recall that 
-in a movie recommendation system, each 
-user's ratings of movies is represented as a $n$-tuple (with the positive integer $n$  
-being the number of movies in the database), and each  component of 
-the $n$-tuple is an element of  the collection $\{-1,0,1\}$.
-
-Assume there are five movies in the database, so that  each user's ratings
-can be represented as a $5$-tuple. Consider the following two binary relations on the  
-set of all $5$-tuples where each component 
-of the $5$-tuple is an element of the collection $\{-1,0,1\}$.
+Assume there are five movies in the database, so that each user's ratings
+can be represented as a $5$-tuple. We call $Rt_5$ the set of all ratings $5$-tuples.
+Consider the binary relation on the  set of all 
+$5$-tuples where each  component of the $5$-tuple is an element of the collection $\{-1,0,1\}$
 \[
 G_1 =  \{  (u,v)  \mid 
 \text{the ratings of users $u$  and  $v$  agree about the first 
@@ -20,10 +14,6 @@ movie in the database} \}
 G_2 =  \{  (u,v)  \mid 
 \text{the ratings of users $u$  and  $v$  agree about at least two movies} \}
 \]
-Binary  relations that satisfy certain 
-properties (namely,  are  reflexive, symmetric,
-and transitive)  can help us group 
-elements in a set into categories. 
 
 
 \begin{enumerate}

@@ -1,0 +1,53 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+Recall that 
+    in a movie recommendation system, each 
+    user's ratings of movies is represented as a $n$-tuple (with the positive integer $n$ 
+    being the number of movies in the database), and each component of 
+    the $n$-tuple is an element of the collection $\{-1,0,1\}$. Assume there are five movies in the database, 
+    so that each user's ratings
+    can be represented as a $5$-tuple. We call $Rt_5$ the set of all ratings $5$-tuples.
+    Consider the binary relation on the  set of all 
+    $5$-tuples where each  component of the $5$-tuple is an element of the collection $\{-1,0,1\}$
+
+    Define $d: Rt_5 \times Rt_5 \to \mathbb{N}$ by
+    \[
+        d (~(~ (x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5) ~) ~) = \sum_{i=1}^5 |x_i - y_i|
+    \]
+\begin{align*}
+    E_{proj} &=  \{ ( ~(x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land (x_3 = y_3) \}  \\
+    E_{dist} &=  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d( u,v ) \leq 2 \}  \\
+    E_{circ} &=  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d( (0,0,0,0,0), u ) =  d( (0,0,0,0,0),v) \}  \\
+    \end{align*}
+    
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+     & $E_{proj}$ &  $E_{dist}$ & $E_{circ}$ \\
+    \hline & &  &  \\
+    Example $(u,v) \in E_{\_\_}$ & \phantom{Put example here} &  \phantom{Put example here}  &  \phantom{Put example here}  \\
+    & &  &  \\
+    \hline
+    & &  &  \\
+    Example $(u,v) \notin E_{\_\_}$ & \phantom{Put example here} &  \phantom{Put example here}  &  \phantom{Put example here}  \\
+    & &  &  \\
+    \hline
+    \end{tabular}
+    \end{center}
+    
+    
+    {\bf Claim}: \underline{\phantom{$E_{dist}$ }} is not an  equivalence relation.
+    
+    
+    {\bf Proof}:  
+    
+    \vspace{100pt}
+    
+    The partition of  $U$ defined by \underline{\phantom{$E_{proj}$ }} is:
+    
+    \vspace{200pt}
+    
+    The partition of  $U$ defined by \underline{\phantom{$E_{circ}$ }} is:
+    
+    \vspace{200pt}
