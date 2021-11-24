@@ -83,7 +83,6 @@ for filename in os.listdir(directoryFolder):
         definition_array.append(filename)
 
 definition_array = sorted(definition_array)
-print(definition_array)
 
 for filename in definition_array:
     weekly = open (directoryFolder+"/"+filename, "r")

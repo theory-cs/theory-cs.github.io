@@ -88,8 +88,9 @@ for entry in os.scandir(files):
     file = open(entry, 'r').readlines()
     if (len(file) > 0) and ("Week" in entry.name):
         weekFiles.append(entry.name)
-
-weekFiles = sorted(weekFiles)
+    
+    weekFiles = sorted(weekFiles)
+    
 print(weekFiles)
 
 for thefiles in weekFiles:
