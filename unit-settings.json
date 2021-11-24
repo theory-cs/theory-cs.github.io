@@ -324,6 +324,20 @@
                 "annotatedFile": "Week8-annotated.pdf"
             }
         ],
+        "embedYoutube": [
+            {
+                "name": "(Video) Functions for cardinality",
+                "link": "https://youtu.be/2-oZ8SnzNAQ"
+            },
+            {
+                "name": "(Video) All RNA strands and all Linked Lists: countably infinite",
+                "link": "https://youtu.be/3kT7IFOLqpc"
+            },
+            {
+                "name": "(Video) Diagonalization",
+                "link": "https://youtu.be/hfiPaOadWOw"
+            }
+        ],
         "embed": [
             {
             "name": "Lecture and Discussion podcast",
@@ -357,6 +371,20 @@
                 "addExtensions": true,
                 "file": "Week9",
                 "annotatedFile": "Week9-annotated.pdf"
+            }
+        ],
+        "embedYoutube": [
+            {
+                "name": "(Video) Partial orders and Hasse Diagrams",
+                "link": "https://youtu.be/sH9znwj91Cs"
+            },
+            {
+                "name": "(Video) Diffie-Hellman and cryptography",
+                "link": "https://youtu.be/oKOwGlevpyg"
+            },
+            {
+                "name": "(Video) Modular Exponentiation",
+                "link": "https://youtu.be/-33d6BnYw94"
             }
         ],
         "embed": [
