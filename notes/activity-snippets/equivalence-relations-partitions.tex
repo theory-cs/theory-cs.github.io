@@ -6,24 +6,35 @@
 \input{../activity-snippets/equivalence-class-definition.tex}
 \input{../activity-snippets/partition-definition.tex}
 
-{\bf Theorem}: Given an equivalence relation $E$ on set $U$,  $\{ [x]_{E} \mid x \in U  \}$ is a partition of $U$.
+{\bf Claim}: For each  $a \in U$, $[a]_{E}  \neq  \emptyset$.
 
-{\bf Proof}: We need to show that each part of this potential partition is nonempty and is 
-disjoint from every other part, and that the union of all the parts is $U$.
+{\bf Proof}: Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. 
+We will work to show that $[a]_E \neq \emptyset$, namely that $\exists x \in [a]_E$.
+By definition of equivalence classes, we can rewrite this goal as 
+$\exists x \in U ~( ~(a,x) \in E~)$. 
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $x = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$ of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved.
 
-\begin{itemize}
-\item To show: For each  $a \in U$, $[a]_{E}  \neq  \emptyset$.  {\it This gives that each part is nonempty.}
+\vspace{20pt}
 
-\vspace{200pt}
+{\bf Claim}: For each $a \in U$, there is some $b \in U$  such that $a \in [b]_{E}$.
 
-\item To show: For each $a \in U$, there is some $b \in U$  such that $a \in [b]_{E}$.
-{\it This gives that the union of all the parts is $U$.}
+Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. By definition of equivalence classes, 
+we can rewrite the goal as 
+$\exists b \in U ~( ~(b,a) \in E~)$. 
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $b = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$  of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved. 
+ 
+\vspace{20pt}
 
-\vspace{200pt}
-
-\item To show: For each  $a,b  \in U$ , $(~(a,b)  \in  E ~)\to (~ [a]_{E}  = [b]_{E}~)$
+{\bf Claim}: For each  $a,b  \in U$ , $(~(a,b)  \in  E ~)\to (~ [a]_{E}  = [b]_{E}~)$
 and  $(~(a,b)  \notin  E ~)\to (~ [a]_{E} \cap[b]_{E} = \emptyset~)$
-{\it This gives that parts are disjoint.}
 
-\vspace{400pt}
-\end{itemize}
+\vspace{200pt}
+
+{\bf Corollary}: Given an equivalence relation $E$ on set $U$,  $\{ [x]_{E} \mid x \in U  \}$ is a partition of $U$.
+
