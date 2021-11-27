@@ -32,7 +32,8 @@
    {
       "name": "hw6-proofs-numbers-cardinality-CSE20F21",
       "addExtensions": true,
-      "Information": "This is a group optional assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw6-sol-CSE20F21.pdf"
    },
    {
       "name": "hw7-functions-and-relations-CSE20F21",
