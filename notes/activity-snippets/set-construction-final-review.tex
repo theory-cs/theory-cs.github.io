@@ -2,20 +2,25 @@
 %! outcome: TODOoutcome
 
 The bases of RNA strands are elements of the set $B = \{\A, \C, \G, \U \}$. 
+The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
 Each of the sets below is described using set builder notation. Rewrite them using the roster method. 
 \begin{itemize}
-\item $\{s \in S ~|~ s \text{ has length $2$} \}$ 
-
-\vfill
-
 \item $\{s \in S ~|~ \text{the leftmost base in $s$ is the same as the rightmost base in $s$ and 
 $s$ has length $3$} \}$ 
 
-\vfill
+\vspace{50pt}
 
 \item $\{s \in S ~|~ \text{there are twice as many $\A$s as $\C$s in $s$ and $s$ has length $1$} \}$ 
 
-\vfill
+\vspace{50pt}
 
 \end{itemize}
 
@@ -34,11 +39,11 @@ Each of the sets below is described using set builder notation. Rewrite them usi
 \begin{itemize}
 \item $\{s \in \hat{S} ~|~ s \text{ has length less than or equal to $5$} \}$ 
 
-\vfill
+\vspace{50pt}
 
 
 \item $\{s \in S ~|~ \text{there are twice as many $\C$s as $\A$s in $s$ and $s$ has length $6$} \}$ 
 
-\vfill
+\vspace{50pt}
 
 \end{itemize}
