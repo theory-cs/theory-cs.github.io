@@ -489,6 +489,471 @@ return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b
 
 \vfill
 \vfill \vfill
+\section*{Equivalence relations partitions}
+
+
+{\it Recall:} 
+
+
+A relation is an {\bf equivalence relation} means it is reflexive, symmetric, and transitive. 
+
+An {\bf equivalence class} of an element $a \in A$ 
+with respect to an equivalence relation $R$ on the set $A$ is the set 
+\[
+    \{s \in A | (a, s) \in R \}
+\] 
+We write $[a]_R$ for this set, which is the equivalence class of $a$ with respect to $R$. 
+
+A {\bf partition} of a set $A$ is a set of non-empty, disjoint subsets 
+$A_1, A_2, \cdots, A_n$ such that 
+\[
+    A = \bigcup_{i=1}^{n} A_i = \{ x \mid \exists i (x \in A_i) \}
+\] 
+{\bf Claim}: For each  $a \in U$, $[a]_{E}  \neq  \emptyset$.
+
+{\bf Proof}: Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. 
+We will work to show that $[a]_E \neq \emptyset$, namely that $\exists x \in [a]_E$.
+By definition of equivalence classes, we can rewrite this goal as 
+$$\exists x \in U ~( ~(a,x) \in E~)$$ 
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $x = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$ of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved.\\
+
+
+{\bf Claim}: For each $a \in U$, there is some $b \in U$  such that $a \in [b]_{E}$.
+
+Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. By definition of equivalence classes, 
+we can rewrite the goal as 
+$$\exists b \in U ~( ~(b,a) \in E~)$$
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $b = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$  of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved. \\
+ 
+{\bf Claim}: For each  $a,b  \in U$ , $(~(a,b)  \in  E ~\to ~ [a]_{E}  = [b]_{E}~)$
+and  $(~(a,b)  \notin  E ~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)$
+
+\phantom{Let $a,b$ be arbitrary. For first goal, assume towards
+direct proof that $(a,b) \in E$. To show $[a]_E = [b]_E$ 
+first consider arbitrary element $x$ in $[a]_E$. By definition
+$(a,x) \in E$ so by symmetry, $(x,a) \in E$ and by 
+transitivity with assumption, $(x,b)\in E$. Thus, by definition
+of equivalence class, $x \in [b]_E$. Similarly, take arbitrary
+element $y \in [b]_E$. By definition $(y,b) \in E$ 
+and applying symmetry to assumption, we have $(b,a) \in E$
+so by transitivity $(y,a) \in E$ and $y \in[a]_E$, as required
+to complete the proof of set equality. For the second goal, 
+assume (towards a proof by contrapositive) that $[a]_E \cap [b]_E 
+\neq \emptyset$. Then there is a witness $w \in [a]_E \cap [b]_E$.
+By definition of equivalence classes $(a,w) \in E$ and $(b,w) \in E$.
+By symmetry, we have $(w,b) \in E$ so by transitivity $(a,b) \in E$,
+as required.}
+
+
+\vspace{200pt}
+
+{\bf Corollary}: Given an equivalence relation $E$ on set $U$,  
+$\{ [x]_{E} \mid x \in U  \}$ is a partition of $U$.
+ \vfill
+\section*{Equivalence relations examples ratings}
+
+
+Recall that 
+in a movie recommendation system, each 
+user's ratings of movies is represented as a $n$-tuple 
+(with the positive integer $n$ 
+being the number of movies in the database), 
+and each component of 
+the $n$-tuple is an element of the collection $\{-1,0,1\}$. 
+
+We call $Rt_5$ the set of all ratings $5$-tuples.
+
+Define $d: Rt_5 \times Rt_5 \to \mathbb{N}$ by
+\[
+    d (~(~ (x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5) ~) ~) = \sum_{i=1}^5 |x_i - y_i|
+\]
+
+Consider the following binary relations on $Rt_5$.
+\[
+    E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land (x_3 = y_3) \}
+\]
+
+Example ordered pair in $E_{proj}$: 
+
+\vspace{20pt}
+
+Reflexive? Symmetric? Transitive? Antisymmetric?
+
+\vspace{120pt}
+
+
+
+\[
+    E_{dist} =  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d( u,v ) \leq 2 \}
+\]
+Example ordered pair in $E_{dist}$: 
+
+\vspace{20pt}
+
+Reflexive? Symmetric? Transitive? Antisymmetric?
+
+\vspace{120pt}
+
+
+\[
+E_{circ} =  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~) \}
+\]
+Example ordered pair in $E_{circ}$: 
+
+\vspace{20pt}
+
+Reflexive? Symmetric? Transitive? Antisymmetric?
+
+\vspace{120pt}
+
+The partition of $Rt_5$ defined by $\underline{\phantom{E_{proj}}}$ is
+
+\resizebox{0.9\hsize}{!}{
+\begin{math}
+\begin{aligned}
+    \{ ~~ \{~ &(-1,-1,-1,-1,-1), (-1,-1,-1,-1,0), (-1,-1,-1,-1,1),
+     (-1,-1,-1,0,-1), (-1,-1,-1,0,0), (-1,-1,-1,0,1), 
+     (-1,-1,-1,1,-1), (-1,-1,-1,1,0), (-1,-1,-1,1,1) ~\},\\
+    ~~ \{~ &(-1,-1,0,-1,-1), (-1,-1,0,-1,0), (-1,-1,0,-1,1),
+    (-1,-1,0,0,-1), (-1,-1,0,0,0), (-1,-1,0,0,1), 
+    (-1,-1,0,1,-1), (-1,-1,0,1,0), (-1,-1,0,1,1) ~\},\\
+    ~~ \{~ &(-1,-1,1,-1,-1), (-1,-1,1,-1,0), (-1,-1,1,-1,1),
+    (-1,-1,1,0,-1), (-1,-1,1,0,0), (-1,-1,1,0,1), 
+    (-1,-1,1,1,-1), (-1,-1,1,1,0), (-1,-1,1,1,1) ~\},\\
+    ~~ \{~ &(-1,0,-1,-1,-1), (-1,0,-1,-1,0), (-1,0,-1,-1,1),
+    (-1,0,-1,0,-1), (-1,0,-1,0,0), (-1,0,-1,0,1), 
+    (-1,0,-1,1,-1), (-1,0,-1,1,0), (-1,0,-1,1,1) ~\},\\
+    ~~ \{~ &(-1,0,0,-1,-1), (-1,0,0,-1,0), (-1,0,0,-1,1),
+    (-1,0,0,0,-1), (-1,0,0,0,0), (-1,0,0,0,1), 
+    (-1,0,0,1,-1), (-1,0,0,1,0), (-1,0,0,1,1) ~\},\\
+    ~~ \{~ &(-1,0,1,-1,-1), (-1,0,1,-1,0), (-1,0,1,-1,1),
+    (-1,0,1,0,-1), (-1,0,1,0,0), (-1,0,1,0,1), 
+    (-1,0,1,1,-1), (-1,0,1,1,0), (-1,0,1,1,1) ~\},\\
+    ~~ \{~ &(-1,1,-1,-1,-1), (-1,1,-1,-1,0), (-1,1,-1,-1,1),
+    (-1,1,-1,0,-1), (-1,1,-1,0,0), (-1,1,-1,0,1), 
+    (-1,1,-1,1,-1), (-1,1,-1,1,0), (-1,1,-1,1,1) ~\},\\
+    ~~ \{~ &(-1,1,0,-1,-1), (-1,1,0,-1,0), (-1,1,0,-1,1),
+    (-1,1,0,0,-1), (-1,1,0,0,0), (-1,1,0,0,1), 
+    (-1,1,0,1,-1), (-1,1,0,1,0), (-1,1,0,1,-1) ~\},\\
+    ~~ \{~ &(-1,1,1,-1,-1), (-1,1,1,-1,0), (-1,1,1,-1,1),
+    (-1,1,1,0,-1), (-1,1,1,0,0), (-1,1,1,0,1), 
+    (-1,1,1,1,-1), (-1,1,1,1,0), (-1,1,1,1,1) ~\},\\
+~~ \{~ &(0,-1,-1,-1,-1), (0,-1,-1,-1,0), (0,-1,-1,-1,1),
+   (0,-1,-1,0,-1), (0,-1,-1,0,0), (0,-1,-1,0,1), 
+   (0,-1,-1,1,-1), (0,-1,-1,1,0), (0,-1,-1,1,1) ~\},\\
+  ~~ \{~ &(0,-1,0,-1,-1), (0,-1,0,-1,0), (0,-1,0,-1,1),
+  (0,-1,0,0,-1), (0,-1,0,0,0), (0,-1,0,0,1), 
+  (0,-1,0,1,-1), (0,-1,0,1,0), (0,-1,0,1,1) ~\},\\
+  ~~ \{~ &(0,-1,1,-1,-1), (0,-1,1,-1,0), (0,-1,1,-1,1),
+  (0,-1,1,0,-1), (0,-1,1,0,0), (0,-1,1,0,1), 
+  (0,-1,1,1,-1), (0,-1,1,1,0), (0,-1,1,1,1) ~\},\\
+  ~~ \{~ &(0,0,-1,-1,-1), (0,0,-1,-1,0), (0,0,-1,-1,1),
+  (0,0,-1,0,-1), (0,0,-1,0,0), (0,0,-1,0,1), 
+  (0,0,-1,1,-1), (0,0,-1,1,0), (0,0,-1,1,1) ~\},\\
+  ~~ \{~ &(0,0,0,-1,-1), (0,0,0,-1,0), (0,0,0,-1,1),
+  (0,0,0,0,-1),(0,0,0,0,0), (0,0,0,0,1), 
+  (0,0,0,1,-1),(0,0,0,1,0), (0,0,0,1,1) ~\},\\
+  ~~ \{~ &(0,0,1,-1,-1), (0,0,1,-1,0), (0,0,1,-1,1),
+  (0,0,1,0,-1), (0,0,1,0,0), (0,0,1,0,1), 
+  (0,0,1,1,-1), (0,0,1,1,0), (0,0,1,1,1) ~\},\\
+  ~~ \{~ &(0,1,-1,-1,-1), (0,1,-1,-1,0), (0,1,-1,-1,1),
+  (0,1,-1,0,-1), (0,1,-1,0,0), (0,1,-1,0,1), 
+  (0,1,-1,1,-1), (0,1,-1,1,0), (0,1,-1,1,1) ~\},\\
+  ~~ \{~ &(0,1,0,-1,-1), (0,1,0,-1,0), (0,1,0,-1,1),
+  (0,1,0,0,-1), (0,1,0,0,0), (0,1,0,0,1), 
+  (0,1,0,1,-1), (0,1,0,1,0), (0,1,0,1,-1) ~\},\\
+  ~~ \{~ &(0,1,1,-1,-1), (0,1,1,-1,0), (0,1,1,-1,1),
+  (0,1,1,0,-1), (0,1,1,0,0), (0,1,1,0,1), 
+  (0,1,1,1,-1), (0,1,1,1,0), (0,1,1,1,1) ~\},\\
+~~ \{~ &(1,-1,-1,-1,-1), (1,-1,-1,-1,0), (1,-1,-1,-1,1),
+    (1,-1,-1,0,-1),(1,-1,-1,0,0), (1,-1,-1,0,1), 
+    (1,-1,-1,1,-1), (1,-1,-1,1,0), (1,-1,-1,1,1) ~\},\\
+   ~~ \{~ &(1,-1,0,-1,-1), (1,-1,0,-1,0), (1,-1,0,-1,1),
+   (1,-1,0,0,-1), (1,-1,0,0,0), (1,-1,0,0,1), 
+   (1,-1,0,1,-1), (1,-1,0,1,0), (1,-1,0,1,1) ~\},\\
+   ~~ \{~ &(1,-1,1,-1,-1), (1,-1,1,-1,0), (1,-1,1,-1,1),
+   (1,-1,1,0,-1), (1,-1,1,0,0), (1,-1,1,0,1), 
+   (1,-1,1,1,-1), (1,-1,1,1,0), (1,-1,1,1,1) ~\},\\
+   ~~ \{~ &(1,0,-1,-1,-1), (1,0,-1,-1,0), (1,0,-1,-1,1),
+   (1,0,-1,0,-1), (1,0,-1,0,0), (1,0,-1,0,1), 
+   (1,0,-1,1,-1), (1,0,-1,1,0), (1,0,-1,1,1) ~\},\\
+   ~~ \{~ &(1,0,0,-1,-1), (1,0,0,-1,0), (1,0,0,-1,1),
+   (1,0,0,0,-1), (1,0,0,0,0), (1,0,0,0,1), 
+   (1,0,0,1,-1), (1,0,0,1,0), (1,0,0,1,1) ~\},\\
+   ~~ \{~ &(1,0,1,-1,-1), (1,0,1,-1,0), (1,0,1,-1,1),
+   (1,0,1,0,-1), (1,0,1,0,0), (1,0,1,0,1), 
+   (1,0,1,1,-1), (1,0,1,1,0), (1,0,1,1,1) ~\},\\
+   ~~ \{~ &(1,1,-1,-1,-1), (1,1,-1,-1,0), (1,1,-1,-1,1),
+   (1,1,-1,0,-1), (1,1,-1,0,0), (1,1,-1,0,1), 
+   (1,1,-1,1,-1), (1,1,-1,1,0), (1,1,-1,1,1) ~\},\\
+   ~~ \{~ &(1,1,0,-1,-1), (1,1,0,-1,0), (1,1,0,-1,1),
+   (1,1,0,0,-1), (1,1,0,0,0), (1,1,0,0,1), 
+   (1,1,0,1,-1), (1,1,0,1,0), (1,1,0,1,-1) ~\},\\
+   ~~ \{~ &(1,1,1,-1,-1), (1,1,1,-1,0), (1,1,1,-1,1),
+   (1,1,1,0,-1), (1,1,1,0,0), (1,1,1,0,1), 
+   (1,1,1,1,-1), (1,1,1,1,0), (1,1,1,1,1) ~\}\\
+\} \qquad & \\
+\end{aligned}
+\end{math}
+}
+
+The partition of $Rt_5$ defined by $E = \underline{\phantom{E_{circ}}}$ is
+
+\begin{math}
+\begin{aligned}
+    \{ ~~  & \\
+    &[ ~(0,0,0,0,0)~ ]   \\
+    &, [ ~(0,0,0,0,1)~ ] \\
+    &, [ ~(0,0,0,1,1)~ ] \\
+    &, [ ~(0,0,1,1,1)~ ] \\
+    &, [ ~(0,1,1,1,1)~ ] \\
+    &, [ ~(1,1,1,1,1)~ ] \\
+    \qquad\}  & \\
+\end{aligned}
+\end{math}
+
+How many elements are in each part of the partition? \vfill
+\section*{Netflix clustering scenario}
+
+
+{\bf Scenario}: Good morning! You're a user experience engineer at Netflix. A
+product goal is to design customized home pages for groups of users who have
+similar interests. Your manager tasks you with designing an algorithm for
+producing a clustering of users based on their movie interests,
+so that customized homepages can be engineered for each group.
+
+{\bf Conventions for today}: 
+We will use $U = \{r_1, r_2, \cdots, r_t\}$ to 
+refer to an arbitrary set of user ratings (we'll pick some 
+specific examples to explore) that are a subset of $Rt_5$. 
+We will be interested in creating partitions $C_1, \cdots, C_m$ of 
+$U$. We'll assume that each user represented by an element of $U$ 
+has a unique ratings tuple.
+
+
+Your idea: equivalence relations! You offer your manager three great options: 
+
+\[
+    E_{id} = \{ ( ~(x_1, x_2, x_3, x_4, x_5), (x_1, x_2, x_3, x_4, x_5)~) \mid 
+    (x_1, x_2, x_3, x_4, x_5) \in Rt_5  \}
+\]
+
+{\it Describe how each homepage should be designed \ldots }
+
+\vspace{100pt}
+
+
+
+\[
+    E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land (x_3 = y_3) \}
+\]
+
+
+{\it Describe how each homepage should be designed \ldots }
+
+\vspace{100pt}
+
+\[
+E_{circ} =  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~) \}
+\]
+
+{\it Describe how each homepage should be designed \ldots }
+
+
+\vspace{100pt}
+
+
+{\bf Scenario}: Good morning! You're a user experience engineer at Netflix. A
+product goal is to design customized home pages for groups of users who have
+similar interests. You task your team with designing an algorithm for
+producing a clustering of users based on their movie interests. Your team
+implements two algorithms that produce different clusterings. How do you
+decide which one to use? What feedback do you give the team in order to help
+them improve? Clearly, you will need to use math.
+
+
+Your idea: find a way to {\bf score} clusterings (partitions) 
+
+
+{\bf Definition}: For a cluster of ratings $C = \{r_1, r_2, \cdots, r_n \} 
+\subseteq U$, the {\bf diameter} of the cluster is defined by:
+
+$$\textit{diameter}(C) = \max_{1 \leq i, j \leq n} (d(~(r_i, r_j)~))$$ 
+
+Consider $x = (1, 0, 1, 0, 1)$, $y = (1, 1, 1, 0, 1)$, $z = (-1, -1, 0, 0, 0)$, $w = (0, 0, 0, 1, 0)$.
+
+What is $\textit{diameter}(\{x, y, z\})$? $\textit{diameter}(\{x, y\})$? $\textit{diameter}(\{x, z, w\})$?
+
+\vspace{100pt}
+
+\textit{diameter} works on single clusters. One way to aggregate across a
+clustering $C_1, \cdots, C_m$ is $\sum_{k=1}^m diameter(C_k)$
+
+
+Is this a good score?
+
+\vspace{100pt}
+
+How can we express the idea of {\bf many elements within a small area}? Key idea: ``give credit'' to small diameter clusters with many elements.
+
+{\bf Definition}: For a cluster of ratings $C = \{r_1, r_2, \cdots, r_n \} 
+\subseteq U$, the {\bf density} of the cluster is defined by:
+\[
+    \frac{n}{1+ diameter(C)}
+\]
+
+
+
+\newpage
+
+Can you use density to decide whether the partition given by 
+the equivalence classes of $E_{proj}$ or $E_{circ}$ for this task? \vfill
+\section*{Base expansion final review}
+
+
+Convert $(2A)_{16}$ to 
+\begin{itemize}
+\item binary (base \underline{\phantom{~~~2~~}})
+
+\vspace{50pt}
+
+\item decimal (base \underline{\phantom{~~10~~}})
+
+\vspace{50pt}
+
+\item octal (base \underline{\phantom{~~~8~~}})
+
+\vspace{50pt}
+
+\item ternary (base \underline{\phantom{~~~3~~}})
+
+\vspace{50pt}
+
+\end{itemize} \vfill
+\section*{Set construction final review}
+
+
+The bases of RNA strands are elements of the set $B = \{\A, \C, \G, \U \}$. 
+The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+Each of the sets below is described using set builder notation. Rewrite them using the roster method. 
+\begin{itemize}
+\item $\{s \in S ~|~ \text{the leftmost base in $s$ is the same as the rightmost base in $s$ and 
+$s$ has length $3$} \}$ 
+
+\vspace{50pt}
+
+\item $\{s \in S ~|~ \text{there are twice as many $\A$s as $\C$s in $s$ and $s$ has length $1$} \}$ 
+
+\vspace{50pt}
+
+\end{itemize}
+
+Certain 
+ sequences of bases serve important biological functions in translating RNA to proteins. The following
+ recursive definition gives a special set of RNA strands: The set of RNA strands $\hat{S}$ is defined (recursively)
+ by 
+ 
+ \begin{alignat*}{2}
+\text{Basis step:} & & \A\U\G \in \hat{S}\\
+\text{Basis step:} & \qquad& \text{If } s \in \hat{S} \text{ and } x \in R \text{, then } sx\in \hat{S}\\
+ \end{alignat*}
+ where $R = \{ \U\U\U, \C\U\C, \A\U\C, \A\U\G, \G\U\U, \C\C\U, \G\C\U, \U\G\G, \G\G\A \}$.
+
+Each of the sets below is described using set builder notation. Rewrite them using the roster method. 
+\begin{itemize}
+\item $\{s \in \hat{S} ~|~ s \text{ has length less than or equal to $5$} \}$ 
+
+\vspace{50pt}
+
+
+\item $\{s \in S ~|~ \text{there are twice as many $\C$s as $\A$s in $s$ and $s$ has length $6$} \}$ 
+
+\vspace{50pt}
+
+\end{itemize} \vfill
+\section*{Set operations final review}
+
+
+Let $W = \mathcal{P}( \{ 1,2,3,4,5\})$. Consider the statement 
+\[
+\forall A \in W~ \forall B \in W ~ \forall C \in W~ ((A \cap B = A \cap C) \to (B=C) )
+\]
+Translate the statement to English.
+Negate the statement 
+and translating this negation to English.
+Decide whether the original statements or its negation is true
+and justify your decision.
+ \vfill
+\section*{Function properties final review}
+
+
+The set of linked lists of natural numbers $L$ is defined by 
+ \begin{alignat*}{2}
+\text{Basis step:} & &[] \in L \\
+\text{Recursive step:} & \qquad& \text{If } l \in L \text{ and } n \in \mathbb{N} \text{, then } (n,l) \in L\\
+ \end{alignat*}
+ The function $length: L \to \mathbb{N}$ that computes the length of a list is
+  \begin{alignat*}{2}
+\text{Basis step:} & &length([]) = 0\\
+\text{Recursive step:} & \qquad& \text{If $l \in L$ and $n \in \mathbb{N}$, then } length( ( n,l) ) = 1 + length(l)\\
+ \end{alignat*}
+
+Prove or disprove: the function $length$ is onto.
+
+\vfill
+
+Prove or disprove: the function $length$ is one-to-one.
+
+\vfill
+ \vfill
+\section*{Cardinality final review}
+
+
+Suppose $A$ and $B$ are sets and $A \subseteq B$:
+
+{\bf True or False}?  If $A$ is infinite then $B$ is finite.
+
+\vspace{50pt}
+
+{\bf True or False}?  If $A$ is countable then $B$ is countable.
+
+\vspace{50pt}
+
+{\bf True or False}?  If $B$ is infinite then $A$ is finite.
+
+\vspace{50pt}
+
+{\bf True or False}?  If $B$ is uncountable then $A$ is countable.
+
+\vspace{50pt} \vfill
+\section*{Modular arithmetic final review}
+
+
+Compute the last digit of 
+\[
+    (42)^{2021}
+\]
+
+\vfill
+
+{\it Extra} Describe the pattern that helps you perform this computation 
+and prove it using mathematical induction. \vfill
 \section*{Base expansion review}
 
 

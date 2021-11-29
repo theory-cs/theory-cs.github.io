@@ -546,6 +546,120 @@ Example function application: <span class="math display">\[rnalen(\texttt{A}\tex
 <p>procedure <span class="math inline">\(\textit{baseb2}\)</span>(<span class="math inline">\(n, b\)</span>: positive integers with <span class="math inline">\(b &gt; 1\)</span>) <span class="math inline">\(q\)</span> := <span class="math inline">\(n\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(0\)</span> while <span class="math inline">\(q  \neq 0\)</span> <span class="math inline">\(a_{k}\)</span> := <span class="math inline">\(q\)</span> mod <span class="math inline">\(b\)</span> <span class="math inline">\(q\)</span> := <span class="math inline">\(q\)</span> div <span class="math inline">\(b\)</span> <span class="math inline">\(k\)</span> := <span class="math inline">\(k+1\)</span> return <span class="math inline">\((a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}\)</span></p>
 </div>
 </div>
+<h1 class="unnumbered" id="equivalence-relations-partitions">Equivalence relations partitions</h1>
+<p><span><em>Recall:</em></span></p>
+<p>A relation is an <span><strong>equivalence relation</strong></span> means it is reflexive, symmetric, and transitive.</p>
+<p>An <span><strong>equivalence class</strong></span> of an element <span class="math inline">\(a \in A\)</span> with respect to an equivalence relation <span class="math inline">\(R\)</span> on the set <span class="math inline">\(A\)</span> is the set <span class="math display">\[\{s \in A | (a, s) \in R \}\]</span> We write <span class="math inline">\([a]_R\)</span> for this set, which is the equivalence class of <span class="math inline">\(a\)</span> with respect to <span class="math inline">\(R\)</span>.</p>
+<p>A <span><strong>partition</strong></span> of a set <span class="math inline">\(A\)</span> is a set of non-empty, disjoint subsets <span class="math inline">\(A_1, A_2, \cdots, A_n\)</span> such that <span class="math display">\[A = \bigcup_{i=1}^{n} A_i = \{ x \mid \exists i (x \in A_i) \}\]</span></p>
+<p><span><strong>Claim</strong></span>: For each <span class="math inline">\(a \in U\)</span>, <span class="math inline">\([a]_{E}  \neq  \emptyset\)</span>.</p>
+<p><span><strong>Proof</strong></span>: Towards a <span class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> consider an arbitrary element <span class="math inline">\(a\)</span> in <span class="math inline">\(U\)</span>. We will work to show that <span class="math inline">\([a]_E \neq \emptyset\)</span>, namely that <span class="math inline">\(\exists x \in [a]_E\)</span>. By definition of equivalence classes, we can rewrite this goal as <span class="math display">\[\exists x \in U ~( ~(a,x) \in E~)\]</span> Towards a <span class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>, consider <span class="math inline">\(x = a\)</span>, an element of <span class="math inline">\(U\)</span> by definition. By <span class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of <span class="math inline">\(E\)</span>, we know that <span class="math inline">\((a,a) \in E\)</span> and thus the existential quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span class="math inline">\(a \in U\)</span>, there is some <span class="math inline">\(b \in U\)</span> such that <span class="math inline">\(a \in [b]_{E}\)</span>.</p>
+<p>Towards a <span class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> consider an arbitrary element <span class="math inline">\(a\)</span> in <span class="math inline">\(U\)</span>. By definition of equivalence classes, we can rewrite the goal as <span class="math display">\[\exists b \in U ~( ~(b,a) \in E~)\]</span> Towards a <span class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>, consider <span class="math inline">\(b = a\)</span>, an element of <span class="math inline">\(U\)</span> by definition. By <span class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of <span class="math inline">\(E\)</span>, we know that <span class="math inline">\((a,a) \in E\)</span> and thus the existential quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span class="math inline">\(a,b  \in U\)</span> , <span class="math inline">\((~(a,b)  \in  E ~\to ~ [a]_{E}  = [b]_{E}~)\)</span> and <span class="math inline">\((~(a,b)  \notin  E ~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)\)</span></p>
+<p><span><strong>Corollary</strong></span>: Given an equivalence relation <span class="math inline">\(E\)</span> on set <span class="math inline">\(U\)</span>, <span class="math inline">\(\{ [x]_{E} \mid x \in U  \}\)</span> is a partition of <span class="math inline">\(U\)</span>.</p>
+<h1 class="unnumbered" id="equivalence-relations-examples-ratings">Equivalence relations examples ratings</h1>
+<p>Recall that in a movie recommendation system, each user’s ratings of movies is represented as a <span class="math inline">\(n\)</span>-tuple (with the positive integer <span class="math inline">\(n\)</span> being the number of movies in the database), and each component of the <span class="math inline">\(n\)</span>-tuple is an element of the collection <span class="math inline">\(\{-1,0,1\}\)</span>.</p>
+<p>We call <span class="math inline">\(Rt_5\)</span> the set of all ratings <span class="math inline">\(5\)</span>-tuples.</p>
+<p>Define <span class="math inline">\(d: Rt_5 \times Rt_5 \to \mathbb{N}\)</span> by <span class="math display">\[d (~(~ (x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5) ~) ~) = \sum_{i=1}^5 |x_i - y_i|\]</span></p>
+<p>Consider the following binary relations on <span class="math inline">\(Rt_5\)</span>. <span class="math display">\[E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land (x_3 = y_3) \}\]</span></p>
+<p>Example ordered pair in <span class="math inline">\(E_{proj}\)</span>:</p>
+<p>Reflexive? Symmetric? Transitive? Antisymmetric?</p>
+<p><span class="math display">\[E_{dist} =  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d( u,v ) \leq 2 \}\]</span> Example ordered pair in <span class="math inline">\(E_{dist}\)</span>:</p>
+<p>Reflexive? Symmetric? Transitive? Antisymmetric?</p>
+<p><span class="math display">\[E_{circ} =  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~) \}\]</span> Example ordered pair in <span class="math inline">\(E_{circ}\)</span>:</p>
+<p>Reflexive? Symmetric? Transitive? Antisymmetric?</p>
+<p>The partition of <span class="math inline">\(Rt_5\)</span> defined by <span class="math inline">\(\underline{\phantom{E_{proj}}}\)</span> is</p>
+<p>The partition of <span class="math inline">\(Rt_5\)</span> defined by <span class="math inline">\(E = \underline{\phantom{E_{circ}}}\)</span> is</p>
+<p><span class="math inline">\(\begin{aligned}
+    \{ ~~  &amp; \\
+    &amp;[ ~(0,0,0,0,0)~ ]   \\
+    &amp;, [ ~(0,0,0,0,1)~ ] \\
+    &amp;, [ ~(0,0,0,1,1)~ ] \\
+    &amp;, [ ~(0,0,1,1,1)~ ] \\
+    &amp;, [ ~(0,1,1,1,1)~ ] \\
+    &amp;, [ ~(1,1,1,1,1)~ ] \\
+    \qquad\}  &amp; \\
+\end{aligned}\)</span></p>
+<p>How many elements are in each part of the partition?</p>
+<h1 class="unnumbered" id="netflix-clustering-scenario">Netflix clustering scenario</h1>
+<p><span><strong>Scenario</strong></span>: Good morning! You’re a user experience engineer at Netflix. A product goal is to design customized home pages for groups of users who have similar interests. Your manager tasks you with designing an algorithm for producing a clustering of users based on their movie interests, so that customized homepages can be engineered for each group.</p>
+<p><span><strong>Conventions for today</strong></span>: We will use <span class="math inline">\(U = \{r_1, r_2, \cdots, r_t\}\)</span> to refer to an arbitrary set of user ratings (we’ll pick some specific examples to explore) that are a subset of <span class="math inline">\(Rt_5\)</span>. We will be interested in creating partitions <span class="math inline">\(C_1, \cdots, C_m\)</span> of <span class="math inline">\(U\)</span>. We’ll assume that each user represented by an element of <span class="math inline">\(U\)</span> has a unique ratings tuple.</p>
+<p>Your idea: equivalence relations! You offer your manager three great options:</p>
+<p><span class="math display">\[E_{id} = \{ ( ~(x_1, x_2, x_3, x_4, x_5), (x_1, x_2, x_3, x_4, x_5)~) \mid 
+    (x_1, x_2, x_3, x_4, x_5) \in Rt_5  \}\]</span></p>
+<p><span><em>Describe how each homepage should be designed …</em></span></p>
+<p><span class="math display">\[E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land (x_3 = y_3) \}\]</span></p>
+<p><span><em>Describe how each homepage should be designed …</em></span></p>
+<p><span class="math display">\[E_{circ} =  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~) \}\]</span></p>
+<p><span><em>Describe how each homepage should be designed …</em></span></p>
+<p><span><strong>Scenario</strong></span>: Good morning! You’re a user experience engineer at Netflix. A product goal is to design customized home pages for groups of users who have similar interests. You task your team with designing an algorithm for producing a clustering of users based on their movie interests. Your team implements two algorithms that produce different clusterings. How do you decide which one to use? What feedback do you give the team in order to help them improve? Clearly, you will need to use math.</p>
+<p>Your idea: find a way to <span><strong>score</strong></span> clusterings (partitions)</p>
+<p><span><strong>Definition</strong></span>: For a cluster of ratings <span class="math inline">\(C = \{r_1, r_2, \cdots, r_n \} 
+\subseteq U\)</span>, the <span><strong>diameter</strong></span> of the cluster is defined by:</p>
+<p><span class="math display">\[\textit{diameter}(C) = \max_{1 \leq i, j \leq n} (d(~(r_i, r_j)~))\]</span></p>
+<p>Consider <span class="math inline">\(x = (1, 0, 1, 0, 1)\)</span>, <span class="math inline">\(y = (1, 1, 1, 0, 1)\)</span>, <span class="math inline">\(z = (-1, -1, 0, 0, 0)\)</span>, <span class="math inline">\(w = (0, 0, 0, 1, 0)\)</span>.</p>
+<p>What is <span class="math inline">\(\textit{diameter}(\{x, y, z\})\)</span>? <span class="math inline">\(\textit{diameter}(\{x, y\})\)</span>? <span class="math inline">\(\textit{diameter}(\{x, z, w\})\)</span>?</p>
+<p><em>diameter</em> works on single clusters. One way to aggregate across a clustering <span class="math inline">\(C_1, \cdots, C_m\)</span> is <span class="math inline">\(\sum_{k=1}^m diameter(C_k)\)</span></p>
+<p>Is this a good score?</p>
+<p>How can we express the idea of <span><strong>many elements within a small area</strong></span>? Key idea: “give credit” to small diameter clusters with many elements.</p>
+<p><span><strong>Definition</strong></span>: For a cluster of ratings <span class="math inline">\(C = \{r_1, r_2, \cdots, r_n \} 
+\subseteq U\)</span>, the <span><strong>density</strong></span> of the cluster is defined by: <span class="math display">\[\frac{n}{1+ diameter(C)}\]</span></p>
+<p>Can you use density to decide whether the partition given by the equivalence classes of <span class="math inline">\(E_{proj}\)</span> or <span class="math inline">\(E_{circ}\)</span> for this task?</p>
+<h1 class="unnumbered" id="base-expansion-final-review">Base expansion final review</h1>
+<p>Convert <span class="math inline">\((2A)_{16}\)</span> to</p>
+<ul>
+<li><p>binary (base <u></u>)</p></li>
+<li><p>decimal (base <u></u>)</p></li>
+<li><p>octal (base <u></u>)</p></li>
+<li><p>ternary (base <u></u>)</p></li>
+</ul>
+<h1 class="unnumbered" id="set-construction-final-review">Set construction final review</h1>
+<p>The bases of RNA strands are elements of the set <span class="math inline">\(B = \{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}\)</span>. The set of RNA strands <span class="math inline">\(S\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S, \texttt{U}\in S, \texttt{G}\in S \\
+\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}\]</span> where <span class="math inline">\(sb\)</span> is string concatenation.</p>
+<p>Each of the sets below is described using set builder notation. Rewrite them using the roster method.</p>
+<ul>
+<li><p><span class="math inline">\(\{s \in S ~|~ \text{the leftmost base in $s$ is the same as the rightmost base in $s$ and 
+$s$ has length $3$} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{s \in S ~|~ \text{there are twice as many $\texttt{A}$s as $\texttt{C}$s in $s$ and $s$ has length $1$} \}\)</span></p></li>
+</ul>
+<p>Certain sequences of bases serve important biological functions in translating RNA to proteins. The following recursive definition gives a special set of RNA strands: The set of RNA strands <span class="math inline">\(\hat{S}\)</span> is defined (recursively) by</p>
+<p><span class="math display">\[\begin{aligned}
+{2}
+\text{Basis step:} &amp; &amp; \texttt{A}\texttt{U}\texttt{G}\in \hat{S}\\
+\text{Basis step:} &amp; \qquad&amp; \text{If } s \in \hat{S} \text{ and } x \in R \text{, then } sx\in \hat{S}\\
+ \end{aligned}\]</span> where <span class="math inline">\(R = \{ \texttt{U}\texttt{U}\texttt{U}, \texttt{C}\texttt{U}\texttt{C}, \texttt{A}\texttt{U}\texttt{C}, \texttt{A}\texttt{U}\texttt{G}, \texttt{G}\texttt{U}\texttt{U}, \texttt{C}\texttt{C}\texttt{U}, \texttt{G}\texttt{C}\texttt{U}, \texttt{U}\texttt{G}\texttt{G}, \texttt{G}\texttt{G}\texttt{A}\}\)</span>.</p>
+<p>Each of the sets below is described using set builder notation. Rewrite them using the roster method.</p>
+<ul>
+<li><p><span class="math inline">\(\{s \in \hat{S} ~|~ s \text{ has length less than or equal to $5$} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{s \in S ~|~ \text{there are twice as many $\texttt{C}$s as $\texttt{A}$s in $s$ and $s$ has length $6$} \}\)</span></p></li>
+</ul>
+<h1 class="unnumbered" id="set-operations-final-review">Set operations final review</h1>
+<p>Let <span class="math inline">\(W = \mathcal{P}( \{ 1,2,3,4,5\})\)</span>. Consider the statement <span class="math display">\[\forall A \in W~ \forall B \in W ~ \forall C \in W~ ((A \cap B = A \cap C) \to (B=C) )\]</span> Translate the statement to English. Negate the statement and translating this negation to English. Decide whether the original statements or its negation is true and justify your decision.</p>
+<h1 class="unnumbered" id="function-properties-final-review">Function properties final review</h1>
+<p>The set of linked lists of natural numbers <span class="math inline">\(L\)</span> is defined by <span class="math display">\[\begin{aligned}
+{2}
+\text{Basis step:} &amp; &amp;[] \in L \\
+\text{Recursive step:} &amp; \qquad&amp; \text{If } l \in L \text{ and } n \in \mathbb{N} \text{, then } (n,l) \in L\\
+ \end{aligned}\]</span> The function <span class="math inline">\(length: L \to \mathbb{N}\)</span> that computes the length of a list is <span class="math display">\[\begin{aligned}
+{2}
+\text{Basis step:} &amp; &amp;length([]) = 0\\
+\text{Recursive step:} &amp; \qquad&amp; \text{If $l \in L$ and $n \in \mathbb{N}$, then } length( ( n,l) ) = 1 + length(l)\\
+ \end{aligned}\]</span></p>
+<p>Prove or disprove: the function <span class="math inline">\(length\)</span> is onto.</p>
+<p>Prove or disprove: the function <span class="math inline">\(length\)</span> is one-to-one.</p>
+<h1 class="unnumbered" id="cardinality-final-review">Cardinality final review</h1>
+<p>Suppose <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets and <span class="math inline">\(A \subseteq B\)</span>:</p>
+<p><span><strong>True or False</strong></span>? If <span class="math inline">\(A\)</span> is infinite then <span class="math inline">\(B\)</span> is finite.</p>
+<p><span><strong>True or False</strong></span>? If <span class="math inline">\(A\)</span> is countable then <span class="math inline">\(B\)</span> is countable.</p>
+<p><span><strong>True or False</strong></span>? If <span class="math inline">\(B\)</span> is infinite then <span class="math inline">\(A\)</span> is finite.</p>
+<p><span><strong>True or False</strong></span>? If <span class="math inline">\(B\)</span> is uncountable then <span class="math inline">\(A\)</span> is countable.</p>
+<h1 class="unnumbered" id="modular-arithmetic-final-review">Modular arithmetic final review</h1>
+<p>Compute the last digit of <span class="math display">\[(42)^{2021}\]</span></p>
+<p><span><em>Extra</em></span> Describe the pattern that helps you perform this computation and prove it using mathematical induction.</p>
 <h1 class="unnumbered" id="base-expansion-review">Base expansion review</h1>
 <p>Find and fix any and all mistakes with the following:</p>
 <ul>
