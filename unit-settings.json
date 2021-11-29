@@ -414,7 +414,13 @@
         "outcomes": "Relations and Clustering",
         "CalendarInfo": " Dates: 11/29/21-12/3/21",
         "ExpandInCalendar": false,
-        "pdfs": [],
+        "pdfs": [
+            {
+                "name": "Notes",
+                "addExtensions": true,
+                "file": "Week10"
+            }
+        ],
         "embed": [],
         "Due Dates": [
             {
