@@ -197,7 +197,7 @@ def secondaryUnitBoxes():
 	secondaryUnitButtonsContent += "</ul> </div>"
 	return secondaryUnitButtonsContent
 
-print("TWO "+secondaryUnitBoxes())
+#print("TWO "+secondaryUnitBoxes())
 
 #MOBILE SIDEBAR!! 
 unitMobileButtonsContent = ""

@@ -1,0 +1,35 @@
+[
+    {
+        "header": "Week 0 and 1",
+        "outcomes": "Introduction and data types",
+        "CalendarInfo": " Dates: 9/24/21 - 10/1/21<br> Welcome! See you Friday 9/24 in Galbraith Hall. Lecture will be in WLH 2001 on Monday 9/27 and Wednesday 9/29. It will be via Zoom on Friday Oct 1. Please take our <a href=\"https://forms.gle/gvibFnNixxqcWbaU8\" target=\"_blank\">pre-class survey.</a> ",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week0and1.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a> for Week 0 Friday and Week 1 Monday and Wednesday. See <a href=\"https://youtu.be/4i47EJ4yNaY\" target=\"_blank\">Week 1 Friday video on YouTube</a></p>"
+            },
+            {
+                "name": "CS Inclusive Mentoring Consent Form",
+                "source": "CSInclusiveMentoringConsentFormNonCSEDataAnalysis.pdf"
+            } , 
+            {
+                "name": "(Video) Week 1 Friday",
+                "source":"https://youtu.be/4i47EJ4yNaY"
+            }
+
+        ],
+
+        "Due Dates": [
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "10/1/21 at 5pm"
+            }
+        ]
+    }
+]
