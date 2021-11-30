@@ -28,7 +28,7 @@ for i in range(0,len(unitData)):
                 html = "../output/lessons/"+unitData[i]['content'][j]['source'].replace(".tex",".html")
                 
                 #create zip files 
-                tex = zip_file(unitData[i]['content'][j]['source'], "lessons-flat")
+                tex = zip_file(unitData[i]['content'][j]['source'].replace(".tex",""), "lessons-flat")
                 if(tex == None):
                     tex=""
 
