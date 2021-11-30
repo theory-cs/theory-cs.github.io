@@ -451,7 +451,7 @@
         "pdfs": [
             {
                 "name": "Practice questions",
-                "addExtensions": true,
+                "addExtensions": false,
                 "file": "finalpractice_fa21.pdf"
             }
         ],
