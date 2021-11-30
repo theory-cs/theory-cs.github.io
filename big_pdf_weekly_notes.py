@@ -109,7 +109,6 @@ bigPDF += "\n\end{document}"
 
 # print(bigPDF)
 
-bigPDF += "\n\end{document}"
 resultFile = open("generated/notes/lessons/complete-week.tex", "w")
 resultFile.write(bigPDF)
 resultFile.close()
