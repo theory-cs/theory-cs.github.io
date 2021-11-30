@@ -29,7 +29,7 @@ for i in range(0,len(unitData)):
                 
                 html="../output/lessons/"+unitData[i]['pdfs'][j]['file']+".html"
             else:
-                pdf=unitData[i]['pdfs'][j]['file']
+                pdf="../files/"+unitData[i]['pdfs'][j]['file']
 
             #heading and PDF download button
             pdfString += """<h2 tabindex = "2"> """+ unitData[i]['pdfs'][j]['name'] +"""</h2>
