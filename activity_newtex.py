@@ -3,7 +3,7 @@ import os
 import linecache
 from user_functions import *
 
-
+#TODO: use header file ... 
 opening = r""" \documentclass[12pt, oneside]{article}
 
 \usepackage[letterpaper, scale=0.89, centering]{geometry}
@@ -104,12 +104,15 @@ for filename in definition_array:
 
     strNew += "\n\end{document}"
     # print(strNew)
-
-    resultFile = open("generated/notes/activity-snippets-flat/" + filename, "w")
-    resultFile.write(strNew)
-    resultFile.close()
+    
+    #TODO: call write_if_different before writing here. 
+    write_if_different("generated/notes/activity-snippets-flat/" + filename, strNew)
+    # resultFile = open("generated/notes/activity-snippets-flat/" + filename, "w")
+    # resultFile.write(strNew)
+    # resultFile.close()
 
 bigPDF += "\n\end{document}"
-resultFile = open("generated/notes/activity-snippets-flat/full-definition.tex", "w")
-resultFile.write(bigPDF)
-resultFile.close()
+write_if_different("generated/notes/activity-snippets-flat/full-definition.tex", bigPDF)
+# resultFile = open("generated/notes/activity-snippets-flat/full-definition.tex", "w")
+# resultFile.write(bigPDF)
+# resultFile.close()
