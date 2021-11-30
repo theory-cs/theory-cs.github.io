@@ -385,11 +385,15 @@
             {
                 "name": "(Video) Modular Exponentiation",
                 "link": "https://youtu.be/-33d6BnYw94"
+            },
+            {
+                "name": "(Video) Week 9 Discussion Zoom recording",
+                "link": "https://youtu.be/dWFleGJHgpQ"
             }
         ],
         "embed": [
             {
-            "name": "Lecture and Discussion podcast",
+            "name": "Lecture podcast",
             "embedCode": "<p>See <a href=\"https://podcast.ucsd.edu/watch/fa21/cse20_a00/1\">videos on podcast.ucsd.edu</a>.</p>"
             },
 	    {
@@ -418,7 +422,8 @@
             {
                 "name": "Notes",
                 "addExtensions": true,
-                "file": "Week10"
+                "file": "Week10",
+                "annotatedFile": "Week10-annotated.pdf"
             }
         ],
         "embed": [],
@@ -443,7 +448,13 @@
         "outcomes": "Final exam",
         "CalendarInfo": " Dates: 12/6/21-12/10/21. Final exam: Why? To review the entire quarter and solidify your understanding of this foundational material. How? Cumulative quiz on class content. This will be an online assignment on Gradescope available for 24 hours including the scheduled final exam time. Once you begin the exam, you will have 2.5 hours to complete it. The exam is designed to require approximately 1 hour; the extra time is available to help account for technical issues with taking an online exam. The exam must reflect your own independent effort. The exam may have a combination of True/False, multiple choice, select-all-that-apply, and free-response questions. To be fair to those in other time zones who may be taking the exam while I am asleep and therefore can't answer questions, I (and the TAs/tutors) will not answer any questions about the exam during the exam period. If any bugs are found in the exam after the exam period, the affected question(s) will be removed. To take the exam, ensure you are located somewhere with reliable internet for the duration of your exam. The scheduled exam room will be available for those who would like. The exam will be open-book: you may use your notes for CSE 20, along with all provided CSE 20 class material this quarter. No collaboration or help-seeking / help-giving will be allowed. No online resources other than those provided for this quarter's CSE 20 offering are allowed.",
         "ExpandInCalendar": true,
-        "pdfs": [],
+        "pdfs": [
+            {
+                "name": "Practice questions",
+                "addExtensions": true,
+                "file": "finalpractice_fa21.pdf"
+            }
+        ],
         "embed": [],
         "Due Dates": [
             {
