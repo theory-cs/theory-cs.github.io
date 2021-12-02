@@ -426,7 +426,12 @@
                 "annotatedFile": "Week10-annotated.pdf"
             }
         ],
-        "embed": [],
+        "embed": [
+	    {
+		"name": "Discussion slides",
+    		"embedCode": "<p><a href=\"../files/DiscussionWeek10.pptx\">Download pptx slides</a></p>"
+	    }
+	],
         "Due Dates": [
             {
                 "name": "hw7-functions-and-relations-CSE20F21",
