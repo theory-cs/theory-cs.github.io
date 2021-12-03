@@ -254,6 +254,8 @@ def create_unit_boxes():
 	# boxString = """<p><a href=\"supplemental_videos.html\"> Supplemental Videos </a></p>"""
 	boxString += """ <button class="button coll" onclick="expandCollapseAll(0)">Expand All Boxes</button>
 				<button class="button coll" onclick="expandCollapseAll(1)">Collapse All Boxes</button><br><br>"""
+	
+	boxString += """<p><a href="../output/lessons/complete-week.pdf" download>Compiled weeks</a></p>"""
 
 	for i in range(len(unitData)):
 		unitNumber = i+1

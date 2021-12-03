@@ -157,8 +157,8 @@ for j in alphabet:
 
 # print(content)
 
-content += """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
-content += """<p><a href="../output/lessons/complete-week.pdf" download>Complete week file</a></p>"""
+# content += """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
+# content += """<p><a href="../output/lessons/complete-week.pdf" download>Complete week file</a></p>"""
 
 glossary_template = open("templates/glossary_template.html", "r")
 templateString = Template(glossary_template.read())
