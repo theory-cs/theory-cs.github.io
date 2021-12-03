@@ -8,6 +8,8 @@ from os import listdir
 from os.path import isfile, join
 import linecache
 
+
+# Open JSON files
 outcomeData = json.loads(open("outcomes.json").read())
 applicationData = json.loads(open("applications.json").read())
 num = "1234567890"
@@ -20,13 +22,23 @@ for big in outcomeData:
   for med in outcomeData[big]['Children']:
     count = 1
     for small in outcomeData[big]['Children'][med]['Children']:
-        outcome[small + str(count)] = outcomeData[big]['Children'][med]['file']
+        # Key: Subtopic and count (i-th in the collapsible boxes)
+        # Value: html
+        key = small + str(count)
+        html = outcomeData[big]['Children'][med]['file']
+        outcome[key] = html
         count += 1
+
 
 # Application
 for key in applicationData:
+    # Key: Application and # identifier
+    # Value: html
+    key = key.lower() + "#"
     html = key.replace(" ", "-").lower()+".html"
-    outcome[key.lower() + "#"] = html
+    outcome[key] = html
+
+# print(outcome)
 
 # Definition in activity-snippets --> go to the earliest week that the activity-snippet is used and the specific part
 files = "notes/activity-snippets"
@@ -34,12 +46,15 @@ arr = []
 newarr = []
 for entry in os.scandir(files):
     if entry.is_file():
+        # file: entry name and remove .tex
         file = entry.name[:-4]
         strName = file.replace("-", " ")
-        # print(str)
+
+        # only get activity-snippets with definition in it
         if("definition" in strName):
             outcome[strName] = (file)
 
+# Sort the elements
 outcome = collections.OrderedDict(sorted(outcome.items()))
 
 # Alphabetical view on top
@@ -87,21 +102,20 @@ pdfCount = 0
 # Each alphabet content
 for j in alphabet:
     content += """<h1 id=\"""" + j + """\">""" + j + "</h1>\n"
-    # print(j)
     for key in outcome:
         # print(key)
         if (key[0] == j):
+            # For learning outcome
             if (key[len(key) -1] in num):
                 content += """<p>""" + key[:-1] + """  {<a href=\"""" + outcome[key] + """?box=""" + key[len(key) -1] + """\">Learning outcome</a>}</p>\n"""
-                # content += """<p><a href=\"""" + outcome[key]  + """?box=""" + key[len(key) -1] + """\">""" + key[:-1] +"""</a></p>\n"""
+            # For application
             elif(key[len(key) -1] == "#"):
                 content += """<p>""" + key[:-1] + """   {<a href=\"""" + outcome[key]  + """\">Application</a>}</p>\n"""
-                # content += """<p><a href=\"../notes/activity-snippets/""" + outcome[key]  + """\">""" + key +"""</a></p>\n"""
+            # For activity-snippets
             else:
                 if(key in contents):
                     pdfCount += 1; 
                     whatWeek = str(contents[key][0])
-                    # print(key + " in " + whatWeek + "\n")
                     if(("definition" in key) and ("definitions" != key)):
                         # print(key)
                         title = key.replace("definitions","").replace("definition","").strip()
@@ -125,10 +139,6 @@ for j in alphabet:
                     <iframe class="glossaryPDFDiv" width="73%" height="300" src=\""""+htmlPath+ """\" title="description"></iframe>
                     
                     </div>
-
-                    
-                    
-                    
                     
                     <script>
                     function showDiv"""+str(pdfCount)+"""() {
