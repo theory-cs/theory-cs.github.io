@@ -101,42 +101,4 @@ we get a product of primes that gives $n+1$, as required.
 
 Since both cases give the necessary
 conclusion, the proof by cases for the recursive step is complete. \vfill
-\section*{Fundamental theorem proof}
-
-
-{\bf Theorem}: Every positive integer {\it greater than 1} is a product of (one or more) primes.
-
-{\bf Before we prove, let's try some examples}:
-
-$20 = $
-
-$100 = $
-
-$5 = $
-
-
-{\bf Proof by strong induction}, with $b=2$ and $j=0$.
-
-{\bf Basis step}:  WTS property is true about  $2$.
-
-Since $2$ is itself prime,
-it is already written as a product of (one) prime.
-
-
-{\bf Recursive step}: Consider an arbitrary integer $n \geq 2$.
-Assume (as the strong induction hypothesis, IH) that the property is true about  each of $2, \ldots, n$.  
-WTS that the property is true about  $n+1$: We want to show that $n+1$ can be written 
-as a product of primes.  Notice that $n+1$ is itself prime or it is composite.
-
-{\it Case 1}: assume $n+1$ is prime and then immediately it is written as a product
-of (one) prime so we are done.  
-
-{\it Case 2}: assume that $n+1$ is composite
-so there are integers $x$ and $y$ where $n+1 = xy$ and each of them is between $2$ and $n$
-(inclusive).  Therefore, the induction hypothesis applies to each of $x$ and $y$ so each 
-of these factors of $n+1$ can be written as a product of primes.  Multiplying these products together, 
-we get a product of primes that gives $n+1$, as required. 
-
-Since both cases give the necessary
-conclusion, the proof by cases for the recursive step is complete. \vfill
 \end{document}

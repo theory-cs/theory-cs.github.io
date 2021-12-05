@@ -166,18 +166,5 @@
 <p><span><em>Case 1</em></span>: assume <span class="math inline">\(n+1\)</span> is prime and then immediately it is written as a product of (one) prime so we are done.</p>
 <p><span><em>Case 2</em></span>: assume that <span class="math inline">\(n+1\)</span> is composite so there are integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> where <span class="math inline">\(n+1 = xy\)</span> and each of them is between <span class="math inline">\(2\)</span> and <span class="math inline">\(n\)</span> (inclusive). Therefore, the induction hypothesis applies to each of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> so each of these factors of <span class="math inline">\(n+1\)</span> can be written as a product of primes. Multiplying these products together, we get a product of primes that gives <span class="math inline">\(n+1\)</span>, as required.</p>
 <p>Since both cases give the necessary conclusion, the proof by cases for the recursive step is complete.</p>
-<h1 class="unnumbered" id="fundamental-theorem-proof-1">Fundamental theorem proof</h1>
-<p><span><strong>Theorem</strong></span>: Every positive integer <span><em>greater than 1</em></span> is a product of (one or more) primes.</p>
-<p><span><strong>Before we prove, let’s try some examples</strong></span>:</p>
-<p><span class="math inline">\(20 =\)</span></p>
-<p><span class="math inline">\(100 =\)</span></p>
-<p><span class="math inline">\(5 =\)</span></p>
-<p><span><strong>Proof by strong induction</strong></span>, with <span class="math inline">\(b=2\)</span> and <span class="math inline">\(j=0\)</span>.</p>
-<p><span><strong>Basis step</strong></span>: WTS property is true about <span class="math inline">\(2\)</span>.</p>
-<p>Since <span class="math inline">\(2\)</span> is itself prime, it is already written as a product of (one) prime.</p>
-<p><span><strong>Recursive step</strong></span>: Consider an arbitrary integer <span class="math inline">\(n \geq 2\)</span>. Assume (as the strong induction hypothesis, IH) that the property is true about each of <span class="math inline">\(2, \ldots, n\)</span>. WTS that the property is true about <span class="math inline">\(n+1\)</span>: We want to show that <span class="math inline">\(n+1\)</span> can be written as a product of primes. Notice that <span class="math inline">\(n+1\)</span> is itself prime or it is composite.</p>
-<p><span><em>Case 1</em></span>: assume <span class="math inline">\(n+1\)</span> is prime and then immediately it is written as a product of (one) prime so we are done.</p>
-<p><span><em>Case 2</em></span>: assume that <span class="math inline">\(n+1\)</span> is composite so there are integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> where <span class="math inline">\(n+1 = xy\)</span> and each of them is between <span class="math inline">\(2\)</span> and <span class="math inline">\(n\)</span> (inclusive). Therefore, the induction hypothesis applies to each of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> so each of these factors of <span class="math inline">\(n+1\)</span> can be written as a product of primes. Multiplying these products together, we get a product of primes that gives <span class="math inline">\(n+1\)</span>, as required.</p>
-<p>Since both cases give the necessary conclusion, the proof by cases for the recursive step is complete.</p>
 </body>
 </html>
