@@ -5,7 +5,7 @@
 #
 # Input: outcomes.json specifies all outcomes
 # website-settings are global settings (ungrouped snippets)
-# unit-settings.json helps find the order of the weeks each snippet appears in
+# unit_settings.json helps find the order of the weeks each snippet appears in
 #
 #Output: compiled .tex files for each outcome with corresponding snippets
 
@@ -19,8 +19,8 @@ from weekly_compile_app import UNGROUPED
 outcomes = json.loads(open("outcomes.json").read())
 settings = json.loads(open("website-settings.json").read())
 
-# returns unit-settings JSON file as a dictionary
-unitData = json.loads(open("unit-settings.json").read())
+# returns unit_settings JSON file as a dictionary
+unitData = json.loads(open("unit_settings.json").read())
 
 # Credit: Professor Politz code from outcomes-list.py
 low_levels = []
@@ -45,7 +45,7 @@ for line in low_levels:
 def findWeek(element):
     return int(element[1])
 
-#if file in lessons directory is not found within a week on the website/unit-settings.json, then it will have the
+#if file in lessons directory is not found within a week on the website/unit_settings.json, then it will have the
 #UNGROUPED constant as a week number, so that it is sorted to the end of compiled .tex files 
 #ensure that the ungrouped constant is uniqe and will not appear as a week  
 UNGROUPED = 99
@@ -61,7 +61,7 @@ for filename in os.listdir(weeklyDirectory):
     editFilename= filename.replace(".tex","")
     #print("editFilename: "+editFilename)
 
-    #get week number/order from unit-settings.json file, this will be the order in which files appear on the website
+    #get week number/order from unit_settings.json file, this will be the order in which files appear on the website
     for element in unitData:
         if('pdfs' in element):
             for pdf in element['pdfs']:

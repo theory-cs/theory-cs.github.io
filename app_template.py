@@ -3,7 +3,7 @@ import json
 from user_functions import *
 from create_zip import *
   
-# returns unit-settings JSON file as a dictionary
+# returns unit_settings JSON file as a dictionary
 appData = json.loads(open("applications.json").read())
 
 for (k,v) in appData.items():

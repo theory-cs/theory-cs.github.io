@@ -4,8 +4,8 @@ import json
 from user_functions import *
 from create_zip import *
 
-# returns unit-settings JSON file as a dictionary
-unitData = json.loads(open("unit-settings.json").read())
+# returns unit_settings JSON file as a dictionary
+unitData = json.loads(open("unit_settings.json").read())
 websiteSettings = json.loads(open("website-settings.json").read())
 
 

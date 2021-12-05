@@ -176,7 +176,7 @@ for big in outcomeData:
 
 
 # Unit
-unitData = json.loads(open("unit-settings.json").read())
+unitData = json.loads(open("unit_settings.json").read())
 assignmentData = json.loads(open("assignments.json").read()) #assignment information displays on calendar
 sidebarButtonsUnitData = json.loads(open("sidebar_buttons_unit.json").read())
 
@@ -288,21 +288,10 @@ def create_unit_boxes():
 		boxString += """<dt>Learning Materials</dt><dd>"""		
 		#pdfs
 		if('pdfs' in unitData[i]):
-			for pdf in unitData[i]['pdfs']:
-				pdfjsID = pdf['name'].replace(" ", "-")
-				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ pdfjsID+"""\" >""" + pdf['name'] + """</a>&emsp;"""				
-		#embeds
-		if('embed' in unitData[i]):
-			for embed in unitData[i]['embed']: 
-				embedID = embed['name'].replace(" ", "-")
-				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ embedID+"""\" >""" + embed['name'] + """</a>&emsp;"""
+			for content in unitData[i]['content']:
+				pdfjsID = content['name'].replace(" ", "-")
+				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ pdfjsID+"""\" >""" + content['name'] + """</a>&emsp;"""				
 		
-		#embed youtube
-		if('embedYoutube' in unitData[i]):
-			for embedYoutube in unitData[i]['embedYoutube']: 
-				embedID = embedYoutube['name'].replace(" ", "-")
-				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ embedID+"""\" >""" + embedYoutube['name'] + """</a>&emsp;"""
-
 		boxString += "</dd>"
     	#Assignments
 		boxString += """<dt>Due Dates</dt> \n"""
@@ -317,7 +306,7 @@ def create_unit_boxes():
 				else:
 					link +="assignments.html"
 					link += "\" target=\"_blank\">"+ assignment['name'] + "</a>"
-				#add due date of assignment based on unit-settings or, if not present, based on assignmentData
+				#add due date of assignment based on unit_settings or, if not present, based on assignmentData
 				assignmentDict = next((assnt for assnt in assignmentData if assnt["name"] == assignment['name']), False)
 				due = ""
 				if('due' in assignment):

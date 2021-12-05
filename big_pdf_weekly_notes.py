@@ -9,103 +9,108 @@ from os.path import isfile, join
 import linecache
 
 
-opening = r""" \documentclass[12pt, oneside]{article}
+# opening = r""" \documentclass[12pt, oneside]{article}
 
-\usepackage[letterpaper, scale=0.89, centering]{geometry}
-\usepackage{fancyhdr}
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
+# \usepackage[letterpaper, scale=0.89, centering]{geometry}
+# \usepackage{fancyhdr}
+# \setlength{\parindent}{0em}
+# \setlength{\parskip}{1em}
 
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+# \pagestyle{fancy}
+# \fancyhf{}
+# \renewcommand{\headrulewidth}{0pt}
+# \rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
 
-\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
-\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
-\usepackage[labelformat=empty]{caption}
-\usepackage[dvipsnames,table]{xcolor}
-\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+# \usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+# \usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+# \usepackage[labelformat=empty]{caption}
+# \usepackage[dvipsnames,table]{xcolor}
+# \usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
 
-\lstnewenvironment{algorithm}[1][] {   
-    \lstset{ mathescape=true,
-        frame=tB,
-        numbers=left, 
-        numberstyle=\tiny,
-        basicstyle=\rmfamily\scriptsize, 
-        keywordstyle=\color{black}\bfseries,
-        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
-        numbers=left,
-        xleftmargin=.04\textwidth,
-        #1
-    }
-}
-{}
-\lstnewenvironment{java}[1][]
-{   
-    \lstset{
-        language=java,
-        mathescape=true,
-        frame=tB,
-        numbers=left, 
-        numberstyle=\tiny,
-        basicstyle=\ttfamily\scriptsize, 
-        keywordstyle=\color{black}\bfseries,
-        keywords={, int, double, for, return, if, else, while, }
-        numbers=left,
-        xleftmargin=.04\textwidth,
-        #1
-    }
-}
-{}
+# \lstnewenvironment{algorithm}[1][] {   
+#     \lstset{ mathescape=true,
+#         frame=tB,
+#         numbers=left, 
+#         numberstyle=\tiny,
+#         basicstyle=\rmfamily\scriptsize, 
+#         keywordstyle=\color{black}\bfseries,
+#         keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+#         numbers=left,
+#         xleftmargin=.04\textwidth,
+#         #1
+#     }
+# }
+# {}
+# \lstnewenvironment{java}[1][]
+# {   
+#     \lstset{
+#         language=java,
+#         mathescape=true,
+#         frame=tB,
+#         numbers=left, 
+#         numberstyle=\tiny,
+#         basicstyle=\ttfamily\scriptsize, 
+#         keywordstyle=\color{black}\bfseries,
+#         keywords={, int, double, for, return, if, else, while, }
+#         numbers=left,
+#         xleftmargin=.04\textwidth,
+#         #1
+#     }
+# }
+# {}
 
-\newcommand\abs[1]{\lvert~#1~\rvert}
-\newcommand{\st}{\mid}
+# \newcommand\abs[1]{\lvert~#1~\rvert}
+# \newcommand{\st}{\mid}
 
-\newcommand{\A}[0]{\texttt{A}}
-\newcommand{\C}[0]{\texttt{C}}
-\newcommand{\G}[0]{\texttt{G}}
-\newcommand{\U}[0]{\texttt{U}}
+# \newcommand{\A}[0]{\texttt{A}}
+# \newcommand{\C}[0]{\texttt{C}}
+# \newcommand{\G}[0]{\texttt{G}}
+# \newcommand{\U}[0]{\texttt{U}}
 
-\newcommand{\cmark}{\ding{51}}
-\newcommand{\xmark}{\ding{55}}
+# \newcommand{\cmark}{\ding{51}}
+# \newcommand{\xmark}{\ding{55}}
 
  
-\begin{document}
+# \begin{document}
         
         
-        """
+#         """
 
-files = "notes/lessons"
+files = "generated/notes/lessons-flat"
 
 # key is week and value is activity snippets
 
-bigPDF = opening
+bigPDF = ""
 
 
 weekFiles = []
 for entry in os.scandir(files):
-    file = open(entry, 'r').readlines()
-    if (len(file) > 0) and ("Week" in entry.name):
-        weekFiles.append(entry.name)
+    if((".tex" in entry.name) and ("new-" not in entry.name)):
+        file = open(entry, 'r').readlines()
+        if (len(file) > 0) and ("Week" in entry.name):
+            weekFiles.append(entry.name)
     
     weekFiles = sorted(weekFiles)
     
-print(weekFiles)
-
+#print(weekFiles)
+fileCount = 0
 for thefiles in weekFiles:
-    file = open("notes/lessons/" + thefiles, 'r').readlines()
+    filename = "generated/notes/lessons-flat/" + thefiles
+    file = open("generated/notes/lessons-flat/" + thefiles, 'r').readlines()
+    fileCount+= 1
+    
     for line in file:
-            # print("end{document}" not in line)
-            if(("\input{../../resources/lesson-head.tex}" in line) or ("end{document}" in line)):
-                # bigPDF += line
-                # print(line)
-                num = 0
-            else:
-                bigPDF += line
+        # print("end{document}" not in line)
+        if((fileCount != 1) and 
+        (("\input{../../resources/lesson-head.tex}" in line) or ("end{document}" in line))):
+            # bigPDF += line
+            # print(line)
+            num = 0
+        else:
+            bigPDF += line
 
 
-bigPDF += "\n\end{document}"
+bigPDF += "\n\\end{document}"
 
 # print(bigPDF)
 

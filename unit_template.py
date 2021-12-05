@@ -4,49 +4,44 @@ import json
 from user_functions import *
 from create_zip import *
 
-# returns unit-settings JSON file as a dictionary
-unitData = json.loads(open("unit-settings.json").read())
+# returns unit_settings JSON file as a dictionary
+unitData = json.loads(open("unit_settings.json").read())
 
 #big for loop begin
 for i in range(0,len(unitData)):
     pdf=""
     tex=""
     html=""
-
+    embedString = ""
     #extract and format all PDFs and associated buttons
     pdfString="" 
-    if('pdfs' in unitData[i]):
+    if('content' in unitData[i]):
         # print("pdfs in "+str(i+1))
-        for j in range(len(unitData[i]['pdfs'])):
-            if(unitData[i]['pdfs'][j]['addExtensions']):
+        for j in range(len(unitData[i]['content'])):
+
+            #if source value ends with .tex extension, add pdf and html versions, and 
+            #create zip file of .tex file with its accompanying images 
+            if(unitData[i]['content'][j]['source'][-4:] == '.tex'):
                 #format all filenames 
-                pdf= "../output/lessons/"+unitData[i]['pdfs'][j]['file']+".pdf"
+                tex = ""
+                pdf = "../output/lessons/"+unitData[i]['content'][j]['source'].replace(".tex",".pdf")
+                html = "../output/lessons/"+unitData[i]['content'][j]['source'].replace(".tex",".html")
                 
                 #create zip files 
-                tex = zip_file(unitData[i]['pdfs'][j]['file'], "lessons-flat")
+                tex = zip_file(unitData[i]['content'][j]['source'].replace(".tex",""), "lessons-flat")
                 if(tex == None):
                     tex=""
-                
-                html="../output/lessons/"+unitData[i]['pdfs'][j]['file']+".html"
-            else:
-                pdf="../files/"+unitData[i]['pdfs'][j]['file']
 
-            #heading and PDF download button
-            pdfString += """<h2 tabindex = "2"> """+ unitData[i]['pdfs'][j]['name'] +"""</h2>
+                #heading and PDF download button, only PDF download button in this case 
+                pdfString += """<h2 tabindex = "2"> """+ unitData[i]['content'][j]['name'] +"""</h2>
                 <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
-        
-            #.tex/.html button
-            if( unitData[i]['pdfs'][j]['addExtensions']):
                 #.tex
                 pdfString += """ <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
                     href=""" + tex + """ download>LaTeX</a> """
                 #.html
                 pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
                     href= """ + html + """ target="HTML">Raw HTML</a>"""
-
-            pdfjsID =""
-            #Annotations on/off buttons 
-            if('annotatedFile' in unitData[i]['pdfs'][j]):
+                
                 pdfString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
                                 <span class="onoff">OFF</span>
                                             <input type="checkbox" />
@@ -54,50 +49,64 @@ for i in range(0,len(unitData)):
                                             </label> <br>"""
 
                 #id of pdf.js element formatting
-                pdfjsID = unitData[i]['pdfs'][j]['name'].replace(" ", "-")
+                pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
+
+                #annotatedFileName will be as such: for Week4.tex -> Week4-annotated.pdf
+                annotatedFileName= unitData[i]['content'][j]['source'].replace(".tex","")
+                annotatedFileName = annotatedFileName+"-annotated.pdf"
                 #annotations on
                 pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
-                 \""""+pdf+ """\",\"../files/"""+unitData[i]['pdfs'][j]['annotatedFile']+"""\", \""""+pdfjsID+ """\")}; </script>"""
+                 \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
                 
-
-            #if addExtensions is false, then the displayed pdf will be in the files directory 
-            if(not unitData[i]['pdfs'][j]['addExtensions']): 
-                #pdf.js embed from files
-                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
-                    title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
-            else:     
                 #pdf.js embed default 
                 pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
                 title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
+            
+            #if source value ends with .pdf, refer to the files directory  
+            elif (unitData[i]['content'][j]['source'][-4:] == '.pdf'):
+                pdf="../files/"+unitData[i]['content'][j]['source']
+
+                #heading and PDF download button, only PDF download button in this case 
+                pdfString += """<h2 tabindex = "2"> """+ unitData[i]['content'][j]['name'] +"""</h2>
+                <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
+
+                pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
+                #pdf.js embed from files
+                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
+                    title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
+            
+            
+            #if source value is a youtube link, embed it  
+            elif(("https://youtu.be" in unitData[i]['content'][j]['source'][:16] ) or 
+                ("https://www.youtube" in unitData[i]['content'][j]['source'][:19] )):
+                
+                youtubeEmbedLink = unitData[i]['content'][j]['source'].replace("https://youtu.be/","").replace("https://www.youtube.com/embed/","")
+                # print(youtubeEmbedLink)
+                embedID =  unitData[i]['content'][j]['source'].replace(" ","-")
+                embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['content'][j]['name']+"</h2>"
+                embedString += "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/"+youtubeEmbedLink+"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+                # print("src=\"https://www.youtube.com/embed/"+unitData[i]['embedYoutube'][j]['link']+"\"")
+
+            #else embed directly    
+            else : 
+                embedID =  unitData[i]['content'][j]['name'].replace(" ","-")
+                embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['content'][j]['name']+"</h2>"+ unitData[i]['content'][j]['source']+"\n"
+       
+
+            
+            
+            
+            
+            
+        
+
+
+
 
         #Information Section
         infoString = ""
         if('CalendarInfo' in unitData[i]): 
             infoString = "<dl><dt>" + unitData[i]['CalendarInfo'] + "</dt></dl>"
-#            infoString = "<dl><dt>"+ unitData[i]['calendarInfo'][0]+ "</dt>"   
-#            unitData[i]['calendarInfo']                 
-#            for k in range(1, len(unitData[i]['calendarInfo'])) :              
-#                infoString += "<dd>"+ unitData[i]['calendarInfo'][k] +"</dd>"
-#        infoString += "</dl>"
-
-    #Embedded links section
-    embedString = ""
-    if('embed' in unitData[i]):
-        # print("embed in "+str(i+1))
-        for j in range(len(unitData[i]['embed'])):
-            embedID =  unitData[i]['embed'][j]['name'].replace(" ","-")
-            embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embed'][j]['name']+"</h2>"+ unitData[i]['embed'][j]['embedCode']+"\n"
-    
-    
-    if('embedYoutube' in unitData[i]):
-        for j in range(len(unitData[i]['embedYoutube'])):
-            youtubeEmbedLink = unitData[i]['embedYoutube'][j]['link'].replace("https://youtu.be/","").replace("https://www.youtube.com/embed/","")
-            # print(youtubeEmbedLink)
-            embedID =  unitData[i]['embedYoutube'][j]['name'].replace(" ","-")
-            embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embedYoutube'][j]['name']+"</h2>"
-            embedString += "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/"+youtubeEmbedLink+"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            # print("src=\"https://www.youtube.com/embed/"+unitData[i]['embedYoutube'][j]['link']+"\"")
-
 
     #open unit_template html file and read it into a string 
     unit_template = open("templates/unit_template.html", "r")
@@ -119,9 +128,5 @@ for i in range(0,len(unitData)):
 #end for loop
 
 
-# Closing files
+#Closing files
 unit_template.close()
-
-
-
-    
