@@ -8,11 +8,11 @@ from create_zip import *
 unitData = json.loads(open("unit_settings.json").read())
 websiteSettings = json.loads(open("website-settings.json").read())
 
-
-
 titleArray = []
 idArray = []
 embedString = ""
+
+# Get all YouTube embed
 for i in range(0,len(unitData)):
     if('embedYoutube' in unitData[i]):
         for j in range(len(unitData[i]['embedYoutube'])): 
@@ -20,12 +20,8 @@ for i in range(0,len(unitData)):
             embedID =  unitData[i]['embedYoutube'][j]['name'].replace(" ","-")
             idArray.append(embedID)
 
-# print(titleArray)
-# print(idArray)
-
-# Alphabetical view on top
+# Overview on top
 embedString = ""
-
 embedString += "<p> Podcast: <a href =" + websiteData["Podcast"] + ">link</a>\n</p>"
 for i in range(0, len(titleArray)):
     embedString += "<p> "
@@ -34,21 +30,14 @@ for i in range(0, len(titleArray)):
     embedString += " </a>"
     embedString += " </p>\n"
 
-
-
-
+# Attach all youtube links
 for i in range(0,len(unitData)):
-
     if('embedYoutube' in unitData[i]):
         for j in range(len(unitData[i]['embedYoutube'])):
             youtubeEmbedLink = unitData[i]['embedYoutube'][j]['link'].replace("https://youtu.be/","").replace("https://www.youtube.com/embed/","")
-            # print(youtubeEmbedLink)
             embedID =  unitData[i]['embedYoutube'][j]['name'].replace(" ","-")
             embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embedYoutube'][j]['name']+"</h2>"
             embedString += "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/"+youtubeEmbedLink+"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            # print("src=\"https://www.youtube.com/embed/"+unitData[i]['embedYoutube'][j]['link']+"\"")
-
-# print(embedString)
 
 supplemental_videos_template = open("templates/supplemental_videos_template.html", "r")
 templateString = Template(supplemental_videos_template.read())
@@ -59,14 +48,10 @@ page_variables.update(dict(
     youtubelinks = embedString
 ))
 
-#substitute settings unitData with appropriate variables 
+# Substitute settings unitData with appropriate variables 
 result = templateString.substitute(page_variables)
 
-
 write_if_different("generated/website/supplemental_videos.html", result)
-
-#end for loop
-
 
 # Closing files
 supplemental_videos_template.close()

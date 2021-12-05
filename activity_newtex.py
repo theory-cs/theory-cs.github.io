@@ -4,72 +4,22 @@ import linecache
 from user_functions import *
 
 #TODO: use header file ... 
-opening = r""" \documentclass[12pt, oneside]{article}
+with open('resources/lesson-head.tex') as f:
+    lines = f.readlines()
 
-\usepackage[letterpaper, scale=0.89, centering]{geometry}
-\usepackage{fancyhdr}
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
+with open('resources/discrete-math-packages.tex') as f:
+    package = f.read()
 
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+for line in lines:
+    if("\input" in line):
+        idx = lines.index(line)
+        lines.pop(idx)
+        lines.insert(idx, package)
 
-\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
-\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
-\usepackage[labelformat=empty]{caption}
-\usepackage[dvipsnames,table]{xcolor}
-\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+opening = ""
+for line in lines:
+    opening += line
 
-\lstnewenvironment{algorithm}[1][] {   
-    \lstset{ mathescape=true,
-        frame=tB,
-        numbers=left, 
-        numberstyle=\tiny,
-        basicstyle=\rmfamily\scriptsize, 
-        keywordstyle=\color{black}\bfseries,
-        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
-        numbers=left,
-        xleftmargin=.04\textwidth,
-        #1
-    }
-}
-{}
-\lstnewenvironment{java}[1][]
-{   
-    \lstset{
-        language=java,
-        mathescape=true,
-        frame=tB,
-        numbers=left, 
-        numberstyle=\tiny,
-        basicstyle=\ttfamily\scriptsize, 
-        keywordstyle=\color{black}\bfseries,
-        keywords={, int, double, for, return, if, else, while, }
-        numbers=left,
-        xleftmargin=.04\textwidth,
-        #1
-    }
-}
-{}
-
-\newcommand\abs[1]{\lvert~#1~\rvert}
-\newcommand{\st}{\mid}
-
-\newcommand{\A}[0]{\texttt{A}}
-\newcommand{\C}[0]{\texttt{C}}
-\newcommand{\G}[0]{\texttt{G}}
-\newcommand{\U}[0]{\texttt{U}}
-
-\newcommand{\cmark}{\ding{51}}
-\newcommand{\xmark}{\ding{55}}
-
- 
-\begin{document}
-        
-        
-        """
 bigPDF = opening
 
 

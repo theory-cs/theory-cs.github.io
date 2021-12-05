@@ -8,12 +8,10 @@ from os import listdir
 from os.path import isfile, join
 import linecache
 
-
 # Open JSON files
 outcomeData = json.loads(open("outcomes.json").read())
 applicationData = json.loads(open("applications.json").read())
 num = "1234567890"
-
 
 # Outcome
 outcome = {}
@@ -155,11 +153,6 @@ for j in alphabet:
                     """
     content += "\n"
 
-# print(content)
-
-# content += """<p><a href="../output/activity-snippets/full-definition.pdf" download>Full defintion</a></p>"""
-# content += """<p><a href="../output/lessons/complete-week.pdf" download>Complete week file</a></p>"""
-
 glossary_template = open("templates/glossary_template.html", "r")
 templateString = Template(glossary_template.read())
 
@@ -174,4 +167,3 @@ result = templateString.substitute(page_variables)
 write_if_different("generated/website/glossary.html", result)
         
 glossary_template.close()
-

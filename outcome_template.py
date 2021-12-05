@@ -180,6 +180,5 @@ for big in outcomeData:
 
 #end for loop
 
-
 # Closing files
 outcome_template.close()
