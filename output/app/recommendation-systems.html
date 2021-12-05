@@ -232,5 +232,84 @@
 <p>For example, consider the function <span class="math inline">\(d_0: \phantom{the Cartesian product of the set of ratings on 3 movies with itself} \to \phantom{\mathbb{R}}\)</span> given by <span class="math display">\[d_0 (~(~ (x_1, x_2, x_3), (y_1, y_2, y_3) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2}\]</span></p>
 <p><span><em>Extra example:</em></span> A new movie is released, and <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> watch it before <span class="math inline">\(P_3\)</span>, and give it ratings; <span class="math inline">\(P_1\)</span> gives  and <span class="math inline">\(P_2\)</span> gives . Should this movie be recommended to <span class="math inline">\(P_3\)</span>? Why or why not?</p>
 <p><span><em>Extra example:</em></span> Define a new function that could be used to compare the <span class="math inline">\(4\)</span>-tuples of ratings encoding movie preferences now that there are four movies in the database.</p>
+<h1 class="unnumbered" id="ratings-encoding-1">Ratings encoding</h1>
+<p>In the table below, each row represents a user’s ratings of movies:  (check) indicates the person liked the movie,  (x) that they didn’t, and <span class="math inline">\(\bullet\)</span> (dot) that they didn’t rate it one way or another (neutral rating or didn’t watch). Can encode these ratings numerically with <span class="math inline">\(1\)</span> for  (check), <span class="math inline">\(-1\)</span> for  (x), and <span class="math inline">\(0\)</span> for <span class="math inline">\(\bullet\)</span> (dot).</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Person</th>
+<th style="text-align: center;">Fyre</th>
+<th style="text-align: center;">Frozen II</th>
+<th style="text-align: center;">Picard</th>
+<th style="text-align: center;">Ratings written as a <span class="math inline">\(3\)</span>-tuple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P_1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(P_2\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P_3\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(P_4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\bullet\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="defining-sets-1">Defining sets</h1>
+<p><span><em>To define sets:</em></span></p>
+<p>To define a set using <span><strong>roster method</strong></span>, explicitly list its elements. That is, start with <span class="math inline">\(\{\)</span> then list elements of the set separated by commas and close with <span class="math inline">\(\}\)</span>.</p>
+<p>To define a set using <span><strong>set builder definition</strong></span>, either form “The set of all <span class="math inline">\(x\)</span> from the universe <span class="math inline">\(U\)</span> such that <span class="math inline">\(x\)</span> is ..." by writing <span class="math display">\[\{x \in U \mid ...x... \}\]</span> or form “the collection of all outputs of some operation when the input ranges over the universe <span class="math inline">\(U\)</span>" by writing <span class="math display">\[\{ ...x... \mid x\in U \}\]</span></p>
+<p>We use the symbol <span class="math inline">\(\in\)</span> as “is an element of” to indicate membership in a set.<br />
+<span><strong>Example sets</strong></span>: For each of the following, identify whether it’s defined using the roster method or set builder notation and give an example element.</p>
+<ul>
+<li><p><span class="math inline">\(\{ -1, 1\}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{0, 0 \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{-1, 0, 1 \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{(x,x,x) \mid x \in \{-1,0,1\} \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{ \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{ x \in \mathbb{Z} \mid x \geq 0 \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{ x \in \mathbb{Z}  \mid x &gt; 0 \}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{\texttt{A},\texttt{C},\texttt{U},\texttt{G}\}\)</span><br />
+</p></li>
+<li><p><span class="math inline">\(\{\texttt{A}\texttt{U}\texttt{G}, \texttt{U}\texttt{A}\texttt{G}, \texttt{U}\texttt{G}\texttt{A}, \texttt{U}\texttt{A}\texttt{A}\}\)</span><br />
+</p></li>
+</ul>
+<h1 class="unnumbered" id="defining-functions-ratings-1">Defining functions ratings</h1>
+<p>Recall our representation of Netflix users’ ratings of movies as <span class="math inline">\(n\)</span>-tuples, where <span class="math inline">\(n\)</span> is the number of movies in the database. Each component of the <span class="math inline">\(n\)</span>-tuple is <span class="math inline">\(-1\)</span> (didn’t like the movie), <span class="math inline">\(0\)</span> (neutral rating or didn’t watch the movie), or <span class="math inline">\(1\)</span> (liked the movie).</p>
+<p>Consider the ratings <span class="math inline">\(P_1 = (-1, 0, 1)\)</span>, <span class="math inline">\(P_2 = (1, 1, -1)\)</span>, <span class="math inline">\(P_3 = (1, 1, 1)\)</span>, <span class="math inline">\(P_4 = (0,-1,1)\)</span></p>
+<p>Which of <span class="math inline">\(P_1\)</span>, <span class="math inline">\(P_2\)</span>, <span class="math inline">\(P_3\)</span> has movie preferences most similar to <span class="math inline">\(P_4\)</span>?</p>
+<p>One approach to answer this question: use <span><strong>functions</strong></span> to define distance between user preferences.</p>
+<p>For example, consider the function <span class="math inline">\(d_0: \phantom{the Cartesian product of the set of ratings on 3 movies with itself} \to \phantom{\mathbb{R}}\)</span> given by <span class="math display">\[d_0 (~(~ (x_1, x_2, x_3), (y_1, y_2, y_3) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2}\]</span></p>
+<p><span><em>Extra example:</em></span> A new movie is released, and <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> watch it before <span class="math inline">\(P_3\)</span>, and give it ratings; <span class="math inline">\(P_1\)</span> gives  and <span class="math inline">\(P_2\)</span> gives . Should this movie be recommended to <span class="math inline">\(P_3\)</span>? Why or why not?</p>
+<p><span><em>Extra example:</em></span> Define a new function that could be used to compare the <span class="math inline">\(4\)</span>-tuples of ratings encoding movie preferences now that there are four movies in the database.</p>
 </body>
 </html>
