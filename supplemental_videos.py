@@ -11,33 +11,30 @@ websiteSettings = json.loads(open("website-settings.json").read())
 titleArray = []
 idArray = []
 embedString = ""
+embedString += "<p> Podcast: <a href =" + websiteData["Podcast"] + ">link</a>\n</p>"
 
 # Get all YouTube embed
 for i in range(0,len(unitData)):
-    if('embedYoutube' in unitData[i]):
-        for j in range(len(unitData[i]['embedYoutube'])): 
-            titleArray.append(unitData[i]['embedYoutube'][j]['name'])
-            embedID =  unitData[i]['embedYoutube'][j]['name'].replace(" ","-")
-            idArray.append(embedID)
+    if('content' in unitData[i]):
+        for j in range(len(unitData[i]['content'])):
+            if(("https://youtu.be" in unitData[i]['content'][j]['source'][:16] ) or ("https://www.youtube" in unitData[i]['content'][j]['source'][:19] )):
+                youtubeEmbedLink = unitData[i]['content'][j]['source'].replace("https://youtu.be/","").replace("https://www.youtube.com/embed/","")
+                embedID =  unitData[i]['content'][j]['source'].replace(" ","-")
+                embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['content'][j]['name']+"</h2>"
+                titleArray.append(unitData[i]['content'][j]['name'])
+                idArray.append(embedID)
+                embedString += "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/"+youtubeEmbedLink+"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 
 # Overview on top
-embedString = ""
-embedString += "<p> Podcast: <a href =" + websiteData["Podcast"] + ">link</a>\n</p>"
-for i in range(0, len(titleArray)):
-    embedString += "<p> "
-    embedString += """<a href=\"supplemental_videos.html#""" + idArray[i] + """\">"""
-    embedString += titleArray[i]
-    embedString += " </a>"
-    embedString += " </p>\n"
+overview = ""
+for m in range(0, len(titleArray)):
+    overview += "<p> "
+    overview += """<a href=\"supplemental_videos.html#""" + idArray[m] + """\">"""
+    overview += titleArray[m]
+    overview += " </a>"
+    overview += " </p>\n"
 
-# Attach all youtube links
-for i in range(0,len(unitData)):
-    if('embedYoutube' in unitData[i]):
-        for j in range(len(unitData[i]['embedYoutube'])):
-            youtubeEmbedLink = unitData[i]['embedYoutube'][j]['link'].replace("https://youtu.be/","").replace("https://www.youtube.com/embed/","")
-            embedID =  unitData[i]['embedYoutube'][j]['name'].replace(" ","-")
-            embedString += "<h2 id=\""+embedID+"\">"+unitData[i]['embedYoutube'][j]['name']+"</h2>"
-            embedString += "<iframe height=\"600px\" width=\"100%\" src=\"https://www.youtube.com/embed/"+youtubeEmbedLink+"\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+embedString = overview + embedString
 
 supplemental_videos_template = open("templates/supplemental_videos_template.html", "r")
 templateString = Template(supplemental_videos_template.read())
