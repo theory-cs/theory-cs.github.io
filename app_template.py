@@ -57,9 +57,7 @@ for (k,v) in appData.items():
     #substitute settings appData with appropriate variables 
     result = templateString.substitute(page_variables)
 
-    resultFile = open("generated/website/"+file+".html", "w")
-    resultFile.write(result)
-    resultFile.close()
+    write_if_different("generated/website/" + file + ".html", result)
 
 #end for loop
 

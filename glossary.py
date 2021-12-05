@@ -171,10 +171,7 @@ page_variables.update(dict(
 #substitute settings unitData with appropriate variables 
 result = templateString.substitute(page_variables)
 
-
-resultFile = open("generated/website/glossary.html", "w")
-resultFile.write(result)
-resultFile.close()
+write_if_different("generated/website/glossary.html", result)
         
 glossary_template.close()
 

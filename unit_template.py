@@ -114,10 +114,7 @@ for i in range(0,len(unitData)):
     #substitute settings unitData with appropriate variables 
     result = templateString.substitute(page_variables)
 
-
-    resultFile = open("generated/website/"+'unit'+str(i+1)+".html", "w")
-    resultFile.write(result)
-    resultFile.close()
+    write_if_different("generated/website/"+'unit'+str(i+1)+".html", result)
 
 #end for loop
 

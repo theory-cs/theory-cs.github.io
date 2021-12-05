@@ -176,9 +176,7 @@ for big in outcomeData:
     	#substitute settings outcomeData with appropriate variables 
 		result = templateString.substitute(page_variables)
 	
-		resultFile = open("generated/website/"+outcomeData[big]['Children'][med]['file'], "w")
-		resultFile.write(result)
-		resultFile.close()
+		write_if_different("generated/website/"+outcomeData[big]['Children'][med]['file'], result)
 
 #end for loop
 

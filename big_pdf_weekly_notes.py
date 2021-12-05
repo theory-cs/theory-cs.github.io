@@ -109,6 +109,4 @@ bigPDF += "\n\end{document}"
 
 # print(bigPDF)
 
-resultFile = open("notes/lessons/complete-week.tex", "w")
-resultFile.write(bigPDF)
-resultFile.close()
+write_if_different("notes/lessons/complete-week.tex", bigPDF)

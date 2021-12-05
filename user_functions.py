@@ -225,8 +225,6 @@ for element in sidebarButtonsUnitData:
 	sidebarUnitButtonsContent += "</li>"
 
 
-
-
 sidebars = {
 	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overview_application.html", "Overview", "'bx bxs-shapes'", appButtonsContent,bool(False)),
 	'outcome': build_sidebar("index.html", websiteData['Global Class Name'], "overview_outcome.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent, bool(False)),
@@ -737,10 +735,8 @@ def substitute_template(input, output):
     
     # Substitute settings unitData with appropriate variables 
 	result = templateString.substitute(page_variables)
-	
-	resultFile = open("generated/website/" + output + ".html", "w")
-	resultFile.write(result)
-	resultFile.close()
+
+	write_if_different("generated/website/" + output + ".html", result)
     
     # Close files
 	templateOpener.close()

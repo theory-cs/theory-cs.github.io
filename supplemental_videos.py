@@ -63,9 +63,7 @@ page_variables.update(dict(
 result = templateString.substitute(page_variables)
 
 
-resultFile = open("generated/website/supplemental_videos.html", "w")
-resultFile.write(result)
-resultFile.close()
+write_if_different("generated/website/supplemental_videos.html", result)
 
 #end for loop
 

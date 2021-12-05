@@ -105,14 +105,7 @@ for filename in definition_array:
     strNew += "\n\end{document}"
     # print(strNew)
     
-    #TODO: call write_if_different before writing here. 
     write_if_different("generated/notes/activity-snippets-flat/" + filename, strNew)
-    # resultFile = open("generated/notes/activity-snippets-flat/" + filename, "w")
-    # resultFile.write(strNew)
-    # resultFile.close()
 
 bigPDF += "\n\end{document}"
 write_if_different("generated/notes/activity-snippets-flat/full-definition.tex", bigPDF)
-# resultFile = open("generated/notes/activity-snippets-flat/full-definition.tex", "w")
-# resultFile.write(bigPDF)
-# resultFile.close()

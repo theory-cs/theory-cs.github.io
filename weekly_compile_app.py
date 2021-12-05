@@ -148,18 +148,6 @@ for filename in os.listdir(weeklyDirectory):
 # debug: UNCOMMENT if want to see how the dictionary looks
 #print(appsDict)
 
-
-# def write_if_different(filename, contents):
-#     try:
-#         old_contents = open(filename).read()
-#         if old_contents == contents: return
-#     except FileNotFoundError:
-#         pass # If the file doesn't exist, continue so we can create it!
-#     result_file = open(filename, "w")
-#     result_file.write(contents)
-#     result_file.close()
-
-
 #Iterate through the dict
 for key in appsDict:
     # Only run if the key has elements
