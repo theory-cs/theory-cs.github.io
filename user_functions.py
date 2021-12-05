@@ -259,6 +259,7 @@ def create_unit_boxes():
 		unitNumber = i+1
     	#set appropriate variables for top calendar information section and title 
 		heading=unitData[i]['header']
+		
 		if('outcomes' in unitData[i]):
 			heading+=": " + unitData[i]['outcomes']
 		info=""
@@ -287,8 +288,9 @@ def create_unit_boxes():
 		#Learning Materials (link to contents on weekly page)
 		boxString += """<dt>Learning Materials</dt><dd>"""		
 		#pdfs
-		if('pdfs' in unitData[i]):
+		if('content' in unitData[i]):
 			for content in unitData[i]['content']:
+				print(content['name'])
 				pdfjsID = content['name'].replace(" ", "-")
 				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ pdfjsID+"""\" >""" + content['name'] + """</a>&emsp;"""				
 		
