@@ -1,4 +1,4 @@
- \documentclass[12pt, oneside]{article}
+\documentclass[12pt, oneside]{article}
 
 \usepackage[letterpaper, scale=0.89, centering]{geometry}
 \usepackage{fancyhdr}
@@ -16,8 +16,11 @@
 \usepackage[dvipsnames,table]{xcolor}
 \usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
 
-\lstnewenvironment{algorithm}[1][] {   
-    \lstset{ mathescape=true,
+% NOTE(joe): This environment is credit @pnpo (https://tex.stackexchange.com/a/218450)
+\lstnewenvironment{algorithm}[1][] %defines the algorithm listing environment
+{   
+    \lstset{ %this is the stype
+        mathescape=true,
         frame=tB,
         numbers=left, 
         numberstyle=\tiny,
@@ -59,11 +62,11 @@
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
 
- 
+
 \begin{document}
-        
-        
-        For a partial ordering, its {\bf Hasse diagram} is a graph whose nodes (vertices) are the elements of the 
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright}For a partial ordering, its {\bf Hasse diagram} is a graph whose nodes (vertices) are the elements of the 
 domain of the binary relation and which are located such that nodes connected to nodes
 above them by (undirected) edges indicate that the relation holds between the lower node and the higher node. 
 Moreover, the diagram omits self-loops and omits edges that are guaranteed by transitivity.

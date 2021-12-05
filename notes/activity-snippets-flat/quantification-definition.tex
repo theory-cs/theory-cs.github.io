@@ -1,4 +1,4 @@
- \documentclass[12pt, oneside]{article}
+\documentclass[12pt, oneside]{article}
 
 \usepackage[letterpaper, scale=0.89, centering]{geometry}
 \usepackage{fancyhdr}
@@ -16,8 +16,11 @@
 \usepackage[dvipsnames,table]{xcolor}
 \usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
 
-\lstnewenvironment{algorithm}[1][] {   
-    \lstset{ mathescape=true,
+% NOTE(joe): This environment is credit @pnpo (https://tex.stackexchange.com/a/218450)
+\lstnewenvironment{algorithm}[1][] %defines the algorithm listing environment
+{   
+    \lstset{ %this is the stype
+        mathescape=true,
         frame=tB,
         numbers=left, 
         numberstyle=\tiny,
@@ -59,11 +62,11 @@
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
 
- 
+
 \begin{document}
-        
-        
-        The {\bf universal quantification} of predicate $P(x)$ over
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright}The {\bf universal quantification} of predicate $P(x)$ over
 domain $U$ is the statement ``$P(x)$ for all values of $x$ in the domain $U$''
 and is written $\forall x P(x)$ or $\forall x \in U ~P(x)$. 
 When the domain is finite, universal quantification over the domain 

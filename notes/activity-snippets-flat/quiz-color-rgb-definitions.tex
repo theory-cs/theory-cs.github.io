@@ -1,4 +1,4 @@
- \documentclass[12pt, oneside]{article}
+\documentclass[12pt, oneside]{article}
 
 \usepackage[letterpaper, scale=0.89, centering]{geometry}
 \usepackage{fancyhdr}
@@ -16,8 +16,11 @@
 \usepackage[dvipsnames,table]{xcolor}
 \usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
 
-\lstnewenvironment{algorithm}[1][] {   
-    \lstset{ mathescape=true,
+% NOTE(joe): This environment is credit @pnpo (https://tex.stackexchange.com/a/218450)
+\lstnewenvironment{algorithm}[1][] %defines the algorithm listing environment
+{   
+    \lstset{ %this is the stype
+        mathescape=true,
         frame=tB,
         numbers=left, 
         numberstyle=\tiny,
@@ -59,11 +62,11 @@
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
 
- 
+
 \begin{document}
-        
-        
-        Colors can be described as amounts of red, green, and blue mixed together\footnote{This RGB representation
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright}Colors can be described as amounts of red, green, and blue mixed together\footnote{This RGB representation
 is common in web applications.  Many online tools are available to play around with mixing these colors, 
 e.g. \url{https://www.w3schools.com/colors/colors_rgb.asp}. }
 Mathematically, a color can be represented as a $3$-tuple $(r, g, b)$ where $r$
