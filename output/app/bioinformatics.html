@@ -206,58 +206,5 @@ The bases are elements of the set <span class="math inline">\(B  = \{\texttt{A},
 \end{array}\]</span></p>
 <p><span><em>Notation:</em></span> We call the set of bitstrings <span class="math inline">\(\{0,1\}^*\)</span>.</p>
 <p>Examples:</p>
-<h1 class="unnumbered" id="defining-sets-1">Defining sets</h1>
-<p><span><em>To define sets:</em></span></p>
-<p>To define a set using <span><strong>roster method</strong></span>, explicitly list its elements. That is, start with <span class="math inline">\(\{\)</span> then list elements of the set separated by commas and close with <span class="math inline">\(\}\)</span>.</p>
-<p>To define a set using <span><strong>set builder definition</strong></span>, either form “The set of all <span class="math inline">\(x\)</span> from the universe <span class="math inline">\(U\)</span> such that <span class="math inline">\(x\)</span> is ..." by writing <span class="math display">\[\{x \in U \mid ...x... \}\]</span> or form “the collection of all outputs of some operation when the input ranges over the universe <span class="math inline">\(U\)</span>" by writing <span class="math display">\[\{ ...x... \mid x\in U \}\]</span></p>
-<p>We use the symbol <span class="math inline">\(\in\)</span> as “is an element of” to indicate membership in a set.<br />
-<span><strong>Example sets</strong></span>: For each of the following, identify whether it’s defined using the roster method or set builder notation and give an example element.</p>
-<ul>
-<li><p><span class="math inline">\(\{ -1, 1\}\)</span><br />
-</p></li>
-<li><p><span class="math inline">\(\{0, 0 \}\)</span><br />
-</p></li>
-<li><p><span class="math inline">\(\{-1, 0, 1 \}\)</span><br />
-</p></li>
-<li><p><span class="math inline">\(\{(x,x,x) \mid x \in \{-1,0,1\} \}\)</span><br />
-</p></li>
-<li><p><span class="math inline">\(\{ \}\)</span><br />
-</p></li>
-<li><p><span class="math inline">\(\{ x \in \mathbb{Z} \mid x \geq 0 \}\)</span><br />
-</p></li>
-<li><p><span class="math inline">\(\{ x \in \mathbb{Z}  \mid x &gt; 0 \}\)</span><br />
-</p></li>
-<li><p><span class="math inline">\(\{\texttt{A},\texttt{C},\texttt{U},\texttt{G}\}\)</span><br />
-</p></li>
-<li><p><span class="math inline">\(\{\texttt{A}\texttt{U}\texttt{G}, \texttt{U}\texttt{A}\texttt{G}, \texttt{U}\texttt{G}\texttt{A}, \texttt{U}\texttt{A}\texttt{A}\}\)</span><br />
-</p></li>
-</ul>
-<h1 class="unnumbered" id="rna-motivation-1">Rna motivation</h1>
-<p>RNA is made up of strands of four different bases that encode genomic information in specific ways.<br />
-The bases are elements of the set <span class="math inline">\(B  = \{\texttt{A}, \texttt{C}, \texttt{U}, \texttt{G}\}\)</span>.</p>
-<p>Formally, to define the set of all RNA strands, we need more than roster method or set builder descriptions.</p>
-<h1 class="unnumbered" id="set-recursive-examples-1">Set recursive examples</h1>
-<p><span><strong>Definition</strong></span> The set of nonnegative integers <span class="math inline">\(\mathbb{N}\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
-\textrm{Basis Step: } &amp; \phantom{0 \in \mathbb{N}} \\
-\textrm{Recursive Step: } &amp; \phantom{\textrm{If } n \in \mathbb{N} \textrm{, then } n+1 \in \mathbb{N}}
-\end{array}\]</span></p>
-<p>Examples:</p>
-<p><span><strong>Definition</strong></span> The set of all integers <span class="math inline">\(\mathbb{Z}\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
-\textrm{Basis Step: } &amp; \phantom{0 \in \mathbb{Z}} \\
-\textrm{Recursive Step: } &amp; \phantom{\textrm{If } x \in \mathbb{Z} \textrm{, then } x+1 \in \mathbb{Z}
-\textrm{ and } x-1 \in \mathbb{Z}}
-\end{array}\]</span></p>
-<p>Examples:</p>
-<p><span><strong>Definition</strong></span> The set of RNA strands <span class="math inline">\(S\)</span> is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
-\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S, \texttt{U}\in S, \texttt{G}\in S \\
-\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
-\end{array}\]</span> where <span class="math inline">\(sb\)</span> is string concatenation.</p>
-<p>Examples:</p>
-<p><span><strong>Definition</strong></span> The set of bitstrings (strings of 0s and 1s) is defined (recursively) by: <span class="math display">\[\begin{array}{ll}
-\textrm{Basis Step: } &amp; \phantom{\lambda \in X} \\
-\textrm{Recursive Step: } &amp; \phantom{\textrm{If } s \in X \textrm{, then } s0 \in X \text{ and } s1 \in X}
-\end{array}\]</span></p>
-<p><span><em>Notation:</em></span> We call the set of bitstrings <span class="math inline">\(\{0,1\}^*\)</span>.</p>
-<p>Examples:</p>
 </body>
 </html>
