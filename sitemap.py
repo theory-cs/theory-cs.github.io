@@ -6,14 +6,13 @@ import linecache
 from user_functions import *
 
 files = "generated/website"
+websiteData = json.loads(open("website-settings.json").read())
 arr = []
 for entry in os.scandir(files):
     if entry.is_file():
         str = entry.name
         if("html" in str):
-            # print("https://discrete-math-for-cs.github.io/website/" + entry.name)
-            #TODO: make sure this can serve different URLs!! 
-            arr.append("https://discrete-math-for-cs.github.io/website/" + entry.name)
+            arr.append(websiteData["Domain Name"] + entry.name)
 # print(arr)
 
 with open('generated/website/sitemap.txt', 'w') as f:
