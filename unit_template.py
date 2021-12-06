@@ -3,9 +3,13 @@ from string import Template
 import json
 from user_functions import *
 from create_zip import *
+from os.path import exists
 
 # returns unit_settings JSON file as a dictionary
 unitData = json.loads(open("unit_settings.json").read())
+
+# returns website-settings JSON file as a dictionary
+websiteData = json.loads(open("website-settings.json").read())
 
 #big for loop begin
 for i in range(0,len(unitData)):
@@ -42,21 +46,25 @@ for i in range(0,len(unitData)):
                 pdfString += """ <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
                     href= """ + html + """ target="HTML">Raw HTML</a>"""
                 
-                pdfString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
-                                <span class="onoff">OFF</span>
-                                            <input type="checkbox" />
-                                            <span class="slider round" id="annotationsOnButton"></span>
-                                            </label> <br>"""
+               
 
                 #id of pdf.js element formatting
                 pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
 
                 #annotatedFileName will be as such: for Week4.tex -> Week4-annotated.pdf
                 annotatedFileName= unitData[i]['content'][j]['source'].replace(".tex","")
-                annotatedFileName = annotatedFileName+"-annotated.pdf"
-                #annotations on
-                pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
-                 \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
+                annotatedFileName = annotatedFileName+websiteData["Annotated"]+".pdf"
+
+                if(exists("files/"+annotatedFileName)):
+                    pdfString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
+                                <span class="onoff">OFF</span>
+                                            <input type="checkbox" />
+                        <span class="slider round" id="annotationsOnButton"></span>
+                        </label> <br>"""
+                    
+                    #annotations on
+                    pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
+                     \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
                 
                 #pdf.js embed default 
                 pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
@@ -71,6 +79,23 @@ for i in range(0,len(unitData)):
                 <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
 
                 pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
+                
+            
+                #annotatedFileName will be as such: for Week4.tex -> Week4-annotated.pdf
+                annotatedFileName= unitData[i]['content'][j]['source'].replace(".pdf","")
+                annotatedFileName = annotatedFileName+websiteData["Annotated"]+".pdf"
+                
+                if(exists("files/"+annotatedFileName)):
+                    pdfString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
+                                <span class="onoff">OFF</span>
+                                            <input type="checkbox" />
+                        <span class="slider round" id="annotationsOnButton"></span>
+                        </label> <br>"""
+                    
+                    #annotations on
+                    pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
+                     \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
+
                 #pdf.js embed from files
                 pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
                     title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
