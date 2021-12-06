@@ -36,8 +36,3 @@
         Description (str): description of the third tier outcome
         filename (str): pdf file which displays compiled snippets in which third tier outcome is featured 
             (format - do not include .pdf file extension)
-
-
-
-
-        
