@@ -342,7 +342,7 @@
         "header": "Week 9",
         "outcomes": "Relations and Modular Arithmetic",
         "CalendarInfo": " Dates: 11/22/21-11/26/21. No class on 11/26 due to UCSD Holiday (Thanksgiving).",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",

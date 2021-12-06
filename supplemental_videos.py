@@ -11,7 +11,7 @@ websiteSettings = json.loads(open("website-settings.json").read())
 titleArray = []
 idArray = []
 embedString = ""
-embedString += "<p> Podcast: <a href =" + websiteData["Podcast"] + ">link</a>\n</p>"
+podcast = "<p> Podcast: <a href =" + websiteData["Podcast"] + ">link</a>\n</p>"
 
 # Get all YouTube embed
 for i in range(0,len(unitData)):
@@ -34,7 +34,7 @@ for m in range(0, len(titleArray)):
     overview += " </a>"
     overview += " </p>\n"
 
-embedString = overview + embedString
+embedString = podcast + overview + embedString
 
 supplemental_videos_template = open("templates/supplemental_videos_template.html", "r")
 templateString = Template(supplemental_videos_template.read())
