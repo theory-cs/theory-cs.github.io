@@ -3,7 +3,7 @@
  where to make edits.
 
  Weekly instructor workflow: edit .tex files by selecting snippets and adding custom text, then 
- update unit_settings.json paths with current files.
+ update unit_settings.json with current files.
 
  JSON Settings files: 
  
@@ -16,6 +16,8 @@
     Feedback (str): iframe embed html code for a feedback form for website function and user experience
 
     Copyright Year + Copyright Name (str): copyright information
+
+
 
     IncludeUngroupedSnippets (boolean): flag
         if true: all snippets present in notes/activity-snippets will be added to the end of outcome/application compiled files (generated/notes/outcome or /app)
