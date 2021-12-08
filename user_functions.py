@@ -497,6 +497,14 @@ def create_title():
 	title = websiteData["Global Class Name"]
 	return title
 
+def create_course_offering_title():
+	course_title = websiteData["Course Offering Title"]
+	return course_title
+
+def create_term():
+	term = websiteData["Term"]
+	return term
+
 def create_assignment():
 #	assignmentData = json.loads(open("assignments.json").read())  #available globally now
 	templateString = ""
@@ -765,6 +773,8 @@ def create_site_variables():
 		'copyrightFooter': create_copyright(),
 		'feedbackForm': create_feedback(),
 		'mainTitle': create_title(),
+		'courseTitle': create_course_offering_title(),
+		'Term': create_term(),
 		'collapsibleMenu': create_assignment()
 	}
 
