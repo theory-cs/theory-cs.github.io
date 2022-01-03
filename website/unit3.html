@@ -128,34 +128,41 @@
             <h2 tabindex = "2"> Notes</h2>
                 <a tabindex = "2" class="button PDF" aria-label="Download PDF" href=../output/lessons/Week3.pdf download>PDF</a>  <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
                     href=../notes/lessons-flat/Week3.zip download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-                    href= ../output/lessons/Week3.html target="HTML">Raw HTML</a><div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
-                                <span class="onoff">OFF</span>
-                                            <input type="checkbox" />
-                        <span class="slider round" id="annotationsOnButton"></span>
-                        </label> <br> <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
-                     "../output/lessons/Week3.pdf","../files/Week3-annotated.pdf", "Week3.tex")}; </script> <br> <iframe class="PDFjs" id="Week3.tex" src="web/viewer.html?file=../../output/lessons/Week3.pdf" 
+                    href= ../output/lessons/Week3.html target="HTML">Raw HTML</a>
+                    <label class="switch">
+                    <input type="checkbox" id="toggle-1">
+                    <span class="slider round"></span>
+                    </label>
+                     <script> document.getElementById("toggle-1").onclick = function() {annotations(
+                     1, "../output/lessons/Week3.pdf","../files/Week3-annotated.pdf", "Week3.tex")}; </script> <br> <iframe class="PDFjs" id="Week3.tex" src="web/viewer.html?file=../../output/lessons/Week3.pdf" 
                 title="webviewer" frameborder="0" width="100%" height="600"></iframe> 
         </div>
         <script>
-			const toggle = document.querySelector('.toggle input')
-
-			toggle.addEventListener('click', () => {
-    		const onOff = toggle.parentNode.querySelector('.onoff')
-    		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
+			
+			const toggles = document.querySelector('.toggle input');
+			
+			toggles.addEventListener('click', () => {
+    		const onOff = toggles.parentNode.querySelector('.onoff')
+    		onOff.textContent = toggles.checked ? 'ON' : 'OFF'
 			})
 			
-			function annotations(notes, annotated,id) {
+			// const divs = document.querySelectorAll('.toggle input');
+
+			// divs.forEach(el => el.addEventListener('click', () => {
+    		// const onOff = el.parentNode.querySelector('.onoff')
+    		// onOff.textContent = el.checked ? 'ON' : 'OFF'
+			// }));
+			
+			function annotations(num, notes, annotated,id) {
 				var doc;
 				var drive;
-				const toggle = document.querySelector('.toggle input')
-				//0 value means annotations are off 
-				if (toggle.checked) {
-					doc = "web/viewer.html?file=../"+notes
+				if (document.getElementById('toggle-'+num).checked) {
+					doc = "web/viewer.html?file=../" +annotated
+					
 				} 
 
-				//1 value turns annotations on
 				else {
-					doc = "web/viewer.html?file=../" +annotated
+					doc = "web/viewer.html?file=../"+notes
 				}
 				
                 document.getElementById(id).src = doc;
