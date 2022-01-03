@@ -18,10 +18,12 @@ for i in range(0,len(unitData)):
     html=""
     embedString = ""
     #extract and format all PDFs and associated buttons
-    pdfString="" 
+    pdfString=""
     if('content' in unitData[i]):
         # print("pdfs in "+str(i+1))
+        elementCount = 0
         for j in range(len(unitData[i]['content'])):
+            elementCount +=1; 
 
             #if source value ends with .tex extension, add pdf and html versions, and 
             #create zip file of .tex file with its accompanying images 
@@ -56,15 +58,17 @@ for i in range(0,len(unitData)):
                 annotatedFileName = annotatedFileName+websiteData["Annotated"]+".pdf"
 
                 if(exists("files/"+annotatedFileName)):
-                    pdfString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
-                                <span class="onoff">OFF</span>
-                                            <input type="checkbox" />
-                        <span class="slider round" id="annotationsOnButton"></span>
-                        </label> <br>"""
+                    #annotations switch/toggle
+                    pdfString += """
+                    <label class="switch">
+                    <input type="checkbox" id="toggle-"""+str(elementCount)+"""">
+                    <span class="slider round"></span>
+                    </label>
+                    """
                     
                     #annotations on
-                    pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
-                     \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
+                    pdfString += """ <script> document.getElementById("toggle-"""+str(elementCount)+"""").onclick = function() {annotations(
+                     """+str(elementCount)+""", \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
                 
                 #pdf.js embed default 
                 pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
@@ -89,11 +93,12 @@ for i in range(0,len(unitData)):
                     pdfString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
                                 <span class="onoff">OFF</span>
                                             <input type="checkbox" />
-                        <span class="slider round" id="annotationsOnButton"></span>
+                        <span class="slider round" id="annotationsOnButton"""+str(elementCount)+""""></span>
                         </label> <br>"""
                     
+                   
                     #annotations on
-                    pdfString += """ <script> document.getElementById("annotationsOnButton").onclick = function() {annotations(
+                    pdfString += """ <script> document.getElementById("annotationsOnButton"""+str(elementCount)+"""").onclick = function() {annotations("""+str(elementCount)+""", 
                      \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
 
                 #pdf.js embed from files
