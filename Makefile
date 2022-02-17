@@ -28,7 +28,7 @@ generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/assignments/*.te
 	mkdir -p generated/notes
 	mkdir -p generated/notes/app
 	mkdir -p generated/notes/outcome
-	mkdir -p generated/notes/activity-snippets-flat
+#	mkdir -p generated/notes/activity-snippets-flat
 	python3 weekly_compile_app.py
 	python3 weekly_compile_outcome.py
 	touch generated/last-index.txt
@@ -108,8 +108,8 @@ generated/notes/%: notes/% ./notes/*/*
 	mkdir -p $@
 	cp -R $</ $@
 
-# # Directory notes/activity-snippets contains tex files for outcomes and outcomes 
-# generated-notes-activity-snippets: $(patsubst notes/activity-snippets/%,generated/notes/activity-snippets/%,$(wildcard notes/activity-snippets/*))
+# Directory notes/activity-snippets contains tex files for outcomes and outcomes 
+ generated-notes-activity-snippets: $(patsubst notes/activity-snippets/%,generated/notes/activity-snippets/%,$(wildcard notes/activity-snippets/*))
 
 # generated/notes/activity-snippets/%: notes/activity-snippets/%
 # 	mkdir -p generated/notes/activity-snippets
