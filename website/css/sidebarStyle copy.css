@@ -28,7 +28,7 @@
   }
 }
 .sidebar.open{
-  width: 20%;
+  width: 40%;
 }
 
 #unit.open{
@@ -41,7 +41,7 @@
   position: relative;
 }
 .sidebar .logo-details .icon{
-  opacity: 1;
+  opacity: 0;
   transition: all 0.5s ease;
 }
 .sidebar .logo-details .logo_name{

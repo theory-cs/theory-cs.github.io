@@ -48,4 +48,6 @@ bigPDF += "\n\\end{document}"
 
 # print(bigPDF)
 
-write_if_different("notes/lessons/complete-week.tex", bigPDF)
+# NOTE: changed line to store this .tex file in generated rather than in notes/lessons
+# write_if_different("notes/lessons/complete-week.tex", bigPDF)
+write_if_different("generated/notes/lessons/complete-week.tex", bigPDF)
