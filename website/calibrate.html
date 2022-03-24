@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+	<!-- logo on tab-->
+	<link rel="shortcut icon" href="../resources/images/wood-951875_960_720.jpeg" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="Cn_GGElo-cbNkuj65G4fN_F-MR20NoOdTx_rlckOEPU" />
+
+    <!-- import font -->
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>	
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Introduction to Theory of Computation">
+	<meta name="author" content="Mia Minnes">
+
+	<title>Theory of Computation</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!---Collapsible Menu-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="css/sidebarStyle.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!-- icons for side menu -->
+	<link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' >
+	<link rel="shortcut icon" href="../resources/images/wood-951875_960_720.jpeg" type="image/x-icon">
+</head>
+	
+
+<body>
+	<div class="content">
+
+		<!-- Insert sidebar -->
+		 <div class="sidebar"><div class="logo-details"><div class="logo_name">
+	<i class='bx bx-home-smile'></i> </div>  <a href=index.html class="logo_name">Theory of Computation</a> <!--NAME-->
+			<i class='bx bx-chevron-right' id="btn" ></i>
+			</div>
+			
+			<ul class="nav-list">
+			
+			<li>
+				<a href=overview_outcome.html aria-label="Go toOverview">
+					<i class='bx bxs-shapes'></i>
+					<span class="links_name">Overview</span>
+				</a>
+				<span class="tooltip">Overview</span>
+			</li><li><a href= "calibrate.html?box=1" aria-label="Go to Calibrate difficulty "><i><p class="icons">&nbsp;&nbsp;Cal</p></i><span class="links_name"> Calibrate difficulty</span></a><span class="tooltip"> Calibrate difficulty</span></li>
+<li><a href= "apply.html?box=1" aria-label="Go to Computability techniques "><i><p class="icons">&nbsp;&nbsp;Apply</p></i><span class="links_name"> Computability techniques</span></a><span class="tooltip"> Computability techniques</span></li>
+<li><a href= "classifylanguages.html?box=1" aria-label="Go to Classify languages "><i><p class="icons">&nbsp;&nbsp;CL</p></i><span class="links_name"> Classify languages</span></a><span class="tooltip"> Classify languages</span></li>
+<li><a href= "decisionproblems.html?box=1" aria-label="Go to Decision problems "><i><p class="icons">&nbsp;&nbsp;DP</p></i><span class="links_name"> Decision problems</span></a><span class="tooltip"> Decision problems</span></li>
+<li><a href= "automata.html?box=1" aria-label="Go to Automata "><i><p class="icons">&nbsp;&nbsp;A</p></i><span class="links_name"> Automata</span></a><span class="tooltip"> Automata</span></li>
+</ul> </div> 
+	        <script>
+		    let sidebar = document.querySelector(".sidebar");
+		    let closeBtn = document.querySelector("#btn");
+		
+		    closeBtn.addEventListener("click", ()=>{
+			    sidebar.classList.toggle("open");
+			    menuBtnChange();//calling the function(optional)
+		    });
+		
+		    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			    sidebar.classList.toggle("open");
+			    menuBtnChange(); //calling the function(optional)
+		    });
+		
+		    // following are the code to change sidebar button(optional)
+		    function menuBtnChange() {
+			    if(sidebar.classList.contains("open")){
+				    closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
+			    }
+			    else {
+				    closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
+			    }
+		    }
+	        </script>
+
+		<!-- Insert mobile sidebar-->
+		 <div id="mySidebar" class="collapsedSidebar">
+			<a href=index.html class="homeMobile"> Theory of Computation</a> <!--NAME-->
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
+			<a href=overview_outcome.html>Overview</a><a href= "calibrate.html"">Calibrate difficulty</a><a href= "apply.html"">Computability techniques</a><a href= "classifylanguages.html"">Classify languages</a><a href= "decisionproblems.html"">Decision problems</a><a href= "automata.html"">Automata</a> </div>
+
+		<div class="openbutton">
+			<button class="openbtn"  onclick="openNav()">☰ Menu</button> 
+		</div> 
+		  
+		<script>
+		  function openNav() {
+			document.getElementById("mySidebar").style.width = "100%";
+			document.getElementById("content").style.marginLeft = "100%";
+		  }
+		  
+		  function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("content").style.marginLeft= "0";
+		  }
+		</script>
+		
+	
+		<!-- Overview -->
+		<div class="row">
+			<div class="col-lg-12 text-left">
+				<h1 tabindex = "1">Calibrate difficulty</h1>
+				<h2>Learning Goal</h2>
+				<p>Prove that certain models of computation are equivalent and translate between them algorithmically.</p>
+			</div>
+		</div>
+
+        <div class="container" style="margin-left: 0px; padding: 0px;">
+            <h2>Subtopics</h2>
+
+            <div id="accordion">
+                <div class="box outcome"  id="box1"><button type="button" class="collapsible"
+			"> 
+<h2 style= "line-height:20px;"> <i id="sideBtn1" class='bx bx-caret-right'></i> 
+			Nondeterminism</h2> </button> <div class="boxContent" style="display: none;"> <hr> <p> Learning Goal: Explain nondeterminism and describe tools for simulating it with deterministic computation.</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+      		href=../output/outcome/Nondeterminism.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
+      		href= download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+      		href= ../output/outcome/Nondeterminism.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="Nondeterminism" src="web/viewer.html?file=../../output/outcome/Nondeterminism.pdf" 
+      		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div><div class="box outcome"  id="box2"><button type="button" class="collapsible"
+			"> 
+<h2 style= "line-height:20px;"> <i id="sideBtn2" class='bx bx-caret-right'></i> 
+			Church-Turing</h2> </button> <div class="boxContent" style="display: none;"> <hr> <p> Learning Goal: Explain the Church-Turing thesis and use it to operationalize the notion of algorithm.</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+      		href=../output/outcome/Church-Turing.pdf download>PDF</a> <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
+      		href= download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+      		href= ../output/outcome/Church-Turing.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="Church-Turing" src="web/viewer.html?file=../../output/outcome/Church-Turing.pdf" 
+      		title="webviewer" frameborder="0" width="100%" height="600"></iframe> </div></div><script>
+		
+			var coll = document.getElementsByClassName("collapsible");
+	  		var i;
+	
+	  		var boxValue;
+	  		url = window.location.href;
+	  		var qInd;
+	  		var valuesAdded = 0; 
+
+	 		for( i=0; i<url.length; i++){
+	   			if(url[i]==="="){
+					valuesAdded++;
+					i++; //go to value next to = 
+				//boxNumber must always be before expanded, 
+				// and both have one character values (0 or 1)
+		
+			if(valuesAdded == 1){
+				boxValue = url[i]; 
+			}
+				
+			}
+			}
+	
+			//debug
+			console.log("boxValue: "+boxValue);
+	
+			//open certain box based on query string values 
+			selectBox = "#box"+boxValue;
+			let sBox = document.querySelector(selectBox);
+			selectSideBtn= "#sideBtn"+boxValue;
+			let sSideBtn = document.querySelector(selectSideBtn);
+
+			coll[boxValue-1].style.background= "white";
+			sBox.style.background="white";
+			var content = coll[boxValue-1].nextElementSibling;
+			content.style.display = "block";
+			sSideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+	
+			for (i = 0; i < coll.length; i++) {
+			sideBtnString="#sideBtn";
+			sideBtnString+=(i+1);
+			boxString="#box";
+			boxString +=(i+1);
+			let sideBtn = document.querySelector(sideBtnString);
+			let box = document.querySelector(boxString);
+			let h2 = document.querySelector("h2");
+
+		
+
+  			coll[i].addEventListener("click", function() {
+    		this.classList.toggle("active");
+    		var content = this.nextElementSibling;
+    	
+			if (content.style.display === "block") {
+      			content.style.display = "none";
+				h2.style.lineHeight="20px";
+    		} 
+			else {
+      			content.style.display = "block";
+				h2.style.lineHeight="20px";
+    		}
+			if(this.classList.contains("active")){
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+			}
+			else {
+			sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+			}
+			});
+			}
+
+			function expandCollapseAll(bool, multiple) {
+			var coll = document.getElementsByClassName("collapsible");
+			var i;
+			for (i = 0; i < coll.length; i++) {
+			sideBtnString="#sideBtn";
+			sideBtnString+=(i+1);
+			boxString="#box";
+			boxString +=(i+1);
+			let sideBtn = document.querySelector(sideBtnString);
+			let box = document.querySelector(boxString);
+
+			//coll[i].classList.toggle("active");
+    		var content = coll[i].nextElementSibling;
+
+			if(bool==0){
+				//expand all 
+				content.style.display = "block";
+				sideBtn.classList.replace("bx-caret-right", "bx-caret-down");//replacing the icons class
+				coll[i].style.background= "white";
+				box.style.background="white";
+			}
+			else{
+				 //collapse all
+				content.style.display = "none";
+				sideBtn.classList.replace("bx-caret-down","bx-caret-right");//replacing the icons class
+				coll[i].style.background= "lightgray";
+				box.style.background="lightgray";
+			}
+				}
+
+				return bool;
+			}
+
+
+  			</script>
+            </div>
+            
+        </div>
+			
+	</div>
+
+    <!-- jQuery Version 1.11.1 -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
