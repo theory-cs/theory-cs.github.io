@@ -133,7 +133,7 @@ generated/website/%: custom-html/%
 # 	mkdir -p generated/website/css
 # 	cp $< $@
 
-# Building dynamic html pages based on unit template, outcome (TODO: rename as outcome) template
+# Building dynamic html pages based on unit template, outcome template
 # application template, and overview pages. These dynamic html pages are created
 # directly in the generated directory
 dynamic-pages: 

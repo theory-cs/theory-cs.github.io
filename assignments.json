@@ -1,12 +1,12 @@
 [
    {
-      "name": "hw1-definitions-and-notation-CSE20F21",
+      "name": "hw1-CSE105Sp22",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw1-sol-CSE20F21.pdf"
+      "solutionsFile": ""
    },
    {
-      "name": "project-CSE20F21",
+      "name": "project-CSE105Sp22",
       "addExtensions": true,
       "Information": "Part 1 due: 10/14/2021<br>Part 2 due: 11/4/2021<br>Part 3 due: 12/2/2021,<br>This is an Individual Assignment"
    }
