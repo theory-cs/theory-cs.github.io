@@ -1,9 +1,14 @@
+https://theory-cs.github.io/website/unit9.html
+https://theory-cs.github.io/website/unit5.html
 https://theory-cs.github.io/website/index.html
 https://theory-cs.github.io/website/feedback.html
 https://theory-cs.github.io/website/decidable-languages.html
+https://theory-cs.github.io/website/unit4.html
 https://theory-cs.github.io/website/complexity.html
 https://theory-cs.github.io/website/context-free-languages.html
+https://theory-cs.github.io/website/unit8.html
 https://theory-cs.github.io/website/overview_calendar.html
+https://theory-cs.github.io/website/unit3.html
 https://theory-cs.github.io/website/apply.html
 https://theory-cs.github.io/website/decisionproblems.html
 https://theory-cs.github.io/website/overview_outcome.html
@@ -15,6 +20,10 @@ https://theory-cs.github.io/website/automata.html
 https://theory-cs.github.io/website/supplemental_videos.html
 https://theory-cs.github.io/website/courseInfo.html
 https://theory-cs.github.io/website/calibrate.html
+https://theory-cs.github.io/website/unit7.html
+https://theory-cs.github.io/website/unit10.html
+https://theory-cs.github.io/website/unit11.html
+https://theory-cs.github.io/website/unit6.html
 https://theory-cs.github.io/website/undecidable-languages.html
 https://theory-cs.github.io/website/classifylanguages.html
 https://theory-cs.github.io/website/regular-languages.html

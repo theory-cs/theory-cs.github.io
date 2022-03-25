@@ -49,14 +49,16 @@
     <h1 style="margin-top: 100px;">Theory of Computation
     </h1>
     <h2>CSE105Sp22</h2>
-    <p>Is there a problem that NO computer can ever solve?<br>
-
+    <h3>
+      Is there a problem that NO computer can ever solve?<br>
+      
       What resources are needed to solve a problem?<br>
       
-      Are some problems harder than others? <br></p>
+      Are some problems harder than others? <br>
+    </h3>
     <p>In this course, we will explore what it means to be "computable". We begin with a very simple model of
       computation, and work our way to the most powerful, the Turing machine, named after 
-      <a href= "http://www.bbc.co.uk/history/people/alan_turing">Alan Turing</a>, 
+      <strong>Alan Turing</strong>, 
       who formalized the notion of "algorithm" <i>even before there were any physical computers</i>.
       You'll also learn about the relationship of these models to some essential tools in a computer 
       scientist's toolkit, such as regular expressions and context-free grammars. Finally, you'll develop 
@@ -72,7 +74,9 @@
       <a href="https://piazza.com/ucsd/spring2022/cse105/home" aria-label="Go to Piazza">on Piazza</a>; 
       one thing Piazza is particularly good for is finding homework group mates. Some of the homework in 
       this class will be group-work optional; students in previous versions of the class often found group
-      conversations helped them learn the material more deeply, and were fun.
+      conversations helped them learn the material more deeply, and were fun. Choosing to
+      engage in groupwork is also supported by current work in CS Education Research: 
+      <a href="https://dl.acm.org/doi/10.1145/3478431.3499286" target="_blank">https://dl.acm.org/doi/10.1145/3478431.3499286</a>.
     </p>
   </div>
   <!-- Syllabus -->
@@ -110,7 +114,7 @@
       </li>
       <li>Discussion sections will include a review
         of the lecture material for the week and example problems. They are
-        scheduled for Wednesdays 5pm-5:50pm in Galbraith 242.</li>
+        scheduled for Mondays at noon in WLH 2001.</li>
       <li>We learn by doing: your primary out-of-class work for this class will be weekly
         homework assignments and a project, along with a final exam. These assessments will
         be your opportunity to practice using precise tools to represent and solve technical
@@ -139,38 +143,53 @@
           <center>
             <p class="lead">CSE105Sp22 TAs</p>
 
-            <div class="col-lg-3 col-md-3 col-xs-4">
+            <div class="col-lg-4 col-md-4 col-xs-6">
               <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/MananGandhi.jpg" alt="TA image"
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg" alt="TA image"
                   style="height:100px">
-                <figcaption>Manan Gandhi</fig>
+                <figcaption>Satvik Gupta</fig>
               </a>
             </div>
             
-            <div class="col-lg-3 col-md-3 col-xs-4">
+            <div class="col-lg-4 col-md-4 col-xs-6">
               <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/IMG_9301.jpeg" alt="TA image"
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg" alt="TA image"
                   style="height:100px">
-                <figcaption>Will Powers</fig>
+                <figcaption>Tony Hu</fig>
               </a>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-xs-4">
+            <div class="col-lg-4 col-md-4 col-xs-6">
               <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/IMG_3030.jpg" alt="TA image"
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg" alt="TA image"
                   style="height:100px">
-                <figcaption>Vidya Raghvendra</fig>
+                <figcaption>Ashley Jacobs</fig>
               </a>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-xs-4">
+            <div class="col-lg-4 col-md-4 col-xs-6">
               <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/IMG_9639.jpg" alt="TA image"
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg" alt="TA image"
                   style="height:100px">
-                <figcaption>Huiyu Wang</fig>
+                <figcaption>Koya Reddy</fig>
               </a>
             </div>
 
+            <div class="col-lg-4 col-md-4 col-xs-6">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg" alt="TA image"
+                  style="height:100px">
+                <figcaption>Rachel Lim</fig>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-xs-6">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg" alt="TA image"
+                  style="height:100px">
+                <figcaption>Krys Weeton</fig>
+              </a>
+            </div>
           </center>
         </div>
 
@@ -178,23 +197,23 @@
           <center>
             <p class="lead">CSE105Sp22 Tutors</p>
 
-            <div class="col-lg-3 col-md-3 col-xs-4">
+            <div class="col-lg-4 col-md-4 col-xs-6">
               <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/avatarruoyu.jpg" alt="Tutor image"
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg" alt="Tutor image"
                   style="height:100px">
-                <figcaption>Ruoyu Hou</fig>
+                <figcaption>Luis Arroyo Ramirez</fig>
               </a>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-xs-4">
+            <div class="col-lg-4 col-md-4 col-xs-6">
               <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/Profile_Photo.jpg" alt="Tutor image"
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg" alt="Tutor image"
                   style="height:100px">
-                <figcaption>Albert Li</fig>
+                <figcaption>Wilson Do</fig>
               </a>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-xs-4">
+            <div class="col-lg-4 col-md-4 col-xs-6">
               <a href="#team" class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="../resources/images/IMG_5148.JPG" alt="Tutor image"
                   style="height:100px">
@@ -202,62 +221,21 @@
               </a>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-xs-4">
+            <div class="col-lg-4 col-md-4 col-xs-6">
               <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/AlexandraMichael_Fall2017-cropped.jpg"
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg"
                   alt="" style="height:100px">
-                <figcaption>Alexandra Michael</fig>
+                <figcaption>Vicente Montoya Hernandez</fig>
               </a>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-xs-4">
+            <div class="col-lg-4 col-md-4 col-xs-6">
               <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/ProfilePicJPG.JPG" alt="Tutor image"
+                <img class="img-fluid img-thumbnail" src="../resources/images/bulb_w100.jpg" alt="Tutor image"
                   style="height:100px">
-                <figcaption>Andrew Oabel</fig>
+                <figcaption>Alex Wu</fig>
               </a>
             </div>
-
-            <div class="col-lg-3 col-md-3 col-xs-4">
-              <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/image_6487327.JPG" alt="Tutor image"
-                  style="height:100px">
-                <figcaption>Kyeling Ong</fig>
-              </a>
-            </div>
-
-            <div class="col-lg-3 col-md-3 col-xs-4">
-              <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/Shao.Xiyan.jpg" alt="Tutor image"
-                  style="height:100px">
-                <figcaption>Xiyan Shao</fig>
-              </a>
-            </div>
-
-            <div class="col-lg-3 col-md-3 col-xs-4">
-              <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/Fall.jpg" alt="" style="height:100px">
-                <figcaption>Pankita Tibrewala</fig>
-              </a>
-            </div>
-
-            <div class="col-lg-3 col-md-3 col-xs-4">
-              <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/Brian_profile_pic.jpg" alt="Tutor image"
-                  style="height:100px">
-                <figcaption>Brian Wang</fig>
-              </a>
-            </div>
-
-            <div class="col-lg-3 col-md-3 col-xs-4">
-              <a href="#team" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../resources/images/Merlin.png" alt="Tutor image"
-                  style="height:100px">
-                <figcaption>Merlin Zhang</fig>
-              </a>
-            </div>
-
-
           </center>
         </div>
       </div>
@@ -277,8 +255,8 @@
   <div class="row" style="margin-left: 5%;margin-right: 5%;">
     <h2>Resources</h2>
 
-    <p>We encourage you to work on homework in groups of up to three CSE 105 classmates. To find group members: reach out
-      to
+    <p>We encourage you to work on homework in groups of up to three CSE 105 classmates. 
+      To find group members: reach out to
       people sitting around you in class, in discussion section, or during office hours. The pre-survey
       also asks if you want help finding group members: the CSE 105 instructional team can help you connect with
       other students. Working within the campus safety guidelines, you may choose to meet with your
@@ -297,21 +275,94 @@
     <h3>Textbook and supplies</h3>
 
     <p>
-      We will provide all required material for this class on this website. 
-      There is no required textbook for this class. Lecture
-      material is available in PDF and html formats so you can download and annotate or print
+      Lecture material is available in PDF and html formats so you can download and annotate or print
       it if you'd like. In class, we'll work through examples. Some of these examples
       will have multiple choice questions so you can test and deepen your understanding.
       Other examples will be open-ended problems to practice the critical thinking and communication
       skills we are developing in CSE 105.
     </p>
 
-    <p> Previous versions of the course used reference textbooks, including
-      <em>Discrete Mathematics and its Applications</em> by Kenneth Rosen, which
-      has <a href="http://highered.mheducation.com/sites/0073383090/student_view0">online
-        self-assessments and extra examples</a>.</li>
-    </p>
-
+    <p>The <b>required</b> textbook for this course is <b>Sipser, Michael </b> &nbsp; 
+      <i>Introduction to the Theory of Computation </i>
+            I highly recommend this book for the class - it's very well-written and we'll be using it extensively.
+      
+      A digital copy may be available through Cengage unlimited (linked from Canvas). 
+      For a physical copy, the Third Edition (international) of this book is available at the UCSD Bookstore 
+      for approximately 20 dollars. I also have a number of copies of the textbook available to borrow for the term 
+      if you have difficulty accessing the book. Please reach out (minnes@eng.ucsd.edu) to arrange a time to 
+      pick up a copy.</p>
+      
+      <p>To brush up on proofs, use:  Richard Hammack, <i> Book of Proof, 2nd ed.</i> 
+        (available for download <a href="http://www.people.vcu.edu/~rhammack/BookOfProof" target="_blank"> here</a>).
+      </p>
+      
+      
+      <p>There are multiple  tools to help you visualize and test finite state machines, the foundational computer models 
+      we are studying in this class.  
+      We will support two of these tools in CSE 105 this quarter: JFLAP and flap.js. JFLAP was developed starting in the 1990 
+      by a team led by Susan Rodger (RPI, then Duke).  It is now a mature tool with a lot  of functionality. Some  
+      of the conventions and notation it uses  differ from the  course textbook for  CSE 105. 
+      The second tool, flap.js, is a webapp under development by a group of UCSD students that is being piloted in CSE 105. 
+      It is being customized  for use in this class.  Let me know 
+      if you're interested in joining the development team for flap.js to help future CSE 105 students.</p>
+      
+      <h4>flap.js</h4>
+      <p>The homepage for the tool is at <a href="https://flapjs.github.io/FLAPJS-WebApp//" target="_blank">https://flapjs.github.io/FLAPJS-WebApp/</a>; a 
+      <a href="https://github.com/flapjs/FLAPJS-WebApp/blob/master/docs/HELP.md" target="_blank">detailed tutorial</a> is  available here. 
+      It currently has many features for designing and working with DFA and NFA.  The module on PDA allows you to draw state diagrams.</p>
+      
+      <h4>JFLAP</h4>
+      <p>The homepage for the tool is at <a href="http://www.jflap.org/" target="_blank">www.jflap.org</a>; the current 
+      stable version is version 7.1.</p>
+      
+      <h5>Basic installation and configuration</h5> 
+      <p>For those who already have Java Virtual Machine installed. NOTE: you should be able to install JFLAP on systems with 
+        JVM even if you don't have install/Administrator rights.
+      <ul>
+      <li>Download the <a href="http://www2.cs.duke.edu/csed/jflap/log/form.php" target="_blank">JFLAP.jar file</a> from Duke University.</li>
+      <li>Double-click it to run JFLAP. If it doesn't launch, that probably means you don't have JVM installed. See instructions below.</li>
+      <li>Go to Preferences, then select "Set the Empty String Character," and change it from "Lambda" to "Epsilon." 
+        This will make JFLAP match the notation we use in the book and in class for the empty string character.</li>
+      </ul>
+      <h5>If you don't already have JVM (Java Virtual Machine) installed on your computer</h5>
+      <p>You'll need to get the JVM in order to run JFLAP. You will need install/Administrator rights to do this. To install:
+      <ul>
+      <li>Go <a href="https://java.com/en/download/" target="_blank">here</a> for the latest version of Java.</li>
+      <li>Download JDK 8 for your personal machine.</li>
+      <li>After downloading, run the file (double-click) to install.</li>
+      <li>After the install is finished, you may need to reboot.</li>
+      <li>Now follow the "Basic Install and Configuration" instructions above to install and configure JFLAP.</li>
+      </ul>
+      </p>
+      <h5><b>Frequently asked questions about JFLAP</b></h5>
+      <p><b>Regular Expressions</b> Do not use whitespace in your regular expressions unless a 
+        space is a valid symbol in the alphabet. JFLAP uses a + symbol instead of the U used in the textbook 
+      to indicate union.</p>
+      
+      <p><b>Start and Accept States</b> Don't forget to specify these when drawing your automata!</p>
+      
+      <p><b>Multiple Transitions</b> If you need multiple possible inputs for the same arrow in your diagram 
+        (e.g. if you can move between states on either a 0 or a 1), this is done by creating separate edges in JFLAP 
+        for each input symbol. JFLAP will combine these into one arrow on your diagram. Automata with transitions 
+        labeled with a comma (e.g. "0,1") are not equivalent, because those transitions will not be followed unless 
+        "0,1" actually appears in your input string.</p>
+      
+      <p><b>Empty String</b> In class and in the text, we use ε (epsilon) to denote the empty string. The instructions 
+        above help you change the JFLAP default λ (lambda) to match our conventions. If you need a state transition 
+        (or a stack symbol for PDA's) for ε, do not enter any characters into the text box for that transition and ε will appear. 
+        Entering a space does not work; that transition will be followed only if the input string has a space on it. 
+        Similarly, entering E or "epsilon" will not work because JFLAP will try to match those exact symbols in your 
+        input string for the transition.</p>
+      
+      <p><b>Push Down Automata</b> Each transition has three labels: an input symbol, a stack symbol to pop, 
+        and a stack symbol to push. JFLAP uses the semicolon (;) instead of a right arrow to separate the stack symbols. 
+        Any of the three labels can be the empty string. Settings: Your PDAs should be "Single Character Input" 
+        (this option appears when you first create an automaton), and they should accept by final state, not by empty stack.</p>
+      
+      <p><b>Context Free Grammars</b> If you have a production rule of the form "S -> A | B", enter it as two rules 
+        "S -> A" and "S -> B".</p>
+      
+      
     <h3>Typesetting (LaTeX) Resources</h3>
     <p>All submitted homework for this class must be typed. Diagrams may be hand-drawn and
       scanned and included in the typed document. You can use a word processing editor if you
@@ -349,21 +400,18 @@
     <h2 style="line-height: 20px;"><br><br>Grading and academic integrity<br><br><br></h2>
 
     <p>Grades in this class are designed to reflect your work and to document evidence of your learning this core
-      material. They are also designed to accommodate the ongoing impacts of the
-      pandemic and to allow flexibility in the face of uncertain public health situations.
-      By working together to explore the CSE 20 material with integrity, we can each help ensure a <b>fair</b> and
-      <b>interesting</b>
+      material.
       quarter of building the foundations needed for your continued development in Computer Science.
       Please reach out to me (minnes@eng.ucsd.edu) if you have extenuating circumstances that you think will impede your
-      ability to participate in the planned CSE 20 activities; I'd like to work out a solution together.
+      ability to participate in the planned CSE 105 activities; I'd like to work out a solution together.
     </p>
 
     <p>
-      The graded components for CSE 20 will be Review quizzes, Homework, Project, and Final exam.
-      Your overall grade for CSE 20 will be computed using the weights
+      The graded components for CSE 105 will be Review quizzes, Homework, Project, and Final exam.
+      Your overall grade for CSE 105 will be computed using the weights
     <ul style="margin-left: 4%; font-size:150%;">
       <li><a href="http://www.gradescope.com" aria-label="Go to Gradescope"><b>Review quizzes</b></a>: 
-        25% of overall score. You will need to achieve a passing grade
+        15% of overall score. You will need to achieve a passing grade
         (70%) with integrity on the
         review quiz component of this class to pass this course.<br><br>
 
@@ -375,12 +423,12 @@
         the three quizzes each week are all due on Friday (with late submission open until Sunday; 
         no penalty for late submission of quizzes).
         The lowest three quiz scores will not be
-        included in your overall review quiz average. You can collaborate with other CSE 20
+        included in your overall review quiz average. You can collaborate with other CSE 105
         students on review quizzes and you can ask questions about them in public
         posts on Piazza and in drop-in help hours.<br><br>
 
       </li>
-      <li><a href="assignments.html" aria-label="Go to assignments page"><b>Homework</b></a>: 30% of overall score. You will need to achieve a passing grade
+      <li><a href="assignments.html" aria-label="Go to assignments page"><b>Homework</b></a>: 35% of overall score. You will need to achieve a passing grade
         (70%) with integrity on the homework
         component of this class to pass this course.<br><br>
 
@@ -398,7 +446,7 @@
         by selecting their name(s) in the "Add Group Members" dialog box. You will need to re-add your group member(s)
         every time you resubmit a new version of your assignment. Each homework question will be graded either for
         <b>correctness</b> (including clear and precise explanations and justifications of all answers) or
-        <b>fair effort completeness</b>. You may only collaborate on HW with CSE 20 students in your group; if your
+        <b>fair effort completeness</b>. You may only collaborate on HW with CSE 105 students in your group; if your
         group has questions about a HW problem, you may ask in drop-in help hours or post a private
         post (visible only to the Instructors) on Piazza.<br><br>
       </li>
@@ -415,9 +463,9 @@
         and can be less stressful for students than in-person midterm exams. Asynchronous project
         submission also gives flexibility and allows more physical distancing.<br><br>
       </li>
-      <li><a href="overview_calendar.html" aria-label="Go to class calendar"><b>Final</b></a>: 15% of overall score.</li>
+      <li><a href="overview_calendar.html" aria-label="Go to class calendar"><b>Final</b></a>: 20% of overall score.</li>
 
-      <em>Why?</em> To review the entire quarter and solidify your understanding of CSE 20's foundational
+      <em>Why?</em> To review the entire quarter and solidify your understanding of CSE 105's foundational
       material.</em><br>
 
       <em>How?</em> Cumulative test on class content during exam week.
@@ -428,7 +476,7 @@
     <p>The UC San Diego Academic Integrity pledge is
       <a href="https://academicintegrity.ucsd.edu/forms/form-pledge.html" target="_blank">here</a>.
       Academic integrity violations will be taken seriously and reported to the campus-wide Academic Integrity Office.
-      Key facts about academic integrity related to CSE 20:
+      Key facts about academic integrity related to CSE 105:
     <ul style="margin-left: 4%; font-size:150%;">
       <li>Use only resources explicitly allowed for each assignment. Resources not affiliated with this quarter's
         version of the class may use inconsistent notation or definitions. If you need help, please reach out to the
@@ -448,7 +496,7 @@
     </p>
 
     <p>UCSD has fantastic resources to support your learning, with integrity. Of course, the instructional
-      team for CSE 20 is here to help you navigate the course content. The
+      team for CSE 105 is here to help you navigate the course content. The
       <a href="http://jacobsschool.ucsd.edu/idea/" aria-label="Go to IDEA Center" target="_blank">
         Jacobs School of Engineering IDEA Center</a> organizes group study sessions and can connect
       you with student organizations.
@@ -515,30 +563,6 @@
       for pay, including tutoring services. This is considered solicitation for business and is 
       strictly prohibited by University policy.</p>
 
-    <h3>Educational Research</h3>
-
-    <p>This class is participating in research to understand an array of specific classroom and learning experience that
-      students have in response to the pedagogical and curricular decisions instructors make and to address the
-      following research questions:</p>
-    <ul style="margin-left: 4%; font-size:150%;">
-      <li>What pedagogies lead to better learning outcomes, and for which students?</li>
-      <li>What educational practices increase the persistence and success of students, particularly those from
-        underrepresented groups?</li>
-      <li>What student practices lead to increased learning and success in real-world settings?</li>
-    </ul>
-    <p>Answers to these questions will inform teaching practice at UC San Diego, and also have the potential to
-      contribute
-      to the global knowledge base of how to improve student learning in a large university setting.
-      Specifically for this quarter, CSE 20 is participating in a project on
-      retention and sense of community in UCSD majors; see
-      <a href="../../files/CSInclusiveMentoringConsentFormNonCSEDataAnalysis.pdf" target="_blank">
-        research plan</a>.
-
-      If you consent to participate in this study, no action is needed.
-      If you DO NOT consent to participate in this study, or you choose to opt-out at any
-      time during the academic year, sign and submit this form to the research contact
-      at <a href="mailto:retentionstudy@cs.ucsd.edu">retentionstudy@cs.ucsd.edu</a>.
-    </p>
   </div>
 
 
@@ -546,7 +570,7 @@
   <div class="row" style="margin-left: 5%;margin-right: 5%;">
 
     <h2>Learning goals</h2>
-    <p>You can find the learning outcomes for CSE 20 in this
+    <p>You can find the learning outcomes for CSE 105 in this
       <a href="overview_outcome.html" aria-label="Go to Learning Outcomes Overview page">overview page</a>.
     </p>
 
