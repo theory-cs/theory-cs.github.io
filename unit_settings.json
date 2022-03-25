@@ -2,7 +2,7 @@
     {
         "header": "Week 1",
         "outcomes": "Alphabet, languages, and expressions",
-        "CalendarInfo": " Dates: 3/28/22 - 4/1/22<br> Welcome! See you Monday in Warren Lecture Hall. Please take our <a href=\"https://forms.gle/gvibFnNixxqcWbaU8\" target=\"_blank\">pre-class survey.</a> ",
+        "CalendarInfo": " Dates: 3/28/22 - 4/1/22<br> Welcome! See you Monday in Warren Lecture Hall. Please take our <a href=\"https://forms.gle/p4Jq6Lr9tyskfRnJA\" target=\"_blank\">pre-class survey.</a> Classes Monday, Wednesday, Friday at 9am; No discussion section in week 1.",
         "ExpandInCalendar": true,
         "content": [
             {
@@ -15,38 +15,317 @@
             },
             {
                 "name": "Lecture Hall",
-                "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!w/32.8738,-117.24095,0;32.88187,-117.23338,0;0\" frameborder=\"0\"></iframe>"
-            },
-            {
-                "name": "(Video) Course Intro",
-                "source": "https://www.youtube.com/embed/2KbOaCLS-cQ"
+                "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/553665\" frameborder=\"0\"></iframe>"
             }
-
         ],
 
         "Due Dates": [
             {
                 "name": "Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "10/1/21 at 5pm"
+                "due": "4/1/22 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 2",
+        "outcomes": "Regular languages and nondeterminism",
+        "CalendarInfo": " Dates: 4/4/22 - 4/8/22",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week2.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            },
+            {
+                "name": "Discussion Section: Mondays in WLH 2001",
+                "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/553665\" frameborder=\"0\"></iframe>"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw1CSE105Sp22",
+                "due": "4/7/22 at 5pm (no penalty late submission until 8am next morning)"
+            },
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "4/8/22 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 3",
+        "outcomes": "Automata constructions and nonregular languages",
+        "CalendarInfo": " Dates: 4/11/22 - 4/15/22",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week3.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            },
+            {
+                "name": "Discussion Section: Mondays in WLH 2001",
+                "source": "<p>Slides will be posted after the discussion section.</p>"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw2CSE105Sp22",
+                "due": "4/14/22 at 5pm (no penalty late submission until 8am next morning)"
+            },
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "4/15/22 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 4",
+        "outcomes": "Pumping Lemma and Pushdown Automata",
+        "CalendarInfo": " Dates: 4/18/22 - 4/23/22",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week4.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            },
+            {
+                "name": "Discussion Section: Mondays in WLH 2001",
+                "source": "<p>Slides will be posted after the discussion section.</p>"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "project-part1-CSE105Sp22",
+                "due": "4/21/22 at 5pm (no penalty late submission until 8am next day)"
+            },
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "4/22/22 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 5",
+        "outcomes": "Context-free grammars, context-free languages, and Turing machines",
+        "CalendarInfo": " Dates: 4/25/22 - 4/29/22",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week5.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            },
+            {
+                "name": "Discussion Section: Mondays in WLH 2001",
+                "source": "<p>Slides will be posted after the discussion section.</p>"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw3CSE105Sp22",
+                "due": "4/28/22 at 5pm (no penalty late submission until 8am next morning)"
+            },
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "4/29/22 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 6",
+        "outcomes": "Describing Turing machines and algorithms",
+        "CalendarInfo": " Dates: 5/2/22 - 5/6/22",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week6.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            },
+            {
+                "name": "Discussion Section: Mondays in WLH 2001",
+                "source": "<p>Slides will be posted after the discussion section.</p>"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw4CSE105Sp22",
+                "due": "5/5/22 at 5pm (no penalty late submission until 8am next morning)"
+            },
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "5/6/22 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 7",
+        "outcomes": "Computational problems: decidable and undecidable",
+        "CalendarInfo": " Dates: 5/9/22 - 5/13/22",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week7.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            },
+            {
+                "name": "Discussion Section: Mondays in WLH 2001",
+                "source": "<p>Slides will be posted after the discussion section.</p>"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "project-part2-CSE105Sp22",
+                "due": "5/12/22 at 5pm (no penalty late submission until 8am next day)"
+            },
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "5/13/22 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 8",
+        "outcomes": "How undecidable: mapping reductions and the halting problem",
+        "CalendarInfo": " Dates: 5/16/22 - 5/20/22",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week8.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            },
+            {
+                "name": "Discussion Section: Mondays in WLH 2001",
+                "source": "<p>Slides will be posted after the discussion section.</p>"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw5CSE105Sp22",
+                "due": "5/19/22 at 5pm (no penalty late submission until 8am next morning)"
+            },
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "5/20/22 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 9",
+        "outcomes": "Reductions: mapping reductions and polynomial-time reductions",
+        "CalendarInfo": " Dates: 5/23/22 - 5/27/22",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week9.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            },
+            {
+                "name": "Discussion Section: Mondays in WLH 2001",
+                "source": "<p>Slides will be posted after the discussion section.</p>"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw6CSE105Sp22",
+                "due": "5/26/22 at 5pm (no penalty late submission until 8am next morning)"
+            },
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "5/27/22 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 10",
+        "outcomes": "Complexity: P vs. NP",
+        "CalendarInfo": " Dates: 5/30/22 - 6/3/22. No class or discussion section on Monday in observance of Memorial Day.",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week10.tex"
+            }, 
+            {
+                "name": "Lecture and Discussion podcast",
+                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "project-part3-CSE105Sp22",
+                "due": "6/2/22 at 5pm (no penalty late submission until 8am next day)"
+            },
+            {
+                "name": "Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "6/3/22 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
     {
         "header": "Finals week",
         "outcomes": "Final exam",
-        "CalendarInfo":  "Dates: TBD. Final exam opens TBD. ",
-        "ExpandInCalendar": true,
+        "CalendarInfo":  "Date: 6/8/22 at 8am",
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Final exam details",
-                "source": "TBA"
+                "source": "<p>The final exam will be in-person, synchronous during the scheduled final exam time (conditions permitting).</p>"
             }
         ],
         "Due Dates": [
             {
                 "name": "Final exam",
-                "due": "TBA"
+                "due": "6/8/22 at 8am-11am"
             }
         ]
     }
