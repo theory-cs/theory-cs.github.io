@@ -1,45 +1,4 @@
 {
-    "Modeling and Impact": {
-        "Description": "Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.",
-        "Icon": "<i class='bx bxs-paper-plane'></i>",
-        "Children": {
-            "Calibrate difficulty": {
-                "Description": "Prove that certain models of computation are equivalent and translate between them algorithmically.",
-                "Children": {
-                    "Nondeterminism": {
-                        "Description": "Explain nondeterminism and describe tools for simulating it with deterministic computation."
-                    },
-                    "Church-Turing": {
-                        "Description": "Explain the Church-Turing thesis and use it to operationalize the notion of algorithm."
-                    }
-                },
-                "Icon": "Cal",
-                "file": "calibrate.html"
-            }
-        }
-    },
-    "Problem Solving": {
-        "Description": "Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.",
-        "Icon": "<i class='bx bxs-bulb' ></i>",
-        "Children": {
-            "Computability techniques": {
-                "Description": "Apply classical techniques including pumping lemma, determinization, diagonalization, and reduction to analyze the complexity of languages and problems.",
-                "Children": {
-                    "Pumping Lemma": {
-                        "Description": "Use the pumping lemma to prove that a given language is not regular."
-                    },
-                    "Diagonalization": {
-                        "Description": "Use diagonalization to prove that there are 'hard' languages relative to certain models of computation."
-                    },
-                    "Reduction": {
-                        "Description": "Use appropriate reduction (e.g. mapping, Turing, polynomial-time) to deduce the complexity of a language by comparing to the complexity of another."
-                    }
-                },
-                "Icon": "Apply",
-                "file": "apply.html"
-            }
-        }
-    },
     "Communication": {
         "Description": "Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.",
         "Icon": "<i class='bx bxs-message-square-edit'></i>",
@@ -82,6 +41,48 @@
                 },
                 "Icon": "A",
                 "file": "automata.html"
+            }
+        }
+    }
+    ,
+    "Problem Solving": {
+        "Description": "Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.",
+        "Icon": "<i class='bx bxs-bulb' ></i>",
+        "Children": {
+            "Computability techniques": {
+                "Description": "Apply classical techniques including pumping lemma, determinization, diagonalization, and reduction to analyze the complexity of languages and problems.",
+                "Children": {
+                    "Pumping Lemma": {
+                        "Description": "Use the pumping lemma to prove that a given language is not regular."
+                    },
+                    "Diagonalization": {
+                        "Description": "Use diagonalization to prove that there are 'hard' languages relative to certain models of computation."
+                    },
+                    "Reduction": {
+                        "Description": "Use appropriate reduction (e.g. mapping, Turing, polynomial-time) to deduce the complexity of a language by comparing to the complexity of another."
+                    }
+                },
+                "Icon": "Apply",
+                "file": "apply.html"
+            }
+        }
+    },
+    "Modeling and Impact": {
+        "Description": "Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.",
+        "Icon": "<i class='bx bxs-paper-plane'></i>",
+        "Children": {
+            "Calibrate difficulty": {
+                "Description": "Prove that certain models of computation are equivalent and translate between them algorithmically.",
+                "Children": {
+                    "Nondeterminism": {
+                        "Description": "Explain nondeterminism and describe tools for simulating it with deterministic computation."
+                    },
+                    "Church-Turing": {
+                        "Description": "Explain the Church-Turing thesis and use it to operationalize the notion of algorithm."
+                    }
+                },
+                "Icon": "Cal",
+                "file": "calibrate.html"
             }
         }
     }

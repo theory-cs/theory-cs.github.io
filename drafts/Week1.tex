@@ -1,6 +1,12 @@
 \input{../../resources/lesson-head.tex}
 
 \section*{Before we start}
+
+We are committed to fostering a learning environment for this course that supports a diversity of thoughts, 
+perspectives and experiences, and respects your identities (including race, ethnicity, heritage, gender, sex, 
+class, sexuality, religion, ability, age, educational background, etc.).  
+Our goal is to create a diverse and inclusive learning environment where all students feel comfortable and can thrive. 
+
 If you or someone you know is suffering from food and/or housing insecurities 
 there are UCSD resources here to help:
 
@@ -13,6 +19,9 @@ is free and anonymous, and includes produce:
 
 Mutual Aid UCSD: \href{https://mutualaiducsd.wordpress.com/}{https://mutualaiducsd.wordpress.com/}
 
+Financial aid resources, the possibility of emergency grant funding, and off-campus housing referral 
+resources are available. See CAPS and your college dean.
+
 If you find yourself in an uncomfortable situation, ask for help. 
 We are committed to upholding University policies regarding nondiscrimination, sexual violence and sexual harassment.
 
@@ -23,63 +32,72 @@ OPHD at (858) 534-8298, ophd@ucsd.edu , \href{http://ophd.ucsd.edu}{http://ophd.
 CARE at Sexual Assault Resource Center at 858 5345793 sarc@ucsd.edu \href{http://care.ucsd.edu}{http://care.ucsd.edu}
 
 \subsection*{Spring quarter philosophy}
-Spring 2022 is a transition quarter so please be patient with us as we do our best 
-to serve the needs of all students while adhering to the university guidelines. 
-First and foremost is the health and safety of everyone.  
+Spring 2022 is still a transition quarter so please be patient with us as we do our best 
+to deliver a great learning opportunity that meets the needs of all students and adheres to the university guidelines. 
+
 Please do not come to class if you are sick or even think you might be sick.
+
 Please reach out (minnes@eng.ucsd.edu) if you need support with extenuating circumstances.
 
-Masks are required in class. All students who attend class must also be fully vaccinated against COVID-19
+Based on current UCSD guidelines (as of March 21), masks are required in class. 
+All students who attend class must also be fully vaccinated against COVID-19
 unless they have a university-approved exemption.
-Campus policy requires masks and daily ``symptom screeners" for everyone and we expect all students 
-to follow these rules. 
+We will continue to follow the campus guidelines as updated on https://returntolearn.ucsd.edu/ .
 
 
 \newpage
-Welcome to CSE 105: Introduction to Theory of Computation in Spring 2022!
-
-\section*{Themes and applications for CSE 105}
-\begin{itemize}
-\item {\bf Technical skepticism}: Know, select and apply appropriate computing knowledge and problem-solving techniques. 
-Reason about computation and systems. 
-Use mathematical techniques to solve problems. 
-Determine appropriate conceptual tools to apply to new situations. 
-Know when tools do not apply and try different approaches. 
-Critically analyze and evaluate candidate solutions.
-\item {\bf Multiple representations}: Understand, guide, shape impact of computing on society/the world. 
-Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). 
-Model problems using appropriate mathematical concepts.
-Clearly and unambiguously communicate computational ideas using appropriate formalism. 
-Translate across levels of abstraction.
-\end{itemize}
-
-{\bf Applications}: Numbers (how to represent them and use them in Computer Science), 
-Recommendation systems and their roots in machine learning (with applications like Netflix),
-``Under the hood" of computers (circuits, pixel color representation, data structures),
-Codes and information (secret message sharing and error correction),
-Bioinformatics algorithms and genomics (DNA and RNA).
 
 \section*{Introductions}
-Class website: \href{http://cseweb.ucsd.edu/classes/fa21/cse20-a}{http://cseweb.ucsd.edu/classes/fa21/cse20-a}
+Class website: \href{https://cseweb.ucsd.edu/classes/sp22/cse105-a/}{https://cseweb.ucsd.edu/classes/sp22/cse105-a/}
 
 {\bf Pro-tip}: the URL structure is your map to finding your course website for other CSE classes.
-
-{\bf Pro-tip}: you can use MATH109 to replace CSE20 for prerequisites and other requirements.
 
 Instructor: Prof. Mia Minnes {\tiny{"Minnes" rhymes with Guinness}}, minnes@eng.ucsd.edu, 
 \href{http://cseweb.ucsd.edu/~minnes}{http://cseweb.ucsd.edu/~minnes}
 
-Our team: Four TAs and 10 tutors + all of you
+Our team: Six TAs and five tutors + all of you
 
 Fill in contact info for students around you, if you'd like:
-\vspace{50pt}
+
+\vfill
 
 
-On a typical week: {\bf MWF} Lectures + review quizzes, {\bf T} HW due, {\bf W} Discussion, office hours, Piazza. 
-Project parts will be due some weeks.
-
+On a typical week: {\bf MWF} Lectures + review quizzes, {\bf M} Discussion, {\bf Th} Homework / project due.
+Office hours and Q+A on Piazza available throughout the week.
 All dates are on \href{https://canvas.ucsd.edu/}{Canvas (click for link)} and details are on
  \href{https://theory-cs.github.io/website/overview_calendar.html}{course calendar (click for link)}.
+
+\newpage Welcome to CSE 105: Introduction to Theory of Computation in Spring 2022!
+
+\section*{CSE 105's Big Questions}
+\begin{itemize}
+   \item What problems are computers capable of solving?
+   \item What resources are needed to solve a problem?
+   \item Are some problems harder than others?
+\end{itemize}
+
+In this context, a {\bf problem} is defined as: ``Making a decision or computing a value based on some input"
+
+Consider the following problems: 
+\begin{itemize}
+   \item Find a file on your computer
+   \item Determine if your code will compile
+   \item Find a run-time error in your code
+   \item Certify that your system is un-hackable
+\end{itemize}
+
+Which of these is hardest?
+
+\vfill
+
+In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
+resources might be memory, time, parallelism, randomness, power, etc.
+
+To be able to compare ``hardness'' of problems, we use a consistent description of problems
+
+{\bf Input}: String
+
+{\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
 
 
 \newpage
@@ -90,10 +108,10 @@ All dates are on \href{https://canvas.ucsd.edu/}{Canvas (click for link)} and de
 \newpage
 \subsection*{Review: Week 1 Monday}
 \begin{enumerate}
-\item Please complete the beginning of the quarter survey \href{https://forms.gle/gvibFnNixxqcWbaU8}{https://forms.gle/gvibFnNixxqcWbaU8}
+\item Please complete the beginning of the quarter survey \href{https://forms.gle/9AaEcwwN5EvcJ4qp9}{https://forms.gle/9AaEcwwN5EvcJ4qp9}
 \item We want you to be familiar with class policies and procedures so you are ready to have a successful quarter. 
-Please take a look at the class website http://cseweb.ucsd.edu/classes/fa21/cse20-a
-and answer the questions about it on \href{http://gradescope.com}{Gradescope}.
+Please take a look at the class website https://cseweb.ucsd.edu/classes/sp22/cse105-a/
+and answer the questions about it on Gradescope.
 \end{enumerate}
 
 {\bf Pre class reading for next time}: Figure 1.4, Definition 1.5
