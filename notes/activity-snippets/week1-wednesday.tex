@@ -1,86 +1,57 @@
-\documentclass[12pt, oneside]{article}
+%! app: regular-languages
+%! outcome: Define decision problem
 
-\usepackage[letterpaper, scale=0.89, centering]{geometry}
-\usepackage{fancyhdr}
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
+We will use vocabularly and notation that should be familiar from your discrete 
+math and introduction to proofs classes.  Some of the notation conventions may 
+be a bit different: we will use the notation from this class' textbook (Sipser). 
+A summary of this notation is on page 14 of the book.
 
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+Write out in words the meaning of the symbols below: 
+\[
+    \{ a,b, c\}
+\]
 
-\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
-\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
-\usepackage[labelformat=empty]{caption}
-\usepackage[dvipsnames,table]{xcolor}
-\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+\phantom{The set whose elements are $a$, $b$, and $c$}
 
-\lstnewenvironment{algorithm}[1][] {   
-    \lstset{ mathescape=true,
-        frame=tB,
-        numbers=left, 
-        numberstyle=\tiny,
-        basicstyle=\rmfamily\scriptsize, 
-        keywordstyle=\color{black}\bfseries,
-        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
-        numbers=left,
-        xleftmargin=.04\textwidth,
-        #1
-    }
-}
-{}
-\lstnewenvironment{java}[1][]
-{   
-    \lstset{
-        language=java,
-        mathescape=true,
-        frame=tB,
-        numbers=left, 
-        numberstyle=\tiny,
-        basicstyle=\ttfamily\scriptsize, 
-        keywordstyle=\color{black}\bfseries,
-        keywords={, int, double, for, return, if, else, while, }
-        numbers=left,
-        xleftmargin=.04\textwidth,
-        #1
-    }
-}
-{}
+\[
+    | \{a, b, a \} | = 2
+\]
 
-\newcommand\abs[1]{\lvert~#1~\rvert}
-\newcommand{\st}{\mid}
+\phantom{The number of elements in the set $\{a,b,a\}$ is $2$.}
 
-\newcommand{\A}[0]{\texttt{A}}
-\newcommand{\C}[0]{\texttt{C}}
-\newcommand{\G}[0]{\texttt{G}}
-\newcommand{\U}[0]{\texttt{U}}
+\[
+    | aba | = 3
+\]
 
-\newcommand{\cmark}{\ding{51}}
-\newcommand{\xmark}{\ding{55}}
-
- 
-\begin{document}
-\begin{flushright}
-    \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Week1 monday}
+\phantom{The length of the string $aba$ is $3$.}
 
 
 \begin{center}
-    \begin{tabular}{|ll|}
+    \begin{tabular}{|p{2in}cp{4in}|}
     \hline
-    Alphabet e.g. $\Sigma$, $\Gamma$ & 	non-empty finite set	 \\
-    Symbol over $\Sigma$  & element of alphabet $\Sigma$\\
-    String over $\Sigma$  &	finite list of symbols from $\Sigma$\\
-    Language over $\Sigma$& set of strings over $\Sigma$ \\
-    Empty set $\emptyset$ & the empty language\\
+    Term & Typical symbol & Meaning \\
+    \hline
+    Alphabet & $\Sigma$, $\Gamma$ & A non-empty finite set	 \\
+    Symbol over $\Sigma$  & $\sigma$, $b$, $x$ & An element of the alphabet $\Sigma$\\
+    String over $\Sigma$  &	$u$, $v$, $w$ & A finite list of symbols from $\Sigma$\\
+    The set of all strings over $\Sigma$ & $\Sigma^*$ & The collection of all possible strings formed from symbols from $\Sigma$ \\
+    (Some) language over $\Sigma$& $L$ & (Some) set of strings over $\Sigma$ \\
+    Empty set &$\emptyset$ & The empty language\\
+    Empty string &$\varepsilon$ & The string of length $0$\\
     \hline
     {\it Pages 3, 4, 13, 14 }& \\
     \hline
     \end{tabular}
-    \end{center}
+\end{center}
+
+{\it Circle the correct choice}:
+
+A {\bf string} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*$ ~~ OR ~~ a subset of $\Sigma^*$}.
     
-    With $\Sigma_1 = \{0,1\}$ and $\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}$  and $\Gamma = \{0,1,x,y,z\}$
+A {\bf language} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*$ ~~ OR ~~ a subset of $\Sigma^*$}.
+
+
+With $\Sigma_1 = \{0,1\}$ and $\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}$  and $\Gamma = \{0,1,x,y,z\}$
     
     \begin{itemize}
     \setlength{\itemsep}{10pt}
@@ -96,7 +67,6 @@
     \begin{center}
     \begin{tabular}{|ll|}
     \hline
-    Empty string $\varepsilon$ & the string of length 0\\
     Reverse of a string $w$, $w^\mathcal{R}$  & write $w$  in  the opposite order, if $w = w_1 \cdots  w_n$ then $w^\mathcal{R} = w_n \cdots  w_1$\\
     Concatenating strings $x$ and $y$ & take $x = x_1 \cdots x_m$, $y=y_1 \cdots y_n$ and form $xy = x_1 \cdots x_m y_1 \cdots y_n$\\
     String $z$ is a substring of string $w$ & there are strings $u,v$ such that $w = uzv$\\
@@ -203,5 +173,4 @@
     & $\{00, 01, 10, 11\}$  \\
     & $\{ 0^n1 \mid n~\text{is even} \}$
     \end{tabular}
-    \end{center} \vfill
-\end{document}
+    \end{center}

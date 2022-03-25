@@ -65,6 +65,12 @@
     \StrBefore{\currfilename}{.}
 \end{flushright} 
 \section*{Before we start}
+
+We are committed to fostering a learning environment for this course that supports a diversity of thoughts, 
+perspectives and experiences, and respects your identities (including race, ethnicity, heritage, gender, sex, 
+class, sexuality, religion, ability, age, educational background, etc.).  
+Our goal is to create a diverse and inclusive learning environment where all students feel comfortable and can thrive. 
+
 If you or someone you know is suffering from food and/or housing insecurities 
 there are UCSD resources here to help:
 
@@ -77,6 +83,9 @@ is free and anonymous, and includes produce:
 
 Mutual Aid UCSD: \href{https://mutualaiducsd.wordpress.com/}{https://mutualaiducsd.wordpress.com/}
 
+Financial aid resources, the possibility of emergency grant funding, and off-campus housing referral 
+resources are available. See CAPS and your college dean.
+
 If you find yourself in an uncomfortable situation, ask for help. 
 We are committed to upholding University policies regarding nondiscrimination, sexual violence and sexual harassment.
 
@@ -87,339 +96,76 @@ OPHD at (858) 534-8298, ophd@ucsd.edu , \href{http://ophd.ucsd.edu}{http://ophd.
 CARE at Sexual Assault Resource Center at 858 5345793 sarc@ucsd.edu \href{http://care.ucsd.edu}{http://care.ucsd.edu}
 
 \subsection*{Spring quarter philosophy}
-Spring 2022 is a transition quarter so please be patient with us as we do our best 
-to serve the needs of all students while adhering to the university guidelines. 
-First and foremost is the health and safety of everyone.  
+Spring 2022 is still a transition quarter so please be patient with us as we do our best 
+to deliver a great learning opportunity that meets the needs of all students and adheres to the university guidelines. 
+
 Please do not come to class if you are sick or even think you might be sick.
+
 Please reach out (minnes@eng.ucsd.edu) if you need support with extenuating circumstances.
 
-Masks are required in class. All students who attend class must also be fully vaccinated against COVID-19
+Based on current UCSD guidelines (as of March 21), masks are required in class. 
+All students who attend class must also be fully vaccinated against COVID-19
 unless they have a university-approved exemption.
-Campus policy requires masks and daily ``symptom screeners" for everyone and we expect all students 
-to follow these rules. 
+We will continue to follow the campus guidelines as updated on https://returntolearn.ucsd.edu/ .
 
 
 \newpage
-Welcome to CSE 105: Introduction to Theory of Computation in Spring 2022!
-
-\section*{Themes and applications for CSE 105}
-\begin{itemize}
-\item {\bf Technical skepticism}: Know, select and apply appropriate computing knowledge and problem-solving techniques. 
-Reason about computation and systems. 
-Use mathematical techniques to solve problems. 
-Determine appropriate conceptual tools to apply to new situations. 
-Know when tools do not apply and try different approaches. 
-Critically analyze and evaluate candidate solutions.
-\item {\bf Multiple representations}: Understand, guide, shape impact of computing on society/the world. 
-Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). 
-Model problems using appropriate mathematical concepts.
-Clearly and unambiguously communicate computational ideas using appropriate formalism. 
-Translate across levels of abstraction.
-\end{itemize}
-
-{\bf Applications}: Numbers (how to represent them and use them in Computer Science), 
-Recommendation systems and their roots in machine learning (with applications like Netflix),
-``Under the hood" of computers (circuits, pixel color representation, data structures),
-Codes and information (secret message sharing and error correction),
-Bioinformatics algorithms and genomics (DNA and RNA).
 
 \section*{Introductions}
-Class website: \href{http://cseweb.ucsd.edu/classes/fa21/cse20-a}{http://cseweb.ucsd.edu/classes/fa21/cse20-a}
+Class website: \href{https://cseweb.ucsd.edu/classes/sp22/cse105-a/}{https://cseweb.ucsd.edu/classes/sp22/cse105-a/}
 
 {\bf Pro-tip}: the URL structure is your map to finding your course website for other CSE classes.
-
-{\bf Pro-tip}: you can use MATH109 to replace CSE20 for prerequisites and other requirements.
 
 Instructor: Prof. Mia Minnes {\tiny{"Minnes" rhymes with Guinness}}, minnes@eng.ucsd.edu, 
 \href{http://cseweb.ucsd.edu/~minnes}{http://cseweb.ucsd.edu/~minnes}
 
-Our team: Four TAs and 10 tutors + all of you
+Our team: Six TAs and five tutors + all of you
 
 Fill in contact info for students around you, if you'd like:
-\vspace{50pt}
+
+\vfill
 
 
-On a typical week: {\bf MWF} Lectures + review quizzes, {\bf T} HW due, {\bf W} Discussion, office hours, Piazza. 
-Project parts will be due some weeks.
-
+On a typical week: {\bf MWF} Lectures + review quizzes, {\bf M} Discussion, {\bf Th} Homework / project due.
+Office hours and Q+A on Piazza available throughout the week.
 All dates are on \href{https://canvas.ucsd.edu/}{Canvas (click for link)} and details are on
  \href{https://theory-cs.github.io/website/overview_calendar.html}{course calendar (click for link)}.
 
+\newpage Welcome to CSE 105: Introduction to Theory of Computation in Spring 2022!
+
+\section*{CSE 105's Big Questions}
+\begin{itemize}
+   \item What problems are computers capable of solving?
+   \item What resources are needed to solve a problem?
+   \item Are some problems harder than others?
+\end{itemize}
+
+In this context, a {\bf problem} is defined as: ``Making a decision or computing a value based on some input"
+
+Consider the following problems: 
+\begin{itemize}
+   \item Find a file on your computer
+   \item Determine if your code will compile
+   \item Find a run-time error in your code
+   \item Certify that your system is un-hackable
+\end{itemize}
+
+Which of these is hardest?
+
+\vfill
+
+In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
+resources might be memory, time, parallelism, randomness, power, etc.
+
+To be able to compare ``hardness'' of problems, we use a consistent description of problems
+
+{\bf Input}: String
+
+{\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
+
 
 \newpage
-\section*{Monday March 28}
 
-
-
-\begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    Alphabet e.g. $\Sigma$, $\Gamma$ & 	non-empty finite set	 \\
-    Symbol over $\Sigma$  & element of alphabet $\Sigma$\\
-    String over $\Sigma$  &	finite list of symbols from $\Sigma$\\
-    Language over $\Sigma$& set of strings over $\Sigma$ \\
-    Empty set $\emptyset$ & the empty language\\
-    \hline
-    {\it Pages 3, 4, 13, 14 }& \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    With $\Sigma_1 = \{0,1\}$ and $\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}$  and $\Gamma = \{0,1,x,y,z\}$
-    
-    \begin{itemize}
-    \setlength{\itemsep}{10pt}
-    \item[] An example of a string of length 3 over $\Sigma_1$ is 
-    \item[] An example of  a string of length 1 over $\Sigma_2$ is 
-    \item[] The number of distinct strings of length 2 over $\Gamma$ is
-    \item[] An example of a language over $\Sigma_1$ of size $1$ is
-    \item[] An example of an infinite language over $\Sigma_1$ is
-    \item[] An example of  a finite language over $\Gamma$ is
-    
-    \end{itemize}
-    
-    \begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    Empty string $\varepsilon$ & the string of length 0\\
-    Reverse of a string $w$, $w^\mathcal{R}$  & write $w$  in  the opposite order, if $w = w_1 \cdots  w_n$ then $w^\mathcal{R} = w_n \cdots  w_1$\\
-    Concatenating strings $x$ and $y$ & take $x = x_1 \cdots x_m$, $y=y_1 \cdots y_n$ and form $xy = x_1 \cdots x_m y_1 \cdots y_n$\\
-    String $z$ is a substring of string $w$ & there are strings $u,v$ such that $w = uzv$\\
-    String $x$ is a prefix of string $y$ & there is a string $z$ such that $y = xz$ \\
-    String $x$ is a proper prefix of string $y$ & $x$ is a prefix of $y$ and $x \neq y$\\
-    \hline
-    {\it Pages 13, 14} & \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    \begin{center}
-    \begin{tabular}{lcc}
-    $\varepsilon \in \Sigma_1$ & True & False \\
-    $\varepsilon$ is  a string over $\Sigma_1$ & True & False \\
-    $\varepsilon$ is a language over $\Sigma_1$ & True & False \\
-    $\varepsilon$ is a prefix of some string over  $\Sigma_1$ & True & False \\
-    There is a string over $\Sigma_1$ that is a proper prefix of $\varepsilon$& True & False \\
-    \end{tabular}
-    \end{center}
-    
-    
-    {\bf String order} over alphabet $\Sigma$: Order strings over  $\Sigma$ first by length and then according to the dictionary order, assuming symbols in $\Sigma$  have an ordering.
-    
-    \begin{itemize}
-    \setlength{\itemsep}{10pt}
-    \item[] The first five strings over $\Sigma_1$ in string order, using the ordering $0 <  1$:
-    
-    \item[] The first five strings over $\Sigma_2$ in string order, using the usual alphabetical ordering for single letters:
-    
-    \end{itemize}
-    
-    \begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    \multicolumn{2}{|l|}{Assuming $A$ and $B$  are languages  over alphabet $\Sigma$}\\
-    \hline
-    The union $A$ and $B$   & $A \cup B = \{  x \mid x \in A~\text{or}~x  \in  B \}$ \\
-    The concatenation of $A$ and $B$   & $A \circ B = \{  xy \mid x \in A~\text{and}~y  \in  B \} $ \\
-    The star of $A$ & $A^* = \{ x_1 x_2 \cdots  x_k \mid k  \geq 0 ~\text{and each}~x_i \in A \}$ \\
-    \hline
-    {\it Definition 1.23 page 44} & \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    
-    
-    \begin{center}
-    \begin{tabular}{|lll|}
-    \hline
-    \multicolumn{3}{|l|}{Assuming $\Sigma$ is the alphabet, recursive definition of regular expressions is}\\
-    \hline
-    $a$ is a regular expression  & for $a \in \Sigma$ & $L(a) = \{a\}$ \\
-    $\varepsilon$ is a regular expression   & & $L(\varepsilon) = \{ \varepsilon \}$ \\
-    $\emptyset$ is a regular expression  & & $L(\emptyset) = \{\} =  \emptyset$ \\
-    $(R_1 \cup R_2)$ is a regular expression & for  $R_1$, $R_2$ regular expressions & 
-    $L( ~(R_1\cup R_2) ~)  =
-    L(R_1) \cup L(R_2)$ \\
-    $(R_1 \circ R_2)$ is a regular expression & for  $R_1$, $R_2$ regular expressions & 
-    $L( ~(R_1\circ R_2) ~)  =
-    L(R_1) \circ L(R_2)$ \\
-    $(R_1^*)$ is a regular expression & for  $R_1$ a regular expression & $L( ~(R_1^*) ~)  = (~L(R_1) ~)^*$ \\
-    \hline
-    {\it Definition 1.52 page 64} & & \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    
-    \begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    \multicolumn{2}{|l|}{Assuming $\Sigma$ is the alphabet, we use the following conventions}\\
-    \hline
-    $\Sigma$   & regular  expression describing language consisting of  all strings  of length  $1$ over $\Sigma$\\
-    $*$ then $\circ$ then $\cup$   & precedence order, unless parentheses are used to change it\\
-    $R_1R_2$ & shorthand  for  $R_1  \circ R_2$ (concatenation symbol is implicit) \\
-    $R^+$ & shorthand for $R^* \circ R$ \\
-    $R^k$ & shorthand for $R$ concatenated with itself $k$ times\\
-    \hline
-    {\it Pages 63 - 65 }& \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    
-    For the following examples assume the alphabet is $\Sigma_1 =  \{0,1\}$:
-    
-    \begin{center}
-    \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{c|c}
-    Regular expression, $R$ & Language described by the regular expression, $L(R)$\\
-    \hline
-    $0$ &$ \{ 0 \}$ \\
-    $1$ & $\{ 1 \}$ \\
-    $\varepsilon$ & $\{ \varepsilon  \}$ \\
-    $\emptyset$ & $\emptyset$ \\
-    $((0 \cup 1) \cup 1)$ & \\
-    $1^+$ & \\
-    $\Sigma_1^* 1$ & \\
-    $(\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1)^*$ & \\
-    $1^* \emptyset 0$ & \\
-    & $\{00, 01, 10, 11\}$  \\
-    & $\{ 0^n1 \mid n~\text{is even} \}$
-    \end{tabular}
-    \end{center}     
-\newpage
-\subsection*{Review: Week 1 Monday}
-\begin{enumerate}
-\item Please complete the beginning of the quarter survey \href{https://forms.gle/gvibFnNixxqcWbaU8}{https://forms.gle/gvibFnNixxqcWbaU8}
-\item We want you to be familiar with class policies and procedures so you are ready to have a successful quarter. 
-Please take a look at the class website http://cseweb.ucsd.edu/classes/fa21/cse20-a
-and answer the questions about it on \href{http://gradescope.com}{Gradescope}.
-\end{enumerate}
-
-{\bf Pre class reading for next time}: Figure 1.4, Definition 1.5
-
-\newpage
-\subsection*{Week 1 Wednesday}
-
-\begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    Alphabet e.g. $\Sigma$, $\Gamma$ & 	non-empty finite set	 \\
-    Symbol over $\Sigma$  & element of alphabet $\Sigma$\\
-    String over $\Sigma$  &	finite list of symbols from $\Sigma$\\
-    Language over $\Sigma$& set of strings over $\Sigma$ \\
-    Empty set $\emptyset$ & the empty language\\
-    Regular expression over $\Sigma$ e.g. $R$& syntactic expression built up recursively \\
-    Language described by $R$,  $L(R)$ & set of strings matching pattern given by 
-    regular expression\\
-    \hline
-    {\it Pages 3, 4, 13, 14, 64, 65}& \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    
-    For the following True/False questions assume the alphabet is $\Sigma =  \{a,b,c\}$:
-    
-    \begin{center}
-    \begin{tabular}{lcc}
-    $a  \in L(a \cup b \cup c)$ & True & False \\
-    $ab  \in L(~ (a \cup b)^*  ~)$ & True & False \\
-    $ba \in L( ~ a^* b^* ~)$ & True & False \\
-    $\varepsilon  \in L(a \cup b \cup c)$ & True & False \\
-    $\varepsilon  \in L(~ (a \cup b)^*  ~)$ & True & False \\
-    $\varepsilon \in L( ~ a^* b^* ~)$ & True & False \\
-    \end{tabular}
-    \end{center}
-    
-    
-    
-    \begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    & \\
-    Deterministic finite automaton & $M = (Q, \Sigma, \delta, q_0, F)$ \\
-    Finite set of states $Q$  & Can  be labelled by any collection  of distinct names. Default: $q0, q1, \ldots$  \\
-    Alphabet $\Sigma$ &   Each input to the automaton is a string over  $\Sigma$. \\
-    Transition function $\delta$ &  Gives the next state based on current state of machine next input symbol\\
-    Start state $q_0$ & Element of $Q$.  Each computation of the machine starts at the  start  state.\\
-    Accept (final) states $F$ & $F \subseteq  Q$. Used to flag if the machine accepts or rejects
-    an input string.\\
-    Computation & The computation of a machine on an input string is a sequence of states \\
-    &  in the machine,  starting with the initial state, determined by transitions \\
-    & of the machine as it reads successive input symbols.
-    \\
-    $M$ accepts the input string & The computation of $M$ on the input string ends in an
-    accept state.\\
-    $M$ rejects the input string & The computation of $M$ on the input string ends in a
-    nonaccept state.\\
-    Language of $M$, $L(M)$ & The set of  all strings that  are each accepted by the machine $M$.\\
-    aka language recognized by $M$ & \\
-    & \\
-    \hline
-    {\it Pages 34-36}& \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    
-    What is {\bf finite} about a deterministic finite automaton? (Select all that apply)
-    \begin{itemize}
-    \item The size of the machine (number of states, number of arrows)
-    \item The number of strings that are accepted by the machine
-    \item The length of the computations of the machine
-    \end{itemize}
-    
-    
-    
-    
-    \begin{figure}[h]
-       \centering
-       \includegraphics[width=3in]{../../resources/machines/Lect2DFA1.png} 
-    \end{figure}
-    
-    The formal definition of this DFA is
-    
-    \vspace{100pt}
-    
-    
-    \begin{center}
-    \begin{tabular}{lcc}
-    {\bf Input string} & {\bf Result}: this string is \ldots    & \\
-    \hline
-    $a$ & accepted by the DFA & rejected by the DFA \\
-    $aa$ & accepted by the DFA & rejected by the DFA \\
-    $ab$ & accepted by the DFA & rejected by the DFA \\
-    $ba$ & accepted by the DFA & rejected by the DFA \\
-    $bb$ & accepted by the DFA & rejected by the DFA \\
-    $\varepsilon$ & accepted by the DFA & rejected by the DFA \\
-    \end{tabular}
-    \end{center}
-    
-    The language recognized by this DFA is
-    
-    
-    \begin{figure}[h]
-       \centering
-       \includegraphics[width=3in]{../../resources/machines/Lect2DFA2.png} 
-    \end{figure}
-    
-    
-    
-    The language recognized by this DFA is
-    
-    
-    
-    \begin{figure}[h]
-       \centering
-       \includegraphics[width=3in]{../../resources/machines/Lect2DFA3.png} 
-    \end{figure}
-    
-    
-    The language recognized by this DFA is
-    
-    
+Class content for Monday, Wednesday, Friday to be available shortly.
 
 \end{document}
