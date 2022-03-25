@@ -47,10 +47,10 @@
             "Classify languages": {
                 "Description": "Classify the computational complexity of a set of strings.",
                 "Children": {
-                    "classify language": {
+                    "Classify language": {
                         "Description": "Classify the computational complexity of a set of strings by determining whether it is regular, context-free, decidable, or undecidable."
                     },
-                    "find example languages": {
+                    "Find example languages": {
                         "Description": "Give examples of sets in regular, context-free, decidable, or undecidable languages (and prove them)."
                     }
                 },
@@ -60,10 +60,10 @@
             "Decision problems": {
                 "Description": "Classify the computational complexity of a decision problem by translating it to a set of strings coding the problem.",
                 "Children": {
-                    "define decision problem": {
+                    "Define decision problem": {
                         "Description": "Translate a decision problem to a set of strings coding the problem."
                     },
-                    "classify decision problem": {
+                    "Classify decision problem": {
                         "Description": "Classify computational complexity of a decision problem."
                     }
                 },
@@ -73,10 +73,10 @@
             "Automata": {
                 "Description": "Use and design automata both formally and informally, including DFA, NFA, PDA, TM.",
                 "Children": {
-                    "formal definition of automata": {
+                    "Formal definition of automata": {
                         "Description": "Use precise notation to formally define the state diagram of DFA, NFA, PDA, TM."
                     },
-                    "informal definition of automata": {
+                    "Informal definition of automata": {
                         "Description": "Use clear English to describe computations of DFA, NFA, PDA, TM informally."
                     }
                 },
