@@ -22,6 +22,7 @@ https://theory-cs.github.io/website/courseInfo.html
 https://theory-cs.github.io/website/calibrate.html
 https://theory-cs.github.io/website/unit7.html
 https://theory-cs.github.io/website/unit10.html
+https://theory-cs.github.io/website/models.html
 https://theory-cs.github.io/website/unit11.html
 https://theory-cs.github.io/website/unit6.html
 https://theory-cs.github.io/website/undecidable-languages.html

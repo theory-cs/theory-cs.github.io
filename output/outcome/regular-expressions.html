@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>regular-expressions</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="week1-wednesday">Week1 wednesday</h1>
+<p>Our motivation in studying sets of strings is that they encode
+problems.</p>
+<p>We need to describe the collection of all strings that match the
+pattern or property of a problem.</p>
+<p>Let’s start by thinking about how we can describe a language (a set
+of strings from a given alphabet).</p>
+<p><span><strong>Definition 1.52</strong></span>: A
+<span><strong>regular expression</strong></span> over alphabet <span
+class="math inline">\(\Sigma\)</span> is a syntactic expression that can
+describe a language over <span class="math inline">\(\Sigma\)</span>.
+The collection of all regular expressions is defined recursively:</p>
+<ul>
+<li><p><span><em>Basis steps of recursive definition</em></span></p>
+<blockquote>
+<p><span class="math inline">\(a\)</span> is a regular expression, for
+<span class="math inline">\(a \in \Sigma\)</span></p>
+<p><span class="math inline">\(\varepsilon\)</span> is a regular
+expression</p>
+<p><span class="math inline">\(\emptyset\)</span> is a regular
+expression</p>
+</blockquote></li>
+<li><p><span><em>Recursive steps of recursive definition</em></span></p>
+<blockquote>
+<p><span class="math inline">\((R_1 \cup R_2)\)</span> is a regular
+expression when <span class="math inline">\(R_1\)</span>, <span
+class="math inline">\(R_2\)</span> are regular expressions</p>
+<p><span class="math inline">\((R_1 \circ R_2)\)</span> is a regular
+expression when <span class="math inline">\(R_1\)</span>, <span
+class="math inline">\(R_2\)</span> are regular expressions</p>
+<p><span class="math inline">\((R_1^*)\)</span> is a regular expression
+when <span class="math inline">\(R_1\)</span> is a regular
+expression</p>
+</blockquote></li>
+</ul>
+<p>The <span><em>semantics</em></span> (or meaning) of the syntactic
+regular expression is the <span><strong>language described by the
+regular expression</strong></span>. The function that assigns a language
+to a regular expression over <span class="math inline">\(\Sigma\)</span>
+is defined recursively, using familiar set operations:</p>
+<ul>
+<li><p><span><em>Basis steps of recursive definition</em></span></p>
+<blockquote>
+<p>The language described by <span class="math inline">\(a\)</span>, for
+<span class="math inline">\(a \in \Sigma\)</span>, is <span
+class="math inline">\(\{a\}\)</span> and we write <span
+class="math inline">\(L(a) = \{a\}\)</span></p>
+<p>The language described by <span
+class="math inline">\(\varepsilon\)</span> is <span
+class="math inline">\(\{\varepsilon\}\)</span> and we write <span
+class="math inline">\(L(\varepsilon) = \{ \varepsilon\}\)</span></p>
+<p>The language described by <span
+class="math inline">\(\emptyset\)</span> is <span
+class="math inline">\(\{\}\)</span> and we write <span
+class="math inline">\(L(\emptyset) = \emptyset\)</span>.</p>
+</blockquote></li>
+<li><p><span><em>Recursive steps of recursive definition</em></span></p>
+<blockquote>
+<p>When <span class="math inline">\(R_1\)</span>, <span
+class="math inline">\(R_2\)</span> are regular expressions, the language
+described by the regular expression <span class="math inline">\((R_1
+\cup R_2)\)</span> is the union of the languages described by <span
+class="math inline">\(R_1\)</span> and <span
+class="math inline">\(R_2\)</span>, and we write <span
+class="math display">\[L(~(R_1 \cup R_2)~) = L(R_1) \cup L(R_2) = \{ w
+\mid w \in L(R_1) \lor w \in L(R_2)\}\]</span></p>
+<p>When <span class="math inline">\(R_1\)</span>, <span
+class="math inline">\(R_2\)</span> are regular expressions, the language
+described by the regular expression <span class="math inline">\((R_1
+\circ R_2)\)</span> is the concatenation of the languages described by
+<span class="math inline">\(R_1\)</span> and <span
+class="math inline">\(R_2\)</span>, and we write <span
+class="math display">\[L(~(R_1 \circ R_2)~) = L(R_1) \circ L(R_2) = \{
+uv \mid u \in L(R_1) \land v \in L(R_2)\}\]</span></p>
+<p>When <span class="math inline">\(R_1\)</span> is a regular
+expression, the language described by the regular expression <span
+class="math inline">\((R_1^*)\)</span> is the <span><strong>Kleene
+star</strong></span> of the language described by <span
+class="math inline">\(R_1\)</span> and we write <span
+class="math display">\[L(~(R_1^*)~) = (~L(R_1)~)^* = \{ w_1 \cdots w_k
+\mid k \geq 0 \textrm{ and each } w_i \in L(R_1)\}\]</span></p>
+</blockquote></li>
+</ul>
+<p>For the following examples assume the alphabet is <span
+class="math inline">\(\Sigma_1 =  \{0,1\}\)</span>:</p>
+<p>The language described by the regular expression <span
+class="math inline">\(0\)</span> is <span class="math inline">\(L(0) =
+\{ 0 \}\)</span></p>
+<p>The language described by the regular expression <span
+class="math inline">\(1\)</span> is <span class="math inline">\(L(1)  =
+\{ 1 \}\)</span></p>
+<p>The language described by the regular expression <span
+class="math inline">\(\varepsilon\)</span> is <span
+class="math inline">\(L(\varepsilon) = \{ \varepsilon  \}\)</span></p>
+<p>The language described by the regular expression <span
+class="math inline">\(\emptyset\)</span> is <span
+class="math inline">\(L(\emptyset) = \emptyset\)</span></p>
+<p>The language described by the regular expression <span
+class="math inline">\(((0 \cup 1) \cup 1)\)</span> is <span
+class="math inline">\(L(~((0 \cup 1) \cup 1)~) =\)</span></p>
+<p>The language described by the regular expression <span
+class="math inline">\(1^+\)</span> is <span
+class="math inline">\(L(~(1)^+~) =\)</span></p>
+<p>The language described by the regular expression <span
+class="math inline">\(\Sigma_1^* 1\)</span> is <span
+class="math inline">\(L(~\Sigma_1^* 1~) =\)</span></p>
+<p>The language described by the regular expression <span
+class="math inline">\((\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1
+\Sigma_1)^*\)</span> is <span class="math inline">\(L(~(\Sigma_1
+\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1)^*~) =\)</span></p>
+<p>A regular expression that describes the language <span
+class="math inline">\(\{00, 01, 10, 11\}\)</span> is</p>
+<p>A regular expression that describes the language <span
+class="math inline">\(\{ 0^n1 \mid n~\text{is even} \}\)</span> is</p>
+<p><span><em>Shorthand and conventions</em></span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th colspan="2" style="text-align: left;">Assuming <span
+class="math inline">\(\Sigma\)</span> is the alphabet, we use the
+following conventions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(\Sigma\)</span></td>
+<td style="text-align: left;">regular expression describing language
+consisting of all strings of length <span
+class="math inline">\(1\)</span> over <span
+class="math inline">\(\Sigma\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(*\)</span>
+then <span class="math inline">\(\circ\)</span> then <span
+class="math inline">\(\cup\)</span></td>
+<td style="text-align: left;">precedence order, unless parentheses are
+used to change it</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(R_1R_2\)</span></td>
+<td style="text-align: left;">shorthand for <span
+class="math inline">\(R_1  \circ R_2\)</span> (concatenation symbol is
+implicit)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span
+class="math inline">\(R^+\)</span></td>
+<td style="text-align: left;">shorthand for <span
+class="math inline">\(R^* \circ R\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(R^k\)</span></td>
+<td style="text-align: left;">shorthand for <span
+class="math inline">\(R\)</span> concatenated with itself <span
+class="math inline">\(k\)</span> times, where <span
+class="math inline">\(k\)</span> is a natural number</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><em>Pages 63 - 65</em> </span></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Caution: many programming languages that support
+regular expressions build in functionality that is more powerful than
+the “pure” definition of regular expressions given here.</strong>
+</span></p>
+<p>Regular expressions are everywhere (once you start looking for
+them).</p>
+<p>Software tools and languages often have built-in support for regular
+expressions to describe <span><strong>patterns</strong></span> that we
+want to match (e.g. Excel/ Sheets, grep, Perl, python, Java, Ruby).</p>
+<p>Under the hood, the first phase of
+<span><strong>compilers</strong></span> is to transform the strings we
+write in code to tokens (keywords, operators, identifiers, literals).
+Compilers use regular expressions to describe the sets of strings that
+can be used for each token type.</p>
+<p>Next time: we’ll start to see how to build machines that decide
+whether strings match the pattern described by a regular expression.</p>
+<p><span><em>Extra examples for practice:</em></span></p>
+<p>Which regular expression(s) below describe a language that includes
+the string <span class="math inline">\(a\)</span> as an element?</p>
+<p><span class="math inline">\(a^* b^*\)</span></p>
+<p><span class="math inline">\(a(ba)^* b\)</span></p>
+<p><span class="math inline">\(a^* \cup b^*\)</span></p>
+<p><span class="math inline">\((aaa)^*\)</span></p>
+<p><span class="math inline">\((\varepsilon \cup a) b\)</span></p>
+<h1 class="unnumbered" id="week1-friday">Week1 friday</h1>
+<p><span><strong>Review</strong></span>: Determine whether each
+statement below about regular expressions over the alphabet <span
+class="math inline">\(\{a,b,c\}\)</span> is true or false:</p>
+<p>True or False: <span class="math inline">\(a  \in L(~(a \cup b )~\cup
+c)\)</span></p>
+<p>True or False: <span class="math inline">\(ab  \in L(~ (a \cup
+b)^*  ~)\)</span></p>
+<p>True or False: <span class="math inline">\(ba \in L( ~ a^* b^*
+~)\)</span></p>
+<p>True or False: <span class="math inline">\(\varepsilon  \in L(a \cup
+b \cup c)\)</span></p>
+<p>True or False: <span class="math inline">\(\varepsilon  \in L(~ (a
+\cup b)^*  ~)\)</span></p>
+<p>True or False: <span class="math inline">\(\varepsilon \in L( ~ a^*
+b^* ~)\)</span></p>
+<p><span><strong>From the pre-class reading, pages
+34-36</strong></span>: A deterministic finite automaton (DFA) is
+specified by <span class="math inline">\(M = (Q, \Sigma, \delta, q_0,
+F)\)</span>. This <span class="math inline">\(5\)</span>-tuple is called
+the <span><strong>formal definition</strong></span> of the DFA. The DFA
+can also be represented by its state diagram: with nodes for the state,
+labelled edges specifying the transition function, and decorations on
+nodes denoting the start and accept states.</p>
+<blockquote>
+<p>Finite set of states <span class="math inline">\(Q\)</span> can be
+labelled by any collection of distinct names. Often we use default state
+labels <span class="math inline">\(q0, q1, \ldots\)</span></p>
+</blockquote>
+<blockquote>
+<p>The alphabet <span class="math inline">\(\Sigma\)</span> determines
+the possible inputs to the automaton. Each input to the automaton is a
+string over <span class="math inline">\(\Sigma\)</span> and the
+automaton “processes” the input one symbol (or character) at a time.</p>
+</blockquote>
+<blockquote>
+<p>The transition function <span class="math inline">\(\delta\)</span>
+gives the next state of the DFA based on the current state of machine
+and the next input symbol.</p>
+</blockquote>
+<blockquote>
+<p>The start state <span class="math inline">\(q_0\)</span> is an
+element of <span class="math inline">\(Q\)</span>. Each computation of
+the machine starts at the start state.</p>
+</blockquote>
+<blockquote>
+<p>The accept (final) states <span class="math inline">\(F\)</span> form
+a subset of the states of the DFA, <span class="math inline">\(F
+\subseteq  Q\)</span>. These states are used to flag if the machine
+accepts or rejects an input string.</p>
+</blockquote>
+<blockquote>
+<p>The computation of a machine on an input string is a sequence of
+states in the machine, starting with the start state, determined by
+transitions of the machine as it reads successive input symbols.</p>
+</blockquote>
+<blockquote>
+<p>The DFA <span class="math inline">\(M\)</span> accepts the given
+input string exactly when the computation of <span
+class="math inline">\(M\)</span> on the input string ends in an accept
+state. <span class="math inline">\(M\)</span> rejects the given input
+string exactly when the computation of <span
+class="math inline">\(M\)</span> on the input string ends in a nonaccept
+state, that is, a state that is not in <span
+class="math inline">\(F\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>The language of <span class="math inline">\(M\)</span>, <span
+class="math inline">\(L(M)\)</span>, is defined as the set of all
+strings that are each accepted by the machine <span
+class="math inline">\(M\)</span>. Each string that is rejected by <span
+class="math inline">\(M\)</span> is not in <span
+class="math inline">\(L(M)\)</span>. The language of <span
+class="math inline">\(M\)</span> is also called the language recognized
+by <span class="math inline">\(M\)</span>.</p>
+</blockquote>
+<p>What is <span><strong>finite</strong></span> about all deterministic
+finite automata? (Select all that apply)</p>
+<ul>
+<li><p>The size of the machine (number of states, number of
+arrows)</p></li>
+<li><p>The number of strings that are accepted by the machine</p></li>
+<li><p>The length of each computation of the machine</p></li>
+</ul>
+<p><img src="../../resources/machines/Lect2DFA1.png" style="width:3in"
+alt="image" /></p>
+<p>The formal definition of this DFA is</p>
+<p>Classify each string <span class="math inline">\(a, aa, ab, ba, bb,
+\varepsilon\)</span> as accepted by the DFA or rejected by the DFA.</p>
+<p><span><em>Why are these the only two options?</em></span></p>
+<p>The language recognized by this DFA is</p>
+<p><img src="../../resources/machines/Lect2DFA2.png" style="width:3in"
+alt="image" /></p>
+<p>The language recognized by this DFA is</p>
+<p><img src="../../resources/machines/Lect2DFA3.png" style="width:3in"
+alt="image" /></p>
+<p>The language recognized by this DFA is</p>
+</body>
+</html>
