@@ -16,6 +16,54 @@
             {
                 "name": "Lecture Hall",
                 "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/553665\" frameborder=\"0\"></iframe>"
+            },
+            {
+                "name": "(Video) Overview",
+                "source": "https://youtu.be/w7JsXayXzqY"
+            },
+            {
+                "name": "(Video) Vocabulary",
+                "source": "https://youtu.be/z6n5j5VhwH4"
+            },
+            {
+                "name": "(Video) Regular expressions introduction",
+                "source": "https://youtu.be/xWFXpqQWEjk"
+            },
+            {
+                "name": "(Video) Regular expressions",
+                "source": "https://youtu.be/P18LN85i1qE"
+            },
+            {
+                "name": "(Video) Regular expressions example",
+                "source": "https://youtu.be/lggfMKyC7B8"
+            },
+            {
+                "name": "(Video) Regular expressions definition recap",
+                "source": "https://youtu.be/EKlAhoApg3k"
+            },
+            {
+                "name": "(Video) Regular expressions more exmaples",
+                "source": "https://youtu.be/kdtISDO2pf4"
+            },
+            {
+                "name": "(Video) Regular expressions and grep",
+                "source": "https://youtu.be/PXHc2SwHRIk"
+            },
+            {
+                "name": "(Video) DFA intro",
+                "source": "https://youtu.be/PI6VPw1-OUI"
+            },
+            {
+                "name": "(Video) DFA first examples",
+                "source": "https://youtu.be/u5idyPDUEpo"
+            },
+            {
+                "name": "(Video) DFA first examples solution",
+                "source": "https://youtu.be/yINehrrd4qk"
+            },
+            {
+                "name": "(Video) JFLAP demo",
+                "source": "https://youtu.be/CBa5i1CevvA"
             }
         ],
 

@@ -41,6 +41,19 @@
                 },
                 "Icon": "A",
                 "file": "automata.html"
+            },
+            "Other Models of Computation": {
+                "Description": "Describe and use models of computation that don't involve state machines.",
+                "Children": {
+                    "Regular expressions": {
+                        "Description": "Use regular expressions and relate them to languages and automata."
+                    },
+                    "Context-free grammars": {
+                        "Description": "Use context-free grammars and relate them to languages and pushdown automata."
+                    }
+                },
+                "Icon": "Models",
+                "file": "models.html"
             }
         }
     }

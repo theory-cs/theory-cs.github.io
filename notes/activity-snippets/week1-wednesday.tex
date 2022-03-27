@@ -1,143 +1,113 @@
 %! app: regular-languages
-%! outcome: Define decision problem
+%! outcome: Regular expressions
 
-We will use vocabularly and notation that should be familiar from your discrete 
-math and introduction to proofs classes.  Some of the notation conventions may 
-be a bit different: we will use the notation from this class' textbook (Sipser). 
-A summary of this notation is on page 14 of the book.
+Our motivation in studying sets of strings is that they encode problems.
 
-Write out in words the meaning of the symbols below: 
-\[
-    \{ a,b, c\}
-\]
+We need to describe the collection of all strings that match the pattern or property of a problem.
 
-\phantom{The set whose elements are $a$, $b$, and $c$}
+Let's start by thinking about how we can describe a language (a set of strings from a given alphabet).
 
-\[
-    | \{a, b, a \} | = 2
-\]
-
-\phantom{The number of elements in the set $\{a,b,a\}$ is $2$.}
-
-\[
-    | aba | = 3
-\]
-
-\phantom{The length of the string $aba$ is $3$.}
+\vfill
 
 
+{\bf Definition 1.52}: A {\bf regular expression} over alphabet $\Sigma$
+is a syntactic expression that can describe a language over $\Sigma$. The collection of all regular
+expressions is defined recursively:
+\begin{itemize}
+\item[] {\it Basis steps of recursive definition}
+\begin{quote}    
+    $a$ is a regular expression, for $a \in \Sigma$
+
+    $\varepsilon$ is a regular expression
+
+    $\emptyset$ is a regular expression
+\end{quote}
+
+\item[] {\it Recursive steps of recursive definition}
+\begin{quote}
+    $(R_1 \cup R_2)$ is a regular expression when $R_1$, $R_2$ are regular expressions 
+
+    $(R_1 \circ R_2)$ is a regular expression when $R_1$, $R_2$ are regular expressions
+
+    $(R_1^*)$ is a regular expression when $R_1$ is a regular expression 
+\end{quote}
+\end{itemize}
+ 
+
+The {\it semantics} (or meaning) of the syntactic regular expression is the {\bf language
+described by the regular expression}. The function that assigns a language to a regular expression
+over $\Sigma$ is defined recursively, using familiar set operations:
+
+
+\begin{itemize}
+    \item[] {\it Basis steps of recursive definition}
+    \begin{quote}    
+        The language described by $a$, for $a \in \Sigma$, is $\{a\}$ and we write 
+        $L(a) = \{a\}$
+    
+        The language described by $\varepsilon$ is $\{\varepsilon\}$ and we write 
+        $L(\varepsilon) = \{ \varepsilon\}$
+    
+        The language described by $\emptyset$ is $\{\}$ and we write
+        $L(\emptyset) = \emptyset$.
+    \end{quote}
+    
+    \item[] {\it Recursive steps of recursive definition}
+    \begin{quote}
+        When $R_1$, $R_2$ are regular expressions, the language described by the regular
+        expression $(R_1 \cup R_2)$ is the union of the languages described by $R_1$ and $R_2$, 
+        and we write 
+        $$L(~(R_1 \cup R_2)~) = L(R_1) \cup L(R_2) = \{ w \mid w \in L(R_1) \lor w \in L(R_2)\}$$
+    
+        When $R_1$, $R_2$ are regular expressions, the language described by the regular
+        expression $(R_1 \circ R_2)$ is the concatenation of the languages described by $R_1$ and $R_2$, 
+        and we write 
+        $$L(~(R_1 \circ R_2)~) = L(R_1) \circ L(R_2) = \{ uv \mid u \in L(R_1) \land v \in L(R_2)\}$$
+    
+        When $R_1$ is a regular expression, the language described by the regular 
+        expression $(R_1^*)$ is the {\bf Kleene star} of the language described by $R_1$ and we write
+        $$L(~(R_1^*)~) = (~L(R_1)~)^* = \{ w_1 \cdots w_k \mid k \geq 0 \textrm{ and each } w_i \in L(R_1)\}$$
+    \end{quote}
+\end{itemize}
+  
+For the following examples assume the alphabet is $\Sigma_1 =  \{0,1\}$:
+    
+The language described by the regular expression $0$ is $L(0) = \{ 0 \}$
+
+The language described by the regular expression $1$ is $L(1)  = \{ 1 \}$
+
+The language described by the regular expression $\varepsilon$ is $L(\varepsilon) = \{ \varepsilon  \}$
+
+The language described by the regular expression $\emptyset$ is $L(\emptyset) = \emptyset$
+
+The language described by the regular expression $((0 \cup 1) \cup 1)$ is $L(~((0 \cup 1) \cup 1)~) = $
+
+\vfill
+
+The language described by the regular expression $1^+$ is $L(~(1)^+~) = $
+
+\vfill
+
+The language described by the regular expression $\Sigma_1^* 1$ is $L(~\Sigma_1^* 1~) = $
+
+\vfill
+
+The language described by the regular expression $(\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1)^*$ 
+is $L(~(\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1)^*~) = $
+
+\vfill
+
+A regular expression that describes the language $\{00, 01, 10, 11\}$ is 
+
+\vfill
+
+A regular expression that describes the language $\{ 0^n1 \mid n~\text{is even} \}$ is
+
+\vfill
+
+{\it Shorthand and conventions}
+    
 \begin{center}
-    \begin{tabular}{|p{2in}cp{4in}|}
-    \hline
-    Term & Typical symbol & Meaning \\
-    \hline
-    Alphabet & $\Sigma$, $\Gamma$ & A non-empty finite set	 \\
-    Symbol over $\Sigma$  & $\sigma$, $b$, $x$ & An element of the alphabet $\Sigma$\\
-    String over $\Sigma$  &	$u$, $v$, $w$ & A finite list of symbols from $\Sigma$\\
-    The set of all strings over $\Sigma$ & $\Sigma^*$ & The collection of all possible strings formed from symbols from $\Sigma$ \\
-    (Some) language over $\Sigma$& $L$ & (Some) set of strings over $\Sigma$ \\
-    Empty set &$\emptyset$ & The empty language\\
-    Empty string &$\varepsilon$ & The string of length $0$\\
-    \hline
-    {\it Pages 3, 4, 13, 14 }& \\
-    \hline
-    \end{tabular}
-\end{center}
-
-{\it Circle the correct choice}:
-
-A {\bf string} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*$ ~~ OR ~~ a subset of $\Sigma^*$}.
-    
-A {\bf language} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*$ ~~ OR ~~ a subset of $\Sigma^*$}.
-
-
-With $\Sigma_1 = \{0,1\}$ and $\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}$  and $\Gamma = \{0,1,x,y,z\}$
-    
-    \begin{itemize}
-    \setlength{\itemsep}{10pt}
-    \item[] An example of a string of length 3 over $\Sigma_1$ is 
-    \item[] An example of  a string of length 1 over $\Sigma_2$ is 
-    \item[] The number of distinct strings of length 2 over $\Gamma$ is
-    \item[] An example of a language over $\Sigma_1$ of size $1$ is
-    \item[] An example of an infinite language over $\Sigma_1$ is
-    \item[] An example of  a finite language over $\Gamma$ is
-    
-    \end{itemize}
-    
-    \begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    Reverse of a string $w$, $w^\mathcal{R}$  & write $w$  in  the opposite order, if $w = w_1 \cdots  w_n$ then $w^\mathcal{R} = w_n \cdots  w_1$\\
-    Concatenating strings $x$ and $y$ & take $x = x_1 \cdots x_m$, $y=y_1 \cdots y_n$ and form $xy = x_1 \cdots x_m y_1 \cdots y_n$\\
-    String $z$ is a substring of string $w$ & there are strings $u,v$ such that $w = uzv$\\
-    String $x$ is a prefix of string $y$ & there is a string $z$ such that $y = xz$ \\
-    String $x$ is a proper prefix of string $y$ & $x$ is a prefix of $y$ and $x \neq y$\\
-    \hline
-    {\it Pages 13, 14} & \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    \begin{center}
-    \begin{tabular}{lcc}
-    $\varepsilon \in \Sigma_1$ & True & False \\
-    $\varepsilon$ is  a string over $\Sigma_1$ & True & False \\
-    $\varepsilon$ is a language over $\Sigma_1$ & True & False \\
-    $\varepsilon$ is a prefix of some string over  $\Sigma_1$ & True & False \\
-    There is a string over $\Sigma_1$ that is a proper prefix of $\varepsilon$& True & False \\
-    \end{tabular}
-    \end{center}
-    
-    
-    {\bf String order} over alphabet $\Sigma$: Order strings over  $\Sigma$ first by length and then according to the dictionary order, assuming symbols in $\Sigma$  have an ordering.
-    
-    \begin{itemize}
-    \setlength{\itemsep}{10pt}
-    \item[] The first five strings over $\Sigma_1$ in string order, using the ordering $0 <  1$:
-    
-    \item[] The first five strings over $\Sigma_2$ in string order, using the usual alphabetical ordering for single letters:
-    
-    \end{itemize}
-    
-    \begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    \multicolumn{2}{|l|}{Assuming $A$ and $B$  are languages  over alphabet $\Sigma$}\\
-    \hline
-    The union $A$ and $B$   & $A \cup B = \{  x \mid x \in A~\text{or}~x  \in  B \}$ \\
-    The concatenation of $A$ and $B$   & $A \circ B = \{  xy \mid x \in A~\text{and}~y  \in  B \} $ \\
-    The star of $A$ & $A^* = \{ x_1 x_2 \cdots  x_k \mid k  \geq 0 ~\text{and each}~x_i \in A \}$ \\
-    \hline
-    {\it Definition 1.23 page 44} & \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    
-    
-    \begin{center}
-    \begin{tabular}{|lll|}
-    \hline
-    \multicolumn{3}{|l|}{Assuming $\Sigma$ is the alphabet, recursive definition of regular expressions is}\\
-    \hline
-    $a$ is a regular expression  & for $a \in \Sigma$ & $L(a) = \{a\}$ \\
-    $\varepsilon$ is a regular expression   & & $L(\varepsilon) = \{ \varepsilon \}$ \\
-    $\emptyset$ is a regular expression  & & $L(\emptyset) = \{\} =  \emptyset$ \\
-    $(R_1 \cup R_2)$ is a regular expression & for  $R_1$, $R_2$ regular expressions & 
-    $L( ~(R_1\cup R_2) ~)  =
-    L(R_1) \cup L(R_2)$ \\
-    $(R_1 \circ R_2)$ is a regular expression & for  $R_1$, $R_2$ regular expressions & 
-    $L( ~(R_1\circ R_2) ~)  =
-    L(R_1) \circ L(R_2)$ \\
-    $(R_1^*)$ is a regular expression & for  $R_1$ a regular expression & $L( ~(R_1^*) ~)  = (~L(R_1) ~)^*$ \\
-    \hline
-    {\it Definition 1.52 page 64} & & \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
-    
-    \begin{center}
     \begin{tabular}{|ll|}
     \hline
     \multicolumn{2}{|l|}{Assuming $\Sigma$ is the alphabet, we use the following conventions}\\
@@ -146,31 +116,52 @@ With $\Sigma_1 = \{0,1\}$ and $\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,
     $*$ then $\circ$ then $\cup$   & precedence order, unless parentheses are used to change it\\
     $R_1R_2$ & shorthand  for  $R_1  \circ R_2$ (concatenation symbol is implicit) \\
     $R^+$ & shorthand for $R^* \circ R$ \\
-    $R^k$ & shorthand for $R$ concatenated with itself $k$ times\\
+    $R^k$ & shorthand for $R$ concatenated with itself $k$ times, where $k$ is a natural number\\
     \hline
     {\it Pages 63 - 65 }& \\
     \hline
     \end{tabular}
-    \end{center}
-    
-    
-    For the following examples assume the alphabet is $\Sigma_1 =  \{0,1\}$:
-    
-    \begin{center}
-    \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{c|c}
-    Regular expression, $R$ & Language described by the regular expression, $L(R)$\\
-    \hline
-    $0$ &$ \{ 0 \}$ \\
-    $1$ & $\{ 1 \}$ \\
-    $\varepsilon$ & $\{ \varepsilon  \}$ \\
-    $\emptyset$ & $\emptyset$ \\
-    $((0 \cup 1) \cup 1)$ & \\
-    $1^+$ & \\
-    $\Sigma_1^* 1$ & \\
-    $(\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1)^*$ & \\
-    $1^* \emptyset 0$ & \\
-    & $\{00, 01, 10, 11\}$  \\
-    & $\{ 0^n1 \mid n~\text{is even} \}$
-    \end{tabular}
-    \end{center}
+\end{center}
+
+\newpage
+{\bf Caution: many programming languages that support regular expressions build in functionality
+that is more powerful than the ``pure'' definition of regular expressions given here. }
+
+Regular expressions are everywhere (once you start looking for them).
+
+Software tools and languages often have built-in support for regular expressions to describe
+{\bf patterns} that we want to match (e.g. Excel/ Sheets, grep, Perl, python, Java, Ruby).
+
+Under the hood, the first phase of {\bf compilers} is to transform the strings we write 
+in code to tokens (keywords, operators, identifiers, literals). Compilers use regular expressions
+to describe the sets of strings that can be used for each token type.
+
+Next time: we'll start to see how to build machines that decide whether strings match the pattern
+described by a regular expression.
+
+\vfill
+
+
+{\it Extra examples for practice:}
+
+Which regular expression(s) below describe a language that includes the string $a$ as an element?
+
+$a^* b^*$ 
+
+\vfill
+
+$a(ba)^* b$
+
+\vfill
+
+$a^* \cup b^*$
+
+\vfill
+
+$(aaa)^*$
+
+\vfill
+
+$(\varepsilon \cup a) b$
+
+\vfill
