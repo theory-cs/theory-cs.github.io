@@ -10,7 +10,7 @@
                         "Description": "Classify the computational complexity of a set of strings by determining whether it is regular, context-free, decidable, or undecidable."
                     },
                     "Find example languages": {
-                        "Description": "Give examples of sets in regular, context-free, decidable, or undecidable languages (and prove them)."
+                        "Description": "Give examples of sets that are regular, context-free, decidable, or undecidable languages (and prove them)."
                     }
                 },
                 "Icon": "CL",
