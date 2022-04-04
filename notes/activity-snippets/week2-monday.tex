@@ -1,0 +1,84 @@
+%! app: regular-languages
+%! outcome: Regular expressions, Formal definition of automata, Informal definition of automata
+
+
+{\bf Review}: Formal definition of DFA: $M = (Q, \Sigma, \delta, q_0, F)$ 
+
+\begin{center}
+\begin{multicols}{2}
+\begin{itemize}
+\setlength{\itemsep}{2pt}
+\item Finite set of states $Q$
+\item Alphabet $\Sigma$
+\item Transition function $\delta$
+\item Start state $q_0$
+\item Accept (final) states $F$
+\end{itemize}
+\end{multicols}
+\end{center}
+In the state diagram of $M$, how many outgoing arrows are there from each state?
+
+$M = ( \{ q, r, s\}, \{a,b\}, \delta, q, \{s\} )$ 
+where $\delta$ is  (rows labelled by states
+and columns labelled by symbols):
+\begin{center}
+\begin{tabular}{c|cc}
+$\delta$ & $a$ & $b$ \\
+\hline
+$q$ & $r$ & $q$ \\
+$r$ & $r$ & $s$ \\
+$s$ & $s$ & $s$ \\
+\end{tabular}
+\end{center}
+
+The state diagram for $M$ is 
+
+\vfill
+
+
+
+Give two examples of strings that are accepted by $M$ and two examples of strings that are rejected by $M$:
+
+\vfill
+
+Add ``labels" for states in the state diagram, e.g. ``have not seen any of desired pattern yet'' or
+``sink state''.
+\newpage
+
+We can use the analysis of the roles of the states in the state diagram to describe the language
+recognized by the DFA. 
+
+
+$L(M) = $
+
+A regular expression describing $L(M)$ is
+
+
+
+
+\vspace{300pt}
+
+Let the alphabet be $\Sigma_1 = \{0,1\}$.
+
+A state diagram for a DFA that recognizes $\{w \mid w~\text{contains at most two $1$'s} \}$ is
+
+\vspace{70pt}
+
+A state diagram for a DFA that recognizes $\{w \mid w~\text{contains more than two $1$'s} \}$ is
+
+\vspace{70pt}
+
+
+\newpage
+{\it Extra example:} A state diagram for DFA recognizing
+$$\{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $3$} \}$$
+
+\vspace{70pt}
+
+
+Let $n$ be an arbitrary positive integer. What is a formal definition for a DFA recognizing
+\[
+\{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $n$} \}?
+\]
+
+\vspace{70pt}

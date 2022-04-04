@@ -3,7 +3,7 @@
         "header": "Week 1",
         "outcomes": "Alphabet, languages, and expressions",
         "CalendarInfo": " Dates: 3/28/22 - 4/1/22<br> Welcome! See you Monday in Warren Lecture Hall. Please take our <a href=\"https://forms.gle/p4Jq6Lr9tyskfRnJA\" target=\"_blank\">pre-class survey.</a> Classes Monday, Wednesday, Friday at 9am; No discussion section in week 1.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -79,7 +79,7 @@
         "header": "Week 2",
         "outcomes": "Regular languages and nondeterminism",
         "CalendarInfo": " Dates: 4/4/22 - 4/8/22",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -92,7 +92,68 @@
             {
                 "name": "Discussion Section: Mondays in WLH 2001",
                 "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/553665\" frameborder=\"0\"></iframe>"
+            },
+            {
+                "name": "(Video) DFA Formal Definition",
+                "source": "https://youtu.be/GwY2en9E4VI"
+            },
+            {
+                "name": "(Video) DFA Analysis",
+                "source": "https://youtu.be/dEyKH7nTkkA"
+            },
+            {
+                "name": "(Video) DFA Design Example 1",
+                "source": "https://youtu.be/EdCJHmpbOqI"
+            },
+            {
+                "name": "(Video) DFA Design Example 2",
+                "source": "https://youtu.be/O5SnUDgb5qA"
+            },
+            {
+                "name": "(Video) DFA Design Example 3",
+                "source": "https://youtu.be/ntjnaRBIwk4"
+            },
+            {
+                "name": "(Video) Regular Languages",
+                "source": "https://youtu.be/6Avl7bJ17Z0"
+            },
+            {
+                "name": "(Video) Finite Languages are Regular",
+                "source": "https://youtu.be/qE5ko48SbAo"
+            },
+            {
+                "name": "(Video) Regular Languages and Complementation",
+                "source": "https://youtu.be/yuzWlJgni-M"
+            },
+            {
+                "name": "(Video) Motivation for Closure Proofs",
+                "source": "https://youtu.be/w9CeBiG0f8E"
+            },
+            {
+                "name": "(Video) Regular Languages and Union",
+                "source": "https://youtu.be/r2A5j1Xj3FU"
+            },
+            {
+                "name": "(Video) DFA Design Example: Intersection",
+                "source": "https://youtu.be/ExhvONf_f_w"
+            },
+            {
+                "name": "(Video) Regular Languages and Intersection",
+                "source": "https://youtu.be/dDsfq-_DF5Y"
+            },
+            {
+                "name": "(Video) Iterated Transition Function",
+                "source": "https://youtu.be/EDV-fmSXHxY"
+            },
+            {
+                "name": "(Video) NFA Motivation and Definition",
+                "source": "https://youtu.be/_VRh_JpOfxg"
+            },
+            {
+                "name": "(Video) NFA Overview and Example",
+                "source": "https://youtu.be/1FiuofzjlC0"
             }
+            
         ],
 
         "Due Dates": [
