@@ -1,0 +1,177 @@
+\input{../../resources/assignment-head.tex}
+
+\title{HW2 : Regular Languages and Automata Constructions}
+\date{Due: on Gradescope}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+
+{\bf In this assignment,}
+
+You will practice reading and
+applying definitions to get comfortable working with mathematical language. As
+a result, you can expect to spend more time reading the questions and looking
+up notation than doing calculations.
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw1-definitions-and-notation''.
+
+
+{\bf Resources}: To review the topics you are working with 
+for this assignment, see the class material from  Week 0 and 1.
+We will post frequently asked questions and our answers to them in a 
+pinned Piazza post.
+
+{\bf Assigned questions}
+
+
+
+{\bf Reading and extra practice problems}: Sipser Section 1.1, 1.2, 1.3 ( Section 0 for the prerequisites).
+Chapter 1 exercises 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19, 1.20, 1.21, 1.22, 1.23.
+
+{\bf Key Concepts}: Strings, languages, Kleene star, regular expressions, language described by a regular expression, deterministic finite automata (DFAs), regular languages, closure of the class of regular languages under certain operations, nondeterministic finite automata (NFA), equivalence of NFA and DFA and regular expressions.
+
+
+\begin{enumerate}
+
+\item  In video \texttt{019.CSE105Sp20.FiniteLanguagesAreRegular.mp4}, a general 
+argument is sketched to build a DFA for an arbitrary finite language. In this question, 
+you'll explore representations of finite languages further.
+\begin{enumerate}
+\item (3 points) Pick an alphabet (a nonempty finite set), and specify it, e.g.\ by filling in the blank 
+$\Sigma =  \underline{\text{fill in your alphabet here}}$.
+
+Then, pick a language of cardinality (size) $5$ over this alphabet, and specify it, e.g.\ by filling in the blank
+\[
+L =  \underline{\text{fill in your language here}}
+\]
+{\it Note: we encourage you to pay attention to syntax here.  There are many correct answers; please be 
+precise in how you present the sets you choose.}
+
+\item (10 points) Give a regular expression that describes the language $L$ you defined in part (a).  Briefly justify why your regular expression
+works.
+\item (10 points) Give a DFA that recognizes your language $L$ you defined in part (a).  Specify your DFA {\bf both} using a formal definition
+{\bf and} a state diagram. Briefly justify why your DFA works.
+\item (10 points) ({\it Graded for fair effort completeness}) Describe how you would generalize your DFA construction
+for languages over $\Sigma$ with other {\bf finite} cardinalities. 
+Include a description of how the number of states
+in the machine might depend on the cardinality of $L$. Does this depend on the size of the alphabet you 
+chose?
+\end{enumerate}
+
+\item To safeguard the privacy or security of a network, some software filters
+the IP addresses that are allowed to send content to computers on the network. Each IP address
+can be broken into parts that represent the source host of incoming traffic, including geographic data.
+As a result, software needs to be designed to recognize whether certain substrings (representing
+permitted hosts) are present (if the hosts are permitted to send data) and whether others
+are absent (if those hosts are blocked from sending data).
+
+In this question, you'll design ways to detect these patterns in strings and analyze their costs.
+
+\begin{enumerate}
+\item (10 points) Over the alphabet $\{0,1,2,3,4,5,6,7,8,9\}$ design a NFA that accepts each and only strings
+ that have $427$, $953$, or $259$ as a substring. Your NFA should have {\bf no more than $8$ states}.
+ Include the state diagram of your NFA. Briefly justify 
+ your construction by explaining the role each state plays in the machine. {\it Note: you may 
+ include the formal definition of your NFA, but this is not required.} In the context of network
+security, this NFA would only allow traffic from IPs that have prior approval.
+
+\item (10 points) Give a regular expression that describes the set of strings from part (a). Briefly justify
+why your regular expression works.
+
+\item (10 points)\footnote{This part of the question was revised (to be simpler) on April 11, 2020.} Next, suppose the network administrators want to block traffic from IP addresses
+that have been associated with spammers. Over the alphabet~$\{0,1,2,3,4,5,6,7,8,9\}$, 
+design a NFA that accepts each and only strings
+ that do not have the substring $427$ and do not have the substring $953$.  Your NFA should have 
+ {\bf no more than $7$ states}.  Briefly justify 
+ your construction by explaining the role each state plays in the machine or by explaining the process of 
+ obtaining this machine using the general constructions discussed in class and in the textbook.
+
+{\it Bonus - not for credit; do not hand in}: extend your design so that you have a (new) NFA that recognizes
+the complement of the language you considered in part (a).
+
+\item (10 points) Give a regular expression that describes the set of strings over the alphabet $\{0,1,2,3,4,5,6,7,8,9\}$ 
+that do not have the substring $427$. Briefly justify why your regular expression works.
+
+{\it Bonus - not for credit; do not hand in}: extend your design so that you have a (new) regular expression
+that describes
+the complement of the language you considered in part (a).
+
+
+\item (10 points) ({\it Graded for fair effort completeness}) 
+One way to implement the designs from the previous parts is to convert each NFA to 
+an equivalent DFA and then store the DFA's transition function as a look-up table and the 
+set of accept states in an appropriate data structure.  To process an incoming 
+IP address, the look up table would give the sequence of states visited by the computation 
+of the DFA on the input IP address, and last state in the computation would be tested for membership
+in the set of accept states. We would like to measure the
+computational costs of this IP filtering operation for the two type of filters we discussed: allowing
+all IP addresses from certain hosts (with specified substrings) and blocking all IP addresses from certain
+hosts (avoiding specified substrings). We will measure computational costs
+in terms of computation time and memory storage.  
+\begin{enumerate}
+\item Do you expect the computation time of the DFAs that are obtained 
+from the NFAs for  part (a) and part (c) to be the same or 
+different for an arbitrary input string?  Briefly explain your reasoning.
+\item How do the memory storage needs of the DFAs obtained in part (a) and part (c) 
+compare? Briefly explain your reasoning.
+\end{enumerate}
+\end{enumerate}
+
+
+\item In this question, you'll practice working with formal general constructions
+for DFAs and translating between state diagrams and formal definitions.
+Consider the following
+construction in the 
+textbook for Chapter 1 Problem 34, which we include here for reference: 
+``Let $B$ and $C$ be languages over $\Sigma = \{ 0,1\}$. Define
+\[
+B \overset{1}{\leftarrow} C= \{ w \in B ~\mid~\textrm{ for some $y \in C$, strings $w$ and $y$ contain equal 
+numbers of $1$s }\}
+\]
+The class of regular languages is shown to be closed under the $\overset{1}{\leftarrow}$ operation
+using the construction: Let $M_B = (Q_B, \Sigma, \delta_B, q_B, F_B)$ and $M_C = ( Q_C, \Sigma, \delta_C, q_C, F_C)$ be DFAs recognizing the languages $B$ and $C$, respectively.  We will now construct NFA
+$M = (Q, \Sigma, \delta, q_0, F)$ that recognizes $B \overset{1}{\leftarrow} C$ as follows.  To decide
+whether its input $w$ is in $B \overset{1}{\leftarrow} C$, the machine $M$ checks that $w \in B$, and 
+in parallel nondeterministically guesses a string $y$ that contains the same number of $1$s as 
+contained in $w$ and checks that $y \in C$.
+\begin{itemize}
+\item[{\bf 1.}] $Q = Q_B \times Q_C$
+\item[{\bf 2.}] For $(q,r) \in Q$ and $a \in \Sigma_\varepsilon$, define
+\[
+\delta( ~((q,r), a)~) = \begin{cases}
+\{ (\delta_B(q,0) , r ) \}  \qquad&\textrm{if } a = 0 \\
+\{ (\delta_B( q,1) ,  \delta_C( r,1) ) \}  \qquad&\textrm{if } a = 1 \\
+\{ (q, \delta_C( r,0 ))\}  \qquad&\textrm{if } a = \varepsilon\\
+\end{cases}
+\]
+\item[{\bf 3.}] $q_0 = (q_B, q_C)$
+\item[{\bf 4.}] $F = F_B \times F_C$~~~."
+\end{itemize}
+
+\begin{enumerate}
+\item (10 points) Illustrate this construction by defining specific example DFAs $M_B$ and $M_C$ and including 
+their state diagrams in your submission.   Choose $M_B$ to have two states and $M_C$
+to have three states, and make sure that every state in each state diagram is reachable from the start state
+of that machine.
+Apply the construction above to create the NFA $M$  and include its state diagram in your submission.
+{\it Note: you may 
+ include the formal definition of your DFAs and NFA, but this is not required.} 
+
+{\it Hint: Confirm that you have specified every required piece of the state diagram for $M$. E.g., 
+label the states consistently with the construction, indicate the start arrow, specify each
+accepting state, and include all required transitions.}
+
+\item (10 points) ({\it Graded for fair effort completeness}) Describe the sets recognized by each of the machines you used in part (a): $M_B, M_C, M$.
+If possible, give an example of a string that is in $B$ and in $B \overset{1}{\leftarrow} C$
+and an example of a string that is in $B$ and not in $B \overset{1}{\leftarrow} C$. If any of these examples
+do not exist, explain why not.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
