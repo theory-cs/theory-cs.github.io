@@ -48,7 +48,7 @@ jobs:
           # is a 404. At http://mirror.ctan.org/systems/mac/mactex/ you can see
           # this was updated. Try just fetching and installing that .pkg
           # directly as a workaround until brew formula fixed.
-          wget "https://mirrors.concertpass.com/tex-archive/systems/mac/mactex/mactex-20220321.pkg"
+          wget -q "https://mirrors.concertpass.com/tex-archive/systems/mac/mactex/mactex-20220321.pkg"
           # https://apple.stackexchange.com/questions/72226/installing-pkg-with-terminal
           installer -pkg ./mactex-20220321.pkg -target /
           echo "/usr/local/opt" >> $GITHUB_PATH
