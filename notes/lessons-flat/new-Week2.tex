@@ -63,7 +63,27 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Week2 monday}
+\end{flushright} 
+{\it Textbook references: Within a chapter, each item is numbered consecutively. Figure 1.22
+is the twenty-second numbered item in chapter one; it comes right after Example 1.21 and right before Definition 1.23.}
+
+In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
+resources might be memory, time, parallelism, randomness, power, etc.
+To be able to compare ``hardness'' of problems, we use a consistent description of problems
+
+{\bf Input}: String
+
+{\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
+
+So far: we saw that regular expressions are convenient ways of describring patterns in strings.
+DFA give a model of computation for processing strings and and classifying them into Yes (accepted)
+or No (rejected). We will see that each set of strings is described by a regular expression if and only 
+if there is a DFA that recognizes it.  Another way of thinking about it: properties described by regular
+expressions require exactly the computational power of DFAs.
+
+
+\section*{Monday April 4}
+
 
 
 
@@ -146,8 +166,26 @@ Let $n$ be an arbitrary positive integer. What is a formal definition for a DFA 
 \{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $n$} \}?
 \]
 
-\vspace{70pt} \vfill
-\section*{Week2 wednesday}
+\vspace{70pt}     
+\newpage
+\subsection*{Review: Week 2 Monday}
+
+Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
+the languages recognized by DFAs.
+
+
+Recall: Review quizzes based on class material are assigned each day. 
+These quizzes will help you track and confirm your understanding of the concepts and examples 
+we work in class. Quizzes can be submitted on Gradescope as many times (with no penalty) as 
+you like until the quiz deadline: the three quizzes each week are all due on Friday (with no penalty 
+late submission open until Sunday).
+
+{\bf Pre class reading for next time}: Pages 45-47.
+
+
+\newpage
+\subsection*{Wednesday April 6}
+
 
 
 Suppose A is a language over an alphabet $\Sigma$. By definition, this means A is a subset of $\Sigma^*$.
@@ -219,8 +257,26 @@ $L(M) = A_1 \cup A_2$.  {\it Sipser Theorem 1.25, page 45}
 {\bf Application}: A state diagram for a DFA that recognizes $\{w \mid w~\text{has $ab$ as a substring or is of even length} \}$:
 
 \vspace{100pt}
- \vfill
-\section*{Week2 friday}
+ 
+\newpage
+\subsection*{Review: Week 2 Wednesday}
+
+Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
+the languages recognized by DFAs.
+
+
+Recall: Review quizzes based on class material are assigned each day. 
+These quizzes will help you track and confirm your understanding of the concepts and examples 
+we work in class. Quizzes can be submitted on Gradescope as many times (with no penalty) as 
+you like until the quiz deadline: the three quizzes each week are all due on Friday (with no penalty 
+late submission open until Sunday).
+
+
+{\bf Pre class reading for next time}: Introduction to Section 1.2
+
+\newpage
+\subsection*{Friday April 8}
+
 
 
 
@@ -271,128 +327,16 @@ The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of t
 
 \vspace{-10pt}
 
-The language recognized by this NFA is:  \vfill
-\section*{Week1 friday}
+The language recognized by this NFA is:  
+
+\newpage
+
+\subsection*{Review: Week 2 Friday}
 
 
-{\bf Review}: Determine whether each statement below about regular expressions
-over the alphabet $\{a,b,c\}$ is true or false:
-   
-True or False: \qquad 
-   $a  \in L(~(a \cup b )~\cup c)$
+Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
+NFA.
 
-True or False: \qquad 
-   $ab  \in L(~ (a \cup b)^*  ~)$
-   
-True or False: \qquad    
-   $ba \in L( ~ a^* b^* ~)$
-   
-True or False: \qquad 
-   $\varepsilon  \in L(a \cup b \cup c)$
-   
-True or False: \qquad 
-   $\varepsilon  \in L(~ (a \cup b)^*  ~)$
+{\bf Pre class reading for next time}: Theorem 1.47, Theorem 1.49
 
-True or False: \qquad 
-   $\varepsilon \in L( ~ a^* b^* ~)$
-
-
-{\bf From the pre-class reading, pages 34-36}:
-A deterministic finite automaton (DFA) is specified by  $M = (Q, \Sigma, \delta, q_0, F)$.
-This $5$-tuple is called the {\bf formal definition} of the DFA. The DFA can also 
-be represented by its state diagram: with nodes for the state, labelled edges specifying the 
-transition function, and decorations on nodes denoting the start and accept states.
-
-\begin{quote}
-Finite set of states $Q$ can be labelled by any collection of distinct names. Often
-we use default state labels $q0, q1, \ldots$ 
-\end{quote}
-
-\begin{quote}  
-The alphabet $\Sigma$ determines the possible inputs to the automaton. 
-Each input to the automaton is a string over  $\Sigma$, and the automaton ``processes'' the input
-one symbol (or character) at a time.
-\end{quote}
-
-\begin{quote}
-The transition function $\delta$ gives the next state of the DFA based on the current state of 
-the machine and on the next input symbol.
-\end{quote}
-
-\begin{quote}
-The start state $q_0$ is an element of $Q$.  Each computation of the machine starts at the  start  state.
-\end{quote}
-
-\begin{quote}
-The accept (final) states $F$ form a subset of the states of the DFA, $F \subseteq  Q$. 
-These states are used to flag if the machine accepts or rejects an input string.
-\end{quote}
-
-
-\begin{quote}
-The computation of a machine on an input string is a sequence of states
-in the machine,  starting with the start state, determined by transitions 
-of the machine as it reads successive input symbols.
-\end{quote}
-
-\begin{quote}
-The DFA $M$ accepts the given input string exactly when the computation of $M$ on the input string
-ends in an accept state. $M$ rejects the given input string exactly when the computation of 
-$M$ on the input string ends in a nonaccept state, that is, a state that is not in $F$.
-\end{quote}
-
-\begin{quote} 
-The language of $M$, $L(M)$, is defined as the set of  all strings that are each accepted 
-by the machine $M$. Each string that is rejected by $M$ is not in $L(M)$.
-The language of $M$ is also called the language recognized by $M$.
-\end{quote}   
-   
-What is {\bf finite} about all deterministic finite automata? (Select all that apply)
-\begin{itemize}
-   \item[$\square$] The size of the machine (number of states, number of arrows)
-   \item[$\square$] The number of strings that are accepted by the machine
-   \item[$\square$] The length of each computation of the machine
-\end{itemize}
-  
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=3in]{resources/machines/Lect2DFA1.png} 
-\end{figure}
-   
-The formal definition of this DFA is
-   
-\vspace{100pt}
-   
-
-Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the DFA or rejected by the DFA.  
-
-{\it Why are these the only two options?}
-
-\vspace{200pt}
-
-
-The language recognized by this DFA is
-  
-\vspace{100pt}
-   
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=3in]{resources/machines/Lect2DFA2.png} 
-\end{figure}
-   
-
-The language recognized by this DFA is
-  
-\vspace{100pt}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=3in]{resources/machines/Lect2DFA3.png} 
-\end{figure}
-
-The language recognized by this DFA is
-  
-\vspace{100pt}
- \vfill
 \end{document}

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>formal-definition-of-automata</title>
+  <title>Week2</title>
   <style>
     html {
       line-height: 1.5;
@@ -164,7 +164,26 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="week2-monday">Week2 monday</h1>
+<p><span><em>Textbook references: Within a chapter, each item is
+numbered consecutively. Figure 1.22 is the twenty-second numbered item
+in chapter one; it comes right after Example 1.21 and right before
+Definition 1.23.</em></span></p>
+<p>In Computer Science, we operationalize “hardest” as “requires most
+resources”, where resources might be memory, time, parallelism,
+randomness, power, etc. To be able to compare “hardness” of problems, we
+use a consistent description of problems</p>
+<p><span><strong>Input</strong></span>: String</p>
+<p><span><strong>Output</strong></span>: Yes/ No, where Yes means that
+the input string matches the pattern or property described by the
+problem.</p>
+<p>So far: we saw that regular expressions are convenient ways of
+describring patterns in strings. DFA give a model of computation for
+processing strings and and classifying them into Yes (accepted) or No
+(rejected). We will see that each set of strings is described by a
+regular expression if and only if there is a DFA that recognizes it.
+Another way of thinking about it: properties described by regular
+expressions require exactly the computational power of DFAs.</p>
+<h1 class="unnumbered" id="monday-april-4">Monday April 4</h1>
 <p><span><strong>Review</strong></span>: Formal definition of DFA: <span
 class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></p>
 <div class="center">
@@ -253,7 +272,20 @@ over $\{0,1\}$ whose length is not a multiple of $3$} \}\]</span></p>
 integer. What is a formal definition for a DFA recognizing <span
 class="math display">\[\{w \mid w~\text{is a string over $\{0,1\}$ whose
 length is not a multiple of $n$} \}?\]</span></p>
-<h1 class="unnumbered" id="week2-wednesday">Week2 wednesday</h1>
+<h2 class="unnumbered" id="review-week-2-monday">Review: Week 2
+Monday</h2>
+<p>Please complete the review quiz questions on <a
+href="http://gradescope.com">Gradescope</a> about the languages
+recognized by DFAs.</p>
+<p>Recall: Review quizzes based on class material are assigned each day.
+These quizzes will help you track and confirm your understanding of the
+concepts and examples we work in class. Quizzes can be submitted on
+Gradescope as many times (with no penalty) as you like until the quiz
+deadline: the three quizzes each week are all due on Friday (with no
+penalty late submission open until Sunday).</p>
+<p><span><strong>Pre class reading for next time</strong></span>: Pages
+45-47.</p>
+<h2 class="unnumbered" id="wednesday-april-6">Wednesday April 6</h2>
 <p>Suppose A is a language over an alphabet <span
 class="math inline">\(\Sigma\)</span>. By definition, this means A is a
 subset of <span class="math inline">\(\Sigma^*\)</span>.
@@ -313,7 +345,20 @@ Theorem 1.25, page 45</em></span></p>
 <p><span><strong>Application</strong></span>: A state diagram for a DFA
 that recognizes <span class="math inline">\(\{w \mid w~\text{has $ab$ as
 a substring or is of even length} \}\)</span>:</p>
-<h1 class="unnumbered" id="week2-friday">Week2 friday</h1>
+<h2 class="unnumbered" id="review-week-2-wednesday">Review: Week 2
+Wednesday</h2>
+<p>Please complete the review quiz questions on <a
+href="http://gradescope.com">Gradescope</a> about the languages
+recognized by DFAs.</p>
+<p>Recall: Review quizzes based on class material are assigned each day.
+These quizzes will help you track and confirm your understanding of the
+concepts and examples we work in class. Quizzes can be submitted on
+Gradescope as many times (with no penalty) as you like until the quiz
+deadline: the three quizzes each week are all due on Friday (with no
+penalty late submission open until Sunday).</p>
+<p><span><strong>Pre class reading for next time</strong></span>:
+Introduction to Section 1.2</p>
+<h2 class="unnumbered" id="friday-april-8">Friday April 8</h2>
 <div class="center">
 <table>
 <tbody>
@@ -408,102 +453,11 @@ of this NFA is:</p>
 <p><img src="../../resources/machines/Lect5NFA1.png" style="width:2.5in"
 alt="image" /></p>
 <p>The language recognized by this NFA is:</p>
-<h1 class="unnumbered" id="week1-friday">Week1 friday</h1>
-<p><span><strong>Review</strong></span>: Determine whether each
-statement below about regular expressions over the alphabet <span
-class="math inline">\(\{a,b,c\}\)</span> is true or false:</p>
-<p>True or False: <span class="math inline">\(a  \in L(~(a \cup b )~\cup
-c)\)</span></p>
-<p>True or False: <span class="math inline">\(ab  \in L(~ (a \cup
-b)^*  ~)\)</span></p>
-<p>True or False: <span class="math inline">\(ba \in L( ~ a^* b^*
-~)\)</span></p>
-<p>True or False: <span class="math inline">\(\varepsilon  \in L(a \cup
-b \cup c)\)</span></p>
-<p>True or False: <span class="math inline">\(\varepsilon  \in L(~ (a
-\cup b)^*  ~)\)</span></p>
-<p>True or False: <span class="math inline">\(\varepsilon \in L( ~ a^*
-b^* ~)\)</span></p>
-<p><span><strong>From the pre-class reading, pages
-34-36</strong></span>: A deterministic finite automaton (DFA) is
-specified by <span class="math inline">\(M = (Q, \Sigma, \delta, q_0,
-F)\)</span>. This <span class="math inline">\(5\)</span>-tuple is called
-the <span><strong>formal definition</strong></span> of the DFA. The DFA
-can also be represented by its state diagram: with nodes for the state,
-labelled edges specifying the transition function, and decorations on
-nodes denoting the start and accept states.</p>
-<blockquote>
-<p>Finite set of states <span class="math inline">\(Q\)</span> can be
-labelled by any collection of distinct names. Often we use default state
-labels <span class="math inline">\(q0, q1, \ldots\)</span></p>
-</blockquote>
-<blockquote>
-<p>The alphabet <span class="math inline">\(\Sigma\)</span> determines
-the possible inputs to the automaton. Each input to the automaton is a
-string over <span class="math inline">\(\Sigma\)</span>, and the
-automaton “processes” the input one symbol (or character) at a time.</p>
-</blockquote>
-<blockquote>
-<p>The transition function <span class="math inline">\(\delta\)</span>
-gives the next state of the DFA based on the current state of the
-machine and on the next input symbol.</p>
-</blockquote>
-<blockquote>
-<p>The start state <span class="math inline">\(q_0\)</span> is an
-element of <span class="math inline">\(Q\)</span>. Each computation of
-the machine starts at the start state.</p>
-</blockquote>
-<blockquote>
-<p>The accept (final) states <span class="math inline">\(F\)</span> form
-a subset of the states of the DFA, <span class="math inline">\(F
-\subseteq  Q\)</span>. These states are used to flag if the machine
-accepts or rejects an input string.</p>
-</blockquote>
-<blockquote>
-<p>The computation of a machine on an input string is a sequence of
-states in the machine, starting with the start state, determined by
-transitions of the machine as it reads successive input symbols.</p>
-</blockquote>
-<blockquote>
-<p>The DFA <span class="math inline">\(M\)</span> accepts the given
-input string exactly when the computation of <span
-class="math inline">\(M\)</span> on the input string ends in an accept
-state. <span class="math inline">\(M\)</span> rejects the given input
-string exactly when the computation of <span
-class="math inline">\(M\)</span> on the input string ends in a nonaccept
-state, that is, a state that is not in <span
-class="math inline">\(F\)</span>.</p>
-</blockquote>
-<blockquote>
-<p>The language of <span class="math inline">\(M\)</span>, <span
-class="math inline">\(L(M)\)</span>, is defined as the set of all
-strings that are each accepted by the machine <span
-class="math inline">\(M\)</span>. Each string that is rejected by <span
-class="math inline">\(M\)</span> is not in <span
-class="math inline">\(L(M)\)</span>. The language of <span
-class="math inline">\(M\)</span> is also called the language recognized
-by <span class="math inline">\(M\)</span>.</p>
-</blockquote>
-<p>What is <span><strong>finite</strong></span> about all deterministic
-finite automata? (Select all that apply)</p>
-<ul>
-<li><p>The size of the machine (number of states, number of
-arrows)</p></li>
-<li><p>The number of strings that are accepted by the machine</p></li>
-<li><p>The length of each computation of the machine</p></li>
-</ul>
-<p><img src="../../resources/machines/Lect2DFA1.png" style="width:3in"
-alt="image" /></p>
-<p>The formal definition of this DFA is</p>
-<p>Classify each string <span class="math inline">\(a, aa, ab, ba, bb,
-\varepsilon\)</span> as accepted by the DFA or rejected by the DFA.</p>
-<p><span><em>Why are these the only two options?</em></span></p>
-<p>The language recognized by this DFA is</p>
-<p><img src="../../resources/machines/Lect2DFA2.png" style="width:3in"
-alt="image" /></p>
-<p>The language recognized by this DFA is</p>
-<p><img src="../../resources/machines/Lect2DFA3.png" style="width:3in"
-alt="image" /></p>
-<p>The language recognized by this DFA is</p>
+<h2 class="unnumbered" id="review-week-2-friday">Review: Week 2
+Friday</h2>
+<p>Please complete the review quiz questions on <a
+href="http://gradescope.com">Gradescope</a> about NFA.</p>
+<p><span><strong>Pre class reading for next time</strong></span>:
+Theorem 1.47, Theorem 1.49</p>
 </body>
 </html>
