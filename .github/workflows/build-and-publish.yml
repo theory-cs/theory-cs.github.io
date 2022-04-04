@@ -43,7 +43,8 @@ jobs:
       - name: Download and install dependencies
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          brew install --cask mactex-no-gui
+          wget "https://mirrors.concertpass.com/tex-archive/systems/mac/mactex/mactex-20220321.pkg"
+          installer -pkg ./mactex-20220321.pkg -target /
           echo "/usr/local/opt" >> $GITHUB_PATH
           echo "/Library/TeX/texbin" >> $GITHUB_PATH
           brew install pandoc
