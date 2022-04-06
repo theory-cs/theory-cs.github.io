@@ -86,6 +86,11 @@
                 "source": "Week2.tex"
             }, 
             {
+                "name": "Discussion notes",
+                "source": "CSE105Sp22_Week2Discussion.pdf"
+            }, 
+
+            {
                 "name": "Lecture and Discussion podcast",
                 "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
             },
