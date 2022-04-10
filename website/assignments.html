@@ -123,7 +123,11 @@
 			Hw1Cse105Sp22</h2> </button> <div class="boxContent" style="display: none;"> <hr> <p> This is a group optional assignment</p> <p> Due: 4/7/22 at 5pm (no penalty late submission until 8am next morning)</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
 		href=../output/assignments/hw1CSE105Sp22.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
 			href=../notes/assignments-flat/hw1CSE105Sp22.tex download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-			href= ../output/assignments/hw1CSE105Sp22.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="hw1CSE105Sp22" src="web/viewer.html?file=../../output/assignments/hw1CSE105Sp22.pdf" 
+			href= ../output/assignments/hw1CSE105Sp22.html target="HTML">Raw HTML</a> <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton1/" href="javascript:void(0)" >Solutions On</a>
+			<a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton1/" href="javascript:void(0)" >Solutions Off</a>  <script> document.getElementById("solutionsOnButton1/").onclick = function() {annotations(1,
+			"../output/assignments/hw1CSE105Sp22.pdf","../files/hw1CSE105Sp22-solutions.pdf", "hw1CSE105Sp22")};document.getElementById("solutionsOffButton1/").onclick = function() {annotations(0,
+			"../output/assignments/hw1CSE105Sp22.pdf","../files/hw1CSE105Sp22-solutions.pdf", "hw1CSE105Sp22")};
+			</script> <br> <iframe class="PDFjs" id="hw1CSE105Sp22" src="web/viewer.html?file=../../output/assignments/hw1CSE105Sp22.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> <script>
 			 toggle = document.querySelector('.toggle input')
 
