@@ -164,6 +164,100 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week3-wednesday">Week3 wednesday</h1>
+<p>Consider the state diagram of an NFA over <span
+class="math inline">\(\{a,b\}\)</span>:</p>
+<p><img src="../../resources/machines/Lect6NFA1.png" style="width:2.5in"
+alt="image" /></p>
+<p>The language recognized by this NFA is</p>
+<p>The state diagram of a DFA recognizing this same language is:</p>
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a NFA <span
+class="math inline">\(N\)</span> such that <span
+class="math inline">\(L(N) = A\)</span> then there is a DFA <span
+class="math inline">\(M\)</span> such that <span
+class="math inline">\(L(M) = A\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: States in <span
+class="math inline">\(M\)</span> are “macro-states" – collections of
+states from <span class="math inline">\(N\)</span> – that represent the
+set of possible states a computation of <span
+class="math inline">\(N\)</span> might be in.</p>
+<p><span><strong>Formal construction</strong></span>: Let <span
+class="math inline">\(N = (Q, \Sigma, \delta, q_0, F)\)</span>. Define
+<span class="math display">\[M = (~ \mathcal{P}(Q), \Sigma, \delta&#39;,
+q&#39;,  \{ X \subseteq Q \mid X \cap F \neq \emptyset \}~ )\]</span>
+where <span class="math inline">\(q&#39; = \{ q \in Q \mid \text{$q =
+q_0$ or is accessible from $q_0$ by spontaneous moves in $N$}
+\}\)</span> and <span class="math display">\[\delta&#39; (~(X, x)~) = \{
+q \in Q \mid q \in \delta( ~(r,x)~) ~\text{for some $r \in X$ or is
+accessible
+from such an $r$ by spontaneous moves in $N$} \}\]</span></p>
+<p>Consider the state diagram of an NFA over <span
+class="math inline">\(\{0,1\}\)</span>. Use the “macro-state”
+construction to find an equivalent DFA.</p>
+<p><img src="../../resources/machines/Lect6NFA2.png" style="width:1.8in"
+alt="image" /></p>
+<p>Prune this diagram to get an equivalent DFA with only the
+“macro-states" reachable from the start state.</p>
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a regular expression
+<span class="math inline">\(R\)</span> such that <span
+class="math inline">\(L(R) = A\)</span>, then there is a NFA, let’s call
+it <span class="math inline">\(N\)</span>, such that <span
+class="math inline">\(L(N) = A\)</span>.</p>
+<p><span><strong>Structural induction</strong></span>: Regular
+expression is built from basis regular expressions using inductive steps
+(union, concatenation, Kleene star symbols). Use constructions to mirror
+these in NFAs.</p>
+<p><span><strong>Application</strong></span>: A state diagram for a NFA
+over <span class="math inline">\(\{a,b\}\)</span> that recognizes <span
+class="math inline">\(L(a^* (ab)^*)\)</span>:</p>
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a DFA <span
+class="math inline">\(M\)</span> such that <span
+class="math inline">\(L(M) = A\)</span>, then there is a regular
+expression, let’s call it <span class="math inline">\(R\)</span>, such
+that <span class="math inline">\(L(R) = A\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: Trace all possible paths
+from start state to accept state. Express labels of these paths as
+regular expressions, and union them all.</p>
+<ol>
+<li><p>Add new start state with <span
+class="math inline">\(\varepsilon\)</span> arrow to old start
+state.</p></li>
+<li><p>Add new accept state with <span
+class="math inline">\(\varepsilon\)</span> arrow from old accept states.
+Make old accept states non-accept.</p></li>
+<li><p>Remove one (of the old) states at a time: modify regular
+expressions on arrows that went through removed state to restore
+language recognized by machine.</p></li>
+</ol>
+<p><span><strong>Application</strong></span>: Find a regular expression
+describing the language recognized by the DFA with state diagram</p>
+<p><img src="../../resources/machines/Lect6NFA3.png" style="width:2.5in"
+alt="image" /></p>
+<p><span><strong>Conclusion</strong></span>: For each language <span
+class="math inline">\(L\)</span>,</p>
+<div class="center">
+<p><span><strong>There is a DFA that recognizes <span
+class="math inline">\(L\)</span> <span class="math inline">\(\exists M
+~(M \textrm{ is a DFA and } L(M) = A)\)</span></strong></span><br />
+<span><strong>if and only if</strong></span><br />
+<span><strong>There is a NFA that recognizes <span
+class="math inline">\(L\)</span> <span class="math inline">\(\exists N
+~(N \textrm{ is a NFA and } L(N) = A)\)</span></strong></span><br />
+<span><strong>if and only if</strong></span><br />
+<span><strong>There is a regular expression that describes <span
+class="math inline">\(L\)</span> <span class="math inline">\(\exists R
+~(R \textrm{ is a regular expression and } L(R) =
+A)\)</span></strong></span><br />
+</p>
+</div>
+<p>A language is called <span><strong>regular</strong></span> when any
+(hence all) of the above three conditions are met.</p>
 <h1 class="unnumbered" id="week2-monday">Week2 monday</h1>
 <p><span><strong>Review</strong></span>: Formal definition of DFA: <span
 class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></p>
