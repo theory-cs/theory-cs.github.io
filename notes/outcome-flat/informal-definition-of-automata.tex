@@ -88,7 +88,7 @@ and assume $Q_1 \cap Q_2 = \emptyset$ and that $q_0 \notin Q_1 \cup Q_2$.
 Construct $N = (Q, \Sigma, \delta, q_0, F_1 \cup F_2)$ where
 \begin{itemize}
     \item $Q = $
-    \item $\delta: Q \times \Sigma_\varepsilon \to Q$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
+    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
         \[
             \phantom{\delta((q,a))=\begin{cases}  \delta_1 ((q,a)) &\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,a)) &\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &\qquad\text{if } q = q_0, a = \varepsilon \\ \emptyset\text{if } q= q_0, a \neq \varepsilon \end{cases}}
         \]
@@ -130,7 +130,7 @@ Construct $N = (Q, \Sigma, \delta, q_0, F)$ where
     \item $Q = $
     \item $q_0 = $
     \item $F = $
-    \item $\delta: Q \times \Sigma_\varepsilon \to Q$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
+    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
         \[
             \delta((q,a))=\begin{cases}  
                 \delta_1 ((q,a)) &\qquad\text{if } q\in Q_1 \textrm{ and } q \notin F_1\\ 
@@ -160,16 +160,16 @@ moves from each (old) accept state to the old start state.
 
 {\bf Formal construction}: Let 
 $N = (Q, \Sigma, \delta, q_1, F)$ and assume $q_0 \notin Q$.
-Construct $N = (Q', \Sigma, \delta', q_0, F')$ where
+Construct $N' = (Q', \Sigma, \delta', q_0, F')$ where
 \begin{itemize}
     \item $Q' = Q \cup \{q_0\}$
     \item $F' = F \cup \{q_0\}$
-    \item $\delta': Q' \times \Sigma_\varepsilon \to Q'$ is defined by, for $q \in Q'$ and $a \in \Sigma_{\varepsilon}$:
+    \item $\delta': Q' \times \Sigma_\varepsilon \to \mathcal{P}(Q')$ is defined by, for $q \in Q'$ and $a \in \Sigma_{\varepsilon}$:
         \[
             \delta'((q,a))=\begin{cases}  
                 \delta ((q,a)) &\qquad\text{if } q\in Q \textrm{ and } q \notin F\\ 
                 \delta ((q,a)) &\qquad\text{if } q\in F \textrm{ and } a \in \Sigma\\ 
-                \delta ((q,a)) \cup \{q_1\} &\qquad\text{if } q\in F_1 \textrm{ and } a = \varepsilon\\ 
+                \delta ((q,a)) \cup \{q_1\} &\qquad\text{if } q\in F \textrm{ and } a = \varepsilon\\ 
                 \{q_1\} &\qquad\text{if } q = q_0 \textrm{ and } a = \varepsilon \\
                 \emptyset &\qquad\text{if } q = q_0 \textrm { and } a \in \Sigma
             \end{cases}
@@ -177,11 +177,11 @@ Construct $N = (Q', \Sigma, \delta', q_0, F')$ where
 \end{itemize}
 
 
-{\it Proof of correctness would prove that $L(N) = A^*$ by considering
-an arbitrary string accepted by $N$, tracing an accepting computation of $N$ on it, and using 
+{\it Proof of correctness would prove that $L(N') = A^*$ by considering
+an arbitrary string accepted by $N'$, tracing an accepting computation of $N'$ on it, and using 
 that trace to prove the string can be written as the result of concatenating some number of strings, 
 each of which is in $A$; then, taking an arbitrary 
-string in $A^*$ and proving that it is accepted by $N$. Details left for extra practice.}
+string in $A^*$ and proving that it is accepted by $N'$. Details left for extra practice.}
 
 
 {\bf Application}: A state diagram for a NFA over $\Sigma = \{a,b\}$ 

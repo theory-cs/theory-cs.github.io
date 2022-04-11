@@ -193,9 +193,9 @@ F_2)\)</span> and assume <span class="math inline">\(Q_1 \cap Q_2 =
 <ul>
 <li><p><span class="math inline">\(Q =\)</span></p></li>
 <li><p><span class="math inline">\(\delta: Q \times \Sigma_\varepsilon
-\to Q\)</span> is defined by, for <span class="math inline">\(q \in
-Q\)</span> and <span class="math inline">\(a \in
-\Sigma_{\varepsilon}\)</span>: <span
+\to \mathcal{P}(Q)\)</span> is defined by, for <span
+class="math inline">\(q \in Q\)</span> and <span class="math inline">\(a
+\in \Sigma_{\varepsilon}\)</span>: <span
 class="math display">\[\phantom{\delta((q,a))=\begin{cases}  \delta_1
 ((q,a)) &amp;\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,a))
 &amp;\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &amp;\qquad\text{if } q =
@@ -246,9 +246,9 @@ F_2)\)</span> and assume <span class="math inline">\(Q_1 \cap Q_2 =
 <li><p><span class="math inline">\(q_0 =\)</span></p></li>
 <li><p><span class="math inline">\(F =\)</span></p></li>
 <li><p><span class="math inline">\(\delta: Q \times \Sigma_\varepsilon
-\to Q\)</span> is defined by, for <span class="math inline">\(q \in
-Q\)</span> and <span class="math inline">\(a \in
-\Sigma_{\varepsilon}\)</span>: <span
+\to \mathcal{P}(Q)\)</span> is defined by, for <span
+class="math inline">\(q \in Q\)</span> and <span class="math inline">\(a
+\in \Sigma_{\varepsilon}\)</span>: <span
 class="math display">\[\delta((q,a))=\begin{cases}  
                 \delta_1 ((q,a)) &amp;\qquad\text{if } q\in Q_1 \textrm{
 and } q \notin F_1\\
@@ -283,7 +283,7 @@ state to the old start state.</p>
 <p><span><strong>Formal construction</strong></span>: Let <span
 class="math inline">\(N = (Q, \Sigma, \delta, q_1, F)\)</span> and
 assume <span class="math inline">\(q_0 \notin Q\)</span>. Construct
-<span class="math inline">\(N = (Q&#39;, \Sigma, \delta&#39;, q_0,
+<span class="math inline">\(N&#39; = (Q&#39;, \Sigma, \delta&#39;, q_0,
 F&#39;)\)</span> where</p>
 <ul>
 <li><p><span class="math inline">\(Q&#39; = Q \cup
@@ -291,16 +291,16 @@ F&#39;)\)</span> where</p>
 <li><p><span class="math inline">\(F&#39; = F \cup
 \{q_0\}\)</span></p></li>
 <li><p><span class="math inline">\(\delta&#39;: Q&#39; \times
-\Sigma_\varepsilon \to Q&#39;\)</span> is defined by, for <span
-class="math inline">\(q \in Q&#39;\)</span> and <span
+\Sigma_\varepsilon \to \mathcal{P}(Q&#39;)\)</span> is defined by, for
+<span class="math inline">\(q \in Q&#39;\)</span> and <span
 class="math inline">\(a \in \Sigma_{\varepsilon}\)</span>: <span
 class="math display">\[\delta&#39;((q,a))=\begin{cases}  
                 \delta ((q,a)) &amp;\qquad\text{if } q\in Q \textrm{ and
 } q \notin F\\
                 \delta ((q,a)) &amp;\qquad\text{if } q\in F \textrm{ and
 } a \in \Sigma\\
-                \delta ((q,a)) \cup \{q_1\} &amp;\qquad\text{if } q\in
-F_1 \textrm{ and } a = \varepsilon\\
+                \delta ((q,a)) \cup \{q_1\} &amp;\qquad\text{if } q\in F
+\textrm{ and } a = \varepsilon\\
                 \{q_1\} &amp;\qquad\text{if } q = q_0 \textrm{ and } a =
 \varepsilon \\
                 \emptyset &amp;\qquad\text{if } q = q_0 \textrm { and }
@@ -308,14 +308,15 @@ a \in \Sigma
             \end{cases}\]</span></p></li>
 </ul>
 <p><span><em>Proof of correctness would prove that <span
-class="math inline">\(L(N) = A^*\)</span> by considering an arbitrary
-string accepted by <span class="math inline">\(N\)</span>, tracing an
-accepting computation of <span class="math inline">\(N\)</span> on it,
-and using that trace to prove the string can be written as the result of
-concatenating some number of strings, each of which is in <span
+class="math inline">\(L(N&#39;) = A^*\)</span> by considering an
+arbitrary string accepted by <span
+class="math inline">\(N&#39;\)</span>, tracing an accepting computation
+of <span class="math inline">\(N&#39;\)</span> on it, and using that
+trace to prove the string can be written as the result of concatenating
+some number of strings, each of which is in <span
 class="math inline">\(A\)</span>; then, taking an arbitrary string in
 <span class="math inline">\(A^*\)</span> and proving that it is accepted
-by <span class="math inline">\(N\)</span>. Details left for extra
+by <span class="math inline">\(N&#39;\)</span>. Details left for extra
 practice.</em></span></p>
 <p><span><strong>Application</strong></span>: A state diagram for a NFA
 over <span class="math inline">\(\Sigma = \{a,b\}\)</span> that
