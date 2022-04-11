@@ -1,0 +1,86 @@
+%! app: regular-languages
+%! outcome: Classify language, Find example languages, Pumping Lemma
+
+
+{\bf Theorem}: For an alphabet $\Sigma$, For each language $L$ over $\Sigma$, 
+\begin{center}
+$L$ is recognized by some DFA \\
+iff\\
+$L$ is recognized by some NFA\\
+iff\\
+$L$ is described by some regular expression
+\end{center}
+If (any, hence all) these conditions apply, $L$ is called {\bf regular}.
+
+
+
+{\bf Prove or Disprove}: There is some alphabet $\Sigma$ for which there is 
+some language recognized by an NFA but not by any DFA.
+
+\vspace{30pt}
+
+{\bf Prove or Disprove}: There is some alphabet $\Sigma$ for which there is 
+some finite language not described by any regular expression over $\Sigma$.
+
+\vspace{30pt}
+
+
+{\bf Prove or Disprove}: If a language is recognized by an NFA 
+then the complement of this language is not recognized by any DFA.
+
+\vspace{30pt}
+
+
+\newpage
+\begin{center}
+\begin{tabular}{c|c}
+Set & Cardinality \\
+\hline
+& \\
+$\{0,1\}$ & \\
+& \\
+$\{0,1\}^*$ & \\
+& \\
+$\mathcal{P}( \{0,1\})$ & \\
+& \\
+The set of all languages over $\{0,1\}$ & \\
+& \\
+The set of all regular expressions over $\{0,1\}$ & \\
+& \\
+The set of all regular languages over $\{0,1\}$ & \\
+& \\
+\end{tabular}
+\end{center}
+
+
+
+\vfill
+
+\newpage
+
+{\bf Pumping Lemma} (Sipser Theorem 1.70): If $A$ is a regular language, then there
+is a number $p$ (a {\it pumping length}) where, if $s$ is any string in $A$ of length at least $p$, 
+then $s$ may be divided into three pieces, $s = xyz$ such that
+\vspace{-10pt}
+\begin{itemize}
+\item $|y| > 0$
+\item for each $i \geq 0$, $xy^i z \in A$
+\item $|xy| \leq p$.
+\end{itemize}
+
+
+{\bf True or False}: A pumping length for $A = \{ 0,1 \}^*$ is $p = 5$.
+
+\vspace{100pt}
+
+{\bf True or False}: A pumping length for $A = \{1, 01, 001, 0001, 00001 \}$ is $p = 4$.
+
+\vspace{100pt}
+
+{\bf True or False}: A pumping length for $A = \{0^j 1 \mid  j \geq 0 \}$ is $p = 3$.
+
+
+\vspace{100pt}
+
+{\bf True or False}: For any language $A$, if $p$  is a  pumping length for $A$ and $p' > p$,  then 
+$p'$ is also a pumping length for $A$.
