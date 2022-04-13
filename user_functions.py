@@ -529,7 +529,7 @@ def create_assignment():
 
 			html="../output/assignments/"+element['name']+".html"
 		else:
-			pdf="../output/assignments/"+element['name']+".pdf"
+			pdf="../files/"+element['name']+".pdf"
 			
 		#heading and collapsible card stuff
 		cardID = element['name'].replace(" ", "").lower()
