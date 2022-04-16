@@ -190,6 +190,58 @@
             {
                 "name": "Discussion Section: Mondays in WLH 2001",
                 "source": "<p>Slides will be posted after the discussion section.</p>"
+            },
+            {
+                "name": "(Video) NFA More Examples",
+                "source": "https://youtu.be/zqG_9oue9QU"
+            },
+            {
+                "name": "(Video) NFA Formal Definitions",
+                "source": "https://youtu.be/cdiGJSF8B0g"
+            },
+            {
+                "name": "(Video) Regular Languages Union Again",
+                "source": "https://youtu.be/_tUD0uygvnE"
+            },
+            {
+                "name": "(Video) Regular Languages Concatenation",
+                "source": "https://youtu.be/yCwE70DoXMc"
+            },
+            {
+                "name": "(Video) Regular Languages Kleene Star",
+                "source": "https://youtu.be/gSfDNaD2Za0"
+            },
+            {
+                "name": "(Video) NFA to DFA",
+                "source": "https://youtu.be/DQj5Jq3eJx8"
+            },
+            {
+                "name": "(Video) Extra Example",
+                "source": "https://youtu.be/wbbOinuDHGU"
+            },
+            {
+                "name": "(Video) DFA to Regular Expression",
+                "source": "https://youtu.be/vR_FH94hCu4"
+            },
+            {
+                "name": "(Video) Regular Expression to NFA",
+                "source": "https://youtu.be/Uu86Sx5GE9M"
+            },
+            {
+                "name": "(Video) Nonregular Sets Introduction",
+                "source": "https://youtu.be/XX0ftxx2-QE"
+            },
+            {
+                "name": "(Video) Nonregular Sets Strategies",
+                "source": "https://youtu.be/mXjZ0YnYPeA"
+            },
+            {
+                "name": "(Video) Pumping Lemma",
+                "source": "https://youtu.be/TjbLnKqpG3w"
+            },
+            {
+                "name": "(Video) Pumping Lemma and Finite Sets",
+                "source": "https://youtu.be/1F502GBzRq8"
             }
         ],
 
@@ -222,6 +274,30 @@
             {
                 "name": "Discussion Section: Mondays in WLH 2001",
                 "source": "<p>Slides will be posted after the discussion section.</p>"
+            },
+            {
+                "name": "(Video) Pumping Lemma Applications",
+                "source": "https://youtu.be/e69l6fAmOmI"
+            },
+            {
+                "name": "(Video) Nonregular set example 1",
+                "source": "https://youtu.be/VdF5Si326f4"
+            },
+            {
+                "name": "(Video) Nonregular set example 1 proof",
+                "source": "https://youtu.be/yuT-Uj8firk"
+            },
+            {
+                "name": "(Video) Nonregular set example 2 with pumping lemma",
+                "source": "https://youtu.be/cELt7w4BIYY"
+            },
+            {
+                "name": "(Video) Nonregular sets summary",
+                "source": "https://youtu.be/u7_jpg4JDJI"
+            },
+            {
+                "name": "(Video) PDA introduction",
+                "source": "https://youtu.be/Y3nPeTXQ-kw"
             }
         ],
 
