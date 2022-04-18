@@ -164,6 +164,285 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week4-monday">Week4 monday</h1>
+<p>Recap so far: In DFA, the only memory available is in the states.
+Automata can only “remember” finitely far in the past and finitely much
+information, because they can have only finitely many states. If a
+computation path of a DFA visits the same state more than once, the
+machine can’t tell the difference between the first time and future
+times it visits this state. Thus, if a DFA accepts one long string, then
+it must accept (infinitely) many similar strings.</p>
+<p><span><strong>Definition</strong></span> A positive integer <span
+class="math inline">\(p\)</span> is a <span><strong>pumping
+length</strong></span> of a language <span
+class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span> means that, for each string <span
+class="math inline">\(s  \in  \Sigma^*\)</span>, if <span
+class="math inline">\(|s| \geq p\)</span> and <span
+class="math inline">\(s \in L\)</span>, then there are strings <span
+class="math inline">\(x,y,z\)</span> such that <span
+class="math display">\[s = xyz\]</span> and <span
+class="math display">\[|y| &gt; 0,  \qquad \qquad
+\text{ for each $i \geq 0$, $xy^i z \in L$}, \qquad \text{and}
+\qquad  \qquad
+|xy| \leq p.\]</span></p>
+<p><span><strong>Negation</strong></span>: A positive integer <span
+class="math inline">\(p\)</span> is <span><strong>not a pumping
+length</strong></span> of a language <span
+class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span> iff <span
+class="math display">\[\exists s \left(~  |s| \geq  p \wedge s \in L
+\wedge \forall x \forall y \forall z  \left( ~\left( s = xyz \wedge
+|y| &gt; 0 \wedge |xy| \leq p~ \right) \to \exists i  (  i \geq
+0  \wedge xy^iz  \notin L ) \right) ~\right)\]</span>
+<span><em>Informally:</em> </span></p>
+<p>Restating <span><strong>Pumping Lemma</strong></span>: If <span
+class="math inline">\(L\)</span> is a regular language, then it has a
+pumping length.</p>
+<p><span><strong>Contrapositive</strong></span>: If <span
+class="math inline">\(L\)</span> has no pumping length, then it is
+nonregular.</p>
+<p><span>The Pumping Lemma <span><em>cannot</em></span> be used to prove
+that a language <span><em>is</em></span> regular.</span></p>
+<p><span>The Pumping Lemma <span><strong>can</strong></span> be used to
+prove that a language <span><em>is not</em></span> regular.</span></p>
+<p><span><em>Extra practice</em></span>: Exercise 1.49 in the book.</p>
+<p><span><strong>Proof strategy</strong></span>: To prove that a
+language <span class="math inline">\(L\)</span> is
+<span><strong>not</strong></span> regular,</p>
+<ul>
+<li><p>Consider an arbitrary positive integer <span
+class="math inline">\(p\)</span></p></li>
+<li><p>Prove that <span class="math inline">\(p\)</span> is not a
+pumping length for <span class="math inline">\(L\)</span></p></li>
+<li><p>Conclude that <span class="math inline">\(L\)</span> does not
+have <span><em>any</em></span> pumping length, and therefore it is not
+regular.</p></li>
+</ul>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
+class="math inline">\(L = \{ 0^n 1^n \mid n  \geq 0\}\)</span>.</p>
+<p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
+integer. List strings that are in <span class="math inline">\(L\)</span>
+and have length greater than or equal to <span
+class="math inline">\(p\)</span>:</p>
+<p>Pick <span class="math inline">\(s =\)</span></p>
+<p>Suppose <span class="math inline">\(s = xyz\)</span> with <span
+class="math inline">\(|xy|  \leq  p\)</span> and <span
+class="math inline">\(|y| &gt; 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then when <span class="math inline">\(i = \hspace{1in}\)</span>,
+<span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
+class="math inline">\(L = \{w w^{\mathcal{R}} \mid w \in
+\{0,1\}^*\}\)</span>.</p>
+<p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
+integer. List strings that are in <span class="math inline">\(L\)</span>
+and have length greater than or equal to <span
+class="math inline">\(p\)</span>:</p>
+<p>Pick <span class="math inline">\(s =\)</span></p>
+<p>Suppose <span class="math inline">\(s = xyz\)</span> with <span
+class="math inline">\(|xy|  \leq  p\)</span> and <span
+class="math inline">\(|y| &gt; 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then when <span class="math inline">\(i = \hspace{1in}\)</span>,
+<span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
+class="math inline">\(L = \{0^j1^k  \mid j \geq k  \geq
+0\}\)</span>.</p>
+<p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
+integer. List strings that are in <span class="math inline">\(L\)</span>
+and have length greater than or equal to <span
+class="math inline">\(p\)</span>:</p>
+<p>Pick <span class="math inline">\(s =\)</span></p>
+<p>Suppose <span class="math inline">\(s = xyz\)</span> with <span
+class="math inline">\(|xy|  \leq  p\)</span> and <span
+class="math inline">\(|y| &gt; 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then when <span class="math inline">\(i = \hspace{1in}\)</span>,
+<span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
+class="math inline">\(L = \{0^n1^t0^n  \mid m,n  \geq 0\}\)</span>.</p>
+<p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
+integer. List strings that are in <span class="math inline">\(L\)</span>
+and have length greater than or equal to <span
+class="math inline">\(p\)</span>:</p>
+<p>Pick <span class="math inline">\(s =\)</span></p>
+<p>Suppose <span class="math inline">\(s = xyz\)</span> with <span
+class="math inline">\(|xy|  \leq  p\)</span> and <span
+class="math inline">\(|y| &gt; 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then when <span class="math inline">\(i = \hspace{1in}\)</span>,
+<span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
+<h1 class="unnumbered" id="week4-friday">Week4 friday</h1>
+<p>Consider the state diagram of a PDA with input alphabet <span
+class="math inline">\(\Sigma\)</span> and stack alphabet <span
+class="math inline">\(\Gamma\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Label</th>
+<th style="text-align: center;">means</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a, b \to
+c\)</span> when <span class="math inline">\(a \in \Sigma\)</span>, <span
+class="math inline">\(b\in \Gamma\)</span>, <span
+class="math inline">\(c \in \Gamma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a,
+\varepsilon \to c\)</span> when <span class="math inline">\(a \in
+\Sigma\)</span>, <span class="math inline">\(c \in \Gamma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a, b \to
+\varepsilon\)</span> when <span class="math inline">\(a \in
+\Sigma\)</span>, <span class="math inline">\(b\in \Gamma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a,
+\varepsilon \to \varepsilon\)</span> when <span class="math inline">\(a
+\in \Sigma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>How does the meaning change if <span class="math inline">\(a\)</span>
+is replaced by <span class="math inline">\(\varepsilon\)</span>?</p>
+<p>For the PDA state diagrams below, <span class="math inline">\(\Sigma
+= \{0,1\}\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Mathematical description of
+language</th>
+<th style="text-align: center;">State diagram of PDA recognizing
+language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect10PDA1.png" style="width:3.5in"
+alt="image" /></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect10PDA2.png" style="width:3.5in"
+alt="image" /></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{ 0^i 1^j
+0^k \mid i,j,k \geq 0 \}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Assume <span class="math inline">\(a \in \Sigma\)</span> and <span
+class="math inline">\(L\)</span> is a language over <span
+class="math inline">\(\Sigma\)</span>. Recall that <span
+class="math display">\[aL = \{ aw \mid w \in L \}\]</span> If <span
+class="math inline">\(M = (Q, \Sigma, \Gamma, \delta, q_0, F)\)</span>
+is a PDA with <span class="math inline">\(L(M) = L\)</span>, a PDA <span
+class="math inline">\(M_1\)</span> that recognizes <span
+class="math inline">\(aL\)</span> is <span class="math display">\[M_1 =
+( \hspace{1in} , \Sigma, \Gamma, \delta_1, \hspace{0.5in},
+\hspace{0.5in})\]</span> with</p>
 <h1 class="unnumbered" id="week3-friday">Week3 friday</h1>
 <p><span><strong>Theorem</strong></span>: For an alphabet <span
 class="math inline">\(\Sigma\)</span>, For each language <span

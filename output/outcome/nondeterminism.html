@@ -164,6 +164,310 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week4-wednesday">Week4 wednesday</h1>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Language</th>
+<th style="text-align: center;"><span class="math inline">\(s \in
+L\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(s \notin
+L\)</span></th>
+<th style="text-align: center;">Is the language regular or
+nonregular?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{a^nb^n
+\mid 0  \leq n  \leq 5 \}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{b^n a^n
+\mid  n  \geq 2\}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{a^i b^j
+\mid  0 \leq i \leq j\}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{a^i b^j
+\mid  i \geq j+3,  j \geq 0\}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{b^i a^j
+\mid  i \geq 1, j \geq  3\}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{ w  \in
+\{a,b\}^* \mid w = w^\mathcal{R} \}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{
+ww^\mathcal{R} \mid w\in \{a,b\}^* \}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Regular sets are not the end of the story</p>
+<ul>
+<li><p>Many nice / simple / important sets are not regular</p></li>
+<li><p>Limitation of the finite-state automaton model: Can’t "count",
+Can only remember finitely far into the past, Can’t backtrack, Must make
+decisions in "real-time"</p></li>
+<li><p>We know actual computers are more powerful than this
+model...</p></li>
+</ul>
+<p>The <span><strong>next</strong></span> model of computation. Idea:
+allow some memory of unbounded size. How?</p>
+<ul>
+<li><p>To generalize regular expressions: <span><strong>context-free
+grammars</strong></span><br />
+</p></li>
+<li><p>To generalize NFA: <span><strong>Pushdown
+automata</strong></span>, which is like an NFA with access to a stack:
+Number of states is fixed, number of entries in stack is unbounded. At
+each step (1) Transition to new state based on current state, letter
+read, and top letter of stack, then (2) (Possibly) push or pop a letter
+to (or from) top of stack. Accept a string iff there is some sequence of
+states and some sequence of stack contents which helps the PDA processes
+the entire input string and ends in an accepting state.</p></li>
+</ul>
+<p><img src="../../resources/machines/Lect9PDA.png" style="width:4in"
+alt="image" /></p>
+<p>Trace the computation of this PDA on the input string <span
+class="math inline">\(01\)</span>.</p>
+<p>Trace the computation of this PDA on the input string <span
+class="math inline">\(011\)</span>.</p>
+<p><span><strong>Definition</strong></span> A <span><strong>pushdown
+automaton</strong></span> (PDA) is specified by a <span
+class="math inline">\(6\)</span>-tuple <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, F)\)</span> where <span
+class="math inline">\(Q\)</span> is the finite set of states, <span
+class="math inline">\(\Sigma\)</span> is the input alphabet, <span
+class="math inline">\(\Gamma\)</span> is the stack alphabet, <span
+class="math display">\[\delta: Q \times
+\Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times
+\Gamma_\varepsilon)\]</span> is the transition function, <span
+class="math inline">\(q_0 \in Q\)</span> is the start state, <span
+class="math inline">\(F \subseteq  Q\)</span> is the set of accept
+states.</p>
+<div class="multicols">
+<p><span>2</span> <span><em>Formal definition</em></span></p>
+<p>Draw the state diagram of a PDA with <span
+class="math inline">\(\Sigma = \Gamma\)</span>.</p>
+<p><img src="../../resources/machines/Lect9PDA.png"
+style="height:1.38889in" alt="image" /></p>
+<p>Draw the state diagram of a PDA with <span
+class="math inline">\(\Sigma \cap \Gamma = \emptyset\)</span>.</p>
+</div>
+<p>A PDA recognizing the set <span class="math inline">\(\{ \hspace{1.5
+in} \}\)</span> can be informally described as:</p>
+<blockquote>
+<p>Read symbols from the input. As each 0 is read, push it onto the
+stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If
+the stack becomes empty and there is exactly one 1 left to read, read
+that 1 and accept the input. If the stack becomes empty and there are
+either zero or more than one 1s left to read, or if the 1s are finished
+while the stack still contains 0s, or if any 0s appear in the input
+following 1s, reject the input.</p>
+</blockquote>
+<p>State diagram for this PDA:</p>
+<p><span class="math inline">\(\Sigma = \{a,b,c\}\)</span>. <span
+class="math inline">\(L = \{ a^i b^j c^k \mid  i=j ~\text{or}~ i=k,
+~i\geq 0, j \geq 0, k \geq 0\}\)</span></p>
+<h1 class="unnumbered" id="week4-friday">Week4 friday</h1>
+<p>Consider the state diagram of a PDA with input alphabet <span
+class="math inline">\(\Sigma\)</span> and stack alphabet <span
+class="math inline">\(\Gamma\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Label</th>
+<th style="text-align: center;">means</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a, b \to
+c\)</span> when <span class="math inline">\(a \in \Sigma\)</span>, <span
+class="math inline">\(b\in \Gamma\)</span>, <span
+class="math inline">\(c \in \Gamma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a,
+\varepsilon \to c\)</span> when <span class="math inline">\(a \in
+\Sigma\)</span>, <span class="math inline">\(c \in \Gamma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a, b \to
+\varepsilon\)</span> when <span class="math inline">\(a \in
+\Sigma\)</span>, <span class="math inline">\(b\in \Gamma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a,
+\varepsilon \to \varepsilon\)</span> when <span class="math inline">\(a
+\in \Sigma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>How does the meaning change if <span class="math inline">\(a\)</span>
+is replaced by <span class="math inline">\(\varepsilon\)</span>?</p>
+<p>For the PDA state diagrams below, <span class="math inline">\(\Sigma
+= \{0,1\}\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Mathematical description of
+language</th>
+<th style="text-align: center;">State diagram of PDA recognizing
+language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect10PDA1.png" style="width:3.5in"
+alt="image" /></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect10PDA2.png" style="width:3.5in"
+alt="image" /></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{ 0^i 1^j
+0^k \mid i,j,k \geq 0 \}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Assume <span class="math inline">\(a \in \Sigma\)</span> and <span
+class="math inline">\(L\)</span> is a language over <span
+class="math inline">\(\Sigma\)</span>. Recall that <span
+class="math display">\[aL = \{ aw \mid w \in L \}\]</span> If <span
+class="math inline">\(M = (Q, \Sigma, \Gamma, \delta, q_0, F)\)</span>
+is a PDA with <span class="math inline">\(L(M) = L\)</span>, a PDA <span
+class="math inline">\(M_1\)</span> that recognizes <span
+class="math inline">\(aL\)</span> is <span class="math display">\[M_1 =
+( \hspace{1in} , \Sigma, \Gamma, \delta_1, \hspace{0.5in},
+\hspace{0.5in})\]</span> with</p>
 <h1 class="unnumbered" id="week3-monday">Week3 monday</h1>
 <p>The state diagram of an NFA over <span
 class="math inline">\(\{a,b\}\)</span> is below. The formal definition
