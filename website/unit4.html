@@ -128,7 +128,13 @@
             <h2 tabindex = "2"> Notes</h2>
                 <a tabindex = "2" class="button PDF" aria-label="Download PDF" href=../output/lessons/Week4.pdf download>PDF</a>  <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
                     href=../notes/lessons-flat/Week4.tex download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-                    href= ../output/lessons/Week4.html target="HTML">Raw HTML</a> <br> <iframe class="PDFjs" id="Week4.tex" src="web/viewer.html?file=../../output/lessons/Week4.pdf" 
+                    href= ../output/lessons/Week4.html target="HTML">Raw HTML</a>
+                    <label class="switch">
+                    <input type="checkbox" id="toggle-1">
+                    <span class="slider round"></span>
+                    </label>
+                     <script> document.getElementById("toggle-1").onclick = function() {annotations(
+                     1, "../output/lessons/Week4.pdf","../files/Week4-annotated.pdf", "Week4.tex")}; </script> <br> <iframe class="PDFjs" id="Week4.tex" src="web/viewer.html?file=../../output/lessons/Week4.pdf" 
                 title="webviewer" frameborder="0" width="100%" height="600"></iframe> <h2 tabindex = "2"> Review quiz questions (Weeks 1 to 3)</h2>
                 <a tabindex = "2" class="button PDF" aria-label="Download PDF" href=../files/weeks1to3reviewquizzes.pdf download>PDF</a>  <br> <iframe class="PDFjs" id="weeks1to3reviewquizzes.pdf" src="web/viewer.html?file=../../files/../files/weeks1to3reviewquizzes.pdf" 
                     title="webviewer" frameborder="0" width="100%" height="600"></iframe> 
