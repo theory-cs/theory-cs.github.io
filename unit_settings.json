@@ -79,7 +79,7 @@
         "header": "Week 2",
         "outcomes": "Regular languages and nondeterminism",
         "CalendarInfo": " Dates: 4/4/22 - 4/8/22",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -261,7 +261,7 @@
         "header": "Week 4",
         "outcomes": "Pumping Lemma and Pushdown Automata",
         "CalendarInfo": " Dates: 4/18/22 - 4/23/22",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -274,6 +274,10 @@
             {
                 "name": "Discussion Section: Mondays in WLH 2001",
                 "source": "<p>Slides will be posted after the discussion section.</p>"
+            },
+            {
+                "name": "Review quiz questions (Weeks 1 to 3)",
+                "source": "weeks1to3reviewquizzes.pdf"
             },
             {
                 "name": "(Video) Pumping Lemma Applications",
@@ -298,6 +302,30 @@
             {
                 "name": "(Video) PDA introduction",
                 "source": "https://youtu.be/Y3nPeTXQ-kw"
+            },
+            {
+                "name": "(Video) PDA definition",
+                "source": "https://youtu.be/2SePbTqC9Ug"
+            },
+            {
+                "name": "(Video) PDA stack implementation",
+                "source": "https://youtu.be/xx3esuK_A2A"
+            },
+            {
+                "name": "(Video) PDA formal definition",
+                "source": "https://youtu.be/uGAsTe1_2jY"
+            },
+            {
+                "name": "(Video) PDA example trace",
+                "source": "https://youtu.be/Y1AvdN7svOQ"
+            },
+            {
+                "name": "(Video) PDA design example",
+                "source": "https://youtu.be/Vms4jg4RRjA"
+            },
+            {
+                "name": "(Video) PDA arrow labels",
+                "source": "https://youtu.be/nqbwhhWqWHo"
             }
         ],
 
