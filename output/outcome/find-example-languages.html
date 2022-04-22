@@ -298,7 +298,7 @@ class="math inline">\(|y| &gt; 0\)</span>.</p>
 <span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
 <p><span><strong>Example</strong></span>: <span
 class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
-class="math inline">\(L = \{0^n1^t0^n  \mid m,n  \geq 0\}\)</span>.</p>
+class="math inline">\(L = \{0^n1^m0^n  \mid m,n  \geq 0\}\)</span>.</p>
 <p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
 integer. List strings that are in <span class="math inline">\(L\)</span>
 and have length greater than or equal to <span
@@ -322,6 +322,40 @@ class="math inline">\(|y| &gt; 0\)</span>.</p>
 <p>Then when <span class="math inline">\(i = \hspace{1in}\)</span>,
 <span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
 <h1 class="unnumbered" id="week4-friday">Week4 friday</h1>
+<p><span><strong>Definition</strong></span> A <span><strong>pushdown
+automaton</strong></span> (PDA) is specified by a <span
+class="math inline">\(6\)</span>-tuple <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, F)\)</span> where <span
+class="math inline">\(Q\)</span> is the finite set of states, <span
+class="math inline">\(\Sigma\)</span> is the input alphabet, <span
+class="math inline">\(\Gamma\)</span> is the stack alphabet, <span
+class="math display">\[\delta: Q \times
+\Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times
+\Gamma_\varepsilon)\]</span> is the transition function, <span
+class="math inline">\(q_0 \in Q\)</span> is the start state, <span
+class="math inline">\(F \subseteq  Q\)</span> is the set of accept
+states.</p>
+<div class="multicols">
+<p><span>2</span> <span><em>Formal definition</em></span></p>
+<p>Draw the state diagram of a PDA with <span
+class="math inline">\(\Sigma = \Gamma\)</span>.</p>
+<p><img src="../../resources/machines/Lect9PDA.png"
+style="height:1.38889in" alt="image" /></p>
+<p>Draw the state diagram of a PDA with <span
+class="math inline">\(\Sigma \cap \Gamma = \emptyset\)</span>.</p>
+</div>
+<p>A PDA recognizing the set <span class="math inline">\(\{ \hspace{1.5
+in} \}\)</span> can be informally described as:</p>
+<blockquote>
+<p>Read symbols from the input. As each 0 is read, push it onto the
+stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If
+the stack becomes empty and there is exactly one 1 left to read, read
+that 1 and accept the input. If the stack becomes empty and there are
+either zero or more than one 1s left to read, or if the 1s are finished
+while the stack still contains 0s, or if any 0s appear in the input
+following 1s, reject the input.</p>
+</blockquote>
+<p>State diagram for this PDA:</p>
 <p>Consider the state diagram of a PDA with input alphabet <span
 class="math inline">\(\Sigma\)</span> and stack alphabet <span
 class="math inline">\(\Gamma\)</span>.</p>
@@ -335,7 +369,7 @@ class="math inline">\(\Gamma\)</span>.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(a, b \to
+<td style="text-align: center;"><span class="math inline">\(a, b ;
 c\)</span> when <span class="math inline">\(a \in \Sigma\)</span>, <span
 class="math inline">\(b\in \Gamma\)</span>, <span
 class="math inline">\(c \in \Gamma\)</span></td>
@@ -351,7 +385,7 @@ class="math inline">\(c \in \Gamma\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\(a,
-\varepsilon \to c\)</span> when <span class="math inline">\(a \in
+\varepsilon ; c\)</span> when <span class="math inline">\(a \in
 \Sigma\)</span>, <span class="math inline">\(c \in \Gamma\)</span></td>
 <td style="text-align: center;"></td>
 </tr>
@@ -364,7 +398,7 @@ class="math inline">\(c \in \Gamma\)</span></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(a, b \to
+<td style="text-align: center;"><span class="math inline">\(a, b ;
 \varepsilon\)</span> when <span class="math inline">\(a \in
 \Sigma\)</span>, <span class="math inline">\(b\in \Gamma\)</span></td>
 <td style="text-align: center;"></td>
@@ -379,7 +413,7 @@ class="math inline">\(c \in \Gamma\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\(a,
-\varepsilon \to \varepsilon\)</span> when <span class="math inline">\(a
+\varepsilon ; \varepsilon\)</span> when <span class="math inline">\(a
 \in \Sigma\)</span></td>
 <td style="text-align: center;"></td>
 </tr>
@@ -396,6 +430,9 @@ class="math inline">\(c \in \Gamma\)</span></td>
 </div>
 <p>How does the meaning change if <span class="math inline">\(a\)</span>
 is replaced by <span class="math inline">\(\varepsilon\)</span>?</p>
+<p><span><em>Note: alternate notation is to replace <span
+class="math inline">\(;\)</span> with <span
+class="math inline">\(\to\)</span></em></span></p>
 <p>For the PDA state diagrams below, <span class="math inline">\(\Sigma
 = \{0,1\}\)</span>.</p>
 <div class="center">
@@ -433,16 +470,6 @@ alt="image" /></td>
 </tbody>
 </table>
 </div>
-<p>Assume <span class="math inline">\(a \in \Sigma\)</span> and <span
-class="math inline">\(L\)</span> is a language over <span
-class="math inline">\(\Sigma\)</span>. Recall that <span
-class="math display">\[aL = \{ aw \mid w \in L \}\]</span> If <span
-class="math inline">\(M = (Q, \Sigma, \Gamma, \delta, q_0, F)\)</span>
-is a PDA with <span class="math inline">\(L(M) = L\)</span>, a PDA <span
-class="math inline">\(M_1\)</span> that recognizes <span
-class="math inline">\(aL\)</span> is <span class="math display">\[M_1 =
-( \hspace{1in} , \Sigma, \Gamma, \delta_1, \hspace{0.5in},
-\hspace{0.5in})\]</span> with</p>
 <h1 class="unnumbered" id="week3-friday">Week3 friday</h1>
 <p><span><strong>Theorem</strong></span>: For an alphabet <span
 class="math inline">\(\Sigma\)</span>, For each language <span

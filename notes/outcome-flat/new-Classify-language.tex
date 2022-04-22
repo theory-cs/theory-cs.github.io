@@ -190,7 +190,7 @@ Then when $i = \hspace{1in}$, $xy^i z  = \hspace{1in}$
 
 \vspace{30pt} 
 
-{\bf Example}: $\Sigma  =  \{0,1\}$, $L = \{0^n1^t0^n  \mid m,n  \geq 0\}$.
+{\bf Example}: $\Sigma  =  \{0,1\}$, $L = \{0^n1^m0^n  \mid m,n  \geq 0\}$.
 
 Fix $p$ an arbitrary positive integer. List strings that are in $L$ and have length  greater than or equal  to $p$:
 
@@ -223,11 +223,11 @@ Then when $i = \hspace{1in}$, $xy^i z  = \hspace{1in}$
      & & & \\
     $\{b^n a^n \mid  n  \geq 2\}$  & & & \\
      & & & \\
-    $\{a^i b^j \mid  0 \leq i \leq j\}$  & & & \\
+    $\{a^m b^n \mid  0 \leq m\leq n\}$  & & & \\
      & & & \\
-    $\{a^i b^j \mid  i \geq j+3,  j \geq 0\}$  & & & \\
+    $\{a^m b^n \mid  m \geq n+3,  n \geq 0\}$  & & & \\
      & & & \\
-    $\{b^i a^j \mid  i \geq 1, j \geq  3\}$  & & & \\
+    $\{b^m a^n \mid  m \geq 1, n \geq  3\}$  & & & \\
      & & & \\
     $\{ w  \in \{a,b\}^* \mid w = w^\mathcal{R} \}$ & & & \\
      & & & \\ 
@@ -265,10 +265,10 @@ Trace the computation of this PDA on the input string $01$.
 Trace the computation of this PDA on the input string $011$.
 
 \vspace{80pt}
-    
-    
-\newpage
-    
+ \vfill
+\section*{Week4 friday}
+
+
 {\bf Definition} A {\bf pushdown automaton} (PDA) is  specified by a  $6$-tuple $(Q, \Sigma, \Gamma, \delta, q_0, F)$
 where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$ is the stack alphabet,
 \[
@@ -298,41 +298,34 @@ A PDA recognizing the set $\{ \hspace{1.5 in} \}$ can be informally described as
 \end{quote}
     
     State diagram for this  PDA:
-    
-    \vspace{60pt}
-    
-$\Sigma = \{a,b,c\}$.  $L = \{ a^i b^j c^k \mid  i=j ~\text{or}~ i=k, ~i\geq 0, j \geq 0, k \geq 0\}$
-    
-\vfill \vfill
-\section*{Week4 friday}
 
-
+    
+\vfill
+\newpage
 Consider the state diagram of a PDA with input alphabet 
 $\Sigma$ and stack alphabet $\Gamma$.
-
-\vspace{-0.2in}
 
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
 Label & means \\
 \hline
-$a, b \to c$ when $a \in \Sigma$, $b\in \Gamma$, $c \in \Gamma$ 
+$a, b ; c$ when $a \in \Sigma$, $b\in \Gamma$, $c \in \Gamma$ 
 & \hspace{3in} \\
 & \\
 &\\
 \hline
-$a, \varepsilon \to c$ when $a \in \Sigma$, $c \in \Gamma$ 
+$a, \varepsilon ; c$ when $a \in \Sigma$, $c \in \Gamma$ 
 & \hspace{3in} \\
 & \\
 &\\
 \hline
-$a, b \to \varepsilon$ when $a \in \Sigma$, $b\in \Gamma$
+$a, b ; \varepsilon$ when $a \in \Sigma$, $b\in \Gamma$
 & \hspace{3in} \\
 & \\
 &\\
 \hline
-$a, \varepsilon \to \varepsilon$ when $a \in \Sigma$
+$a, \varepsilon ; \varepsilon$ when $a \in \Sigma$
 & \hspace{3in} \\
 & \\
 &\\
@@ -340,15 +333,13 @@ $a, \varepsilon \to \varepsilon$ when $a \in \Sigma$
 \end{tabular}
 \end{center}
 
-\vspace{-0.2in}
 
 How does the meaning change if $a$ is replaced by $\varepsilon$?
 
+{\it Note: alternate notation is to replace $;$ with $\to$}
+
 
 For the PDA state diagrams below, $\Sigma = \{0,1\}$.
-
-
-\vspace{-0.2in}
 
 
 \begin{center}
@@ -363,22 +354,6 @@ Mathematical description of language & State diagram of PDA recognizing language
 $\{ 0^i 1^j 0^k \mid i,j,k \geq 0 \}$ & \\
 \end{tabular}
 \end{center}
-
-\newpage
-
-Assume $a \in \Sigma$ and $L$ is a language over $\Sigma$.  Recall that 
-\[
-aL = \{ aw \mid w \in L \}
-\]
-If $M = (Q, \Sigma, \Gamma, \delta, q_0, F)$ is a PDA with $L(M) = L$, 
-a PDA $M_1$ that recognizes $aL$ is
-\[
-M_1 = ( \hspace{1in} , \Sigma, \Gamma, \delta_1, \hspace{0.5in}, \hspace{0.5in})
-\]
-with
-
-\vspace{180pt}
-
  \vfill
 \section*{Week3 friday}
 

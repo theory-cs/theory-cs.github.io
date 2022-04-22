@@ -212,8 +212,8 @@ nonregular?</th>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\{a^i b^j
-\mid  0 \leq i \leq j\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{a^m b^n
+\mid  0 \leq m\leq n\}\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -225,8 +225,8 @@ nonregular?</th>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\{a^i b^j
-\mid  i \geq j+3,  j \geq 0\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{a^m b^n
+\mid  m \geq n+3,  n \geq 0\}\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -238,8 +238,8 @@ nonregular?</th>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\{b^i a^j
-\mid  i \geq 1, j \geq  3\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{b^m a^n
+\mid  m \geq 1, n \geq  3\}\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -309,6 +309,7 @@ alt="image" /></p>
 class="math inline">\(01\)</span>.</p>
 <p>Trace the computation of this PDA on the input string <span
 class="math inline">\(011\)</span>.</p>
+<h1 class="unnumbered" id="week4-friday">Week4 friday</h1>
 <p><span><strong>Definition</strong></span> A <span><strong>pushdown
 automaton</strong></span> (PDA) is specified by a <span
 class="math inline">\(6\)</span>-tuple <span class="math inline">\((Q,
@@ -343,10 +344,6 @@ while the stack still contains 0s, or if any 0s appear in the input
 following 1s, reject the input.</p>
 </blockquote>
 <p>State diagram for this PDA:</p>
-<p><span class="math inline">\(\Sigma = \{a,b,c\}\)</span>. <span
-class="math inline">\(L = \{ a^i b^j c^k \mid  i=j ~\text{or}~ i=k,
-~i\geq 0, j \geq 0, k \geq 0\}\)</span></p>
-<h1 class="unnumbered" id="week4-friday">Week4 friday</h1>
 <p>Consider the state diagram of a PDA with input alphabet <span
 class="math inline">\(\Sigma\)</span> and stack alphabet <span
 class="math inline">\(\Gamma\)</span>.</p>
@@ -360,7 +357,7 @@ class="math inline">\(\Gamma\)</span>.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(a, b \to
+<td style="text-align: center;"><span class="math inline">\(a, b ;
 c\)</span> when <span class="math inline">\(a \in \Sigma\)</span>, <span
 class="math inline">\(b\in \Gamma\)</span>, <span
 class="math inline">\(c \in \Gamma\)</span></td>
@@ -376,7 +373,7 @@ class="math inline">\(c \in \Gamma\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\(a,
-\varepsilon \to c\)</span> when <span class="math inline">\(a \in
+\varepsilon ; c\)</span> when <span class="math inline">\(a \in
 \Sigma\)</span>, <span class="math inline">\(c \in \Gamma\)</span></td>
 <td style="text-align: center;"></td>
 </tr>
@@ -389,7 +386,7 @@ class="math inline">\(c \in \Gamma\)</span></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(a, b \to
+<td style="text-align: center;"><span class="math inline">\(a, b ;
 \varepsilon\)</span> when <span class="math inline">\(a \in
 \Sigma\)</span>, <span class="math inline">\(b\in \Gamma\)</span></td>
 <td style="text-align: center;"></td>
@@ -404,7 +401,7 @@ class="math inline">\(c \in \Gamma\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\(a,
-\varepsilon \to \varepsilon\)</span> when <span class="math inline">\(a
+\varepsilon ; \varepsilon\)</span> when <span class="math inline">\(a
 \in \Sigma\)</span></td>
 <td style="text-align: center;"></td>
 </tr>
@@ -421,6 +418,9 @@ class="math inline">\(c \in \Gamma\)</span></td>
 </div>
 <p>How does the meaning change if <span class="math inline">\(a\)</span>
 is replaced by <span class="math inline">\(\varepsilon\)</span>?</p>
+<p><span><em>Note: alternate notation is to replace <span
+class="math inline">\(;\)</span> with <span
+class="math inline">\(\to\)</span></em></span></p>
 <p>For the PDA state diagrams below, <span class="math inline">\(\Sigma
 = \{0,1\}\)</span>.</p>
 <div class="center">
@@ -458,16 +458,6 @@ alt="image" /></td>
 </tbody>
 </table>
 </div>
-<p>Assume <span class="math inline">\(a \in \Sigma\)</span> and <span
-class="math inline">\(L\)</span> is a language over <span
-class="math inline">\(\Sigma\)</span>. Recall that <span
-class="math display">\[aL = \{ aw \mid w \in L \}\]</span> If <span
-class="math inline">\(M = (Q, \Sigma, \Gamma, \delta, q_0, F)\)</span>
-is a PDA with <span class="math inline">\(L(M) = L\)</span>, a PDA <span
-class="math inline">\(M_1\)</span> that recognizes <span
-class="math inline">\(aL\)</span> is <span class="math display">\[M_1 =
-( \hspace{1in} , \Sigma, \Gamma, \delta_1, \hspace{0.5in},
-\hspace{0.5in})\]</span> with</p>
 <h1 class="unnumbered" id="week3-monday">Week3 monday</h1>
 <p>The state diagram of an NFA over <span
 class="math inline">\(\{a,b\}\)</span> is below. The formal definition
