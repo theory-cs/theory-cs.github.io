@@ -11,11 +11,11 @@
      & & & \\
     $\{b^n a^n \mid  n  \geq 2\}$  & & & \\
      & & & \\
-    $\{a^i b^j \mid  0 \leq i \leq j\}$  & & & \\
+    $\{a^m b^n \mid  0 \leq m\leq n\}$  & & & \\
      & & & \\
-    $\{a^i b^j \mid  i \geq j+3,  j \geq 0\}$  & & & \\
+    $\{a^m b^n \mid  m \geq n+3,  n \geq 0\}$  & & & \\
      & & & \\
-    $\{b^i a^j \mid  i \geq 1, j \geq  3\}$  & & & \\
+    $\{b^m a^n \mid  m \geq 1, n \geq  3\}$  & & & \\
      & & & \\
     $\{ w  \in \{a,b\}^* \mid w = w^\mathcal{R} \}$ & & & \\
      & & & \\ 
@@ -53,42 +53,3 @@ Trace the computation of this PDA on the input string $01$.
 Trace the computation of this PDA on the input string $011$.
 
 \vspace{80pt}
-    
-    
-\newpage
-    
-{\bf Definition} A {\bf pushdown automaton} (PDA) is  specified by a  $6$-tuple $(Q, \Sigma, \Gamma, \delta, q_0, F)$
-where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$ is the stack alphabet,
-\[
-    \delta: Q \times \Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times \Gamma_\varepsilon)
-\]
-is the transition function,  $q_0 \in Q$ is the start state, $F \subseteq  Q$ is the set of accept states.
-    
-\begin{multicols}{2}
-    {\it Formal definition}
-    
-    \vspace{90pt}
-    Draw the state diagram of a PDA with $\Sigma = \Gamma$.
-    
-    \columnbreak 
-    \includegraphics[height=100pt]{../../resources/machines/Lect9PDA.png}
-    
-    
-    Draw the state diagram of a PDA with $\Sigma \cap \Gamma = \emptyset$.
-    
-\end{multicols}
-    
-\vspace{60pt}
-    
-A PDA recognizing the set $\{ \hspace{1.5 in} \}$ can be informally described as:
-\begin{quote}
-    Read symbols from the input. As each 0 is read, push it onto the stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If the stack becomes empty and there is exactly one 1 left to read, read that 1 and accept the input. If the stack becomes empty and there are either zero or more than one 1s left to read, or if the 1s are finished while the stack still contains 0s, or if any 0s appear in the input following 1s, reject the input.
-\end{quote}
-    
-    State diagram for this  PDA:
-    
-    \vspace{60pt}
-    
-$\Sigma = \{a,b,c\}$.  $L = \{ a^i b^j c^k \mid  i=j ~\text{or}~ i=k, ~i\geq 0, j \geq 0, k \geq 0\}$
-    
-\vfill
