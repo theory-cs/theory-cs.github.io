@@ -164,6 +164,860 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week5-friday">Week5 friday</h1>
+<p>A set <span class="math inline">\(X\)</span> is said to be
+<span><strong>closed</strong></span> under an operation <span
+class="math inline">\(OP\)</span> if, for any elements in <span
+class="math inline">\(X\)</span>, applying <span
+class="math inline">\(OP\)</span> to them gives an element in <span
+class="math inline">\(X\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">True/False</th>
+<th style="text-align: left;">Closure claim</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">True</td>
+<td style="text-align: left;">The set of integers is closed under
+multiplication.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><span class="math inline">\(\forall x
+\forall y \left( ~(x \in \mathbb{Z} \wedge y \in \mathbb{Z})\to xy \in
+\mathbb{Z}~\right)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">True</td>
+<td style="text-align: left;">For each set <span
+class="math inline">\(A\)</span>, the power set of <span
+class="math inline">\(A\)</span> is closed under intersection.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><span class="math inline">\(\forall A_1
+\forall A_2 \left( ~(A_1 \in \mathcal{P}(A) \wedge A_2 \in
+\mathcal{P}(A) \in \mathbb{Z}) \to A_1 \cap A_2 \in
+\mathcal{P}(A)~\right)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of regular languages over <span
+class="math inline">\(\Sigma\)</span> is closed under
+complementation.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of regular languages over <span
+class="math inline">\(\Sigma\)</span> is closed under union.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of regular languages over <span
+class="math inline">\(\Sigma\)</span> is closed under intersection.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of regular languages over <span
+class="math inline">\(\Sigma\)</span> is closed under
+concatenation.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of regular languages over <span
+class="math inline">\(\Sigma\)</span> is closed under Kleene star.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of context-free languages over
+<span class="math inline">\(\Sigma\)</span> is closed under
+complementation.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of context-free languages over
+<span class="math inline">\(\Sigma\)</span> is closed under union.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of context-free languages over
+<span class="math inline">\(\Sigma\)</span> is closed under
+intersection.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of context-free languages over
+<span class="math inline">\(\Sigma\)</span> is closed under
+concatenation.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The class of context-free languages over
+<span class="math inline">\(\Sigma\)</span> is closed under Kleene
+star.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Assume <span class="math inline">\(\Sigma  = \{0,1, \#\}\)</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\Sigma^*\)</span></td>
+<td style="text-align: center;">Regular   /   nonregular and
+context-free   /  not context-free</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\{0^i\# 1^j
+\mid i \geq  0, j  \geq 0\}\)</span></td>
+<td style="text-align: center;">Regular   /   nonregular and
+context-free   /  not context-free</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{0^i1^j\#
+1^j0^i \mid i \geq  0, j  \geq 0\}\)</span></td>
+<td style="text-align: center;">Regular   /   nonregular and
+context-free   /  not context-free</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\{0^i1^j\#
+0^i 1^j \mid i \geq  0, j  \geq 0\}\)</span></td>
+<td style="text-align: center;">Regular   /   nonregular and
+context-free   /  not context-free</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Turing machines</strong></span>: unlimited read + write
+memory, unlimited time (computation can proceed without “consuming”
+input and can re-read symbols of input)</p>
+<ul>
+<li><p>Division betweeen program (CPU, state diagram) and data</p></li>
+<li><p>Unbounded memory gives theoretical limit to what modern
+computation (including PCs, supercomputers, quantum computers) can
+achieve</p></li>
+<li><p>State diagram formulation is simple enough to reason about (and
+diagonalize against) while expressive enough to capture modern
+computation</p></li>
+</ul>
+<p>For Turing machine <span class="math inline">\(M= (Q, \Sigma, \Gamma,
+\delta, q_0, q_{accept}, q_{reject})\)</span> the
+<span><strong>computation</strong></span> of <span
+class="math inline">\(M\)</span> on a string <span
+class="math inline">\(w\)</span> over <span
+class="math inline">\(\Sigma\)</span> is:</p>
+<ul>
+<li><p>Read/write head starts at leftmost position on tape.</p></li>
+<li><p>Input string is written on <span
+class="math inline">\(|w|\)</span>-many leftmost cells of tape, rest of
+the tape cells have the blank symbol. <span><strong>Tape
+alphabet</strong></span> is <span class="math inline">\(\Gamma\)</span>
+with <span class="math inline">\(\textvisiblespace\in \Gamma\)</span>
+and <span class="math inline">\(\Sigma \subseteq \Gamma\)</span>. The
+blank symbol <span class="math inline">\(\textvisiblespace \notin
+\Sigma\)</span>.</p></li>
+<li><p>Given current state of machine and current symbol being read at
+the tape head, the machine transitions to next state, writes a symbol to
+the current position of the tape head (overwriting existing symbol), and
+moves the tape head L or R (if possible). Formally,
+<span><strong>transition function</strong></span> is <span
+class="math display">\[\delta: Q\times \Gamma \to Q \times \Gamma \times
+\{L, R\}\]</span></p></li>
+<li><p>Computation ends if and when machine enters either the accept or
+the reject state. This is called <span><strong>halting</strong></span>.
+Note: <span class="math inline">\(q_{accept} \neq
+q_{reject}\)</span>.</p></li>
+</ul>
+<p>The <span><strong>language recognized by the Turing
+machine</strong></span> <span class="math inline">\(M\)</span>, is <span
+class="math display">\[\{ w \in \Sigma^* \mid \textrm{computation of $M$
+on $w$ halts after entering the accept state}\} = \{ w \in \Sigma^* \mid
+w \textrm{ is accepted by } M\}\]</span></p>
+<p>An example Turing machine: <span class="math inline">\(\Sigma =
+\phantom{\hspace{1in}}, \Gamma = \phantom{\hspace{1in}}\)</span> <span
+class="math display">\[\delta ( ( q0, 0)  ) =\]</span></p>
+<p><img src="../../resources/machines/Lect13TM1.png" style="width:2.5in"
+alt="image" /></p>
+<p>Formal definition:</p>
+<p>Sample computation:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(q0\downarrow\)</span></th>
+<th colspan="6" style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>The language recognized by this machine is …</p>
+<p><span><em>Extra practice:</em></span></p>
+<p><img src="../../resources/machines/Lect13TM2.png" style="width:2in"
+alt="image" /></p>
+<p>Formal definition:</p>
+<p>Sample computation:</p>
+<p><span><em>Sipser Figure 3.10</em></span></p>
+<p><span><strong>Conventions in state diagram of TM</strong></span>:
+<span class="math inline">\(b \to R\)</span> label means <span
+class="math inline">\(b \to b, R\)</span> and all arrows missing from
+diagram represent transitions with output <span
+class="math inline">\((q_{reject}, \textvisiblespace , R)\)</span></p>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<p><img src="../../resources/machines/Lect13TM3.png" style="width:4in"
+alt="image" /></p>
+</div>
+<p>Implementation level description of this machine:</p>
+<blockquote>
+<p>Zig-zag across tape to corresponding positions on either side of
+<span class="math inline">\(\#\)</span> to check whether the characters
+in these positions agree. If they do not, or if there is no <span
+class="math inline">\(\#\)</span>, reject. If they do, cross them
+off.</p>
+<p>Once all symbols to the left of the <span
+class="math inline">\(\#\)</span> are crossed off, check for any
+un-crossed-off symbols to the right of <span
+class="math inline">\(\#\)</span>; if there are any, reject; if there
+aren’t, accept.</p>
+</blockquote>
+<p>Computation on input string <span
+class="math inline">\(01\#01\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(q_1
+\downarrow\)</span></th>
+<th colspan="6" style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\#\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The language recognized by this machine is <span
+class="math display">\[\{ w \# w \mid w \in \{0,1\}^* \}\]</span></p>
+<p><span><em>Extra practice</em></span></p>
+<p>Computation on input string <span
+class="math inline">\(01\#1\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(q_1\downarrow\)</span></th>
+<th colspan="6" style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\#\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
 <h1 class="unnumbered" id="week4-monday">Week4 monday</h1>
 <p>Recap so far: In DFA, the only memory available is in the states.
 Automata can only “remember” finitely far in the past and finitely much
