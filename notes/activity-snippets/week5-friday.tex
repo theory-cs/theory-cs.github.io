@@ -1,0 +1,367 @@
+%! app: regular-languages, context-free-languages
+%! outcome: Formal definition of automata, Informal definition of automata, Classify language, Find example languages
+    
+A set $X$ is said to be {\bf closed} under an operation $OP$ if, for any elements in $X$, applying 
+$OP$ to them gives an element in $X$.  
+
+
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+True/False & Closure claim \\
+\hline
+True &  The set of integers is closed under multiplication. \\
+& $\forall x \forall y \left( ~(x \in \mathbb{Z} \wedge y \in \mathbb{Z})\to xy \in \mathbb{Z}~\right)$ \\
+\hline
+True & For each set $A$, the power set of $A$ is closed under intersection. \\
+& $\forall A_1 \forall A_2 \left( ~(A_1 \in \mathcal{P}(A) \wedge A_2 \in \mathcal{P}(A) \in \mathbb{Z}) \to A_1 \cap A_2 \in \mathcal{P}(A)~\right)$ \\
+\hline
+  & The class of regular languages over $\Sigma$ is closed under complementation. \\
+  & \\
+ \hline
+  & The class of regular languages over $\Sigma$ is closed under union. \\
+  & \\
+ \hline
+  & The class of regular languages over $\Sigma$ is closed under intersection. \\
+  & \\
+  \hline
+  & The class of regular languages over $\Sigma$ is closed under concatenation. \\
+  & \\
+ \hline
+  & The class of regular languages over $\Sigma$ is closed under Kleene star. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under complementation. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under union. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under intersection. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under concatenation. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under Kleene star. \\
+  & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill
+
+Assume  $\Sigma  = \{0,1, \#\}$
+\begin{center}
+\begin{tabular}{|cc|}
+\hline
+&\\
+$\Sigma^*$  & Regular ~~/~~ nonregular and context-free ~~/~~not context-free\\
+
+$\{0^i\# 1^j \mid i \geq  0, j  \geq 0\}$  & Regular ~~/~~ nonregular and context-free ~~/~~not context-free\\
+
+$\{0^i1^j\# 1^j0^i \mid i \geq  0, j  \geq 0\}$  & Regular ~~/~~ nonregular and context-free ~~/~~not context-free\\
+
+$\{0^i1^j\# 0^i 1^j \mid i \geq  0, j  \geq 0\}$  & Regular ~~/~~ nonregular and context-free ~~/~~not context-free\\
+&\\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+{\bf Turing machines}: unlimited read + write memory, unlimited time (computation can proceed
+without ``consuming'' input and can re-read symbols of input)
+\begin{itemize}
+\item Division betweeen program (CPU, state diagram) and data
+\item Unbounded memory gives theoretical limit to what modern computation 
+(including PCs, supercomputers, quantum computers) can achieve
+\item State diagram formulation is simple enough to reason about (and diagonalize against) while
+expressive enough to capture modern computation
+\end{itemize}
+
+For Turing machine $M= (Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})$ 
+the {\bf computation} of $M$ on a string $w$ over $\Sigma$  is:
+
+\vspace{-20pt}
+
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Read/write head starts at leftmost position on tape. 
+\item Input string is written on $|w|$-many leftmost cells of tape, 
+rest of  the tape cells have  the blank symbol. {\bf Tape alphabet} 
+is $\Gamma$ with $\textvisiblespace\in \Gamma$ and $\Sigma \subseteq \Gamma$.
+The blank symbol $\textvisiblespace \notin \Sigma$.
+\item Given current state of machine and current symbol being read at the tape head, 
+the machine transitions to next state, writes a symbol to the current position  of the 
+tape  head (overwriting existing symbol), and moves the tape head L or R (if possible). 
+Formally, {\bf transition function}  is 
+\[
+  \delta: Q\times \Gamma \to Q \times \Gamma \times \{L, R\}
+\]
+\item Computation ends if and when machine enters either the accept or the reject state.
+This is called {\bf halting}.
+Note: $q_{accept} \neq q_{reject}$.
+\end{itemize}
+
+The {\bf language recognized by the  Turing machine} $M$,  is  
+\[
+  \{ w \in \Sigma^* \mid \textrm{computation of $M$ on $w$ halts after entering the accept state}\} = \{ w \in \Sigma^* \mid w \textrm{ is accepted by } M\}
+\]
+
+\newpage
+An example Turing machine: $\Sigma = \phantom{\hspace{1in}}, \Gamma = \phantom{\hspace{1in}} $
+\[
+  \delta ( ( q0, 0)  ) =  
+\]
+
+\includegraphics[width=2.5in]{../../resources/machines/Lect13TM1.png}
+
+Formal definition: 
+
+
+Sample computation: 
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c}{$q0\downarrow$} &  \multicolumn{6}{c|}{\phantom{A}}\\
+\hline
+$0$ & $0$  & $0$ & $\textvisiblespace $& $\textvisiblespace $& $\textvisiblespace $&  $\textvisiblespace $\\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\end{tabular}
+
+\vfill
+
+The language recognized by this machine is \ldots
+
+{\it Extra practice:}
+
+ \includegraphics[width=2in]{../../resources/machines/Lect13TM2.png} 
+
+
+ Formal definition: 
+
+
+ Sample computation: 
+ 
+
+\newpage
+{\it Sipser Figure  3.10}
+
+{\bf Conventions in state diagram of TM}: $b \to R$ label means $b \to b, R$ and
+all arrows missing from diagram represent transitions with output $(q_{reject}, \textvisiblespace , R)$
+
+\begin{multicols}{2}
+\vspace{-20pt}
+\begin{center}
+\includegraphics[width=4in]{../../resources/machines/Lect13TM3.png}
+\end{center}
+
+Implementation level description of this machine:
+\begin{quote}
+Zig-zag across tape to corresponding positions on either side of $\#$ to check whether the 
+characters in these positions agree. If they do not, or if there is no $\#$, reject. If they 
+do, cross them off.
+
+Once all symbols to the left of the $\#$ are crossed off, check for any un-crossed-off symbols 
+to the right of $\#$; if there are any, reject; if there aren't, accept.
+\end{quote}
+
+\columnbreak
+
+Computation on  input  string  $01\#01$
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c}{$q_1 \downarrow$} &  \multicolumn{6}{c|}{\phantom{A}}\\
+\hline
+$0$ & $1$  & $\#$  & $0$ & $1$ & $\textvisiblespace $& $\textvisiblespace $\\
+\hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \end{tabular}
+\end{multicols}
+
+
+The language recognized by this machine is
+\[
+  \{ w \# w \mid w \in \{0,1\}^* \}
+\]
+
+\newpage
+{\it Extra practice}
+
+Computation on  input  string  $01\#1$
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c}{$q_1\downarrow$} &  \multicolumn{6}{c|}{\phantom{A}}\\
+\hline
+$0$ & $1$  & $\#$  & $1$ & $\textvisiblespace $& $\textvisiblespace $&  $\textvisiblespace $\\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\end{tabular}
