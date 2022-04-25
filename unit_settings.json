@@ -362,6 +362,22 @@
             {
                 "name": "Discussion Section: Mondays in WLH 2001",
                 "source": "<p>Slides will be posted after the discussion section.</p>"
+            },
+            {
+                "name": "(Video) PDA Design and reverse engingeering",
+                "source": "https://youtu.be/b-dr_GndeBg"
+            },
+            {
+                "name": "(Video) PDA Example Nondeterminism",
+                "source": "https://youtu.be/ZRCeF2V6QhY"
+            },
+            {
+                "name": "(Video) PDA General Constructions",
+                "source": "https://youtu.be/82kuXoNnbvc"
+            },
+            {
+                "name": "(Video) CFG introduction",
+                "source": "https://youtu.be/2jGLrG3cOIk"
             }
         ],
 
