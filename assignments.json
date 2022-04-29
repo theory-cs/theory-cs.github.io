@@ -8,7 +8,8 @@
    {
       "name": "hw2CSE105Sp22",
       "addExtensions": true,
-      "Information": "This is a group optional assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": ""
    },
    {
       "name": "hw3CSE105Sp22",
@@ -18,7 +19,7 @@
    },
    {
       "name": "hw4CSE105Sp22",
-      "addExtensions": false,
+      "addExtensions": true,
       "Information": "This is a group optional assignment",
       "solutionsFile": ""
    },
