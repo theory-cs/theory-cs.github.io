@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CSE105Sp22" />
+  <title>HW4: Context-free Languages and Turing Machines</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">HW4: Context-free Languages and Turing Machines</h1>
+<p class="author">CSE105Sp22</p>
+<p class="date">Due: 5/5/22 at 5pm (no penalty late submission until 8am
+next morning), via Gradescope</p>
+</header>
+<p><span><strong>In this assignment,</strong></span></p>
+<p>You will practice designing and working with context-free grammars
+and pushdown automata. You will use general constructions to explore the
+class of context-free languages. You will also practice with the formal
+definition of Turing machines.</p>
+<p><span><strong>Resources</strong></span>: To review the topics you are
+working with for this assignment, see the class material from Weeks 4
+and 5. We will post frequently asked questions and our answers to them
+in a pinned Piazza post.</p>
+<p><span><strong>Reading and extra practice problems</strong></span>:
+Sipser Sections 2.1, 2.2, 2.3 (partially). Chapter 2 exercises 2.1, 2.2,
+2.3, 2.4, 2.6, 2.9, 2.10, 2.11, 2.12, 2.13, 2.16, 2.17. Chapter 2
+problem 2.30. Chapter 3 exercises 3.1, 3.2.</p>
+<p><span><strong>Key Concepts</strong></span>: Pushdown automata, stack,
+context-free grammar, derivations, context-free languages, Turing
+machines, halting, looping.</p>
+<p><span><strong>For all HW assignments:</strong></span></p>
+<p>Weekly homework may be done individually or in groups of up to 3
+students. You may switch HW partners for different HW assignments. The
+lowest HW score will not be included in your overall HW average. Please
+ensure your name(s) and PID(s) are clearly visible on the first page of
+your homework submission and then upload the PDF to Gradescope. If
+working in a group, submit only one submission per group: one partner
+uploads the submission through their Gradescope account and then adds
+the other group member(s) to the Gradescope submission by selecting
+their name(s) in the “Add Group Members" dialog box. You will need to
+re-add your group member(s) every time you resubmit a new version of
+your assignment. Each homework question will be graded either for
+correctness (including clear and precise explanations and justifications
+of all answers) or fair effort completeness. You may only collaborate on
+HW with CSE 105 students in your group; if your group has questions
+about a HW problem, you may ask in drop-in help hours or post a private
+post (visible only to the Instructors) on Piazza.</p>
+<p>All submitted homework for this class must be typed. You can use a
+word processing editor if you like (Microsoft Word, Open Office,
+Notepad, Vim, Google Docs, etc.) but you might find it useful to take
+this opportunity to learn LaTeX. LaTeX is a markup language used widely
+in computer science and mathematics. The homework assignments are typed
+using LaTeX and you can use the source files as templates for
+typesetting your solutions. To generate state diagrams of machines, we
+recommend using Flap.js or JFLAP. Photographs of clearly hand-drawn
+diagrams may also be used. We recommend that you submit early drafts to
+Gradescope so that in case of any technical difficulties, at least some
+of your work is present. You may update your submission as many times as
+you’d like up to the deadline.</p>
+<p><span><strong>Integrity reminders</strong></span></p>
+<ul>
+<li><p>Problems should be solved together, not divided up between the
+partners. The homework is designed to give you practice with the main
+concepts and techniques of the course, while getting to know and learn
+from your classmates.</p></li>
+<li><p>You may not collaborate on homework with anyone other than your
+group members. You may ask questions about the homework in office hours
+(of the instructor, TAs, and/or tutors) and on Piazza (as private notes
+viewable only to the Instructors). You <em>cannot</em> use any online
+resources about the course content other than the class material from
+this quarter – this is primarily to ensure that we all use consistent
+notation and definitions we will use this quarter and also to protect
+the learning experience you will have when the ‘aha’ moments of solving
+the problem authentically happen.</p></li>
+<li><p>Do not share written solutions or partial solutions for homework
+with other students in the class who are not in your group. Doing so
+would dilute their learning experience and detract from their success in
+the class.</p></li>
+</ul>
+<p>You will submit this assignment via Gradescope (<a
+href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
+assignment called “HW4CSE105Sp22”.</p>
+<p><span><strong>Assigned questions</strong></span></p>
+<ol>
+<li><p>For this question, we are working over the fixed alphabet <span
+class="math inline">\(\{a,b,c\}\)</span>.</p>
+<ol>
+<li><p>(<span><em>Graded for fair effort completeness</em></span><a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>)</p>
+<p>Consider the PDA over this alphabet with state diagram</p>
+<div class="center">
+<p><img src="../../resources/machines/hw4PDA.png" style="width:4in"
+alt="image" /></p>
+</div>
+<p>Give an informal description of this PDA and describe the language it
+recognizes using set builder notation.</p>
+<p><span><em>Hint:</em></span> Compare the PDA with the machine in
+Example 2.16 and Figure 2.17 of the textbook (page 116), which
+recognizes the language <span class="math inline">\(\{a^i b^j c^k \mid
+i,j,k \geq 0 \textrm{ and } i=j \textrm{ or } i=k\}\)</span> and
+identify the main differences.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span><a href="#fn2"
+class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>)</p>
+<p>Consider the CFG <span class="math inline">\((\{X, S, S_1, S_2, T,
+Y\}, \{a,b,c\}, R, X)\)</span> where the set of rules <span
+class="math inline">\(R\)</span> has <span
+class="math display">\[\begin{aligned}
+        X &amp;\to aX \mid S \mid T \\
+        S &amp;\to S_1S_2 \\
+        S_1 &amp;\to aS_1 b \mid \varepsilon \\
+        S_2 &amp;\to cS_2 \mid \varepsilon\\
+        T &amp;\to aTc \mid Y \\
+        Y &amp;\to bT_2 \mid \varepsilon
+    \end{aligned}\]</span></p>
+<p>For each of the following strings, either give a derivation in this
+grammar that proves the string is in the language generated by the
+grammar, or explain why there is no such derivation.</p>
+<ol>
+<li><p><span class="math inline">\(aaaa\)</span></p></li>
+<li><p><span class="math inline">\(abbc\)</span></p></li>
+<li><p><span class="math inline">\(aabb\)</span></p></li>
+</ol></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Modify the start
+variable of this context-free grammar to get a different CFG (with the
+same set of variables, set of terminals, and set of rules) that
+generates an <span><strong>infinite regular language</strong></span>, if
+possible. A complete solution will include either (1) the formal
+definition of this new CFG and an explanation of why the language it
+recognizes is both infinite and regular, or (2) a sufficiently general
+and correct argument for why there is no way to choose the start
+variable to satisfy this requirement.</p></li>
+</ol></li>
+<li><p>(<span><em>Graded for correctness</em></span>) In this question,
+you’ll practice working with formal general constructions for PDAs and
+translating between state diagrams and formal definitions.</p>
+<p>Suppose <span class="math display">\[M = (Q, \Sigma, \Gamma, \delta,
+q_0, F)\]</span> is a PDA. We can define a new PDA <span
+class="math inline">\(N\)</span> so that <span
+class="math inline">\(L(M) = L(N)\)</span> and <span
+class="math inline">\(N\)</span> is <span><strong>guaranteed to have an
+empty stack</strong></span> at the end of any accepting computation.
+Informally, the construction is as follows: Add three new states <span
+class="math inline">\(q_1&#39;, q_2&#39;, q_3&#39;\)</span> and one new
+stack symbol <span class="math inline">\(\#\)</span>.</p>
+<ul>
+<li><p>One of the new states <span
+class="math inline">\(q_1&#39;\)</span> will be the new
+<span><strong>start</strong></span> state and it has a spontaneous
+transition to the old start state <span
+class="math inline">\(q_0\)</span> which pushes the new stack symbol
+<span class="math inline">\(\#\)</span> to the stack.</p></li>
+<li><p>The transitions between the old states are all the same.</p></li>
+<li><p>From each of the old accept states,
+<span><strong>add</strong></span> a spontaneous transition (that doesn’t
+modify the stack) to the second new state <span
+class="math inline">\(q_2&#39;\)</span>.</p></li>
+<li><p>In this state <span class="math inline">\(q_2&#39;\)</span>, pop
+all old stack symbols from the stack without reading any input.</p></li>
+<li><p>When the new stack symbol <span class="math inline">\(\#\)</span>
+is on the top of the stack, transition to the third new state <span
+class="math inline">\(q_3&#39;\)</span> and accept.</p></li>
+</ul>
+<p>Assume <span class="math inline">\(\{ q_1&#39;, q_2&#39;, q_3&#39;\}
+\cap Q = \emptyset\)</span> (otherwise, relabel some of the states in
+<span class="math inline">\(Q\)</span>) and assume that <span
+class="math inline">\(\# \notin \Gamma\)</span> (otherwise, relabel this
+stack symbol in <span class="math inline">\(\Gamma\)</span>). Define
+<span class="math inline">\(N\)</span> to be <span
+class="math display">\[N = ( Q \cup \{ q_1&#39;, q_2&#39;, q_3&#39;\} ,
+\Sigma, \Gamma \cup \{\#\}, \delta_N, q_1&#39;, \{q_3&#39;\} )\]</span>
+where <span class="math inline">\(\delta_N : Q \cup \{ q_1&#39;,
+q_2&#39;, q_3&#39;\}~~\times~~ \Sigma_\varepsilon
+~~\times~~\Gamma_\varepsilon\cup \{\#\}
+\to \mathcal{P}( Q \cup \{ q_1&#39;, q_2&#39;, q_3&#39;\} ~~\times
+~~\Gamma_\varepsilon\cup \{\#\})\)</span> is defined as <span
+class="math display">\[\delta_N ( ~(q, x, y)~) = \begin{cases}
+\{ (q_0, \#) \} &amp;\qquad \text{if $q = q_1&#39;$, $x = \varepsilon$,
+$y = \varepsilon$} \\
+\delta( ~(q, x, y)~)  &amp; \qquad \text{if $q \in Q$, $x \in \Sigma$,
+$y \in \Gamma_\varepsilon$} \\
+\delta( ~(q, x, y)~)  &amp; \qquad \text{if $q \in Q$, $x=\varepsilon$,
+$y \in \Gamma$} \\
+\delta( ~(q, x, y)~)  &amp; \qquad \text{if $q \in Q  \setminus F$,
+$x=\varepsilon$, $y =\varepsilon$} \\
+\delta( ~(q, x, y)~) \cup \{  (q_2&#39;, \varepsilon) \}  &amp; \qquad
+\text{if $q \in F$, $x=\varepsilon$, $y =\varepsilon$} \\
+\{ (q_2&#39;, \varepsilon)\} &amp; \qquad \text{if $q = q_2&#39;$, $x =
+\varepsilon$, $y \in  \Gamma$} \\
+\{ (q_3&#39;, \varepsilon)\} &amp; \qquad \text{if $q = q_2&#39;$, $x =
+\varepsilon$, $y = \#$} \\
+\emptyset &amp; \qquad \text{otherwise}
+\end{cases}\]</span></p>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) Illustrate this
+construction by considering the PDA <span
+class="math inline">\(M\)</span> over the input alphabet <span
+class="math inline">\(\{a,b,c\}\)</span></p>
+<div class="center">
+<p><img src="../../resources/machines/hw4PDA.png" style="width:5in"
+alt="image" /></p>
+</div>
+<p>and applying the construction above to create the related PDA <span
+class="math inline">\(N\)</span> and include its state diagram in your
+submission. <span><em>Note: you may include the formal definition of
+your PDA, but this is not required.</em></span></p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Pick a string of
+length <span class="math inline">\(5\)</span> over the alphabet of the
+PDA <span class="math inline">\(M\)</span> and use it to demonstrate the
+difference in <span class="math inline">\(M\)</span> and in <span
+class="math inline">\(N\)</span> by</p>
+<ul>
+<li><p>describing an accepting computation of <span
+class="math inline">\(M\)</span> on this string for which the stack is
+not empty at the end of the computation, and</p></li>
+<li><p>describing an accepting computation of <span
+class="math inline">\(N\)</span> on this string for which the stack is
+empty at the end of the computation.</p></li>
+</ul>
+<p>In your descriptions of these computations, include both the sequence
+of states visited by the machine as well as snapshots of the full
+contents of the stack at each step in the computation. You may hand-draw
+and scan these traces of the computations.</p>
+<p><span><em>Hint</em></span>: You will need to pick your example string
+wisely. It must be accepted by <span class="math inline">\(M\)</span>
+and there must be a computation of <span
+class="math inline">\(M\)</span> on your string which ends with a
+nonempty stack. Not all choices of length <span
+class="math inline">\(5\)</span> strings work.</p></li>
+</ol></li>
+<li><p>(<span><em>Graded for fair effort completeness</em></span>)</p>
+<p>Fix an arbitrary alphabet <span
+class="math inline">\(\Sigma\)</span>. Prove that the class of
+context-free languages over <span class="math inline">\(\Sigma\)</span>
+is closed under concatenation in two ways:</p>
+<ol>
+<li><p>Prove that, for any languages <span class="math inline">\(L_1,
+L_2\)</span> over <span class="math inline">\(\Sigma\)</span>, if there
+are PDAs <span class="math inline">\(M_1\)</span> and <span
+class="math inline">\(M_2\)</span> such that <span
+class="math inline">\(L_1 = L(M_1)\)</span> and <span
+class="math inline">\(L_2 = L(M_2)\)</span>, then there is a PDA that
+recognizes <span class="math inline">\(L_1 \circ L_2\)</span>.</p></li>
+<li><p>Prove that, for any languages <span class="math inline">\(L_1,
+L_2\)</span> over <span class="math inline">\(\Sigma\)</span>, if there
+are CFGs <span class="math inline">\(G_1\)</span> and <span
+class="math inline">\(G_2\)</span> such that <span
+class="math inline">\(L_1 = L(G_1)\)</span> and <span
+class="math inline">\(L_2 = L(G_2)\)</span>, then there is a CFG that
+generates <span class="math inline">\(L_1 \circ L_2\)</span>.</p></li>
+</ol></li>
+<li><p>Consider the Turing machine <span
+class="math inline">\(T\)</span> over the input alphabet <span
+class="math inline">\(\Sigma = \{0,1\}\)</span> with the state diagram
+below (the tape alphabet is <span class="math inline">\(\Gamma = \{
+0,1,X,\square\}\)</span>). Convention: any missing transitions in the
+state diagram have value <span
+class="math inline">\((qrej,\square,R)\)</span></p>
+<div class="center">
+<p><img src="../../resources/machines/hw4TM.png" style="width:3.5in"
+alt="image" /></p>
+</div>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) Specify an example
+string <span class="math inline">\(w_1\)</span> of length <span
+class="math inline">\(4\)</span> over <span
+class="math inline">\(\Sigma\)</span> that is
+<span><strong>accepted</strong></span> by this Turing machine, or
+explain why there is no such example. A complete solution will include
+either (1) a precise and clear description of your example string and a
+precise and clear description of the accepting computation of the Turing
+machine on this string or (2) a sufficiently general and correct
+argument why there is no such example, referring back to the relevant
+definitions.</p>
+<p>To describe a computation of a Turing machine, include the contents
+of the tape, the state of the machine, and the location of the
+read/write head at each step in the computation.</p>
+<p><span><em>Hint:</em></span> In class we’ve drawn pictures to
+represent the configuration of the machine at each step in a
+computation. You may do so or you may choose to describe these
+configurations in words.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Specify an example
+string <span class="math inline">\(w_2\)</span> of length <span
+class="math inline">\(3\)</span> over <span
+class="math inline">\(\Sigma\)</span> that is
+<span><strong>rejected</strong></span> by this Turing machine or explain
+why there is no such example. A complete solution will include either
+(1) a precise and clear description of your example string and a precise
+and clear description of the rejecting computation of the Turing machine
+on this string or (2) a sufficiently general and correct argument why
+there is no such example, referring back to the relevant
+definitions.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Specify an example
+string <span class="math inline">\(w_3\)</span> of length <span
+class="math inline">\(2\)</span> over <span
+class="math inline">\(\Sigma\)</span> on which the computation of this
+Turing machine <span><strong>loops</strong></span> or explain why there
+is no such example. A complete solution will include either (1) a
+precise and clear description of your example string and a precise and
+clear description of the looping (non-halting) computation of the Turing
+machine on this string or (2) a sufficiently general and correct
+argument why there is no such example, referring back to the relevant
+definitions.</p></li>
+<li><p>(<span><em>Graded for fair effort completeness</em></span>) Write
+an implementation level description of the Turing machine <span
+class="math inline">\(T\)</span>.</p></li>
+</ol></li>
+</ol>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>This means you will get full credit
+so long as your submission demonstrates honest effort to answer the
+question. You will not be penalized for incorrect answers. To
+demonstrate your honest effort in answering the question, we ask that
+you include your attempt to answer *each* part of the question. If you
+get stuck with your attempt, you can still demonstrate your effort by
+explaining where you got stuck and what you did to try to get unstuck.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>This means your solution will be
+evaluated not only on the correctness of your answers, but on your
+ability to present your ideas clearly and logically. You should explain
+how you arrived at your conclusions, using mathematically sound
+reasoning. Whether you use formal proof techniques or write a more
+informal argument for why something is true, your answers should always
+be well-supported. Your goal should be to convince the reader that your
+results and methods are sound.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

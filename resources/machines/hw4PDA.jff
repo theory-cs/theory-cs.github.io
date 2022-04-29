@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>pda</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="q1">
+			<x>36.0</x>
+			<y>179.0</y>
+			<initial/>
+		</state>
+		<state id="2" name="q2">
+			<x>143.0</x>
+			<y>178.0</y>
+		</state>
+		<state id="3" name="q3">
+			<x>251.0</x>
+			<y>83.0</y>
+		</state>
+		<state id="4" name="q4">
+			<x>372.0</x>
+			<y>84.0</y>
+			<final/>
+		</state>
+		<state id="5" name="q5">
+			<x>280.0</x>
+			<y>178.0</y>
+		</state>
+		<state id="6" name="q6">
+			<x>405.0</x>
+			<y>179.0</y>
+		</state>
+		<state id="7" name="q7">
+			<x>522.0</x>
+			<y>179.0</y>
+			<final/>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>a</read>
+			<pop/>
+			<push>a</push>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>7</to>
+			<read/>
+			<pop>$</pop>
+			<push/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>0</to>
+			<read>a</read>
+			<pop/>
+			<push>a</push>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>4</to>
+			<read>c</read>
+			<pop/>
+			<push>c</push>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>5</to>
+			<read/>
+			<pop/>
+			<push/>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>b</read>
+			<pop/>
+			<push/>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>6</to>
+			<read>c</read>
+			<pop>a</pop>
+			<push/>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>3</to>
+			<read>b</read>
+			<pop>a</pop>
+			<push/>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>3</to>
+			<read/>
+			<pop/>
+			<push/>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read/>
+			<pop/>
+			<push/>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>4</to>
+			<read/>
+			<pop>$</pop>
+			<push/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>2</to>
+			<read/>
+			<pop/>
+			<push>$</push>
+		</transition>
+	</automaton>
+</structure>
