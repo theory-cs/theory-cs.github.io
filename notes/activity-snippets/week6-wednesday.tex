@@ -1,0 +1,160 @@
+%! app: decidable languages, undecidable languages
+%! outcome: Formal definition of automata, Informal definition of automata, Classify language, Find example languages
+    
+Two models of computation are called {\bf equally expressive} when 
+every language recognizable with the first model is recognizable with the second, and vice versa.
+
+True / False: NFAs and PDAs are equally expressive.
+
+True / False: Regular expressions and CFGs are equally expressive.
+
+
+\begin{center}
+{\large \it  Some examples of models that are {\bf equally expressive} with deterministic Turing machines: }
+\end{center}
+
+\fbox{ {\bf May-stay}  machines }
+The May-stay machine model is the same as the usual Turing machine model,  except that
+on each transition, the tape head may move L, move R, or Stay. 
+
+Formally: $(Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})$ where 
+\[
+  \delta: Q \times \Gamma \to Q \times \Gamma \times \{L, R, S\}
+\]
+
+{\bf Claim}: Turing machines and May-stay machines are equally expressive. {\it To prove \ldots}
+
+To translate a standard TM to a may-stay machine: 
+
+\vspace{100pt}
+
+
+
+
+To translate one  of the  may-stay machines to standard TM:
+any time TM would Stay, move right  then  left.
+
+
+Formally: suppose $M_S =  (Q, \Sigma, \Gamma, \delta, q_0, q_{acc}, q_{rej})$
+has $\delta: Q \times \Gamma \to Q \times \Gamma \times \{L, R, S\}$. Define
+the Turing-machine
+\[
+  M_{new} =  (\phantom{\hspace{2.5in}})
+\]
+
+\vfill
+
+\newpage
+
+\phantom{$M_{new}$ construction here \vspace{400pt}}
+\vfill
+
+
+\fbox{ {\bf Multitape Turing machine}} A multitape Turing macihne with $k$ tapes
+can be formally representated as 
+$(Q, \Sigma,  \Gamma, \delta, q_0, q_{acc}, q_{rej})$ 
+where $Q$ is the finite set of  states,
+$\Sigma$ is the  input alphabet with  $\textvisiblespace \notin \Sigma$,
+$\Gamma$  is the  tape alphabet with $\Sigma \subsetneq \Gamma$ ,
+$\delta: Q\times \Gamma^k\to Q \times \Gamma^k \times \{L,R\}^k$ 
+(where $k$ is  the number of  states)
+
+
+If $M$ is a standard  TM, it is a $1$-tape machine.
+
+
+To translate a $k$-tape machine  to  a standard TM:
+Use a  new symbol to separate the contents of each tape
+and keep track of location of  head with  special version of each
+tape symbol. {\tiny Sipser Theorem 3.13} 
+
+\includegraphics[width=2.5in]{../../resources/images/Figure314.png}
+
+
+{\it Extra practice:} \fbox{ {\bf  Wikipedia Turing machine} }
+Define a machine $(Q, \Gamma, b, \Sigma,  q_0, F, \delta)$
+where $Q$ is the finite set  of  states
+$\Gamma$  is the tape alphabet,
+$b \in \Gamma$ is the blank symbol, 
+$\Sigma \subsetneq \Gamma$ is the  input alphabet, 
+$q_0 \in  Q$ is the start state, 
+$F \subseteq Q$ is the set of accept states, 
+$\delta: (Q \setminus F)  \times  \Gamma \not\to Q \times  \Gamma  \times \{L, R\}$
+ is a partial transition function
+If computation enters a state  in $F$, it  accepts 
+If computation enters a configuration where
+ $\delta$ is not defined, it  rejects . {\tiny Hopcroft and  Ullman, cited by  Wikipedia} 
+
+\newpage
+\fbox{ {\bf Enumerators} } Enumerators give a different
+model of computation where a language is {\bf produced, one string at a time},
+rather than recognized by accepting (or not) individual strings.
+
+Each enumerator machine has finite state control, unlimited work tape, and a printer. The computation proceeds
+according to transition function; at any point machine may ``send'' a string to the printer.
+\[
+E  = (Q, \Sigma, \Gamma, \delta, q_0, q_{print})  
+\]
+$Q$ is the finite set of states, $\Sigma$ is  the output alphabet, $\Gamma$ is the 
+tape alphabet ($\Sigma  \subsetneq\Gamma, 
+\textvisiblespace \in \Gamma \setminus \Sigma$), 
+\[
+\delta:  Q  \times  \Gamma \times \Gamma \to  Q \times  \Gamma \times  \Gamma \times \{L, R\} \times  \{L, R\}
+\]
+where in state $q$, when the working tape is scanning character $x$ and the printer tape is scanning character $y$,
+$\delta( (q,x,y) ) = (q', x', y', d_w, d_p)$ means transition to control state $q'$, write $x'$ on 
+the working tape, write $y'$ on the printer tape, move in direction $d_w$ on the working tape, and move in direction 
+$d_p$ on the printer tape. The computation starts in $q_0$ and each time the computation enters $q_{print}$
+the string from the leftmost edge of the printer tape to the first blank cell is considered to be printed.
+
+The language  {\bf  enumerated} by  $E$, $L(E)$, is $\{ w \in \Sigma^* \mid \text{$E$ eventually, at finite  time, 
+prints $w$} \}$.
+
+
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width=3.5in]{../../resources/machines/Lec15enumerator.png}  & 
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c}{$q0$} &  \multicolumn{6}{c|}{\phantom{A}}\\
+\hline
+$\textvisiblespace ~*$& $\textvisiblespace$  & $\textvisiblespace$ & $\textvisiblespace$& $\textvisiblespace$& $\textvisiblespace$&  $\textvisiblespace$\\
+\hline
+$\textvisiblespace  ~*$& $\textvisiblespace$  & $\textvisiblespace$ & $\textvisiblespace$& $\textvisiblespace$& $\textvisiblespace$&  $\textvisiblespace$\\
+\hline\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\end{tabular}
+\end{tabular}
+\end{center}
+
+
+\vfill 
+
+{\bf Theorem 3.21} A language is Turing-recognizable iff some enumerator enumerates it.
+{\it Proof next time \ldots }
