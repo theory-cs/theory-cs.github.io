@@ -575,10 +575,6 @@
 
         "Due Dates": [
             {
-                "name": "project-part2-CSE105Sp22",
-                "due": "5/12/22 at 5pm (no penalty late submission until 8am next day)"
-            },
-            {
                 "name": "Review Quiz",
                 "link": "https://gradescope.com",
                 "due": "5/13/22 at 5pm (no penalty late submission until Sunday)"
@@ -607,8 +603,8 @@
 
         "Due Dates": [
             {
-                "name": "hw5CSE105Sp22",
-                "due": "5/19/22 at 5pm (no penalty late submission until 8am next morning)"
+                "name": "project-part2-CSE105Sp22",
+                "due": "5/12/22 at 5pm (no penalty late submission until 8am next day)"
             },
             {
                 "name": "Review Quiz",
@@ -639,7 +635,7 @@
 
         "Due Dates": [
             {
-                "name": "hw6CSE105Sp22",
+                "name": "hw5CSE105Sp22",
                 "due": "5/26/22 at 5pm (no penalty late submission until 8am next morning)"
             },
             {
