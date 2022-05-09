@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>church-turing</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="week6-friday">Week6 friday</h1>
+<p>To define a Turing machine, we could give a</p>
+<ul>
+<li><p><span><strong>Formal definition</strong></span>: the <span
+class="math inline">\(7\)</span>-tuple of parameters including set of
+states, input alphabet, tape alphabet, transition function, start state,
+accept state, and reject state; or,</p></li>
+<li><p><span><strong>Implementation-level definition</strong></span>:
+English prose that describes the Turing machine head movements relative
+to contents of tape, and conditions for accepting / rejecting based on
+those contents.</p></li>
+<li><p><span><strong>High-level description</strong></span>: description
+of algorithm (precise sequence of instructions), without implementation
+details of machine. As part of this description, can “call" and run
+another TM as a subroutine.</p></li>
+</ul>
+<p><span><strong>Theorem 3.21</strong></span> A language is
+Turing-recognizable iff some enumerator enumerates it.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p>Assume <span class="math inline">\(L\)</span> is enumerated by some
+enumerator, <span class="math inline">\(E\)</span>, so <span
+class="math inline">\(L = L(E)\)</span>. We’ll use <span
+class="math inline">\(E\)</span> in a subroutine within a high-level
+description of a new Turing machine that we will build to recognize
+<span class="math inline">\(L\)</span>.</p>
+<p><span><strong>Goal</strong></span>: build Turing machine <span
+class="math inline">\(M_E\)</span> with <span
+class="math inline">\(L(M_E) = L(E)\)</span>.</p>
+<p>Define <span class="math inline">\(M_E\)</span> as follows: <span
+class="math inline">\(M_E =\)</span> “On input <span
+class="math inline">\(w\)</span>,</p>
+<ol>
+<li><p>Run <span class="math inline">\(E\)</span>. For each string <span
+class="math inline">\(x\)</span> printed by <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Check if <span class="math inline">\(x = w\)</span>. If so,
+accept (and halt); otherwise, continue."</p></li>
+</ol>
+<p>Assume <span class="math inline">\(L\)</span> is Turing-recognizable
+and there is a Turing machine <span class="math inline">\(M\)</span>
+with <span class="math inline">\(L = L(M)\)</span>. We’ll use <span
+class="math inline">\(M\)</span> in a subroutine within a high-level
+description of an enumerator that we will build to enumerate <span
+class="math inline">\(L\)</span>.</p>
+<p><span><strong>Goal</strong></span>: build enumerator <span
+class="math inline">\(E_M\)</span> with <span
+class="math inline">\(L(E_M) = L(M)\)</span>.</p>
+<p><span><strong>Idea</strong></span>: check each string in turn to see
+if it is in <span class="math inline">\(L\)</span>.</p>
+<p><span><em>How?</em></span> Run computation of <span
+class="math inline">\(M\)</span> on each string.
+<span><em>But</em></span>: need to be careful about computations that
+don’t halt.</p>
+<p><span><em>Recall</em></span> String order for <span
+class="math inline">\(\Sigma = \{0,1\}\)</span>: <span
+class="math inline">\(s_1 = \varepsilon\)</span>, <span
+class="math inline">\(s_2 = 0\)</span>, <span class="math inline">\(s_3
+= 1\)</span>, <span class="math inline">\(s_4 = 00\)</span>, <span
+class="math inline">\(s_5 = 01\)</span>, <span
+class="math inline">\(s_6  = 10\)</span>, <span
+class="math inline">\(s_7  =  11\)</span>, <span
+class="math inline">\(s_8 = 000\)</span>, …</p>
+<p>Define <span class="math inline">\(E_M\)</span> as follows: <span
+class="math inline">\(E_{M} =\)</span> “ <span><em>ignore any
+input.</em></span> Repeat the following for <span
+class="math inline">\(i=1, 2, 3, \ldots\)</span></p>
+<ol>
+<li><p>Run the computations of <span class="math inline">\(M\)</span> on
+<span class="math inline">\(s_1\)</span>, <span
+class="math inline">\(s_2\)</span>, …, <span
+class="math inline">\(s_i\)</span> for (at most) <span
+class="math inline">\(i\)</span> steps each</p></li>
+<li><p>For each of these <span class="math inline">\(i\)</span>
+computations that accept during the (at most) <span
+class="math inline">\(i\)</span> steps, print out the accepted
+string."</p></li>
+</ol>
+<p><span><strong>Nondeterministic Turing machine</strong></span></p>
+<p>At any point in the computation, the nondeterministic machine may
+proceed according to several possibilities: <span
+class="math inline">\((Q, \Sigma, \Gamma, \delta, q_0, q_{acc},
+q_{rej})\)</span> where <span class="math display">\[\delta: Q \times
+\Gamma \to \mathcal{P}(Q \times \Gamma \times \{L, R\})\]</span> The
+computation of a nondeterministic Turing machine is a tree with
+branching when the next step of the computation has multiple
+possibilities. A nondeterministic Turing machine accepts a string
+exactly when some branch of the computation tree enters the accept
+state.</p>
+<p>Given a nondeterministic machine, we can use a <span
+class="math inline">\(3\)</span>-tape Turing machine to simulate it by
+doing a breadth-first search of computation tree: one tape is
+“read-only” input tape, one tape simulates the tape of the
+nondeterministic computation, and one tape tracks nondeterministic
+branching. <span>Sipser page 178</span></p>
+<p>Two models of computation are called <span><strong>equally
+expressive</strong></span> when every language recognizable with the
+first model is recognizable with the second, and vice versa.</p>
+<p><span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183):
+The informal notion of algorithm is formalized completely and correctly
+by the formal definition of a Turing machine. In other words: all
+reasonably expressive models of computation are equally expressive with
+the standard Turing machine.</p>
+<p><span><strong>Claim</strong></span>: If two languages (over a fixed
+alphabet <span class="math inline">\(\Sigma\)</span>) are
+Turing-recognizable, then their union is as well.</p>
+<p><span><strong>Proof using Turing machines</strong></span>:</p>
+<p><span><strong>Proof using nondeterministic Turing
+machines</strong></span>:</p>
+<p><span><strong>Proof using enumerators</strong></span>:</p>
+</body>
+</html>

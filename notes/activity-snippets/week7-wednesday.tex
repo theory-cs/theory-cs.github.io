@@ -1,0 +1,138 @@
+%! app: decidable languages, undecidable languages
+%! outcome: Classify language, Find example languages, Define decision problem, Classify decision problem
+    
+\begin{center}
+  \begin{tabular}{|lcl|}
+  \hline
+  \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
+  for \ldots  & $A_{\ldots}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a \ldots that accepts input 
+  string $w$}\}$ \\
+  \hline
+  \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
+   for \ldots & $E_{\ldots}$ & $\{ \langle A \rangle \mid  \text{$A$ is a \ldots and  $L(A) = \emptyset$\}}$ \\
+  \hline
+  \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
+   for \ldots & $EQ_{\ldots}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are \ldots and  $L(A) =L(B)$\}}$\\
+  \hline
+  Sipser Section 4.1 &&\\
+  \hline
+  \end{tabular}
+  \end{center}
+  
+  \begin{quote}
+  $M_1 = $ ``On input $\langle M,w\rangle$, where $M$ is a DFA and $w$ is a string:
+  \begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item Type check encoding to check input is correct type.
+  \item Simulate $M$ on input $w$ (by keeping track of states in $M$, transition function of $M$, etc.) 
+  \item If the simulations ends in an accept state of $M$, accept. If it ends in a non-accept state of $M$, reject. "
+  \end{enumerate}
+  \end{quote}
+  
+
+What is $L(M_1)$? 
+
+\vfill
+
+Is $L(M_1)$ a decider?
+
+\vfill
+
+  
+  \begin{quote}
+  $M_2 =  $``On  input  $\langle M, w \rangle$ where $M$ is a  DFA and  $w$ is  a string, 
+  \begin{enumerate}
+  \item Run $M$ on  input  $w$.
+  \item If $M$  accepts, accept; if $M$ rejects, reject."
+  \end{enumerate}
+  \end{quote}
+  
+
+  What is $L(M_2)$? 
+
+  \vfill
+  
+  Is $L(M_2)$ a decider?
+  
+  \vfill
+  
+    
+\newpage
+  $A_{REX} = $
+
+  $A_{NFA} = $
+
+
+  True / False: $A_{REX} = A_{NFA} = A_{DFA}$
+
+  True / False: $A_{REX} \cap A_{NFA} = \emptyset$, $A_{REX} \cap A_{DFA} = \emptyset$, $A_{DFA} \cap A_{NFA} = \emptyset$
+
+  
+  A Turing machine that  decides $A_{NFA}$ is: 
+  
+  \vfill
+  
+  A Turing machine that  decides $A_{REX}$ is: 
+  
+  \vfill
+  \newpage
+  
+  \begin{quote}
+  $M_3 =  $``On  input  $\langle M\rangle$ where $M$ is a  DFA,
+  \begin{enumerate}
+  \item For integer  $i = 1, 2, \ldots$
+  \item \qquad Let  $s_i$ be the  $i$th string over  the alphabet of  $M$ (ordered in  string order).
+  \item \qquad Run $M$ on  input  $s_i$.
+  \item \qquad If $M$  accepts,  $\underline{\phantom{FILL  IN BLANK}}$.  If $M$  rejects, increment $i$ and keep going."
+  \end{enumerate}
+  \end{quote}
+  
+
+Choose the correct option to help fill in the blank so that $M_3$ recognizes $E_{DFA}$
+\begin{itemize}
+\item[A.] accepts
+\item[B.] rejects
+\item[C.] loop for ever
+\item[D.] We can't fill in the blank in any way to make this work
+\item[E.] None of the above
+\end{itemize}
+
+  
+  \begin{quote}
+  $M_4 =  $ `` On  input $\langle M \rangle$ where $M$ is  a  DFA,
+  \begin{enumerate}
+  \item Mark the start  state  of $M$.
+  \item Repeat until no  new states get marked:
+  \item \qquad Loop over the states of $M$. 
+  \item \qquad Mark any unmarked  state  that  has an incoming  edge  from a marked state.
+  \item If  no  accept state of $A$ is  marked, $\underline{\phantom{FILL  IN BLANK}}$;  otherwise, 
+  $\underline{\phantom{FILL  IN BLANK}}$".
+  \end{enumerate}
+  \end{quote}
+  
+  
+  
+To build a Turing machine that decides $EQ_{DFA}$, notice that 
+\[
+L_1 = L_2 \qquad\textrm{iff}\qquad (~(L_1 \cap \overline{L_2}) \cup (L_2 \cap \overline L_1)~) = \emptyset  
+\]
+{\it There are no elements that are in one set and not the other}
+
+
+$M_{EQDFA} = $ 
+
+
+  \vfill
+  
+  \newpage
+  {\bf Summary}:  We can use the decision procedures (Turing machines) of decidable problems
+  as subroutines in other algorithms. For example, we have subroutines for deciding each of 
+  $A_{DFA}$, $E_{DFA}$, $EQ_{DFA}$.  We can also use algorithms for known constructions
+  as subroutines in other algorithms. For example, we have subroutines for: counting the number 
+  of states in a state diagram, counting the number of characters in an alphabet, converting DFA
+  to a DFA recognizing the complement of the original language or a DFA recognizing the 
+  Kleene star of the original language, constructing a DFA or NFA from two DFA or NFA so that 
+  we have a machine recognizing the language of the union (or intersection, concatenation)
+  of the languages of the original machines; converting regular expressions to equivalent DFA; 
+  converting DFA to equivalent regular expressions, etc.
+

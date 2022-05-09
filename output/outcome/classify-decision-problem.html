@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>classify-decision-problem</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="week7-monday">Week7 monday</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Suppose <span
+class="math inline">\(M\)</span> is a TM</td>
+<td style="text-align: left;">Suppose <span
+class="math inline">\(D\)</span> is a TM</td>
+<td style="text-align: left;">Suppose <span
+class="math inline">\(E\)</span> is an enumerator</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">that recognizes <span
+class="math inline">\(L\)</span></td>
+<td style="text-align: left;">that decides <span
+class="math inline">\(L\)</span></td>
+<td style="text-align: left;">that enumerates <span
+class="math inline">\(L\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">If string <span
+class="math inline">\(w\)</span> is in <span
+class="math inline">\(L\)</span> then …</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">If string <span
+class="math inline">\(w\)</span> is not in <span
+class="math inline">\(L\)</span> then …</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Describing Turing machines</strong></span> (Sipser p.
+185)</p>
+<p>The Church-Turing thesis posits that each algorithm can be
+implemented by some Turing machine</p>
+<p>High-level descriptions of Turing machine algorithms are written as
+indented text within quotation marks.</p>
+<p>Stages of the algorithm are typically numbered consecutively.</p>
+<p>The first line specifies the input to the machine, which must be a
+string. This string may be the encoding of some object or list of
+objects.</p>
+<p><span><strong>Notation:</strong></span> <span
+class="math inline">\(\langle O \rangle\)</span> is the string that
+encodes the object <span class="math inline">\(O\)</span>. <span
+class="math inline">\(\langle O_1, \ldots, O_n \rangle\)</span> is the
+string that encodes the list of objects <span class="math inline">\(O_1,
+\ldots, O_n\)</span>.</p>
+<p><span><strong>Assumption</strong></span>: There are Turing machines
+that can be called as subroutines to decode the string representations
+of common objects and interact with these objects as intended (data
+structures).</p>
+<p>For example, since there are algorithms to answer each of the
+following questions, by Church-Turing thesis, there is a Turing machine
+that accepts exactly those strings for which the answer to the question
+is “yes”</p>
+<ul>
+<li><p>Does a string over <span class="math inline">\(\{0,1\}\)</span>
+have even length?</p></li>
+<li><p>Does a string over <span class="math inline">\(\{0,1\}\)</span>
+encode a string of ASCII characters?<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a></p></li>
+<li><p>Does a DFA have a specific number of states?</p></li>
+<li><p>Do two NFAs have any state names in common?</p></li>
+<li><p>Do two CFGs have the same start variable?</p></li>
+</ul>
+<p>A <span><strong>computational problem</strong></span> is decidable
+iff language encoding its positive problem instances is decidable.</p>
+<p>The computational problem “Does a specific DFA accept a given
+string?” is encoded by the language <span
+class="math display">\[\begin{aligned}
+  &amp;\{ \textrm{representations of DFAs $M$ and strings $w$ such that
+$w \in L(M)$}\}  \\
+  =&amp; \{ \langle M, w \rangle \mid M \textrm{ is a DFA}, w \textrm{
+is a string}, w \in L(M) \}\end{aligned}\]</span></p>
+<p>The computational problem “Is the language generated by a CFG empty?”
+is encoded by the language <span class="math display">\[\begin{aligned}
+  &amp;\{ \textrm{representations of CFGs $G$  such that $L(G) =
+\emptyset$}\}  \\
+  =&amp; \{ \langle G \rangle \mid M \textrm{ is a CFG},  L(G) =
+\emptyset \}\end{aligned}\]</span></p>
+<p>The computational problem “Is the given Turing machine a decider?” is
+encoded by the language <span class="math display">\[\begin{aligned}
+  &amp;\{ \textrm{representations of TMs $M$  such that $M$ halts on
+every input}\}  \\
+  =&amp; \{ \langle G \rangle \mid M \textrm{ is a TM and for each
+string } w, \textrm{$M$ halts on $w$} \}\end{aligned}\]</span></p>
+<p><span><em>Note: writing down the language encoding a computational
+problem is only the first step in determining if it’s recognizable,
+decidable, or …</em></span></p>
+<p><span><strong>Some classes of computational problems help us
+understand the differences between the machine models we’ve been
+studying:</strong></span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Acceptance
+problem</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for DFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{DFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a  DFA that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…for NFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{NFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a  NFA that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for regular expressions</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{REX}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle R,w
+\rangle \mid  \text{$R$ is a  regular
+    expression that generates input string $w$}\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…for CFG</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{CFG}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle G,w
+\rangle \mid  \text{$G$ is a context-free grammar
+    that generates input string $w$}\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for PDA</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{PDA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a PDA that accepts input string
+$w$}\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+emptiness testing</strong></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…for DFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{DFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A
+\rangle \mid  \text{$A$ is a  DFA and  $L(A) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for NFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{NFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle
+A\rangle \mid  \text{$A$ is a NFA and  $L(A) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…for regular expressions</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{REX}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle R
+\rangle \mid  \text{$R$ is a  regular
+    expression and  $L(R) = \emptyset$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for CFG</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{CFG}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle G
+\rangle \mid  \text{$G$ is a context-free grammar
+    and  $L(G) = \emptyset$\}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…for PDA</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{PDA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A
+\rangle \mid  \text{$A$ is a PDA and  $L(A) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+equality testing</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for DFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{DFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A,
+B \rangle \mid  \text{$A$ and $B$ are DFAs and  $L(A)
+=L(B)$\}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…for NFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{NFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A,
+B \rangle \mid  \text{$A$ and $B$ are NFAs and  $L(A)
+=L(B)$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for regular expressions</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{REX}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle R,
+R&#39; \rangle \mid  \text{$R$ and $R&#39;$ are regular
+    expressions and  $L(R) =L(R&#39;)$\}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…for CFG</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{CFG}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle G,
+G&#39; \rangle \mid  \text{$G$ and $G&#39;$ are CFGs and  $L(G)
+=L(G&#39;)$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for PDA</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{PDA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A,
+B \rangle \mid  \text{$A$ and $B$ are PDAs and  $L(A)
+=L(B)$\}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sipser Section 4.1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(M_1\)</span>
+<img src="../../resources/machines/Lect17DFA1.png" style="width:2in"
+alt="image" /></td>
+<td style="text-align: center;"><span class="math inline">\(M_2\)</span>
+<img src="../../resources/machines/Lect17DFA2.png" style="width:2in"
+alt="image" /></td>
+<td style="text-align: center;"><span class="math inline">\(M_3\)</span>
+<img src="../../resources/machines/Lect17DFA3.png" style="width:2in"
+alt="image" /></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Example strings in <span class="math inline">\(A_{DFA}\)</span></p>
+<p>Example strings in <span class="math inline">\(E_{DFA}\)</span></p>
+<p>Example strings in <span class="math inline">\(EQ_{DFA}\)</span></p>
+<p>Food for thought: which of the following computational problems are
+decidable: <span class="math inline">\(A_{DFA}\)</span>?, <span
+class="math inline">\(E_{DFA}\)</span>?, <span
+class="math inline">\(EQ_{DFA}\)</span>?</p>
+<h1 class="unnumbered" id="week7-wednesday">Week7 wednesday</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Acceptance
+problem</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for …</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{\ldots}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a \ldots that accepts input
+  string $w$}\}\)</span></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+emptiness testing</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for …</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{\ldots}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A
+\rangle \mid  \text{$A$ is a \ldots and  $L(A) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+equality testing</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for …</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{\ldots}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A,
+B \rangle \mid  \text{$A$ and $B$ are \ldots and  $L(A)
+=L(B)$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sipser Section 4.1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><span class="math inline">\(M_1 =\)</span> “On input <span
+class="math inline">\(\langle M,w\rangle\)</span>, where <span
+class="math inline">\(M\)</span> is a DFA and <span
+class="math inline">\(w\)</span> is a string:</p>
+<ol start="0">
+<li><p>Type check encoding to check input is correct type.</p></li>
+<li><p>Simulate <span class="math inline">\(M\)</span> on input <span
+class="math inline">\(w\)</span> (by keeping track of states in <span
+class="math inline">\(M\)</span>, transition function of <span
+class="math inline">\(M\)</span>, etc.)</p></li>
+<li><p>If the simulations ends in an accept state of <span
+class="math inline">\(M\)</span>, accept. If it ends in a non-accept
+state of <span class="math inline">\(M\)</span>, reject. "</p></li>
+</ol>
+</blockquote>
+<p>What is <span class="math inline">\(L(M_1)\)</span>?</p>
+<p>Is <span class="math inline">\(L(M_1)\)</span> a decider?</p>
+<blockquote>
+<p><span class="math inline">\(M_2 =\)</span>“On input <span
+class="math inline">\(\langle M, w \rangle\)</span> where <span
+class="math inline">\(M\)</span> is a DFA and <span
+class="math inline">\(w\)</span> is a string,</p>
+<ol>
+<li><p>Run <span class="math inline">\(M\)</span> on input <span
+class="math inline">\(w\)</span>.</p></li>
+<li><p>If <span class="math inline">\(M\)</span> accepts, accept; if
+<span class="math inline">\(M\)</span> rejects, reject."</p></li>
+</ol>
+</blockquote>
+<p>What is <span class="math inline">\(L(M_2)\)</span>?</p>
+<p>Is <span class="math inline">\(L(M_2)\)</span> a decider?</p>
+<p><span class="math inline">\(A_{REX} =\)</span></p>
+<p><span class="math inline">\(A_{NFA} =\)</span></p>
+<p>True / False: <span class="math inline">\(A_{REX} = A_{NFA} =
+A_{DFA}\)</span></p>
+<p>True / False: <span class="math inline">\(A_{REX} \cap A_{NFA} =
+\emptyset\)</span>, <span class="math inline">\(A_{REX} \cap A_{DFA} =
+\emptyset\)</span>, <span class="math inline">\(A_{DFA} \cap A_{NFA} =
+\emptyset\)</span></p>
+<p>A Turing machine that decides <span
+class="math inline">\(A_{NFA}\)</span> is:</p>
+<p>A Turing machine that decides <span
+class="math inline">\(A_{REX}\)</span> is:</p>
+<blockquote>
+<p><span class="math inline">\(M_3 =\)</span>“On input <span
+class="math inline">\(\langle M\rangle\)</span> where <span
+class="math inline">\(M\)</span> is a DFA,</p>
+<ol>
+<li><p>For integer <span class="math inline">\(i = 1, 2,
+\ldots\)</span></p></li>
+<li><p>Let <span class="math inline">\(s_i\)</span> be the <span
+class="math inline">\(i\)</span>th string over the alphabet of <span
+class="math inline">\(M\)</span> (ordered in string order).</p></li>
+<li><p>Run <span class="math inline">\(M\)</span> on input <span
+class="math inline">\(s_i\)</span>.</p></li>
+<li><p>If <span class="math inline">\(M\)</span> accepts, <span
+class="math inline">\(\underline{\phantom{FILL  IN BLANK}}\)</span>. If
+<span class="math inline">\(M\)</span> rejects, increment <span
+class="math inline">\(i\)</span> and keep going."</p></li>
+</ol>
+</blockquote>
+<p>Choose the correct option to help fill in the blank so that <span
+class="math inline">\(M_3\)</span> recognizes <span
+class="math inline">\(E_{DFA}\)</span></p>
+<ul>
+<li><p>accepts</p></li>
+<li><p>rejects</p></li>
+<li><p>loop for ever</p></li>
+<li><p>We can’t fill in the blank in any way to make this work</p></li>
+<li><p>None of the above</p></li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(M_4 =\)</span> “ On input <span
+class="math inline">\(\langle M \rangle\)</span> where <span
+class="math inline">\(M\)</span> is a DFA,</p>
+<ol>
+<li><p>Mark the start state of <span
+class="math inline">\(M\)</span>.</p></li>
+<li><p>Repeat until no new states get marked:</p></li>
+<li><p>Loop over the states of <span
+class="math inline">\(M\)</span>.</p></li>
+<li><p>Mark any unmarked state that has an incoming edge from a marked
+state.</p></li>
+<li><p>If no accept state of <span class="math inline">\(A\)</span> is
+marked, <span class="math inline">\(\underline{\phantom{FILL  IN
+BLANK}}\)</span>; otherwise, <span
+class="math inline">\(\underline{\phantom{FILL  IN
+BLANK}}\)</span>".</p></li>
+</ol>
+</blockquote>
+<p>To build a Turing machine that decides <span
+class="math inline">\(EQ_{DFA}\)</span>, notice that <span
+class="math display">\[L_1 = L_2 \qquad\textrm{iff}\qquad (~(L_1 \cap
+\overline{L_2}) \cup (L_2 \cap \overline L_1)~) = \emptyset\]</span>
+<span><em>There are no elements that are in one set and not the
+other</em></span></p>
+<p><span class="math inline">\(M_{EQDFA} =\)</span></p>
+<p><span><strong>Summary</strong></span>: We can use the decision
+procedures (Turing machines) of decidable problems as subroutines in
+other algorithms. For example, we have subroutines for deciding each of
+<span class="math inline">\(A_{DFA}\)</span>, <span
+class="math inline">\(E_{DFA}\)</span>, <span
+class="math inline">\(EQ_{DFA}\)</span>. We can also use algorithms for
+known constructions as subroutines in other algorithms. For example, we
+have subroutines for: counting the number of states in a state diagram,
+counting the number of characters in an alphabet, converting DFA to a
+DFA recognizing the complement of the original language or a DFA
+recognizing the Kleene star of the original language, constructing a DFA
+or NFA from two DFA or NFA so that we have a machine recognizing the
+language of the union (or intersection, concatenation) of the languages
+of the original machines; converting regular expressions to equivalent
+DFA; converting DFA to equivalent regular expressions, etc.</p>
+<h1 class="unnumbered" id="week7-friday">Week7 friday</h1>
+<p>A <span><strong>Turing-recognizable</strong></span> language is a set
+of strings that is the language recognized by some Turing machine. We
+also say that such languages are recognizable.</p>
+<p>A <span><strong>Turing-decidable</strong></span> language is a set of
+strings that is the language recognized by some decider. We also say
+that such languages are decidable.</p>
+<p>An <span><strong>unrecognizable</strong></span> language is a
+language that is not Turing-recognizable.</p>
+<p>An <span><strong>undecidable</strong></span> language is a language
+that is not Turing-decidable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any undecidable language is also
+unrecognizable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any unrecognizable language is also
+undecidable.</p>
+<p>To prove that a computational problem is
+<span><strong>decidable</strong></span>, we find/ build a Turing machine
+that recognizes the language encoding the computational problem, and
+that is a decider.</p>
+<p>How do we prove a specific problem is <span><strong>not
+decidable</strong></span>?</p>
+<p>How would we even find such a computational problem?</p>
+<p><span><em>Counting arguments for the existence of an undecidable
+language:</em></span></p>
+<ul>
+<li><p>The set of all Turing machines is countably infinite.</p></li>
+<li><p>Each Turing-recognizable language is associated with a Turing
+machine in a one-to-one relationship, so there can be no more
+Turing-recognizable languages than there are Turing machines.</p></li>
+<li><p>Since there are infinitely many Turing-recognizable languages
+(think of the singleton sets), there are countably infinitely many
+Turing-recognizable languages.</p></li>
+<li><p>Such the set of Turing-decidable languages is an infinite subset
+of the set of Turing-recognizable languages, the set of Turing-decidable
+languages is also countably infinite.</p></li>
+</ul>
+<p>Since there are uncountably many languages (because <span
+class="math inline">\(\mathcal{P}{\Sigma^*}\)</span> is uncountable),
+there are uncountably many unrecognizable languages and there are
+uncountably many undecidable languages.</p>
+<p><span><strong>What’s a specific example of a language that is
+unrecognizable or undecidable?</strong></span></p>
+<p><span><strong>Key idea</strong></span>: self-referential
+disagreement.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Acceptance
+problem</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M,w
+\rangle \mid  \text{$M$ is a Turing machine that accepts input
+string $w$}\}\)</span></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+emptiness testing</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M
+\rangle \mid  \text{$M$ is a Turing machine and  $L(M) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+equality testing</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{
+\langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing
+machines and  
+$L(M_1) =L(M_2)$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sipser Section 4.1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="multicols">
+<p><span>3</span> <span class="math inline">\(M_1\)</span> <img
+src="../../resources/machines/Week8WarmupTM1.png" style="width:2in"
+alt="image" /></p>
+<p><span class="math inline">\(M_2\)</span> <img
+src="../../resources/machines/Week8WarmupTM2.png" style="width:2in"
+alt="image" /></p>
+<p><span class="math inline">\(M_3\)</span> <img
+src="../../resources/machines/Week8WarmupTM3.png" style="width:2in"
+alt="image" /></p>
+</div>
+<p>Example strings in <span class="math inline">\(A_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(E_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(EQ_{TM}\)</span></p>
+<p><span><strong>Theorem</strong></span>: <span
+class="math inline">\(A_{TM}\)</span> is Turing-recognizable.</p>
+<p><span><strong>Strategy</strong></span>: To prove this theorem, we
+need to define a Turing machine <span
+class="math inline">\(R_{ATM}\)</span> such that <span
+class="math inline">\(L(R_{ATM}) = A_{TM}\)</span>.</p>
+<p>Define <span class="math inline">\(R_{ATM} =\)</span> “</p>
+<p>Proof of correctness:</p>
+<p>We will show that <span class="math inline">\(A_{TM}\)</span> is
+undecidable.</p>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>An introduction to ASCII is available
+on the w3 tutorial <a
+href="https://www.w3schools.com/charsets/ref_html_ascii.asp">here</a>.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
