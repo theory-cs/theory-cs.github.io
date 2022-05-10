@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CSE105Sp22" />
+  <title>Project - CSE 105 Spring 2022</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Project - CSE 105 Spring 2022</h1>
+<p class="author">CSE105Sp22</p>
+<p class="date">Part 2 due 5/19/22 at 5pm (no penalty late submission
+until 8am next day)</p>
+</header>
+<p>The project component of this class will be an opportunity for you to
+extend your work on assignments and explore applications of your
+choosing.</p>
+<p>Why? To go deeper and explore the material from Theory of Computation
+and how it relates to other aspects of CS and beyond.</p>
+<p>How? During emergency remote instruction last academic year, we
+discovered that video assessment and some open-ended personalized
+projects help ensure fairness and can be less stressful for students
+than in-person midterm exams. Asynchronous project submission also gives
+flexibility and allows more physical distancing.</p>
+<p><span><strong>Your videos</strong></span>: We will delete all the
+videos we receive from you after assigning final grades for the course,
+and they will be stored in a university-controlled Google Drive
+directory only accessible to the course staff during the quarter. Please
+send an email to the instructor (minnes@eng.ucsd.edu) if you have
+concerns about the video / screencast components of this project or
+cannot complete projects in this style for some reason.</p>
+<p>You may produce screencasts with any software you choose. One option
+is to record yourself with Zoom; a tutorial on how to use Zoom to record
+a screencast (courtesy of Prof. Joe Politz) is here: <a
+href="https://drive.google.com/open?id=1KROMAQuTCk40zwrEFotlYSJJQdcG_GUU">Tutorial
+URL</a> The video that was produced from that recording session in Zoom
+is here: <a
+href="{https://drive.google.com/open?id=1MxJN6CQcXqIbOekDYMxjh7mTt1TyRVMl}">Video
+produced in tutorial</a> .</p>
+<p><span><strong>What resources can you use?</strong> </span> This
+project must be completed individually, without any help from other
+people, including the course staff (other than logistics support if you
+get stuck with screencast). You can use any of this quarter’s CSE 105
+offering (notes, readings, class videos, supplementary videos, homework
+feedback). You may additionally search online to respond to project
+parts that explicitly ask you to do so, and you must cite all resources
+(online or offline) that you consult as part of this search. Link
+directly to the resource and include the name of the author / video
+creator and the reason you consulted this reference. The work you submit
+for the project needs to be your own.</p>
+<p>The written portion of the project is expected to be clearly legible,
+and should preferably be typed.</p>
+<h1 id="tasks-for-project-part-2">Tasks for Project Part 2</h1>
+<h2 id="task-1-explain-a-review-quiz-question-written">Task 1: Explain a
+review quiz question (Written)</h2>
+<ol>
+<li><p>Select one question from one of the review quizzes from 4/15/22
+(Friday of Week 3) to 4/29/22 (Friday of Week 5) to revisit. Include the
+problem description, why you picked this question (e.g. what is
+interesting about it, what is hard about it, or why you wanted to take a
+second look at it), and your solution. Question selection: you can pick
+any one question listed in the Gradescope review quizzes, and you must
+address all of its parts.</p></li>
+<li><p>For each part of your chosen question: prepare a complete
+solution (you can use the homework solutions we post for guidance about
+the style). Your submission will be evaluated not only on the
+correctness of your answers, but on your ability to present your ideas
+clearly and logically. You should explain how you arrived at your
+conclusions, using mathematically sound reasoning. Your goal should be
+to convince the reader that your results and methods are sound. Imagine
+you are preparing these solutions for someone else taking CSE 105 who
+missed that week and is “catching up”</p></li>
+<li><p>Include at least 2 potential mistakes that a student may have
+made while attempting to solve the quiz problem that you selected.
+Explain why the reasoning behind these mistakes is flawed so that a
+student reading this may learn from these mistakes. It’s a good idea to
+include mistakes that you made when you first tried to solve this
+problem!</p></li>
+</ol>
+<p><span><strong>Style guidelines</strong></span>: your written
+submission for Task 1 should clearly label the three parts:
+<span><em>Question Selection</em></span>,
+<span><em>Solution</em></span>, and <span><em>Potential
+Mistakes</em></span>.</p>
+<h2 id="task-2-closure-of-the-collection-of-regular-languages">Task 2:
+Closure of the Collection of Regular Languages</h2>
+<p>For this task, we fix <span class="math inline">\(\Sigma =
+\{0,1\}\)</span>. Recall that the composition of two functions <span
+class="math inline">\(f\)</span> and <span
+class="math inline">\(g\)</span> is denoted <span
+class="math inline">\(f \circ g\)</span>, which can also be written as
+<span class="math inline">\(f(g(x))\)</span>, and is the result of first
+applying the function <span class="math inline">\(g\)</span> to the
+input <span class="math inline">\(x\)</span> (producing <span
+class="math inline">\(g(x)\)</span>), and then applying <span
+class="math inline">\(f\)</span> to <span
+class="math inline">\(g(x)\)</span>. Below are some functions with
+domain and codomain <span
+class="math inline">\(\mathcal{P}(\Sigma^*)\)</span>; that is, they each
+take in a language over <span class="math inline">\(\Sigma\)</span> and
+output a language over <span class="math inline">\(\Sigma\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+        TZ(L) &amp;= \{ w0^k \mid w \in L, k \geq 0 \}\\
+        R(L) &amp;= \{ w \mid w^R \in L\} \textrm{(where $w^R$ is
+reversing $w$, e.g. $(100)^R = 001$)}\\
+        E(L) &amp;= \{ w \mid w \in L, \textrm{ the length of $w$ is
+even} \} \\
+        T(L) &amp;= \{ w \mid w \in L, \textrm{ the length of $w$ is a
+multiple of } 3 \}\\
+        EQ(L) &amp;= \{ w^k1^k \mid k \geq 0, w \in L \} \textrm{(where
+$w^k$ is concatenating $w$ with itself $k$ times, e.g. $(100)^2 =
+100100$)}\\
+        LT(L) &amp;= \{ w^k1^j \mid 0 \leq k &lt; j , w \in L \}\\
+        EQ2(L) &amp;= \{ w^kx^k \mid k \geq 0, w \in L, x \in L \}
+    \end{aligned}\]</span></p>
+<p>For example <span class="math inline">\((TZ \circ R)(L) = TZ(R(L)) =
+\{ w^R 0^k | w \in L, k \geq 0\}\)</span>.</p>
+<ol>
+<li><p>Choose two functions from the above list so that their
+composition, <span class="math inline">\(h\)</span>, is such that the
+collection of regular languages over <span
+class="math inline">\(\Sigma\)</span> is closed under <span
+class="math inline">\(h\)</span>.</p>
+<ol>
+<li><p>Provide a clear and complete definition of your function <span
+class="math inline">\(h\)</span>. A complete solution will clearly
+specify the two functions you chose to compose, the order in which <span
+class="math inline">\(h\)</span> applies them, and a general description
+of what the function <span class="math inline">\(h\)</span> does using
+set builder descriptions and/or English prose.
+<span><strong>Note:</strong></span> You do not need to apply <span
+class="math inline">\(h\)</span> to a language in this step, you only
+need to define <span class="math inline">\(h\)</span>.</p></li>
+<li><p>Prove that the collection of regular languages over <span
+class="math inline">\(\Sigma\)</span> is closed under <span
+class="math inline">\(h\)</span> by writing out the following argument
+in detail: Consider an arbitrary regular language <span
+class="math inline">\(L\)</span> over the alphabet <span
+class="math inline">\(\Sigma = \{0, 1\}\)</span>. Since it is regular,
+it is recognized by a DFA and let <span class="math inline">\(M = (Q,
+\Sigma, \delta, q_0, F)\)</span> be such a DFA over <span
+class="math inline">\(\Sigma\)</span> with <span
+class="math inline">\(L(M) = L\)</span>. Give the formal construction of
+an NFA <span class="math inline">\(N\)</span> with <span
+class="math inline">\(L(N) = h(L)\)</span> for your function <span
+class="math inline">\(h\)</span>. Briefly justify this construction by
+tracing the computations of <span class="math inline">\(N\)</span>
+and/or referencing constructions we discussed in class and in the book.
+In particular, explain the role of each parameter in the definition of
+<span class="math inline">\(N\)</span> in the construction.</p></li>
+</ol></li>
+<li><p>Choose two functions from the above list so that their
+composition, <span class="math inline">\(h&#39;\)</span>, is such that
+the collection of regular languages over <span
+class="math inline">\(\Sigma\)</span> is
+<span><strong>not</strong></span> closed under <span
+class="math inline">\(h&#39;\)</span>. <span><em>Note the functions you
+choose for this part may or may not overlap with those from the previous
+part; it’s up to you to decide.</em></span></p>
+<ol>
+<li><p>Provide a clear and complete definition of your function <span
+class="math inline">\(h&#39;\)</span>. A complete solution will clearly
+specify the two functions you chose to compose, the order in which <span
+class="math inline">\(h&#39;\)</span> applies them, and a general
+description of what the function <span
+class="math inline">\(h&#39;\)</span> does using set builder
+descriptions and/or English prose.</p></li>
+<li><p>Give a witness language <span class="math inline">\(L\)</span>
+that can be used to prove that the class of regular languages over <span
+class="math inline">\(\Sigma\)</span> is not closed under <span
+class="math inline">\(h&#39;\)</span>. To do so: (1) clearly define a
+language <span class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span>, (2) prove that <span
+class="math inline">\(L\)</span> is regular, and (3) prove that <span
+class="math inline">\(h&#39;(L)\)</span> is not regular. You may use
+results proved in class and / or the relevant sections in the textbook
+as part of your proofs if you would like, but you must label these
+results and provide references to the day we discussed them and/or the
+page number in the book.</p></li>
+</ol></li>
+</ol>
+<h2 id="task-3-implementation-examples-and-video">Task 3: Implementation
+examples and Video</h2>
+<p>With the introduction of PDAs, our models of computation begin to
+approach the power that modern day computers have. Choose a specific
+non-regular but context-free language mentioned in some question in the
+review quizzes between 4/15/22 (Friday of Week 3) to 4/29/22 (Friday of
+Week 5); you will write a program in Java, Python, JavaScript, or C++
+which is able to test membership of strings in that language. The
+program you write should function like a PDA, using a constant amount of
+memory plus access to a stack, and should only make a single pass
+through the string.</p>
+<p>Presenting your reasoning and demonstrating it via screenshare are
+important skills that also show us a lot of your learning. Getting
+practice with this style of presentation is a good thing for you to
+learn in general and a rich way for us to assess your skills. Create a
+3-5 minute screencast video with the following components:</p>
+<ul>
+<li><p>Start with your face and your student ID for a few seconds at the
+beginning, and introduce yourself audibly while on screen. You don’t
+have to be on camera for the rest of the video, though it’s fine if you
+are. We are looking for a brief confirmation that it’s you creating the
+video and doing the work you submitted.</p></li>
+<li><p>State which language you chose from the review quiz, and show the
+state diagram for a PDA which recognizes the language, briefly
+justifying why it works.</p></li>
+<li><p>State which programming language you chose to use and show on the
+screen all the code your wrote to implement the PDA in your chosen
+programming language. Discuss how the behavior of your program is
+related to the state diagram of the PDA, and discuss the implementation
+choices you made when creating this program.</p></li>
+<li><p>Demonstrate 4 test cases (2 strings in the language recognized by
+your PDA, 2 strings not in this language), clearly defining each one,
+explaining the expected behavior of the PDA, and showing the output /
+feedback your program gives to indicate whether the expected behavior
+matches the actual behavior.</p></li>
+</ul>
+<p>You will submit this video along with a written version of Tasks 1
+and 2 to Gradescope.</p>
+<p><span><strong>Extra exploration (not for credit)</strong></span>:
+What would it take to implement context-free grammars in code? Could you
+use any of your work from implementaing PDAs?</p>
+<h1 id="grading-criteria-and-checklists">Grading Criteria and
+checklists</h1>
+<p><span><strong>Task 1</strong></span></p>
+<p>Submission covers a complete review quiz question from the relevant
+weeks (all parts of the question must be addressed for multi-part
+questions).</p>
+<p>Submission clearly labels review questions, including which day it’s
+from and the problem description.</p>
+<p>Submission includes why the student picked the problem/ what they
+found interesting.</p>
+<p>Solution is written (or typed) out in detail step-by-step, with clear
+and correct logic and justification.</p>
+<p>Submission includes 2 potential mistakes that a student might make
+while solving this question and explains why they are wrong.</p>
+<p><span><strong>Task 2</strong></span></p>
+<p><span><em>Question 1</em></span>:</p>
+<p>The function <span class="math inline">\(h\)</span> is described
+clearly and completely, using appropriate notation and terminology.</p>
+<p>The formal construction of <span class="math inline">\(N\)</span> is
+clear, correct, and complete, and is justified appropriately and
+correctly.</p>
+<p><span><em>Question 2</em></span>:</p>
+<p>The function <span class="math inline">\(h&#39;\)</span> is described
+clearly and completely, using appropriate notation and terminology.</p>
+<p>The language <span class="math inline">\(L\)</span> is specified
+clearly and completely and is a viable witness for the proof.</p>
+<p>The proof that <span class="math inline">\(L\)</span> is regular is
+clear, correct, and complete.</p>
+<p>The proof that <span class="math inline">\(h&#39;(L)\)</span> is not
+regular is clear, correct, and complete.</p>
+<p><span><strong>Task 3</strong></span></p>
+<p>Logistics Items</p>
+<ul>
+<li><p>Video loads correctly</p></li>
+<li><p>Video is between 3 and 5 minutes</p></li>
+<li><p>Video shows the student’s face and ID, and they introduce
+themself audibly while on screen</p></li>
+</ul>
+<p>The video clearly states which language was chosen for study, and
+references a specific review quiz with this language.</p>
+<p>The video shows the state diagram of a PDA which recognizes the
+chosen language.</p>
+<p>The video clearly describes which programming language was chosen for
+the implementaiton and gives the reasons why.</p>
+<p>The video discusses the connections between the state diagram of the
+PDA and its implementation in the code.</p>
+<p>The video clearly demonstrates all test cases, including both
+expected and actual output. The video should include screencasts of
+running the code live to demonstrate these test cases.</p>
+</body>
+</html>

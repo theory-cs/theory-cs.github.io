@@ -1,0 +1,336 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.8, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{{\footnotesize Copyright Mia Minnes, 2022, Version \today~(\thepage)}}
+
+\author{CSE105Sp22}
+
+\newcommand{\instructions}{{\bf For all HW assignments:}
+
+Weekly homework may be done individually or in groups of up to 3 students. 
+You may switch HW partners for different HW assignments. 
+The lowest HW score will not be included in your overall HW average. 
+Please ensure your name(s) and PID(s) are clearly visible on the first page of your homework submission 
+and then upload the PDF to Gradescope. If working in a group, submit only one submission per group: 
+one partner uploads the submission through their Gradescope account and then adds the other group member(s) 
+to the Gradescope submission by selecting their name(s) in the ``Add Group Members" dialog box. 
+You will need to re-add your group member(s) every time you resubmit a new version of your assignment.
+ Each homework question will be graded either for correctness (including clear and precise explanations and 
+ justifications of all answers) or fair effort completeness. You may only collaborate on HW with CSE 105 students 
+ in your group; if your group has questions about a HW problem, you may ask in drop-in help hours or post a private 
+ post (visible only to the Instructors) on Piazza.
+
+All submitted homework for this class must be typed. 
+You can use a word processing editor if you like (Microsoft Word, Open Office, Notepad, Vim, Google Docs, etc.) 
+but you might find it useful to take this opportunity to learn LaTeX. 
+LaTeX is a markup language used widely in computer science and mathematics. 
+The homework assignments are typed using LaTeX and you can use the source files 
+as templates for typesetting your solutions.
+To generate state diagrams of machines, we recommend using Flap.js
+or JFLAP. Photographs of clearly hand-drawn diagrams may also be used. We recommend that you
+submit early drafts to Gradescope so that in case of any technical difficulties, at least some of your
+work is present. You may update your submission as many times as you'd like up to the deadline.
+
+
+{\bf Integrity reminders}
+\begin{itemize}
+\item Problems should be solved together, not divided up between the partners. The homework is
+designed to give you practice with the main concepts and techniques of the course, 
+while getting to know and learn from your classmates.
+\item You may not collaborate on homework with anyone other than your group members.
+You may ask questions about the homework in office hours (of the instructor, TAs, and/or tutors) and 
+on Piazza (as private notes viewable only to the Instructors).  
+You \emph{cannot} use any online resources about the course content other than the class material 
+from this quarter -- this is primarily to ensure that we all use consistent notation and
+definitions we will use this quarter and also to protect the learning experience you will have when
+the `aha' moments of solving the problem authentically happen.
+\item Do not share written solutions or partial solutions for homework with 
+other students in the class who are not in your group. Doing so would dilute their learning 
+experience and detract from their success in the class.
+\end{itemize}
+
+}
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+ 
+ 
+\title{Project - CSE 105 Spring 2022}
+\date{Part 2 due 5/19/22 at 5pm (no penalty late submission until 8am next day)}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\vspace{-30pt}
+
+ The project component of this class will be an opportunity for you to extend your work on 
+ assignments and explore applications of your choosing. 
+ 
+ Why?  To go deeper and explore the material from Theory of Computation and how it relates to 
+ other aspects of CS and beyond. 
+ 
+ How?  During emergency remote instruction last academic year, we discovered that video 
+ assessment and some open-ended personalized projects help ensure fairness and can be less 
+ stressful for students than in-person midterm exams. Asynchronous project submission also 
+ gives flexibility and allows more physical distancing. 
+ 
+ {\bf Your videos}: We will delete all the videos we receive from you after assigning final grades for 
+ the course, and they will be stored in a university-controlled Google Drive directory only 
+ accessible to the course staff during the quarter. Please send an email to the instructor 
+ (minnes@eng.ucsd.edu) if you have concerns about the video / screencast components of this 
+ project or cannot complete projects in this style for some reason. 
+ 
+ You may produce screencasts with any software you choose. One option is to record yourself 
+ with Zoom; a tutorial on how to use Zoom to record a screencast (courtesy of Prof. Joe Politz) is 
+ here: \href{https://drive.google.com/open?id=1KROMAQuTCk40zwrEFotlYSJJQdcG_GUU}{Tutorial URL}
+ The video that was produced from that recording session in Zoom is here:
+ \href{{https://drive.google.com/open?id=1MxJN6CQcXqIbOekDYMxjh7mTt1TyRVMl}}{Video produced in tutorial} .
+ 
+ {\bf What resources can you use? }
+ This project must be completed individually, without any help from other people, 
+ including the course staff (other than logistics support if you get stuck with screencast). 
+ You can use any of this quarter’s CSE 105 offering (notes, readings, class videos, 
+ supplementary videos, homework feedback). You may additionally search online to respond to 
+ project parts that explicitly ask you to do so, and you must  cite all resources (online or offline) 
+ that you consult as part of this search. Link directly to the resource and include the name of the 
+ author / video creator and the reason you consulted this reference. The work you submit for the 
+ project needs to be your own. 
+ 
+The written portion of the project is expected to be clearly legible, and should preferably be typed.
+
+ \newpage
+ \section{Tasks for Project Part 2}
+
+
+ \subsection{Task 1: Explain a review quiz question (Written)}
+	
+	\begin{enumerate}
+		\item Select one question from one of the review quizzes from 4/15/22 (Friday of Week 3) to 4/29/22  (Friday of Week 5) to revisit. Include the problem description, why you picked this question (e.g. what is interesting about it, what is hard about it, or why you wanted to take a second look at it), and your solution. Question selection: you can pick any one question listed in the Gradescope review quizzes, and you must address  all  of its parts. 
+ 		\item For each part of your chosen question: prepare a complete solution (you can use the homework solutions we post for guidance about the style). Your submission will be evaluated not only on the correctness of your answers, but on your ability to present your ideas clearly and logically. You should explain how you arrived at your conclusions, using mathematically sound reasoning. Your goal should be to convince the reader that your results and methods are sound. Imagine you are preparing these solutions for someone else taking CSE 105 who missed that week and is “catching up”
+ 
+ 		\item Include at least 2 potential mistakes that a student may have made while attempting to solve the quiz problem that you selected. Explain why the reasoning behind these mistakes is flawed so that a student reading this may learn from these mistakes. It’s a good idea to include mistakes that you made when you first tried to solve this problem!	
+	\end{enumerate}
+	
+	{\bf Style guidelines}: your written submission for Task 1 should clearly label the three parts:
+	{\it Question Selection}, {\it Solution},  and {\it Potential Mistakes}.
+
+\newpage
+\subsection{Task 2: Closure of the Collection of Regular Languages}
+	
+	For this task, we fix $\Sigma = \{0,1\}$. Recall that the composition of two 
+	functions $f$ and $g$ is denoted $f \circ g$, which can also be written as $f(g(x))$, and is the 
+	result of first applying the function $g$ to the input $x$ (producing $g(x)$), and then applying $f$ to $g(x)$. 
+	Below are some functions with domain and codomain $\mathcal{P}(\Sigma^*)$; that is, they 
+	each take in a language over $\Sigma$
+	and output a language over $\Sigma$. 
+	
+	\begin{align*}
+		TZ(L) &= \{ w0^k \mid w \in L, k \geq 0 \}\\
+		R(L) &= \{ w \mid w^R \in L\} \textrm{(where $w^R$ is reversing $w$, e.g. $(100)^R = 001$)}\\
+		E(L) &= \{ w \mid w \in L, \textrm{ the length of $w$ is even} \} \\
+		T(L) &= \{ w \mid w \in L, \textrm{ the length of $w$ is a multiple of } 3 \}\\
+		EQ(L) &= \{ w^k1^k \mid k \geq 0, w \in L \} \textrm{(where $w^k$ is concatenating $w$ with itself $k$ times, e.g. $(100)^2 = 100100$)}\\
+		LT(L) &= \{ w^k1^j \mid 0 \leq k < j , w \in L \}\\
+		EQ2(L) &= \{ w^kx^k \mid k \geq 0, w \in L, x \in L \}
+	\end{align*}
+
+	For example $(TZ \circ R)(L) = TZ(R(L)) = \{ w^R 0^k | w \in L, k \geq 0\}$.
+
+	
+	\begin{enumerate}
+		\item Choose two functions from the above list so that their 
+		composition, $h$, is such that the collection of regular languages over $\Sigma$ is closed under $h$.
+		
+		\begin{enumerate}
+			\item Provide a clear and complete definition of  your function $h$.
+			A complete solution will clearly specify the two functions you chose to compose, 
+			the order in which $h$ applies them, and a general description of what the function $h$ does using set builder
+			descriptions and/or English prose.
+			{\bf Note:} You do not need to apply $h$ to a language in this step, you only need to define $h$.
+			\item Prove that the collection of regular languages over $\Sigma$ is 
+			closed under $h$ by writing out the following argument in detail: 
+			Consider an arbitrary regular language $L$ over the alphabet $\Sigma = \{0, 1\}$.
+			Since it is regular, it is recognized by a DFA and let $M = (Q, \Sigma, \delta, q_0, F)$ 
+			be such a DFA over $\Sigma$ with $L(M) = L$. 
+			Give the formal construction of an NFA $N$ with $L(N) = h(L)$ for your function $h$.
+			Briefly justify this construction by tracing the computations of $N$ and/or referencing constructions
+			we discussed in class and in the book. In particular, explain the role of each parameter in the definition of $N$ in 
+			the construction.
+		\end{enumerate}
+		
+		\item Choose two functions from the above list so that their composition, $h'$, 
+		is such that the collection of regular languages over $\Sigma$ is {\bf not} closed under $h'$. 
+		{\it Note the functions you choose for this part may or may not overlap with those from the previous part; it's up to you to decide.}
+		
+		\begin{enumerate}
+			\item Provide a clear and complete definition of  your function $h'$.
+			A complete solution will clearly specify the two functions you chose to compose, 
+			the order in which $h'$ applies them, and a general description of what 
+			the function $h'$ does using set builder
+			descriptions and/or English prose.			
+			\item Give a witness language $L$ that can be used to prove that the class of regular
+			languages over $\Sigma$ is not closed under $h'$. To do so: 
+			(1) clearly define a language $L$ over $\Sigma$, (2) prove that $L$ is regular, and (3) prove that $h'(L)$ is not regular.
+			You may use results proved in class and / or the relevant sections in the textbook as part of your proofs 
+			if you would like, but you must label these results and provide references to the day we discussed them and/or the 
+			page number in the book.
+		\end{enumerate}
+	\end{enumerate}
+		
+\subsection{Task 3: Implementation examples and Video}
+ With the introduction of PDAs, our models of computation begin to approach the power that 
+ modern day computers have. 
+ Choose a specific non-regular but context-free language mentioned in some question 
+ in the review quizzes between 4/15/22 (Friday of Week 3) 
+ to 4/29/22 (Friday of Week 5); you will write a program in Java, Python, JavaScript, or C++
+ which is able to test membership of strings in 
+ that language.
+ The program you write should function like a PDA, using a constant amount of memory plus 
+ access to a stack, 
+ and should only make a single pass through the string.
+	
+
+ Presenting your reasoning and demonstrating it via screenshare are important skills that 
+ also show us a lot of your learning. Getting practice with this style of presentation is a 
+ good thing for you to learn in general and a rich way for us to assess your skills. Create 
+ a 3-5 minute screencast video with the following components:
+ \begin{itemize}
+	\item Start with your face and your student ID for a few seconds at the beginning, and introduce yourself audibly while on screen. 
+	You don't have to be on camera for the rest of the video, though it's fine if you are. 
+	We are looking for a brief confirmation that it's you creating the video and 
+	doing the work you submitted.
+	\item State which language you chose from the review quiz, and show the state diagram for 
+	a PDA which recognizes the language, briefly justifying why it works.
+	\item State which programming language you chose to use and show on the 
+	screen all the code your wrote to implement the PDA in your chosen programming language.
+	Discuss how the behavior of your program is related to the state diagram of the PDA, 
+	and discuss the implementation choices you made when creating this program.
+	\item Demonstrate 4 test cases (2 strings in the language recognized by your PDA, 
+	2 strings not in this language), clearly defining each one, 
+	explaining the expected behavior of the PDA, and 
+	showing the output / feedback your program gives to indicate whether the expected behavior 
+	matches the actual behavior.
+\end{itemize}
+You will submit this video along with a written version of Tasks 1 and 2 to Gradescope.
+
+{\bf Extra exploration (not for credit)}: What would it take to implement context-free grammars in code? 
+Could you use any of your work from implementaing PDAs?
+
+	
+\section{Grading Criteria and checklists}
+
+{\bf Task 1}
+
+Submission covers a complete review quiz question from the relevant weeks 
+(all parts of the question must be addressed for multi-part questions).
+
+Submission clearly labels review questions, including which day it's from and the problem description.
+
+Submission includes why the student picked the problem/ what they found interesting.
+
+Solution is written (or typed) out in detail step-by-step, with clear and correct logic and justification.
+
+Submission includes 2 potential mistakes that a student might make while solving this question 
+and explains why they are wrong.
+
+
+{\bf Task 2}
+
+{\it Question 1}: 
+
+The function $h$ is described clearly and completely, using appropriate notation and terminology.
+
+The formal construction of $N$ is clear, correct, and complete, and is justified appropriately
+and correctly.
+
+{\it Question 2}:
+
+The function $h'$ is described clearly and completely, using appropriate notation and terminology.
+    
+The language $L$ is specified clearly and completely and is a viable witness 
+for the proof.
+
+The proof that $L$ is regular is clear, correct, and complete.
+
+The proof that $h'(L)$ is not regular is clear, correct, and complete.
+
+{\bf Task 3}
+
+Logistics Items
+\begin{itemize}
+    \item Video loads correctly
+    \item Video is between 3 and 5 minutes
+    \item Video shows the student's face and ID, and they 
+	introduce themself audibly while on screen
+\end{itemize}
+
+The video clearly states which language was chosen for study, 
+and references a specific review quiz with this language.
+
+The video shows the state diagram of a PDA which recognizes the 
+chosen language.
+
+The video clearly describes which programming language was chosen 
+for the implementaiton and gives the reasons why.
+
+The video discusses the connections between the state diagram of the PDA 
+and its implementation in the code.
+
+The video clearly demonstrates all test cases, including both expected
+and actual output. The video should include screencasts of 
+running the code live to demonstrate these test cases.
+
+\end{document}
