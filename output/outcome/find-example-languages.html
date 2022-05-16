@@ -164,6 +164,75 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week8-monday">Week8 monday</h1>
+<p><span><strong>Theorem</strong></span>: <span
+class="math inline">\(A_{TM}\)</span> is not Turing-decidable.</p>
+<p><span><strong>Proof</strong></span>: Suppose <span><strong>towards a
+contradiction</strong></span> that there is a Turing machine that
+decides <span class="math inline">\(A_{TM}\)</span>. We call this
+presumed machine <span class="math inline">\(M_{ATM}\)</span>.</p>
+<p>By assumption, for every Turing machine <span
+class="math inline">\(M\)</span> and every string <span
+class="math inline">\(w\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(w \in L(M)\)</span>, then the
+computation of <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M,w \rangle ~~
+\underline{\phantom{\hspace{2.5in}}}\)</span></p></li>
+<li><p>If <span class="math inline">\(w \notin L(M)\)</span>, then the
+computation of <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M,w \rangle ~~
+\underline{\phantom{\hspace{2.5in}}}\)</span></p></li>
+</ul>
+<p>Define a <span><strong>new</strong></span> Turing machine using the
+high-level description:</p>
+<blockquote>
+<p><span class="math inline">\(D =\)</span>“ On input <span
+class="math inline">\(\langle M \rangle\)</span>, where <span
+class="math inline">\(M\)</span> is a Turing machine:</p>
+<ul>
+<li><p>Run <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M, \langle M
+\rangle  \rangle\)</span>.</p></li>
+<li><p>If <span class="math inline">\(M_{ATM}\)</span> accepts, reject;
+if <span class="math inline">\(M_{ATM}\)</span> rejects,
+accept."</p></li>
+</ul>
+</blockquote>
+<p>Is <span class="math inline">\(D\)</span> a Turing machine?</p>
+<p>Is <span class="math inline">\(D\)</span> a decider?</p>
+<p>What is the result of the computation of <span
+class="math inline">\(D\)</span> on <span class="math inline">\(\langle
+D \rangle\)</span>?</p>
+<p><span><strong>Theorem</strong></span> (Sipser Theorem 4.22): A
+language is Turing-decidable if and only if both it and its complement
+are Turing-recognizable.</p>
+<p><span><strong>Proof, first direction:</strong></span> Suppose
+language <span class="math inline">\(L\)</span> is Turing-decidable. WTS
+that both it and its complement are Turing-recognizable.</p>
+<p><span><strong>Proof, second direction:</strong></span> Suppose
+language <span class="math inline">\(L\)</span> is Turing-recognizable,
+and so is its complement. WTS that <span
+class="math inline">\(L\)</span> is Turing-decidable.</p>
+<p>Give an example of a <span><strong>decidable</strong></span> set:</p>
+<p>Give an example of a <span><strong>recognizable
+undecidable</strong></span> set:</p>
+<p>Give an example of an <span><strong>unrecognizable</strong></span>
+set:</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The class of Turing-decidable
+languages is closed under complementation?</p>
+<p>Definition: A language <span class="math inline">\(L\)</span> over an
+alphabet <span class="math inline">\(\Sigma\)</span> is called
+<span><strong>co-recognizable</strong></span> if its complement, defined
+as <span class="math inline">\(\Sigma^* \setminus L  = \{
+x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
+Turing-recognizable.</p>
+<p>Notation: The complement of a set <span
+class="math inline">\(X\)</span> is denoted with a superscript <span
+class="math inline">\(c\)</span>, <span
+class="math inline">\(X^c\)</span>, or an overline, <span
+class="math inline">\(\overline{X}\)</span>.</p>
 <h1 class="unnumbered" id="week5-monday">Week5 monday</h1>
 <p>To fully specify a PDA we could give its <span
 class="math inline">\(6\)</span>-tuple formal definition or we could
@@ -2492,13 +2561,13 @@ is a string}, w \in L(M) \}\end{aligned}\]</span></p>
 is encoded by the language <span class="math display">\[\begin{aligned}
   &amp;\{ \textrm{representations of CFGs $G$  such that $L(G) =
 \emptyset$}\}  \\
-  =&amp; \{ \langle G \rangle \mid M \textrm{ is a CFG},  L(G) =
+  =&amp; \{ \langle G \rangle \mid G \textrm{ is a CFG},  L(G) =
 \emptyset \}\end{aligned}\]</span></p>
 <p>The computational problem “Is the given Turing machine a decider?” is
 encoded by the language <span class="math display">\[\begin{aligned}
   &amp;\{ \textrm{representations of TMs $M$  such that $M$ halts on
 every input}\}  \\
-  =&amp; \{ \langle G \rangle \mid M \textrm{ is a TM and for each
+  =&amp; \{ \langle M \rangle \mid M \textrm{ is a TM and for each
 string } w, \textrm{$M$ halts on $w$} \}\end{aligned}\]</span></p>
 <p><span><em>Note: writing down the language encoding a computational
 problem is only the first step in determining if it’s recognizable,
@@ -2729,6 +2798,9 @@ decidable: <span class="math inline">\(A_{DFA}\)</span>?, <span
 class="math inline">\(E_{DFA}\)</span>?, <span
 class="math inline">\(EQ_{DFA}\)</span>?</p>
 <h1 class="unnumbered" id="week7-wednesday">Week7 wednesday</h1>
+<p>Deciding a computational problem means building / defining a Turing
+machine that recognizes the language encoding the computational problem,
+and that is a decider.</p>
 <div class="center">
 <table>
 <tbody>
@@ -2890,51 +2962,71 @@ language of the union (or intersection, concatenation) of the languages
 of the original machines; converting regular expressions to equivalent
 DFA; converting DFA to equivalent regular expressions, etc.</p>
 <h1 class="unnumbered" id="week7-friday">Week7 friday</h1>
-<p>A <span><strong>Turing-recognizable</strong></span> language is a set
-of strings that is the language recognized by some Turing machine. We
-also say that such languages are recognizable.</p>
-<p>A <span><strong>Turing-decidable</strong></span> language is a set of
-strings that is the language recognized by some decider. We also say
-that such languages are decidable.</p>
-<p>An <span><strong>unrecognizable</strong></span> language is a
-language that is not Turing-recognizable.</p>
-<p>An <span><strong>undecidable</strong></span> language is a language
-that is not Turing-decidable.</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: Any undecidable language is also
-unrecognizable.</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: Any unrecognizable language is also
-undecidable.</p>
-<p>To prove that a computational problem is
-<span><strong>decidable</strong></span>, we find/ build a Turing machine
-that recognizes the language encoding the computational problem, and
-that is a decider.</p>
-<p>How do we prove a specific problem is <span><strong>not
-decidable</strong></span>?</p>
-<p>How would we even find such a computational problem?</p>
-<p><span><em>Counting arguments for the existence of an undecidable
-language:</em></span></p>
-<ul>
-<li><p>The set of all Turing machines is countably infinite.</p></li>
-<li><p>Each Turing-recognizable language is associated with a Turing
-machine in a one-to-one relationship, so there can be no more
-Turing-recognizable languages than there are Turing machines.</p></li>
-<li><p>Since there are infinitely many Turing-recognizable languages
-(think of the singleton sets), there are countably infinitely many
-Turing-recognizable languages.</p></li>
-<li><p>Such the set of Turing-decidable languages is an infinite subset
-of the set of Turing-recognizable languages, the set of Turing-decidable
-languages is also countably infinite.</p></li>
-</ul>
-<p>Since there are uncountably many languages (because <span
-class="math inline">\(\mathcal{P}{\Sigma^*}\)</span> is uncountable),
-there are uncountably many unrecognizable languages and there are
-uncountably many undecidable languages.</p>
-<p><span><strong>What’s a specific example of a language that is
-unrecognizable or undecidable?</strong></span></p>
-<p><span><strong>Key idea</strong></span>: self-referential
-disagreement.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Acceptance
+problem</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for DFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{DFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a  DFA that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…for NFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{NFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a  NFA that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for regular expressions</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{REX}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle R,w
+\rangle \mid  \text{$R$ is a  regular
+    expression that generates input string $w$}\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…for CFG</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{CFG}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle G,w
+\rangle \mid  \text{$G$ is a context-free grammar
+    that generates input string $w$}\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…for PDA</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{PDA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a PDA that accepts input string
+$w$}\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="center">
 <table>
 <tbody>
@@ -3006,7 +3098,56 @@ class="math inline">\(L(R_{ATM}) = A_{TM}\)</span>.</p>
 <p>Define <span class="math inline">\(R_{ATM} =\)</span> “</p>
 <p>Proof of correctness:</p>
 <p>We will show that <span class="math inline">\(A_{TM}\)</span> is
+undecidable. <span><em>First, let’s explore what that
+means.</em></span></p>
+<p>A <span><strong>Turing-recognizable</strong></span> language is a set
+of strings that is the language recognized by some Turing machine. We
+also say that such languages are recognizable.</p>
+<p>A <span><strong>Turing-decidable</strong></span> language is a set of
+strings that is the language recognized by some decider. We also say
+that such languages are decidable.</p>
+<p>An <span><strong>unrecognizable</strong></span> language is a
+language that is not Turing-recognizable.</p>
+<p>An <span><strong>undecidable</strong></span> language is a language
+that is not Turing-decidable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any undecidable language is also
+unrecognizable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any unrecognizable language is also
 undecidable.</p>
+<p>To prove that a computational problem is
+<span><strong>decidable</strong></span>, we find/ build a Turing machine
+that recognizes the language encoding the computational problem, and
+that is a decider.</p>
+<p>How do we prove a specific problem is <span><strong>not
+decidable</strong></span>?</p>
+<p>How would we even find such a computational problem?</p>
+<p><span><em>Counting arguments for the existence of an undecidable
+language:</em></span></p>
+<ul>
+<li><p>The set of all Turing machines is countably infinite.</p></li>
+<li><p>Each Turing-recognizable language is associated with a Turing
+machine in a one-to-one relationship, so there can be no more
+Turing-recognizable languages than there are Turing machines.</p></li>
+<li><p>Since there are infinitely many Turing-recognizable languages
+(think of the singleton sets), there are countably infinitely many
+Turing-recognizable languages.</p></li>
+<li><p>Such the set of Turing-decidable languages is an infinite subset
+of the set of Turing-recognizable languages, the set of Turing-decidable
+languages is also countably infinite.</p></li>
+</ul>
+<p>Since there are uncountably many languages (because <span
+class="math inline">\(\mathcal{P}(\Sigma^*)\)</span> is uncountable),
+there are uncountably many unrecognizable languages and there are
+uncountably many undecidable languages.</p>
+<p>Thus, there’s at least one undecidable language!</p>
+<p><span><strong>What’s a specific example of a language that is
+unrecognizable or undecidable?</strong></span></p>
+<p>To prove that a language is undecidable, we need to prove that there
+is no Turing machine that decides it.</p>
+<p><span><strong>Key idea</strong></span>: proof by contradiction
+relying on self-referential disagreement.</p>
 <h1 class="unnumbered" id="week3-friday">Week3 friday</h1>
 <p><span><strong>Theorem</strong></span>: For an alphabet <span
 class="math inline">\(\Sigma\)</span>, For each language <span

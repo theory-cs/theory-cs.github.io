@@ -1,59 +1,25 @@
 %! app: decidable languages, undecidable languages
 %! outcome: Classify language, Find example languages, Define decision problem, Classify decision problem
     
-
-A {\bf Turing-recognizable} language is a set of strings that 
-is the language recognized by some Turing machine. We also 
-say that such languages are recognizable.
-
-A {\bf Turing-decidable} language is a set of strings that 
-is the language recognized by some decider. We also 
-say that such languages are decidable.
-
-An {\bf unrecognizable} language is a language that is not Turing-recognizable.
-
-An {\bf undecidable} language is a language that is not Turing-decidable.
-
-
-{\bf  True} or {\bf False}: Any  undecidable language  is  also  unrecognizable.
-
-
-{\bf  True} or {\bf False}: Any  unrecognizable language  is  also  undecidable.
-
-
-To prove that a computational problem is {\bf decidable}, we find/ build a Turing 
-machine that recognizes the language encoding the computational problem, and that 
-is a decider.
-
-
-How do we prove a specific problem is {\bf not decidable}?
-
-How would we even find such a computational problem?
-
-
-{\it Counting arguments for the existence of an undecidable language:}
-\begin{itemize}
-    \item The set of all Turing machines is countably infinite.
-    \item Each Turing-recognizable language is associated with a Turing machine
-    in a one-to-one relationship, so there can be no more Turing-recognizable
-    languages than there are Turing machines. 
-    \item Since there are infinitely many Turing-recognizable languages
-    (think of the singleton sets), there are countably infinitely 
-    many Turing-recognizable languages.
-    \item Such the set of Turing-decidable languages is an infinite subset 
-    of the set of Turing-recognizable languages, the set of 
-    Turing-decidable languages is also countably infinite.
-\end{itemize}
-
-Since there are uncountably many languages (because $\mathcal{P}{\Sigma^*}$
-is uncountable), there are uncountably many unrecognizable languages
-and there are uncountably many undecidable languages.
-
-\vfill
-
-{\bf What's a specific example of a language that is unrecognizable or undecidable?}
-
-{\bf Key idea}: self-referential disagreement.
+\begin{center}
+    \begin{tabular}{|lcl|}
+    \hline
+    \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
+    & & \\
+    \ldots for DFA & $A_{DFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  DFA that accepts input 
+    string $w$}\}$ \\
+    \ldots for NFA & $A_{NFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  NFA that accepts input 
+    string $w$}\}$ \\
+    \ldots for regular expressions & $A_{REX}$ & $\{ \langle R,w \rangle \mid  \text{$R$ is a  regular
+    expression that generates input string $w$}\}$ \\
+    \ldots for CFG & $A_{CFG}$ & $\{ \langle G,w \rangle \mid  \text{$G$ is a context-free grammar 
+    that generates input string $w$}\}$ \\
+    \ldots for PDA & $A_{PDA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a PDA that accepts input string $w$}\}$ \\
+    & & \\
+    & & \\
+    \hline
+    \end{tabular}
+\end{center}
 
 \newpage
 \begin{center}
@@ -119,4 +85,65 @@ Proof of correctness:
 \vfill
 \vfill
 
-We will show that $A_{TM}$ is undecidable.
+We will show that $A_{TM}$ is undecidable.   {\it First, let's explore what that means.}
+
+\newpage
+
+A {\bf Turing-recognizable} language is a set of strings that 
+is the language recognized by some Turing machine. We also 
+say that such languages are recognizable.
+
+A {\bf Turing-decidable} language is a set of strings that 
+is the language recognized by some decider. We also 
+say that such languages are decidable.
+
+An {\bf unrecognizable} language is a language that is not Turing-recognizable.
+
+An {\bf undecidable} language is a language that is not Turing-decidable.
+
+
+{\bf  True} or {\bf False}: Any  undecidable language  is  also  unrecognizable.
+
+
+{\bf  True} or {\bf False}: Any  unrecognizable language  is  also  undecidable.
+
+
+To prove that a computational problem is {\bf decidable}, we find/ build a Turing 
+machine that recognizes the language encoding the computational problem, and that 
+is a decider.
+
+
+How do we prove a specific problem is {\bf not decidable}?
+
+How would we even find such a computational problem?
+
+
+{\it Counting arguments for the existence of an undecidable language:}
+\begin{itemize}
+    \item The set of all Turing machines is countably infinite.
+    \item Each Turing-recognizable language is associated with a Turing machine
+    in a one-to-one relationship, so there can be no more Turing-recognizable
+    languages than there are Turing machines. 
+    \item Since there are infinitely many Turing-recognizable languages
+    (think of the singleton sets), there are countably infinitely 
+    many Turing-recognizable languages.
+    \item Such the set of Turing-decidable languages is an infinite subset 
+    of the set of Turing-recognizable languages, the set of 
+    Turing-decidable languages is also countably infinite.
+\end{itemize}
+
+Since there are uncountably many languages (because $\mathcal{P}(\Sigma^*)$
+is uncountable), there are uncountably many unrecognizable languages
+and there are uncountably many undecidable languages.
+
+
+Thus, there's at least one undecidable language!
+
+\vfill
+
+{\bf What's a specific example of a language that is unrecognizable or undecidable?}
+
+To prove that a language is undecidable, we need to prove that there is no Turing machine that decides it.
+
+{\bf Key idea}: proof by contradiction relying on self-referential disagreement.
+
