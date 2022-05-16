@@ -561,7 +561,7 @@
         "header": "Week 7",
         "outcomes": "Computational problems: decidable and undecidable",
         "CalendarInfo": " Dates: 5/9/22 - 5/13/22",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -625,7 +625,7 @@
         "header": "Week 8",
         "outcomes": "How undecidable: mapping reductions and the halting problem",
         "CalendarInfo": " Dates: 5/16/22 - 5/20/22",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -642,6 +642,22 @@
             {
                 "name": "Review quiz questions (Weeks 3 to 5)",
                 "source": "weeks3to5reviewquizzes.pdf"
+            },
+            {
+                "name": "(Video) ATM undecidable via diagonalization",
+                "source": "https://youtu.be/2OR5wIIy5w8"
+            },
+            {
+                "name": "(Video) ATM recap",
+                "source": "https://youtu.be/71_EJxEuVVU"
+            },
+            {
+                "name": "(Video) Unrecognizable languages",
+                "source": "https://youtu.be/wLrz6jY0mqs"
+            },
+            {
+                "name": "(Video) Complement of ATM",
+                "source": "https://youtu.be/1rw8bMyu6F4"   
             }
         ],
 
