@@ -658,6 +658,50 @@
             {
                 "name": "(Video) Complement of ATM",
                 "source": "https://youtu.be/1rw8bMyu6F4"   
+            },
+            {
+                "name": "(Video) Undecidability proof strategies",
+                "source": "https://youtu.be/_jTeY9Evpgs"
+            },
+            {
+                "name": "(Video) Reductions Intro",
+                "source": "https://youtu.be/pFOhhAj2aZk"
+            },
+            {
+                "name": "(Video) Mapping Reduction Definition",
+                "source": "https://youtu.be/CIQ7rn4lEyg"
+            },
+            {
+                "name": "(Video) Computable Function Definition",
+                "source": "https://youtu.be/qzu0y3nCtcs"
+            },
+            {
+                "name": "(Video) Computable Function First Examples",
+                "source": "https://youtu.be/uSDs_Yyqtmo"
+            },
+            {
+                "name": "(Video) Computable Function Complicated Example",
+                "source": "https://youtu.be/sCz3mqUVdXA"
+            },
+            {
+                "name": "(Video) Mapping Reduction Example 1",
+                "source": "https://youtu.be/HMzxXq036Rw"
+            },
+            {
+                "name": "(Video) Mapping Reduction Example 2",
+                "source": "https://youtu.be/2-Z0LeGiTEk"
+            },
+            {
+                "name": "(Video) Mapping Reduction Example 3",
+                "source": "https://youtu.be/I1sFNclikgk"
+            },
+            {
+                "name": "(Video) Halting Problem",
+                "source": "https://youtu.be/9UPuU2MFSyE"
+            },
+            {
+                "name": "(Video) Reducing A_TM to HALT_TM",
+                "source": "https://youtu.be/u8u7mYsZFWE"
             }
         ],
 
