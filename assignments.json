@@ -41,7 +41,7 @@
    },
    {
       "name": "project-part3-CSE105Sp22",
-      "addExtensions": false,
+      "addExtensions": true,
       "Information": "This is an Individual Assignment"
    }
 ]
