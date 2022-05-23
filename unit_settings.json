@@ -629,7 +629,7 @@
         "header": "Week 8",
         "outcomes": "How undecidable: mapping reductions and the halting problem",
         "CalendarInfo": " Dates: 5/16/22 - 5/20/22",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -702,10 +702,6 @@
             {
                 "name": "(Video) Halting Problem",
                 "source": "https://youtu.be/9UPuU2MFSyE"
-            },
-            {
-                "name": "(Video) Reducing A_TM to HALT_TM",
-                "source": "https://youtu.be/u8u7mYsZFWE"
             }
         ],
 
@@ -725,7 +721,7 @@
         "header": "Week 9",
         "outcomes": "Reductions: mapping reductions and polynomial-time reductions",
         "CalendarInfo": " Dates: 5/23/22 - 5/27/22",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -738,6 +734,58 @@
             {
                 "name": "Discussion Section: Mondays in WLH 2001",
                 "source": "<p>Slides will be posted after the discussion section.</p>"
+            },
+            {
+                "name": "(Video) Reducing A_TM to HALT_TM",
+                "source": "https://youtu.be/u8u7mYsZFWE"
+            },
+            {
+                "name": "(Video) Mapping Reducation Applications",
+                "source": "https://youtu.be/ZlnndG0Jx1g"
+            },
+            {
+                "name": "(Video) Mapping Reduction Strategy",
+                "source": "https://youtu.be/uy81LdSiKtY"
+            },
+            {
+                "name": "(Video) ETM is undecidable, part 1",
+                "source": "https://youtu.be/7DcSDONFuRQ"
+            },
+            {
+                "name": "(Video) Reduce ATM to ETM complement",
+                "source": "https://youtu.be/GHq32eS0OoI"
+            },
+            {
+                "name": "(Video) Mapping reduction steps",
+                "source": "https://youtu.be/aJq-u_PnfH4"
+            },
+            {
+                "name": "(Video) EQTM",
+                "source": "https://youtu.be/x-1s7zUpiX0"
+            },
+            {
+                "name": "(Video) Complexity motivation",
+                "source": "https://youtu.be/L63nHGGVktI"
+            },
+            {
+                "name": "(Video) Complexity first definitions",
+                "source": "https://youtu.be/0_j8kwbCADU"
+            },
+            {
+                "name": "(Video) Complexity classes examples",
+                "source": "https://youtu.be/trotNSb4eeM"
+            },
+            {
+                "name": "(Video) Complexity of ADFA",
+                "source": "https://youtu.be/_xeRF03tE1w"
+            },
+            {
+                "name": "(Video) Nondeterministic time complexity",
+                "source": "https://youtu.be/jZvsskEjKUo"
+            },
+            {
+                "name": "(Video) Feasible vs. verifiable",
+                "source": "https://youtu.be/u1BBxssqGfU"
             }
         ],
 
