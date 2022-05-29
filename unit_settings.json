@@ -721,7 +721,7 @@
         "header": "Week 9",
         "outcomes": "Reductions: mapping reductions and polynomial-time reductions",
         "CalendarInfo": " Dates: 5/23/22 - 5/27/22",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -778,14 +778,6 @@
             {
                 "name": "(Video) Complexity of ADFA",
                 "source": "https://youtu.be/_xeRF03tE1w"
-            },
-            {
-                "name": "(Video) Nondeterministic time complexity",
-                "source": "https://youtu.be/jZvsskEjKUo"
-            },
-            {
-                "name": "(Video) Feasible vs. verifiable",
-                "source": "https://youtu.be/u1BBxssqGfU"
             }
         ],
 
@@ -805,17 +797,45 @@
         "header": "Week 10",
         "outcomes": "Complexity: P vs. NP",
         "CalendarInfo": " Dates: 5/30/22 - 6/3/22. No class or discussion section on Monday in observance of Memorial Day.",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week10.tex"
             }, 
             {
-                "name": "Lecture and Discussion podcast",
+                "name": "Lecture podcast",
                 "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp22/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
+            },
+            {
+                "name": "Review quiz questions (Weeks 6 to 9)",
+                "source": "weeks6to9reviewquizzes.pdf"
+            },
+            {
+                "name": "(Video) Nondeterministic time complexity",
+                "source": "https://youtu.be/jZvsskEjKUo"
+            },
+            {
+                "name": "(Video) Feasible vs. verifiable",
+                "source": "https://youtu.be/u1BBxssqGfU"
+            },
+            {
+                "name": "(Video) Polynomial time reductions",
+                "source": "https://youtu.be/OUI8XwOnLqY"
+            },
+            {
+                "name": "(Video) Using polynomial time reductions",
+                "source": "https://youtu.be/SUPksCOlWBY"  
+            },
+            {
+                "name": "(Video) NP completeness",
+                "source": "https://youtu.be/9rTnDGbTOTk"
+            },
+            {
+                "name": "(Video) SAT is NP complete",
+                "source": "https://youtu.be/1LXV-7808mM"
             }
-        ],
+        ],      
 
         "Due Dates": [
             {
