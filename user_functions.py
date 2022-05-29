@@ -205,6 +205,7 @@ unitMobileButtonsContent = ""
 unitMobileButtonsContent += "<a href=\"assignments.html\"> Assignments </a>"
 unitMobileButtonsContent += "<a href=\"glossary.html\"> Glossary </a>"
 unitMobileButtonsContent += "<a href=\"supplemental_videos.html\"> Supplemental Videos </a>"
+unitMobileButtonsContent += "<a href=\"supplemental_videos.html\"> Office Hours </a>"
 for i in range(0,len(unitData)):
 	unitMobileButtonsContent += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
 
@@ -566,30 +567,50 @@ def create_assignment():
 
         	#.html
 			templateString += """ <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-			href= """ + html + """ target="HTML">Raw HTML</a>"""
+			href= """ + html + """ target="HTML">Raw HTML</a><br>"""
         
 		#id of pdf.js element formatting
 		pdfjsID = element['name'].replace(" ", "-")
     	
 		#Solutions on/off buttons 
 		if('solutionsFile' in element):
+			templateString += """ <label>Solutions<input type="checkbox" id="toggle-""" + str(collapseVar) + """">
+				<span class="slider round"></span>
+				<script>
+					annotated""" + str(collapseVar) + """ = false;
+					document.getElementById("toggle-""" + str(collapseVar) + """").onclick = function() {
+						if(annotated""" + str(collapseVar) + """  == false) {
+							console.log("false to true");
+							annotated""" + str(collapseVar) + """  = true;
+							annotations(true, \""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \"""" + pdfjsID + """\")
+						}
+						else {
+							console.log("true to false");
+							annotated""" + str(collapseVar) + """  = false;
+							annotations(false, \""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \"""" + pdfjsID + """\")
+						}
+					}
+
+					
+				</script>
+			"""
         	
 			
-			templateString += """ <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions On</a>
-			<a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions Off</a> """
+			# templateString += """ <a tabindex = "2" class="button on" aria-label="Solutions On" id="solutionsOnButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions On</a>
+			# <a tabindex = "2" class="button off" aria-label="Solutions Off" id="solutionsOffButton"""+str(collapseVar)+ """/" href="javascript:void(0)" >Solutions Off</a> """
 
-       		#solutions on
-			templateString += """ <script> document.getElementById("solutionsOnButton"""+str(collapseVar)+ """/").onclick = function() {annotations(1,
-			\""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};"""
+       		# #solutions on
+			# templateString += """ <script> document.getElementById("solutionsOnButton"""+str(collapseVar)+ """/").onclick = function() {annotations(1,
+			# \""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};"""
             
-        	#solutions off
-			templateString +="""document.getElementById("solutionsOffButton"""+str(collapseVar)+ """/").onclick = function() {annotations(0,
-			\""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};
-			</script>"""
+        	# #solutions off
+			# templateString +="""document.getElementById("solutionsOffButton"""+str(collapseVar)+ """/").onclick = function() {annotations(0,
+			# \""""+pdf+ """\",\"../files/"""+element['solutionsFile']+"""\", \""""+pdfjsID+ """\")};
+			# </script>"""
             
     	#pdf.js embed 
 		templateString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
-		title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
+		title="webviewer" frameborder="0" width="300%" height="600"></iframe> """
 		#script for solutions 
 		templateString += """<script>
 			 toggle = document.querySelector('.toggle input')
@@ -740,6 +761,10 @@ def substitute_template(input, output):
     # Close files
 	templateOpener.close()
 
+def create_office_hours():
+	officehours = websiteData['Office Hours']
+	return officehours
+
 def write_if_different(filename, contents):
     try:
         old_contents = open(filename).read()
@@ -775,7 +800,8 @@ def create_site_variables():
 		'mainTitle': create_title(),
 		'courseTitle': create_course_offering_title(),
 		'Term': create_term(),
-		'collapsibleMenu': create_assignment()
+		'collapsibleMenu': create_assignment(),
+		'officehourslink': create_office_hours()
 	}
 
 site_variables = create_site_variables()
