@@ -205,6 +205,7 @@ unitMobileButtonsContent = ""
 unitMobileButtonsContent += "<a href=\"assignments.html\"> Assignments </a>"
 unitMobileButtonsContent += "<a href=\"glossary.html\"> Glossary </a>"
 unitMobileButtonsContent += "<a href=\"supplemental_videos.html\"> Supplemental Videos </a>"
+unitMobileButtonsContent += "<a href=\"supplemental_videos.html\"> Office Hours </a>"
 for i in range(0,len(unitData)):
 	unitMobileButtonsContent += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
 
@@ -740,6 +741,10 @@ def substitute_template(input, output):
     # Close files
 	templateOpener.close()
 
+def create_office_hours():
+	officehours = websiteData['Office Hours']
+	return officehours
+
 def write_if_different(filename, contents):
     try:
         old_contents = open(filename).read()
@@ -775,7 +780,8 @@ def create_site_variables():
 		'mainTitle': create_title(),
 		'courseTitle': create_course_offering_title(),
 		'Term': create_term(),
-		'collapsibleMenu': create_assignment()
+		'collapsibleMenu': create_assignment(),
+		'officehourslink': create_office_hours()
 	}
 
 site_variables = create_site_variables()
