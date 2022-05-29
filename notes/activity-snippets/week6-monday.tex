@@ -1,0 +1,211 @@
+%! app: decidable languages, undecidable languages
+%! outcome: Formal definition of automata, Informal definition of automata, Classify language, Find example languages
+    
+For Turing machine $M= (Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})$ 
+the {\bf computation} of $M$ on a string $w$ over $\Sigma$  is:
+
+\vspace{-20pt}
+
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Read/write head starts at leftmost position on tape. 
+\item Input string is written on $|w|$-many leftmost cells of tape, 
+rest of  the tape cells have  the blank symbol. {\bf Tape alphabet} 
+is $\Gamma$ with $\textvisiblespace\in \Gamma$ and $\Sigma \subseteq \Gamma$.
+The blank symbol $\textvisiblespace \notin \Sigma$.
+\item Given current state of machine and current symbol being read at the tape head, 
+the machine transitions to next state, writes a symbol to the current position  of the 
+tape  head (overwriting existing symbol), and moves the tape head L or R (if possible). 
+Formally, {\bf transition function}  is 
+\[
+  \delta: Q\times \Gamma \to Q \times \Gamma \times \{L, R\}
+\]
+\item Computation ends if and when machine enters either the accept or the reject state.
+This is called {\bf halting}.
+Note: $q_{accept} \neq q_{reject}$.
+\end{itemize}
+
+The {\bf language recognized by the  Turing machine} $M$,  is  
+\[
+  \{ w \in \Sigma^* \mid \textrm{computation of $M$ on $w$ halts after entering the accept state}\} = \{ w \in \Sigma^* \mid w \textrm{ is accepted by } M\}
+\]
+  
+To define a Turing machine, we could give a 
+\begin{itemize}
+\item {\bf Formal definition}, namely the $7$-tuple of parameters including set of states, 
+input alphabet, tape alphabet, transition function, start state, accept state, and reject state; or,
+\item {\bf Implementation-level definition}: English prose that describes the Turing machine head 
+movements relative to contents of tape, and conditions for accepting / rejecting based on those contents.
+\end{itemize}
+
+Conventions for drawing state diagrams of Turing machines: (1) omit the reject state from the diagram (unless 
+it's the  start state), (2) any missing transitions in the state diagram have value $(q_{reject}, ~\textvisiblespace~ , R)$.
+
+
+\newpage
+{\it Sipser Figure  3.10}
+
+\begin{multicols}{2}
+\vspace{-20pt}
+\begin{center}
+\includegraphics[width=4in]{../../resources/machines/Lect13TM3.png}
+\end{center}
+
+Implementation level description of this machine:
+\begin{quote}
+Zig-zag across tape to corresponding positions on either side of $\#$ to check whether the 
+characters in these positions agree. If they do not, or if there is no $\#$, reject. If they 
+do, cross them off.
+
+Once all symbols to the left of the $\#$ are crossed off, check for any un-crossed-off symbols 
+to the right of $\#$; if there are any, reject; if there aren't, accept.
+\end{quote}
+
+\columnbreak
+
+Computation on  input  string  $01\#01$
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c}{$q_1 \downarrow$} &  \multicolumn{6}{c|}{\phantom{A}}\\
+\hline
+$0$ & $1$  & $\#$  & $0$ & $1$ & $\textvisiblespace $& $\textvisiblespace $\\
+\hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \end{tabular}
+\end{multicols}
+
+The language recognized by this machine is
+\[
+  \{ w \# w \mid w \in \{0,1\}^* \}
+\]
+
+\newpage
+
+  A language $L$ is {\bf recognized by} a Turing machine $M$ means
+
+  \vspace{20pt}
+
+  A Turing  machine  $M$ {\bf  recognizes} a language $L$ if means
+
+  \vspace{20pt}
+  
+  A Turing machine $M$ is a {\bf decider}  means
+
+  \vspace{20pt}
+  
+  A language  $L$ is {\bf decided by} a Turing  machine  $M$  means
+
+  \vspace{20pt}
+  
+  A  Turing machine $M$ {\bf decides} a language $L$ means
+
+  \vspace{20pt}
+  
+  
+  Fix $\Sigma = \{0,1\}$, $\Gamma = \{ 0, 1, \textvisiblespace\}$ for the Turing machines with  the following state diagrams:
+  
+  \vspace{-35pt}
+  
+  
+  \begin{center}
+  \begin{tabular}{|c|c|}
+  \hline
+  \hspace{0.8in}\includegraphics[width=2in]{../../resources/machines/Lect14TM1.png} \phantom{\hspace{0.8in}}&\hspace{0.8in} \includegraphics[width=2in]{../../resources/machines/Lect14TM2.png} \phantom{\hspace{0.8in}}\\
+  Implementation  level description:  \phantom{\hspace{1in}} &Implementation  level description:  \phantom{\hspace{1in}} \\
+  &\\
+  &\\
+  &\\
+  Example of string accepted: \phantom{\hspace{1.5in}}& Example of string accepted: \phantom{\hspace{1.5in}}\\
+  Example of string rejected: \phantom{\hspace{1.5in}}& Example of string  rejected: \phantom{\hspace{1.5in}}\\
+  &\\
+  Decider? Yes~~~/ ~~~No
+  &Decider? Yes~~~/ ~~~No\\
+  & \\
+  \hline
+  \includegraphics[width=2in]{../../resources/machines/Lect14TM3.png} & \includegraphics[width=2in]{../../resources/machines/Lect14TM4.png} \\
+  Implementation  level description:  \phantom{\hspace{1in}} &Implementation  level description:  \phantom{\hspace{1in}} \\
+  &\\
+  &\\
+  &\\
+  Example of string accepted: \phantom{\hspace{1.5in}}& Example of string accepted: \phantom{\hspace{1.5in}}\\
+  Example of string rejected: \phantom{\hspace{1.5in}}& Example of string  rejected: \phantom{\hspace{1.5in}}\\
+  &\\
+  Decider? Yes~~~/ ~~~No
+  &Decider? Yes~~~/ ~~~No\\
+  & \\
+  
+  \hline
+  \end{tabular}
+  \end{center}

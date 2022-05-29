@@ -54,8 +54,9 @@ for filename in definition_array:
 
     strNew += "\n\end{document}"
     # print(strNew)
-    
-    write_if_different("generated/notes/activity-snippets-flat/" + filename, strNew)
 
-bigPDF += "\n\end{document}"
-write_if_different("generated/notes/activity-snippets-flat/full-definition.tex", bigPDF)
+# Mia commented 
+#    write_if_different("generated/notes/activity-snippets-flat/" + filename, strNew)
+#
+#bigPDF += "\n\end{document}"
+#write_if_different("generated/notes/activity-snippets-flat/full-definition.tex", bigPDF)

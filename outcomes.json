@@ -1,204 +1,101 @@
 {
-    "Modeling and Impact": {
-        "Description": "Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.",
-        "Icon": "<i class='bx bxs-paper-plane'></i>",
-        "Children": {
-            "Model systems": {
-                "Description": "Model systems with tools from discrete mathematics and reason about implications of modelling choices. Explore applications in CS through multiple perspectives, including software, hardware, and theory.",
-                "Children": {
-                    "data types": {
-                        "Description": "Selecting and representing appropriate data types and using notation conventions to clearly communicate choices"
-                    },
-                    "circuits": {
-                        "Description": "Connecting logical circuits and compound proposition and tracing to calcluate output values"
-                    },
-                    "applications of number representations": {
-                        "Description": "Determining the properties of positional number representations, including overflow and bit operations"
-                    },
-                    "linked lists": {
-                        "Description": "Modeling data structures, such as linked lists or trees, as recursively defined data structures"
-                    },
-                    "modeling clusters": {
-                        "Description": "Modeling data with partitions and functions"
-                    }
-                },
-                "Icon": "S",
-                "file": "systems.html"
-            },
-            "Translate": {
-                "Description": "Translate between different representations to illustrate a concept.",
-                "Children": {
-                    "translating": {
-                        "Description": "Translating between symbolic and English versions of statements using precise mathematical language"
-                    },
-                    "trace algorithms": {
-                        "Description": "Tracing algorithms specified in pseudocode"
-                    },
-                    "representing numbers": {
-                        "Description": "Representing numbers using positional representations, including decimal, binary, hexadecimal, fixed-width representations, and 2s complement"
-                    },
-                    "compound propositions and truth tables": {
-                        "Description": "Translating between truth tables (tables of values) and compound propositions"
-                    },
-                    "graph representations of relations": {
-                        "Description": "Drawing graph representations of relations and functions e.g. Hasse diagram and partition diagram"
-                    }
-                },
-                "Icon": "T",
-                "file": "translate.html"
-            }
-        }
-    },
-    "Problem Solving": {
-        "Description": "Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.",
-        "Icon": "<i class='bx bxs-bulb' ></i>",
-        "Children": {
-            "Propositional and predicate logic": {
-                "Description": "Reason about the truth or falsity of complicated statements using Boolean connectives, quantifiers, and basic operations.",
-                "Children": {
-                    "evaluating compound propositions": {
-                        "Description": "Evaluating compound propositions"
-                    },
-                    "logical equivalence via laws": {
-                        "Description": "Judging logical equivalence of compound propositions using symbolic manipulation with known equivalences, including DeMorgan's Law"
-                    },
-                    "logical equivalence via truth tables": {
-                        "Description": "Judging logical equivalence of compound propositions using truth tables"
-                    },
-                    "cnf and dnf": {
-                        "Description": "Rewriting compound propositions using normal forms"
-                    },
-                    "consistency": {
-                        "Description": "Judging whether a collection of propositions is consistent"
-                    },
-                    "variants of conditionals": {
-                        "Description": "Writing the converse, contrapositive, and inverse of a given conditional statement"
-                    },
-                    "evidence for quantified statements": {
-                        "Description": "Determining what evidence is required to establish that a quantified statement is true or false"
-                    },
-                    "quantified statement proofs": {
-                        "Description": "Evaluating quantified statements about finite and infinite domains"
-                    }
-                },
-                "Icon": "L",
-                "file": "logic.html"
-            },
-            "Proof strategies and valid arguments": {
-                "Description": "Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.",
-                "Children": {
-                    "identifying proof strategy in proof": {
-                        "Description": "Identifying the proof strategies used in a given proof"
-                    },
-                    "logical structure to proof strategy": {
-                        "Description": "Identifying which proof strategies are applicable to prove a given compound proposition based on its logical structure"
-                    },
-                    "applying proof strategy": {
-                        "Description": "Carrying out a given proof strategy to prove a given statement"
-                    },
-                    "universal generalization": {
-                        "Description": "Carrying out a universal generalization argument to prove that a universal statement is true"
-                    },
-                    "contradiction proofs": {
-                        "Description": "Tracing and/or modifying a proof by contradiction"
-                    },
-                    "using proofs to evaluate": {
-                        "Description": "Using proofs to as knowledge discovery tools to decide whether a statement is true or false"
-                    }
-                },
-                "Icon": "P",
-                "file": "proofs.html"
-            },
-            "Recursion and Induction": {
-                "Description": "Work with recursively defined data and prove their properties using inductive reasoning",
-                "Children": {
-                    "recursive definitions": {
-                        "Description": "Using a recursive definition to evaluate a function or determine membership in a set"
-                    },
-                    "mathematical induction proofs": {
-                        "Description": "Using mathematical induction to prove mathematical identities, inequalities, and other invariants"
-                    },
-                    "strong induction proofs": {
-                        "Description": "Using strong induction to prove mathematical identities, inequalities, and other invariants"
-                    },
-                    "structural induction proofs": {
-                        "Description": "Using structural induction to prove statements about recursively defined objects, e.g. strings and trees"
-                    }
-                },
-                "Icon": "I",
-                "file": "induction.html"
-            },
-            "Modular Arithmetic": {
-                "Description": "Reason about modular arithmetic.",
-                "Children": {
-                    "div and mod": {
-                        "Description": "Using the definitions of the div and mod operators on integers"
-                    },
-                    "divisibility and primes": {
-                        "Description": "Using divisibility and primality predicates"
-                    },
-                    "congruence mod n": {
-                        "Description": "Applying the definition of congruence modulo n and modular arithmetic"
-                    }
-                },
-                "Icon": "M",
-                "file": "modular.html"
-            }
-        }
-    },
     "Communication": {
         "Description": "Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.",
         "Icon": "<i class='bx bxs-message-square-edit'></i>",
         "Children": {
-            "Use language conventions to improve arguments": {
-                "Description": "Use precise language to clearly present logical arguments and communicate with technical and non-technical colleagues.",
+            "Classify languages": {
+                "Description": "Classify the computational complexity of a set of strings.",
                 "Children": {
-                    "tautologies and contradictions": {
-                        "Description": "Distinguishing between tautologies, contradictions, and contingencies"
+                    "Classify language": {
+                        "Description": "Classify the computational complexity of a set of strings by determining whether it is regular, context-free, decidable, or undecidable."
                     },
-                    "binary relations properties": {
-                        "Description": "Determining whether a given binary relation is symmetric, antisymmetric, reflexive, and/or transitive"
-                    },
-                    "function properties": {
-                        "Description": "Determining whether a given function is one-to-one, onto, and/or invertible"
-                    },
-                    "special binary relations": {
-                        "Description": "Determining whether a given binary relation is an equivalence relation and/or a partial order"
-                    },
-                    "induction flavors": {
-                        "Description": "Distinguishing between structural induction, mathematical induction, and strong induction"
-                    },
-                    "proof signposts": {
-                        "Description": "Using appropriate signpost words to improve readability of proofs, including 'arbitrary' and 'assume'"
+                    "Find example languages": {
+                        "Description": "Give examples of sets that are regular, context-free, decidable, or undecidable languages (and prove them)."
                     }
                 },
-                "Icon": "U",
-                "file": "conventions.html"
+                "Icon": "CL",
+                "file": "classifylanguages.html"
             },
-            "Mathematical definitions and notation": {
-                "Description": "Use precise notation to encode meaning and present arguments concisely and clearly",
+            "Decision problems": {
+                "Description": "Classify the computational complexity of a decision problem by translating it to a set of strings coding the problem.",
                 "Children": {
-                    "write set definition": {
-                        "Description": "Precisely describing a set using appropriate notation e.g. roster method, set builder notation, and recursive definitions"
+                    "Define decision problem": {
+                        "Description": "Translate a decision problem to a set of strings coding the problem."
                     },
-                    "important sets": {
-                        "Description": "Defining important sets of numbers, e.g. set of integers, set of rational numbers"
-                    },
-                    "function and relation definitions": {
-                        "Description": "Defining functions, predicates, and binary relations using multiple representations"
-                    },
-                    "truth table definitions": {
-                        "Description": "Listing the truth tables of atomic boolean functions (and, or, xor, not, if, iff)"
-                    },
-                    "functions for cardinality": {
-                        "Description": "Using functions to compare cardinality of sets"
-                    },
-                    "classify cardinality": {
-                        "Description": "Classifying sets into: finite sets, countably infinite sets, uncountable sets"
+                    "Classify decision problem": {
+                        "Description": "Classify computational complexity of a decision problem."
                     }
                 },
-                "Icon": "N",
-                "file": "notation.html"
+                "Icon": "DP",
+                "file": "decisionproblems.html"
+            },
+            "Automata": {
+                "Description": "Use and design automata both formally and informally, including DFA, NFA, PDA, TM.",
+                "Children": {
+                    "Formal definition of automata": {
+                        "Description": "Use precise notation to formally define the state diagram of DFA, NFA, PDA, TM."
+                    },
+                    "Informal definition of automata": {
+                        "Description": "Use clear English to describe computations of DFA, NFA, PDA, TM informally."
+                    }
+                },
+                "Icon": "A",
+                "file": "automata.html"
+            },
+            "Other Models of Computation": {
+                "Description": "Describe and use models of computation that don't involve state machines.",
+                "Children": {
+                    "Regular expressions": {
+                        "Description": "Use regular expressions and relate them to languages and automata."
+                    },
+                    "Context-free grammars": {
+                        "Description": "Use context-free grammars and relate them to languages and pushdown automata."
+                    }
+                },
+                "Icon": "Models",
+                "file": "models.html"
+            }
+        }
+    }
+    ,
+    "Problem Solving": {
+        "Description": "Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.",
+        "Icon": "<i class='bx bxs-bulb' ></i>",
+        "Children": {
+            "Computability techniques": {
+                "Description": "Apply classical techniques including pumping lemma, determinization, diagonalization, and reduction to analyze the complexity of languages and problems.",
+                "Children": {
+                    "Pumping Lemma": {
+                        "Description": "Use the pumping lemma to prove that a given language is not regular."
+                    },
+                    "Diagonalization": {
+                        "Description": "Use diagonalization to prove that there are 'hard' languages relative to certain models of computation."
+                    },
+                    "Reduction": {
+                        "Description": "Use appropriate reduction (e.g. mapping, Turing, polynomial-time) to deduce the complexity of a language by comparing to the complexity of another."
+                    }
+                },
+                "Icon": "Apply",
+                "file": "apply.html"
+            }
+        }
+    },
+    "Modeling and Impact": {
+        "Description": "Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.",
+        "Icon": "<i class='bx bxs-paper-plane'></i>",
+        "Children": {
+            "Calibrate difficulty": {
+                "Description": "Prove that certain models of computation are equivalent and translate between them algorithmically.",
+                "Children": {
+                    "Nondeterminism": {
+                        "Description": "Explain nondeterminism and describe tools for simulating it with deterministic computation."
+                    },
+                    "Church-Turing": {
+                        "Description": "Explain the Church-Turing thesis and use it to operationalize the notion of algorithm."
+                    }
+                },
+                "Icon": "Cal",
+                "file": "calibrate.html"
             }
         }
     }

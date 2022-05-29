@@ -1,0 +1,88 @@
+%! app: regular-languages, context-free-languages
+%! outcome: Formal definition of automata, Informal definition of automata, Nondeterminism, Classify language, Find example languages
+    
+{\bf Definition} A {\bf pushdown automaton} (PDA) is  specified by a  $6$-tuple $(Q, \Sigma, \Gamma, \delta, q_0, F)$
+where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$ is the stack alphabet,
+\[
+    \delta: Q \times \Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times \Gamma_\varepsilon)
+\]
+is the transition function,  $q_0 \in Q$ is the start state, $F \subseteq  Q$ is the set of accept states.
+    
+\begin{multicols}{2}
+    {\it Formal definition}
+    
+    \vspace{90pt}
+    Draw the state diagram of a PDA with $\Sigma = \Gamma$.
+    
+    \columnbreak 
+    \includegraphics[height=100pt]{../../resources/machines/Lect9PDA.png}
+    
+    
+    Draw the state diagram of a PDA with $\Sigma \cap \Gamma = \emptyset$.
+    
+\end{multicols}
+    
+\vspace{60pt}
+    
+A PDA recognizing the set $\{ \hspace{1.5 in} \}$ can be informally described as:
+\begin{quote}
+    Read symbols from the input. As each 0 is read, push it onto the stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If the stack becomes empty and there is exactly one 1 left to read, read that 1 and accept the input. If the stack becomes empty and there are either zero or more than one 1s left to read, or if the 1s are finished while the stack still contains 0s, or if any 0s appear in the input following 1s, reject the input.
+\end{quote}
+    
+    State diagram for this  PDA:
+
+    
+\vfill
+\newpage
+Consider the state diagram of a PDA with input alphabet 
+$\Sigma$ and stack alphabet $\Gamma$.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Label & means \\
+\hline
+$a, b ; c$ when $a \in \Sigma$, $b\in \Gamma$, $c \in \Gamma$ 
+& \hspace{3in} \\
+& \\
+&\\
+\hline
+$a, \varepsilon ; c$ when $a \in \Sigma$, $c \in \Gamma$ 
+& \hspace{3in} \\
+& \\
+&\\
+\hline
+$a, b ; \varepsilon$ when $a \in \Sigma$, $b\in \Gamma$
+& \hspace{3in} \\
+& \\
+&\\
+\hline
+$a, \varepsilon ; \varepsilon$ when $a \in \Sigma$
+& \hspace{3in} \\
+& \\
+&\\
+\hline
+\end{tabular}
+\end{center}
+
+
+How does the meaning change if $a$ is replaced by $\varepsilon$?
+
+{\it Note: alternate notation is to replace $;$ with $\to$}
+
+
+For the PDA state diagrams below, $\Sigma = \{0,1\}$.
+
+
+\begin{center}
+\begin{tabular}{c c}
+Mathematical description of language & State diagram of PDA recognizing language\\
+\hline
+& \includegraphics[width=3.5in]{../../resources/machines/Lect10PDA1.png}\\
+\hline
+& \includegraphics[width=3.5in]{../../resources/machines/Lect10PDA2.png}\\
+\hline
+& \\
+$\{ 0^i 1^j 0^k \mid i,j,k \geq 0 \}$ & \\
+\end{tabular}
+\end{center}

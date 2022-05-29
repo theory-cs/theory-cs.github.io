@@ -1,0 +1,182 @@
+\input{../../resources/lesson-head.tex}
+
+\section*{Before we start}
+
+We are committed to fostering a learning environment for this course that supports a diversity of thoughts, 
+perspectives and experiences, and respects your identities (including race, ethnicity, heritage, gender, sex, 
+class, sexuality, religion, ability, age, educational background, etc.).  
+Our goal is to create a diverse and inclusive learning environment where all students feel comfortable and can thrive. 
+
+If you or someone you know is suffering from food and/or housing insecurities 
+there are UCSD resources here to help:
+
+Basic Needs Office: \href{https://basicneeds.ucsd.edu/}{https://basicneeds.ucsd.edu/}
+
+Triton Food Pantry (in the old Student Center)
+is free and anonymous, and includes produce: 
+
+\href{https://www.facebook.com/tritonfoodpantry/}{https://www.facebook.com/tritonfoodpantry/}
+
+Mutual Aid UCSD: \href{https://mutualaiducsd.wordpress.com/}{https://mutualaiducsd.wordpress.com/}
+
+Financial aid resources, the possibility of emergency grant funding, and off-campus housing referral 
+resources are available. See CAPS and your college dean.
+
+If you find yourself in an uncomfortable situation, ask for help. 
+We are committed to upholding University policies regarding nondiscrimination, sexual violence and sexual harassment.
+
+Counseling and Psychological Services (CAPS) at 858 5343755 or \href{http://caps.ucsd.edu}{http://caps.ucsd.edu}
+
+
+OPHD at (858) 534-8298, ophd@ucsd.edu , \href{http://ophd.ucsd.edu}{http://ophd.ucsd.edu}. 
+CARE at Sexual Assault Resource Center at 858 5345793 sarc@ucsd.edu \href{http://care.ucsd.edu}{http://care.ucsd.edu}
+
+\subsection*{Spring quarter philosophy}
+Spring 2022 is still a transition quarter so please be patient with us as we do our best 
+to deliver a great learning opportunity that meets the needs of all students and adheres to the university guidelines. 
+
+Please do not come to class if you are sick or even think you might be sick.
+
+Please reach out (minnes@eng.ucsd.edu) if you need support with extenuating circumstances.
+
+Based on current UCSD guidelines (as of March 21), masks are required in class. 
+All students who attend class must also be fully vaccinated against COVID-19
+unless they have a university-approved exemption.
+We will continue to follow the campus guidelines as updated on https://returntolearn.ucsd.edu/ .
+
+
+\newpage
+
+\section*{Introductions}
+Class website: \href{https://cseweb.ucsd.edu/classes/sp22/cse105-a/}{https://cseweb.ucsd.edu/classes/sp22/cse105-a/}
+
+{\bf Pro-tip}: the URL structure is your map to finding your course website for other CSE classes.
+
+Instructor: Prof. Mia Minnes {\tiny{"Minnes" rhymes with Guinness}}, minnes@eng.ucsd.edu, 
+\href{http://cseweb.ucsd.edu/~minnes}{http://cseweb.ucsd.edu/~minnes}
+
+Our team: Six TAs and five tutors + all of you
+
+Fill in contact info for students around you, if you'd like:
+
+\vfill
+
+
+On a typical week: {\bf MWF} Lectures + review quizzes, {\bf M} Discussion, {\bf Th} Homework / project due.
+Office hours and Q+A on Piazza available throughout the week.
+All dates are on \href{https://canvas.ucsd.edu/}{Canvas (click for link)} and details are on
+ \href{https://theory-cs.github.io/website/overview_calendar.html}{course calendar (click for link)}.
+
+\newpage Welcome to CSE 105: Introduction to Theory of Computation in Spring 2022!
+
+\section*{CSE 105's Big Questions}
+\begin{itemize}
+   \item What problems are computers capable of solving?
+   \item What resources are needed to solve a problem?
+   \item Are some problems harder than others?
+\end{itemize}
+
+In this context, a {\bf problem} is defined as: ``Making a decision or computing a value based on some input"
+
+Consider the following problems: 
+\begin{itemize}
+   \item Find a file on your computer
+   \item Determine if your code will compile
+   \item Find a run-time error in your code
+   \item Certify that your system is un-hackable
+\end{itemize}
+
+Which of these is hardest?
+
+\vfill
+
+In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
+resources might be memory, time, parallelism, randomness, power, etc.
+
+To be able to compare ``hardness'' of problems, we use a consistent description of problems
+
+{\bf Input}: String
+
+{\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
+
+
+\newpage
+\section*{Monday March 28}
+
+\input{../activity-snippets/week1-monday.tex}
+    
+\newpage
+\subsection*{Review: Week 1 Monday}
+\begin{enumerate}
+\item Please complete the beginning of the quarter survey \href{https://forms.gle/9AaEcwwN5EvcJ4qp9}{https://forms.gle/9AaEcwwN5EvcJ4qp9}
+\item We want you to be familiar with class policies and procedures so you are ready to have a successful quarter. 
+Please take a look at the class website https://cseweb.ucsd.edu/classes/sp22/cse105-a/
+and answer the questions about it on Gradescope.
+\end{enumerate}
+
+A summary of the terminology we will use is on page 16 in the textbook.
+
+{\bf Pre class reading for next time}: Example 1.51, Definition 1.52
+
+{\it Notice}: we are jumping to Section 1.3 Regular Expressions and then will come back 
+to Section 1.1 Finite Automata on Friday.
+
+
+\newpage
+\subsection*{Week 1 Wednesday}
+
+\input{../activity-snippets/week1-wednesday.tex}
+
+\newpage
+\subsection*{Review: Week 1 Wednesday}
+
+Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
+strings, languages, and regular expressions.
+
+
+Recall: Review quizzes based on class material are assigned each day. 
+These quizzes will help you track and confirm your understanding of the concepts and examples 
+we work in class. Quizzes can be submitted on Gradescope as many times (with no penalty) as 
+you like until the quiz deadline: the three quizzes each week are all due on Friday (with no penalty 
+late submission open until Sunday).
+
+The definition of the union, concatenation, and star operations for languages is given 
+as Definition 1.23 on page 44 and a useful example is Example 1.24.
+
+{\bf Pre class reading for next time}: Figure 1.4, Definition 1.5
+
+{\it Notice}: On Friday we are going back to the start of Chapter 1 and will be discussing finite 
+automata and their computations.
+
+\newpage
+\subsection*{Week 1 Friday}
+
+\input{../activity-snippets/week1-friday.tex}
+
+
+\newpage
+
+\subsection*{Review: Week 1 Friday}
+
+Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
+DFA and the strings they accept and reject.
+
+The definition of the union, concatenation, and star operations for languages is given 
+as Definition 1.23 on page 44 and a useful example is Example 1.24.
+
+
+The first homework assignment for CSE 105 this quarter is due next week. 
+Find it on the class website, direct link: 
+\href{https://theory-cs.github.io/website/assignments.html}{https://theory-cs.github.io/website/assignments.html} .
+Due: 4/7/22 at 5pm (no penalty late submission until 8am next morning)
+
+We encourage you to work on homework in groups of up to three CSE 105 classmates. 
+To find group members: reach out to people sitting around you in class, in discussion section, 
+or during office hours. The pre-survey also asks if you want help finding group members: 
+the CSE 105 instructional team can help you connect with other students. Working within the 
+campus safety guidelines, you may choose to meet with your group mates in person or remotely. 
+We highly recommend meeting synchronously so that you can work through the homework problems *together*. 
+
+{\bf Pre class reading for next time}: pages 41-43 (figures 1.18, 1.19, 1.20)
+
+\end{document}

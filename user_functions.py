@@ -95,7 +95,7 @@ def build_mobile_sidebar(titleHref, titleName, overviewHref, overviewName, mobil
 def build_head_html(title):
 	headHtml = """<head>
 	<!-- logo on tab-->
-	<link rel="shortcut icon" href="../resources/images/musicalchairs.png" type="image/x-icon">
+	<link rel="shortcut icon" href="../resources/images/wood-951875_960_720.jpeg" type="image/x-icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="google-site-verification" content="Cn_GGElo-cbNkuj65G4fN_F-MR20NoOdTx_rlckOEPU" />
 
@@ -106,7 +106,7 @@ def build_head_html(title):
 	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Discrete Math for Computer Science">
+	<meta name="description" content="Introduction to Theory of Computation">
 	<meta name="author" content="Mia Minnes">
 
 	<title>""" + title + """</title>
@@ -126,7 +126,7 @@ def build_head_html(title):
 
 	<!-- icons for side menu -->
 	<link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' >
-	<link rel="shortcut icon" href="../resources/images/musicalchairs.png" type="image/x-icon">
+	<link rel="shortcut icon" href="../resources/images/wood-951875_960_720.jpeg" type="image/x-icon">
 </head>
 	"""
 	return headHtml
@@ -182,8 +182,8 @@ sidebarButtonsUnitData = json.loads(open("sidebar_buttons_unit.json").read())
 
 def secondaryUnitBoxes():
 	#content for the non-mobile secondary unit sidebar (will have all of the weeks)
-	secondaryUnitButtonsContent = """<div class="sidebar secondary"id="unit2" style="margin-left: 78px; width: 70px;">
-			<ul class="nav-list"> """
+	secondaryUnitButtonsContent = """<div class="sidebar secondary"id="unit2" style="margin-left: 78px; width: 70px">
+			<ul class="nav-list" style="margin-top: 100px"> """
 
 	for i in range(0,len(unitData)):
 		secondaryUnitButtonsContent += "<li>"
@@ -224,7 +224,6 @@ for element in sidebarButtonsUnitData:
 	sidebarUnitButtonsContent += """<span class="tooltip"> """ + name + """</span>"""
 	sidebarUnitButtonsContent += "</li>"
 
-
 sidebars = {
 	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overview_application.html", "Overview", "'bx bxs-shapes'", appButtonsContent,bool(False)),
 	'outcome': build_sidebar("index.html", websiteData['Global Class Name'], "overview_outcome.html", "Overview", "'bx bxs-shapes'", outcomeButtonsContent, bool(False)),
@@ -253,7 +252,8 @@ def create_unit_boxes():
 	boxString += """ <button class="button coll" onclick="expandCollapseAll(0)">Expand All Boxes</button>
 				<button class="button coll" onclick="expandCollapseAll(1)">Collapse All Boxes</button><br><br>"""
 	
-	boxString += """<p>Compiled weeks file <a href="../output/lessons/complete-week.pdf" download>download</a></p>"""
+	# MIA Commented out for start of quarter
+	# boxString += """<p>Compiled weeks file <a href="../output/lessons/complete-week.pdf" download>download</a></p>"""
 
 	for i in range(len(unitData)):
 		unitNumber = i+1
@@ -529,7 +529,7 @@ def create_assignment():
 
 			html="../output/assignments/"+element['name']+".html"
 		else:
-			pdf="../output/assignments/"+element['name']+".pdf"
+			pdf="../files/"+element['name']+".pdf"
 			
 		#heading and collapsible card stuff
 		cardID = element['name'].replace(" ", "").lower()

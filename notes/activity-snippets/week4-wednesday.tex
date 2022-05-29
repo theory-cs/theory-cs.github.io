@@ -1,0 +1,55 @@
+%! app: regular-languages, context-free-languages
+%! outcome: Formal definition of automata, Informal definition of automata, Nondeterminism, Classify language
+
+
+\begin{center}
+    \begin{tabular}{c|c| c| c}
+    Language & $s \in L$ & $s \notin L$ & Is the language regular or nonregular?  \\
+    \hline
+     & \hspace{1in} & \hspace{1in}  &  \\
+    $\{a^nb^n \mid 0  \leq n  \leq 5 \}$ & & & \\
+     & & & \\
+    $\{b^n a^n \mid  n  \geq 2\}$  & & & \\
+     & & & \\
+    $\{a^m b^n \mid  0 \leq m\leq n\}$  & & & \\
+     & & & \\
+    $\{a^m b^n \mid  m \geq n+3,  n \geq 0\}$  & & & \\
+     & & & \\
+    $\{b^m a^n \mid  m \geq 1, n \geq  3\}$  & & & \\
+     & & & \\
+    $\{ w  \in \{a,b\}^* \mid w = w^\mathcal{R} \}$ & & & \\
+     & & & \\ 
+    $\{ ww^\mathcal{R} \mid w\in \{a,b\}^* \}$ & & & \\
+     & & & \\ 
+    \end{tabular}
+\end{center}
+    
+\newpage
+Regular sets are not the end of the story
+\begin{itemize}
+    \item Many nice / simple / important sets are not regular
+    \item Limitation of the finite-state automaton model: Can't "count", Can only remember finitely far into the past,
+    Can't backtrack, Must make decisions in "real-time"
+    \item We know actual computers are more powerful than this model...
+\end{itemize}
+
+The {\bf next} model of computation. Idea: allow some memory of unbounded size. How? 
+\begin{itemize}
+    \item To generalize regular expressions: {\bf context-free grammars}\\
+    \item To generalize NFA: {\bf Pushdown automata}, which is like an NFA with access to a stack: 
+    Number of states is fixed, number of entries in stack is unbounded. At each step
+    (1) Transition to new state based on current state, letter read, and top letter of stack, then
+    (2) (Possibly) push or pop a letter to (or from) top of stack. Accept a string iff
+    there is some sequence of states and some sequence of stack contents 
+    which helps the PDA processes the entire input string and ends in an accepting state.
+\end{itemize}
+
+\includegraphics[width=4in]{../../resources/machines/Lect9PDA.png}
+    
+Trace the computation of this PDA on the input string $01$.
+
+\vspace{80pt}  
+    
+Trace the computation of this PDA on the input string $011$.
+
+\vspace{80pt}

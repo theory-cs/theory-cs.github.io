@@ -1,0 +1,101 @@
+%! app: regular-languages
+%! outcome: Regular expressions, Formal definition of automata, Informal definition of automata, Nondeterminism
+
+
+Consider the state diagram of an NFA over $\{a,b\}$:
+
+\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA1.png}
+
+
+The language recognized by this NFA is
+
+
+
+The state diagram of a DFA recognizing this same language is:
+
+\vspace{70pt}
+Suppose $A$ is a language over an alphabet $\Sigma$.
+{\bf Claim:} if there is a NFA $N$ such that $L(N) = A$ then 
+there is a DFA $M$ such that $L(M) = A$.
+
+{\bf Proof idea}: States in $M$ are ``macro-states" -- collections of states from $N$ -- 
+that represent the set of possible states a computation of $N$ might be in.
+
+
+{\bf Formal construction}: Let $N = (Q, \Sigma, \delta, q_0, F)$.  Define 
+\[
+M = (~ \mathcal{P}(Q), \Sigma, \delta', q',  \{ X \subseteq Q \mid X \cap F \neq \emptyset \}~ )
+\]
+where $q' = \{ q \in Q \mid \text{$q = q_0$ or is accessible from $q_0$ by spontaneous moves in $N$} \}$
+and 
+\[
+    \delta' (~(X, x)~) = \{ q \in Q \mid q \in \delta( ~(r,x)~) ~\text{for some $r \in X$ or is accessible 
+from such an $r$ by spontaneous moves in $N$} \}
+\]
+
+\vfill
+
+\newpage
+Consider the state diagram of an NFA over $\{0,1\}$. Use the ``macro-state'' construction 
+to find an equivalent DFA.
+
+
+\includegraphics[width=1.8in]{../../resources/machines/Lect6NFA2.png}
+
+\vspace{50pt}
+
+Prune this diagram to get an 
+equivalent DFA 
+with only the ``macro-states" reachable from the start state.
+
+\vspace{150pt}
+
+Suppose $A$ is a language over an alphabet $\Sigma$.
+{\bf Claim:} if there is a regular expression $R$ such that $L(R) = A$, then there is a NFA, let's call it $N$, such that 
+$L(N) = A$.
+
+{\bf Structural induction}: Regular expression is built from basis regular expressions using inductive steps
+(union, concatenation, Kleene star symbols). Use constructions to mirror these in NFAs.
+
+
+{\bf Application}: A state diagram for a NFA over $\{a,b\}$ that recognizes $L(a^* (ab)^*)$:
+
+\vfill
+
+\newpage
+
+Suppose $A$ is a language over an alphabet $\Sigma$.
+{\bf Claim:} if there is a DFA $M$ such that $L(M) = A$, then there is a regular expression, let's call it $R$, such that 
+$L(R) = A$.
+
+{\bf Proof idea}: Trace all possible paths from start state to accept state.  Express labels of these paths
+as regular expressions, and union them all.
+
+\begin{enumerate}
+\item Add new start state with $\varepsilon$ arrow to old start state.
+\item Add new accept state with $\varepsilon$ arrow from old accept states.  Make old accept states
+non-accept.
+\item Remove one (of the old) states at a time: modify regular expressions on arrows that went through removed
+state to restore language recognized by machine.
+\end{enumerate}
+
+{\bf Application}: Find a regular expression describing the language recognized by the DFA with 
+state diagram
+
+\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA3.png}
+
+\vfill
+
+
+\newpage
+
+{\bf Conclusion}: For each language $L$,
+\begin{center}
+    {\bf There is a DFA that recognizes $L$ \qquad $\exists M ~(M \textrm{ is a DFA and } L(M) = A)$}\\
+    {\bf if and only if}\\
+    {\bf There is a NFA that recognizes $L$  \qquad $\exists N ~(N \textrm{ is a NFA and } L(N) = A)$}\\
+    {\bf if and only if}\\
+    {\bf There is a regular expression that describes $L$ $\exists R ~(R \textrm{ is a regular expression and } L(R) = A)$}\\
+\end{center}
+
+A language is called {\bf regular} when any (hence all) of the above three conditions are met.
