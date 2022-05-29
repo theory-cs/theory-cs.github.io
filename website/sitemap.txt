@@ -4,6 +4,7 @@ https://theory-cs.github.io/website/index.html
 https://theory-cs.github.io/website/feedback.html
 https://theory-cs.github.io/website/decidable-languages.html
 https://theory-cs.github.io/website/unit4.html
+https://theory-cs.github.io/website/office_hours.html
 https://theory-cs.github.io/website/complexity.html
 https://theory-cs.github.io/website/context-free-languages.html
 https://theory-cs.github.io/website/unit8.html
