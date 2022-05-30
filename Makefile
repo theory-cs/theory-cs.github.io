@@ -81,7 +81,7 @@ generated/notes/app-flat/%.tex: generated/notes/app/%.tex resources/lesson-head.
 	mkdir -p generated/notes/app-flat; cd generated/notes/app; latexpand $(<F) > ../app-flat/$(<F)
 
 # generate expanded/flat version of lessons compiled tex files
-generated/notes/lessons-flat/%.tex: notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex 
+generated/notes/lessons-flat/%.tex: generated/notes/lessons/%.tex resources/lesson-head.tex resources/discrete-math-packages.tex 
 	mkdir -p generated/notes/lessons-flat; cd generated/notes/lessons; latexpand $(<F) > ../lessons-flat/$(<F)
 
 # Build website by copying over files, notes, resources, html, and style files to generated directory
