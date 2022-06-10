@@ -15,4 +15,5 @@ __pycache__/*
 notes/drafts/*
 notes/assignments-solutions/*
 archive/*
+notes/archive/*
 *.pyc
