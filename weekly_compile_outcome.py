@@ -27,7 +27,8 @@ low_levels = []
 for (k, v) in outcomes.items():
   for (k2, v2) in v["Children"].items():
     for k3 in v2["Children"].keys():
-      low_levels.append(k3.replace(" ", "-").lower()) 
+        # low_levels.append(k3.replace(" ", "-").lower()) 
+        low_levels.append(k3.replace(" ", "-")) 
 
 #TODO : remove todooutcome as a key (should be here until all todooutcomes are removed though)
 low_levels.append("todooutcome")
@@ -113,8 +114,9 @@ for filename in os.listdir(weeklyDirectory):
             li = list(particularLine.split(", "))
             for element in li:
                 # lowercase them and replace whitespace with dashes (to make them uniform)
-                test = element.replace(" ", "-").lower()
-                
+                # test = element.replace(" ", "-").lower()
+                test = element.replace(" ", "-")
+
                 #debug
                 #print(test)
 
