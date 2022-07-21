@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>pumping-lemma</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="week4-monday">Week4 monday</h1>
+<p>Recap so far: In DFA, the only memory available is in the states.
+Automata can only “remember” finitely far in the past and finitely much
+information, because they can have only finitely many states. If a
+computation path of a DFA visits the same state more than once, the
+machine can’t tell the difference between the first time and future
+times it visits this state. Thus, if a DFA accepts one long string, then
+it must accept (infinitely) many similar strings.</p>
+<p><span><strong>Definition</strong></span> A positive integer <span
+class="math inline">\(p\)</span> is a <span><strong>pumping
+length</strong></span> of a language <span
+class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span> means that, for each string <span
+class="math inline">\(s  \in  \Sigma^*\)</span>, if <span
+class="math inline">\(|s| \geq p\)</span> and <span
+class="math inline">\(s \in L\)</span>, then there are strings <span
+class="math inline">\(x,y,z\)</span> such that <span
+class="math display">\[s = xyz\]</span> and <span
+class="math display">\[|y| &gt; 0,  \qquad \qquad
+\text{ for each $i \geq 0$, $xy^i z \in L$}, \qquad \text{and}
+\qquad  \qquad
+|xy| \leq p.\]</span></p>
+<p><span><strong>Negation</strong></span>: A positive integer <span
+class="math inline">\(p\)</span> is <span><strong>not a pumping
+length</strong></span> of a language <span
+class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span> iff <span
+class="math display">\[\exists s \left(~  |s| \geq  p \wedge s \in L
+\wedge \forall x \forall y \forall z  \left( ~\left( s = xyz \wedge
+|y| &gt; 0 \wedge |xy| \leq p~ \right) \to \exists i  (  i \geq
+0  \wedge xy^iz  \notin L ) \right) ~\right)\]</span>
+<span><em>Informally:</em> </span></p>
+<p>Restating <span><strong>Pumping Lemma</strong></span>: If <span
+class="math inline">\(L\)</span> is a regular language, then it has a
+pumping length.</p>
+<p><span><strong>Contrapositive</strong></span>: If <span
+class="math inline">\(L\)</span> has no pumping length, then it is
+nonregular.</p>
+<p><span>The Pumping Lemma <span><em>cannot</em></span> be used to prove
+that a language <span><em>is</em></span> regular.</span></p>
+<p><span>The Pumping Lemma <span><strong>can</strong></span> be used to
+prove that a language <span><em>is not</em></span> regular.</span></p>
+<p><span><em>Extra practice</em></span>: Exercise 1.49 in the book.</p>
+<p><span><strong>Proof strategy</strong></span>: To prove that a
+language <span class="math inline">\(L\)</span> is
+<span><strong>not</strong></span> regular,</p>
+<ul>
+<li><p>Consider an arbitrary positive integer <span
+class="math inline">\(p\)</span></p></li>
+<li><p>Prove that <span class="math inline">\(p\)</span> is not a
+pumping length for <span class="math inline">\(L\)</span></p></li>
+<li><p>Conclude that <span class="math inline">\(L\)</span> does not
+have <span><em>any</em></span> pumping length, and therefore it is not
+regular.</p></li>
+</ul>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
+class="math inline">\(L = \{ 0^n 1^n \mid n  \geq 0\}\)</span>.</p>
+<p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
+integer. List strings that are in <span class="math inline">\(L\)</span>
+and have length greater than or equal to <span
+class="math inline">\(p\)</span>:</p>
+<p>Pick <span class="math inline">\(s =\)</span></p>
+<p>Suppose <span class="math inline">\(s = xyz\)</span> with <span
+class="math inline">\(|xy|  \leq  p\)</span> and <span
+class="math inline">\(|y| &gt; 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then when <span class="math inline">\(i = \hspace{1in}\)</span>,
+<span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
+class="math inline">\(L = \{w w^{\mathcal{R}} \mid w \in
+\{0,1\}^*\}\)</span>.</p>
+<p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
+integer. List strings that are in <span class="math inline">\(L\)</span>
+and have length greater than or equal to <span
+class="math inline">\(p\)</span>:</p>
+<p>Pick <span class="math inline">\(s =\)</span></p>
+<p>Suppose <span class="math inline">\(s = xyz\)</span> with <span
+class="math inline">\(|xy|  \leq  p\)</span> and <span
+class="math inline">\(|y| &gt; 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then when <span class="math inline">\(i = \hspace{1in}\)</span>,
+<span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
+class="math inline">\(L = \{0^j1^k  \mid j \geq k  \geq
+0\}\)</span>.</p>
+<p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
+integer. List strings that are in <span class="math inline">\(L\)</span>
+and have length greater than or equal to <span
+class="math inline">\(p\)</span>:</p>
+<p>Pick <span class="math inline">\(s =\)</span></p>
+<p>Suppose <span class="math inline">\(s = xyz\)</span> with <span
+class="math inline">\(|xy|  \leq  p\)</span> and <span
+class="math inline">\(|y| &gt; 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then when <span class="math inline">\(i = \hspace{1in}\)</span>,
+<span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
+class="math inline">\(L = \{0^n1^m0^n  \mid m,n  \geq 0\}\)</span>.</p>
+<p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
+integer. List strings that are in <span class="math inline">\(L\)</span>
+and have length greater than or equal to <span
+class="math inline">\(p\)</span>:</p>
+<p>Pick <span class="math inline">\(s =\)</span></p>
+<p>Suppose <span class="math inline">\(s = xyz\)</span> with <span
+class="math inline">\(|xy|  \leq  p\)</span> and <span
+class="math inline">\(|y| &gt; 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then when <span class="math inline">\(i = \hspace{1in}\)</span>,
+<span class="math inline">\(xy^i z  = \hspace{1in}\)</span></p>
+<h1 class="unnumbered" id="week3-friday">Week3 friday</h1>
+<p><span><strong>Theorem</strong></span>: For an alphabet <span
+class="math inline">\(\Sigma\)</span>, For each language <span
+class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span>,</p>
+<div class="center">
+<p><span class="math inline">\(L\)</span> is recognized by some
+DFA<br />
+iff<br />
+<span class="math inline">\(L\)</span> is recognized by some NFA<br />
+iff<br />
+<span class="math inline">\(L\)</span> is described by some regular
+expression</p>
+</div>
+<p>If (any, hence all) these conditions apply, <span
+class="math inline">\(L\)</span> is called
+<span><strong>regular</strong></span>.</p>
+<p><span><strong>Prove or Disprove</strong></span>: There is some
+alphabet <span class="math inline">\(\Sigma\)</span> for which there is
+some language recognized by an NFA but not by any DFA.</p>
+<p><span><strong>Prove or Disprove</strong></span>: There is some
+alphabet <span class="math inline">\(\Sigma\)</span> for which there is
+some finite language not described by any regular expression over <span
+class="math inline">\(\Sigma\)</span>.</p>
+<p><span><strong>Prove or Disprove</strong></span>: If a language is
+recognized by an NFA then the complement of this language is not
+recognized by any DFA.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Set</th>
+<th style="text-align: center;">Cardinality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\{0,1\}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\{0,1\}^*\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathcal{P}(
+\{0,1\})\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">The set of all languages over <span
+class="math inline">\(\{0,1\}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">The set of all regular expressions over
+<span class="math inline">\(\{0,1\}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">The set of all regular languages over
+<span class="math inline">\(\{0,1\}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Pumping Lemma</strong></span> (Sipser Theorem 1.70): If
+<span class="math inline">\(A\)</span> is a regular language, then there
+is a number <span class="math inline">\(p\)</span> (a <span><em>pumping
+length</em></span>) where, if <span class="math inline">\(s\)</span> is
+any string in <span class="math inline">\(A\)</span> of length at least
+<span class="math inline">\(p\)</span>, then <span
+class="math inline">\(s\)</span> may be divided into three pieces, <span
+class="math inline">\(s = xyz\)</span> such that</p>
+<ul>
+<li><p><span class="math inline">\(|y| &gt; 0\)</span></p></li>
+<li><p>for each <span class="math inline">\(i \geq 0\)</span>, <span
+class="math inline">\(xy^i z \in A\)</span></p></li>
+<li><p><span class="math inline">\(|xy| \leq p\)</span>.</p></li>
+</ul>
+<p><span><strong>True or False</strong></span>: A pumping length for
+<span class="math inline">\(A = \{ 0,1 \}^*\)</span> is <span
+class="math inline">\(p = 5\)</span>.</p>
+<p><span><strong>True or False</strong></span>: A pumping length for
+<span class="math inline">\(A = \{1, 01, 001, 0001, 00001 \}\)</span> is
+<span class="math inline">\(p = 4\)</span>.</p>
+<p><span><strong>True or False</strong></span>: A pumping length for
+<span class="math inline">\(A = \{0^j 1 \mid  j \geq 0 \}\)</span> is
+<span class="math inline">\(p = 3\)</span>.</p>
+<p><span><strong>True or False</strong></span>: For any language <span
+class="math inline">\(A\)</span>, if <span
+class="math inline">\(p\)</span> is a pumping length for <span
+class="math inline">\(A\)</span> and <span class="math inline">\(p&#39;
+&gt; p\)</span>, then <span class="math inline">\(p&#39;\)</span> is
+also a pumping length for <span class="math inline">\(A\)</span>.</p>
+</body>
+</html>

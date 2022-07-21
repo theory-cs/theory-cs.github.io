@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>nondeterminism</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="week9-friday">Week9 friday</h1>
+<p>In practice, computers (and Turing machines) don’t have infinite
+tape, and we can’t afford to wait unboundedly long for an answer.
+“Decidable" isn’t good enough - we want “Efficiently decidable".</p>
+<p>For a given algorithm working on a given input, how long do we need
+to wait for an answer? How does the running time depend on the input in
+the worst-case? average-case? We expect to have to spend more time on
+computations with larger inputs.</p>
+<p>A language is <span><strong>recognizable</strong></span> if
+<u></u></p>
+<p>A language is <span><strong>decidable</strong></span> if <u></u></p>
+<p>A language is <span><strong>efficiently decidable</strong></span> if
+<u></u></p>
+<p>A function is <span><strong>computable</strong></span> if <u></u></p>
+<p>A function is <span><strong>efficiently computable</strong></span> if
+<u></u><br />
+</p>
+<p>Definition (Sipser 7.1): For <span class="math inline">\(M\)</span> a
+deterministic decider, its <span><strong>running time</strong></span> is
+the function <span class="math inline">\(f: \mathbb{N} \to
+\mathbb{N}\)</span> given by <span class="math display">\[f(n)
+=  \text{max number of  steps $M$ takes before halting, over all
+inputs  of length $n$}\]</span></p>
+<p>Definition (Sipser 7.7): For each function <span
+class="math inline">\(t(n)\)</span>, the <span><strong>time complexity
+class</strong></span> <span class="math inline">\(TIME(t(n))\)</span>,
+is defined by <span class="math display">\[TIME( t(n)) = \{ L \mid
+\text{$L$ is decidable by  a Turing machine with running time
+in  $O(t(n))$} \}\]</span></p>
+<p>An example of an element of <span
+class="math inline">\(TIME(  1  )\)</span> is</p>
+<p>An example of an element of <span
+class="math inline">\(TIME(  n  )\)</span> is</p>
+<p>Note: <span class="math inline">\(TIME( 1) \subseteq TIME
+(n)  \subseteq TIME(n^2)\)</span></p>
+<p>Definition (Sipser 7.12) : <span class="math inline">\(P\)</span> is
+the class of languages that are decidable in polynomial time on a
+deterministic 1-tape Turing machine <span
+class="math display">\[P  =  \bigcup_k TIME(n^k)\]</span></p>
+<p><span><em>Compare to exponential time: brute-force
+search.</em></span></p>
+<p>Theorem (Sipser 7.8): Let <span class="math inline">\(t(n)\)</span>
+be a function with <span class="math inline">\(t(n)  \geq n\)</span>.
+Then every <span class="math inline">\(t(n)\)</span> time deterministic
+multitape Turing machine has an equivalent <span
+class="math inline">\(O(t^2(n))\)</span> time deterministic 1-tape
+Turing machine.</p>
+<p>Definition (Sipser 7.9): For <span class="math inline">\(N\)</span> a
+nodeterministic decider. The <span><strong>running time</strong></span>
+of <span class="math inline">\(N\)</span> is the function <span
+class="math inline">\(f: \mathbb{N} \to \mathbb{N}\)</span> given by
+<span class="math display">\[f(n) =  \text{max number of  steps $N$
+takes on  any branch before halting, over all inputs  of length
+$n$}\]</span></p>
+<p>Definition (Sipser 7.21): For each function <span
+class="math inline">\(t(n)\)</span>, the <span><strong>nondeterministic
+time complexity class</strong></span> <span
+class="math inline">\(NTIME(t(n))\)</span>, is defined by <span
+class="math display">\[NTIME( t(n)) = \{ L \mid \text{$L$ is decidable
+by a nondeterministic Turing machine with running time in $O(t(n))$}
+\}\]</span> <span class="math display">\[NP = \bigcup_k
+NTIME(n^k)\]</span></p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(TIME(n^2) \subseteq NTIME(n^2)\)</span></p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(NTIME(n^2) \subseteq DTIME(n^2)\)</span></p>
+<p><span><strong>Examples in <span
+class="math inline">\(P\)</span></strong> </span></p>
+<p><span><em>Can’t use nondeterminism; Can use multiple tapes; Often
+need to be “more clever” than naïve / brute force approach</em></span>
+<span class="math display">\[PATH = \{\langle G,s,t\rangle \mid
+\textrm{$G$ is digraph with $n$ nodes there is path from s to
+t}\}\]</span> Use breadth first search to show in <span
+class="math inline">\(P\)</span> <span class="math display">\[RELPRIME =
+\{ \langle x,y\rangle \mid \textrm{$x$ and $y$ are relatively prime
+integers}\}\]</span> Use Euclidean Algorithm to show in <span
+class="math inline">\(P\)</span> <span class="math display">\[L(G) = \{w
+\mid \textrm{$w$ is generated by $G$}\}\]</span> (where <span
+class="math inline">\(G\)</span> is a context-free grammar). Use dynamic
+programming to show in <span class="math inline">\(P\)</span>.</p>
+<p><span><strong>Examples in <span
+class="math inline">\(NP\)</span></strong></span></p>
+<p><span><em>“Verifiable" i.e. NP, Can be decided by a nondeterministic
+TM in polynomial time, best known deterministic solution may be
+brute-force, solution can be verified by a deterministic TM in
+polynomial time.</em></span></p>
+<p><span class="math display">\[HAMPATH = \{\langle G,s,t \rangle \mid
+\textrm{$G$ is digraph with $n$ nodes, there is path
+from $s$ to $t$ that goes through every node exactly once}\}\]</span>
+<span class="math display">\[VERTEX-COVER = \{ \langle G,k\rangle \mid
+\textrm{$G$ is an undirected graph with $n$
+nodes that has a $k$-node vertex cover}\}\]</span> <span
+class="math display">\[CLIQUE = \{ \langle G,k\rangle \mid \textrm{$G$
+is an undirected graph with $n$ nodes that has a $k$-clique}\}\]</span>
+<span class="math display">\[SAT =\{ \langle X \rangle \mid \textrm{$X$
+is a satisfiable Boolean formula with $n$ variables}\}\]</span></p>
+<h1 class="unnumbered" id="week4-wednesday">Week4 wednesday</h1>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Language</th>
+<th style="text-align: center;"><span class="math inline">\(s \in
+L\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(s \notin
+L\)</span></th>
+<th style="text-align: center;">Is the language regular or
+nonregular?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{a^nb^n
+\mid 0  \leq n  \leq 5 \}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{b^n a^n
+\mid  n  \geq 2\}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{a^m b^n
+\mid  0 \leq m\leq n\}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{a^m b^n
+\mid  m \geq n+3,  n \geq 0\}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{b^m a^n
+\mid  m \geq 1, n \geq  3\}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{ w  \in
+\{a,b\}^* \mid w = w^\mathcal{R} \}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{
+ww^\mathcal{R} \mid w\in \{a,b\}^* \}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Regular sets are not the end of the story</p>
+<ul>
+<li><p>Many nice / simple / important sets are not regular</p></li>
+<li><p>Limitation of the finite-state automaton model: Can’t "count",
+Can only remember finitely far into the past, Can’t backtrack, Must make
+decisions in "real-time"</p></li>
+<li><p>We know actual computers are more powerful than this
+model...</p></li>
+</ul>
+<p>The <span><strong>next</strong></span> model of computation. Idea:
+allow some memory of unbounded size. How?</p>
+<ul>
+<li><p>To generalize regular expressions: <span><strong>context-free
+grammars</strong></span><br />
+</p></li>
+<li><p>To generalize NFA: <span><strong>Pushdown
+automata</strong></span>, which is like an NFA with access to a stack:
+Number of states is fixed, number of entries in stack is unbounded. At
+each step (1) Transition to new state based on current state, letter
+read, and top letter of stack, then (2) (Possibly) push or pop a letter
+to (or from) top of stack. Accept a string iff there is some sequence of
+states and some sequence of stack contents which helps the PDA processes
+the entire input string and ends in an accepting state.</p></li>
+</ul>
+<p><img src="../../resources/machines/Lect9PDA.png" style="width:4in"
+alt="image" /></p>
+<p>Trace the computation of this PDA on the input string <span
+class="math inline">\(01\)</span>.</p>
+<p>Trace the computation of this PDA on the input string <span
+class="math inline">\(011\)</span>.</p>
+<h1 class="unnumbered" id="week4-friday">Week4 friday</h1>
+<p><span><strong>Definition</strong></span> A <span><strong>pushdown
+automaton</strong></span> (PDA) is specified by a <span
+class="math inline">\(6\)</span>-tuple <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, F)\)</span> where <span
+class="math inline">\(Q\)</span> is the finite set of states, <span
+class="math inline">\(\Sigma\)</span> is the input alphabet, <span
+class="math inline">\(\Gamma\)</span> is the stack alphabet, <span
+class="math display">\[\delta: Q \times
+\Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times
+\Gamma_\varepsilon)\]</span> is the transition function, <span
+class="math inline">\(q_0 \in Q\)</span> is the start state, <span
+class="math inline">\(F \subseteq  Q\)</span> is the set of accept
+states.</p>
+<div class="multicols">
+<p><span>2</span> <span><em>Formal definition</em></span></p>
+<p>Draw the state diagram of a PDA with <span
+class="math inline">\(\Sigma = \Gamma\)</span>.</p>
+<p><img src="../../resources/machines/Lect9PDA.png"
+style="height:1.38889in" alt="image" /></p>
+<p>Draw the state diagram of a PDA with <span
+class="math inline">\(\Sigma \cap \Gamma = \emptyset\)</span>.</p>
+</div>
+<p>A PDA recognizing the set <span class="math inline">\(\{ \hspace{1.5
+in} \}\)</span> can be informally described as:</p>
+<blockquote>
+<p>Read symbols from the input. As each 0 is read, push it onto the
+stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If
+the stack becomes empty and there is exactly one 1 left to read, read
+that 1 and accept the input. If the stack becomes empty and there are
+either zero or more than one 1s left to read, or if the 1s are finished
+while the stack still contains 0s, or if any 0s appear in the input
+following 1s, reject the input.</p>
+</blockquote>
+<p>State diagram for this PDA:</p>
+<p>Consider the state diagram of a PDA with input alphabet <span
+class="math inline">\(\Sigma\)</span> and stack alphabet <span
+class="math inline">\(\Gamma\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Label</th>
+<th style="text-align: center;">means</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a, b ;
+c\)</span> when <span class="math inline">\(a \in \Sigma\)</span>, <span
+class="math inline">\(b\in \Gamma\)</span>, <span
+class="math inline">\(c \in \Gamma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a,
+\varepsilon ; c\)</span> when <span class="math inline">\(a \in
+\Sigma\)</span>, <span class="math inline">\(c \in \Gamma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a, b ;
+\varepsilon\)</span> when <span class="math inline">\(a \in
+\Sigma\)</span>, <span class="math inline">\(b\in \Gamma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a,
+\varepsilon ; \varepsilon\)</span> when <span class="math inline">\(a
+\in \Sigma\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>How does the meaning change if <span class="math inline">\(a\)</span>
+is replaced by <span class="math inline">\(\varepsilon\)</span>?</p>
+<p><span><em>Note: alternate notation is to replace <span
+class="math inline">\(;\)</span> with <span
+class="math inline">\(\to\)</span></em></span></p>
+<p>For the PDA state diagrams below, <span class="math inline">\(\Sigma
+= \{0,1\}\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Mathematical description of
+language</th>
+<th style="text-align: center;">State diagram of PDA recognizing
+language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect10PDA1.png" style="width:3.5in"
+alt="image" /></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect10PDA2.png" style="width:3.5in"
+alt="image" /></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\{ 0^i 1^j
+0^k \mid i,j,k \geq 0 \}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="week6-friday">Week6 friday</h1>
+<p>To define a Turing machine, we could give a</p>
+<ul>
+<li><p><span><strong>Formal definition</strong></span>: the <span
+class="math inline">\(7\)</span>-tuple of parameters including set of
+states, input alphabet, tape alphabet, transition function, start state,
+accept state, and reject state; or,</p></li>
+<li><p><span><strong>Implementation-level definition</strong></span>:
+English prose that describes the Turing machine head movements relative
+to contents of tape, and conditions for accepting / rejecting based on
+those contents.</p></li>
+<li><p><span><strong>High-level description</strong></span>: description
+of algorithm (precise sequence of instructions), without implementation
+details of machine. As part of this description, can “call" and run
+another TM as a subroutine.</p></li>
+</ul>
+<p><span><strong>Theorem 3.21</strong></span> A language is
+Turing-recognizable iff some enumerator enumerates it.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p>Assume <span class="math inline">\(L\)</span> is enumerated by some
+enumerator, <span class="math inline">\(E\)</span>, so <span
+class="math inline">\(L = L(E)\)</span>. We’ll use <span
+class="math inline">\(E\)</span> in a subroutine within a high-level
+description of a new Turing machine that we will build to recognize
+<span class="math inline">\(L\)</span>.</p>
+<p><span><strong>Goal</strong></span>: build Turing machine <span
+class="math inline">\(M_E\)</span> with <span
+class="math inline">\(L(M_E) = L(E)\)</span>.</p>
+<p>Define <span class="math inline">\(M_E\)</span> as follows: <span
+class="math inline">\(M_E =\)</span> “On input <span
+class="math inline">\(w\)</span>,</p>
+<ol>
+<li><p>Run <span class="math inline">\(E\)</span>. For each string <span
+class="math inline">\(x\)</span> printed by <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Check if <span class="math inline">\(x = w\)</span>. If so,
+accept (and halt); otherwise, continue."</p></li>
+</ol>
+<p>Assume <span class="math inline">\(L\)</span> is Turing-recognizable
+and there is a Turing machine <span class="math inline">\(M\)</span>
+with <span class="math inline">\(L = L(M)\)</span>. We’ll use <span
+class="math inline">\(M\)</span> in a subroutine within a high-level
+description of an enumerator that we will build to enumerate <span
+class="math inline">\(L\)</span>.</p>
+<p><span><strong>Goal</strong></span>: build enumerator <span
+class="math inline">\(E_M\)</span> with <span
+class="math inline">\(L(E_M) = L(M)\)</span>.</p>
+<p><span><strong>Idea</strong></span>: check each string in turn to see
+if it is in <span class="math inline">\(L\)</span>.</p>
+<p><span><em>How?</em></span> Run computation of <span
+class="math inline">\(M\)</span> on each string.
+<span><em>But</em></span>: need to be careful about computations that
+don’t halt.</p>
+<p><span><em>Recall</em></span> String order for <span
+class="math inline">\(\Sigma = \{0,1\}\)</span>: <span
+class="math inline">\(s_1 = \varepsilon\)</span>, <span
+class="math inline">\(s_2 = 0\)</span>, <span class="math inline">\(s_3
+= 1\)</span>, <span class="math inline">\(s_4 = 00\)</span>, <span
+class="math inline">\(s_5 = 01\)</span>, <span
+class="math inline">\(s_6  = 10\)</span>, <span
+class="math inline">\(s_7  =  11\)</span>, <span
+class="math inline">\(s_8 = 000\)</span>, …</p>
+<p>Define <span class="math inline">\(E_M\)</span> as follows: <span
+class="math inline">\(E_{M} =\)</span> “ <span><em>ignore any
+input.</em></span> Repeat the following for <span
+class="math inline">\(i=1, 2, 3, \ldots\)</span></p>
+<ol>
+<li><p>Run the computations of <span class="math inline">\(M\)</span> on
+<span class="math inline">\(s_1\)</span>, <span
+class="math inline">\(s_2\)</span>, …, <span
+class="math inline">\(s_i\)</span> for (at most) <span
+class="math inline">\(i\)</span> steps each</p></li>
+<li><p>For each of these <span class="math inline">\(i\)</span>
+computations that accept during the (at most) <span
+class="math inline">\(i\)</span> steps, print out the accepted
+string."</p></li>
+</ol>
+<p><span><strong>Nondeterministic Turing machine</strong></span></p>
+<p>At any point in the computation, the nondeterministic machine may
+proceed according to several possibilities: <span
+class="math inline">\((Q, \Sigma, \Gamma, \delta, q_0, q_{acc},
+q_{rej})\)</span> where <span class="math display">\[\delta: Q \times
+\Gamma \to \mathcal{P}(Q \times \Gamma \times \{L, R\})\]</span> The
+computation of a nondeterministic Turing machine is a tree with
+branching when the next step of the computation has multiple
+possibilities. A nondeterministic Turing machine accepts a string
+exactly when some branch of the computation tree enters the accept
+state.</p>
+<p>Given a nondeterministic machine, we can use a <span
+class="math inline">\(3\)</span>-tape Turing machine to simulate it by
+doing a breadth-first search of computation tree: one tape is
+“read-only” input tape, one tape simulates the tape of the
+nondeterministic computation, and one tape tracks nondeterministic
+branching. <span>Sipser page 178</span></p>
+<p>Two models of computation are called <span><strong>equally
+expressive</strong></span> when every language recognizable with the
+first model is recognizable with the second, and vice versa.</p>
+<p><span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183):
+The informal notion of algorithm is formalized completely and correctly
+by the formal definition of a Turing machine. In other words: all
+reasonably expressive models of computation are equally expressive with
+the standard Turing machine.</p>
+<p><span><strong>Claim</strong></span>: If two languages (over a fixed
+alphabet <span class="math inline">\(\Sigma\)</span>) are
+Turing-recognizable, then their union is as well.</p>
+<p><span><strong>Proof using Turing machines</strong></span>:</p>
+<p><span><strong>Proof using nondeterministic Turing
+machines</strong></span>:</p>
+<p><span><strong>Proof using enumerators</strong></span>:</p>
+<h1 class="unnumbered" id="week3-monday">Week3 monday</h1>
+<p>The state diagram of an NFA over <span
+class="math inline">\(\{a,b\}\)</span> is below. The formal definition
+of this NFA is:</p>
+<p><img src="../../resources/machines/Lect5NFA1.png" style="width:2.5in"
+alt="image" /></p>
+<p>The language recognized by this NFA is:</p>
+<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
+over an alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a NFA <span
+class="math inline">\(N_1\)</span> such that <span
+class="math inline">\(L(N_1) = A_1\)</span> and NFA <span
+class="math inline">\(N_2\)</span> such that <span
+class="math inline">\(L(N_2) = A_2\)</span>, then there is another NFA,
+let’s call it <span class="math inline">\(N\)</span>, such that <span
+class="math inline">\(L(N) = A_1 \cup A_2\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: Use nondeterminism to
+choose which of <span class="math inline">\(N_1\)</span>, <span
+class="math inline">\(N_2\)</span> to run.</p>
+<p><span><strong>Formal construction</strong></span>: Let <span
+class="math inline">\(N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)\)</span>
+and <span class="math inline">\(N_2 = (Q_2, \Sigma, \delta_2,q_2,
+F_2)\)</span> and assume <span class="math inline">\(Q_1 \cap Q_2 =
+\emptyset\)</span> and that <span class="math inline">\(q_0 \notin Q_1
+\cup Q_2\)</span>. Construct <span class="math inline">\(N = (Q, \Sigma,
+\delta, q_0, F_1 \cup F_2)\)</span> where</p>
+<ul>
+<li><p><span class="math inline">\(Q =\)</span></p></li>
+<li><p><span class="math inline">\(\delta: Q \times \Sigma_\varepsilon
+\to \mathcal{P}(Q)\)</span> is defined by, for <span
+class="math inline">\(q \in Q\)</span> and <span class="math inline">\(a
+\in \Sigma_{\varepsilon}\)</span>: <span
+class="math display">\[\phantom{\delta((q,a))=\begin{cases}  \delta_1
+((q,a)) &amp;\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,a))
+&amp;\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &amp;\qquad\text{if } q =
+q_0, a = \varepsilon \\ \emptyset\text{if } q= q_0, a \neq \varepsilon
+\end{cases}}\]</span></p></li>
+</ul>
+<p><span><em>Proof of correctness would prove that <span
+class="math inline">\(L(N) = A_1 \cup A_2\)</span> by considering an
+arbitrary string accepted by <span class="math inline">\(N\)</span>,
+tracing an accepting computation of <span
+class="math inline">\(N\)</span> on it, and using that trace to prove
+the string is in at least one of <span
+class="math inline">\(A_1\)</span>, <span
+class="math inline">\(A_2\)</span>; then, taking an arbitrary string in
+<span class="math inline">\(A_1 \cup A_2\)</span> and proving that it is
+accepted by <span class="math inline">\(N\)</span>. Details left for
+extra practice.</em></span></p>
+<p>Over the alphabet <span class="math inline">\(\{a,b\}\)</span>, the
+language <span class="math inline">\(L\)</span> described by the regular
+expression <span class="math inline">\(\Sigma^* a \Sigma^*
+b\)</span></p>
+<p>includes the strings and excludes the strings</p>
+<p>The state diagram of a NFA recognizing <span
+class="math inline">\(L\)</span> is:</p>
+<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
+over an alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a NFA <span
+class="math inline">\(N_1\)</span> such that <span
+class="math inline">\(L(N_1) = A_1\)</span> and NFA <span
+class="math inline">\(N_2\)</span> such that <span
+class="math inline">\(L(N_2) = A_2\)</span>, then there is another NFA,
+let’s call it <span class="math inline">\(N\)</span>, such that <span
+class="math inline">\(L(N) = A_1 \circ A_2\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: Allow computation to move
+between <span class="math inline">\(N_1\)</span> and <span
+class="math inline">\(N_2\)</span> “spontaneously" when reach an
+accepting state of <span class="math inline">\(N_1\)</span>, guessing
+that we’ve reached the point where the two parts of the string in the
+set-wise concatenation are glued together.</p>
+<p><span><strong>Formal construction</strong></span>: Let <span
+class="math inline">\(N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)\)</span>
+and <span class="math inline">\(N_2 = (Q_2, \Sigma, \delta_2,q_2,
+F_2)\)</span> and assume <span class="math inline">\(Q_1 \cap Q_2 =
+\emptyset\)</span>. Construct <span class="math inline">\(N = (Q,
+\Sigma, \delta, q_0, F)\)</span> where</p>
+<ul>
+<li><p><span class="math inline">\(Q =\)</span></p></li>
+<li><p><span class="math inline">\(q_0 =\)</span></p></li>
+<li><p><span class="math inline">\(F =\)</span></p></li>
+<li><p><span class="math inline">\(\delta: Q \times \Sigma_\varepsilon
+\to \mathcal{P}(Q)\)</span> is defined by, for <span
+class="math inline">\(q \in Q\)</span> and <span class="math inline">\(a
+\in \Sigma_{\varepsilon}\)</span>: <span
+class="math display">\[\delta((q,a))=\begin{cases}  
+                \delta_1 ((q,a)) &amp;\qquad\text{if } q\in Q_1 \textrm{
+and } q \notin F_1\\
+                \delta_1 ((q,a)) &amp;\qquad\text{if } q\in F_1 \textrm{
+and } a \in \Sigma\\
+                \delta_1 ((q,a)) \cup \{q_2\} &amp;\qquad\text{if } q\in
+F_1 \textrm{ and } a = \varepsilon\\
+                \delta_2 ((q,a)) &amp;\qquad\text{if } q\in Q_2
+            \end{cases}\]</span></p></li>
+</ul>
+<p><span><em>Proof of correctness would prove that <span
+class="math inline">\(L(N) = A_1 \circ A_2\)</span> by considering an
+arbitrary string accepted by <span class="math inline">\(N\)</span>,
+tracing an accepting computation of <span
+class="math inline">\(N\)</span> on it, and using that trace to prove
+the string can be written as the result of concatenating two strings,
+the first in <span class="math inline">\(A_1\)</span> and the second in
+<span class="math inline">\(A_2\)</span>; then, taking an arbitrary
+string in <span class="math inline">\(A_1 \circ A_2\)</span> and proving
+that it is accepted by <span class="math inline">\(N\)</span>. Details
+left for extra practice.</em></span></p>
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a NFA <span
+class="math inline">\(N\)</span> such that <span
+class="math inline">\(L(N) = A\)</span>, then there is another NFA,
+let’s call it <span class="math inline">\(N&#39;\)</span>, such that
+<span class="math inline">\(L(N&#39;) = A^*\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: Add a fresh start state,
+which is an accept state. Add spontaneous moves from each (old) accept
+state to the old start state.</p>
+<p><span><strong>Formal construction</strong></span>: Let <span
+class="math inline">\(N = (Q, \Sigma, \delta, q_1, F)\)</span> and
+assume <span class="math inline">\(q_0 \notin Q\)</span>. Construct
+<span class="math inline">\(N&#39; = (Q&#39;, \Sigma, \delta&#39;, q_0,
+F&#39;)\)</span> where</p>
+<ul>
+<li><p><span class="math inline">\(Q&#39; = Q \cup
+\{q_0\}\)</span></p></li>
+<li><p><span class="math inline">\(F&#39; = F \cup
+\{q_0\}\)</span></p></li>
+<li><p><span class="math inline">\(\delta&#39;: Q&#39; \times
+\Sigma_\varepsilon \to \mathcal{P}(Q&#39;)\)</span> is defined by, for
+<span class="math inline">\(q \in Q&#39;\)</span> and <span
+class="math inline">\(a \in \Sigma_{\varepsilon}\)</span>: <span
+class="math display">\[\delta&#39;((q,a))=\begin{cases}  
+                \delta ((q,a)) &amp;\qquad\text{if } q\in Q \textrm{ and
+} q \notin F\\
+                \delta ((q,a)) &amp;\qquad\text{if } q\in F \textrm{ and
+} a \in \Sigma\\
+                \delta ((q,a)) \cup \{q_1\} &amp;\qquad\text{if } q\in F
+\textrm{ and } a = \varepsilon\\
+                \{q_1\} &amp;\qquad\text{if } q = q_0 \textrm{ and } a =
+\varepsilon \\
+                \emptyset &amp;\qquad\text{if } q = q_0 \textrm { and }
+a \in \Sigma
+            \end{cases}\]</span></p></li>
+</ul>
+<p><span><em>Proof of correctness would prove that <span
+class="math inline">\(L(N&#39;) = A^*\)</span> by considering an
+arbitrary string accepted by <span
+class="math inline">\(N&#39;\)</span>, tracing an accepting computation
+of <span class="math inline">\(N&#39;\)</span> on it, and using that
+trace to prove the string can be written as the result of concatenating
+some number of strings, each of which is in <span
+class="math inline">\(A\)</span>; then, taking an arbitrary string in
+<span class="math inline">\(A^*\)</span> and proving that it is accepted
+by <span class="math inline">\(N&#39;\)</span>. Details left for extra
+practice.</em></span></p>
+<p><span><strong>Application</strong></span>: A state diagram for a NFA
+over <span class="math inline">\(\Sigma = \{a,b\}\)</span> that
+recognizes <span class="math inline">\(L (( \Sigma^* b)^*
+)\)</span>:</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The state diagram of any DFA is
+also the state diagram of a NFA.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The state diagram of any NFA is
+also the state diagram of a DFA.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The formal definition <span
+class="math inline">\((Q, \Sigma, \delta, q_0, F)\)</span> of any DFA is
+also the formal definition of a NFA.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The formal definition <span
+class="math inline">\((Q, \Sigma, \delta, q_0, F)\)</span> of any NFA is
+also the formal definition of a DFA.</p>
+<h1 class="unnumbered" id="week3-wednesday">Week3 wednesday</h1>
+<p>Consider the state diagram of an NFA over <span
+class="math inline">\(\{a,b\}\)</span>:</p>
+<p><img src="../../resources/machines/Lect6NFA1.png" style="width:2.5in"
+alt="image" /></p>
+<p>The language recognized by this NFA is</p>
+<p>The state diagram of a DFA recognizing this same language is:</p>
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a NFA <span
+class="math inline">\(N\)</span> such that <span
+class="math inline">\(L(N) = A\)</span> then there is a DFA <span
+class="math inline">\(M\)</span> such that <span
+class="math inline">\(L(M) = A\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: States in <span
+class="math inline">\(M\)</span> are “macro-states" – collections of
+states from <span class="math inline">\(N\)</span> – that represent the
+set of possible states a computation of <span
+class="math inline">\(N\)</span> might be in.</p>
+<p><span><strong>Formal construction</strong></span>: Let <span
+class="math inline">\(N = (Q, \Sigma, \delta, q_0, F)\)</span>. Define
+<span class="math display">\[M = (~ \mathcal{P}(Q), \Sigma, \delta&#39;,
+q&#39;,  \{ X \subseteq Q \mid X \cap F \neq \emptyset \}~ )\]</span>
+where <span class="math inline">\(q&#39; = \{ q \in Q \mid \text{$q =
+q_0$ or is accessible from $q_0$ by spontaneous moves in $N$}
+\}\)</span> and <span class="math display">\[\delta&#39; (~(X, x)~) = \{
+q \in Q \mid q \in \delta( ~(r,x)~) ~\text{for some $r \in X$ or is
+accessible
+from such an $r$ by spontaneous moves in $N$} \}\]</span></p>
+<p>Consider the state diagram of an NFA over <span
+class="math inline">\(\{0,1\}\)</span>. Use the “macro-state”
+construction to find an equivalent DFA.</p>
+<p><img src="../../resources/machines/Lect6NFA2.png" style="width:1.8in"
+alt="image" /></p>
+<p>Prune this diagram to get an equivalent DFA with only the
+“macro-states" reachable from the start state.</p>
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a regular expression
+<span class="math inline">\(R\)</span> such that <span
+class="math inline">\(L(R) = A\)</span>, then there is a NFA, let’s call
+it <span class="math inline">\(N\)</span>, such that <span
+class="math inline">\(L(N) = A\)</span>.</p>
+<p><span><strong>Structural induction</strong></span>: Regular
+expression is built from basis regular expressions using inductive steps
+(union, concatenation, Kleene star symbols). Use constructions to mirror
+these in NFAs.</p>
+<p><span><strong>Application</strong></span>: A state diagram for a NFA
+over <span class="math inline">\(\{a,b\}\)</span> that recognizes <span
+class="math inline">\(L(a^* (ab)^*)\)</span>:</p>
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a DFA <span
+class="math inline">\(M\)</span> such that <span
+class="math inline">\(L(M) = A\)</span>, then there is a regular
+expression, let’s call it <span class="math inline">\(R\)</span>, such
+that <span class="math inline">\(L(R) = A\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: Trace all possible paths
+from start state to accept state. Express labels of these paths as
+regular expressions, and union them all.</p>
+<ol>
+<li><p>Add new start state with <span
+class="math inline">\(\varepsilon\)</span> arrow to old start
+state.</p></li>
+<li><p>Add new accept state with <span
+class="math inline">\(\varepsilon\)</span> arrow from old accept states.
+Make old accept states non-accept.</p></li>
+<li><p>Remove one (of the old) states at a time: modify regular
+expressions on arrows that went through removed state to restore
+language recognized by machine.</p></li>
+</ol>
+<p><span><strong>Application</strong></span>: Find a regular expression
+describing the language recognized by the DFA with state diagram</p>
+<p><img src="../../resources/machines/Lect6NFA3.png" style="width:2.5in"
+alt="image" /></p>
+<p><span><strong>Conclusion</strong></span>: For each language <span
+class="math inline">\(L\)</span>,</p>
+<div class="center">
+<p><span><strong>There is a DFA that recognizes <span
+class="math inline">\(L\)</span> <span class="math inline">\(\exists M
+~(M \textrm{ is a DFA and } L(M) = A)\)</span></strong></span><br />
+<span><strong>if and only if</strong></span><br />
+<span><strong>There is a NFA that recognizes <span
+class="math inline">\(L\)</span> <span class="math inline">\(\exists N
+~(N \textrm{ is a NFA and } L(N) = A)\)</span></strong></span><br />
+<span><strong>if and only if</strong></span><br />
+<span><strong>There is a regular expression that describes <span
+class="math inline">\(L\)</span> <span class="math inline">\(\exists R
+~(R \textrm{ is a regular expression and } L(R) =
+A)\)</span></strong></span><br />
+</p>
+</div>
+<p>A language is called <span><strong>regular</strong></span> when any
+(hence all) of the above three conditions are met.</p>
+<h1 class="unnumbered" id="week2-friday">Week2 friday</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td colspan="2" style="text-align: left;"><span><strong>Nondeterministic
+finite automaton</strong></span> <span class="math inline">\(M = (Q,
+\Sigma, \delta, q_0, F)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Finite set of states <span
+class="math inline">\(Q\)</span></td>
+<td style="text-align: left;">Can be labelled by any collection of
+distinct names. Default: <span class="math inline">\(q0, q1,
+\ldots\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alphabet <span
+class="math inline">\(\Sigma\)</span></td>
+<td style="text-align: left;">Each input to the automaton is a string
+over <span class="math inline">\(\Sigma\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arrow labels <span
+class="math inline">\(\Sigma_\varepsilon\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(\Sigma_\varepsilon = \Sigma \cup \{
+\varepsilon\}\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Arrows in the state diagram are labelled
+either by symbols from <span class="math inline">\(\Sigma\)</span> or by
+<span class="math inline">\(\varepsilon\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Transition function <span
+class="math inline">\(\delta\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\delta: Q
+\times \Sigma_{\varepsilon} \to \mathcal{P}(Q)\)</span> gives the
+<span><strong>set of possible next states</strong></span> for a
+transition</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">from the current state upon reading a
+symbol or spontaneously moving.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Start state <span
+class="math inline">\(q_0\)</span></td>
+<td style="text-align: left;">Element of <span
+class="math inline">\(Q\)</span>. Each computation of the machine starts
+at the start state.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Accept (final) states <span
+class="math inline">\(F\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(F
+\subseteq  Q\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(M\)</span>
+accepts the input string</td>
+<td style="text-align: left;">if and only if <span><strong>there
+is</strong></span> a computation of <span
+class="math inline">\(M\)</span> on the input string</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">that processes the whole string and ends
+in an accept state.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><em>Page 53</em></span></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The formal definition of the NFA over <span
+class="math inline">\(\{0,1\}\)</span> given by this state diagram
+is:</p>
+<p><img src="../../resources/machines/Lect4NFA1.png" style="width:2in"
+alt="image" /></p>
+<p>The language over <span class="math inline">\(\{0,1\}\)</span>
+recognized by this NFA is:</p>
+<p>Change the transition function to get a different NFA which accepts
+the empty string.</p>
+<p>The state diagram of an NFA over <span
+class="math inline">\(\{a,b\}\)</span> is below. The formal definition
+of this NFA is:</p>
+<p><img src="../../resources/machines/Lect5NFA1.png" style="width:2.5in"
+alt="image" /></p>
+<p>The language recognized by this NFA is:</p>
+<h1 class="unnumbered" id="week10-wednesday">Week10 wednesday</h1>
+<p>Recall: For <span class="math inline">\(M\)</span> a deterministic
+decider, its <span><strong>running time</strong></span> is the function
+<span class="math inline">\(f: \mathbb{N} \to \mathbb{N}\)</span> given
+by <span class="math display">\[f(n) =  \text{max number of  steps $M$
+takes before halting, over all inputs  of length $n$}\]</span> For each
+function <span class="math inline">\(t(n)\)</span>, the
+<span><strong>time complexity class</strong></span> <span
+class="math inline">\(TIME(t(n))\)</span>, is defined by <span
+class="math display">\[TIME( t(n)) = \{ L \mid \text{$L$ is decidable
+by  a Turing machine with running time in  $O(t(n))$} \}\]</span> <span
+class="math inline">\(P\)</span> is the class of languages that are
+decidable in polynomial time on a deterministic 1-tape Turing machine
+<span class="math display">\[P  =  \bigcup_k TIME(n^k)\]</span></p>
+<p>Definition (Sipser 7.9): For <span class="math inline">\(N\)</span> a
+nodeterministic decider. The <span><strong>running time</strong></span>
+of <span class="math inline">\(N\)</span> is the function <span
+class="math inline">\(f: \mathbb{N} \to \mathbb{N}\)</span> given by
+<span class="math display">\[f(n) =  \text{max number of  steps $N$
+takes on  any branch before halting, over all inputs  of length
+$n$}\]</span></p>
+<p>Definition (Sipser 7.21): For each function <span
+class="math inline">\(t(n)\)</span>, the <span><strong>nondeterministic
+time complexity class</strong></span> <span
+class="math inline">\(NTIME(t(n))\)</span>, is defined by <span
+class="math display">\[NTIME( t(n)) = \{ L \mid \text{$L$ is decidable
+by a nondeterministic Turing machine with running time in $O(t(n))$}
+\}\]</span> <span class="math display">\[NP = \bigcup_k
+NTIME(n^k)\]</span></p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(TIME(n^2) \subseteq NTIME(n^2)\)</span></p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(NTIME(n^2) \subseteq DTIME(n^2)\)</span></p>
+<p><span><strong>Every problem in NP is decidable with an
+exponential-time algorithm</strong></span></p>
+<p>Nondeterministic approach: guess a possible solution, verify that it
+works.</p>
+<p>Brute-force (worst-case exponential time) approach: iterate over all
+possible solutions, for each one, check if it works.</p>
+<p><span><strong>Examples in <span
+class="math inline">\(P\)</span></strong> </span></p>
+<p><span><em>Can’t use nondeterminism; Can use multiple tapes; Often
+need to be “more clever” than naïve / brute force approach</em></span>
+<span class="math display">\[PATH = \{\langle G,s,t\rangle \mid
+\textrm{$G$ is digraph with $n$ nodes there is path from s to
+t}\}\]</span> Use breadth first search to show in <span
+class="math inline">\(P\)</span> <span class="math display">\[RELPRIME =
+\{ \langle x,y\rangle \mid \textrm{$x$ and $y$ are relatively prime
+integers}\}\]</span> Use Euclidean Algorithm to show in <span
+class="math inline">\(P\)</span> <span class="math display">\[L(G) = \{w
+\mid \textrm{$w$ is generated by $G$}\}\]</span> (where <span
+class="math inline">\(G\)</span> is a context-free grammar). Use dynamic
+programming to show in <span class="math inline">\(P\)</span>.</p>
+<p><span><strong>Examples in <span
+class="math inline">\(NP\)</span></strong></span></p>
+<p><span><em>“Verifiable" i.e. NP, Can be decided by a nondeterministic
+TM in polynomial time, best known deterministic solution may be
+brute-force, solution can be verified by a deterministic TM in
+polynomial time.</em></span></p>
+<p><span class="math display">\[\begin{aligned}
+    HAMPATH &amp;= \{\langle G,s,t \rangle \mid \textrm{$G$ is digraph
+with $n$ nodes, }\\
+    &amp; \qquad \textrm{there is path
+from $s$ to $t$ that goes through every node exactly
+once}\}\end{aligned}\]</span> <span class="math display">\[VERTEX-COVER
+= \{ \langle G,k\rangle \mid \textrm{$G$ is an undirected graph with $n$
+nodes that has a $k$-node vertex cover}\}\]</span> <span
+class="math display">\[CLIQUE = \{ \langle G,k\rangle \mid \textrm{$G$
+is an undirected graph with $n$ nodes that has a $k$-clique}\}\]</span>
+<span class="math display">\[SAT =\{ \langle X \rangle \mid \textrm{$X$
+is a satisfiable Boolean formula with $n$ variables}\}\]</span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span><strong>Problems in <span
+class="math inline">\(P\)</span></strong></span></th>
+<th style="text-align: center;"><span><strong>Problems in <span
+class="math inline">\(NP\)</span></strong></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">(Membership in any) regular
+language</td>
+<td style="text-align: center;">Any problem in <span
+class="math inline">\(P\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">(Membership in any) context-free
+language</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(A_{DFA}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(SAT\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(E_{DFA}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(CLIQUE\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{DFA}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(VERTEX-COVER\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(PATH\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(HAMPATH\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(RELPRIME\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\ldots\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\ldots\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Million-dollar question: Is <span class="math inline">\(P =
+NP\)</span>?</p>
+<p>One approach to trying to answer it is to look for
+<span><em>hardest</em></span> problems in <span
+class="math inline">\(NP\)</span> and then (1) if we can show that there
+are efficient algorithms for them, then we can get efficient algorithms
+for all problems in <span class="math inline">\(NP\)</span> so <span
+class="math inline">\(P = NP\)</span>, or (2) these problems might be
+good candidates for showing that there are problems in <span
+class="math inline">\(NP\)</span> for which there are no efficient
+algorithms.</p>
+<p>Definition (Sipser 7.29) Language <span
+class="math inline">\(A\)</span> is <span><strong>polynomial-time
+mapping reducible</strong></span> to language <span
+class="math inline">\(B\)</span>, written <span class="math inline">\(A
+\leq_P B\)</span>, means there is a polynomial-time computable function
+<span class="math inline">\(f: \Sigma^* \to \Sigma^*\)</span> such that
+for every <span class="math inline">\(x \in \Sigma^*\)</span> <span
+class="math display">\[x \in A \qquad \text{iff} \qquad f(x) \in
+B.\]</span> The function <span class="math inline">\(f\)</span> is
+called the polynomial time reduction of <span
+class="math inline">\(A\)</span> to <span
+class="math inline">\(B\)</span>.</p>
+<p><span><strong>Theorem</strong></span> (Sipser 7.31): If <span
+class="math inline">\(A \leq_P B\)</span> and <span
+class="math inline">\(B  \in P\)</span> then <span
+class="math inline">\(A \in P\)</span>.</p>
+<p>Proof:</p>
+<p>Definition (Sipser 7.34; based in Stephen Cook and Leonid Levin’s
+work in the 1970s): A language <span class="math inline">\(B\)</span> is
+<span><strong>NP-complete</strong></span> means (1) <span
+class="math inline">\(B\)</span> is in NP
+<span><strong>and</strong></span> (2) every language <span
+class="math inline">\(A\)</span> in <span
+class="math inline">\(NP\)</span> is polynomial time reducible to <span
+class="math inline">\(B\)</span>.</p>
+<p><span><strong>Theorem</strong></span> (Sipser 7.35): If <span
+class="math inline">\(B\)</span> is NP-complete and <span
+class="math inline">\(B \in P\)</span> then <span
+class="math inline">\(P = NP\)</span>.</p>
+<p>Proof:</p>
+<p><span><strong>3SAT</strong></span>: A literal is a Boolean variable
+(e.g. <span class="math inline">\(x\)</span>) or a negated Boolean
+variable (e.g. <span class="math inline">\(\bar{x}\)</span>). A Boolean
+formula is a <span><strong>3cnf-formula</strong></span> if it is a
+Boolean formula in conjunctive normal form (a conjunction of disjunctive
+clauses of literals) and each clause has three literals. <span
+class="math display">\[3SAT  = \{  \langle  \phi \rangle \mid
+\text{$\phi$ is  a  satisfiable 3cnf-formula} \}\]</span></p>
+<p>Example strings in <span class="math inline">\(3SAT\)</span></p>
+<p>Example strings not in <span class="math inline">\(3SAT\)</span></p>
+<p><span><strong>Cook-Levin Theorem</strong></span>: <span
+class="math inline">\(3SAT\)</span> is <span
+class="math inline">\(NP\)</span>-complete.</p>
+<p><span><em>Are there other <span
+class="math inline">\(NP\)</span>-complete problems?</em></span> To
+prove that <span class="math inline">\(X\)</span> is <span
+class="math inline">\(NP\)</span>-complete</p>
+<ul>
+<li><p><span><em>From scratch</em></span>: prove <span
+class="math inline">\(X\)</span> is in <span
+class="math inline">\(NP\)</span> and that all <span
+class="math inline">\(NP\)</span> problems are polynomial-time reducible
+to <span class="math inline">\(X\)</span>.</p></li>
+<li><p><span><em>Using reduction</em></span>: prove <span
+class="math inline">\(X\)</span> is in <span
+class="math inline">\(NP\)</span> and that a known-to-be <span
+class="math inline">\(NP\)</span>-complete problem is polynomial-time
+reducible to <span class="math inline">\(X\)</span>.</p></li>
+</ul>
+<p><span><strong>CLIQUE</strong></span>: A <span><strong><span
+class="math inline">\(k\)</span>-clique</strong></span> in an undirected
+graph is a maximally connected subgraph with <span
+class="math inline">\(k\)</span> nodes. <span
+class="math display">\[CLIQUE  = \{  \langle G, k \rangle \mid \text{$G$
+is an  undirected graph with  a $k$-clique} \}\]</span></p>
+<p>Example strings in <span class="math inline">\(CLIQUE\)</span></p>
+<p>Example strings not in <span
+class="math inline">\(CLIQUE\)</span></p>
+<p>Theorem (Sipser 7.32): <span class="math display">\[3SAT  \leq_P
+CLIQUE\]</span></p>
+<p>Given a Boolean formula in conjunctive normal form with <span
+class="math inline">\(k\)</span> clauses and three literals per clause,
+we will map it to a graph so that the graph has a clique if the original
+formula is satisfiable and the graph does not have a clique if the
+original formula is not satisfiable.</p>
+<p>The graph has <span class="math inline">\(3k\)</span> vertices (one
+for each literal in each clause) and an edge between all vertices
+except</p>
+<ul>
+<li><p>vertices for two literals in the same clause</p></li>
+<li><p>vertices for literals that are negations of one another</p></li>
+</ul>
+<p>Example: <span class="math inline">\((x \vee \bar{y} \vee {\bar z})
+\wedge (\bar{x}  \vee y  \vee  z) \wedge (x \vee y  \vee z)\)</span></p>
+<h1 class="unnumbered" id="week10-friday">Week10 friday</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Model of
+Computation</strong></span></td>
+<td style="text-align: left;"><span><strong>Class of
+Languages</strong></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Deterministic finite
+automata</strong></span>: formal definition, how to design for a given
+language, how to describe language of a machine?
+<span><strong>Nondeterministic finite automata</strong></span>: formal
+definition, how to design for a given language, how to describe language
+of a machine? <span><strong>Regular expressions</strong></span>: formal
+definition, how to design for a given language, how to describe language
+of expression? <span><em>Also</em></span>: converting between different
+models.</td>
+<td style="text-align: left;"><span><strong>Class of regular
+languages</strong></span>: what are the closure properties of this
+class? which languages are not in the class? using <span><strong>pumping
+lemma</strong></span> to prove nonregularity.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Push-down
+automata</strong></span>: formal definition, how to design for a given
+language, how to describe language of a machine?
+<span><strong>Context-free grammars</strong></span>: formal definition,
+how to design for a given language, how to describe language of a
+grammar?</td>
+<td style="text-align: left;"><span><strong>Class of context-free
+languages</strong></span>: what are the closure properties of this
+class? which languages are not in the class?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Turing machines that always halt in
+polynomial time</td>
+<td style="text-align: left;"><span
+class="math inline">\(P\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nondeterministic Turing machines that
+always halt in polynomial time</td>
+<td style="text-align: left;"><span
+class="math inline">\(NP\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Deciders</strong></span>
+(Turing machines that always halt): formal definition, how to design for
+a given language, how to describe language of a machine?</td>
+<td style="text-align: left;"><span><strong>Class of decidable
+languages</strong></span>: what are the closure properties of this
+class? which languages are not in the class? using diagonalization and
+mapping reduction to show undecidability</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Turing
+machines</strong></span> formal definition, how to design for a given
+language, how to describe language of a machine?</td>
+<td style="text-align: left;"><span><strong>Class of recognizable
+languages</strong></span>: what are the closure properties of this
+class? which languages are not in the class? using closure and mapping
+reduction to show unrecognizability</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Given a language, prove it is
+regular</strong></span></p>
+<p><span><em>Strategy 1</em></span>: construct DFA recognizing the
+language and prove it works.</p>
+<p><span><em>Strategy 2</em></span>: construct NFA recognizing the
+language and prove it works.</p>
+<p><span><em>Strategy 3</em></span>: construct regular expression
+recognizing the language and prove it works.</p>
+<p><span><em>“Prove it works” means …</em></span></p>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(L  = \{ w \in \{0,1\}^* \mid \textrm{$w$ has odd
+number of $1$s or starts with $0$}\}\)</span></p>
+<p>Using NFA</p>
+<p>Using regular expressions</p>
+<p><span><strong>Example</strong></span>: Select all and only the
+options that result in a true statement: “To show a language <span
+class="math inline">\(A\)</span> is not regular, we can…”</p>
+<ol>
+<li><p>Show <span class="math inline">\(A\)</span> is finite</p></li>
+<li><p>Show there is a CFG generating <span
+class="math inline">\(A\)</span></p></li>
+<li><p>Show <span class="math inline">\(A\)</span> has no pumping
+length</p></li>
+<li><p>Show <span class="math inline">\(A\)</span> is
+undecidable</p></li>
+</ol>
+<p><span><strong>Example</strong></span>: What is the language generated
+by the CFG with rules <span class="math display">\[\begin{aligned}
+    S &amp;\to aSb \mid bY \mid Ya \\
+    Y &amp;\to bY \mid Ya \mid \varepsilon \end{aligned}\]</span></p>
+<p><span><strong>Example</strong></span>: Prove that the language <span
+class="math inline">\(T = \{ \langle M \rangle \mid \textrm{$M$ is a
+Turing machine and $L(M)$ is infinite}\}\)</span> is undecidable.</p>
+<p><span><strong>Example</strong></span>: Prove that the class of
+decidable languages is closed under concatenation.</p>
+</body>
+</html>

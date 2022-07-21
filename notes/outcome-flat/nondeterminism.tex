@@ -1,0 +1,1057 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Week9 friday}
+
+
+
+In practice, computers (and Turing machines) don't have infinite tape, 
+and we can't afford to wait unboundedly long for an answer.
+``Decidable" isn't good enough - we want ``Efficiently decidable".
+
+For a given algorithm working on a given input, how long do we need to wait for an answer? 
+How does the running time depend on the input in the worst-case? average-case? 
+We expect to have to spend more time on computations with larger inputs.
+
+
+A language is {\bf recognizable} if \underline{\phantom{\hspace{4.5in}}}
+
+A language is {\bf decidable} if \underline{\phantom{\hspace{4.7in}}}
+
+A language is {\bf efficiently  decidable} if \underline{\phantom{\hspace{4in}}}
+
+A function is {\bf computable} if \underline{\phantom{\hspace{4.7in}}}
+
+A function is {\bf efficiently computable} if \underline{\phantom{\hspace{4in}}}\\
+
+\vfill
+
+Definition  (Sipser 7.1): For  $M$ a deterministic decider, its {\bf running time} is the function  $f: \mathbb{N} \to \mathbb{N}$
+given  by
+\[
+f(n) =  \text{max number of  steps $M$ takes before halting, over all inputs  of length $n$}
+\]
+
+Definition (Sipser 7.7): For each function $t(n)$, the {\bf time complexity class}  $TIME(t(n))$, is defined  by
+\[
+TIME( t(n)) = \{ L \mid \text{$L$ is decidable by  a Turing machine with running time in  $O(t(n))$} \}
+\]
+
+An example of an element of  $TIME(  1  )$ is 
+
+An example of an element of  $TIME(  n  )$ is 
+
+
+Note: $TIME( 1) \subseteq TIME (n)  \subseteq TIME(n^2)$
+
+\vfill
+
+Definition (Sipser 7.12) : $P$ is the class of languages that  are decidable in polynomial time on 
+a deterministic 1-tape  Turing  machine
+\[
+P  =  \bigcup_k TIME(n^k)
+\]
+
+{\it Compare to exponential time: brute-force search.}
+
+
+Theorem (Sipser 7.8): Let $t(n)$ be a  function with  $t(n)  \geq n$.  Then every $t(n)$ time deterministic 
+multitape Turing machine has an equivalent $O(t^2(n))$ time deterministic 1-tape Turing machine.
+
+
+
+\newpage
+
+
+Definition (Sipser  7.9): For $N$ a nodeterministic decider.  
+The {\bf running time} of $N$ is the function $f: \mathbb{N} \to \mathbb{N}$ given  by
+\[
+f(n) =  \text{max number of  steps $N$ takes on  any branch before halting, over all inputs  of length $n$}
+\]
+
+Definition (Sipser 7.21): For each function $t(n)$, the {\bf nondeterministic time complexity class}  
+$NTIME(t(n))$, is defined  by
+\[
+NTIME( t(n)) = \{ L \mid \text{$L$ is decidable by a nondeterministic Turing machine with running time in $O(t(n))$} \}
+\]
+\[
+NP = \bigcup_k NTIME(n^k)
+\]
+
+
+{\bf True} or {\bf False}: $TIME(n^2) \subseteq NTIME(n^2)$
+
+\vfill
+
+{\bf True} or {\bf False}: $NTIME(n^2) \subseteq DTIME(n^2)$
+
+\vfill
+
+{\bf Examples in $P$ }
+
+{\it Can't use nondeterminism; Can use multiple tapes; Often need to be “more clever” than naïve / brute force approach}
+\[
+    PATH = \{\langle G,s,t\rangle \mid \textrm{$G$ is digraph with $n$ nodes there is path from s to t}\}
+\]
+Use breadth first search to show in $P$
+\[
+    RELPRIME = \{ \langle x,y\rangle \mid \textrm{$x$ and $y$ are relatively prime integers}\}
+\]
+Use Euclidean Algorithm to show in $P$
+\[
+    L(G) = \{w \mid \textrm{$w$ is generated by $G$}\} 
+\]
+(where $G$ is a context-free grammar). Use dynamic programming to show in $P$.
+
+\vfill
+{\bf Examples in $NP$}
+
+{\it ``Verifiable" i.e. NP, Can be decided by a nondeterministic TM in polynomial time,
+best known deterministic solution may be brute-force, 
+solution can be verified by a deterministic TM in polynomial time.}
+
+\[
+    HAMPATH = \{\langle G,s,t \rangle \mid \textrm{$G$ is digraph with $n$ nodes, there is path
+from $s$ to $t$ that goes through every node exactly once}\}
+\]
+\[
+    VERTEX-COVER = \{ \langle G,k\rangle \mid \textrm{$G$ is an undirected graph with $n$
+nodes that has a $k$-node vertex cover}\}
+\]
+\[
+    CLIQUE = \{ \langle G,k\rangle \mid \textrm{$G$ is an undirected graph with $n$ nodes that has a $k$-clique}\}
+\]
+\[
+    SAT =\{ \langle X \rangle \mid \textrm{$X$ is a satisfiable Boolean formula with $n$ variables}\}
+\]
+
+\newpage \vfill
+\section*{Week4 wednesday}
+
+
+
+\begin{center}
+    \begin{tabular}{c|c| c| c}
+    Language & $s \in L$ & $s \notin L$ & Is the language regular or nonregular?  \\
+    \hline
+     & \hspace{1in} & \hspace{1in}  &  \\
+    $\{a^nb^n \mid 0  \leq n  \leq 5 \}$ & & & \\
+     & & & \\
+    $\{b^n a^n \mid  n  \geq 2\}$  & & & \\
+     & & & \\
+    $\{a^m b^n \mid  0 \leq m\leq n\}$  & & & \\
+     & & & \\
+    $\{a^m b^n \mid  m \geq n+3,  n \geq 0\}$  & & & \\
+     & & & \\
+    $\{b^m a^n \mid  m \geq 1, n \geq  3\}$  & & & \\
+     & & & \\
+    $\{ w  \in \{a,b\}^* \mid w = w^\mathcal{R} \}$ & & & \\
+     & & & \\ 
+    $\{ ww^\mathcal{R} \mid w\in \{a,b\}^* \}$ & & & \\
+     & & & \\ 
+    \end{tabular}
+\end{center}
+    
+\newpage
+Regular sets are not the end of the story
+\begin{itemize}
+    \item Many nice / simple / important sets are not regular
+    \item Limitation of the finite-state automaton model: Can't "count", Can only remember finitely far into the past,
+    Can't backtrack, Must make decisions in "real-time"
+    \item We know actual computers are more powerful than this model...
+\end{itemize}
+
+The {\bf next} model of computation. Idea: allow some memory of unbounded size. How? 
+\begin{itemize}
+    \item To generalize regular expressions: {\bf context-free grammars}\\
+    \item To generalize NFA: {\bf Pushdown automata}, which is like an NFA with access to a stack: 
+    Number of states is fixed, number of entries in stack is unbounded. At each step
+    (1) Transition to new state based on current state, letter read, and top letter of stack, then
+    (2) (Possibly) push or pop a letter to (or from) top of stack. Accept a string iff
+    there is some sequence of states and some sequence of stack contents 
+    which helps the PDA processes the entire input string and ends in an accepting state.
+\end{itemize}
+
+\includegraphics[width=4in]{../../resources/machines/Lect9PDA.png}
+    
+Trace the computation of this PDA on the input string $01$.
+
+\vspace{80pt}  
+    
+Trace the computation of this PDA on the input string $011$.
+
+\vspace{80pt}
+ \vfill
+\section*{Week4 friday}
+
+
+{\bf Definition} A {\bf pushdown automaton} (PDA) is  specified by a  $6$-tuple $(Q, \Sigma, \Gamma, \delta, q_0, F)$
+where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$ is the stack alphabet,
+\[
+    \delta: Q \times \Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times \Gamma_\varepsilon)
+\]
+is the transition function,  $q_0 \in Q$ is the start state, $F \subseteq  Q$ is the set of accept states.
+    
+\begin{multicols}{2}
+    {\it Formal definition}
+    
+    \vspace{90pt}
+    Draw the state diagram of a PDA with $\Sigma = \Gamma$.
+    
+    \columnbreak 
+    \includegraphics[height=100pt]{../../resources/machines/Lect9PDA.png}
+    
+    
+    Draw the state diagram of a PDA with $\Sigma \cap \Gamma = \emptyset$.
+    
+\end{multicols}
+    
+\vspace{60pt}
+    
+A PDA recognizing the set $\{ \hspace{1.5 in} \}$ can be informally described as:
+\begin{quote}
+    Read symbols from the input. As each 0 is read, push it onto the stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If the stack becomes empty and there is exactly one 1 left to read, read that 1 and accept the input. If the stack becomes empty and there are either zero or more than one 1s left to read, or if the 1s are finished while the stack still contains 0s, or if any 0s appear in the input following 1s, reject the input.
+\end{quote}
+    
+    State diagram for this  PDA:
+
+    
+\vfill
+\newpage
+Consider the state diagram of a PDA with input alphabet 
+$\Sigma$ and stack alphabet $\Gamma$.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Label & means \\
+\hline
+$a, b ; c$ when $a \in \Sigma$, $b\in \Gamma$, $c \in \Gamma$ 
+& \hspace{3in} \\
+& \\
+&\\
+\hline
+$a, \varepsilon ; c$ when $a \in \Sigma$, $c \in \Gamma$ 
+& \hspace{3in} \\
+& \\
+&\\
+\hline
+$a, b ; \varepsilon$ when $a \in \Sigma$, $b\in \Gamma$
+& \hspace{3in} \\
+& \\
+&\\
+\hline
+$a, \varepsilon ; \varepsilon$ when $a \in \Sigma$
+& \hspace{3in} \\
+& \\
+&\\
+\hline
+\end{tabular}
+\end{center}
+
+
+How does the meaning change if $a$ is replaced by $\varepsilon$?
+
+{\it Note: alternate notation is to replace $;$ with $\to$}
+
+
+For the PDA state diagrams below, $\Sigma = \{0,1\}$.
+
+
+\begin{center}
+\begin{tabular}{c c}
+Mathematical description of language & State diagram of PDA recognizing language\\
+\hline
+& \includegraphics[width=3.5in]{../../resources/machines/Lect10PDA1.png}\\
+\hline
+& \includegraphics[width=3.5in]{../../resources/machines/Lect10PDA2.png}\\
+\hline
+& \\
+$\{ 0^i 1^j 0^k \mid i,j,k \geq 0 \}$ & \\
+\end{tabular}
+\end{center}
+ \vfill
+\section*{Week6 friday}
+
+
+
+To define a Turing machine, we could give a 
+\begin{itemize}
+\item {\bf Formal definition}: the $7$-tuple of parameters including set of states, 
+input alphabet, tape alphabet, transition function, start state, accept state, and reject state; or,
+\item {\bf Implementation-level definition}: English prose that describes the Turing machine head 
+movements relative to contents of tape, and conditions for accepting / rejecting based on those contents.
+\item {\bf High-level description}: description of algorithm (precise sequence of instructions), 
+without implementation details of machine. As part of this description, can ``call" and run 
+another TM as a subroutine.
+\end{itemize}
+
+
+{\bf Theorem 3.21} A language is Turing-recognizable iff some enumerator enumerates it.
+
+{\bf Proof}:
+
+Assume $L$ is enumerated by some enumerator, $E$, so $L = L(E)$.
+We'll use $E$ in a subroutine
+within a high-level description of a new Turing machine that we will build to recognize $L$.
+
+{\bf Goal}: build Turing machine $M_E$ with $L(M_E) = L(E)$.
+
+Define $M_E$ as follows: $M_E = $ ``On input $w$,
+\begin{enumerate}
+\item Run $E$. For each string $x$ printed by $E$.
+\item \qquad Check if $x = w$. If so, accept (and halt); otherwise, continue."
+\end{enumerate}
+
+
+\vfill 
+
+
+
+Assume $L$ is Turing-recognizable and there 
+is a Turing  machine  $M$ with  $L = L(M)$. We'll use $M$ in a subroutine
+within a high-level description of an enumerator that we will build to enumerate $L$.
+
+{\bf Goal}: build enumerator $E_M$ with $L(E_M) = L(M)$.
+
+{\bf Idea}: check each string in turn to see if it is in $L$.
+
+{\it How?} Run computation of $M$ on each string.  {\it But}: need to be careful 
+about computations that don't halt.
+
+{\it Recall} String order for $\Sigma = \{0,1\}$: $s_1 = \varepsilon$, $s_2 = 0$, $s_3 = 1$, $s_4 = 00$, $s_5 = 01$, $s_6  = 10$, 
+$s_7  =  11$, $s_8 = 000$, \ldots
+
+Define $E_M$ as follows: $E_{M} = $ `` {\it ignore any input.} Repeat the following for $i=1, 2, 3, \ldots$
+\begin{enumerate}
+  \item Run the computations of $M$ on $s_1$, $s_2$, \ldots, $s_i$ for (at most) $i$ steps each
+  \item For each of these $i$ computations that accept during the (at most) $i$ steps, print
+  out the accepted string."
+\end{enumerate}
+
+\newpage
+
+{\bf Nondeterministic Turing machine}
+
+At any point in the computation, the nondeterministic machine may proceed according to 
+several possibilities: $(Q, \Sigma, \Gamma, \delta, q_0, q_{acc}, q_{rej})$ where 
+\[
+\delta: Q \times \Gamma \to \mathcal{P}(Q \times \Gamma \times \{L, R\})  
+\]
+The computation of a nondeterministic Turing machine is a tree with branching
+when the next step of the computation has multiple possibilities. A nondeterministic
+Turing machine accepts a string exactly when some branch of the computation tree 
+enters the accept state.
+
+Given a nondeterministic machine, we can use a $3$-tape Turing machine to 
+simulate it by doing a breadth-first search of computation tree: one tape 
+is ``read-only'' input tape, one tape simulates the tape of the nondeterministic
+computation, and one tape tracks nondeterministic branching. {\tiny Sipser page 178} 
+
+\vfill
+Two models of computation are called {\bf equally expressive} when 
+every language recognizable with the first model is recognizable with the second, and vice versa.
+
+{\bf  Church-Turing Thesis} (Sipser p. 183): The informal notion of algorithm is formalized completely  and correctly by the 
+formal definition of a  Turing machine. In other words: all reasonably expressive models of 
+computation are equally expressive with the standard Turing machine.
+
+\vfill
+
+\newpage
+
+{\bf Claim}: If two languages  (over a fixed alphabet  $\Sigma$) are Turing-recognizable, then  their union  is  as well.
+
+{\bf Proof using Turing machines}:
+
+\vfill
+
+{\bf Proof using nondeterministic Turing machines}: 
+
+\vfill  
+
+{\bf  Proof using enumerators}:
+
+\vfill
+
+ \vfill
+\section*{Week3 monday}
+
+
+The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of this NFA is:
+
+\includegraphics[width=2.5in]{../../resources/machines/Lect5NFA1.png}
+
+The language recognized by this NFA is: 
+
+
+
+Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+{\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
+NFA $N_2$ such that $L(N_2) = A_2$, then there is another NFA, let's call it $N$, such that 
+$L(N) = A_1 \cup A_2$.
+
+{\bf Proof idea}: Use nondeterminism to choose which of $N_1$, $N_2$ to run.
+
+
+{\bf Formal construction}: Let 
+$N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)$ and $N_2 = (Q_2, \Sigma, \delta_2,q_2, F_2)$
+and assume $Q_1 \cap Q_2 = \emptyset$ and that $q_0 \notin Q_1 \cup Q_2$.
+Construct $N = (Q, \Sigma, \delta, q_0, F_1 \cup F_2)$ where
+\begin{itemize}
+    \item $Q = $
+    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
+        \[
+            \phantom{\delta((q,a))=\begin{cases}  \delta_1 ((q,a)) &\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,a)) &\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &\qquad\text{if } q = q_0, a = \varepsilon \\ \emptyset\text{if } q= q_0, a \neq \varepsilon \end{cases}}
+        \]
+\end{itemize}
+
+
+\vfill
+{\it Proof of correctness would prove that $L(N) = A_1 \cup A_2$ by considering
+an arbitrary string accepted by $N$, tracing an accepting computation of $N$ on it, and using 
+that trace to prove the string is in at least one of $A_1$, $A_2$; then, taking an arbitrary 
+string in $A_1 \cup A_2$ and proving that it is accepted by $N$. Details left for extra practice.}
+
+\newpage
+Over the alphabet $\{a,b\}$, the language $L$ described by the regular expression 
+$\Sigma^* a \Sigma^* b$
+
+ includes the strings \phantom{space for strings here} and excludes the strings 
+
+
+The state diagram of a NFA recognizing $L$ is:
+
+\vspace{100pt}
+
+Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+{\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
+NFA $N_2$ such that $L(N_2) = A_2$, then there is another NFA, let's call it $N$, such that 
+$L(N) = A_1 \circ A_2$.
+
+{\bf Proof idea}: Allow computation to move between $N_1$ and $N_2$ ``spontaneously" when reach an accepting state of 
+$N_1$, guessing that we've reached the point where the two parts of the string in the set-wise concatenation 
+are glued together.
+
+
+{\bf Formal construction}: Let 
+$N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)$ and $N_2 = (Q_2, \Sigma, \delta_2,q_2, F_2)$
+and assume $Q_1 \cap Q_2 = \emptyset$.
+Construct $N = (Q, \Sigma, \delta, q_0, F)$ where
+\begin{itemize}
+    \item $Q = $
+    \item $q_0 = $
+    \item $F = $
+    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
+        \[
+            \delta((q,a))=\begin{cases}  
+                \delta_1 ((q,a)) &\qquad\text{if } q\in Q_1 \textrm{ and } q \notin F_1\\ 
+                \delta_1 ((q,a)) &\qquad\text{if } q\in F_1 \textrm{ and } a \in \Sigma\\ 
+                \delta_1 ((q,a)) \cup \{q_2\} &\qquad\text{if } q\in F_1 \textrm{ and } a = \varepsilon\\ 
+                \delta_2 ((q,a)) &\qquad\text{if } q\in Q_2
+            \end{cases}
+        \]
+\end{itemize}
+
+\vfill
+
+{\it Proof of correctness would prove that $L(N) = A_1 \circ A_2$ by considering
+an arbitrary string accepted by $N$, tracing an accepting computation of $N$ on it, and using 
+that trace to prove the string can be written as the result of concatenating two strings, 
+the first in $A_1$ and the second in $A_2$; then, taking an arbitrary 
+string in $A_1 \circ A_2$ and proving that it is accepted by $N$. Details left for extra practice.}
+
+\newpage
+
+Suppose $A$ is a language over an alphabet $\Sigma$.
+{\bf Claim:} if there is a NFA $N$ such that $L(N) = A$, then there is another NFA, let's call it $N'$, such that 
+$L(N') = A^*$.
+
+{\bf Proof idea}: Add a fresh start state, which is an accept state. Add spontaneous 
+moves from each (old) accept state to the old start state.
+
+{\bf Formal construction}: Let 
+$N = (Q, \Sigma, \delta, q_1, F)$ and assume $q_0 \notin Q$.
+Construct $N' = (Q', \Sigma, \delta', q_0, F')$ where
+\begin{itemize}
+    \item $Q' = Q \cup \{q_0\}$
+    \item $F' = F \cup \{q_0\}$
+    \item $\delta': Q' \times \Sigma_\varepsilon \to \mathcal{P}(Q')$ is defined by, for $q \in Q'$ and $a \in \Sigma_{\varepsilon}$:
+        \[
+            \delta'((q,a))=\begin{cases}  
+                \delta ((q,a)) &\qquad\text{if } q\in Q \textrm{ and } q \notin F\\ 
+                \delta ((q,a)) &\qquad\text{if } q\in F \textrm{ and } a \in \Sigma\\ 
+                \delta ((q,a)) \cup \{q_1\} &\qquad\text{if } q\in F \textrm{ and } a = \varepsilon\\ 
+                \{q_1\} &\qquad\text{if } q = q_0 \textrm{ and } a = \varepsilon \\
+                \emptyset &\qquad\text{if } q = q_0 \textrm { and } a \in \Sigma
+            \end{cases}
+        \]
+\end{itemize}
+
+
+{\it Proof of correctness would prove that $L(N') = A^*$ by considering
+an arbitrary string accepted by $N'$, tracing an accepting computation of $N'$ on it, and using 
+that trace to prove the string can be written as the result of concatenating some number of strings, 
+each of which is in $A$; then, taking an arbitrary 
+string in $A^*$ and proving that it is accepted by $N'$. Details left for extra practice.}
+
+
+{\bf Application}: A state diagram for a NFA over $\Sigma = \{a,b\}$ 
+that recognizes $L (( \Sigma^* b)^* )$:
+
+\vspace{200pt}
+
+
+
+
+{\bf True} or {\bf False}: The state diagram of any DFA is also the state diagram of a NFA.
+
+{\bf True} or {\bf False}: The state diagram of any NFA is also the state diagram of a DFA.
+
+{\bf True} or {\bf False}: The formal definition $(Q, \Sigma, \delta, q_0, F)$ of any DFA is also the formal definition of a NFA.
+
+{\bf True} or {\bf False}: The formal definition $(Q, \Sigma, \delta, q_0, F)$  of any NFA is also the formal definition of a DFA.
+
+ \vfill
+\section*{Week3 wednesday}
+
+
+
+Consider the state diagram of an NFA over $\{a,b\}$:
+
+\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA1.png}
+
+
+The language recognized by this NFA is
+
+
+
+The state diagram of a DFA recognizing this same language is:
+
+\vspace{70pt}
+Suppose $A$ is a language over an alphabet $\Sigma$.
+{\bf Claim:} if there is a NFA $N$ such that $L(N) = A$ then 
+there is a DFA $M$ such that $L(M) = A$.
+
+{\bf Proof idea}: States in $M$ are ``macro-states" -- collections of states from $N$ -- 
+that represent the set of possible states a computation of $N$ might be in.
+
+
+{\bf Formal construction}: Let $N = (Q, \Sigma, \delta, q_0, F)$.  Define 
+\[
+M = (~ \mathcal{P}(Q), \Sigma, \delta', q',  \{ X \subseteq Q \mid X \cap F \neq \emptyset \}~ )
+\]
+where $q' = \{ q \in Q \mid \text{$q = q_0$ or is accessible from $q_0$ by spontaneous moves in $N$} \}$
+and 
+\[
+    \delta' (~(X, x)~) = \{ q \in Q \mid q \in \delta( ~(r,x)~) ~\text{for some $r \in X$ or is accessible 
+from such an $r$ by spontaneous moves in $N$} \}
+\]
+
+\vfill
+
+\newpage
+Consider the state diagram of an NFA over $\{0,1\}$. Use the ``macro-state'' construction 
+to find an equivalent DFA.
+
+
+\includegraphics[width=1.8in]{../../resources/machines/Lect6NFA2.png}
+
+\vspace{50pt}
+
+Prune this diagram to get an 
+equivalent DFA 
+with only the ``macro-states" reachable from the start state.
+
+\vspace{150pt}
+
+Suppose $A$ is a language over an alphabet $\Sigma$.
+{\bf Claim:} if there is a regular expression $R$ such that $L(R) = A$, then there is a NFA, let's call it $N$, such that 
+$L(N) = A$.
+
+{\bf Structural induction}: Regular expression is built from basis regular expressions using inductive steps
+(union, concatenation, Kleene star symbols). Use constructions to mirror these in NFAs.
+
+
+{\bf Application}: A state diagram for a NFA over $\{a,b\}$ that recognizes $L(a^* (ab)^*)$:
+
+\vfill
+
+\newpage
+
+Suppose $A$ is a language over an alphabet $\Sigma$.
+{\bf Claim:} if there is a DFA $M$ such that $L(M) = A$, then there is a regular expression, let's call it $R$, such that 
+$L(R) = A$.
+
+{\bf Proof idea}: Trace all possible paths from start state to accept state.  Express labels of these paths
+as regular expressions, and union them all.
+
+\begin{enumerate}
+\item Add new start state with $\varepsilon$ arrow to old start state.
+\item Add new accept state with $\varepsilon$ arrow from old accept states.  Make old accept states
+non-accept.
+\item Remove one (of the old) states at a time: modify regular expressions on arrows that went through removed
+state to restore language recognized by machine.
+\end{enumerate}
+
+{\bf Application}: Find a regular expression describing the language recognized by the DFA with 
+state diagram
+
+\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA3.png}
+
+\vfill
+
+
+\newpage
+
+{\bf Conclusion}: For each language $L$,
+\begin{center}
+    {\bf There is a DFA that recognizes $L$ \qquad $\exists M ~(M \textrm{ is a DFA and } L(M) = A)$}\\
+    {\bf if and only if}\\
+    {\bf There is a NFA that recognizes $L$  \qquad $\exists N ~(N \textrm{ is a NFA and } L(N) = A)$}\\
+    {\bf if and only if}\\
+    {\bf There is a regular expression that describes $L$ $\exists R ~(R \textrm{ is a regular expression and } L(R) = A)$}\\
+\end{center}
+
+A language is called {\bf regular} when any (hence all) of the above three conditions are met. \vfill
+\section*{Week2 friday}
+
+
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|l|}{{\bf Nondeterministic finite automaton} $M = (Q, \Sigma, \delta, q_0, F)$} \\
+Finite set of states $Q$  & Can  be labelled by any collection  of distinct names. Default: $q0, q1, \ldots$  \\
+Alphabet $\Sigma$ &  Each input to the automaton is a string over  $\Sigma$. \\
+Arrow labels $\Sigma_\varepsilon$ &  $\Sigma_\varepsilon = \Sigma \cup \{ \varepsilon\}$. \\
+&  Arrows 
+in the state diagram are labelled either by symbols from $\Sigma$ or by $\varepsilon$ \\
+Transition function $\delta$  & $\delta: Q \times \Sigma_{\varepsilon} \to \mathcal{P}(Q)$
+gives the {\bf set of possible next states} for a transition \\
+&  from the current state upon reading a symbol or spontaneously moving.\\
+Start state $q_0$ & Element of $Q$.  Each computation of the machine starts at the  start  state.\\
+Accept (final) states $F$ & $F \subseteq  Q$.\\
+$M$ accepts the input string & if and only if {\bf there is} a computation of $M$ on the input string\\
+&  that 
+processes the whole string and ends in an
+accept state.\\
+\hline
+{\it Page 53}& \\
+\hline
+\end{tabular}
+\end{center}
+
+The formal definition of the NFA over $\{0,1\}$ given by this state diagram is: 
+
+\includegraphics[width=2in]{../../resources/machines/Lect4NFA1.png}
+
+The language over $\{0,1\}$ recognized by this NFA is:
+
+\vspace{70pt}
+
+Change the transition function to get a different NFA which accepts
+the empty string.
+
+
+\newpage
+
+The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of this NFA is:
+
+\vspace{-30pt}
+
+\includegraphics[width=2.5in]{../../resources/machines/Lect5NFA1.png}
+
+
+\vspace{-10pt}
+
+The language recognized by this NFA is:  \vfill
+\section*{Week10 wednesday}
+
+
+
+Recall: For  $M$ a deterministic decider, its {\bf running time} is the function  $f: \mathbb{N} \to \mathbb{N}$
+given  by
+\[
+f(n) =  \text{max number of  steps $M$ takes before halting, over all inputs  of length $n$}
+\]
+For each function $t(n)$, the {\bf time complexity class}  $TIME(t(n))$, is defined  by
+\[
+TIME( t(n)) = \{ L \mid \text{$L$ is decidable by  a Turing machine with running time in  $O(t(n))$} \}
+\]
+$P$ is the class of languages that  are decidable in polynomial time on 
+a deterministic 1-tape  Turing  machine
+\[
+P  =  \bigcup_k TIME(n^k)
+\]
+
+Definition (Sipser  7.9): For $N$ a nodeterministic decider.  
+The {\bf running time} of $N$ is the function $f: \mathbb{N} \to \mathbb{N}$ given  by
+\[
+f(n) =  \text{max number of  steps $N$ takes on  any branch before halting, over all inputs  of length $n$}
+\]
+
+Definition (Sipser 7.21): For each function $t(n)$, the {\bf nondeterministic time complexity class}  
+$NTIME(t(n))$, is defined  by
+\[
+NTIME( t(n)) = \{ L \mid \text{$L$ is decidable by a nondeterministic Turing machine with running time in $O(t(n))$} \}
+\]
+\[
+NP = \bigcup_k NTIME(n^k)
+\]
+
+
+{\bf True} or {\bf False}: $TIME(n^2) \subseteq NTIME(n^2)$
+
+\vfill
+
+{\bf True} or {\bf False}: $NTIME(n^2) \subseteq DTIME(n^2)$
+
+\vfill
+
+
+{\bf Every problem in NP is decidable with an exponential-time algorithm}
+
+Nondeterministic approach: guess a possible solution, verify that it works.
+
+Brute-force (worst-case exponential time) approach: iterate over all possible solutions, for each 
+one, check if it works.
+
+
+\newpage
+
+{\bf Examples in $P$ }
+
+{\it Can't use nondeterminism; Can use multiple tapes; Often need to be “more clever” than naïve / brute force approach}
+\[
+    PATH = \{\langle G,s,t\rangle \mid \textrm{$G$ is digraph with $n$ nodes there is path from s to t}\}
+\]
+Use breadth first search to show in $P$
+\[
+    RELPRIME = \{ \langle x,y\rangle \mid \textrm{$x$ and $y$ are relatively prime integers}\}
+\]
+Use Euclidean Algorithm to show in $P$
+\[
+    L(G) = \{w \mid \textrm{$w$ is generated by $G$}\} 
+\]
+(where $G$ is a context-free grammar). Use dynamic programming to show in $P$.
+
+\vfill
+{\bf Examples in $NP$}
+
+{\it ``Verifiable" i.e. NP, Can be decided by a nondeterministic TM in polynomial time,
+best known deterministic solution may be brute-force, 
+solution can be verified by a deterministic TM in polynomial time.}
+
+\begin{align*}
+    HAMPATH &= \{\langle G,s,t \rangle \mid \textrm{$G$ is digraph with $n$ nodes, }\\
+    & \qquad \textrm{there is path
+from $s$ to $t$ that goes through every node exactly once}\}
+\end{align*}
+\[
+    VERTEX-COVER = \{ \langle G,k\rangle \mid \textrm{$G$ is an undirected graph with $n$
+nodes that has a $k$-node vertex cover}\}
+\]
+\[
+    CLIQUE = \{ \langle G,k\rangle \mid \textrm{$G$ is an undirected graph with $n$ nodes that has a $k$-clique}\}
+\]
+\[
+    SAT =\{ \langle X \rangle \mid \textrm{$X$ is a satisfiable Boolean formula with $n$ variables}\}
+\]
+
+\begin{center}
+\begin{tabular}{c|c}
+    {\bf Problems in $P$} & {\bf Problems in $NP$}\\
+    \hline
+    (Membership in any) regular language & Any problem in $P$ \\
+    (Membership in any) context-free language &  \\
+    $A_{DFA}$ & $SAT$\\
+    $E_{DFA}$ & $CLIQUE$ \\
+    $EQ_{DFA}$ & $VERTEX-COVER$ \\
+    $PATH$ & $HAMPATH$ \\
+    $RELPRIME$ &  $\ldots$ \\
+$\ldots$ &\\
+\end{tabular}
+\end{center}
+
+\newpage
+
+Million-dollar question: Is $P = NP$?
+
+
+One approach to trying to answer it is to look for {\it hardest} problems in $NP$ and 
+then (1) if we can show that there are efficient algorithms for them, then we can get 
+efficient algorithms for all problems in $NP$ so $P = NP$, or (2) these problems might 
+be good candidates for showing that there are problems in $NP$ for which there 
+are no efficient algorithms.
+
+
+Definition (Sipser 7.29) Language  $A$ is {\bf polynomial-time mapping reducible} to language $B$, written $A \leq_P B$,
+means there is a polynomial-time computable function $f: \Sigma^* \to \Sigma^*$  such that for every $x \in \Sigma^*$
+\[
+x \in A \qquad \text{iff} \qquad f(x) \in B.
+\]
+The  function $f$ is  called the  polynomial time reduction of $A$ to $B$.
+
+{\bf  Theorem}  (Sipser 7.31):  If $A \leq_P B$ and $B  \in P$ then $A \in P$.
+
+Proof: 
+
+\vfill
+
+Definition (Sipser 7.34; based in Stephen Cook and Leonid Levin's work in the 1970s): 
+A language $B$ is {\bf  NP-complete} means (1) $B$ is in NP {\bf and}  (2) every language
+$A$ in $NP$ is polynomial time reducible to $B$.
+
+{\bf  Theorem}  (Sipser 7.35):  If $B$ is NP-complete and $B \in P$ then $P = NP$.
+
+Proof: 
+
+\vfill
+
+\newpage
+
+{\bf 3SAT}: A literal is a Boolean variable (e.g.  $x$) or a negated Boolean variable (e.g.  $\bar{x}$).  
+A Boolean formula is a {\bf  3cnf-formula} if it is a Boolean formula in conjunctive normal form (a conjunction  
+of  disjunctive clauses of literals) and each clause  has  three literals.
+\[
+3SAT  = \{  \langle  \phi \rangle \mid \text{$\phi$ is  a  satisfiable 3cnf-formula} \}
+\]
+
+
+Example strings  in $3SAT$
+
+
+Example  strings not  in $3SAT$
+
+
+
+
+{\bf Cook-Levin Theorem}: $3SAT$ is $NP$-complete.
+
+
+{\it Are there other $NP$-complete problems?} To prove that $X$ is $NP$-complete
+\begin{itemize}
+\item {\it From scratch}: prove $X$ is in $NP$ and that all $NP$ problems are polynomial-time
+reducible to $X$.
+\item {\it Using reduction}: prove $X$ is in $NP$ and that a known-to-be $NP$-complete problem 
+is polynomial-time reducible to $X$.
+\end{itemize}
+
+
+
+
+{\bf CLIQUE}: A {\bf $k$-clique} in an undirected graph is a maximally connected subgraph with $k$  nodes.
+\[
+CLIQUE  = \{  \langle G, k \rangle \mid \text{$G$ is an  undirected graph with  a $k$-clique} \}
+\]
+
+
+Example strings  in $CLIQUE$
+
+
+Example  strings not  in $CLIQUE$
+
+
+Theorem (Sipser 7.32):
+\[
+3SAT  \leq_P CLIQUE
+\]
+
+Given a Boolean formula in conjunctive normal form with $k$ clauses and three literals per clause, we will 
+map it to a graph so that the graph has a clique if the original formula is satisfiable and the 
+graph does not have a clique if the original formula is not satisfiable.
+
+The graph has $3k$ vertices (one for each literal in each clause) and an edge between all vertices except
+\begin{itemize}
+    \item vertices for two literals in the same clause
+    \item vertices for literals that are negations of one another
+\end{itemize}
+
+Example: $(x \vee \bar{y} \vee {\bar z}) \wedge (\bar{x}  \vee y  \vee  z) \wedge (x \vee y  \vee z)$
+
+\vfill
+
+ \vfill
+\section*{Week10 friday}
+
+
+\begin{center}
+    \begin{tabular}{|p{4in}|p{3.5in}|}
+        \hline
+        & \\
+        {\bf Model of Computation} & {\bf Class of Languages}\\
+        &\\
+        \hline
+        & \\
+        {\bf Deterministic finite automata}:
+        formal definition, how to design for a given language, 
+        how to describe language of a machine?
+        {\bf Nondeterministic finite automata}:
+        formal definition, how to design for a given language, 
+        how to describe language of a machine?
+        {\bf Regular expressions}: formal definition, how to design for a given language, 
+        how to describe language of expression?
+        {\it Also}: converting between different models. &
+        {\bf Class of regular languages}: what are the closure 
+        properties of this class? which languages are not in the class?
+        using {\bf pumping lemma} to prove nonregularity.\\
+        & \\
+        \hline
+        & \\
+        {\bf Push-down automata}:
+        formal definition, how to design for a given language, 
+        how to describe language of a machine?
+        {\bf Context-free grammars}:
+        formal definition, how to design for a given language, 
+        how to describe language of a grammar? &
+        {\bf Class of context-free languages}: what are the closure 
+        properties of this class? which languages are not in the class?\\
+        & \\
+        \hline
+        & \\
+        Turing machines that always halt in polynomial time
+        & $P$ \\
+        & \\
+        Nondeterministic Turing machines that always halt in polynomial time 
+        & $NP$ \\
+        & \\
+        \hline
+        & \\
+        {\bf Deciders} (Turing machines that always halt): 
+        formal definition, how to design for a given language, 
+        how to describe language of a machine? &
+        {\bf Class of decidable languages}: what are the closure properties 
+        of this class? which languages are not in the class? using diagonalization
+        and mapping reduction to show undecidability \\
+        & \\
+        \hline
+        & \\
+        {\bf Turing machines}
+        formal definition, how to design for a given language, 
+        how to describe language of a machine? &
+        {\bf Class of recognizable languages}: what are the closure properties 
+        of this class? which languages are not in the class? using closure
+        and mapping reduction to show unrecognizability \\
+        & \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\newpage
+
+{\bf Given a language, prove it is regular}
+
+{\it Strategy 1}: construct DFA recognizing the language and prove it works.
+
+{\it Strategy 2}: construct NFA recognizing the language and prove it works.
+
+{\it Strategy 3}: construct regular expression recognizing the language and prove it works.
+
+{\it ``Prove it works'' means \ldots}
+
+\vspace{100pt}
+
+{\bf Example}: $L  = \{ w \in \{0,1\}^* \mid \textrm{$w$ has odd number of $1$s or starts with $0$}\}$
+
+Using NFA
+
+\vfill
+
+Using regular expressions
+
+\vfill
+
+
+\newpage
+
+{\bf Example}: Select all and only the options that result in a true statement: ``To show 
+a language $A$ is not regular, we can\ldots'' 
+
+\begin{enumerate}
+    \item[a.] Show $A$ is finite
+    \item[b.] Show there is a CFG generating $A$
+    \item[c.] Show $A$ has no pumping length
+    \item[d.] Show $A$ is undecidable
+\end{enumerate}
+
+\newpage
+
+{\bf Example}: What is the language generated by the CFG with rules
+\begin{align*}
+    S &\to aSb \mid bY \mid Ya \\
+    Y &\to bY \mid Ya \mid \varepsilon 
+\end{align*}
+
+\newpage
+
+{\bf Example}: Prove that the language 
+$T = \{ \langle M \rangle \mid \textrm{$M$ is a Turing machine and $L(M)$ is infinite}\}$ 
+is undecidable.
+
+\newpage
+
+{\bf Example}: Prove that the class of decidable languages is closed under concatenation.
+ \vfill
+\end{document}

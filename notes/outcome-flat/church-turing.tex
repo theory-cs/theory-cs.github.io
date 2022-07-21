@@ -1,0 +1,169 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Week6 friday}
+
+
+
+To define a Turing machine, we could give a 
+\begin{itemize}
+\item {\bf Formal definition}: the $7$-tuple of parameters including set of states, 
+input alphabet, tape alphabet, transition function, start state, accept state, and reject state; or,
+\item {\bf Implementation-level definition}: English prose that describes the Turing machine head 
+movements relative to contents of tape, and conditions for accepting / rejecting based on those contents.
+\item {\bf High-level description}: description of algorithm (precise sequence of instructions), 
+without implementation details of machine. As part of this description, can ``call" and run 
+another TM as a subroutine.
+\end{itemize}
+
+
+{\bf Theorem 3.21} A language is Turing-recognizable iff some enumerator enumerates it.
+
+{\bf Proof}:
+
+Assume $L$ is enumerated by some enumerator, $E$, so $L = L(E)$.
+We'll use $E$ in a subroutine
+within a high-level description of a new Turing machine that we will build to recognize $L$.
+
+{\bf Goal}: build Turing machine $M_E$ with $L(M_E) = L(E)$.
+
+Define $M_E$ as follows: $M_E = $ ``On input $w$,
+\begin{enumerate}
+\item Run $E$. For each string $x$ printed by $E$.
+\item \qquad Check if $x = w$. If so, accept (and halt); otherwise, continue."
+\end{enumerate}
+
+
+\vfill 
+
+
+
+Assume $L$ is Turing-recognizable and there 
+is a Turing  machine  $M$ with  $L = L(M)$. We'll use $M$ in a subroutine
+within a high-level description of an enumerator that we will build to enumerate $L$.
+
+{\bf Goal}: build enumerator $E_M$ with $L(E_M) = L(M)$.
+
+{\bf Idea}: check each string in turn to see if it is in $L$.
+
+{\it How?} Run computation of $M$ on each string.  {\it But}: need to be careful 
+about computations that don't halt.
+
+{\it Recall} String order for $\Sigma = \{0,1\}$: $s_1 = \varepsilon$, $s_2 = 0$, $s_3 = 1$, $s_4 = 00$, $s_5 = 01$, $s_6  = 10$, 
+$s_7  =  11$, $s_8 = 000$, \ldots
+
+Define $E_M$ as follows: $E_{M} = $ `` {\it ignore any input.} Repeat the following for $i=1, 2, 3, \ldots$
+\begin{enumerate}
+  \item Run the computations of $M$ on $s_1$, $s_2$, \ldots, $s_i$ for (at most) $i$ steps each
+  \item For each of these $i$ computations that accept during the (at most) $i$ steps, print
+  out the accepted string."
+\end{enumerate}
+
+\newpage
+
+{\bf Nondeterministic Turing machine}
+
+At any point in the computation, the nondeterministic machine may proceed according to 
+several possibilities: $(Q, \Sigma, \Gamma, \delta, q_0, q_{acc}, q_{rej})$ where 
+\[
+\delta: Q \times \Gamma \to \mathcal{P}(Q \times \Gamma \times \{L, R\})  
+\]
+The computation of a nondeterministic Turing machine is a tree with branching
+when the next step of the computation has multiple possibilities. A nondeterministic
+Turing machine accepts a string exactly when some branch of the computation tree 
+enters the accept state.
+
+Given a nondeterministic machine, we can use a $3$-tape Turing machine to 
+simulate it by doing a breadth-first search of computation tree: one tape 
+is ``read-only'' input tape, one tape simulates the tape of the nondeterministic
+computation, and one tape tracks nondeterministic branching. {\tiny Sipser page 178} 
+
+\vfill
+Two models of computation are called {\bf equally expressive} when 
+every language recognizable with the first model is recognizable with the second, and vice versa.
+
+{\bf  Church-Turing Thesis} (Sipser p. 183): The informal notion of algorithm is formalized completely  and correctly by the 
+formal definition of a  Turing machine. In other words: all reasonably expressive models of 
+computation are equally expressive with the standard Turing machine.
+
+\vfill
+
+\newpage
+
+{\bf Claim}: If two languages  (over a fixed alphabet  $\Sigma$) are Turing-recognizable, then  their union  is  as well.
+
+{\bf Proof using Turing machines}:
+
+\vfill
+
+{\bf Proof using nondeterministic Turing machines}: 
+
+\vfill  
+
+{\bf  Proof using enumerators}:
+
+\vfill
+
+ \vfill
+\end{document}
