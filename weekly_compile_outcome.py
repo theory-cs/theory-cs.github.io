@@ -40,7 +40,7 @@ low_levels.append("todooutcome")
 lowLevelsDict = {}
 for line in low_levels:
     # Each dictionary has the low_levels as key and empty array as value
-    lowLevelsDict[line] = []
+    lowLevelsDict[line.lower()] = []
 
 # A function that returns the week of the snippet (key for later sort)
 def findWeek(element):
@@ -82,6 +82,9 @@ for filename in os.listdir(weeklyDirectory):
 
     Lines = weekly.readlines()
 
+    for k in lowLevelsDict:
+        print(k + ": " + str(lowLevelsDict[k]) + "\n")
+
     for line in Lines: 
         if (line.startswith("\input{../")) and not ("lesson-head.tex" in line):
 
@@ -113,9 +116,9 @@ for filename in os.listdir(weeklyDirectory):
             # Split small outcomes with the delimiter ", " into a list
             li = list(particularLine.split(", "))
             for element in li:
+                # print("element is: " + element + "\n")
                 # lowercase them and replace whitespace with dashes (to make them uniform)
-                # test = element.replace(" ", "-").lower()
-                test = element.replace(" ", "-")
+                test = element.replace(" ", "-").lower()
 
                 #debug
                 #print(test)
@@ -131,6 +134,7 @@ for filename in os.listdir(weeklyDirectory):
                     snippetWeek = [snippetsFile, weekNumber]
 
                     # add that tex filename to the dictionary
+                    # print("test is: " + test)
                     lowLevelsDict[test].append(snippetWeek)
 
                     #debug
@@ -151,18 +155,7 @@ for filename in os.listdir(weeklyDirectory):
                 lowLevelsDict[test].sort(key=findWeek)
 
 #debug: UNCOMMENT if want to see how the dictionary looks
-#print(lowLevelsDict)
-
-# def write_if_different(filename, contents):
-#     try:
-#         old_contents = open(filename).read()
-#         if old_contents == contents: return
-#     except FileNotFoundError:
-#         pass # If the file doesn't exist, continue so we can create it!
-#     result_file = open(filename, "w")
-#     result_file.write(contents)
-#     result_file.close()
-
+# print(lowLevelsDict)
 
 #Iterate through the dict
 for key in lowLevelsDict:
