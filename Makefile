@@ -29,8 +29,8 @@ generated/last-index.txt: *.json *.py notes/lessons/*.tex notes/assignments/*.te
 	mkdir -p generated/notes/app
 	mkdir -p generated/notes/outcome
 	mkdir -p generated/notes/activity-snippets-flat
-    # python3 weekly_compile_app.py
-	# python3 weekly_compile_outcome.py
+    python3 weekly_compile_app.py
+	python3 weekly_compile_outcome.py
 	touch generated/last-index.txt
 
 
