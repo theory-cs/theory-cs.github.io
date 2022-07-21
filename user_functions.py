@@ -464,7 +464,8 @@ def create_outcome_boxes():
 				#reset counter
 				childNum = 1 
 				for k in outcomeData[i]['Children'][j]['Children']:
-					boxString += """<dd> <a href=\""""+outcomeData[i]['Children'][j]['file']+"""?box=""" +str(childNum)+"""\" >""" + k + """</a> </dd>\n"""
+					kdesc = outcomeData[i]['Children'][j]['Children'][k]['Description']
+					boxString += """<dd> <a href=\""""+outcomeData[i]['Children'][j]['file']+"""?box=""" +str(childNum)+"""\" >""" + kdesc + """</a> </dd>\n"""
 					childNum+=1
 				
 				boxString += "</dl>"
