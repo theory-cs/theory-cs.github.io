@@ -441,7 +441,7 @@ dd{
 }
 
 .column {
-    column-count: 2;
+    column-count: 1;
 }
 
 .box:hover {
