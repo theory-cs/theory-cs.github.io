@@ -1,14 +1,14 @@
 {
-    "regular-languages":{
+    "Regular Languages":{
         "Icon": "Reg"
     },
-    "context-free-languages":{ 
+    "Context-free Languages":{ 
         "Icon": "CFL"
     },
-    "decidable languages":{
+    "Decidable Languages":{
         "Icon": "Dec"
     },
-    "undecidable languages":{
+    "Undecidable Languages":{
         "Icon": "UN"
     },
     "Complexity":{
