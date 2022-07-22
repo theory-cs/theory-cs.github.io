@@ -291,7 +291,7 @@ def create_unit_boxes():
 		#pdfs
 		if('content' in unitData[i]):
 			for content in unitData[i]['content']:
-				print(content['name'])
+				# print(content['name'])
 				pdfjsID = content['name'].replace(" ", "-")
 				boxString += "<a href=\"unit""" +str(unitNumber)+ """.html#"""+ pdfjsID+"""\" >""" + content['name'] + """</a>&emsp;"""				
 		
@@ -766,6 +766,24 @@ def create_office_hours():
 	officehours = websiteData['Office Hours']
 	return officehours
 
+def create_full_definition():
+	full_definition = websiteData['Compiled Activity Snippets']
+	fullDefinition = ""
+	
+	if(full_definition == "True"):
+		fullDefinition = """<p>Compiled defintions file <a href="../output/activity-snippets/full-definition.pdf" download>download</a></p>"""
+	
+	return fullDefinition
+
+
+def create_compiled_assignments():
+	compiled = websiteData['Compiled Assignments']
+	text = ""
+	
+	if(compiled == "True"):
+		text = """<p>Compiled assignments file <a href="../output/assignments/assignments-compiled.pdf" download>download</a></p>"""
+
+	return text
 def write_if_different(filename, contents):
     try:
         old_contents = open(filename).read()
@@ -795,6 +813,8 @@ def create_site_variables():
 		'unitBoxes': create_unit_boxes(),
 		'outcomeBoxes': create_outcome_boxes(),
 		'applicationBoxes': create_application_boxes(),
+		'fullDefinition': create_full_definition(),
+		'compiledAssignments': create_compiled_assignments(),
 
 		'copyrightFooter': create_copyright(),
 		'feedbackForm': create_feedback(),

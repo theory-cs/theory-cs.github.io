@@ -146,8 +146,8 @@ for filename in os.listdir(weeklyDirectory):
                 #sort each outcome by week, findWeek function returns the week number of the snippet
                 appsDict[test].sort(key=findWeek)
 # debug: UNCOMMENT if want to see how the dictionary looks
-for k in appsDict:
-    print(k + ": " + str(appsDict[k]) + "\n")
+# for k in appsDict:
+    # print(k + ": " + str(appsDict[k]) + "\n")
 
 #Iterate through the dict
 for key in appsDict:
@@ -166,4 +166,3 @@ for key in appsDict:
         result += "\end{document}"
 
         write_if_different("generated/notes/app/"+ key + ".tex", result)
-        print(key)

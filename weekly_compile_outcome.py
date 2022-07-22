@@ -82,8 +82,8 @@ for filename in os.listdir(weeklyDirectory):
 
     Lines = weekly.readlines()
 
-    for k in lowLevelsDict:
-        print(k + ": " + str(lowLevelsDict[k]) + "\n")
+    # for k in lowLevelsDict:
+        # print(k + ": " + str(lowLevelsDict[k]) + "\n")
 
     for line in Lines: 
         if (line.startswith("\input{../")) and not ("lesson-head.tex" in line):

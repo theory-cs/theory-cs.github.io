@@ -34,29 +34,33 @@ for filename in os.listdir(directoryFolder):
 
 definition_array = sorted(definition_array)
 
-for filename in definition_array:
-    weekly = open (directoryFolder+"/"+filename, "r")
+websiteData = json.loads(open("website-settings.json").read())
+
+full_definition = websiteData['Compiled Activity Snippets']
+
+if(full_definition == "True"):
+    for filename in definition_array:
+        weekly = open (directoryFolder+"/"+filename, "r")
+            
+        lines = weekly.readlines()
+
+        strNew = ""
+        for line in reversed(lines):
+            if(line.startswith("%!") or line.startswith("\n")):
+                lines.remove(line)
+            
+        strNew += opening
+
+        for line in lines:
+            strNew += line
+            bigPDF += line
+
+        bigPDF += "\n"
+
+        strNew += "\n\end{document}"
+        # print(strNew)
         
-    lines = weekly.readlines()
+        write_if_different("generated/notes/activity-snippets-flat/" + filename, strNew)
 
-    strNew = ""
-    for line in reversed(lines):
-        if(line.startswith("%!") or line.startswith("\n")):
-            lines.remove(line)
-        
-    strNew += opening
-
-    for line in lines:
-        strNew += line
-        bigPDF += line
-
-    bigPDF += "\n"
-
-    strNew += "\n\end{document}"
-    # print(strNew)
-
-# Mia commented 
-#    write_if_different("generated/notes/activity-snippets-flat/" + filename, strNew)
-#
-#bigPDF += "\n\end{document}"
-#write_if_different("generated/notes/activity-snippets-flat/full-definition.tex", bigPDF)
+    bigPDF += "\n\end{document}"
+    write_if_different("generated/notes/activity-snippets-flat/full-definition.tex", bigPDF)
