@@ -24,7 +24,7 @@ for big in outcomeData:
         # Value: html
         key = small + str(count)
         html = outcomeData[big]['Children'][med]['file']
-        outcome[key] = html
+        outcome[key.lower()] = html
         count += 1
 
 
@@ -50,7 +50,8 @@ for entry in os.scandir(files):
 
         # only get activity-snippets with definition in it
         if("definition" in strName):
-            outcome[strName] = (file)
+            outcome[strName.lower()] = (file)
+
 
 # Sort the elements
 outcome = collections.OrderedDict(sorted(outcome.items()))
@@ -60,6 +61,8 @@ content = ""
 
 content += "<h1> "
 alphabet = []
+
+print(outcome)
 
 for i in outcome:
     if(i[0] not in alphabet):
@@ -108,7 +111,8 @@ for j in alphabet:
                 content += """<p>""" + key[:-1] + """  {<a href=\"""" + outcome[key] + """?box=""" + key[len(key) -1] + """\">Learning outcome</a>}</p>\n"""
             # For application
             elif(key[len(key) -1] == "#"):
-                content += """<p>""" + key[:-1] + """   {<a href=\"""" + outcome[key]  + """\">Application</a>}</p>\n"""
+                content += """<p>""" + key[:-1] + """   {<a href=\"""" + outcome[key].replace('#','')  + """\">Application</a>}</p>\n"""
+                # print(outcome[key].replace('#',''))
             # For activity-snippets
             else:
                 if(key in contents):
