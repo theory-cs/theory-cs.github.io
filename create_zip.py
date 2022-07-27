@@ -46,7 +46,7 @@ def zip_file(filename, path):
     #to the zip file
     for line in texString:
         if ("\includegraphics" in line):
-            replaced = line.replace("../","").replace("resources/images/","")
+            replaced = line.replace("../","").replace("resources/machines/","")
             #DEBUG
             #print(replaced)
             newTexString += replaced 
