@@ -264,8 +264,8 @@ in the assignment called ``HW5CSE105Sp22''.
     Consider the Turing machines below, with input alphabet $\Sigma = \{0,1\}$, tape alphabet 
     $\{0, 1, \textvisiblespace\}$, and state diagrams (with the usual conventions):
     \begin{center}
-    \includegraphics[width=1in]{resources/machines/Lect22TM1.png}\qquad\hfill \qquad
-    \includegraphics[width=2in]{resources/machines/Lect22TM2.png}
+    \includegraphics[width=1in]{Lect22TM1.png}\qquad\hfill \qquad
+    \includegraphics[width=2in]{Lect22TM2.png}
     \end{center}
     \begin{enumerate}
     \item Give an example string that is in both $A_{TM}$ and $HALT_{TM}$ and that is related to one of the 
@@ -290,7 +290,7 @@ in the assignment called ``HW5CSE105Sp22''.
     \item Find sets $A, B$ for which  the computable function
     \begin{align*}
     F &= \text{``On input $x$} \\
-    &\text{1. Output $\langle \includegraphics[width=0.5in]{resources/machines/Lect22TM1.png} , 00\rangle$."}
+    &\text{1. Output $\langle \includegraphics[width=0.5in]{Lect22TM1.png} , 00\rangle$."}
     \end{align*}
     
     witnesses the mapping reduction $A  \leq_m B$.
@@ -303,12 +303,12 @@ in the assignment called ``HW5CSE105Sp22''.
     \begin{align*}
     G &= \text{``On input $x$} \\
     &\text{1. Check if $x = \langle M, w \rangle$ for $M$ a Turing machine and $w$ a string. If so, go to  step 3.}\\
-    &\text{2. If not, output  $\langle \includegraphics[width=0.5in]{resources/machines/hw5tm1.png},   \includegraphics[width=1in]{resources/machines/Lect22TM2.png} \rangle$.}\\
+    &\text{2. If not, output  $\langle \includegraphics[width=0.5in]{hw5tm1.png},   \includegraphics[width=1in]{Lect22TM2.png} \rangle$.}\\
     &\text{3. Construct the Turing machine $M'_x = $ ``On input $y$,} \\
     &\text{\qquad 1. If $y$ has a positive and odd length, reject.}\\
     &\text{\qquad 2. Else, if $y$ has a positive and even length, accept.}\\
     &\text{\qquad 3. Otherwise, run $M$ on $w$ and, if the computation halts, accept $y$."}\\
-    &\text{4. Output  $\langle M'_x , \includegraphics[width=1in]{resources/machines/Lect22TM2.png}\rangle$."}
+    &\text{4. Output  $\langle M'_x , \includegraphics[width=1in]{Lect22TM2.png}\rangle$."}
     \end{align*}
     
     \vspace{-10pt}
@@ -324,7 +324,7 @@ in the assignment called ``HW5CSE105Sp22''.
     \begin{align*}
     H &= \text{``On input $x$} \\
     &\text{1. Check if $x = \langle M, w \rangle$ for $M$ a Turing machine and $w$ a string. If so, go to  step 3.}\\
-    &\text{2. If not, output  $\langle \includegraphics[width=1in]{resources/machines/hw5tm2.png}\rangle$.}\\
+    &\text{2. If not, output  $\langle \includegraphics[width=1in]{hw5tm2.png}\rangle$.}\\
     &\text{3. Construct the Turing machine $M'_x = $ ``On input $y$,} \\
     &\text{\qquad 1. If $y \neq w$, reject.}\\
     &\text{\qquad 2. Otherwise, run $M$ on $w$.}\\
