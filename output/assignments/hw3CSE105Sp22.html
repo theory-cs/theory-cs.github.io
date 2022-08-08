@@ -149,10 +149,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: 1;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -469,26 +474,26 @@ sufficiently general and correct argument for why there is no way to
 choose the set of accept states to satisfy this requirement.</p></li>
 </ol></li>
 </ol>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>This means you will get full credit
-so long as your submission demonstrates honest effort to answer the
-question. You will not be penalized for incorrect answers. To
-demonstrate your honest effort in answering the question, we ask that
-you include your attempt to answer *each* part of the question. If you
-get stuck with your attempt, you can still demonstrate your effort by
-explaining where you got stuck and what you did to try to get unstuck.<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>This means your solution will be
-evaluated not only on the correctness of your answers, but on your
-ability to present your ideas clearly and logically. You should explain
-how you arrived at your conclusions, using mathematically sound
-reasoning. Whether you use formal proof techniques or write a more
-informal argument for why something is true, your answers should always
-be well-supported. Your goal should be to convince the reader that your
-results and methods are sound.<a href="#fnref2" class="footnote-back"
+<li id="fn1"><p>This means you will get full credit so long as your
+submission demonstrates honest effort to answer the question. You will
+not be penalized for incorrect answers. To demonstrate your honest
+effort in answering the question, we ask that you include your attempt
+to answer *each* part of the question. If you get stuck with your
+attempt, you can still demonstrate your effort by explaining where you
+got stuck and what you did to try to get unstuck.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This means your solution will be evaluated not only on
+the correctness of your answers, but on your ability to present your
+ideas clearly and logically. You should explain how you arrived at your
+conclusions, using mathematically sound reasoning. Whether you use
+formal proof techniques or write a more informal argument for why
+something is true, your answers should always be well-supported. Your
+goal should be to convince the reader that your results and methods are
+sound.<a href="#fnref2" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>

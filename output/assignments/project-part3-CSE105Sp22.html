@@ -149,10 +149,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: 1;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -248,7 +253,8 @@ id="task-2-proving-undecidability-with-mapping-reductions-written">Task
 machine and } |L(M)| = n\} \\
         X_{y} &amp; = \{ \langle M \rangle \mid \textrm{$M$ is a Turing
 machine and } y \in L(M)\} \\
-    \end{aligned}\]</span></p>
+    
+\end{aligned}\]</span></p>
 <p>Option 1: Pick a specific positive integer <span
 class="math inline">\(n\)</span> and you will show that <span
 class="math inline">\(L_n\)</span> is undecidable.</p>

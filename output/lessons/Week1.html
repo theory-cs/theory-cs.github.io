@@ -148,10 +148,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: 1;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -834,17 +839,16 @@ synchronously so that you can work through the homework problems
 *together*.</p>
 <p><span><strong>Pre class reading for next time</strong></span>: pages
 41-43 (figures 1.18, 1.19, 1.20)</p>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Page references are to the 3rd
-edition (International) of Siper’s Introduction to the Theory of
-Computation, available at the campus bookstore for under $20. Copies of
-the book are also available for those who can’t access the book to
-borrow from the course instructor, while supplies last
-(minnes@eng.ucsd.edu)<a href="#fnref1" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Page references are to the 3rd edition (International)
+of Siper’s Introduction to the Theory of Computation, available at the
+campus bookstore for under $20. Copies of the book are also available
+for those who can’t access the book to borrow from the course
+instructor, while supplies last (minnes@eng.ucsd.edu)<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>

@@ -148,10 +148,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: 1;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -255,8 +260,8 @@ languages</strong></span></p>
     &amp;\{ a^n b^n c^n \mid 0 \leq n , n \in \mathbb{Z}\}\\
     &amp;\{ a^i b^j c^k \mid 0 \leq i \leq j \leq k , i \in \mathbb{Z},
 j \in \mathbb{Z}, k \in \mathbb{Z}\}\\
-    &amp;\{ ww \mid w \in \{0,1\}^* \}\end{aligned}\]</span> (Sipser Ex
-2.36, Ex 2.37, 2.38)</p>
+    &amp;\{ ww \mid w \in \{0,1\}^* \}
+\end{aligned}\]</span> (Sipser Ex 2.36, Ex 2.37, 2.38)</p>
 <p>There is a Pumping Lemma for CFL that can be used to prove a specific
 language is non-context-free: If <span class="math inline">\(A\)</span>
 is a context-free language, there there is a number <span
