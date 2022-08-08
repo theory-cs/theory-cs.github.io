@@ -1,3 +1,4 @@
+from email.mime import base
 from zipfile import ZipFile
 import re
 from os.path import basename
@@ -9,7 +10,6 @@ def zip_file(filename, path):
     
     #new path of the tex file
     newPath=  "generated/notes/"+path+"/new-"+filename+".tex"
-    print(path)
     
     #file object of the tex file, opened from current path
     texFile=""; 
@@ -46,6 +46,7 @@ def zip_file(filename, path):
     #to the zip file
     for line in texString:
         if ("\includegraphics" in line):
+            # print(line)
             replaced = line.replace("../","").replace("resources/machines/","")
             #DEBUG
             # print(replaced)
@@ -55,11 +56,18 @@ def zip_file(filename, path):
             #handles edge case where things like "\begin{center}"  
             # is on the same line as image, as we are taking the filename from between brackets 
             # and "center" does not count as an image name
-            imageFile = re.findall(r'\{.*?\}', line)
+            # imageFile = re.findall(r'\{.*?\}', line)
+            imageFile = re.findall("\{([^]]+)\}", line)
+            # imageFile = re.findall("/^(.*?);/", line)
             for element in imageFile :
+                print(element)
                 if "/machines" in element:
                     element = element.replace("{","").replace("}","").replace("../","")
+                    result = element.index(".")
+                    print(result)
+                    element = element[:result+4]
                     imageList.append(element) 
+                    print(imageList)
 
         else : 
             newTexString += line
@@ -70,15 +78,18 @@ def zip_file(filename, path):
 
     #set(imageList) will remove any duplicates of the same image file name 
     imageList = list(set(imageList))
-    print(imageFile)
+    # print(imageFile)
 
     #DEBUG
     #nlines=texString.count('\n')
     #print(nlines)
     #print(filename)
-    #print(imageList)
+    # print(imageList)
+    for i in imageList:
+         print(i)
 
     if(len(imageList)!=0):
+        # print(newPath)
         zipObj.write(newPath,basename(newPath))
         for element in imageList:
             zipObj.write(element, basename(element)) 
@@ -89,4 +100,4 @@ def zip_file(filename, path):
         return "../notes/"+path+"/"+filename+".tex"
 
 #DEBUG test
-# zip_file("Week4", "lessons-flat")
+zip_file("hw5CSE105Sp22", "assignments-flat")
