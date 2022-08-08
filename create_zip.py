@@ -9,13 +9,14 @@ def zip_file(filename, path):
     
     #new path of the tex file
     newPath=  "generated/notes/"+path+"/new-"+filename+".tex"
+    print(path)
     
     #file object of the tex file, opened from current path
     texFile=""; 
     try: 
             texFile = open(currentPath, "r+")
     except IOError as e:
-            print(e)
+            # print(e)
             return ""
     texString = texFile.readlines()
 
@@ -33,7 +34,6 @@ def zip_file(filename, path):
         return ""
     
     
-
     #image list with image file names such as "image.png"
     imageList = [] 
 
@@ -48,7 +48,7 @@ def zip_file(filename, path):
         if ("\includegraphics" in line):
             replaced = line.replace("../","").replace("resources/machines/","")
             #DEBUG
-            #print(replaced)
+            # print(replaced)
             newTexString += replaced 
             
             #include graphics in regex 
@@ -57,9 +57,10 @@ def zip_file(filename, path):
             # and "center" does not count as an image name
             imageFile = re.findall(r'\{.*?\}', line)
             for element in imageFile :
-                if "/images" in element:
+                if "/machines" in element:
                     element = element.replace("{","").replace("}","").replace("../","")
                     imageList.append(element) 
+
         else : 
             newTexString += line
         
@@ -69,6 +70,7 @@ def zip_file(filename, path):
 
     #set(imageList) will remove any duplicates of the same image file name 
     imageList = list(set(imageList))
+    print(imageFile)
 
     #DEBUG
     #nlines=texString.count('\n')
@@ -87,4 +89,4 @@ def zip_file(filename, path):
         return "../notes/"+path+"/"+filename+".tex"
 
 #DEBUG test
-#zip_file("Week2", "lessons-flat")
+# zip_file("Week4", "lessons-flat")
