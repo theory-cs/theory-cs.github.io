@@ -101,7 +101,7 @@ body {
 }
 
 .calendar-margin{
-    margin-left: 100px;
+    margin-left: 10%;
 }
 
 @media screen and (max-width: 600px) {
