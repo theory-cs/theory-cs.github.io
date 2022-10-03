@@ -52,7 +52,7 @@
                         "Description": "Use context-free grammars and relate them to languages and pushdown automata."
                     }
                 },
-                "Icon": "Models",
+                "Icon": "M",
                 "file": "models.html"
             }
         }
@@ -75,7 +75,7 @@
                         "Description": "Use appropriate reduction (e.g. mapping, Turing, polynomial-time) to deduce the complexity of a language by comparing to the complexity of another."
                     }
                 },
-                "Icon": "Apply",
+                "Icon": "CT",
                 "file": "apply.html"
             }
         }
