@@ -31,22 +31,88 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sidebarStyle.css">
 
-
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' >
+	<link rel="shortcut icon" href="../resources/images/wood-951875_960_720.jpeg" type="image/x-icon">
 </head>
 
 
-<body>
++<body style="margin-top: 1%; margin-left: 10%;margin-right: 10%;">
   <!-- Navigation Bar -->
-  <div class="topnav" style="margin-left: 0%;">
-    <a href="overview_calendar.html" style="font-size: 155%;">Spring 2022 Home</a>
-    <div class="topnav-right">
-      <a class="active"  style="font-size: 140%;" href="courseInfo.html">Spring 2022 Course Info</a>
-    </div>
-  </div>
+  
+
+  <!-- Insert sidebar -->
+   <div class="sidebar"id="unit">
+		<li><a href= " index.html" aria-label="Go to Home "><i class='bx bx-home-smile'></i><span class="links_name"> Home</span></a><span class="tooltip"> Home</span></li>
+	
+			
+			<ul class="nav-list">
+			
+			<li>
+				<a href=overview_calendar.html aria-label="Go toCalendar">
+					<i class='bx bx-calendar'></i>
+					<span class="links_name">Calendar</span>
+				</a>
+				<span class="tooltip">Calendar</span>
+			</li><li><a href= " courseInfo.html" aria-label="Go to Courseinfo "><i class='bx bxs-book-content'></i><span class="links_name"> Courseinfo</span></a><span class="tooltip"> Courseinfo</span></li>
+<li><a href= " assignments.html" aria-label="Go to Assignments "><i class='bx bxs-detail'></i><span class="links_name"> Assignments</span></a><span class="tooltip"> Assignments</span></li>
+<li><a href= " glossary.html" aria-label="Go to Glossary "><i class='bx bxs-book-open'></i><span class="links_name"> Glossary</span></a><span class="tooltip"> Glossary</span></li>
+<li><a href= " supplemental_videos.html" aria-label="Go to Supplemental Videos "><i class='bx bxs-videos'></i><span class="links_name"> Supplemental Videos</span></a><span class="tooltip"> Supplemental Videos</span></li>
+<li><a href= " office_hours.html" aria-label="Go to Office Hours "><i class='bx bxs-help-circle'></i><span class="links_name"> Office Hours</span></a><span class="tooltip"> Office Hours</span></li>
+</ul> </div> 
+	        <script>
+		    let sidebar = document.querySelector(".sidebar");
+		    let closeBtn = document.querySelector("#btn");
+		
+		    closeBtn.addEventListener("click", ()=>{
+			    sidebar.classList.toggle("open");
+			    menuBtnChange();//calling the function(optional)
+		    });
+		
+		    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+			    sidebar.classList.toggle("open");
+			    menuBtnChange(); //calling the function(optional)
+		    });
+		
+		    // following are the code to change sidebar button(optional)
+		    function menuBtnChange() {
+			    if(sidebar.classList.contains("open")){
+				    closeBtn.classList.replace("bx-chevron-right", "bx-chevron-left");//replacing the iocns class
+			    }
+			    else {
+				    closeBtn.classList.replace("bx-chevron-left","bx-chevron-right");//replacing the iocns class
+			    }
+		    }
+	        </script>
+
+  <!-- Insert mobile sidebar-->
+   <div id="mySidebar" class="collapsedSidebar">
+			<a href=courseInfo.html class="homeMobile"> CSE105Sp22</a> <!--NAME-->
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×&nbsp;</a>
+			<a href=overview_calendar.html>Calendar</a><a href="assignments.html"> Assignments </a><a href="glossary.html"> Glossary </a><a href="supplemental_videos.html"> Supplemental Videos </a><a href="supplemental_videos.html"> Office Hours </a><a href= "unit1.html"">Week 1</a><a href= "unit2.html"">Week 2</a><a href= "unit3.html"">Week 3</a><a href= "unit4.html"">Week 4</a><a href= "unit5.html"">Week 5</a><a href= "unit6.html"">Week 6</a><a href= "unit7.html"">Week 7</a><a href= "unit8.html"">Week 8</a><a href= "unit9.html"">Week 9</a><a href= "unit10.html"">Week 10</a><a href= "unit11.html"">Finals week</a> </div>
+
+		<div class="openbutton">
+			<button class="openbtn"  onclick="openNav()">☰ Menu</button> 
+		</div> 
+		  
+		<script>
+		  function openNav() {
+			document.getElementById("mySidebar").style.width = "100%";
+			document.getElementById("content").style.marginLeft = "100%";
+		  }
+		  
+		  function closeNav() {
+			document.getElementById("mySidebar").style.width = "0";
+			document.getElementById("content").style.marginLeft= "0";
+		  }
+		</script>
+		
+
+
   <!-- Overview -->
-  <div class="row" style="margin-left: 5%;margin-right: 5%;">
-    <h1 style="margin-top: 100px;">Theory of Computation
+  <div class="row">
+    <h1>Theory of Computation
     </h1>
     <h2>CSE105Sp22</h2>
     <h3>
@@ -80,7 +146,7 @@
     </p>
   </div>
   <!-- Syllabus -->
-  <div class="row" style="margin-left: 5%;margin-right: 5%;">
+  <div class="row">
     <h2>Syllabus</h2>
     <p>Here are our plans for CSE 105 this quarter, keeping in mind we may need to be flexible
       in response to campus and public health guidance.
@@ -123,7 +189,7 @@
     </ul>
   </div>
   <!-- Team Carousel -->
-  <div class="row" style="margin-left: 5%;margin-right: 5%;">
+  <div class="row">
     <a name="team"></a>
     <div id="teamCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
      
@@ -252,7 +318,7 @@
     </div>
   </div>
   <!-- Resources -->
-  <div class="row" style="margin-left: 5%;margin-right: 5%;">
+  <div class="row">
     <h2>Resources</h2>
 
     <p>We encourage you to work on homework in groups of up to three CSE 105 classmates. 
@@ -509,7 +575,7 @@
   </div>
 
 
-  <div class="row" style="margin-left: 5%;margin-right: 5%;">
+  <div class="row">
     <a name="policy"></a>
     <h2>Policies</h2>
 
@@ -569,7 +635,7 @@
 
 
 
-  <div class="row" style="margin-left: 5%;margin-right: 5%;">
+  <div class="row">
 
     <h2>Learning goals</h2>
     <p>You can find the learning outcomes for CSE 105 in this

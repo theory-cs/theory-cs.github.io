@@ -34,6 +34,18 @@
     float: right;
 }
 
+.header {
+    height: 80vh;
+    background: url('../../resources/images/Red_flowers_at_Carlsbad.jpeg');
+ /* flex-box thing */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ background-size: cover; 
+ margin-bottom: 30px;
+}
+
 h1 {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-style: normal;
@@ -361,7 +373,7 @@ label {
     margin-bottom: 0%;
     bottom:0%;
     width:100%;
-    position: fixed;
+    /* position: fixed; */
    left: 0;
    bottom: 0;
    width: 100%;
