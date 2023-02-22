@@ -1,4 +1,5 @@
 [
+    ["courseInfo.html", "bx bxs-book-content"],
     ["assignments.html", "bx bxs-detail"],
     ["glossary.html", "bx bxs-book-open"],
     ["supplemental_videos.html", "bx bxs-videos"],

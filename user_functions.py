@@ -11,12 +11,13 @@ def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon
 	#unit view must have smaller width
 	if(smallWidth):
 		sidebarButtons+= """id=\"unit\""""
-	sidebarButtons+="""><div class="logo-details"><div class="logo_name">
-	<i class='bx bx-home-smile'></i> </div> """
+	sidebarButtons+=""">"""
+	
+	sidebarButtons += """
+		<li><a href= " index.html" aria-label="Go to Home "><i class='bx bx-home-smile'></i><span class="links_name"> Home</span></a><span class="tooltip"> Home</span></li>
+	"""
 
-	sidebarButtons += """ <a href=""" + titleHref +""" class="logo_name">""" + titleName + """</a> <!--NAME-->
-			<i class='bx bx-chevron-right' id="btn" ></i>
-			</div>
+	sidebarButtons += """
 			
 			<ul class="nav-list">
 			
@@ -223,7 +224,7 @@ for element in sidebarButtonsUnitData:
 	sidebarUnitButtonsContent += """<span class="links_name"> """ + name + """</span>"""
 	sidebarUnitButtonsContent += "</a>"
 	sidebarUnitButtonsContent += """<span class="tooltip"> """ + name + """</span>"""
-	sidebarUnitButtonsContent += "</li>"
+	sidebarUnitButtonsContent += "</li>\n"
 
 sidebars = {
 	'application': build_sidebar("index.html", websiteData['Global Class Name'], "overview_application.html", "Overview", "'bx bxs-shapes'", appButtonsContent,bool(False)),
