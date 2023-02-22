@@ -7,9 +7,6 @@
   <title>regular-expressions</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -84,9 +84,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -688,18 +689,21 @@ arrows)</p></li>
 <li><p>The number of strings that are accepted by the machine</p></li>
 <li><p>The length of each computation of the machine</p></li>
 </ul>
-<p><img src="../../resources/machines/Lect2DFA1.png" style="width:3in"
-alt="image" /></p>
+<figure>
+<img src="../../resources/machines/Lect2DFA1.png" style="width:3in" />
+</figure>
 <p>The formal definition of this DFA is</p>
 <p>Classify each string <span class="math inline">\(a, aa, ab, ba, bb,
 \varepsilon\)</span> as accepted by the DFA or rejected by the DFA.</p>
 <p><span><em>Why are these the only two options?</em></span></p>
 <p>The language recognized by this DFA is</p>
-<p><img src="../../resources/machines/Lect2DFA2.png" style="width:3in"
-alt="image" /></p>
+<figure>
+<img src="../../resources/machines/Lect2DFA2.png" style="width:3in" />
+</figure>
 <p>The language recognized by this DFA is</p>
-<p><img src="../../resources/machines/Lect2DFA3.png" style="width:3in"
-alt="image" /></p>
+<figure>
+<img src="../../resources/machines/Lect2DFA3.png" style="width:3in" />
+</figure>
 <p>The language recognized by this DFA is</p>
 </body>
 </html>

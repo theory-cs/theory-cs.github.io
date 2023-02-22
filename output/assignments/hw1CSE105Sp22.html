@@ -8,9 +8,6 @@
   <title>HW1 : Regular Expressions and Deterministic Finite Automata</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -29,13 +26,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -85,9 +85,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -359,8 +360,8 @@ your DFA works.</p></li>
 below.</p>
 <figure>
 <img src="../../resources/machines/hw1dfaCSE105Sp22.png"
-style="width:3in" alt="State diagram for DFA C" />
-<figcaption aria-hidden="true">State diagram for DFA <span
+style="width:3in" />
+<figcaption>State diagram for DFA <span
 class="math inline">\(C\)</span></figcaption>
 </figure>
 <p>Suppose someone tells you that the formal definition of this DFA is
