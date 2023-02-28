@@ -9,7 +9,7 @@
     "IncludeUngroupedSnippets": true,
     "Podcast": "https://podcast.ucsd.edu/watch/sp23/cse105_a00",
     "Annotated": "-annotated",
-    "Office Hours": "",
+    "Office Hours": "<iframe src=\"https://calendar.google.com/calendar/embed?src=c_t1pnvcfnuhb8gu83kb21m188cg%40group.calendar.google.com&ctz=America%2FLos_Angeles\" style=\"border: 0\" width=\"100%\" height=\"600\" frameborder=\"0\" scrolling=\"no\"></iframe>",
     "Compiled Activity Snippets": "False",
     "Compiled Assignments": "True"
 }

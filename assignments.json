@@ -1,47 +1,49 @@
 [
    {
-      "name": "hw1CSE105Sp22",
+      "name": "hw1CSE105Sp23",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw1CSE105Sp22-solutions.pdf"
+      "solutionsFile": ""
    },
    {
-      "name": "hw2CSE105Sp22",
+      "name": "hw2CSE105Sp23",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw2CSE105Sp22-solutions.pdf"
+      "solutionsFile": ""
    },
    {
-      "name": "hw3CSE105Sp22",
+      "name": "hw3CSE105Sp23",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw3CSE105Sp22-solutions.pdf"
+      "solutionsFile": ""
    },
    {
-      "name": "hw4CSE105Sp22",
+      "name": "hw4CSE105Sp23",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw4CSE105Sp22-solutions.pdf"
+      "solutionsFile": ""
    },
    {
-      "name": "hw5CSE105Sp22",
+      "name": "hw5CSE105Sp23",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw5CSE105Sp22-solutions.pdf"
+      "solutionsFile": ""
    },
    {
-      "name": "project-part1-CSE105Sp22",
+      "name": "hw6CSE105Sp23",
+      "addExtensions": true,
+      "Information": "This is a group optional assignment",
+      "solutionsFile": ""
+   },
+   {
+      "name": "projectCSE105Sp23",
       "addExtensions": false,
       "Information": "This is an Individual Assignment"
    },
    {
-      "name": "project-part2-CSE105Sp22",
+      "name": "hw7CSE105Sp23",
       "addExtensions": true,
-      "Information": "This is an Individual Assignment"
-   },
-   {
-      "name": "project-part3-CSE105Sp22",
-      "addExtensions": true,
-      "Information": "This is an Individual Assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": ""
    }
 ]
