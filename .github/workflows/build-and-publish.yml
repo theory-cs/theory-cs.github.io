@@ -54,6 +54,7 @@ jobs:
           echo "/usr/local/opt" >> $GITHUB_PATH
           echo "/Library/TeX/texbin" >> $GITHUB_PATH
           brew install pandoc
+          echo "completed installing dependencies"
 
       - name: Create copy of website using makefile
         run: |
