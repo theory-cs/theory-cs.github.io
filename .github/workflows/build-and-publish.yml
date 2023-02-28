@@ -43,14 +43,7 @@ jobs:
       - name: Download and install dependencies
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          # https://formulae.brew.sh/cask/mactex-no-gui has a link to
-          # http://mirror.ctan.org/systems/mac/mactex/mactex-20210328.pkg which
-          # is a 404. At http://mirror.ctan.org/systems/mac/mactex/ you can see
-          # this was updated. Try just fetching and installing that .pkg
-          # directly as a workaround until brew formula fixed.
-          wget -q "https://mirrors.concertpass.com/tex-archive/systems/mac/mactex/mactex-20220321.pkg"
-          # https://apple.stackexchange.com/questions/72226/installing-pkg-with-terminal
-          sudo installer -pkg ./mactex-20220321.pkg -target /
+          brew install --cask mactex-no-gui
           echo "/usr/local/opt" >> $GITHUB_PATH
           echo "/Library/TeX/texbin" >> $GITHUB_PATH
           brew install pandoc
