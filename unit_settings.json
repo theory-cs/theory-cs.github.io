@@ -2,7 +2,7 @@
     {
         "header": "Week 1",
         "outcomes": "Alphabet, languages, and expressions",
-        "CalendarInfo": " Dates: 4/3/23 - 4/7/23<br> Welcome! See you Monday in Warren Lecture Hall (A00) or Center Hall (B00). Please take our <a href=\"https://forms.gle/sohU9ZQQmP5XqJ4g9\" target=\"_blank\">pre-class survey</a>. Classes meet Monday, Wednesday, Friday at 9am (A00) or 12pm (B00)",
+        "CalendarInfo": " Dates: 4/3/23 - 4/8/23<br> Welcome! Please take our <a href=\"https://forms.gle/sohU9ZQQmP5XqJ4g9\" target=\"_blank\">pre-class survey</a>. See you Monday 9am in Warren Lecture Hall 2001 (A00) or 12pm in Center Hall 105 (B00). Notes for class are linked below. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Wednesdays at 6pm in York 2722 and Fridays at 4pm in CENTER 216. ",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -82,7 +82,7 @@
     {
         "header": "Week 2",
         "outcomes": "Regular languages and nondeterminism",
-        "CalendarInfo": " Dates: 4/10/23 - 4/14/23",
+        "CalendarInfo": " Dates: 4/10/23 - 4/15/23",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -175,7 +175,7 @@
     {
         "header": "Week 3",
         "outcomes": "Automata constructions and nonregular languages",
-        "CalendarInfo": " Dates: 4/17/23 - 4/21/23",
+        "CalendarInfo": " Dates: 4/17/23 - 4/22/23",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -259,7 +259,7 @@
     {
         "header": "Week 4",
         "outcomes": "Pumping Lemma and Pushdown Automata",
-        "CalendarInfo": " Dates: 4/24/23 - 4/28/23",
+        "CalendarInfo": " Dates: 4/24/23 - 4/29/23",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -339,7 +339,7 @@
     {
         "header": "Week 5",
         "outcomes": "Context-free grammars, context-free languages, and Turing machines",
-        "CalendarInfo": " Dates: 5/1/23 - 5/5/23. Midterm exam in class this week.",
+        "CalendarInfo": " Dates: 5/1/23 - 5/6/23. Midterm exam in class this week.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -456,7 +456,7 @@
     {
         "header": "Week 6",
         "outcomes": "Describing Turing machines and algorithms",
-        "CalendarInfo": " Dates: 5/8/23 - 5/12/23",
+        "CalendarInfo": " Dates: 5/8/23 - 5/13/23",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -544,7 +544,7 @@
     {
         "header": "Week 7",
         "outcomes": "Computational problems: decidable and undecidable",
-        "CalendarInfo": " Dates: 5/15/23 - 5/19/23",
+        "CalendarInfo": " Dates: 5/15/23 - 5/20/23",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -612,7 +612,7 @@
     {
         "header": "Week 8",
         "outcomes": "How undecidable: mapping reductions and the halting problem",
-        "CalendarInfo": " Dates: 5/22/23 - 5/26/23",
+        "CalendarInfo": " Dates: 5/22/23 - 5/27/23",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -696,7 +696,7 @@
     {
         "header": "Week 9",
         "outcomes": "Reductions: mapping reductions and polynomial-time reductions.",
-        "CalendarInfo": " Dates: 5/29/23 - 6/2/23.  No class on Monday in observance of Memorial Day. Project is due this week.",
+        "CalendarInfo": " Dates: 5/29/23 - 6/3/23.  No class on Monday in observance of Memorial Day. Project is due this week.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -768,7 +768,7 @@
     {
         "header": "Week 10",
         "outcomes": "Complexity: P vs. NP",
-        "CalendarInfo": " Dates: 6/5/23 - 6/9/23.",
+        "CalendarInfo": " Dates: 6/5/23 - 6/10/23.",
         "ExpandInCalendar": false,
         "content": [
             {
