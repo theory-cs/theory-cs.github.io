@@ -70,6 +70,14 @@ h3 {
     color: #182B49;
 }
 
+h4 {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 150%;
+    color: #182B49;
+}
+
 .column dl{
     margin: 0;
     page-break-inside: avoid;           /* Theoretically FF 20+ */
@@ -208,7 +216,7 @@ p {
 
 ul {
     /*list-style:none;*/
-     font-size: 100%;
+     font-size: 140%;
      margin-left: 0%;
      text-decoration: none;
  }
@@ -414,7 +422,7 @@ label {
 }
 
 dl{
-    font-size: 150%;
+    font-size: 140%;
 }
 dd{
     margin-left: 30px;
