@@ -14,7 +14,7 @@ def build_sidebar(titleHref, titleName, overviewHref, overviewName, overviewIcon
 	sidebarButtons+=""">"""
 	
 	sidebarButtons += """
-		<li><a href= " index.html" aria-label="Go to Home "><i class='bx bx-home-smile'></i><span class="links_name"> Home</span></a><span class="tooltip"> Home</span></li>
+		<li><a href= " courseInfo.html" aria-label="Go to Home "><i class='bx bx-home-smile'></i><span class="links_name"> Home</span></a><span class="tooltip"> Home</span></li>
 	"""
 
 	sidebarButtons += """
