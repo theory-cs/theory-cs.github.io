@@ -200,40 +200,32 @@ href="http://caps.ucsd.edu">http://caps.ucsd.edu</a></p>
 href="http://ophd.ucsd.edu">http://ophd.ucsd.edu</a>. CARE at Sexual
 Assault Resource Center at 858 5345793 sarc@ucsd.edu <a
 href="http://care.ucsd.edu">http://care.ucsd.edu</a></p>
-<h2 class="unnumbered" id="spring-quarter-philosophy">Spring quarter
-philosophy</h2>
-<p>Spring 2022 is still a transition quarter so please be patient with
-us as we do our best to deliver a great learning opportunity that meets
-the needs of all students and adheres to the university guidelines.</p>
 <p>Please do not come to class if you are sick or even think you might
-be sick.</p>
-<p>Please reach out (minnes@eng.ucsd.edu) if you need support with
-extenuating circumstances.</p>
-<p>Based on current UCSD guidelines (as of March 21), masks are required
-in class. All students who attend class must also be fully vaccinated
-against COVID-19 unless they have a university-approved exemption. We
-will continue to follow the campus guidelines as updated on
+be sick. We will continue to follow the campus guidelines as updated on
 https://returntolearn.ucsd.edu/ .</p>
+<p>Please reach out (minnes@ucsd.edu or dgrier@ucsd.edu) if you need
+support with extenuating circumstances.</p>
 <h1 class="unnumbered" id="introductions">Introductions</h1>
 <p>Class website: <a
-href="https://cseweb.ucsd.edu/classes/sp22/cse105-a/">https://cseweb.ucsd.edu/classes/sp22/cse105-a/</a></p>
-<p><span><strong>Pro-tip</strong></span>: the URL structure is your map
-to finding your course website for other CSE classes.</p>
-<p>Instructor: Prof. Mia Minnes <span><span>"Minnes" rhymes with
-Guinness</span></span>, minnes@eng.ucsd.edu, <a
+href="https://canvas.ucsd.edu/courses/45073">https://canvas.ucsd.edu/courses/45073</a></p>
+<p>Instructor for A00: Prof. Mia Minnes <span><span>"Minnes" rhymes with
+Guinness</span></span>, minnes@ucsd.edu, <a
 href="http://cseweb.ucsd.edu/~minnes">http://cseweb.ucsd.edu/ minnes</a></p>
-<p>Our team: Six TAs and five tutors + all of you</p>
+<p>Instructor for B00: Prof. Daniel Grier, dgrier@ucsd.edu, <a
+href="http://danielgrier.com/">http://danielgrier.com/</a></p>
+<p>Our team: Two instructors + four TAs and nine tutors + all of you</p>
 <p>Fill in contact info for students around you, if you’d like:</p>
 <p>On a typical week: <span><strong>MWF</strong></span> Lectures +
-review quizzes, <span><strong>M</strong></span> Discussion,
-<span><strong>Th</strong></span> Homework / project due. Office hours
-and Q+A on Piazza available throughout the week. All dates are on <a
+review quizzes, <span><strong>Tu</strong></span> Homework due,
+<span><strong>WF</strong></span> Discussion. Office hours (hosted by
+instructors and TAs and tutors, where you can come to talk about course
+concepts and ask for help as you work through sample problems) and Q+A
+on Piazza available throughout the week. All dates are on <a
 href="https://canvas.ucsd.edu/">Canvas (click for link)</a> and details
-are on <a
-href="https://theory-cs.github.io/website/overview_calendar.html">course
-calendar (click for link)</a>.</p>
+are on <a href="https://canvas.ucsd.edu/courses/45073">the Syllabus
+page</a>.</p>
 <p>Welcome to CSE 105: Introduction to Theory of Computation in Spring
-2022!</p>
+2023!</p>
 <h1 class="unnumbered" id="cse-105s-big-questions">CSE 105’s Big
 Questions</h1>
 <ul>
@@ -495,12 +487,13 @@ alphabetical ordering for single letters:</p>
 <h2 class="unnumbered" id="review-week-1-monday">Review: Week 1
 Monday</h2>
 <ol>
-<li><p>Please complete the beginning of the quarter survey <a
-href="https://forms.gle/9AaEcwwN5EvcJ4qp9">https://forms.gle/9AaEcwwN5EvcJ4qp9</a></p></li>
+<li><p>Please complete the beginning of the quarter survey linked from
+our #FinAid Assignment on Canvas <a
+href="https://canvas.ucsd.edu/courses/45073/assignments/609253">https://canvas.ucsd.edu/courses/45073/assignments/609253?wrap=1</a></p></li>
 <li><p>We want you to be familiar with class policies and procedures so
 you are ready to have a successful quarter. Please take a look at the
-class website https://cseweb.ucsd.edu/classes/sp22/cse105-a/ and answer
-the questions about it on Gradescope.</p></li>
+syllabus on our class website https://canvas.ucsd.edu/courses/45073 and
+answer the questions about it on Gradescope.</p></li>
 </ol>
 <p>A summary of the terminology we will use is on page 16 in the
 textbook.</p>
@@ -510,12 +503,13 @@ Example 1.51, Definition 1.52</p>
 Expressions and then will come back to Section 1.1 Finite Automata on
 Friday.</p>
 <h2 class="unnumbered" id="week-1-wednesday">Week 1 Wednesday</h2>
-<p>Our motivation in studying sets of strings is that they encode
-problems.</p>
-<p>We need to describe the collection of all strings that match the
-pattern or property of a problem.</p>
-<p>Let’s start by thinking about how we can describe a language (a set
-of strings from a given alphabet).</p>
+<p>Our motivation in studying sets of strings is that they can be used
+to encode problems. To calibrate how difficult a problem is to solve, we
+describe how complicated the set of strings that encodes it is. How do
+we define sets of strings?</p>
+<p>How would you describe the language that has no elements at all?</p>
+<p>How would you describe the language that has all strings over <span
+class="math inline">\(\{0,1\}\)</span> as its elements?</p>
 <p><span><strong>Definition 1.52</strong></span>: A
 <span><strong>regular expression</strong></span> over alphabet <span
 class="math inline">\(\Sigma\)</span> is a syntactic expression that can
@@ -829,10 +823,10 @@ they accept and reject.</p>
 languages is given as Definition 1.23 on page 44 and a useful example is
 Example 1.24.</p>
 <p>The first homework assignment for CSE 105 this quarter is due next
-week. Find it on the class website, direct link: <a
-href="https://theory-cs.github.io/website/assignments.html">https://theory-cs.github.io/website/assignments.html</a>
-. Due: 4/7/22 at 5pm (no penalty late submission until 8am next
-morning)</p>
+week. Find it on the class website: in the Calendar section of the
+website, click on the link under "Due Dates" for Week 2, or find the
+detailed assignment in the Assignments section of the website. Due:
+4/11/23 at 5pm (no penalty late submission until 8am next morning)</p>
 <p>We encourage you to work on homework in groups of up to three CSE 105
 classmates. To find group members: reach out to people sitting around
 you in class, in discussion section, or during office hours. The
@@ -849,10 +843,11 @@ role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1"><p>Page references are to the 3rd edition (International)
-of Siper’s Introduction to the Theory of Computation, available at the
-campus bookstore for under $20. Copies of the book are also available
-for those who can’t access the book to borrow from the course
-instructor, while supplies last (minnes@eng.ucsd.edu)<a href="#fnref1"
+of Siper’s Introduction to the Theory of Computation, available through
+various sources for under $30. You may be able to opt in to purchase a
+digital copy through Canvas. Copies of the book are also available for
+those who can’t access the book to borrow from the course instructor,
+while supplies last (minnes@eng.ucsd.edu)<a href="#fnref1"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>

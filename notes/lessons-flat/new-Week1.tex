@@ -94,43 +94,37 @@ Counseling and Psychological Services (CAPS) at 858 5343755 or \href{http://caps
 OPHD at (858) 534-8298, ophd@ucsd.edu , \href{http://ophd.ucsd.edu}{http://ophd.ucsd.edu}. 
 CARE at Sexual Assault Resource Center at 858 5345793 sarc@ucsd.edu \href{http://care.ucsd.edu}{http://care.ucsd.edu}
 
-\subsection*{Spring quarter philosophy}
-Spring 2022 is still a transition quarter so please be patient with us as we do our best 
-to deliver a great learning opportunity that meets the needs of all students and adheres to the university guidelines. 
 
 Please do not come to class if you are sick or even think you might be sick.
-
-Please reach out (minnes@eng.ucsd.edu) if you need support with extenuating circumstances.
-
-Based on current UCSD guidelines (as of March 21), masks are required in class. 
-All students who attend class must also be fully vaccinated against COVID-19
-unless they have a university-approved exemption.
 We will continue to follow the campus guidelines as updated on https://returntolearn.ucsd.edu/ .
 
+Please reach out (minnes@ucsd.edu or dgrier@ucsd.edu) if you need support with extenuating circumstances.
 
 \newpage
 
 \section*{Introductions}
-Class website: \href{https://cseweb.ucsd.edu/classes/sp22/cse105-a/}{https://cseweb.ucsd.edu/classes/sp22/cse105-a/}
+Class website: \href{https://canvas.ucsd.edu/courses/45073}{https://canvas.ucsd.edu/courses/45073}
 
-{\bf Pro-tip}: the URL structure is your map to finding your course website for other CSE classes.
 
-Instructor: Prof. Mia Minnes {\tiny{"Minnes" rhymes with Guinness}}, minnes@eng.ucsd.edu, 
+Instructor for A00: Prof. Mia Minnes {\tiny{"Minnes" rhymes with Guinness}}, minnes@ucsd.edu, 
 \href{http://cseweb.ucsd.edu/~minnes}{http://cseweb.ucsd.edu/~minnes}
 
-Our team: Six TAs and five tutors + all of you
+Instructor for B00: Prof. Daniel Grier, dgrier@ucsd.edu, \href{http://danielgrier.com/}{http://danielgrier.com/}
+
+Our team: Two instructors + four TAs and nine tutors + all of you
 
 Fill in contact info for students around you, if you'd like:
 
 \vfill
 
 
-On a typical week: {\bf MWF} Lectures + review quizzes, {\bf M} Discussion, {\bf Th} Homework / project due.
-Office hours and Q+A on Piazza available throughout the week.
+On a typical week: {\bf MWF} Lectures + review quizzes, {\bf Tu} Homework due, {\bf WF} Discussion.
+Office hours (hosted by instructors and TAs and tutors, where you can come to talk 
+about course concepts and ask for help as you work through sample problems) and Q+A on Piazza available throughout the week.
 All dates are on \href{https://canvas.ucsd.edu/}{Canvas (click for link)} and details are on
- \href{https://theory-cs.github.io/website/overview_calendar.html}{course calendar (click for link)}.
+ \href{https://canvas.ucsd.edu/courses/45073}{the Syllabus page}.
 
-\newpage Welcome to CSE 105: Introduction to Theory of Computation in Spring 2022!
+\newpage Welcome to CSE 105: Introduction to Theory of Computation in Spring 2023!
 
 \section*{CSE 105's Big Questions}
 \begin{itemize}
@@ -172,7 +166,8 @@ We will use vocabulary that should be familiar from your discrete
 math and introduction to proofs classes.  Some of the notation conventions may 
 be a bit different: we will use the notation from this class' textbook\footnote{Page references are to 
 the 3rd edition (International) of Siper's Introduction to the Theory of Computation,
-available at the campus bookstore for under \$20. Copies of the book are also available 
+available through various sources for under \$30. You may be able to 
+opt in to purchase a digital copy through Canvas. Copies of the book are also available 
 for those who can't access the book
 to borrow from the course instructor, while supplies last (minnes@eng.ucsd.edu)}.
 
@@ -287,9 +282,10 @@ The first five strings over $\Sigma_2$ in string order, using the usual alphabet
 \newpage
 \subsection*{Review: Week 1 Monday}
 \begin{enumerate}
-\item Please complete the beginning of the quarter survey \href{https://forms.gle/9AaEcwwN5EvcJ4qp9}{https://forms.gle/9AaEcwwN5EvcJ4qp9}
+\item Please complete the beginning of the quarter survey linked from our \#FinAid
+Assignment on Canvas \href{https://canvas.ucsd.edu/courses/45073/assignments/609253}{https://canvas.ucsd.edu/courses/45073/assignments/609253?wrap=1}
 \item We want you to be familiar with class policies and procedures so you are ready to have a successful quarter. 
-Please take a look at the class website https://cseweb.ucsd.edu/classes/sp22/cse105-a/
+Please take a look at the syllabus on our class website https://canvas.ucsd.edu/courses/45073
 and answer the questions about it on Gradescope.
 \end{enumerate}
 
@@ -306,13 +302,22 @@ to Section 1.1 Finite Automata on Friday.
 
 
 
-Our motivation in studying sets of strings is that they encode problems.
+Our motivation in studying sets of strings is that they can be used to encode problems.
+To calibrate how difficult a problem is to solve, we describe how complicated the set of strings that encodes it is. 
+How do we define sets of strings?
 
-We need to describe the collection of all strings that match the pattern or property of a problem.
-
-Let's start by thinking about how we can describe a language (a set of strings from a given alphabet).
 
 \vfill
+
+How would you describe the language that has no elements at all?
+
+\vfill
+
+How would you describe the language that has all strings over $\{0,1\}$ as its elements?
+
+\vfill
+
+\newpage
 
 
 {\bf Definition 1.52}: A {\bf regular expression} over alphabet $\Sigma$
@@ -629,9 +634,9 @@ as Definition 1.23 on page 44 and a useful example is Example 1.24.
 
 
 The first homework assignment for CSE 105 this quarter is due next week. 
-Find it on the class website, direct link: 
-\href{https://theory-cs.github.io/website/assignments.html}{https://theory-cs.github.io/website/assignments.html} .
-Due: 4/7/22 at 5pm (no penalty late submission until 8am next morning)
+Find it on the class website: in the Calendar section of the website, click on the link under "Due Dates" for Week 2, or find
+the detailed assignment in the Assignments section of the website.
+Due: 4/11/23 at 5pm (no penalty late submission until 8am next morning)
 
 We encourage you to work on homework in groups of up to three CSE 105 classmates. 
 To find group members: reach out to people sitting around you in class, in discussion section, 
