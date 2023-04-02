@@ -206,7 +206,7 @@ unitMobileButtonsContent = ""
 unitMobileButtonsContent += "<a href=\"assignments.html\"> Assignments </a>"
 unitMobileButtonsContent += "<a href=\"glossary.html\"> Glossary </a>"
 unitMobileButtonsContent += "<a href=\"supplemental_videos.html\"> Supplemental Videos </a>"
-unitMobileButtonsContent += "<a href=\"supplemental_videos.html\"> Office Hours </a>"
+unitMobileButtonsContent += "<a href=\"office_hours.html\"> Office Hours </a>"
 for i in range(0,len(unitData)):
 	unitMobileButtonsContent += """<a href= \"""" + 'unit'+str(i+1) + """.html\"">""" + unitData[i]['header'] + """</a>"""
 
