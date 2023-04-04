@@ -171,6 +171,155 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week2-monday">Week2 monday</h1>
+<p><span><strong>Review</strong></span>: Formal definition of DFA: <span
+class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></p>
+<div class="center">
+<div class="multicols">
+<p><span>2</span></p>
+<ul>
+<li><p>Finite set of states <span
+class="math inline">\(Q\)</span></p></li>
+<li><p>Alphabet <span class="math inline">\(\Sigma\)</span></p></li>
+<li><p>Transition function <span
+class="math inline">\(\delta\)</span></p></li>
+<li><p>Start state <span class="math inline">\(q_0\)</span></p></li>
+<li><p>Accept (final) states <span
+class="math inline">\(F\)</span></p></li>
+</ul>
+</div>
+</div>
+<p>In the state diagram of <span class="math inline">\(M\)</span>, how
+many outgoing arrows are there from each state?</p>
+<p><span class="math inline">\(M = ( \{ q, r, s\}, \{a,b\}, \delta, q,
+\{s\} )\)</span> where <span class="math inline">\(\delta\)</span> is
+(rows labelled by states and columns labelled by symbols):</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(\delta\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(a\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(b\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(r\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(r\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(r\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(s\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(s\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(s\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(s\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The state diagram for <span class="math inline">\(M\)</span> is</p>
+<p>Give two examples of strings that are accepted by <span
+class="math inline">\(M\)</span> and two examples of strings that are
+rejected by <span class="math inline">\(M\)</span>:</p>
+<p>Add “labels" for states in the state diagram, e.g. “have not seen any
+of desired pattern yet” or “sink state”.</p>
+<p>We can use the analysis of the roles of the states in the state
+diagram to describe the language recognized by the DFA.</p>
+<p><span class="math inline">\(L(M) =\)</span></p>
+<p>A regular expression describing <span
+class="math inline">\(L(M)\)</span> is</p>
+<p>Let the alphabet be <span class="math inline">\(\Sigma_1 =
+\{0,1\}\)</span>.</p>
+<p>A state diagram for a DFA that recognizes <span
+class="math inline">\(\{w \mid w~\text{contains at most two $1$&#39;s}
+\}\)</span> is</p>
+<p>A state diagram for a DFA that recognizes <span
+class="math inline">\(\{w \mid w~\text{contains more than two $1$&#39;s}
+\}\)</span> is</p>
+<p><span><em>Extra example:</em></span> A state diagram for DFA
+recognizing <span class="math display">\[\{w \mid w~\text{is a string
+over $\{0,1\}$ whose length is not a multiple of $3$} \}\]</span></p>
+<p>Let <span class="math inline">\(n\)</span> be an arbitrary positive
+integer. What is a formal definition for a DFA recognizing <span
+class="math display">\[\{w \mid w~\text{is a string over $\{0,1\}$ whose
+length is not a multiple of $n$} \}?\]</span></p>
+<h1 class="unnumbered" id="week2-wednesday">Week2 wednesday</h1>
+<p>Suppose A is a language over an alphabet <span
+class="math inline">\(\Sigma\)</span>. By definition, this means A is a
+subset of <span class="math inline">\(\Sigma^*\)</span>.
+<span><strong>Claim:</strong></span> if there is a DFA <span
+class="math inline">\(M\)</span> such that <span
+class="math inline">\(L(M) = A\)</span> then there is another DFA, let’s
+call it <span class="math inline">\(M&#39;\)</span>, such that <span
+class="math inline">\(L(M&#39;) = \overline{A}\)</span>, the complement
+of <span class="math inline">\(A\)</span>, defined as <span
+class="math inline">\(\{ w \in \Sigma^* \mid w \notin A \}\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>:</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p>A useful (optional) bit of terminology: the <span><strong>iterated
+transition function</strong></span> of a DFA <span
+class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span> is
+defined recursively by <span class="math display">\[\delta^* (~(q,w)~)
+=\begin{cases}
+q  \qquad &amp;\text{if $q \in Q, w = \varepsilon$} \\
+\delta( ~(q,a)~) \qquad &amp;\text{if $q \in Q$, $w = a \in \Sigma$ } \\
+\delta(~(\delta^*(q,u), a) ~) \qquad &amp;\text{if $q \in Q$, $w = ua$
+where $u \in  \Sigma^*$ and $a \in \Sigma$}
+\end{cases}\]</span></p>
+<p>Using this terminology, <span class="math inline">\(M\)</span>
+accepts a string <span class="math inline">\(w\)</span> over <span
+class="math inline">\(\Sigma\)</span> if and only if <span
+class="math inline">\(\delta^*( ~(q_0,w)~) \in F\)</span>.</p>
+<p>Fix <span class="math inline">\(\Sigma = \{a,b\}\)</span>. A state
+diagram for a DFA that recognizes <span class="math inline">\(\{w \mid
+w~\text{has $ab$ as a substring and is of even length} \}\)</span>:</p>
+<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
+over an alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a DFA <span
+class="math inline">\(M_1\)</span> such that <span
+class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
+class="math inline">\(M_2\)</span> such that <span
+class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
+let’s call it <span class="math inline">\(M\)</span>, such that <span
+class="math inline">\(L(M) = A_1 \cap A_2\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>:</p>
+<p><span><strong>Formal construction</strong></span>:</p>
+<p><span><strong>Application</strong></span>: When <span
+class="math inline">\(A_1 = \{w \mid w~\text{has $ab$ as a substring}
+\}\)</span> and <span class="math inline">\(A_2 = \{ w \mid w~\text{is
+of even length} \}\)</span>.</p>
+<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
+over an alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a DFA <span
+class="math inline">\(M_1\)</span> such that <span
+class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
+class="math inline">\(M_2\)</span> such that <span
+class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
+let’s call it <span class="math inline">\(M\)</span>, such that <span
+class="math inline">\(L(M) = A_1 \cup A_2\)</span>. <span><em>Sipser
+Theorem 1.25, page 45</em></span></p>
+<p><span><strong>Proof idea</strong></span>:</p>
+<p><span><strong>Formal construction</strong></span>:</p>
+<p><span><strong>Application</strong></span>: A state diagram for a DFA
+that recognizes <span class="math inline">\(\{w \mid w~\text{has $ab$ as
+a substring or is of even length} \}\)</span>:</p>
 <h1 class="unnumbered" id="week1-wednesday">Week1 wednesday</h1>
 <p>Our motivation in studying sets of strings is that they can be used
 to encode problems. To calibrate how difficult a problem is to solve, we
