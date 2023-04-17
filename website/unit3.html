@@ -133,7 +133,13 @@
                 <a tabindex = "2" class="button PDF" aria-label="Download PDF" href=../output/lessons/Week3.pdf download>PDF</a>  <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
                     href=../notes/lessons-flat/Week3.zip download>LaTeX</a>  <a tabindex = "2" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
                     href= ../output/lessons/Week3.html target="HTML">Raw HTML</a><span style="font-weight: bold;
-					font-size: 100%;">&nbsp&nbsp&nbsp&nbsp Annotations</span> <br> <iframe class="PDFjs" id="Week3.tex" src="web/viewer.html?file=../../output/lessons/Week3.pdf" 
+					font-size: 100%;">&nbsp&nbsp&nbsp&nbsp Annotations</span>
+                    <label class="switch">
+                    <input type="checkbox" id="toggle-1">
+                    <span class="slider round"></span>
+                    </label>
+                     <script> document.getElementById("toggle-1").onclick = function() {annotations(
+                     1, "../output/lessons/Week3.pdf","../files/Week3-annotated.pdf", "Week3.tex")}; </script> <br> <iframe class="PDFjs" id="Week3.tex" src="web/viewer.html?file=../../output/lessons/Week3.pdf" 
                 title="webviewer" frameborder="0" width="100%" height="600"></iframe> 
         </div>
         <script>
