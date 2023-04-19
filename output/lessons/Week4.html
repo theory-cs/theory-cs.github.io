@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>find-example-languages</title>
+  <title>Week4</title>
   <style>
     html {
       color: #1a1a1a;
@@ -171,7 +171,7 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="week4-monday">Week4 monday</h1>
+<h1 class="unnumbered" id="monday">Monday</h1>
 <p>Recap so far: In DFA, the only memory available is in the states.
 Automata can only “remember” finitely far in the past and finitely much
 information, because they can have only finitely many states. If a
@@ -443,7 +443,79 @@ ww^\mathcal{R} \mid w\in \{a,b\}^* \}\)</span></td>
 </tbody>
 </table>
 </div>
-<h1 class="unnumbered" id="week4-friday">Week4 friday</h1>
+<h2 class="unnumbered" id="review-week-4-monday">Review: Week 4
+Monday</h2>
+<p>Recall: Review quizzes based on class material are assigned each day.
+These quizzes will help you track and confirm your understanding of the
+concepts and examples we work in class. Quizzes can be submitted on
+Gradescope as many times (with no penalty) as you like until the quiz
+deadline: the three quizzes each week are all due on Friday (with no
+penalty late submission open until Sunday).</p>
+<p>Please complete the review quiz questions on <a
+href="http://gradescope.com">Gradescope</a> about pumping lemma and
+nonregular sets.</p>
+<p><span><strong>Pre class reading for next time</strong></span>: Page
+112</p>
+<h2 class="unnumbered" id="wednesday">Wednesday</h2>
+<p>Regular sets are not the end of the story</p>
+<ul>
+<li><p>Many nice / simple / important sets are not regular</p></li>
+<li><p>Limitation of the finite-state automaton model: Can’t “count",
+Can only remember finitely far into the past, Can’t backtrack, Must make
+decisions in “real-time"</p></li>
+<li><p>We know actual computers are more powerful than this
+model...</p></li>
+</ul>
+<p>The <span><strong>next</strong></span> model of computation. Idea:
+allow some memory of unbounded size. How?</p>
+<ul>
+<li><p>To generalize regular expressions: <span><strong>context-free
+grammars</strong></span><br />
+</p></li>
+<li><p>To generalize NFA: <span><strong>Pushdown
+automata</strong></span>, which is like an NFA with access to a stack:
+Number of states is fixed, number of entries in stack is unbounded. At
+each step (1) Transition to new state based on current state, letter
+read, and top letter of stack, then (2) (Possibly) push or pop a letter
+to (or from) top of stack. Accept a string iff there is some sequence of
+states and some sequence of stack contents which helps the PDA processes
+the entire input string and ends in an accepting state.</p></li>
+</ul>
+<p><img src="../../resources/machines/Lect9PDA.png" style="width:4in"
+alt="image" /></p>
+<p>Trace the computation of this PDA on the input string <span
+class="math inline">\(01\)</span>.</p>
+<p>Trace the computation of this PDA on the input string <span
+class="math inline">\(011\)</span>.</p>
+<p><span><strong>Definition</strong></span> A <span><strong>pushdown
+automaton</strong></span> (PDA) is specified by a <span
+class="math inline">\(6\)</span>-tuple <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, F)\)</span> where <span
+class="math inline">\(Q\)</span> is the finite set of states, <span
+class="math inline">\(\Sigma\)</span> is the input alphabet, <span
+class="math inline">\(\Gamma\)</span> is the stack alphabet, <span
+class="math display">\[\delta: Q \times
+\Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times
+\Gamma_\varepsilon)\]</span> is the transition function, <span
+class="math inline">\(q_0 \in Q\)</span> is the start state, <span
+class="math inline">\(F \subseteq  Q\)</span> is the set of accept
+states.</p>
+<div class="multicols">
+<p><span>2</span> <span><em>Formal definition</em></span></p>
+<p>Draw the state diagram of a PDA with <span
+class="math inline">\(\Sigma = \Gamma\)</span>.</p>
+<p><img src="../../resources/machines/Lect9PDA.png"
+style="height:1.38889in" alt="image" /></p>
+<p>Draw the state diagram of a PDA with <span
+class="math inline">\(\Sigma \cap \Gamma = \emptyset\)</span>.</p>
+</div>
+<h2 class="unnumbered" id="review-week-4-wednesday">Review: Week 4
+Wednesday</h2>
+<p>Please complete the review quiz questions on <a
+href="http://gradescope.com">Gradescope</a> about PDA definitions.</p>
+<p><span><strong>Pre class reading for next time</strong></span>: Page
+102</p>
+<h2 class="unnumbered" id="friday">Friday</h2>
 <p><span><strong>Definition</strong></span> A <span><strong>pushdown
 automaton</strong></span> (PDA) is specified by a <span
 class="math inline">\(6\)</span>-tuple <span class="math inline">\((Q,
@@ -688,131 +760,9 @@ alt="image" /></td>
 </tbody>
 </table>
 </div>
-<h1 class="unnumbered" id="week3-friday">Week3 friday</h1>
-<p><span><strong>Theorem</strong></span>: For an alphabet <span
-class="math inline">\(\Sigma\)</span>, For each language <span
-class="math inline">\(L\)</span> over <span
-class="math inline">\(\Sigma\)</span>,</p>
-<div class="center">
-<p><span class="math inline">\(L\)</span> is recognized by some
-DFA<br />
-iff<br />
-<span class="math inline">\(L\)</span> is recognized by some NFA<br />
-iff<br />
-<span class="math inline">\(L\)</span> is described by some regular
-expression</p>
-</div>
-<p>If (any, hence all) these conditions apply, <span
-class="math inline">\(L\)</span> is called
-<span><strong>regular</strong></span>.</p>
-<p><span><strong>Prove or Disprove</strong></span>: There is some
-alphabet <span class="math inline">\(\Sigma\)</span> for which there is
-some language recognized by an NFA but not by any DFA.</p>
-<p><span><strong>Prove or Disprove</strong></span>: There is some
-alphabet <span class="math inline">\(\Sigma\)</span> for which there is
-some finite language not described by any regular expression over <span
-class="math inline">\(\Sigma\)</span>.</p>
-<p><span><strong>Prove or Disprove</strong></span>: If a language is
-recognized by an NFA then the complement of this language is not
-recognized by any DFA.</p>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Set</th>
-<th style="text-align: center;">Cardinality</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(\{0,1\}\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(\{0,1\}^*\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\mathcal{P}(
-\{0,1\})\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">The set of all languages over <span
-class="math inline">\(\{0,1\}\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">The set of all regular expressions over
-<span class="math inline">\(\{0,1\}\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">The set of all regular languages over
-<span class="math inline">\(\{0,1\}\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><span><strong>Pumping Lemma</strong></span> (Sipser Theorem 1.70): If
-<span class="math inline">\(A\)</span> is a regular language, then there
-is a number <span class="math inline">\(p\)</span> (a <span><em>pumping
-length</em></span>) where, if <span class="math inline">\(s\)</span> is
-any string in <span class="math inline">\(A\)</span> of length at least
-<span class="math inline">\(p\)</span>, then <span
-class="math inline">\(s\)</span> may be divided into three pieces, <span
-class="math inline">\(s = xyz\)</span> such that</p>
-<ul>
-<li><p><span class="math inline">\(|y| &gt; 0\)</span></p></li>
-<li><p>for each <span class="math inline">\(i \geq 0\)</span>, <span
-class="math inline">\(xy^i z \in A\)</span></p></li>
-<li><p><span class="math inline">\(|xy| \leq p\)</span>.</p></li>
-</ul>
-<p><span><strong>True or False</strong></span>: A pumping length for
-<span class="math inline">\(A = \{ 0,1 \}^*\)</span> is <span
-class="math inline">\(p = 5\)</span>.</p>
-<p><span><strong>True or False</strong></span>: A pumping length for
-<span class="math inline">\(A = \{1, 01, 001, 0001, 00001 \}\)</span> is
-<span class="math inline">\(p = 4\)</span>.</p>
-<p><span><strong>True or False</strong></span>: A pumping length for
-<span class="math inline">\(A = \{0^j 1 \mid  j \geq 0 \}\)</span> is
-<span class="math inline">\(p = 3\)</span>.</p>
-<p><span><strong>True or False</strong></span>: For any language <span
-class="math inline">\(A\)</span>, if <span
-class="math inline">\(p\)</span> is a pumping length for <span
-class="math inline">\(A\)</span> and <span class="math inline">\(p&#39;
-&gt; p\)</span>, then <span class="math inline">\(p&#39;\)</span> is
-also a pumping length for <span class="math inline">\(A\)</span>.</p>
+<h2 class="unnumbered" id="review-week-4-friday">Review: Week 4
+Friday</h2>
+<p>Please complete the review quiz questions on <a
+href="http://gradescope.com">Gradescope</a> about PDA construction.</p>
 </body>
 </html>
