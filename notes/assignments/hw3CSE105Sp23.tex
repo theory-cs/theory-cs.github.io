@@ -1,0 +1,222 @@
+\input{../../resources/assignment-head.tex}
+
+\title{HW3 : Nonregular Languages and Pushdown Automata}
+\date{Due: April 25th at 5pm (no penalty late submission until 8am next morning), via Gradescope}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\textbf{In this assignment:}
+
+You will practice distinguishing between regular and nonregular languages using both 
+closure arguments and the pumping lemma. You will also practice with the definition 
+of pushdown automata.
+
+\textit{Resources}: To review the topics you are working with for this assignment, 
+see the class material from Week 2 through Week 4. We will post frequently asked questions 
+and our answers to them in a pinned Piazza post.
+
+\textit{Reading and extra practice problems}: Sipser Section 1.4, 2.2. Chapter 1 
+exercises 1.29, 1.30. Chapter 1 problems 1.49, 1.50, 1.51. Chapter 2 exercises 2.5, 2.7.
+
+\textit{Key Concepts:} Pumping lemma, pumping length, regular languages, nonregular languages, 
+pushdown automata, stack.
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw3CSE105Sp23''.
+
+\textbf{Requests from your TAs and tutors}
+To help us with grading please 
+\begin{itemize}
+    \item Start each question on a new page.
+    \item Label the start of each solution with {\bf Answer}.
+\end{itemize}
+
+\textbf{Assigned questions}
+
+\begin{enumerate} 
+
+%%%%%%%%%%% PROBLEM 1 %%%%%%%%%%%
+
+\item \textbf{Regular or not?} (15 points):\\
+Fix $\Sigma = \{0,1\}$ and $\Gamma = \{0,1,2\}$.
+For each of the languages listed below, 
+prove that it is either regular or nonregular. {\it Note:} You might find it useful to 
+explore the definition of each set and 
+consider alternate (simpler) ways of stating it.
+
+For each language that is regular, a complete 
+solution will include a 
+precise definition of a DFA, NFA, or regular 
+expression that recognizes or describes it, along 
+with a brief justification
+of your construction by explaining the role each 
+state plays in the machine
+or referring back to relevant definitions.
+
+For each language that is nonregular, a complete
+solution will use the pumping lemma to prove that it is nonregular, 
+including appropriate
+justification related to the specific language.
+
+\begin{enumerate}
+    \item\gradeCorrectFirst $L_1 = \{0^n x 1^n \mid n \ge 1, x \in \Sigma^*\}$, a language over $\Sigma$.
+    \item\gradeCorrect $L_2 = \{0^n 1 x 0 1^n \mid n 
+    \ge 1, x \in \Sigma^* \}$, a language over 
+    $\Sigma$.
+    \item\gradeCorrect 
+    Recall that for $L \subseteq \Sigma^*$, we define
+    \begin{align*}
+    \REP(L) &:= \{ w \in \Gamma^* \mid \text{between every pair of successive $2$'s in $w$ is a string in $L$}\}\\
+    &\phantom{:}=\{w \in \Gamma^* \mid \text{for all } v \in \Sigma^* \text{ if } 2v2 \in \SUBSTRING(\{w\})  \text{, then } v \in L\} 
+    \end{align*}
+    $L_3 = \REP( \{ 0^n 1^n \mid n \geq 1 \} )$, 
+    a language over $\Gamma$.
+\end{enumerate}
+
+
+%%%%%%%%%%% PROBLEM 2 %%%%%%%%%%%
+
+\item \textbf{Properties of nonregular languages} (15 points): \\
+Prove or disprove each of the following statements. In other words, decide whether 
+each statement is true or false and justify your decision. 
+Let $\Sigma = \{0,1\}$ and let $\Gamma = \{0,1,2\}$.
+\begin{enumerate}
+    \item\gradeCorrect For all languages $L, K$ over
+    $\Sigma$, if $L$ is nonregular and $K$ is finite, then $L - K$ is nonregular.
+    Recall: $L - K = \{ w \in \Sigma^* \mid w \in L \text{ and } w \notin K\}$.
+    \item\gradeCorrect Every infinite language over $\Sigma$ 
+    where each string in the language has an equal number of $0$'s and 
+    $1$'s is nonregular.
+    \item\gradeCorrect Recall that for language $K$ over $\Gamma$,
+    \[
+    \SUBSTRING(K) := \{ w \in \Gamma^* \mid \text{there exist } a,b \in \Gamma^* \text{ such that } awb \in K\}.
+    \]
+    For every nonregular language $K$ over $\Gamma$, $\SUBSTRING(K)$ is nonregular.
+\end{enumerate}
+
+%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
+\item \textbf{Pumping dilemma} (8 points): \\
+Your friend claims that the Pumping Lemma is useless for proving that an infinite language 
+$K \subseteq \Sigma^*$ is not regular. Their logic goes like this
+
+\begin{enumerate}[label=(Step~\arabic*), leftmargin=2cm]
+\item[(Step 1)] Suppose that $K$ is regular. It can be recognized by a 
+DFA $M = (Q, \Sigma, \delta, q_0, F)$.
+\item[(Step 2)] For arbitrary DFA $M$, the pumping length $p$ is at least $|Q|$.
+\item[(Step 3)] However, for every integer $n \ge |Q|$, there exists a machine 
+$M' = (Q', \Sigma, \delta', q_0', F')$ such that $L(M') = L(M) = K$ and $|Q'| = n$.
+\item[(Step 4)] Therefore, the Pumping Lemma cannot be used to pump any string 
+of finite length since its pumping length might be arbitrarily large.
+\end{enumerate}
+
+Below, we will examine the steps above in detail. Justify your answer to each part.
+\begin{enumerate}
+    \item\gradeCompleteFirst (Step 1): Is this statement true? In other words, just because we're assuming that $K$ is regular a regular language, does it mean we can assume there is a DFA that recognizes it?
+
+    \item\gradeComplete (Step 2): 
+    In general, it's true that the smallest the pumping length of a language
+    recognized by a DFA with states $Q$ can be is $|Q|$. Prove this by finding a specific infinite language $K$ and a DFA recognizing 
+    where $K$ cannot have pumping length smaller than $|Q|$.
+
+    \item\gradeComplete (Step 3): This step is correct;
+    prove the stated version of this statement: For every integer $n \ge |Q|$, there 
+    exists a machine $M' = (Q', \Sigma, \delta', q_0', F')$ such that $L(M') = L(M)$ and $|Q'| = n$.
+
+    (\textit{Challenge; not graded}): 
+    Define a \emph{cycle} to be a sequence of \emph{distinct} states $q_1, q_2, \ldots, q_m$ such that
+	\[
+	\delta(q_1, \sigma_1) = q_2, \hspace{1cm} \delta(q_2, \sigma_2) = q_3, \hspace{.5cm} \ldots, \hspace{.5cm}\delta(q_m, \sigma_m) = q_1, 
+	\]
+	where $\sigma_1, \sigma_2, \ldots, \sigma_m \in \Sigma$ are symbols in the alphabet. 
+    An objection to the statement in (Step 3) is that the proof of the Pumping Lemma 
+    depends on the length of the cycles in the DFA rather than the number of states. That is, 
+    increasing the number of states in your DFA might not increase the pumping length because 
+    the length of the smallest cycle stays the same. Nevertheless, a version of your friend's statement 
+    is still true whenever you impose this additional cycle constraint:  for every integer $n \ge |Q|$, 
+    there exists a machine $M' = (Q', \Sigma, \delta', q_0', F')$ such that $L(M') = L(M)$ and the length 
+    of the smallest cycle in the $M'$ is at least $n$. \\
+
+	Your task is to show that even this more general statement is true for the simple language $\Sigma^*$ 
+    recognized by the DFA below:
+	\begin{center}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=yellow!40]
+
+    \node[initial,state, accepting] (q0) {$q_0$};
+
+    \path (q0)  edge [loop right] node {$0,1$} (q0);
+    \end{tikzpicture}
+    \end{center}
+	For all $n \ge 1$, define a DFA for this language where the length of the smallest cycle is $n$.
+
+    \item\gradeComplete (Step 4): Describe why this statement is true/false/misleading.
+\end{enumerate}
+
+%%%%%%%%%%% PROBLEM 4 %%%%%%%%%%%
+\item \textbf{A PDA with multiple possibilities} (12 points): \\
+Consider the PDA with input and stack alphabet $\Gamma = \{0,1,2\}$ 
+whose ``unfinished" state diagram is given below:
+
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2.5cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+
+  \node[initial,state, accepting] (q0)      {$q_0$};
+  \node[state]         (q1) [right of=q0,  xshift=0cm] {$q_1$};
+  \node[state]         (q2) [right of=q1,  xshift=1cm] {$q_2$};
+  \node[state]         (q3) [above of=q2] {$q_3$};
+  \node[state, accepting]         (q4) [below of=q2] {$q_4$};
+
+  \path (q0) edge [loop above] node[align=left] {$0, \varepsilon; \varepsilon$ \\ $1, \varepsilon; \varepsilon$}  (q0)
+  		edge node {$2, \varepsilon; 2$} (q1)
+	(q1) 	edge node {$\varepsilon, \varepsilon; \varepsilon$} (q2)
+		edge node[below, sloped] {$\varepsilon, \varepsilon; \varepsilon$} (q4)
+	(q2) edge [loop right] node {$E_1$} (q2)
+		edge [right] node {$\varepsilon, \varepsilon; \varepsilon$} (q3)
+	(q3) edge [loop right] node {$E_2$} (q3)
+		edge node[sloped] {$E_3$} (q1)
+	(q4) edge [loop right] node[align=left] {$0, \varepsilon; \varepsilon$ \\ $1, \varepsilon; \varepsilon$} (q4)
+ ;
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item\gradeCorrect Prove that (no matter how the labels $E_1, E_2, E_3$ are specified), 
+    the language recognized by this 
+    PDA is infinite. A complete solution will include a precise
+    description of an infinite collection of strings each 
+    of which is accepted by the PDA, with 
+    a precise and
+    clear description of the accepting computation of the PDA on 
+    each of these strings.
+
+    \item\gradeCorrect Determine how to set the labels $E_1, E_2, E_3$ so that the language of the PDA is 
+    \[
+    \REP(\{0^n1^m \mid n \ge 0, m \ge 0\})
+    \]
+    To be precise, each $E_i$ should be of the form ``$x,y; z$'' 
+    where $x, y, z \in \Gamma_{\varepsilon}$ (recall $\Gamma_{\varepsilon} = \Gamma \cup \{\varepsilon\}$).
+    In addition to specifying each $E_i$, a complete justification 
+    will include a precise description of why this choice of $E_i$
+    means that the PDA recognizes the language indicated.
+
+    \item\gradeCorrect Determine how to set the labels $E_1, E_2, E_3$ so that the language of the PDA is 
+    \[
+    \REP(\{0^n1^m \mid n \ge 0, m \ge 0\})
+    \]
+    As in the previous part, each $E_i$ should be of the form ``$x,y; z$'' where $x, y, z \in \Gamma_{\varepsilon}$ (recall $\Gamma_{\varepsilon} = \Gamma \cup \{\varepsilon\}$).
+    In addition to specifying each $E_i$, a complete justification 
+    will include a precise description of why this choice of $E_i$
+    means that the PDA recognizes the language indicated.
+
+\end{enumerate}
+
+%%%%%%%%%%% END PROBLEMS  %%%%%%%%%%%
+\end{enumerate}
+
+\end{document}
