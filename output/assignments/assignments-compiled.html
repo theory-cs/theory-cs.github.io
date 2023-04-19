@@ -762,15 +762,14 @@ language over <span class="math inline">\(\Sigma\)</span>.</p></li>
 </ol>
 <p><strong>In this assignment:</strong></p>
 <p>You will practice distinguishing between regular and nonregular
-languages using both closure arguments and the pumping lemma. You will
-also practice with the definition of pushdown automata.</p>
+languages using both closure arguments and the pumping lemma.</p>
 <p><em>Resources</em>: To review the topics you are working with for
 this assignment, see the class material from Week 2 through Week 4. We
 will post frequently asked questions and our answers to them in a pinned
 Piazza post.</p>
 <p><em>Reading and extra practice problems</em>: Sipser Section 1.4,
 2.2. Chapter 1 exercises 1.29, 1.30. Chapter 1 problems 1.49, 1.50,
-1.51. Chapter 2 exercises 2.5, 2.7.</p>
+1.51.</p>
 <p><em>Key Concepts:</em> Pumping lemma, pumping length, regular
 languages, nonregular languages, pushdown automata, stack.</p>
 <p><span><strong>For all HW assignments:</strong></span> Weekly homework
@@ -834,7 +833,7 @@ grading please</p>
 </ul>
 <p><strong>Assigned questions</strong></p>
 <ol>
-<li><p><strong>Regular or not?</strong> (15 points):<br />
+<li><p><strong>Regular or not?</strong> (21 points):<br />
 Fix <span class="math inline">\(\Sigma = \{0,1\}\)</span> and <span
 class="math inline">\(\Gamma = \{0,1,2\}\)</span>. For each of the
 languages listed below, prove that it is either regular or nonregular.
@@ -872,7 +871,7 @@ pair of successive $2$&#39;s in $w$ is a string in $L$}\}\\
 \{ 0^n 1^n \mid n \geq 1 \} )\)</span>, a language over <span
 class="math inline">\(\Gamma\)</span>.</p></li>
 </ol></li>
-<li><p><strong>Properties of nonregular languages</strong> (15
+<li><p><strong>Properties of nonregular languages</strong> (21
 points):<br />
 Prove or disprove each of the following statements. In other words,
 decide whether each statement is true or false and justify your
@@ -978,51 +977,6 @@ for this language where the length of the smallest cycle is <span
 class="math inline">\(n\)</span>.</p></li>
 <li><p>(<span><em>Graded for completeness</em></span>) (Step 4):
 Describe why this statement is true/false/misleading.</p></li>
-</ol></li>
-<li><p><strong>A PDA with multiple possibilities</strong> (12
-points):<br />
-Consider the PDA with input and stack alphabet <span
-class="math inline">\(\Gamma = \{0,1,2\}\)</span> whose “unfinished"
-state diagram is given below:</p>
-<div class="center">
-
-</div>
-<ol>
-<li><p>(<span><em>Graded for correctness</em></span>) Prove that (no
-matter how the labels <span class="math inline">\(E_1, E_2, E_3\)</span>
-are specified), the language recognized by this PDA is infinite. A
-complete solution will include a precise description of an infinite
-collection of strings each of which is accepted by the PDA, with a
-precise and clear description of the accepting computation of the PDA on
-each of these strings.</p></li>
-<li><p>(<span><em>Graded for correctness</em></span>) Determine how to
-set the labels <span class="math inline">\(E_1, E_2, E_3\)</span> so
-that the language of the PDA is <span
-class="math display">\[\textsc{Rep}(\{0^n1^m \mid n \ge 0, m \ge
-0\})\]</span> To be precise, each <span
-class="math inline">\(E_i\)</span> should be of the form “<span
-class="math inline">\(x,y; z\)</span>” where <span
-class="math inline">\(x, y, z \in \Gamma_{\varepsilon}\)</span> (recall
-<span class="math inline">\(\Gamma_{\varepsilon} = \Gamma \cup
-\{\varepsilon\}\)</span>). In addition to specifying each <span
-class="math inline">\(E_i\)</span>, a complete justification will
-include a precise description of why this choice of <span
-class="math inline">\(E_i\)</span> means that the PDA recognizes the
-language indicated.</p></li>
-<li><p>(<span><em>Graded for correctness</em></span>) Determine how to
-set the labels <span class="math inline">\(E_1, E_2, E_3\)</span> so
-that the language of the PDA is <span
-class="math display">\[\textsc{Rep}(\{0^n1^m \mid n \ge 0, m \ge
-0\})\]</span> As in the previous part, each <span
-class="math inline">\(E_i\)</span> should be of the form “<span
-class="math inline">\(x,y; z\)</span>” where <span
-class="math inline">\(x, y, z \in \Gamma_{\varepsilon}\)</span> (recall
-<span class="math inline">\(\Gamma_{\varepsilon} = \Gamma \cup
-\{\varepsilon\}\)</span>). In addition to specifying each <span
-class="math inline">\(E_i\)</span>, a complete justification will
-include a precise description of why this choice of <span
-class="math inline">\(E_i\)</span> means that the PDA recognizes the
-language indicated.</p></li>
 </ol></li>
 </ol>
 <aside id="footnotes" class="footnotes footnotes-end-of-document"
