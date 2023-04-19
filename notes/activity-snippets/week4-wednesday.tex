@@ -1,35 +1,11 @@
 %! app: Regular Languages, Context-free Languages
 %! outcome: Formal definition of automata, Informal definition of automata, Nondeterminism, Classify language
 
-
-\begin{center}
-    \begin{tabular}{c|c| c| c}
-    Language & $s \in L$ & $s \notin L$ & Is the language regular or nonregular?  \\
-    \hline
-     & \hspace{1in} & \hspace{1in}  &  \\
-    $\{a^nb^n \mid 0  \leq n  \leq 5 \}$ & & & \\
-     & & & \\
-    $\{b^n a^n \mid  n  \geq 2\}$  & & & \\
-     & & & \\
-    $\{a^m b^n \mid  0 \leq m\leq n\}$  & & & \\
-     & & & \\
-    $\{a^m b^n \mid  m \geq n+3,  n \geq 0\}$  & & & \\
-     & & & \\
-    $\{b^m a^n \mid  m \geq 1, n \geq  3\}$  & & & \\
-     & & & \\
-    $\{ w  \in \{a,b\}^* \mid w = w^\mathcal{R} \}$ & & & \\
-     & & & \\ 
-    $\{ ww^\mathcal{R} \mid w\in \{a,b\}^* \}$ & & & \\
-     & & & \\ 
-    \end{tabular}
-\end{center}
-    
-\newpage
 Regular sets are not the end of the story
 \begin{itemize}
     \item Many nice / simple / important sets are not regular
-    \item Limitation of the finite-state automaton model: Can't "count", Can only remember finitely far into the past,
-    Can't backtrack, Must make decisions in "real-time"
+    \item Limitation of the finite-state automaton model: Can't ``count", Can only remember finitely far into the past,
+    Can't backtrack, Must make decisions in ``real-time"
     \item We know actual computers are more powerful than this model...
 \end{itemize}
 
@@ -48,8 +24,31 @@ The {\bf next} model of computation. Idea: allow some memory of unbounded size. 
     
 Trace the computation of this PDA on the input string $01$.
 
-\vspace{80pt}  
+\vfill
     
 Trace the computation of this PDA on the input string $011$.
 
-\vspace{80pt}
+\vfill
+\newpage
+{\bf Definition} A {\bf pushdown automaton} (PDA) is  specified by a  $6$-tuple $(Q, \Sigma, \Gamma, \delta, q_0, F)$
+where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$ is the stack alphabet,
+\[
+    \delta: Q \times \Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times \Gamma_\varepsilon)
+\]
+is the transition function,  $q_0 \in Q$ is the start state, $F \subseteq  Q$ is the set of accept states.
+    
+\begin{multicols}{2}
+    {\it Formal definition}
+    
+    \vspace{90pt}
+    Draw the state diagram of a PDA with $\Sigma = \Gamma$.
+    
+    \columnbreak 
+    \includegraphics[height=100pt]{../../resources/machines/Lect9PDA.png}
+    
+    
+    Draw the state diagram of a PDA with $\Sigma \cap \Gamma = \emptyset$.
+    
+\end{multicols}
+    
+\vspace{60pt}
