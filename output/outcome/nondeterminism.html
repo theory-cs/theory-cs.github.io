@@ -594,6 +594,143 @@ class="math inline">\(L(G_4)\)</span> …</p>
 <p><span><em>Extra practice</em></span>: Is there a CFG <span
 class="math inline">\(G\)</span> with <span class="math inline">\(L(G) =
 \emptyset\)</span>?</p>
+<h1 class="unnumbered" id="week6-friday">Week6 friday</h1>
+<p><span><strong>Nondeterministic Turing machine</strong></span></p>
+<p>At any point in the computation, the nondeterministic machine may
+proceed according to several possibilities: <span
+class="math inline">\((Q, \Sigma, \Gamma, \delta, q_0, q_{acc},
+q_{rej})\)</span> where <span class="math display">\[\delta: Q \times
+\Gamma \to \mathcal{P}(Q \times \Gamma \times \{L, R\})\]</span> The
+computation of a nondeterministic Turing machine is a tree with
+branching when the next step of the computation has multiple
+possibilities. A nondeterministic Turing machine accepts a string
+exactly when some branch of the computation tree enters the accept
+state.</p>
+<p>Given a nondeterministic machine, we can use a <span
+class="math inline">\(3\)</span>-tape Turing machine to simulate it by
+doing a breadth-first search of computation tree: one tape is
+“read-only” input tape, one tape simulates the tape of the
+nondeterministic computation, and one tape tracks nondeterministic
+branching. <span>Sipser page 178</span></p>
+<p>Two models of computation are called <span><strong>equally
+expressive</strong></span> when every language recognizable with the
+first model is recognizable with the second, and vice versa.</p>
+<p><span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183):
+The informal notion of algorithm is formalized completely and correctly
+by the formal definition of a Turing machine. In other words: all
+reasonably expressive models of computation are equally expressive with
+the standard Turing machine.</p>
+<p>A language <span class="math inline">\(L\)</span> is
+<span><strong>recognized by</strong></span> a Turing machine <span
+class="math inline">\(M\)</span> means</p>
+<p>A Turing machine <span class="math inline">\(M\)</span>
+<span><strong>recognizes</strong></span> a language <span
+class="math inline">\(L\)</span> if means</p>
+<p>A Turing machine <span class="math inline">\(M\)</span> is a
+<span><strong>decider</strong></span> means</p>
+<p>A language <span class="math inline">\(L\)</span> is
+<span><strong>decided by</strong></span> a Turing machine <span
+class="math inline">\(M\)</span> means</p>
+<p>A Turing machine <span class="math inline">\(M\)</span>
+<span><strong>decides</strong></span> a language <span
+class="math inline">\(L\)</span> means</p>
+<p>Fix <span class="math inline">\(\Sigma = \{0,1\}\)</span>, <span
+class="math inline">\(\Gamma = \{ 0, 1, \textvisiblespace\}\)</span> for
+the Turing machines with the following state diagrams:</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect14TM1.png" style="width:2in"
+alt="image" /></td>
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect14TM2.png" style="width:2in"
+alt="image" /></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Decider? Yes   /    No</td>
+<td style="text-align: center;">Decider? Yes   /    No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect14TM3.png" style="width:2in"
+alt="image" /></td>
+<td style="text-align: center;"><img
+src="../../resources/machines/Lect14TM4.png" style="width:2in"
+alt="image" /></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Decider? Yes   /    No</td>
+<td style="text-align: center;">Decider? Yes   /    No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Claim</strong></span>: If two languages (over a fixed
+alphabet <span class="math inline">\(\Sigma\)</span>) are
+Turing-recognizable, then their union is as well.</p>
+<p><span><strong>Proof using Turing machines</strong></span>:</p>
+<p><span><strong>Proof using nondeterministic Turing
+machines</strong></span>:</p>
+<p><span><strong>Proof using enumerators</strong></span>:</p>
+<p><span><strong>Describing Turing machines</strong></span> (Sipser p.
+185)</p>
+<p>To define a Turing machine, we could give a</p>
+<ul>
+<li><p><span><strong>Formal definition</strong></span>: the <span
+class="math inline">\(7\)</span>-tuple of parameters including set of
+states, input alphabet, tape alphabet, transition function, start state,
+accept state, and reject state; or,</p></li>
+<li><p><span><strong>Implementation-level definition</strong></span>:
+English prose that describes the Turing machine head movements relative
+to contents of tape, and conditions for accepting / rejecting based on
+those contents.</p></li>
+<li><p><span><strong>High-level description</strong></span>: description
+of algorithm (precise sequence of instructions), without implementation
+details of machine. As part of this description, can “call" and run
+another TM as a subroutine.</p></li>
+</ul>
+<p>The Church-Turing thesis posits that each algorithm can be
+implemented by some Turing machine</p>
+<p>High-level descriptions of Turing machine algorithms are written as
+indented text within quotation marks.</p>
+<p>Stages of the algorithm are typically numbered consecutively.</p>
+<p>The first line specifies the input to the machine, which must be a
+string. This string may be the encoding of some object or list of
+objects.</p>
+<p><span><strong>Notation:</strong></span> <span
+class="math inline">\(\langle O \rangle\)</span> is the string that
+encodes the object <span class="math inline">\(O\)</span>. <span
+class="math inline">\(\langle O_1, \ldots, O_n \rangle\)</span> is the
+string that encodes the list of objects <span class="math inline">\(O_1,
+\ldots, O_n\)</span>.</p>
+<p><span><strong>Assumption</strong></span>: There are Turing machines
+that can be called as subroutines to decode the string representations
+of common objects and interact with these objects as intended (data
+structures).</p>
+<p>For example, since there are algorithms to answer each of the
+following questions, by Church-Turing thesis, there is a Turing machine
+that accepts exactly those strings for which the answer to the question
+is “yes”</p>
+<ul>
+<li><p>Does a string over <span class="math inline">\(\{0,1\}\)</span>
+have even length?</p></li>
+<li><p>Does a string over <span class="math inline">\(\{0,1\}\)</span>
+encode a string of ASCII characters?<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a></p></li>
+<li><p>Does a DFA have a specific number of states?</p></li>
+<li><p>Do two NFAs have any state names in common?</p></li>
+<li><p>Do two CFGs have the same start variable?</p></li>
+</ul>
 <h1 class="unnumbered" id="week3-monday">Week3 monday</h1>
 <p>The state diagram of an NFA over <span
 class="math inline">\(\{a,b\}\)</span> is below. The formal definition
@@ -955,5 +1092,15 @@ of this NFA is:</p>
 <p><img src="../../resources/machines/Lect5NFA1.png" style="width:2.5in"
 alt="image" /></p>
 <p>The language recognized by this NFA is:</p>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>An introduction to ASCII is available on the w3 tutorial
+<a
+href="https://www.w3schools.com/charsets/ref_html_ascii.asp">here</a>.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
 </body>
 </html>

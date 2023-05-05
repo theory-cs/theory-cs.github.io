@@ -1,0 +1,192 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Week6 friday}
+
+
+{\bf Nondeterministic Turing machine}
+
+At any point in the computation, the nondeterministic machine may proceed according to 
+several possibilities: $(Q, \Sigma, \Gamma, \delta, q_0, q_{acc}, q_{rej})$ where 
+\[
+\delta: Q \times \Gamma \to \mathcal{P}(Q \times \Gamma \times \{L, R\})  
+\]
+The computation of a nondeterministic Turing machine is a tree with branching
+when the next step of the computation has multiple possibilities. A nondeterministic
+Turing machine accepts a string exactly when some branch of the computation tree 
+enters the accept state.
+
+Given a nondeterministic machine, we can use a $3$-tape Turing machine to 
+simulate it by doing a breadth-first search of computation tree: one tape 
+is ``read-only'' input tape, one tape simulates the tape of the nondeterministic
+computation, and one tape tracks nondeterministic branching. {\tiny Sipser page 178} 
+
+\vfill
+Two models of computation are called {\bf equally expressive} when 
+every language recognizable with the first model is recognizable with the second, and vice versa.
+
+{\bf  Church-Turing Thesis} (Sipser p. 183): The informal notion of algorithm is formalized completely  and correctly by the 
+formal definition of a  Turing machine. In other words: all reasonably expressive models of 
+computation are equally expressive with the standard Turing machine.
+
+\vfill
+
+\newpage
+
+
+A language $L$ is {\bf recognized by} a Turing machine $M$ means
+
+\vspace{15pt}
+
+A Turing  machine  $M$ {\bf  recognizes} a language $L$ if means
+
+\vspace{15pt}
+
+A Turing machine $M$ is a {\bf decider}  means
+
+\vspace{15pt}
+
+A language  $L$ is {\bf decided by} a Turing  machine  $M$  means
+
+\vspace{15pt}
+
+A  Turing machine $M$ {\bf decides} a language $L$ means
+
+\vspace{15pt}
+
+Fix $\Sigma = \{0,1\}$, $\Gamma = \{ 0, 1, \textvisiblespace\}$ for the Turing machines with  the following state diagrams:
+  
+  \begin{center}
+  \begin{tabular}{|c|c|}
+  \hline
+  \hspace{0.8in}\includegraphics[width=2in]{../../resources/machines/Lect14TM1.png} \phantom{\hspace{0.8in}}&\hspace{0.8in} \includegraphics[width=2in]{../../resources/machines/Lect14TM2.png} \phantom{\hspace{0.8in}}\\
+  Decider? Yes~~~/ ~~~No
+  &Decider? Yes~~~/ ~~~No\\
+  & \\
+  \hline
+  \includegraphics[width=2in]{../../resources/machines/Lect14TM3.png} & \includegraphics[width=2in]{../../resources/machines/Lect14TM4.png} \\
+  Decider? Yes~~~/ ~~~No
+  &Decider? Yes~~~/ ~~~No\\
+  & \\
+  
+  \hline
+  \end{tabular}
+  \end{center}
+  \newpage
+
+
+
+{\bf Claim}: If two languages  (over a fixed alphabet  $\Sigma$) are Turing-recognizable, then  their union  is  as well.
+
+{\bf Proof using Turing machines}:
+
+\vfill
+
+{\bf Proof using nondeterministic Turing machines}: 
+
+\vfill  
+
+{\bf  Proof using enumerators}:
+
+\vfill
+
+\newpage
+    
+{\bf Describing  Turing machines} (Sipser p. 185)
+
+
+To define a Turing machine, we could give a 
+\begin{itemize}
+\item {\bf Formal definition}: the $7$-tuple of parameters including set of states, 
+input alphabet, tape alphabet, transition function, start state, accept state, and reject state; or,
+\item {\bf Implementation-level definition}: English prose that describes the Turing machine head 
+movements relative to contents of tape, and conditions for accepting / rejecting based on those contents.
+\item {\bf High-level description}: description of algorithm (precise sequence of instructions), 
+without implementation details of machine. As part of this description, can ``call" and run 
+another TM as a subroutine.
+\end{itemize}
+
+
+The Church-Turing thesis posits that each algorithm can be implemented by some Turing machine
+
+High-level descriptions of  Turing machine algorithms are written as indented text within quotation marks.   
+
+Stages of the algorithm are typically numbered consecutively.
+
+The first line specifies the input to the machine, which must be a string.
+This string may be the encoding of some object or  list of  objects.  
+
+{\bf Notation:} $\langle O \rangle$ is the string that encodes the object $O$.
+$\langle O_1, \ldots, O_n \rangle$ is the string that encodes the list of objects $O_1, \ldots, O_n$.
+
+{\bf Assumption}: There are Turing  machines that can be called as subroutines
+to decode the string representations of common objects and  interact with these objects as intended
+(data structures).
+  
+For example, since there are algorithms to answer each of the following questions,
+by Church-Turing thesis, there is a Turing machine that accepts exactly those strings for which the 
+answer to the question is ``yes''
+\begin{itemize}
+    \item Does a string over $\{0,1\}$ have even length?
+
+    \vfill
+
+    \item Does a string over $\{0,1\}$ encode a string of ASCII characters?\footnote{An introduction to ASCII 
+    is available on the w3 tutorial \href{https://www.w3schools.com/charsets/ref_html_ascii.asp}{here}.}
+
+    \vfill
+
+    \item Does a DFA have a specific number of states?
+
+    \vfill
+
+    \item Do two NFAs have any state names in common?
+
+    \vfill
+
+    \item Do two CFGs have the same start variable?
+
+    \vfill
+
+  \end{itemize}
+ \vfill
+\end{document}

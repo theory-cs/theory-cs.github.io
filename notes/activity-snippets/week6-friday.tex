@@ -1,63 +1,6 @@
 %! app: Decidable Languages, Undecidable Languages
 %! outcome: Formal definition of automata, Informal definition of automata, Classify language, Find example languages, Nondeterminism, Church-Turing
 
-
-To define a Turing machine, we could give a 
-\begin{itemize}
-\item {\bf Formal definition}: the $7$-tuple of parameters including set of states, 
-input alphabet, tape alphabet, transition function, start state, accept state, and reject state; or,
-\item {\bf Implementation-level definition}: English prose that describes the Turing machine head 
-movements relative to contents of tape, and conditions for accepting / rejecting based on those contents.
-\item {\bf High-level description}: description of algorithm (precise sequence of instructions), 
-without implementation details of machine. As part of this description, can ``call" and run 
-another TM as a subroutine.
-\end{itemize}
-
-
-{\bf Theorem 3.21} A language is Turing-recognizable iff some enumerator enumerates it.
-
-{\bf Proof}:
-
-Assume $L$ is enumerated by some enumerator, $E$, so $L = L(E)$.
-We'll use $E$ in a subroutine
-within a high-level description of a new Turing machine that we will build to recognize $L$.
-
-{\bf Goal}: build Turing machine $M_E$ with $L(M_E) = L(E)$.
-
-Define $M_E$ as follows: $M_E = $ ``On input $w$,
-\begin{enumerate}
-\item Run $E$. For each string $x$ printed by $E$.
-\item \qquad Check if $x = w$. If so, accept (and halt); otherwise, continue."
-\end{enumerate}
-
-
-\vfill 
-
-
-
-Assume $L$ is Turing-recognizable and there 
-is a Turing  machine  $M$ with  $L = L(M)$. We'll use $M$ in a subroutine
-within a high-level description of an enumerator that we will build to enumerate $L$.
-
-{\bf Goal}: build enumerator $E_M$ with $L(E_M) = L(M)$.
-
-{\bf Idea}: check each string in turn to see if it is in $L$.
-
-{\it How?} Run computation of $M$ on each string.  {\it But}: need to be careful 
-about computations that don't halt.
-
-{\it Recall} String order for $\Sigma = \{0,1\}$: $s_1 = \varepsilon$, $s_2 = 0$, $s_3 = 1$, $s_4 = 00$, $s_5 = 01$, $s_6  = 10$, 
-$s_7  =  11$, $s_8 = 000$, \ldots
-
-Define $E_M$ as follows: $E_{M} = $ `` {\it ignore any input.} Repeat the following for $i=1, 2, 3, \ldots$
-\begin{enumerate}
-  \item Run the computations of $M$ on $s_1$, $s_2$, \ldots, $s_i$ for (at most) $i$ steps each
-  \item For each of these $i$ computations that accept during the (at most) $i$ steps, print
-  out the accepted string."
-\end{enumerate}
-
-\newpage
-
 {\bf Nondeterministic Turing machine}
 
 At any point in the computation, the nondeterministic machine may proceed according to 
@@ -87,6 +30,49 @@ computation are equally expressive with the standard Turing machine.
 
 \newpage
 
+
+A language $L$ is {\bf recognized by} a Turing machine $M$ means
+
+\vspace{15pt}
+
+A Turing  machine  $M$ {\bf  recognizes} a language $L$ if means
+
+\vspace{15pt}
+
+A Turing machine $M$ is a {\bf decider}  means
+
+\vspace{15pt}
+
+A language  $L$ is {\bf decided by} a Turing  machine  $M$  means
+
+\vspace{15pt}
+
+A  Turing machine $M$ {\bf decides} a language $L$ means
+
+\vspace{15pt}
+
+Fix $\Sigma = \{0,1\}$, $\Gamma = \{ 0, 1, \textvisiblespace\}$ for the Turing machines with  the following state diagrams:
+  
+  \begin{center}
+  \begin{tabular}{|c|c|}
+  \hline
+  \hspace{0.8in}\includegraphics[width=2in]{../../resources/machines/Lect14TM1.png} \phantom{\hspace{0.8in}}&\hspace{0.8in} \includegraphics[width=2in]{../../resources/machines/Lect14TM2.png} \phantom{\hspace{0.8in}}\\
+  Decider? Yes~~~/ ~~~No
+  &Decider? Yes~~~/ ~~~No\\
+  & \\
+  \hline
+  \includegraphics[width=2in]{../../resources/machines/Lect14TM3.png} & \includegraphics[width=2in]{../../resources/machines/Lect14TM4.png} \\
+  Decider? Yes~~~/ ~~~No
+  &Decider? Yes~~~/ ~~~No\\
+  & \\
+  
+  \hline
+  \end{tabular}
+  \end{center}
+  \newpage
+
+
+
 {\bf Claim}: If two languages  (over a fixed alphabet  $\Sigma$) are Turing-recognizable, then  their union  is  as well.
 
 {\bf Proof using Turing machines}:
@@ -101,3 +87,62 @@ computation are equally expressive with the standard Turing machine.
 
 \vfill
 
+\newpage
+    
+{\bf Describing  Turing machines} (Sipser p. 185)
+
+
+To define a Turing machine, we could give a 
+\begin{itemize}
+\item {\bf Formal definition}: the $7$-tuple of parameters including set of states, 
+input alphabet, tape alphabet, transition function, start state, accept state, and reject state; or,
+\item {\bf Implementation-level definition}: English prose that describes the Turing machine head 
+movements relative to contents of tape, and conditions for accepting / rejecting based on those contents.
+\item {\bf High-level description}: description of algorithm (precise sequence of instructions), 
+without implementation details of machine. As part of this description, can ``call" and run 
+another TM as a subroutine.
+\end{itemize}
+
+
+The Church-Turing thesis posits that each algorithm can be implemented by some Turing machine
+
+High-level descriptions of  Turing machine algorithms are written as indented text within quotation marks.   
+
+Stages of the algorithm are typically numbered consecutively.
+
+The first line specifies the input to the machine, which must be a string.
+This string may be the encoding of some object or  list of  objects.  
+
+{\bf Notation:} $\langle O \rangle$ is the string that encodes the object $O$.
+$\langle O_1, \ldots, O_n \rangle$ is the string that encodes the list of objects $O_1, \ldots, O_n$.
+
+{\bf Assumption}: There are Turing  machines that can be called as subroutines
+to decode the string representations of common objects and  interact with these objects as intended
+(data structures).
+  
+For example, since there are algorithms to answer each of the following questions,
+by Church-Turing thesis, there is a Turing machine that accepts exactly those strings for which the 
+answer to the question is ``yes''
+\begin{itemize}
+    \item Does a string over $\{0,1\}$ have even length?
+
+    \vfill
+
+    \item Does a string over $\{0,1\}$ encode a string of ASCII characters?\footnote{An introduction to ASCII 
+    is available on the w3 tutorial \href{https://www.w3schools.com/charsets/ref_html_ascii.asp}{here}.}
+
+    \vfill
+
+    \item Does a DFA have a specific number of states?
+
+    \vfill
+
+    \item Do two NFAs have any state names in common?
+
+    \vfill
+
+    \item Do two CFGs have the same start variable?
+
+    \vfill
+
+  \end{itemize}
