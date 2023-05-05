@@ -1,6 +1,35 @@
 %! app: Decidable Languages, Undecidable Languages
 %! outcome: Formal definition of automata, Informal definition of automata, Classify language, Find example languages
     
+
+  
+  Fix $\Sigma = \{0,1\}$, $\Gamma = \{ 0, 1, \textvisiblespace\}$ for the Turing machines with  the following state diagrams:
+  
+  \begin{center}
+  \begin{tabular}{|c|c|}
+  \hline
+  \hspace{0.8in}\includegraphics[width=2in]{../../resources/machines/Lect14TM1.png} \phantom{\hspace{0.8in}}&\hspace{0.8in} \includegraphics[width=2in]{../../resources/machines/Lect14TM2.png} \phantom{\hspace{0.8in}}\\
+  Implementation  level description:  \phantom{\hspace{1in}} &Implementation  level description:  \phantom{\hspace{1in}} \\
+  &\\
+  &\\
+  &\\
+  Example of string accepted: \phantom{\hspace{1.5in}}& Example of string accepted: \phantom{\hspace{1.5in}}\\
+  Example of string rejected: \phantom{\hspace{1.5in}}& Example of string  rejected: \phantom{\hspace{1.5in}}\\
+  & \\
+  \hline
+  \includegraphics[width=2in]{../../resources/machines/Lect14TM3.png} & \includegraphics[width=2in]{../../resources/machines/Lect14TM4.png} \\
+  Implementation  level description:  \phantom{\hspace{1in}} &Implementation  level description:  \phantom{\hspace{1in}} \\
+  &\\
+  &\\
+  &\\
+  Example of string accepted: \phantom{\hspace{1.5in}}& Example of string accepted: \phantom{\hspace{1.5in}}\\
+  Example of string rejected: \phantom{\hspace{1.5in}}& Example of string  rejected: \phantom{\hspace{1.5in}}\\
+  & \\
+  
+  \hline
+  \end{tabular}
+  \end{center}
+
 Two models of computation are called {\bf equally expressive} when 
 every language recognizable with the first model is recognizable with the second, and vice versa.
 
@@ -9,10 +38,13 @@ True / False: NFAs and PDAs are equally expressive.
 True / False: Regular expressions and CFGs are equally expressive.
 
 
+To say a language is {\bf Turing-recognizable} means that there is some Turing machine that recognizes it.
+
 \begin{center}
 {\large \it  Some examples of models that are {\bf equally expressive} with deterministic Turing machines: }
 \end{center}
 
+\newpage
 \fbox{ {\bf May-stay}  machines }
 The May-stay machine model is the same as the usual Turing machine model,  except that
 on each transition, the tape head may move L, move R, or Stay. 
@@ -44,11 +76,11 @@ the Turing-machine
 
 \vfill
 
-\newpage
 
 \phantom{$M_{new}$ construction here \vspace{400pt}}
 \vfill
 
+\newpage
 
 \fbox{ {\bf Multitape Turing machine}} A multitape Turing macihne with $k$ tapes
 can be formally representated as 
@@ -70,6 +102,7 @@ tape symbol. {\tiny Sipser Theorem 3.13}
 
 \includegraphics[width=2.5in]{../../resources/images/Figure314.png}
 
+\vfill
 
 {\it Extra practice:} \fbox{ {\bf  Wikipedia Turing machine} }
 Define a machine $(Q, \Gamma, b, \Sigma,  q_0, F, \delta)$
@@ -84,6 +117,8 @@ $\delta: (Q \setminus F)  \times  \Gamma \not\to Q \times  \Gamma  \times \{L, R
 If computation enters a state  in $F$, it  accepts 
 If computation enters a configuration where
  $\delta$ is not defined, it  rejects . {\tiny Hopcroft and  Ullman, cited by  Wikipedia} 
+
+\vfill
 
 \newpage
 \fbox{ {\bf Enumerators} } Enumerators give a different
@@ -154,7 +189,46 @@ $\textvisiblespace  ~*$& $\textvisiblespace$  & $\textvisiblespace$ & $\textvisi
 \end{center}
 
 
-\vfill 
+\newpage
 
 {\bf Theorem 3.21} A language is Turing-recognizable iff some enumerator enumerates it.
-{\it Proof next time \ldots }
+
+{\bf Proof}:
+
+Assume $L$ is enumerated by some enumerator, $E$, so $L = L(E)$.
+We'll use $E$ in a subroutine
+within a high-level description of a new Turing machine that we will build to recognize $L$.
+
+{\bf Goal}: build Turing machine $M_E$ with $L(M_E) = L(E)$.
+
+Define $M_E$ as follows: $M_E = $ ``On input $w$,
+\begin{enumerate}
+\item Run $E$. For each string $x$ printed by $E$.
+\item \qquad Check if $x = w$. If so, accept (and halt); otherwise, continue."
+\end{enumerate}
+
+
+\vfill 
+
+
+
+Assume $L$ is Turing-recognizable and there 
+is a Turing  machine  $M$ with  $L = L(M)$. We'll use $M$ in a subroutine
+within a high-level description of an enumerator that we will build to enumerate $L$.
+
+{\bf Goal}: build enumerator $E_M$ with $L(E_M) = L(M)$.
+
+{\bf Idea}: check each string in turn to see if it is in $L$.
+
+{\it How?} Run computation of $M$ on each string.  {\it But}: need to be careful 
+about computations that don't halt.
+
+{\it Recall} String order for $\Sigma = \{0,1\}$: $s_1 = \varepsilon$, $s_2 = 0$, $s_3 = 1$, $s_4 = 00$, $s_5 = 01$, $s_6  = 10$, 
+$s_7  =  11$, $s_8 = 000$, \ldots
+
+Define $E_M$ as follows: $E_{M} = $ `` {\it ignore any input.} Repeat the following for $i=1, 2, 3, \ldots$
+\begin{enumerate}
+  \item Run the computations of $M$ on $s_1$, $s_2$, \ldots, $s_i$ for (at most) $i$ steps each
+  \item For each of these $i$ computations that accept during the (at most) $i$ steps, print
+  out the accepted string."
+\end{enumerate}
