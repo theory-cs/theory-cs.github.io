@@ -1,0 +1,170 @@
+\input{../../resources/assignment-head.tex}
+
+\newcommand{\blank}{\scalebox{1.5}{\textvisiblespace}}
+\newcommand{\corrupted}{\text{\lightning}}
+
+\title{HW5 : Turing Machines}
+\date{Due: May 16th at 5pm (no penalty late submission until 8am next morning), via Gradescope}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\textbf{In this assignment:} You will practice designing and working with Turing machines and their variants.
+
+\textit{Resources}: To review the topics you are working with for this assignment, 
+see the class material from Week 5 through Week 6. We will post frequently asked questions 
+and our answers to them in a pinned Piazza post.
+
+\textit{Reading and extra practice problems}: Chapter 3. Chapter 3 exercises 3.1, 3.2. 
+
+\textit{Key Concepts:} Formal definitions of Turing machines, computations of Turing machines, 
+halting computations, implementation-level descriptions of Turing machines, high-level descriptions 
+of Turing machines, recognizable languages, decidable languages, variants of Turing machines, 
+enumerators, nondeterministic Turing machines, Church-Turing thesis.
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw5CSE105Sp23''.
+
+\textbf{Assigned questions}
+
+\begin{enumerate} 
+%%%%%%%%%%% PROBLEM 1 %%%%%%%%%%%
+
+\item $\REP$(\textbf{Describing a Turing Machine for }$\REP$) 
+(18 points): \\
+Recall that for $L \subseteq \Sigma^*$ with $\Sigma = \{0,1\}$, 
+we define the language over $\Gamma = \{0,1,2\}$
+\begin{align*}
+\REP(L) &:= \{ w \in \Gamma^* \mid \text{between every pair of successive $2$'s in $w$ is a string in $L$}\}\\
+&\phantom{:}=\{w \in \Gamma^* \mid \text{for all } v \in \Sigma^* \text{ if } 2v2 \in \SUBSTRING(\{w\})  
+\text{, then } v \in L\} 
+\end{align*}
+where for all languages $K \subseteq \Gamma^*$ we let
+\[
+\SUBSTRING(K) := \{ w \in \Gamma^* \mid \text{there exist } a,b \in \Gamma^* \text{ such that } awb \in K\}.
+\]
+
+In this question, you will give three separate descriptions of a Turing machine 
+which recognizes the language $\REP(\{0^n1^n \mid n \ge 0\})$. 
+
+This may seem like a somewhat tedious process, but we think that it is important 
+to see all the different descriptions in action at least once for a single language.
+
+With each description, give a brief justification connecting the description to the language it recognizes.
+
+\begin{enumerate}
+\item\gradeCompleteFirst High-level description: 
+description of algorithm (precise sequence of instructions), 
+without implementation details of machine. Your description 
+can use data structures and refer to specific positions 
+in the input strings (without specifying memory management).
+
+\item\gradeCorrectFirst Implementation-level description: English prose that 
+describes the Turing machine head movements relative to contents of tape, 
+and conditions for accepting / rejecting based on those contents.
+
+\item\gradeCorrect Formal definition: Give the 7-tuple of parameters 
+$$(Q, \Sigma, \Gamma, \delta, q_0, q_{\mathrm{acc}}, q_{\mathrm{rej}})$$ 
+describing the Turing Machine. Represent the transition 
+function $\delta$ by drawing the
+state diagram of the Turing machine. You may use the following 
+conventions: omit the reject state from the diagram; any missing 
+transitions in the state diagram are assumed to go to the reject state.
+
+\end{enumerate}
+
+%%%%%%%%%%% PROBLEM 2 %%%%%%%%%%%
+
+\item \textbf{This Turing Machine is broken... or is it?} 
+(12 points): \\
+Let's consider a variant of a Turing Machine which models computation 
+where the data keeps getting corrupted. A Corrupted Turing Machine $M = 
+(Q, \Sigma, \Gamma, \delta, q_0, q_{\mathrm{acc}}, q_{\mathrm{rej}})$ has 
+some of the usual Turing Machine components: set of states ($Q$); input 
+alphabet ($\Sigma$); transition function ($\delta$); start state ($q_0$); 
+accepting state ($q_{\mathrm{acc}}$), rejecting state 
+($q_{\mathrm{rej}}$). Unlike a normal Turing Machine, the tape alphabet 
+$\Gamma  \supseteq \Sigma$ has two (rather than one) special characters $\blank$ and $\corrupted$:
+\begin{itemize}
+\item $\blank \in \Gamma$, $\blank \not\in \Sigma$: This is the usual blank symbol. 
+\item $\corrupted \in \Gamma$, $\corrupted \not\in \Sigma$: This symbol indicates a cell that 
+has been corrupted. The machine cannot write over any corrupted cell; that is, for each $q \in Q$,
+\[
+\delta(q, \corrupted) \in \{ (r, \corrupted, D) \mid r \in Q, D \in \{L, R\} \}
+\]
+\end{itemize} 
+
+Computation in the corrupted Turing Machine proceeds as normal except that sometimes when 
+writing a tape symbol as intended, a $\corrupted$ symbol is written instead. Thankfully, 
+the pattern of corruption is predictable: the first write is corrupted, and then every 
+other write thereafter is corrupted. That is, the first, third, fifth,... etc.\ writes are corrupted.
+
+\begin{enumerate}
+\item\gradeCorrect Prove that for every {\bf regular} language $L$, there exists a corrupted 
+Turing Machine $M$ that recognizes $L$.
+
+\item\gradeComplete It will turn out that the Corrupted Turing Machine is no less powerful than our 
+usual definition of a Turing Machine. Let's break the proof into a few steps. First, define the 
+alphabet $\Sigma_{\mathrm{pairs}}:= \Sigma \times \Sigma = \{ (a,b) \mid a \in \Sigma, b \in \Sigma\}$ 
+of pairs of symbols in $\Sigma$. Give the construction of a Corrupted Turing Machine that takes 
+input $a = a_1 a_2 \cdots a_n \in \Sigma^*$ and rewrites it as pairs of symbols interspersed 
+by corrupted symbols. To be precise, the Corrupted Turing Machine should take starting tape configuration
+\[
+\begin{array}{| c | c | c | c | c | c | c | c | }  \hline
+a_1 & a_2 & \ldots & a_{n-1} & a_{n} & \blank & \blank & \ldots \\ \hline
+\end{array}
+\]
+to the tape configuration 
+\[
+\begin{array}{| c | c | c | c | c | c | c | c | c | c | c | c| }  \hline
+\corrupted & (a_1, a_2) & \corrupted & (a_3,a_4) & \corrupted & \ldots& \corrupted 
+& (a_{n-1}, a_{n}) & \corrupted & \blank & \blank & \ldots \\ \hline
+\end{array}
+\]
+with the head once again pointing to the first cell. For simplicity, you may assume that $n$ is even.
+
+\item\gradeComplete Starting from the tape configuration we created in the previous step, 
+describe the implementation of a Corrupted Turing Machine which simulates the computation of 
+any normal/uncorrupted Turing Machine.
+
+\vspace{1em}
+\noindent\textit{Challenge; not graded}: A key idea in the construction above was 
+to increase the number of symbols in our tape alphabet. Can you do the same construction 
+\emph{without} increasing the size of the tape alphabet? That is, for every language $L$ 
+recognized by a normal Turing machine over alphabet $\Sigma$ and tape alphabet $\Sigma \cup \{\blank\}$, 
+is there a Corrupted Turing Machine with tape alphabet $\Sigma \cup \{\blank,\corrupted\}$ that recognizes $L$?
+
+\end{enumerate}
+
+%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
+
+\item \textbf{True/False enumerator} (20 points): \\
+For each of the following statements, determine if it is true or false. 
+Clearly label your choice 
+by starting your solution with {\bf True} or {\bf False} and then
+provide a brief (3-4 sentences or so) justification for your answer.
+\begin{enumerate}
+\item\gradeCorrect Every enumerator enumerates an infinite language.
+\item\gradeCorrect Let $E$ be any enumerator and $M$ be any Turing machine.
+If $L(E) = L(M)$, then $M$ enters the reject state for all strings not in $L(E)$.
+\item\gradeCorrect Let $E$ be any enumerator over $\Sigma$.
+Suppose $a, b \in \Sigma^*$ and $a, b \in L(E)$.
+If $E$ prints $a$ before $b$, then $|a| \le |b|$.
+\item\gradeCorrect Let $M$ decide language $L$ over $\Sigma$
+such that $M$ halts on all inputs $w \in \Sigma^*$ in $|w|^{2023}$ steps. 
+There exists an enumerator $E$ with the following properties: $L(E) = L(M)$; 
+and if $a, b \in L$ and $|a| < |b|$, then $E$ prints $a$ before $b$.
+\item\gradeCorrect Let $N$ be a nondeterministic Turing machine. 
+There is an enumerator $E$ that enumerates the set of all and only 
+strings accepted by $N$ that have odd length.
+
+\end{enumerate}
+
+%%%%%%%%%%% END PROBLEMS  %%%%%%%%%%%
+\end{enumerate}
+
+\end{document}
