@@ -37,7 +37,7 @@
    },
    {
       "name": "projectCSE105Sp23",
-      "addExtensions": false,
+      "addExtensions": true,
       "Information": "This is an Individual Assignment"
    },
    {
