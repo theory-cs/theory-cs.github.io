@@ -5,23 +5,83 @@ Deciding a computational problem means building / defining a Turing
 machine that recognizes the language encoding the computational problem, and that 
 is a decider.
 
-\begin{center}
-  \begin{tabular}{|lcl|}
-  \hline
-  \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
-  for \ldots  & $A_{\ldots}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a \ldots that accepts input 
-  string $w$}\}$ \\
-  \hline
-  \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
-   for \ldots & $E_{\ldots}$ & $\{ \langle A \rangle \mid  \text{$A$ is a \ldots and  $L(A) = \emptyset$\}}$ \\
-  \hline
-  \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
-   for \ldots & $EQ_{\ldots}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are \ldots and  $L(A) =L(B)$\}}$\\
-  \hline
-  Sipser Section 4.1 &&\\
-  \hline
-  \end{tabular}
-  \end{center}
+
+{\bf Some classes of computational problems help us understand the differences between the machine models we've been studying:}
+
+
+    \begin{center}
+    \begin{tabular}{|lcl|}
+    \hline
+    \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
+    & & \\
+    \ldots for DFA & $A_{DFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  DFA that accepts input 
+    string $w$}\}$ \\
+    \ldots for NFA & $A_{NFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  NFA that accepts input 
+    string $w$}\}$ \\
+    \ldots for regular expressions & $A_{REX}$ & $\{ \langle R,w \rangle \mid  \text{$R$ is a  regular
+    expression that generates input string $w$}\}$ \\
+    \ldots for CFG & $A_{CFG}$ & $\{ \langle G,w \rangle \mid  \text{$G$ is a context-free grammar 
+    that generates input string $w$}\}$ \\
+    \ldots for PDA & $A_{PDA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a PDA that accepts input string $w$}\}$ \\
+    & & \\
+    & & \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
+    & & \\
+    \ldots for DFA & $E_{DFA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a  DFA and  $L(A) = \emptyset$\}}$ \\
+    \ldots for NFA & $E_{NFA}$ & $\{ \langle A\rangle \mid  \text{$A$ is a NFA and  $L(A) = \emptyset$\}}$ \\
+    \ldots for regular expressions & $E_{REX}$ & $\{ \langle R \rangle \mid  \text{$R$ is a  regular
+    expression and  $L(R) = \emptyset$\}}$ \\
+    \ldots for CFG & $E_{CFG}$ & $\{ \langle G \rangle \mid  \text{$G$ is a context-free grammar 
+    and  $L(G) = \emptyset$\}}$ \\
+    \ldots for PDA & $E_{PDA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a PDA and  $L(A) = \emptyset$\}}$ \\
+    & & \\
+    & & \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
+    & & \\
+    \ldots for DFA & $EQ_{DFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are DFAs and  $L(A) =L(B)$\}}$\\
+    \ldots for NFA & $EQ_{NFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are NFAs and  $L(A) =L(B)$\}}$\\
+    \ldots for regular expressions & $EQ_{REX}$ & $\{ \langle R, R' \rangle \mid  \text{$R$ and $R'$ are regular
+    expressions and  $L(R) =L(R')$\}}$\\
+    \ldots for CFG & $EQ_{CFG}$ & $\{ \langle G, G' \rangle \mid  \text{$G$ and $G'$ are CFGs and  $L(G) =L(G')$\}}$ \\
+    \ldots for PDA & $EQ_{PDA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are PDAs and  $L(A) =L(B)$\}}$ \\
+    \hline
+    Sipser Section 4.1 &&\\
+    \hline
+    \end{tabular}
+    \end{center}
+    
+    
+    
+    \newpage
+    
+    \begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    $M_1$  \includegraphics[width=2in]{../../resources/machines/Lect17DFA1.png} &  
+    $M_2$ \includegraphics[width=2in]{../../resources/machines/Lect17DFA2.png} &  
+    $M_3$ \includegraphics[width=2in]{../../resources/machines/Lect17DFA3.png} \\ 
+    && \\
+    && \\
+    && \\
+    && \\
+    \hline
+    \end{tabular}
+    \end{center}
+    
+    Example strings in $A_{DFA}$
+    
+    \vfill
+    
+    Example strings in  $E_{DFA}$
+    
+    \vfill
+    
+    Example strings in  $EQ_{DFA}$
+    
+    \vfill
+
   
   \begin{quote}
   $M_1 = $ ``On input $\langle M,w\rangle$, where $M$ is a DFA and $w$ is a string:
@@ -128,7 +188,7 @@ $M_{EQDFA} = $
 
   \vfill
   
-  \newpage
+
   {\bf Summary}:  We can use the decision procedures (Turing machines) of decidable problems
   as subroutines in other algorithms. For example, we have subroutines for deciding each of 
   $A_{DFA}$, $E_{DFA}$, $EQ_{DFA}$.  We can also use algorithms for known constructions
@@ -140,3 +200,4 @@ $M_{EQDFA} = $
   of the languages of the original machines; converting regular expressions to equivalent DFA; 
   converting DFA to equivalent regular expressions, etc.
 
+\newpage
