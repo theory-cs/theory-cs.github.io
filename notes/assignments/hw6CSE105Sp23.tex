@@ -1,0 +1,166 @@
+\input{../../resources/assignment-head.tex}
+
+\title{HW6 : Computational Problems, Recognizability, Decidability}
+\date{Due: May 23th at 5pm (no penalty late submission until 8am next morning), via Gradescope}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\textbf{In this assignment:} You will use general constructions and specific machines 
+to explore the classes of recognizable and decidable languages. You will explore various 
+ways to encode machines as strings so that computational problems can be recognized.
+
+\textit{Resources}:  To review the topics you are working with for this assignment, 
+see the class material from Week 6 through Week 7. We will post frequently asked questions 
+and our answers to them in a pinned Piazza post.
+
+\textit{Reading and extra practice problems}: Chapter 4 exercises 4.1, 4.3, 4.4., 4.5. 
+Chapter 4 Problems 4.29, 4.30.
+
+\textit{Key Concepts:} uring-recognizable languages, Turing-decidable languages, 
+Church-Turing thesis, computational problems.
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw6CSE105Sp23''.
+
+\textbf{Assigned questions}
+
+\begin{enumerate} 
+%%%%%%%%%%% PROBLEM 1 %%%%%%%%%%%
+\item \textbf{Explicit encodings} (8 points): \\
+In a computational problem, the elements of the language are encodings of machines. For example, 
+consider the language 
+\[
+E_{\mathrm{DFA}} := \{ \langle M \rangle \mid M \text{ is a DFA, and } L(M) = \varnothing \}
+\]
+where each string $\langle M \rangle$ in the language encodes a DFA $M = (Q, \Sigma, \delta, q_0, F)$.
+Usually, we purposefully drop the details about how this encoding is done because they can distract from 
+the central computational 
+properties of the language. In fact, any encoding can be used so long as there exists a decider for 
+syntactic questions about the DFAs being encoded. 
+In this question, we will build some specific 
+explicit examples of encodings of DFAs to get more comfortable with these ideas.
+
+\begin{enumerate}
+\item\gradeCompleteFirst \textit{Encoding with delimiters:} Perhaps the most straightforward
+way to create an encoding is to have it mirror the structure of the tuple $(Q, \Sigma, \delta, q_0, F)$ 
+for the DFA. Your task: describe an encoding that maps each DFA $M$ to a distinct string $\langle M \rangle$ 
+that uniquely identifies $M$. That is, if you ``decode'' the encoding, you get the exact same machine back. 
+
+\noindent{\it Hints, tips, notes of caution:}
+\begin{itemize}[itemsep=-10pt]
+\item You may use special characters like $\#$ and $\$$ as delimiters in your encoding to separate the 
+various components. \\
+\item Your encoding alphabet must be finite
+\end{itemize}
+\item\gradeComplete Use your encoding from part (a) to produce
+the string encoding the DFA below:
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+
+  \node[initial,state, accepting] (q0)                    {$q_0$};
+  \node[state]         (q1) [right of=q0] {$q_1$};
+
+  \path (q0) edge  [loop above] node {$0$} (q0)
+  		edge [bend left=20] node {$1$} (q1)
+	(q1) edge [loop above] node {$0$} (q1)
+		edge [bend left=20] node {$1$} (q0)
+ ;
+\end{tikzpicture}
+\end{center}
+
+\item\gradeComplete Show that it is possible to have the same kind of delimited encoding without 
+using special delimiter characters. In particular, prove that for every DFA $M$, 
+we can assume that $\langle M \rangle \subseteq \{0,1\}^*$.
+
+\end{enumerate}
+
+\noindent\textit{Challenge; not graded:\newline For the delimited encoding schemes above, 
+there are strings over the encoding alphabet 
+($\Sigma$) that nevertheless do not correspond to a valid DFA. \newline \newline
+Prove/disprove: There exists an encoding scheme for which this is not true; that is, 
+\[\{ \langle M \rangle \mid M \text{ is a DFA}\} = \Sigma^*.\]}
+
+\vfill
+
+%%%%%%%%%%% PROBLEM 2 %%%%%%%%%%%
+
+\item \textbf{Closure} (18 points): \\
+Let $\Sigma = \{0,1\}$ and $\Gamma = \{0,1,2\}$. Recall the functions
+    \begin{align*}
+    \SUBSTRING(K) &:= \{ w \in \Gamma^* \mid \text{there exist } a,b \in \Gamma^* \text{ such that } awb \in K\} \\
+    \REP(L) &:= \{ w \in \Gamma^* \mid \text{between every 
+    pair of successive $2$s in $w$ is a string in $L$}\}\\
+    &\phantom{:}=\{w \in \Gamma^* \mid \text{for all } v \in \Sigma^* \text{ if } 2v2 \in \SUBSTRING(\{w\})  \text{, then } v \in L\}
+    \end{align*}
+\begin{enumerate}
+    \item\gradeCorrectFirst Prove that, given any deterministic decider
+    over $\Sigma$, $M_L$, there is a deterministic decider over 
+    $\Gamma$ that recognizes $$\REP(~L(M_L)~)$$
+    In other words, you 
+    will prove that for any Turing-decidable language $L$ over $\Sigma$, 
+    $\REP(L)$
+    is also Turing-decidable. A complete answer will 
+    include both a precise construction of the machine and a 
+    (brief) justification of why this machine works as required.
+    
+    \item\gradeCorrect Prove that, given any nondeterministic Turing machine over 
+    $\Gamma$, $N_L$, there is a nondeterministic Turing machine over 
+    $\Gamma$ that recognizes $$\SUBSTRING(~L(N_L)~)$$
+    In other words, you will prove that the class of Turing-recognizable languages 
+    over $\Gamma$ is closed 
+    under the $\SUBSTRING$ operation.
+     A complete answer will 
+    include both a precise construction of the machine and a 
+    (brief) justification of why this machine works as required.
+    
+    \item\gradeComplete Give a different proof that the class of Turing-recognizable 
+    languages over $\Gamma$ is closed 
+    under the $\SUBSTRING$ operation, this time using only deterministic Turing machines.  A complete answer will 
+    include both a precise construction of the machine and a 
+    (brief) justification of why this machine works as required.
+
+\end{enumerate}
+
+
+%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
+\item \textbf{Computational problems} (24 points): \\
+For each of the following statements, determine if it is true or false. 
+Clearly label your choice 
+by starting your solution with {\bf True} or {\bf False} and then
+provide a brief (3-4 sentences or so) justification for your answer.
+
+\begin{enumerate}
+\item\gradeCorrect For each regular language $K$, the language 
+\[
+\{ \langle M \rangle \mid M \text{ is a DFA and } L(M) = K\} 
+\]
+is decidable.
+
+\item\gradeCorrect For each regular language $L$, the language
+\[
+\{ \langle M_1, M_2 \rangle \mid M_1, M_2\text{ are both DFA and } 
+L(M_1) \subseteq L \text{ and } L(M_2) \subseteq \overline{L}\}
+\]
+is decidable.
+
+
+\item\gradeCorrect Let $\mathrm{Model} \in \{\mathrm{DFA}, \mathrm{NFA}, 
+\mathrm{REX}, \mathrm{CFG}, \mathrm{PDA} \}$. If $EQ_{\mathrm{Model}}$ is decidable, 
+then $E_{\mathrm{Model}}$ is decidable.
+
+\end{enumerate}
+
+{\it Challenge; not graded: Let $\mathrm{Model} \in \{\mathrm{DFA}, \mathrm{NFA}, 
+\mathrm{REX}, \mathrm{CFG}, \mathrm{PDA} \}$. If $A_{\mathrm{Model}}$ is decidable, 
+then $EQ_{\mathrm{Model}}$ is decidable.}
+
+%%%%%%%%%%% END PROBLEMS  %%%%%%%%%%%
+\end{enumerate}
+
+\end{document}
