@@ -171,6 +171,75 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week8-monday">Week8 monday</h1>
+<p><span><strong>Theorem</strong></span>: <span
+class="math inline">\(A_{TM}\)</span> is not Turing-decidable.</p>
+<p><span><strong>Proof</strong></span>: Suppose <span><strong>towards a
+contradiction</strong></span> that there is a Turing machine that
+decides <span class="math inline">\(A_{TM}\)</span>. We call this
+presumed machine <span class="math inline">\(M_{ATM}\)</span>.</p>
+<p>By assumption, for every Turing machine <span
+class="math inline">\(M\)</span> and every string <span
+class="math inline">\(w\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(w \in L(M)\)</span>, then the
+computation of <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M,w \rangle ~~
+\underline{\phantom{\hspace{2.5in}}}\)</span></p></li>
+<li><p>If <span class="math inline">\(w \notin L(M)\)</span>, then the
+computation of <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M,w \rangle ~~
+\underline{\phantom{\hspace{2.5in}}}\)</span></p></li>
+</ul>
+<p>Define a <span><strong>new</strong></span> Turing machine using the
+high-level description:</p>
+<blockquote>
+<p><span class="math inline">\(D =\)</span>“ On input <span
+class="math inline">\(\langle M \rangle\)</span>, where <span
+class="math inline">\(M\)</span> is a Turing machine:</p>
+<ul>
+<li><p>Run <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M, \langle M
+\rangle  \rangle\)</span>.</p></li>
+<li><p>If <span class="math inline">\(M_{ATM}\)</span> accepts, reject;
+if <span class="math inline">\(M_{ATM}\)</span> rejects,
+accept."</p></li>
+</ul>
+</blockquote>
+<p>Is <span class="math inline">\(D\)</span> a Turing machine?</p>
+<p>Is <span class="math inline">\(D\)</span> a decider?</p>
+<p>What is the result of the computation of <span
+class="math inline">\(D\)</span> on <span class="math inline">\(\langle
+D \rangle\)</span>?</p>
+<p><span><strong>Theorem</strong></span> (Sipser Theorem 4.22): A
+language is Turing-decidable if and only if both it and its complement
+are Turing-recognizable.</p>
+<p><span><strong>Proof, first direction:</strong></span> Suppose
+language <span class="math inline">\(L\)</span> is Turing-decidable. WTS
+that both it and its complement are Turing-recognizable.</p>
+<p><span><strong>Proof, second direction:</strong></span> Suppose
+language <span class="math inline">\(L\)</span> is Turing-recognizable,
+and so is its complement. WTS that <span
+class="math inline">\(L\)</span> is Turing-decidable.</p>
+<p>Give an example of a <span><strong>decidable</strong></span> set:</p>
+<p>Give an example of a <span><strong>recognizable
+undecidable</strong></span> set:</p>
+<p>Give an example of an <span><strong>unrecognizable</strong></span>
+set:</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The class of Turing-decidable
+languages is closed under complementation?</p>
+<p>Definition: A language <span class="math inline">\(L\)</span> over an
+alphabet <span class="math inline">\(\Sigma\)</span> is called
+<span><strong>co-recognizable</strong></span> if its complement, defined
+as <span class="math inline">\(\Sigma^* \setminus L  = \{
+x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
+Turing-recognizable.</p>
+<p>Notation: The complement of a set <span
+class="math inline">\(X\)</span> is denoted with a superscript <span
+class="math inline">\(c\)</span>, <span
+class="math inline">\(X^c\)</span>, or an overline, <span
+class="math inline">\(\overline{X}\)</span>.</p>
 <h1 class="unnumbered" id="week5-monday">Week5 monday</h1>
 <p>Three different CFGs that each generate the language <span
 class="math inline">\(\{abba\}\)</span></p>
