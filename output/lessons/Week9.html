@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week9</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h2 class="unnumbered" id="monday---memorial-day">Monday - Memorial
+Day</h2>
+<p>No class today.</p>
+<h2 class="unnumbered" id="wednesday">Wednesday</h2>
+<p>Recall: <span class="math inline">\(A\)</span> is
+<span><strong>mapping reducible to</strong></span> <span
+class="math inline">\(B\)</span>, written <span class="math inline">\(A
+\leq_m B\)</span>, means there is a computable function <span
+class="math inline">\(f : \Sigma^* \to \Sigma^*\)</span> such that
+<span><em>for all</em></span> strings <span
+class="math inline">\(x\)</span> in <span
+class="math inline">\(\Sigma^*\)</span>, <span
+class="math display">\[x  \in  A \qquad \qquad \text{if and  only  if}
+\qquad \qquad f(x) \in B.\]</span></p>
+<p>True or False: <span class="math inline">\(\overline{A_{TM}} \leq_m
+\overline{HALT_{TM}}\)</span></p>
+<p>True or False: <span class="math inline">\(HALT_{TM} \leq_m
+A_{TM}\)</span>.</p>
+<p><span><strong>Theorem</strong></span> (Sipser 5.28): If <span
+class="math inline">\(A \leq_m B\)</span> and <span
+class="math inline">\(B\)</span> is recognizable, then <span
+class="math inline">\(A\)</span> is recognizable.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p><span><strong>Corollary</strong></span>: If <span
+class="math inline">\(A \leq_m B\)</span> and <span
+class="math inline">\(A\)</span> is unrecognizable, then <span
+class="math inline">\(B\)</span> is unrecognizable.</p>
+<p><span><em>Strategy</em></span>:</p>
+<p>(i) To prove that a recognizable language <span
+class="math inline">\(R\)</span> is undecidable, prove that <span
+class="math inline">\(A_{TM} \leq_m R\)</span>.</p>
+<p>(ii) To prove that a co-recognizable language <span
+class="math inline">\(U\)</span> is undecidable, prove that <span
+class="math inline">\(\overline{A_{TM}} \leq_m U\)</span>, i.e. that
+<span class="math inline">\(A_{TM} \leq_m \overline{U}\)</span>.</p>
+<p><span class="math display">\[E_{TM} = \{ \langle M \rangle \mid
+\text{$M$ is a Turing machine and $L(M) = \emptyset$} \}\]</span></p>
+<p>Example string in <span class="math inline">\(E_{TM}\)</span> is
+<u></u> . Example string not in <span
+class="math inline">\(E_{TM}\)</span> is <u></u> .</p>
+<p><span class="math inline">\(E_{TM}\)</span> is   decidable /
+undecidable   and   recognizable / unrecognizable  .</p>
+<p><span class="math inline">\(\overline{E_{TM}}\)</span> is   decidable
+/ undecidable   and   recognizable / unrecognizable  .</p>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(\underline{\phantom{\hspace{1.6in}}}  \leq_m
+\overline{E_{TM}}\)</span>.</p>
+<p><span><strong>Proof</strong></span>: Need computable function <span
+class="math inline">\(F: \Sigma^* \to \Sigma^*\)</span> such that <span
+class="math inline">\(x \in A_{TM}\)</span> iff <span
+class="math inline">\(F(x)  \notin  E_{TM}\)</span>. Define</p>
+<blockquote>
+<p><span class="math inline">\(F =  ``\)</span> On input <span
+class="math inline">\(x\)</span>,</p>
+<ul>
+<li><p>Type-check whether <span class="math inline">\(x = \langle M, w
+\rangle\)</span> for some TM <span class="math inline">\(M\)</span> and
+string <span class="math inline">\(w\)</span>. If so, move to step 2; if
+not, output</p></li>
+<li><p>Construct the following machine <span
+class="math inline">\(M&#39;_x\)</span>:</p></li>
+<li><p>Output <span class="math inline">\(\langle M&#39;_x
+\rangle\)</span>."</p></li>
+</ul>
+</blockquote>
+<p>Verifying correctness:</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Input string</th>
+<th style="text-align: center;">Output string</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(w \in
+L(M)\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(w \notin
+L(M)\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(x\)</span>
+not encoding any pair of TM and string</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class="unnumbered" id="review-week-9-wednesday">Review: Week 9
+Wednesday</h2>
+<p>Please complete the review quiz questions on <a
+href="http://gradescope.com">Gradescope</a> about mapping
+reductions.</p>
+<p><span><strong>Pre class reading for next time</strong></span>:
+Introduction to Chapter 7.</p>
+<h2 class="unnumbered" id="friday">Friday</h2>
+<p>Recall: <span class="math inline">\(A\)</span> is
+<span><strong>mapping reducible to</strong></span> <span
+class="math inline">\(B\)</span>, written <span class="math inline">\(A
+\leq_m B\)</span>, means there is a computable function <span
+class="math inline">\(f : \Sigma^* \to \Sigma^*\)</span> such that
+<span><em>for all</em></span> strings <span
+class="math inline">\(x\)</span> in <span
+class="math inline">\(\Sigma^*\)</span>, <span
+class="math display">\[x  \in  A \qquad \qquad \text{if and  only  if}
+\qquad \qquad f(x) \in B.\]</span> <span class="math display">\[EQ_{TM}
+= \{ \langle M, M&#39; \rangle \mid \text{$M$ and $M&#39;$ are both
+Turing machines and $L(M) =L(M&#39;)$} \}\]</span></p>
+<p>Example string in <span class="math inline">\(EQ_{TM}\)</span> is
+<u></u> . Example string not in <span
+class="math inline">\(EQ_{TM}\)</span> is <u></u> .</p>
+<p><span class="math inline">\(EQ_{TM}\)</span> is   decidable /
+undecidable   and   recognizable / unrecognizable  .</p>
+<p><span class="math inline">\(\overline{EQ_{TM}}\)</span> is
+  decidable / undecidable   and   recognizable / unrecognizable  .</p>
+<p>To prove, show that <span
+class="math inline">\(\underline{\phantom{\hspace{1.6in}}}  \leq_m
+EQ_{TM}\)</span> and that <span
+class="math inline">\(\underline{\phantom{\hspace{1.6in}}}  \leq_m
+\overline{EQ_{TM}}\)</span>.</p>
+<p>Verifying correctness:</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Input string</th>
+<th style="text-align: center;">Output string</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(M\)</span> halts on
+<span class="math inline">\(w\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(M\)</span> loops on
+<span class="math inline">\(w\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(x\)</span>
+not encoding any pair of TM and string</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In practice, computers (and Turing machines) don’t have infinite
+tape, and we can’t afford to wait unboundedly long for an answer.
+“Decidable" isn’t good enough - we want “Efficiently decidable".</p>
+<p>For a given algorithm working on a given input, how long do we need
+to wait for an answer? How does the running time depend on the input in
+the worst-case? average-case? We expect to have to spend more time on
+computations with larger inputs.</p>
+<p>A language is <span><strong>recognizable</strong></span> if
+<u></u></p>
+<p>A language is <span><strong>decidable</strong></span> if <u></u></p>
+<p>A language is <span><strong>efficiently decidable</strong></span> if
+<u></u></p>
+<p>A function is <span><strong>computable</strong></span> if <u></u></p>
+<p>A function is <span><strong>efficiently computable</strong></span> if
+<u></u><br />
+</p>
+<p>Definition (Sipser 7.1): For <span class="math inline">\(M\)</span> a
+deterministic decider, its <span><strong>running time</strong></span> is
+the function <span class="math inline">\(f: \mathbb{N} \to
+\mathbb{N}\)</span> given by <span class="math display">\[f(n)
+=  \text{max number of  steps $M$ takes before halting, over all
+inputs  of length $n$}\]</span></p>
+<p>Definition (Sipser 7.7): For each function <span
+class="math inline">\(t(n)\)</span>, the <span><strong>time complexity
+class</strong></span> <span class="math inline">\(TIME(t(n))\)</span>,
+is defined by <span class="math display">\[TIME( t(n)) = \{ L \mid
+\text{$L$ is decidable by  a Turing machine with running time
+in  $O(t(n))$} \}\]</span></p>
+<p>An example of an element of <span
+class="math inline">\(TIME(  1  )\)</span> is</p>
+<p>An example of an element of <span
+class="math inline">\(TIME(  n  )\)</span> is</p>
+<p>Note: <span class="math inline">\(TIME( 1) \subseteq TIME
+(n)  \subseteq TIME(n^2)\)</span></p>
+<p>Definition (Sipser 7.12) : <span class="math inline">\(P\)</span> is
+the class of languages that are decidable in polynomial time on a
+deterministic 1-tape Turing machine <span
+class="math display">\[P  =  \bigcup_k TIME(n^k)\]</span></p>
+<p><span><em>Compare to exponential time: brute-force
+search.</em></span></p>
+<p>Theorem (Sipser 7.8): Let <span class="math inline">\(t(n)\)</span>
+be a function with <span class="math inline">\(t(n)  \geq n\)</span>.
+Then every <span class="math inline">\(t(n)\)</span> time deterministic
+multitape Turing machine has an equivalent <span
+class="math inline">\(O(t^2(n))\)</span> time deterministic 1-tape
+Turing machine.</p>
+<h2 class="unnumbered" id="review-week-9-friday">Review: Week 9
+Friday</h2>
+<p>Please complete the review quiz questions on <a
+href="http://gradescope.com">Gradescope</a> about TBD</p>
+<p><span><strong>Pre class reading for next time</strong></span>: Skim
+Chapter 7.</p>
+</body>
+</html>
