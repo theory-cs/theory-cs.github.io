@@ -347,10 +347,6 @@
                 "source": "Week5.tex"
             }, 
             {
-                "name": "Discussion notes",
-                "source": ""
-            },
-            {
                 "name": "Lecture and Discussion podcast",
                 "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
             },
@@ -465,7 +461,7 @@
             }, 
             {
                 "name": "Discussion notes",
-                "source": ""
+                "source": "discussionnotes510.pdf"
             },
             {
                 "name": "Lecture and Discussion podcast",
@@ -619,6 +615,10 @@
                 "name": "Notes",
                 "source": "Week8.tex"
             }, 
+            {
+                "name": "Discussion notes",
+                "source": "discw8.pdf"
+            },
             {
                 "name": "Lecture and Discussion podcast",
                 "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
