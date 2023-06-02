@@ -704,6 +704,10 @@
                 "source": "Week9.tex"
             }, 
             {
+                "name": "Discussion notes",
+                "source": "disc-w9.pdf"
+            },
+            {
                 "name": "Lecture and Discussion podcast",
                 "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
             },
