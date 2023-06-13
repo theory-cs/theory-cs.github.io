@@ -780,6 +780,10 @@
                 "source": "Week10.tex"
             }, 
             {
+                "name": "Discussion notes",
+                "source": "disc-w10.pdf"
+            },
+            {
                 "name": "Lecture podcast",
                 "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
             },
