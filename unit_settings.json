@@ -2,16 +2,12 @@
     {
         "header": "Week 1",
         "outcomes": "Alphabet, languages, and expressions",
-        "CalendarInfo": " Dates: 4/3/23 - 4/8/23<br> Welcome! Please take our <a href=\"https://forms.gle/sohU9ZQQmP5XqJ4g9\" target=\"_blank\">pre-class survey</a>. See you Monday 9am in Warren Lecture Hall 2001 (A00) or 12pm in Center Hall 105 (B00). Notes for class are linked below. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Wednesdays at 6pm in York 2722 and Fridays at 4pm in CENTER 216. ",
-        "ExpandInCalendar": false,
+        "CalendarInfo": " Dates: 1/8/24 - 1/14/24<br> Welcome! Please take our <a href=\"https://canvas.ucsd.edu/courses/45073/assignments/609253\" target=\"_blank\">pre-class survey</a> on Canvas. See you Monday 2pm in Warren Lecture Hall 2001. Notes for class are linked below. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Fridays at 4pm in WLH 2001. ",
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week1.tex"
-            }, 
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
             },
             {
                 "name": "Lecture Hall",
@@ -75,7 +71,7 @@
             {
                 "name": "Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "4/7/23 at 5pm (no penalty late submission until Sunday)"
+                "due": "1/12/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
@@ -85,18 +81,6 @@
         "CalendarInfo": " Dates: 4/10/23 - 4/15/23",
         "ExpandInCalendar": false,
         "content": [
-            {
-                "name": "Notes",
-                "source": "Week2.tex"
-            }, 
-            {
-                "name": "Discussion notes",
-                "source": "cse105discussionw2wed.pdf"
-            }, 
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
-            },
             {
                 "name": "(Video) DFA Formal Definition",
                 "source": "https://youtu.be/GwY2en9E4VI"
@@ -179,18 +163,6 @@
         "ExpandInCalendar": false,
         "content": [
             {
-                "name": "Notes",
-                "source": "Week3.tex"
-            }, 
-            {
-                "name": "Discussion notes",
-                "source": "DiscussionWeek3.pdf"
-            },
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
-            },
-            {
                 "name": "(Video) NFA More Examples",
                 "source": "https://youtu.be/zqG_9oue9QU"
             },
@@ -263,18 +235,6 @@
         "ExpandInCalendar": false,
         "content": [
             {
-                "name": "Notes",
-                "source": "Week4.tex"
-            }, 
-            {
-                "name": "Discussion notes",
-                "source": "DiscussionCFGNotes.pdf"
-            },
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
-            },
-            {
                 "name": "(Video) Pumping Lemma Applications",
                 "source": "https://youtu.be/e69l6fAmOmI"
             },
@@ -342,18 +302,6 @@
         "CalendarInfo": " Dates: 5/1/23 - 5/6/23. Midterm exam in class this week.",
         "ExpandInCalendar": false,
         "content": [
-            {
-                "name": "Notes",
-                "source": "Week5.tex"
-            }, 
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
-            },
-            {
-                "name": "Discussion Section: Mondays in WLH 2001",
-                "source": "<p>Slides will be posted after the discussion section.</p>"
-            },
             {
                 "name": "(Video) PDA Design and reverse engingeering",
                 "source": "https://youtu.be/b-dr_GndeBg"
@@ -456,18 +404,6 @@
         "ExpandInCalendar": false,
         "content": [
             {
-                "name": "Notes",
-                "source": "Week6.tex"
-            }, 
-            {
-                "name": "Discussion notes",
-                "source": "discussionnotes510.pdf"
-            },
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
-            },
-            {
                 "name": "(Video) TM Intro Recap",
                 "source": "https://youtu.be/GuhFK1NLNxg"
             },
@@ -544,18 +480,6 @@
         "ExpandInCalendar": false,
         "content": [
             {
-                "name": "Notes",
-                "source": "Week7.tex"
-            }, 
-            {
-                "name": "Discussion notes",
-                "source": "discw7.pdf"
-            },
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
-            },
-            {
                 "name": "(Video) Decidable computational problems",
                 "source": "https://youtu.be/VQU2rk_XGWI"
             },
@@ -611,18 +535,6 @@
         "CalendarInfo": " Dates: 5/22/23 - 5/27/23",
         "ExpandInCalendar": false,
         "content": [
-            {
-                "name": "Notes",
-                "source": "Week8.tex"
-            }, 
-            {
-                "name": "Discussion notes",
-                "source": "discw8.pdf"
-            },
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
-            },
             {
                 "name": "(Video) ATM undecidable via diagonalization",
                 "source": "https://youtu.be/2OR5wIIy5w8"
@@ -700,18 +612,6 @@
         "ExpandInCalendar": false,
         "content": [
             {
-                "name": "Notes",
-                "source": "Week9.tex"
-            }, 
-            {
-                "name": "Discussion notes",
-                "source": "disc-w9.pdf"
-            },
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
-            },
-            {
                 "name": "(Video) Reducing A_TM to HALT_TM",
                 "source": "https://youtu.be/u8u7mYsZFWE"
             },
@@ -776,18 +676,6 @@
         "ExpandInCalendar": false,
         "content": [
             {
-                "name": "Notes",
-                "source": "Week10.tex"
-            }, 
-            {
-                "name": "Discussion notes",
-                "source": "disc-w10.pdf"
-            },
-            {
-                "name": "Lecture podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/watch/sp23/cse105_a00/1\">videos on podcast.ucsd.edu</a>"
-            },
-            {
                 "name": "(Video) Nondeterministic time complexity",
                 "source": "https://youtu.be/jZvsskEjKUo"
             },
@@ -839,7 +727,7 @@
         "Due Dates": [
             {
                 "name": "Final exam",
-                "due": "6/14/23. Check the Schedule of Classes for the time of your lecture's exam."
+                "due": "6/14/23."
             }
         ]
     }
