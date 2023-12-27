@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CSE105W24" />
+  <title>Project - CSE 105 Spring 2022</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Project - CSE 105 Spring 2022</h1>
+<p class="author">CSE105W24</p>
+<p class="date">Due 6/1/23 at 5pm (no penalty late submission until 8am
+next day)</p>
+</header>
+<p>The project component is designed for you to go deeper and extend
+your work on assignments and to explore an application of your choosing.
+The project is an individual assignment and has two tasks:</p>
+<ul>
+<li><p>Task 1: A meaningful language (written) and</p></li>
+<li><p>Task 2: A helpful function (some programming, presented as a
+screencast video).</p></li>
+</ul>
+<h3 class="unnumbered" id="what-resources-can-you-use">What resources
+can you use?</h3>
+<p>This project must be completed individually, without any help from
+other people, including the course staff (other than logistics support
+if you get stuck with screencast).</p>
+<p>You can use any of this quarter’s CSE 105 offering (notes, readings,
+class videos, homework feedback). These resources should be more than
+enough.</p>
+<p>If you are struggling to get started and want to look elsewhere
+online, you must acknowledge this by listing and citing any resources
+you consult (even if you do not explicitly quote them), including any
+large-language model style resources. Link directly to them and include
+the name of the author / video creator, any search strings or prompts
+you used, and the reason you consulted this reference.</p>
+<p>The work you submit for the project needs to be your own. Again, you
+shouldn’t need to look anywhere other than this quarter’s material and
+doing so may result in definitions or notations that conflict with our
+norms in this class so think carefully before you go down this path.</p>
+<h3 class="unnumbered" id="submitting-the-project">Submitting the
+project</h3>
+<p>You will submit a PDF for Task 1 and a video for Task 2 to an online
+assignment on Gradescope.</p>
+<h2 class="unnumbered" id="task-1-a-meaningful-language">Task 1: A
+meaningful language</h2>
+<p>Automaton models are useful for concisely representing patterns. In
+this question, you’ll choose a pattern in an application you care about,
+define it precisely, and then build a DFA, NFA, or PDA that recognizes
+it.</p>
+<p>First, pick <span><strong>one</strong></span> application for your
+example. Here are some ideas to get you started - but you can choose to
+go in a different direction all together.</p>
+<ul>
+<li><p>Data validation for input in text files (e.g. emails with
+specific domains, dates in specific formats, PIDs in a class list,
+etc.)</p></li>
+<li><p>Finding ASCII codes for punctuation in a binary file.</p></li>
+<li><p>The CDC recommended procedure for hand washing (Refer to the
+guidelines from the CDC here https://www.cdc.gov/handwashing/index.html
+in your explanation. You might find the first example in chapter 1 about
+automatic door controllers helpful when starting your design.)</p></li>
+<li><p>See more ideas here:</p>
+<p><span><a
+href="https://theory-cs.github.io/files/practical-applications-of-theory-of-computation.pdf"
+class="uri">https://theory-cs.github.io/files/practical-applications-of-theory-of-computation.pdf</a></span></p></li>
+</ul>
+<p>Then:</p>
+<ol>
+<li><p>In a paragraph or so, give the context for your chosen
+application and why you chose it.</p></li>
+<li><p>Specify the alphabet for your example.</p></li>
+<li><p>Write a precise (mathematical and/or English) description of a
+set of strings over this alphabet that is important, and include a
+sentence or so justifying why this set is important.</p></li>
+<li><p>Give one example of a string in this set and a string not in this
+set, and explain why you chose these example strings.</p></li>
+<li><p>Classify your language as regular or context-free, and prove this
+classification by giving an appropriate machine that recognizes your
+language. Justify your construction.</p></li>
+</ol>
+<h3 class="unnumbered" id="grading-criteria-and-checklists">Grading
+criteria and checklists</h3>
+<p>Solution is typed out in detail step-by-step, with clear and correct
+logic and justification.</p>
+<p>Each of the five items are included, with precise language and
+notation for all terms and complete, correct, and clear
+justification.</p>
+<h2 class="unnumbered" id="task-2-a-helpful-function">Task 2: A helpful
+function</h2>
+<p>To relate the difficulty level of one language to another we use
+mapping reduction, which relies on the notion of computable function. In
+this part of the project, you will define, program, and trace a specific
+computable function from <span class="math inline">\(\{a,b\}^*\)</span>
+to <span class="math inline">\(\{a,b\}^*\)</span>.</p>
+<p>First, choose a function you will be working with. You can pick any
+function you like so long as:</p>
+<ul>
+<li><p>Its domain is <span class="math inline">\(\{a,b\}^*\)</span> and
+its codomain is <span class="math inline">\(\{a,b\}^*\)</span></p></li>
+<li><p>There is at least one domain element that is mapped to a string
+that is <span><strong>longer</strong></span> than it and there is at
+least one domain element that is mapped to a string that is
+<span><strong>shorter</strong></span> than it.</p></li>
+</ul>
+<p>Then:</p>
+<ol>
+<li><p>Give a high-level description of a Turing machine that computes
+this function.</p></li>
+<li><p>Draw the state diagram of this Turing machine.</p></li>
+<li><p>Write a program in Java, Python, JavaScript, or C++ (or another
+programming language of your choosing) that simulates the computations
+of this Turing machine. Your program should display a snapshot of each
+step of the computation, including the state of the machine, the current
+(non-blank) contents of the tape, and the location of the read/write
+head of the Turing machine. If you would like, you may use aids such as
+co-pilot or ChatGPT to help you write this program. However, you should
+test the code that is produced and be able to explain what it is doing.
+As a header in your code file, include a comment block describing any
+resources that were used to help generate your code.</p></li>
+<li><p>Run your program on a string over <span
+class="math inline">\(\{a,b\}\)</span> which the function maps to a
+string that is longer than it, and</p></li>
+<li><p>Run your program on a string over <span
+class="math inline">\(\{a,b\}\)</span> which the function maps to a
+string that is shorter than it.</p></li>
+</ol>
+<p>Presenting your reasoning and demonstrating it via screenshare are
+important skills that also show us a lot of your learning. Getting
+practice with this style of presentation is a good thing for you to
+learn in general and a rich way for us to assess your skills. To
+demonstrate your work, you will create a 3-5 minute screencast video
+with the following components:</p>
+<ul>
+<li><p>Start with your face and your student ID for a few seconds at the
+beginning, and introduce yourself audibly while on screen. You don’t
+have to be on camera for the rest of the video, though it’s fine if you
+are. We are looking for a brief confirmation that it’s you creating the
+video and doing the work you submitted.</p></li>
+<li><p>Present the function you will be working with. Your video should
+include a clear and precise definition of the function (before you
+introduce any Turing machines).</p></li>
+<li><p>Show on the screen and explain the high-level description of your
+Turing machine witnessing that your function is computable.</p></li>
+<li><p>Show on the screen and explain the state diagram of your Turing
+machine.</p></li>
+<li><p>Show on the screen and present your code, including the software
+design choices you made (e.g. which data structures are you using, etc.)
+and any resources you used.</p></li>
+<li><p>Demonstrate running your code on the two example input strings
+specified above. Explain why the output of your program is what you
+would expect.</p></li>
+</ul>
+<h3 class="unnumbered" id="grading-criteria-and-checklists-1">Grading
+criteria and checklists</h3>
+<p>Logistics: video loads correctly, is between 3 and 5 minutes, shows
+the student’s face and ID, and they introduce themself audibly while on
+screen.</p>
+<p>The video clearly states which function was chosen for study, the
+function which is well-defined and computable, the video presents the
+two different descriptions of the Turing machine clearly, and the Turing
+machine correctly computes the function.</p>
+<p>The video clearly describes which programming language was chosen for
+the implementation and gives the reasons why.</p>
+<p>The video discusses the connections between the state diagram of the
+Turing machine and its implementation in the code.</p>
+<p>The video clearly demonstrates all test cases, including both
+expected and actual output. The video should include screencasts of
+running the code live to demonstrate these test cases.</p>
+<h3 class="unnumbered" id="your-video">Your video:</h3>
+<p>You may produce screencasts with any software you choose. One option
+is to record yourself with Zoom; a tutorial on how to use Zoom to record
+a screencast (courtesy of Prof. Joe Politz) is here:</p>
+<p><a
+href="https://drive.google.com/open?id=1KROMAQuTCk40zwrEFotlYSJJQdcG_GUU"
+class="uri">https://drive.google.com/open?id=1KROMAQuTCk40zwrEFotlYSJJQdcG_GUU</a>.</p>
+<p>The video that was produced from that recording session in Zoom is
+here:</p>
+<p><a
+href="https://drive.google.com/open?id=1MxJN6CQcXqIbOekDYMxjh7mTt1TyRVMl"
+class="uri">https://drive.google.com/open?id=1MxJN6CQcXqIbOekDYMxjh7mTt1TyRVMl</a></p>
+<p>Please send an email to the instructors (minnes@ucsd.edu and
+dgrier@ucsd.edu) if you have concerns about the video / screencast
+components of this project or cannot complete projects in this style for
+some reason.</p>
+</body>
+</html>
