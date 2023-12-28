@@ -494,7 +494,7 @@
 
         "Due Dates": [
             {
-                "name": "projectCSE105Sp24",
+                "name": "projectCSE105W24",
                 "due": "2/22/24 at 5pm (no penalty late submission until 8am next day)"
             },
             {
@@ -698,13 +698,13 @@
 
         "Due Dates": [
             {
-                "name": "hw4CSE105W24",
+                "name": "hw5CSE105W24",
                 "due": "3/14/24 at 5pm (no penalty late submission until 8am next day)"
             },
             {
                 "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "3/17/24 at 5pm (no penalty late submission until Sunday)"
+                "due": "3/15/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
