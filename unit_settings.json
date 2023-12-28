@@ -1,8 +1,8 @@
 [
     {
         "header": "Week 1",
-        "outcomes": "Alphabet, languages, and expressions",
-        "CalendarInfo": " Dates: 1/8/24 - 1/14/24<br> Welcome! Please take our <a href=\"https://canvas.ucsd.edu/courses/45073/assignments/609253\" target=\"_blank\">pre-class survey</a> on Canvas. See you Monday 2pm in Warren Lecture Hall 2001. Notes for class are linked below. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Fridays at 4pm in WLH 2001. ",
+        "outcomes": "Languages, expressions, and automata",
+        "CalendarInfo": "Dates: 1/8/24 - 1/14/24<br> Welcome! Please take our <a href=\"https://canvas.ucsd.edu/courses/45073/assignments/609253\" target=\"_blank\">pre-class survey</a> on Canvas. See you Monday 2pm in Warren Lecture Hall 2001. Notes for class are linked below. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Fridays at 4pm in WLH 2001. ",
         "ExpandInCalendar": true,
         "content": [
             {
@@ -69,7 +69,7 @@
 
         "Due Dates": [
             {
-                "name": "Review Quiz",
+                "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
                 "due": "1/12/24 at 5pm (no penalty late submission until Sunday)"
             }
@@ -78,7 +78,7 @@
     {
         "header": "Week 2",
         "outcomes": "Regular languages and nondeterminism",
-        "CalendarInfo": " Dates: 4/10/23 - 4/15/23",
+        "CalendarInfo": " Dates: 1/15/24 - 1/21/24. No class on Monday (in observance of Martin Luther King, Jr. Day).",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -146,20 +146,20 @@
 
         "Due Dates": [
             {
-                "name": "hw1CSE105Sp23",
-                "due": "4/11/23 at 5pm (no penalty late submission until 8am next morning)"
+                "name": "hw1CSE105W24",
+                "due": "1/18/24 at 5pm (no penalty late submission until 8am next morning)"
             },
             {
-                "name": "Review Quiz",
+                "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "4/14/23 at 5pm (no penalty late submission until Sunday)"
+                "due": "1/19/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
     {
         "header": "Week 3",
         "outcomes": "Automata constructions and nonregular languages",
-        "CalendarInfo": " Dates: 4/17/23 - 4/22/23",
+        "CalendarInfo": " Dates: 1/22/24 - 1/28/24",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -218,20 +218,16 @@
 
         "Due Dates": [
             {
-                "name": "hw2CSE105Sp23",
-                "due": "4/18/23 at 5pm (no penalty late submission until 8am next morning)"
-            },
-            {
-                "name": "Review Quiz",
+                "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "4/21/23 at 5pm (no penalty late submission until Sunday)"
+                "due": "1/26/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
     {
         "header": "Week 4",
         "outcomes": "Pumping Lemma and Pushdown Automata",
-        "CalendarInfo": " Dates: 4/24/23 - 4/29/23",
+        "CalendarInfo": " Dates: 1/29/24 - 2/4/24",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -286,20 +282,20 @@
 
         "Due Dates": [
             {
-                "name": "hw3CSE105Sp23",
-                "due": "4/25/23 at 5pm (no penalty late submission until 8am next day)"
+                "name": "hw2CSE105W24",
+                "due": "2/1/24 at 5pm (no penalty late submission until 8am next day)"
             },
             {
-                "name": "Review Quiz",
+                "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "4/28/23 at 5pm (no penalty late submission until Sunday)"
+                "due": "2/2/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
     {
         "header": "Week 5",
-        "outcomes": "Context-free grammars, context-free languages, and Turing machines",
-        "CalendarInfo": " Dates: 5/1/23 - 5/6/23. Midterm exam in class this week.",
+        "outcomes": "Context-free grammars and context-free languages",
+        "CalendarInfo": " Dates: 2/5/24 - 2/11/24. Test 1 in discussion section this week.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -382,25 +378,20 @@
 
         "Due Dates": [
             {
-                "name": "hw4CSE105Sp23",
-                "due": "5/2/23 at 5pm (no penalty late submission until 8am next morning)"
+                "name": "Test 1",
+                "due": "2/9/24 in discussion section"
             },
             {
-                "name": "Midterm Exam",
-                "due": "5/5/23 in class"
-            }
-            ,
-            {
-                "name": "Review Quiz",
+                "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "5/5/23 at 5pm (no penalty late submission until Sunday)"
+                "due": "2/9/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
     {
         "header": "Week 6",
-        "outcomes": "Describing Turing machines and algorithms",
-        "CalendarInfo": " Dates: 5/8/23 - 5/13/23",
+        "outcomes": "Turing machines, algorithms, and decidability",
+        "CalendarInfo": " Dates: 2/12/24 - 2/18/24",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -436,26 +427,6 @@
                 "source": "https://youtu.be/8LaBLS2pdi4"
             },
             {
-                "name": "(Video) Equally expressive models",
-                "source": "https://youtu.be/kjeqnssKlAo"   
-            },
-            {
-                "name": "(Video) TM vs May Stay machines",
-                "source": "https://youtu.be/wl-NqDxgGr0"
-            },
-            {
-                "name": "(Video) Multitape TMs",
-                "source": "https://youtu.be/iRSNkWk_RWg"
-            },
-            {
-                "name": "(Video) Nondeterministic TMS",
-                "source": "https://youtu.be/H7hghfbNlDI"
-            },
-            {
-                "name": "(Video) Church-Turing thesis",
-                "source": "https://youtu.be/97gxo9R4kBU"
-            },
-            {
                 "name": "(Video) High-level descriptions of TMs",
                 "source": "https://youtu.be/TOUTeqTL5Xw"
             },
@@ -467,16 +438,20 @@
 
         "Due Dates": [
            {
-                "name": "Review Quiz",
+                "name": "hw3CSE105W24",
+                "due": "2/15/24 at 5pm (no penalty late submission until 8am next day)"
+           },
+           {
+                "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "5/12/23 at 5pm (no penalty late submission until Sunday)"
+                "due": "2/16/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
     {
         "header": "Week 7",
         "outcomes": "Computational problems: decidable and undecidable",
-        "CalendarInfo": " Dates: 5/15/23 - 5/20/23",
+        "CalendarInfo": " Dates: 2/19/24 - 2/25/24. No class on Monday (in observance of Presidents Day).",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -519,20 +494,20 @@
 
         "Due Dates": [
             {
-                "name": "hw5CSE105Sp23",
-                "due": "5/16/23 at 5pm (no penalty late submission until 8am next day)"
+                "name": "projectCSE105Sp24",
+                "due": "2/22/24 at 5pm (no penalty late submission until 8am next day)"
             },
             {
-                "name": "Review Quiz",
+                "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "5/19/23 at 5pm (no penalty late submission until Sunday)"
+                "due": "2/23/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
     {
         "header": "Week 8",
         "outcomes": "How undecidable: mapping reductions and the halting problem",
-        "CalendarInfo": " Dates: 5/22/23 - 5/27/23",
+        "CalendarInfo": " Dates: 2/26/24 - 3/3/24",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -595,20 +570,20 @@
 
         "Due Dates": [
             {
-                "name": "hw6CSE105Sp23",
-                "due": "5/23/23 at 5pm (no penalty late submission until 8am next day)"
+                "name": "hw4CSE105W24",
+                "due": "2/29/24 at 5pm (no penalty late submission until 8am next day)"
             },
             {
-                "name": "Review Quiz",
+                "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "5/26/23 at 5pm (no penalty late submission until Sunday)"
+                "due": "3/1/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
     {
         "header": "Week 9",
-        "outcomes": "Reductions: mapping reductions and polynomial-time reductions.",
-        "CalendarInfo": " Dates: 5/29/23 - 6/3/23.  No class on Monday in observance of Memorial Day. Project is due this week.",
+        "outcomes": "Mapping reductions and the Church-Turing thesis.",
+        "CalendarInfo": " Dates: 3/4/24 - 3/10/24. Test 2 in discussion section this week.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -640,6 +615,46 @@
                 "source": "https://youtu.be/x-1s7zUpiX0"
             },
             {
+                "name": "(Video) Equally expressive models",
+                "source": "https://youtu.be/kjeqnssKlAo"   
+            },
+            {
+                "name": "(Video) TM vs May Stay machines",
+                "source": "https://youtu.be/wl-NqDxgGr0"
+            },
+            {
+                "name": "(Video) Multitape TMs",
+                "source": "https://youtu.be/iRSNkWk_RWg"
+            },
+            {
+                "name": "(Video) Nondeterministic TMS",
+                "source": "https://youtu.be/H7hghfbNlDI"
+            },
+            {
+                "name": "(Video) Church-Turing thesis",
+                "source": "https://youtu.be/97gxo9R4kBU"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "Test 2",
+                "due": "3/8/24 in discussion section"
+            },
+            {
+                "name": "Daily Review Quiz",
+                "link": "https://gradescope.com",
+                "due": "3/8/24 at 5pm (no penalty late submission until Sunday)"
+            }
+        ]
+    },
+    {
+        "header": "Week 10",
+        "outcomes": "Time Complexity: P vs. NP",
+        "CalendarInfo": " Dates: 3/11/24 - 3/17/24.",
+        "ExpandInCalendar": false,
+        "content": [
+            {
                 "name": "(Video) Complexity motivation",
                 "source": "https://youtu.be/L63nHGGVktI"
             },
@@ -654,27 +669,7 @@
             {
                 "name": "(Video) Complexity of ADFA",
                 "source": "https://youtu.be/_xeRF03tE1w"
-            }
-        ],
-
-        "Due Dates": [
-            {
-                "name": "projectCSE105Sp23",
-                "due": "6/1/23 at 5pm (no penalty late submission until 8am next morning)"
             },
-            {
-                "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "6/2/23 at 5pm (no penalty late submission until Sunday)"
-            }
-        ]
-    },
-    {
-        "header": "Week 10",
-        "outcomes": "Complexity: P vs. NP",
-        "CalendarInfo": " Dates: 6/5/23 - 6/10/23.",
-        "ExpandInCalendar": false,
-        "content": [
             {
                 "name": "(Video) Nondeterministic time complexity",
                 "source": "https://youtu.be/jZvsskEjKUo"
@@ -703,31 +698,31 @@
 
         "Due Dates": [
             {
-                "name": "hw7CSE105Sp23",
-                "due": "6/6/23 at 5pm (no penalty late submission until 8am next day)"
+                "name": "hw4CSE105W24",
+                "due": "3/14/24 at 5pm (no penalty late submission until 8am next day)"
             },
             {
-                "name": "Review Quiz",
+                "name": "Daily Review Quiz",
                 "link": "https://gradescope.com",
-                "due": "6/9/23 at 5pm (no penalty late submission until Sunday)"
+                "due": "3/17/24 at 5pm (no penalty late submission until Sunday)"
             }
         ]
     },
     {
         "header": "Finals week",
         "outcomes": "Final exam",
-        "CalendarInfo":  "Date: 6/14/23",
+        "CalendarInfo":  "Date: 3/18/24",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Final exam details",
-                "source": "See syllabus and Canvas announcement (https://canvas.ucsd.edu/courses/45073/discussion_topics/631687) for details."
+                "source": "See syllabus and Canvas announcement (TBA) for details."
             }
         ],
         "Due Dates": [
             {
                 "name": "Final exam",
-                "due": "6/14/23."
+                "due": "3/18/24, 3pm-6pm. Room TBA."
             }
         ]
     }
