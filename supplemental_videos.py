@@ -11,7 +11,7 @@ websiteSettings = json.loads(open("website-settings.json").read())
 titleArray = []
 idArray = []
 embedString = ""
-podcast = "<p> Podcast: <a href =" + websiteData["Podcast"] + ">link</a>\n</p>"
+podcast = "<p> Podcast from this quarter: <a href =" + websiteData["Podcast"] + ">link</a>\n</p>"
 
 # Get all YouTube embed
 for i in range(0,len(unitData)):
