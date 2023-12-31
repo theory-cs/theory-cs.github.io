@@ -179,12 +179,14 @@
 
 </div>
 <h1 class="unnumbered" id="before-we-start">Before we start</h1>
-<p>We are committed to fostering a learning environment for this course
-that supports a diversity of thoughts, perspectives and experiences, and
-respects your identities (including race, ethnicity, heritage, gender,
-sex, class, sexuality, religion, ability, age, educational background,
-etc.).  Our goal is to create a diverse and inclusive learning
-environment where all students feel comfortable and can thrive.</p>
+<p>We want you to be successful.</p>
+<p>We will work together to build an environment in CSE 105 that
+supports your learning in a way that respects your perspectives,
+experiences, and identities (including race, ethnicity, heritage,
+gender, sex, class, sexuality, religion, ability, age, educational
+background, etc.).  Our goal is for you to engage with interesting and
+challenging concepts and feel comfortable exploring, asking questions,
+and thriving.</p>
 <p>If you or someone you know is suffering from food and/or housing
 insecurities there are UCSD resources here to help:</p>
 <p>Basic Needs Office: <a
@@ -196,30 +198,26 @@ href="https://www.facebook.com/tritonfoodpantry/">https://www.facebook.com/trito
 <p>Mutual Aid UCSD: <a
 href="https://mutualaiducsd.wordpress.com/">https://mutualaiducsd.wordpress.com/</a></p>
 <p>Financial aid resources, the possibility of emergency grant funding,
-and off-campus housing referral resources are available. See CAPS and
-your college dean.</p>
+and off-campus housing referral resources are available: see your
+College Dean of Student Affairs.</p>
 <p>If you find yourself in an uncomfortable situation, ask for help. We
 are committed to upholding University policies regarding
-nondiscrimination, sexual violence and sexual harassment.</p>
-<p>Counseling and Psychological Services (CAPS) at 858 5343755 or <a
-href="http://caps.ucsd.edu">http://caps.ucsd.edu</a></p>
-<p>OPHD at (858) 534-8298, ophd@ucsd.edu , <a
-href="http://ophd.ucsd.edu">http://ophd.ucsd.edu</a>. CARE at Sexual
+nondiscrimination, sexual violence and sexual harassment: Counseling and
+Psychological Services (CAPS) at 858 5343755 or <a
+href="http://caps.ucsd.edu">http://caps.ucsd.edu</a>; OPHD at (858)
+534-8298, ophd@ucsd.edu , <a
+href="http://ophd.ucsd.edu">http://ophd.ucsd.edu</a>; CARE at Sexual
 Assault Resource Center at 858 5345793 sarc@ucsd.edu <a
-href="http://care.ucsd.edu">http://care.ucsd.edu</a></p>
-<p>Please do not come to class if you are sick or even think you might
-be sick. We will continue to follow the campus guidelines as updated on
-https://returntolearn.ucsd.edu/ .</p>
-<p>Please reach out (minnes@ucsd.edu or dgrier@ucsd.edu) if you need
-support with extenuating circumstances.</p>
+href="http://care.ucsd.edu">http://care.ucsd.edu</a>.</p>
+<p>Please reach out (minnes@ucsd.edu) if you need support with
+extenuating circumstances.</p>
 <h1 class="unnumbered" id="introductions">Introductions</h1>
 <p>Class website: <a
-href="https://canvas.ucsd.edu/courses/45073">https://canvas.ucsd.edu/courses/45073</a></p>
+href="https://canvas.ucsd.edu/courses/51649/">https://canvas.ucsd.edu/courses/51649/</a></p>
 <p>Instructor: Prof. Mia Minnes <span><span>"Minnes" rhymes with
 Guinness</span></span>, minnes@ucsd.edu, <a
 href="http://cseweb.ucsd.edu/~minnes">http://cseweb.ucsd.edu/ minnes</a></p>
-<p>Our team: One instructors + two TAs and eleven tutors + all of
-you</p>
+<p>Our team: One instructor + two TAs and eleven tutors + all of you</p>
 <p>Fill in contact info for students around you, if you’d like:</p>
 <p>Welcome to CSE 105: Introduction to Theory of Computation in Winter
 2024!</p>
@@ -249,35 +247,43 @@ description of problems</p>
 <p><span><strong>Output</strong></span>: Yes/ No, where Yes means that
 the input string matches the pattern or property described by the
 problem.</p>
-<h1 class="unnumbered" id="monday">Monday</h1>
-<p>We will use vocabulary that should be familiar from your discrete
-math and introduction to proofs classes. Some of the notation
-conventions may be a bit different: we will use the notation from this
-class’ textbook<a href="#fn1" class="footnote-ref" id="fnref1"
+<h1 class="unnumbered" id="monday-terminology-and-notation">Monday:
+Terminology and Notation</h1>
+<p>The CSE 105 vocabulary and notation build on discrete math and
+introduction to proofs classes. Some of the conventions may be a bit
+different so we’ll draw your attention to them.</p>
+<p>For consistency, we will use the notation from this class’ textbook<a
+href="#fn1" class="footnote-ref" id="fnref1"
 role="doc-noteref"><sup>1</sup></a>.</p>
-<p>Write out in words the meaning of the symbols below: <span
-class="math display">\[\{ a,b, c\}\]</span></p>
-<p><span class="math display">\[| \{a, b, a \} | = 2\]</span></p>
-<p><span class="math display">\[| aba | = 3\]</span></p>
-<p><span class="math display">\[(a, 3, 2, b, b)\]</span></p>
+<p>These definitions are on pages 3, 4, 6, 13, 14, 53.</p>
 <div class="center">
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Term</th>
-<th style="text-align: center;">Typical symbol</th>
-<th style="text-align: left;">Meaning</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;"><span><strong>Term</strong></span></td>
+<td style="text-align: center;"><span><strong>Typical
+symbol</strong></span></td>
+<td style="text-align: left;"><span><strong>Meaning</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">or
+<span><strong>Notation</strong></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Alphabet</td>
 <td style="text-align: center;"><span
 class="math inline">\(\Sigma\)</span>, <span
 class="math inline">\(\Gamma\)</span></td>
 <td style="text-align: left;">A non-empty finite set</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Symbol over <span
 class="math inline">\(\Sigma\)</span></td>
 <td style="text-align: center;"><span
@@ -287,7 +293,7 @@ class="math inline">\(x\)</span></td>
 <td style="text-align: left;">An element of the alphabet <span
 class="math inline">\(\Sigma\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">String over <span
 class="math inline">\(\Sigma\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(u\)</span>,
@@ -295,6 +301,13 @@ class="math inline">\(\Sigma\)</span></td>
 class="math inline">\(w\)</span></td>
 <td style="text-align: left;">A finite list of symbols from <span
 class="math inline">\(\Sigma\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">(The) empty string</td>
+<td style="text-align: center;"><span
+class="math inline">\(\varepsilon\)</span></td>
+<td style="text-align: left;">The (only) string of length <span
+class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">The set of all strings over <span
@@ -314,19 +327,23 @@ class="math inline">\(L\)</span></td>
 class="math inline">\(\Sigma\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Empty string</td>
-<td style="text-align: center;"><span
-class="math inline">\(\varepsilon\)</span></td>
-<td style="text-align: left;">The string of length <span
-class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Empty set</td>
+<td style="text-align: left;">(The) empty language</td>
 <td style="text-align: center;"><span
 class="math inline">\(\emptyset\)</span></td>
-<td style="text-align: left;">The empty language</td>
+<td style="text-align: left;">The empty set, i.e. the set that has no
+strings (and no other elements either)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">The power set of a set <span
 class="math inline">\(X\)</span></td>
 <td style="text-align: center;"><span
@@ -334,42 +351,33 @@ class="math inline">\(\mathcal{P}(X)\)</span></td>
 <td style="text-align: left;">The set of all subsets of <span
 class="math inline">\(X\)</span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Natural numbers</td>
+<tr class="even">
+<td style="text-align: left;">(The set of) natural numbers</td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathcal{N}\)</span></td>
 <td style="text-align: left;">The set of positive integers</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Finite set</td>
+<tr class="odd">
+<td style="text-align: left;">(Some) finite set</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">The empty set or a set whose distinct
 elements can be counted by a natural number</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Infinite set</td>
+<tr class="even">
+<td style="text-align: left;">(Some) infinite set</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">A set that is not finite.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><span><em>Pages 3, 4, 6, 13, 14,
-53</em></span></td>
+<tr class="odd">
+<td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Term</th>
-<th style="text-align: center;">Notation</th>
-<th style="text-align: left;">Meaning</th>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
 </tr>
-</thead>
-<tbody>
 <tr class="odd">
 <td style="text-align: left;">Reverse of a string <span
 class="math inline">\(w\)</span></td>
@@ -421,6 +429,16 @@ a prefix of <span class="math inline">\(y\)</span> and <span
 class="math inline">\(x \neq y\)</span></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Shortlex order, also known as string order
 over alphabet <span class="math inline">\(\Sigma\)</span></td>
 <td style="text-align: center;"></td>
@@ -429,14 +447,14 @@ class="math inline">\(\Sigma\)</span> first by length and then according
 to the dictionary order, assuming symbols in <span
 class="math inline">\(\Sigma\)</span> have an ordering.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><span><em>Pages 13, 14</em></span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
 </tbody>
 </table>
 </div>
+<p>Write out in words the meaning of the symbols below: <span
+class="math display">\[\{ a,b, c\}\]</span></p>
+<p><span class="math display">\[| \{a, b, a \} | = 2\]</span></p>
+<p><span class="math display">\[| aba | = 3\]</span></p>
+<p><span class="math display">\[(a, 3, 2, b, b)\]</span></p>
 <p><span><em>Circle the correct choice</em></span>:</p>
 <p>A <span><strong>string</strong></span> over an alphabet <span
 class="math inline">\(\Sigma\)</span> is <u>  an element of <span
@@ -493,8 +511,8 @@ alphabetical ordering for single letters:</p>
 Monday</h2>
 <ol>
 <li><p>Please complete the beginning of the quarter survey linked from
-our #FinAid Assignment on Canvas <a
-href="https://canvas.ucsd.edu/courses/45073/assignments/609253">https://canvas.ucsd.edu/courses/45073/assignments/609253?wrap=1</a></p></li>
+our #FinAid Assignment on Canvas
+https://canvas.ucsd.edu/courses/51649/assignments/734784?wrap=1</p></li>
 <li><p>We want you to be familiar with class policies and procedures so
 you are ready to have a successful quarter. Please take a look at the
 syllabus on our class website https://canvas.ucsd.edu/courses/45073 and
@@ -852,7 +870,7 @@ of Sipser’s Introduction to the Theory of Computation, available through
 various sources for under $30. You may be able to opt in to purchase a
 digital copy through Canvas. Copies of the book are also available for
 those who can’t access the book to borrow from the course instructor,
-while supplies last (minnes@eng.ucsd.edu)<a href="#fnref1"
+while supplies last (minnes@ucsd.edu)<a href="#fnref1"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>

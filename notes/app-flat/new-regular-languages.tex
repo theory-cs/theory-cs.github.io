@@ -1016,14 +1016,57 @@ The language recognized by this NFA is:  \vfill
 \section*{Week1 monday}
 
 
-We will use vocabulary that should be familiar from your discrete 
-math and introduction to proofs classes.  Some of the notation conventions may 
-be a bit different: we will use the notation from this class' textbook\footnote{Page references are to 
+The CSE 105 vocabulary and notation build on discrete
+math and introduction to proofs classes.  Some of the conventions may 
+be a bit different so we'll draw your attention to them.
+
+For consistency, we will use the notation from this class' textbook\footnote{Page references are to 
 the 3rd edition (International) of Sipser's Introduction to the Theory of Computation,
 available through various sources for under \$30. You may be able to 
 opt in to purchase a digital copy through Canvas. Copies of the book are also available 
 for those who can't access the book
-to borrow from the course instructor, while supplies last (minnes@eng.ucsd.edu)}.
+to borrow from the course instructor, while supplies last (minnes@ucsd.edu)}.
+
+These definitions are on pages 3, 4, 6, 13, 14, 53.
+
+\begin{center}
+    \begin{tabular}{|p{2.6in}cp{3.5in}|}
+    \hline 
+    {\bf Term} & {\bf Typical symbol} & {\bf Meaning} \\
+     & or {\bf Notation} & \\
+    \hline
+    && \\
+    Alphabet & $\Sigma$, $\Gamma$ & A non-empty finite set	 \\
+    Symbol over $\Sigma$  & $\sigma$, $b$, $x$ & An element of the alphabet $\Sigma$\\ 
+    String over $\Sigma$  &	$u$, $v$, $w$ & A finite list of symbols from $\Sigma$\\
+    (The) empty string &$\varepsilon$ & The (only) string of length $0$\\
+    The set of all strings over $\Sigma$ & $\Sigma^*$ & The collection of all possible strings formed from symbols from $\Sigma$ \\ 
+    (Some) language over $\Sigma$& $L$ & (Some) set of strings over $\Sigma$ \\ 
+    (The) empty language &$\emptyset$ & The empty set, i.e. the set that has no strings (and no other elements either)\\
+    && \\
+    \hline
+    && \\
+    The power set of a set $X$ &$\mathcal{P}(X)$ & The set of all subsets of $X$ \\
+    (The set of) natural numbers &$\mathcal{N}$ & The set of positive integers \\ 
+    (Some) finite set & & The empty set or a set whose distinct elements can be counted by a natural number\\
+    (Some) infinite set & & A set that is not finite.\\ 
+    &&\\
+    \hline
+    && \\
+    Reverse of a string $w$ & $w^\mathcal{R}$  & write $w$  in  the opposite order, if $w = w_1 \cdots  w_n$ then $w^\mathcal{R} = w_n \cdots  w_1$. Note: $\varepsilon^\mathcal{R} = \varepsilon$\\
+    Concatenating strings $x$ and $y$ & $xy$ &  take $x = x_1 \cdots x_m$, $y=y_1 \cdots y_n$ and form $xy = x_1 \cdots x_m y_1 \cdots y_n$\\
+    String $z$ is a substring of string $w$ & & there are strings $u,v$ such that $w = uzv$\\
+    String $x$ is a prefix of string $y$ & & there is a string $z$ such that $y = xz$ \\
+    String $x$ is a proper prefix of string $y$ & & $x$ is a prefix of $y$ and $x \neq y$\\
+    && \\
+    \hline
+    &&\\
+    Shortlex order, also known as string order over alphabet $\Sigma$ & & Order strings over  $\Sigma$ first by length and then according to the dictionary order, assuming symbols in $\Sigma$  have an ordering.\\ \hline
+    \end{tabular}
+\end{center}
+
+\vfill
+    
 
 Write out in words the meaning of the symbols below: 
 \[
@@ -1051,50 +1094,6 @@ Write out in words the meaning of the symbols below:
 \phantom{The $5$-tuple whose first components is $a$, second component 
 is $3$, third component is $2$, fourth component is $b$, and fifth component is $b$.}
 
-
-
-\begin{center}
-    \begin{tabular}{|p{2in}cp{4in}|}
-    \hline 
-    Term & Typical symbol & Meaning \\
-    \hline\hline
-    Alphabet & $\Sigma$, $\Gamma$ & A non-empty finite set	 \\ \hline
-    Symbol over $\Sigma$  & $\sigma$, $b$, $x$ & An element of the alphabet $\Sigma$\\ \hline
-    String over $\Sigma$  &	$u$, $v$, $w$ & A finite list of symbols from $\Sigma$\\ \hline
-    The set of all strings over $\Sigma$ & $\Sigma^*$ & The collection of all possible strings formed from symbols from $\Sigma$ \\ \hline
-    (Some) language over $\Sigma$& $L$ & (Some) set of strings over $\Sigma$ \\ \hline
-    Empty string &$\varepsilon$ & The string of length $0$\\ \hline
-    Empty set &$\emptyset$ & The empty language\\ \hline
-    The power set of a set $X$ &$\mathcal{P}(X)$ & The set of all subsets of $X$ \\ \hline
-    Natural numbers &$\mathcal{N}$ & The set of positive integers \\ \hline
-    Finite set & & The empty set or a set whose distinct elements can be counted by a natural number\\ \hline
-    Infinite set & & A set that is not finite.\\ 
-    \hline\hline
-    {\it Pages 3, 4, 6, 13, 14, 53}& & \\
-    \hline
-    \end{tabular}
-\end{center}
-
-\newpage
-
-\begin{center}
-    \begin{tabular}{|p{2.7in}cp{3.8in}|}
-    \hline
-    Term & Notation & Meaning \\
-    \hline \hline
-    Reverse of a string $w$ & $w^\mathcal{R}$  & write $w$  in  the opposite order, if $w = w_1 \cdots  w_n$ then $w^\mathcal{R} = w_n \cdots  w_1$. Note: $\varepsilon^\mathcal{R} = \varepsilon$\\ \hline
-    Concatenating strings $x$ and $y$ & $xy$ &  take $x = x_1 \cdots x_m$, $y=y_1 \cdots y_n$ and form $xy = x_1 \cdots x_m y_1 \cdots y_n$\\ \hline
-    String $z$ is a substring of string $w$ & & there are strings $u,v$ such that $w = uzv$\\ \hline
-    String $x$ is a prefix of string $y$ & & there is a string $z$ such that $y = xz$ \\ \hline
-    String $x$ is a proper prefix of string $y$ & & $x$ is a prefix of $y$ and $x \neq y$\\ \hline
-    Shortlex order, also known as string order over alphabet $\Sigma$ & & Order strings over  $\Sigma$ first by length and then according to the dictionary order, assuming symbols in $\Sigma$  have an ordering.\\ \hline
-    \hline \hline
-    {\it Pages 13, 14} & & \\
-    \hline
-    \end{tabular}
-\end{center}
-
-    
 
 {\it Circle the correct choice}:
 

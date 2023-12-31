@@ -853,34 +853,41 @@ is no Turing machine that decides it.</p>
 <p><span><strong>Key idea</strong></span>: proof by contradiction
 relying on self-referential disagreement.</p>
 <h1 class="unnumbered" id="week1-monday">Week1 monday</h1>
-<p>We will use vocabulary that should be familiar from your discrete
-math and introduction to proofs classes. Some of the notation
-conventions may be a bit different: we will use the notation from this
-class’ textbook<a href="#fn2" class="footnote-ref" id="fnref2"
+<p>The CSE 105 vocabulary and notation build on discrete math and
+introduction to proofs classes. Some of the conventions may be a bit
+different so we’ll draw your attention to them.</p>
+<p>For consistency, we will use the notation from this class’ textbook<a
+href="#fn2" class="footnote-ref" id="fnref2"
 role="doc-noteref"><sup>2</sup></a>.</p>
-<p>Write out in words the meaning of the symbols below: <span
-class="math display">\[\{ a,b, c\}\]</span></p>
-<p><span class="math display">\[| \{a, b, a \} | = 2\]</span></p>
-<p><span class="math display">\[| aba | = 3\]</span></p>
-<p><span class="math display">\[(a, 3, 2, b, b)\]</span></p>
+<p>These definitions are on pages 3, 4, 6, 13, 14, 53.</p>
 <div class="center">
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Term</th>
-<th style="text-align: center;">Typical symbol</th>
-<th style="text-align: left;">Meaning</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;"><span><strong>Term</strong></span></td>
+<td style="text-align: center;"><span><strong>Typical
+symbol</strong></span></td>
+<td style="text-align: left;"><span><strong>Meaning</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">or
+<span><strong>Notation</strong></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Alphabet</td>
 <td style="text-align: center;"><span
 class="math inline">\(\Sigma\)</span>, <span
 class="math inline">\(\Gamma\)</span></td>
 <td style="text-align: left;">A non-empty finite set</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Symbol over <span
 class="math inline">\(\Sigma\)</span></td>
 <td style="text-align: center;"><span
@@ -890,7 +897,7 @@ class="math inline">\(x\)</span></td>
 <td style="text-align: left;">An element of the alphabet <span
 class="math inline">\(\Sigma\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">String over <span
 class="math inline">\(\Sigma\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(u\)</span>,
@@ -898,6 +905,13 @@ class="math inline">\(\Sigma\)</span></td>
 class="math inline">\(w\)</span></td>
 <td style="text-align: left;">A finite list of symbols from <span
 class="math inline">\(\Sigma\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">(The) empty string</td>
+<td style="text-align: center;"><span
+class="math inline">\(\varepsilon\)</span></td>
+<td style="text-align: left;">The (only) string of length <span
+class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">The set of all strings over <span
@@ -917,19 +931,23 @@ class="math inline">\(L\)</span></td>
 class="math inline">\(\Sigma\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Empty string</td>
-<td style="text-align: center;"><span
-class="math inline">\(\varepsilon\)</span></td>
-<td style="text-align: left;">The string of length <span
-class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Empty set</td>
+<td style="text-align: left;">(The) empty language</td>
 <td style="text-align: center;"><span
 class="math inline">\(\emptyset\)</span></td>
-<td style="text-align: left;">The empty language</td>
+<td style="text-align: left;">The empty set, i.e. the set that has no
+strings (and no other elements either)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">The power set of a set <span
 class="math inline">\(X\)</span></td>
 <td style="text-align: center;"><span
@@ -937,42 +955,33 @@ class="math inline">\(\mathcal{P}(X)\)</span></td>
 <td style="text-align: left;">The set of all subsets of <span
 class="math inline">\(X\)</span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Natural numbers</td>
+<tr class="even">
+<td style="text-align: left;">(The set of) natural numbers</td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathcal{N}\)</span></td>
 <td style="text-align: left;">The set of positive integers</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Finite set</td>
+<tr class="odd">
+<td style="text-align: left;">(Some) finite set</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">The empty set or a set whose distinct
 elements can be counted by a natural number</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Infinite set</td>
+<tr class="even">
+<td style="text-align: left;">(Some) infinite set</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">A set that is not finite.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><span><em>Pages 3, 4, 6, 13, 14,
-53</em></span></td>
+<tr class="odd">
+<td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Term</th>
-<th style="text-align: center;">Notation</th>
-<th style="text-align: left;">Meaning</th>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
 </tr>
-</thead>
-<tbody>
 <tr class="odd">
 <td style="text-align: left;">Reverse of a string <span
 class="math inline">\(w\)</span></td>
@@ -1024,6 +1033,16 @@ a prefix of <span class="math inline">\(y\)</span> and <span
 class="math inline">\(x \neq y\)</span></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Shortlex order, also known as string order
 over alphabet <span class="math inline">\(\Sigma\)</span></td>
 <td style="text-align: center;"></td>
@@ -1032,14 +1051,14 @@ class="math inline">\(\Sigma\)</span> first by length and then according
 to the dictionary order, assuming symbols in <span
 class="math inline">\(\Sigma\)</span> have an ordering.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><span><em>Pages 13, 14</em></span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
 </tbody>
 </table>
 </div>
+<p>Write out in words the meaning of the symbols below: <span
+class="math display">\[\{ a,b, c\}\]</span></p>
+<p><span class="math display">\[| \{a, b, a \} | = 2\]</span></p>
+<p><span class="math display">\[| aba | = 3\]</span></p>
+<p><span class="math display">\[(a, 3, 2, b, b)\]</span></p>
 <p><span><em>Circle the correct choice</em></span>:</p>
 <p>A <span><strong>string</strong></span> over an alphabet <span
 class="math inline">\(\Sigma\)</span> is <u>  an element of <span
@@ -1105,7 +1124,7 @@ of Sipser’s Introduction to the Theory of Computation, available through
 various sources for under $30. You may be able to opt in to purchase a
 digital copy through Canvas. Copies of the book are also available for
 those who can’t access the book to borrow from the course instructor,
-while supplies last (minnes@eng.ucsd.edu)<a href="#fnref2"
+while supplies last (minnes@ucsd.edu)<a href="#fnref2"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
