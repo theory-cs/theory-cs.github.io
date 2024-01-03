@@ -41,7 +41,7 @@
 \begin{flushright}
     \StrBefore{\currfilename}{.}
 \end{flushright} 
-\section*{Before we start}
+\section*{Let's get started}
 
 We want you to be successful. 
 
@@ -70,13 +70,14 @@ Financial aid resources, the possibility of emergency grant funding, and off-cam
 resources are available: see your College Dean of Student Affairs.
 
 If you find yourself in an uncomfortable situation, ask for help. 
-We are committed to upholding University policies regarding nondiscrimination, sexual violence and sexual harassment:
-Counseling and Psychological Services (CAPS) at 858 5343755 or \href{http://caps.ucsd.edu}{http://caps.ucsd.edu}; 
-OPHD at (858) 534-8298, ophd@ucsd.edu , \href{http://ophd.ucsd.edu}{http://ophd.ucsd.edu};
-CARE at Sexual Assault Resource Center at 858 5345793 sarc@ucsd.edu \href{http://care.ucsd.edu}{http://care.ucsd.edu}.
+We are committed to upholding University policies regarding nondiscrimination, sexual violence and sexual harassment.
+Here are some campus contacts that could provide this help: 
+Counseling and Psychological Services (CAPS) at 858 534-3755 or \href{http://caps.ucsd.edu}{http://caps.ucsd.edu}; 
+OPHD at 858 534-8298 or ophd@ucsd.edu , \href{http://ophd.ucsd.edu}{http://ophd.ucsd.edu};
+CARE at Sexual Assault Resource Center at 858 534-5793 or sarc@ucsd.edu , \href{http://care.ucsd.edu}{http://care.ucsd.edu}.
 
 
-Please reach out (minnes@ucsd.edu) if you need support with extenuating circumstances.
+Please reach out (minnes@ucsd.edu) if you need support with extenuating circumstances affecting CSE 105.
 
 \vfill
 
@@ -114,8 +115,10 @@ With this in mind, the device policy for the course is that if you have a screen
 Have only content onscreen that's directly related to the current lecture.
 Have unrelated content open and sit in one of the back two rows of the room to mitigate the effects on other students. 
 \end{comment}
+\vfill
 
-\newpage Welcome to CSE 105: Introduction to Theory of Computation in Winter 2024!
+\newpage 
+Welcome to CSE 105: Introduction to Theory of Computation in Winter 2024!
 
 \section*{CSE 105's Big Questions}
 \begin{itemize}
@@ -155,11 +158,11 @@ To be able to compare ``hardness'' of problems, we use a consistent description 
 
 The CSE 105 vocabulary and notation build on discrete
 math and introduction to proofs classes.  Some of the conventions may 
-be a bit different so we'll draw your attention to them.
+be a bit different from what you saw before so we'll draw your attention to them.
 
 For consistency, we will use the notation from this class' textbook\footnote{Page references are to 
-the 3rd edition (International) of Sipser's Introduction to the Theory of Computation,
-available through various sources for under \$30. You may be able to 
+the 3rd edition of Sipser's Introduction to the Theory of Computation,
+available through various sources for approximately \$30. You may be able to 
 opt in to purchase a digital copy through Canvas. Copies of the book are also available 
 for those who can't access the book
 to borrow from the course instructor, while supplies last (minnes@ucsd.edu)}.
@@ -198,16 +201,18 @@ These definitions are on pages 3, 4, 6, 13, 14, 53.
     && \\
     \hline
     &&\\
-    Shortlex order, also known as string order over alphabet $\Sigma$ & & Order strings over  $\Sigma$ first by length and then according to the dictionary order, assuming symbols in $\Sigma$  have an ordering.\\ \hline
+    Shortlex order, also known as string order over alphabet $\Sigma$ & & Order strings over  $\Sigma$ first 
+    by length and then according to the dictionary order, assuming symbols in $\Sigma$  have an ordering\\ \hline
     \end{tabular}
 \end{center}
 
 \vfill
     
-
+\newpage
 Write out in words the meaning of the symbols below: 
+
 \[
-    \{ a,b, c\}
+    \{ a, b, c\}
 \]
 
 \phantom{The set whose elements are $a$, $b$, and $c$}
@@ -224,13 +229,15 @@ Write out in words the meaning of the symbols below:
 
 \phantom{The length of the string $aba$ is $3$.}
 
+\begin{comment}
+
 \[
     (a, 3, 2, b, b)
 \]
 
 \phantom{The $5$-tuple whose first components is $a$, second component 
 is $3$, third component is $2$, fourth component is $b$, and fifth component is $b$.}
-
+\end{comment}
 
 {\it Circle the correct choice}:
 
@@ -239,22 +246,10 @@ A {\bf string} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*
 A {\bf language} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*$ ~~ OR ~~ a subset of $\Sigma^*$}.
 
 
-{\it Extra examples for practice:}
+With $\Sigma_1 = \{0,1\}$ and 
+$\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}$
+and $\Gamma = \{0,1,x,y,z\}$
 
-With $\Sigma_1 = \{0,1\}$ and $\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}$  and $\Gamma = \{0,1,x,y,z\}$
-
-An example of a string of length 3 over $\Sigma_1$ is \underline{\phantom{ $000$} \hspace{0.2in}}
-
-An example of  a string of length 1 over $\Sigma_2$ is  \underline{\phantom{ $k$} \hspace{0.2in}}
-
-The number of distinct strings of length 2 over $\Gamma$ is  \underline{\phantom{ $25$} \hspace{0.2in}}
-
-An example of a language over $\Sigma_1$ of size $1$ is  \underline{\phantom{ $ \{ \varepsilon \} $} \hspace{0.2in}}
-
-An example of an infinite language over $\Sigma_1$ is  \underline{\phantom{ $\Sigma^*$} \hspace{0.2in}}
-    
-An example of  a finite language over $\Gamma$ is  \underline{\phantom{ $\{ 0, x \}$} \hspace{0.2in}}
-    
 {\bf True} or {\bf False}: $\varepsilon \in \Sigma_1$
 
 {\bf True} or {\bf False}: $\varepsilon$ is  a string over $\Sigma_1$
@@ -269,26 +264,12 @@ An example of  a finite language over $\Gamma$ is  \underline{\phantom{ $\{ 0, x
 The first five strings over $\Sigma_1$ in string order, using the ordering $0 <  1$: \vfill
     
 The first five strings over $\Sigma_2$ in string order, using the usual alphabetical ordering for single letters: \vfill
+
+
+
      
 \newpage
-\subsection*{Review: Week 1 Monday}
-\begin{enumerate}
-\item Please complete the beginning of the quarter survey linked from our \#FinAid
-Assignment on Canvas https://canvas.ucsd.edu/courses/51649/assignments/734784?wrap=1
-\item We want you to be familiar with class policies and procedures so you are ready to have a successful quarter. 
-Please take a look at the syllabus on our class website https://canvas.ucsd.edu/courses/45073
-and answer the questions about it on Gradescope.
-\end{enumerate}
 
-A summary of the terminology we will use is on page 16 in the textbook.
-
-{\bf Pre class reading for next time}: Example 1.51, Definition 1.52
-
-{\it Notice}: we are jumping to Section 1.3 Regular Expressions and then will come back 
-to Section 1.1 Finite Automata on Friday.
-
-
-\newpage
 \subsection*{Week 1 Wednesday}
 
 
@@ -310,10 +291,10 @@ How would you describe the language that has all strings over $\{0,1\}$ as its e
 
 \newpage
 
-
+**This definition was in the pre-class reading**
 {\bf Definition 1.52}: A {\bf regular expression} over alphabet $\Sigma$
 is a syntactic expression that can describe a language over $\Sigma$. The collection of all regular
-expressions is defined recursively:
+expressions over $\Sigma$ is defined recursively:
 \begin{itemize}
 \item[] {\it Basis steps of recursive definition}
 \begin{quote}    
@@ -371,6 +352,7 @@ over $\Sigma$ is defined recursively, using familiar set operations:
     \end{quote}
 \end{itemize}
   
+\newpage
 For the following examples assume the alphabet is $\Sigma_1 =  \{0,1\}$:
     
 The language described by the regular expression $0$ is $L(0) = \{ 0 \}$
@@ -381,45 +363,29 @@ The language described by the regular expression $\varepsilon$ is $L(\varepsilon
 
 The language described by the regular expression $\emptyset$ is $L(\emptyset) = \emptyset$
 
-The language described by the regular expression $((0 \cup 1) \cup 1)$ is $L(~((0 \cup 1) \cup 1)~) = $
+The language described by the regular expression $(\Sigma_1 \Sigma_1 \Sigma_1)^*$ 
+is $L(~(\Sigma_1 \Sigma_1 \Sigma_1)^*~) = $
 
 \vfill
 
-The language described by the regular expression $1^+$ is $L(~(1)^+~) = $
+The language described by the regular expression $1^+$ is $L(~(1^+)~) = L(1^* \circ 1) = $
 
 \vfill
 
-The language described by the regular expression $\Sigma_1^* 1$ is $L(~\Sigma_1^* 1~) = $
 
-\vfill
-
-The language described by the regular expression $(\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1)^*$ 
-is $L(~(\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1)^*~) = $
-
-\vfill
-
-A regular expression that describes the language $\{00, 01, 10, 11\}$ is 
-
-\vfill
-
-A regular expression that describes the language $\{ 0^n1 \mid n~\text{is even} \}$ is
-
-\vfill
-
-{\it Shorthand and conventions}
-    
+{\it Shorthand and conventions} (Sipser pages 63-65)
 \begin{center}
     \begin{tabular}{|ll|}
     \hline
+    & \\
     \multicolumn{2}{|l|}{Assuming $\Sigma$ is the alphabet, we use the following conventions}\\
-    \hline
+    & \\
     $\Sigma$   & regular  expression describing language consisting of  all strings  of length  $1$ over $\Sigma$\\
     $*$ then $\circ$ then $\cup$   & precedence order, unless parentheses are used to change it\\
     $R_1R_2$ & shorthand  for  $R_1  \circ R_2$ (concatenation symbol is implicit) \\
     $R^+$ & shorthand for $R^* \circ R$ \\
-    $R^k$ & shorthand for $R$ concatenated with itself $k$ times, where $k$ is a natural number\\
-    \hline
-    {\it Pages 63 - 65 }& \\
+    $R^k$ & shorthand for $R$ concatenated with itself $k$ times, where $k$ is a (specific) natural number\\
+    & \\
     \hline
     \end{tabular}
 \end{center}
@@ -466,26 +432,6 @@ $(aaa)^*$
 $(\varepsilon \cup a) b$
 
 \vfill 
-\newpage
-\subsection*{Review: Week 1 Wednesday}
-
-Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
-strings, languages, and regular expressions.
-
-
-Recall: Review quizzes based on class material are assigned each day. 
-These quizzes will help you track and confirm your understanding of the concepts and examples 
-we work in class. Quizzes can be submitted on Gradescope as many times (with no penalty) as 
-you like until the quiz deadline: the three quizzes each week are all due on Friday (with no penalty 
-late submission open until Sunday).
-
-The definition of the union, concatenation, and star operations for languages is given 
-as Definition 1.23 on page 44 and a useful example is Example 1.24.
-
-{\bf Pre class reading for next time}: Figure 1.4, Definition 1.5
-
-{\it Notice}: On Friday we are going back to the start of Chapter 1 and will be discussing finite 
-automata and their computations.
 
 \newpage
 \subsection*{Week 1 Friday}
@@ -494,9 +440,11 @@ automata and their computations.
 
 {\bf Review}: Determine whether each statement below about regular expressions
 over the alphabet $\{a,b,c\}$ is true or false:
-   
+
+\begin{comment}
 True or False: \qquad 
    $a  \in L(~(a \cup b )~\cup c)$
+\end{comment}
 
 True or False: \qquad 
    $ab  \in L(~ (a \cup b)^*  ~)$
@@ -511,12 +459,12 @@ True or False: \qquad
    $\varepsilon  \in L(~ (a \cup b)^*  ~)$
 
 True or False: \qquad 
-   $\varepsilon \in L( ~ a^* b^* ~)$
+   $\varepsilon \in L( ~ aa^* \cup bb^* ~)$
 
 
-{\bf From the pre-class reading, pages 34-36}:
-A deterministic finite automaton (DFA) is specified by  $M = (Q, \Sigma, \delta, q_0, F)$.
-This $5$-tuple is called the {\bf formal definition} of the DFA. The DFA can also 
+**This definition was in the pre-class reading**
+A finite automaton (FA) is specified by  $M = (Q, \Sigma, \delta, q_0, F)$.
+This $5$-tuple is called the {\bf formal definition} of the FA. The FA can also 
 be represented by its state diagram: with nodes for the state, labelled edges specifying the 
 transition function, and decorations on nodes denoting the start and accept states.
 
@@ -532,7 +480,7 @@ one symbol (or character) at a time.
 \end{quote}
 
 \begin{quote}
-The transition function $\delta$ gives the next state of the DFA based on the current state of 
+The transition function $\delta$ gives the next state of the automaton based on the current state of 
 the machine and on the next input symbol.
 \end{quote}
 
@@ -541,7 +489,7 @@ The start state $q_0$ is an element of $Q$.  Each computation of the machine sta
 \end{quote}
 
 \begin{quote}
-The accept (final) states $F$ form a subset of the states of the DFA, $F \subseteq  Q$. 
+The accept (final) states $F$ form a subset of the states of the automaton, $F \subseteq  Q$. 
 These states are used to flag if the machine accepts or rejects an input string.
 \end{quote}
 
@@ -553,7 +501,7 @@ of the machine as it reads successive input symbols.
 \end{quote}
 
 \begin{quote}
-The DFA $M$ accepts the given input string exactly when the computation of $M$ on the input string
+The finite automaton $M$ accepts the given input string exactly when the computation of $M$ on the input string
 ends in an accept state. $M$ rejects the given input string exactly when the computation of 
 $M$ on the input string ends in a nonaccept state, that is, a state that is not in $F$.
 \end{quote}
@@ -564,11 +512,11 @@ by the machine $M$. Each string that is rejected by $M$ is not in $L(M)$.
 The language of $M$ is also called the language recognized by $M$.
 \end{quote}   
    
-What is {\bf finite} about all deterministic finite automata? (Select all that apply)
+What is {\bf finite} about all finite automata? (Select all that apply)
 \begin{itemize}
    \item[$\square$] The size of the machine (number of states, number of arrows)
-   \item[$\square$] The number of strings that are accepted by the machine
    \item[$\square$] The length of each computation of the machine
+   \item[$\square$] The number of strings that are accepted by the machine
 \end{itemize}
   
 \begin{figure}[h]
@@ -576,19 +524,19 @@ What is {\bf finite} about all deterministic finite automata? (Select all that a
    \includegraphics[width=3in]{../../resources/machines/Lect2DFA1.png} 
 \end{figure}
    
-The formal definition of this DFA is
+The formal definition of this FA is
    
 \vspace{100pt}
    
 
-Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the DFA or rejected by the DFA.  
+Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the FA or rejected by the FA.  
 
 {\it Why are these the only two options?}
 
 \vspace{200pt}
 
 
-The language recognized by this DFA is
+The language recognized by this automaton is
   
 \vspace{100pt}
    
@@ -599,7 +547,7 @@ The language recognized by this DFA is
 \end{figure}
    
 
-The language recognized by this DFA is
+The language recognized by this automaton is
   
 \vspace{100pt}
 
@@ -608,34 +556,69 @@ The language recognized by this DFA is
     \includegraphics[width=3in]{../../resources/machines/Lect2DFA3.png} 
 \end{figure}
 
-The language recognized by this DFA is
+The language recognized by this automaton is
   
 \vspace{100pt}
  
 
 \newpage
+\subsection*{Week 1 at a glance}
 
-\subsection*{Review: Week 1 Friday}
+\subsubsection*{Textbook reading: Chapter 0, Sections 1.3, 1.1}
 
-Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
-DFA and the strings they accept and reject.
+{\it For Monday}: Class syllabus https://canvas.ucsd.edu/courses/45073.
 
+{\it For Wednesday}: Example 1.51 and Definition 1.52 (definition of regular expressions) on page 64.
+{\it Notice}: we are jumping to Section 1.3 and then will come back 
+to Section 1.1 on Friday.
+
+{\it For Friday}: Figure 1.4 and Definition 1.5 (definition of finite automata) on pages 34-35.
 The definition of the union, concatenation, and star operations for languages is given 
 as Definition 1.23 on page 44 and a useful example is Example 1.24.
 
+{\it For Week 2 Monday}: Pages 41-43 (Figures 1.18, 1.19, 1.20) (examples of automata and languages).
 
-The first homework assignment for CSE 105 this quarter is due next week. 
-Find it on the class website: in the Calendar section of the website, click on the link under "Due Dates" for Week 2, or find
-the detailed assignment in the Assignments section of the website.
-Due: 4/11/23 at 5pm (no penalty late submission until 8am next morning)
+{\it Textbook references: Within a chapter, each item is numbered consecutively. Figure 1.22
+is the twenty-second numbered item in chapter one; it comes right after Example 1.21 and right before Definition 1.23.}
 
-We encourage you to work on homework in groups of up to three CSE 105 classmates. 
-To find group members: reach out to people sitting around you in class, in discussion section, 
-or during office hours. The pre-survey also asks if you want help finding group members: 
-the CSE 105 instructional team can help you connect with other students. Working within the 
-campus safety guidelines, you may choose to meet with your group mates in person or remotely. 
-We highly recommend meeting synchronously so that you can work through the homework problems *together*. 
 
-{\bf Pre class reading for next time}: pages 41-43 (figures 1.18, 1.19, 1.20)
+\subsubsection*{Make sure you can:}
+
+\begin{itemize}
+\item Distinguish between alphabet, language, sets, and strings
+
+\item Translate a decision problem to a set of strings coding the problem
+
+\item Use regular expressions and relate them to languages and automata
+\begin{itemize}
+
+   \item Write and debug regular expressions using correct syntax
+
+   \item Determine if a given string is in the language described by a regular expression
+
+\end{itemize}
+
+\item Use precise notation to formally define the state diagram of finite automata and 
+use clear English to describe computations of finite automata informally.
+
+\begin{itemize}
+   \item State the formal definition of (deterministic) finite automata
+
+   \item Trace the computation of a finite automaton on a given string using its state diagram
+
+   \item Translate between a state diagram and a formal definition
+
+   \item Determine if a given string is in the language described by a finite automaton
+\end{itemize}
+
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item \#FinAid Assignment on Canvas https://canvas.ucsd.edu/courses/51649/quizzes/158899
+   \item Review quizzes based on class material each day. 
+   \item Homework assignment 1 due next week.
+\end{list}
 
 \end{document}

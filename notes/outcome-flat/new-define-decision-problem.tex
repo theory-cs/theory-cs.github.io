@@ -547,11 +547,11 @@ To prove that a language is undecidable, we need to prove that there is no Turin
 
 The CSE 105 vocabulary and notation build on discrete
 math and introduction to proofs classes.  Some of the conventions may 
-be a bit different so we'll draw your attention to them.
+be a bit different from what you saw before so we'll draw your attention to them.
 
 For consistency, we will use the notation from this class' textbook\footnote{Page references are to 
-the 3rd edition (International) of Sipser's Introduction to the Theory of Computation,
-available through various sources for under \$30. You may be able to 
+the 3rd edition of Sipser's Introduction to the Theory of Computation,
+available through various sources for approximately \$30. You may be able to 
 opt in to purchase a digital copy through Canvas. Copies of the book are also available 
 for those who can't access the book
 to borrow from the course instructor, while supplies last (minnes@ucsd.edu)}.
@@ -590,16 +590,18 @@ These definitions are on pages 3, 4, 6, 13, 14, 53.
     && \\
     \hline
     &&\\
-    Shortlex order, also known as string order over alphabet $\Sigma$ & & Order strings over  $\Sigma$ first by length and then according to the dictionary order, assuming symbols in $\Sigma$  have an ordering.\\ \hline
+    Shortlex order, also known as string order over alphabet $\Sigma$ & & Order strings over  $\Sigma$ first 
+    by length and then according to the dictionary order, assuming symbols in $\Sigma$  have an ordering\\ \hline
     \end{tabular}
 \end{center}
 
 \vfill
     
-
+\newpage
 Write out in words the meaning of the symbols below: 
+
 \[
-    \{ a,b, c\}
+    \{ a, b, c\}
 \]
 
 \phantom{The set whose elements are $a$, $b$, and $c$}
@@ -616,13 +618,15 @@ Write out in words the meaning of the symbols below:
 
 \phantom{The length of the string $aba$ is $3$.}
 
+\begin{comment}
+
 \[
     (a, 3, 2, b, b)
 \]
 
 \phantom{The $5$-tuple whose first components is $a$, second component 
 is $3$, third component is $2$, fourth component is $b$, and fifth component is $b$.}
-
+\end{comment}
 
 {\it Circle the correct choice}:
 
@@ -631,22 +635,10 @@ A {\bf string} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*
 A {\bf language} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*$ ~~ OR ~~ a subset of $\Sigma^*$}.
 
 
-{\it Extra examples for practice:}
+With $\Sigma_1 = \{0,1\}$ and 
+$\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}$
+and $\Gamma = \{0,1,x,y,z\}$
 
-With $\Sigma_1 = \{0,1\}$ and $\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}$  and $\Gamma = \{0,1,x,y,z\}$
-
-An example of a string of length 3 over $\Sigma_1$ is \underline{\phantom{ $000$} \hspace{0.2in}}
-
-An example of  a string of length 1 over $\Sigma_2$ is  \underline{\phantom{ $k$} \hspace{0.2in}}
-
-The number of distinct strings of length 2 over $\Gamma$ is  \underline{\phantom{ $25$} \hspace{0.2in}}
-
-An example of a language over $\Sigma_1$ of size $1$ is  \underline{\phantom{ $ \{ \varepsilon \} $} \hspace{0.2in}}
-
-An example of an infinite language over $\Sigma_1$ is  \underline{\phantom{ $\Sigma^*$} \hspace{0.2in}}
-    
-An example of  a finite language over $\Gamma$ is  \underline{\phantom{ $\{ 0, x \}$} \hspace{0.2in}}
-    
 {\bf True} or {\bf False}: $\varepsilon \in \Sigma_1$
 
 {\bf True} or {\bf False}: $\varepsilon$ is  a string over $\Sigma_1$
@@ -661,5 +653,8 @@ An example of  a finite language over $\Gamma$ is  \underline{\phantom{ $\{ 0, x
 The first five strings over $\Sigma_1$ in string order, using the ordering $0 <  1$: \vfill
     
 The first five strings over $\Sigma_2$ in string order, using the usual alphabetical ordering for single letters: \vfill
+
+
+
  \vfill
 \end{document}

@@ -1591,9 +1591,11 @@ The language recognized by this NFA is:  \vfill
 
 {\bf Review}: Determine whether each statement below about regular expressions
 over the alphabet $\{a,b,c\}$ is true or false:
-   
+
+\begin{comment}
 True or False: \qquad 
    $a  \in L(~(a \cup b )~\cup c)$
+\end{comment}
 
 True or False: \qquad 
    $ab  \in L(~ (a \cup b)^*  ~)$
@@ -1608,12 +1610,12 @@ True or False: \qquad
    $\varepsilon  \in L(~ (a \cup b)^*  ~)$
 
 True or False: \qquad 
-   $\varepsilon \in L( ~ a^* b^* ~)$
+   $\varepsilon \in L( ~ aa^* \cup bb^* ~)$
 
 
-{\bf From the pre-class reading, pages 34-36}:
-A deterministic finite automaton (DFA) is specified by  $M = (Q, \Sigma, \delta, q_0, F)$.
-This $5$-tuple is called the {\bf formal definition} of the DFA. The DFA can also 
+**This definition was in the pre-class reading**
+A finite automaton (FA) is specified by  $M = (Q, \Sigma, \delta, q_0, F)$.
+This $5$-tuple is called the {\bf formal definition} of the FA. The FA can also 
 be represented by its state diagram: with nodes for the state, labelled edges specifying the 
 transition function, and decorations on nodes denoting the start and accept states.
 
@@ -1629,7 +1631,7 @@ one symbol (or character) at a time.
 \end{quote}
 
 \begin{quote}
-The transition function $\delta$ gives the next state of the DFA based on the current state of 
+The transition function $\delta$ gives the next state of the automaton based on the current state of 
 the machine and on the next input symbol.
 \end{quote}
 
@@ -1638,7 +1640,7 @@ The start state $q_0$ is an element of $Q$.  Each computation of the machine sta
 \end{quote}
 
 \begin{quote}
-The accept (final) states $F$ form a subset of the states of the DFA, $F \subseteq  Q$. 
+The accept (final) states $F$ form a subset of the states of the automaton, $F \subseteq  Q$. 
 These states are used to flag if the machine accepts or rejects an input string.
 \end{quote}
 
@@ -1650,7 +1652,7 @@ of the machine as it reads successive input symbols.
 \end{quote}
 
 \begin{quote}
-The DFA $M$ accepts the given input string exactly when the computation of $M$ on the input string
+The finite automaton $M$ accepts the given input string exactly when the computation of $M$ on the input string
 ends in an accept state. $M$ rejects the given input string exactly when the computation of 
 $M$ on the input string ends in a nonaccept state, that is, a state that is not in $F$.
 \end{quote}
@@ -1661,11 +1663,11 @@ by the machine $M$. Each string that is rejected by $M$ is not in $L(M)$.
 The language of $M$ is also called the language recognized by $M$.
 \end{quote}   
    
-What is {\bf finite} about all deterministic finite automata? (Select all that apply)
+What is {\bf finite} about all finite automata? (Select all that apply)
 \begin{itemize}
    \item[$\square$] The size of the machine (number of states, number of arrows)
-   \item[$\square$] The number of strings that are accepted by the machine
    \item[$\square$] The length of each computation of the machine
+   \item[$\square$] The number of strings that are accepted by the machine
 \end{itemize}
   
 \begin{figure}[h]
@@ -1673,19 +1675,19 @@ What is {\bf finite} about all deterministic finite automata? (Select all that a
    \includegraphics[width=3in]{../../resources/machines/Lect2DFA1.png} 
 \end{figure}
    
-The formal definition of this DFA is
+The formal definition of this FA is
    
 \vspace{100pt}
    
 
-Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the DFA or rejected by the DFA.  
+Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the FA or rejected by the FA.  
 
 {\it Why are these the only two options?}
 
 \vspace{200pt}
 
 
-The language recognized by this DFA is
+The language recognized by this automaton is
   
 \vspace{100pt}
    
@@ -1696,7 +1698,7 @@ The language recognized by this DFA is
 \end{figure}
    
 
-The language recognized by this DFA is
+The language recognized by this automaton is
   
 \vspace{100pt}
 
@@ -1705,7 +1707,7 @@ The language recognized by this DFA is
     \includegraphics[width=3in]{../../resources/machines/Lect2DFA3.png} 
 \end{figure}
 
-The language recognized by this DFA is
+The language recognized by this automaton is
   
 \vspace{100pt}
  \vfill

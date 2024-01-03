@@ -2611,8 +2611,6 @@ alt="image" /></p>
 <p><span><strong>Review</strong></span>: Determine whether each
 statement below about regular expressions over the alphabet <span
 class="math inline">\(\{a,b,c\}\)</span> is true or false:</p>
-<p>True or False: <span class="math inline">\(a  \in L(~(a \cup b )~\cup
-c)\)</span></p>
 <p>True or False: <span class="math inline">\(ab  \in L(~ (a \cup
 b)^*  ~)\)</span></p>
 <p>True or False: <span class="math inline">\(ba \in L( ~ a^* b^*
@@ -2621,16 +2619,15 @@ b)^*  ~)\)</span></p>
 b \cup c)\)</span></p>
 <p>True or False: <span class="math inline">\(\varepsilon  \in L(~ (a
 \cup b)^*  ~)\)</span></p>
-<p>True or False: <span class="math inline">\(\varepsilon \in L( ~ a^*
-b^* ~)\)</span></p>
-<p><span><strong>From the pre-class reading, pages
-34-36</strong></span>: A deterministic finite automaton (DFA) is
-specified by <span class="math inline">\(M = (Q, \Sigma, \delta, q_0,
-F)\)</span>. This <span class="math inline">\(5\)</span>-tuple is called
-the <span><strong>formal definition</strong></span> of the DFA. The DFA
-can also be represented by its state diagram: with nodes for the state,
-labelled edges specifying the transition function, and decorations on
-nodes denoting the start and accept states.</p>
+<p>True or False: <span class="math inline">\(\varepsilon \in L( ~ aa^*
+\cup bb^* ~)\)</span></p>
+<p>**This definition was in the pre-class reading** A finite automaton
+(FA) is specified by <span class="math inline">\(M = (Q, \Sigma, \delta,
+q_0, F)\)</span>. This <span class="math inline">\(5\)</span>-tuple is
+called the <span><strong>formal definition</strong></span> of the FA.
+The FA can also be represented by its state diagram: with nodes for the
+state, labelled edges specifying the transition function, and
+decorations on nodes denoting the start and accept states.</p>
 <blockquote>
 <p>Finite set of states <span class="math inline">\(Q\)</span> can be
 labelled by any collection of distinct names. Often we use default state
@@ -2644,7 +2641,7 @@ automaton “processes” the input one symbol (or character) at a time.</p>
 </blockquote>
 <blockquote>
 <p>The transition function <span class="math inline">\(\delta\)</span>
-gives the next state of the DFA based on the current state of the
+gives the next state of the automaton based on the current state of the
 machine and on the next input symbol.</p>
 </blockquote>
 <blockquote>
@@ -2654,7 +2651,7 @@ the machine starts at the start state.</p>
 </blockquote>
 <blockquote>
 <p>The accept (final) states <span class="math inline">\(F\)</span> form
-a subset of the states of the DFA, <span class="math inline">\(F
+a subset of the states of the automaton, <span class="math inline">\(F
 \subseteq  Q\)</span>. These states are used to flag if the machine
 accepts or rejects an input string.</p>
 </blockquote>
@@ -2664,8 +2661,8 @@ states in the machine, starting with the start state, determined by
 transitions of the machine as it reads successive input symbols.</p>
 </blockquote>
 <blockquote>
-<p>The DFA <span class="math inline">\(M\)</span> accepts the given
-input string exactly when the computation of <span
+<p>The finite automaton <span class="math inline">\(M\)</span> accepts
+the given input string exactly when the computation of <span
 class="math inline">\(M\)</span> on the input string ends in an accept
 state. <span class="math inline">\(M\)</span> rejects the given input
 string exactly when the computation of <span
@@ -2683,30 +2680,30 @@ class="math inline">\(L(M)\)</span>. The language of <span
 class="math inline">\(M\)</span> is also called the language recognized
 by <span class="math inline">\(M\)</span>.</p>
 </blockquote>
-<p>What is <span><strong>finite</strong></span> about all deterministic
-finite automata? (Select all that apply)</p>
+<p>What is <span><strong>finite</strong></span> about all finite
+automata? (Select all that apply)</p>
 <ul>
 <li><p>The size of the machine (number of states, number of
 arrows)</p></li>
-<li><p>The number of strings that are accepted by the machine</p></li>
 <li><p>The length of each computation of the machine</p></li>
+<li><p>The number of strings that are accepted by the machine</p></li>
 </ul>
 <figure>
 <img src="../../resources/machines/Lect2DFA1.png" style="width:3in" />
 </figure>
-<p>The formal definition of this DFA is</p>
+<p>The formal definition of this FA is</p>
 <p>Classify each string <span class="math inline">\(a, aa, ab, ba, bb,
-\varepsilon\)</span> as accepted by the DFA or rejected by the DFA.</p>
+\varepsilon\)</span> as accepted by the FA or rejected by the FA.</p>
 <p><span><em>Why are these the only two options?</em></span></p>
-<p>The language recognized by this DFA is</p>
+<p>The language recognized by this automaton is</p>
 <figure>
 <img src="../../resources/machines/Lect2DFA2.png" style="width:3in" />
 </figure>
-<p>The language recognized by this DFA is</p>
+<p>The language recognized by this automaton is</p>
 <figure>
 <img src="../../resources/machines/Lect2DFA3.png" style="width:3in" />
 </figure>
-<p>The language recognized by this DFA is</p>
+<p>The language recognized by this automaton is</p>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
