@@ -18,10 +18,10 @@ How would you describe the language that has all strings over $\{0,1\}$ as its e
 
 \newpage
 
-
+**This definition was in the pre-class reading**
 {\bf Definition 1.52}: A {\bf regular expression} over alphabet $\Sigma$
 is a syntactic expression that can describe a language over $\Sigma$. The collection of all regular
-expressions is defined recursively:
+expressions over $\Sigma$ is defined recursively:
 \begin{itemize}
 \item[] {\it Basis steps of recursive definition}
 \begin{quote}    
@@ -79,6 +79,7 @@ over $\Sigma$ is defined recursively, using familiar set operations:
     \end{quote}
 \end{itemize}
   
+\newpage
 For the following examples assume the alphabet is $\Sigma_1 =  \{0,1\}$:
     
 The language described by the regular expression $0$ is $L(0) = \{ 0 \}$
@@ -89,45 +90,29 @@ The language described by the regular expression $\varepsilon$ is $L(\varepsilon
 
 The language described by the regular expression $\emptyset$ is $L(\emptyset) = \emptyset$
 
-The language described by the regular expression $((0 \cup 1) \cup 1)$ is $L(~((0 \cup 1) \cup 1)~) = $
+The language described by the regular expression $(\Sigma_1 \Sigma_1 \Sigma_1)^*$ 
+is $L(~(\Sigma_1 \Sigma_1 \Sigma_1)^*~) = $
 
 \vfill
 
-The language described by the regular expression $1^+$ is $L(~(1)^+~) = $
+The language described by the regular expression $1^+$ is $L(~(1^+)~) = L(1^* \circ 1) = $
 
 \vfill
 
-The language described by the regular expression $\Sigma_1^* 1$ is $L(~\Sigma_1^* 1~) = $
 
-\vfill
-
-The language described by the regular expression $(\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1)^*$ 
-is $L(~(\Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1 \Sigma_1)^*~) = $
-
-\vfill
-
-A regular expression that describes the language $\{00, 01, 10, 11\}$ is 
-
-\vfill
-
-A regular expression that describes the language $\{ 0^n1 \mid n~\text{is even} \}$ is
-
-\vfill
-
-{\it Shorthand and conventions}
-    
+{\it Shorthand and conventions} (Sipser pages 63-65)
 \begin{center}
     \begin{tabular}{|ll|}
     \hline
+    & \\
     \multicolumn{2}{|l|}{Assuming $\Sigma$ is the alphabet, we use the following conventions}\\
-    \hline
+    & \\
     $\Sigma$   & regular  expression describing language consisting of  all strings  of length  $1$ over $\Sigma$\\
     $*$ then $\circ$ then $\cup$   & precedence order, unless parentheses are used to change it\\
     $R_1R_2$ & shorthand  for  $R_1  \circ R_2$ (concatenation symbol is implicit) \\
     $R^+$ & shorthand for $R^* \circ R$ \\
-    $R^k$ & shorthand for $R$ concatenated with itself $k$ times, where $k$ is a natural number\\
-    \hline
-    {\it Pages 63 - 65 }& \\
+    $R^k$ & shorthand for $R$ concatenated with itself $k$ times, where $k$ is a (specific) natural number\\
+    & \\
     \hline
     \end{tabular}
 \end{center}
