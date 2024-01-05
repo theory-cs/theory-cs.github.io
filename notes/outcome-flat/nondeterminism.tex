@@ -555,6 +555,53 @@ answer to the question is ``yes''
 \section*{Week3 monday}
 
 
+
+\begin{comment}
+
+\vfill
+Let  $\Sigma = \{a,b\}$. A state diagram for a DFA that recognizes 
+$\{w \mid w~\text{has $ab$ as a substring and is of even length} \}$:
+
+
+\vfill
+
+
+Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
+DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
+$L(M) = A_1 \cap A_2$.
+
+{\bf Proof idea}:
+
+
+{\bf Formal construction}: 
+
+
+\vspace{70pt}
+
+{\bf Application}:  When $A_1 = \{w \mid w~\text{has $ab$ as a substring} \}$ and 
+$A_2 = \{ w \mid w~\text{is of even length} \}$.
+
+
+\newpage
+
+Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
+DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
+$L(M) = A_1 \cup A_2$.  {\it Sipser Theorem 1.25, page 45}
+
+{\bf Proof idea}:
+
+
+{\bf Formal construction}: 
+
+\vspace{70pt}
+
+{\bf Application}: A state diagram for a DFA that recognizes $\{w \mid w~\text{has $ab$ as a substring or is of even length} \}$:
+
+\vspace{100pt}
+\end{comment}
+
 The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of this NFA is:
 
 \includegraphics[width=2.5in]{../../resources/machines/Lect5NFA1.png}
@@ -798,7 +845,8 @@ A language is called {\bf regular} when any (hence all) of the above three condi
 \begin{center}
 \begin{tabular}{|ll|}
 \hline
-\multicolumn{2}{|l|}{{\bf Nondeterministic finite automaton} $M = (Q, \Sigma, \delta, q_0, F)$} \\
+\multicolumn{2}{|l|}{{\bf Nondeterministic finite automaton}  (Sipser Page 53) Given as $M = (Q, \Sigma, \delta, q_0, F)$}\\
+& \\
 Finite set of states $Q$  & Can  be labelled by any collection  of distinct names. Default: $q0, q1, \ldots$  \\
 Alphabet $\Sigma$ &  Each input to the automaton is a string over  $\Sigma$. \\
 Arrow labels $\Sigma_\varepsilon$ &  $\Sigma_\varepsilon = \Sigma \cup \{ \varepsilon\}$. \\
@@ -809,12 +857,10 @@ gives the {\bf set of possible next states} for a transition \\
 &  from the current state upon reading a symbol or spontaneously moving.\\
 Start state $q_0$ & Element of $Q$.  Each computation of the machine starts at the  start  state.\\
 Accept (final) states $F$ & $F \subseteq  Q$.\\
-$M$ accepts the input string & if and only if {\bf there is} a computation of $M$ on the input string\\
-&  that 
-processes the whole string and ends in an
-accept state.\\
-\hline
-{\it Page 53}& \\
+& \\
+\multicolumn{2}{|p{\textwidth}|}{$M$ accepts the input string $w \in \Sigma^*$ if and only if {\bf there is} a computation of $M$ on 
+$w$ that processes the whole string and ends in an
+accept state.}\\
 \hline
 \end{tabular}
 \end{center}
@@ -828,7 +874,7 @@ The language over $\{0,1\}$ recognized by this NFA is:
 \vspace{70pt}
 
 Change the transition function to get a different NFA which accepts
-the empty string.
+the empty string (and potentially other strings too).
 
 
 \newpage

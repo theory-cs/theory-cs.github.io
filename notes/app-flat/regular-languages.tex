@@ -481,6 +481,53 @@ $G_1 =  (\{S\}, \{0\}, R, S)$ with rules
 \section*{Week3 monday}
 
 
+
+\begin{comment}
+
+\vfill
+Let  $\Sigma = \{a,b\}$. A state diagram for a DFA that recognizes 
+$\{w \mid w~\text{has $ab$ as a substring and is of even length} \}$:
+
+
+\vfill
+
+
+Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
+DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
+$L(M) = A_1 \cap A_2$.
+
+{\bf Proof idea}:
+
+
+{\bf Formal construction}: 
+
+
+\vspace{70pt}
+
+{\bf Application}:  When $A_1 = \{w \mid w~\text{has $ab$ as a substring} \}$ and 
+$A_2 = \{ w \mid w~\text{is of even length} \}$.
+
+
+\newpage
+
+Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
+DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
+$L(M) = A_1 \cup A_2$.  {\it Sipser Theorem 1.25, page 45}
+
+{\bf Proof idea}:
+
+
+{\bf Formal construction}: 
+
+\vspace{70pt}
+
+{\bf Application}: A state diagram for a DFA that recognizes $\{w \mid w~\text{has $ab$ as a substring or is of even length} \}$:
+
+\vspace{100pt}
+\end{comment}
+
 The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of this NFA is:
 
 \includegraphics[width=2.5in]{../../resources/machines/Lect5NFA1.png}
@@ -720,7 +767,6 @@ A language is called {\bf regular} when any (hence all) of the above three condi
 \section*{Week3 friday}
 
 
-
 {\bf Theorem}: For an alphabet $\Sigma$, For each language $L$ over $\Sigma$, 
 \begin{center}
 $L$ is recognized by some DFA \\
@@ -804,7 +850,9 @@ then $s$ may be divided into three pieces, $s = xyz$ such that
 {\bf True or False}: For any language $A$, if $p$  is a  pumping length for $A$ and $p' > p$,  then 
 $p'$ is also a pumping length for $A$.
  \vfill
-\section*{Week2 monday}
+\section*{Week2 wednesday}
+
+
 
 
 
@@ -824,16 +872,16 @@ $p'$ is also a pumping length for $A$.
 \end{center}
 In the state diagram of $M$, how many outgoing arrows are there from each state?
 
-$M = ( \{ q, r, s\}, \{a,b\}, \delta, q, \{s\} )$ 
+$M = ( \{ q, r, s\}, \{a,b\}, \delta, q, \{q\} )$ 
 where $\delta$ is  (rows labelled by states
 and columns labelled by symbols):
 \begin{center}
 \begin{tabular}{c|cc}
 $\delta$ & $a$ & $b$ \\
 \hline
-$q$ & $r$ & $q$ \\
-$r$ & $r$ & $s$ \\
-$s$ & $s$ & $s$ \\
+$q$ & $r$ & $r$ \\
+$r$ & $s$ & $s$ \\
+$s$ & $q$ & $q$ \\
 \end{tabular}
 \end{center}
 
@@ -847,12 +895,6 @@ Give two examples of strings that are accepted by $M$ and two examples of string
 
 \vfill
 
-Add ``labels" for states in the state diagram, e.g. ``have not seen any of desired pattern yet'' or
-``sink state''.
-\newpage
-
-We can use the analysis of the roles of the states in the state diagram to describe the language
-recognized by the DFA. 
 
 
 $L(M) = $
@@ -862,49 +904,24 @@ A regular expression describing $L(M)$ is
 
 
 
-\vspace{300pt}
-
+\newpage
 Let the alphabet be $\Sigma_1 = \{0,1\}$.
 
-A state diagram for a DFA that recognizes $\{w \mid w~\text{contains at most two $1$'s} \}$ is
-
-\vspace{70pt}
-
-A state diagram for a DFA that recognizes $\{w \mid w~\text{contains more than two $1$'s} \}$ is
-
-\vspace{70pt}
-
-
-\newpage
-{\it Extra example:} A state diagram for DFA recognizing
-$$\{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $3$} \}$$
-
-\vspace{70pt}
-
-
-Let $n$ be an arbitrary positive integer. What is a formal definition for a DFA recognizing
-\[
-\{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $n$} \}?
-\]
-
-\vspace{70pt} \vfill
-\section*{Week2 wednesday}
-
-
-Suppose A is a language over an alphabet $\Sigma$. By definition, this means A is a subset of $\Sigma^*$.
-{\bf Claim:} if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
-$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
-
-{\bf Proof idea}:
-
-
-{\bf Proof}: 
-
-
-
+A state diagram for a DFA that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains at most two $1$'s} \}$ is
 
 \vfill
-A useful (optional) bit of terminology: the {\bf iterated transition function} of a DFA
+
+A state diagram for a DFA that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains more than two $1$'s} \}$ is
+
+\vfill
+
+\textbf{Strategy}: Add ``labels" for states in the state diagram, e.g. 
+``have not seen any of desired pattern yet'' or ``sink state''.
+Then, we can use the analysis of the roles of the states in the state diagram to work towards a 
+description of the language recognized by the finite automaton. 
+
+\vfill
+A useful bit of terminology: the {\bf iterated transition function} of a DFA
 $M = (Q, \Sigma, \delta, q_0, F)$ is defined recursively by
 \[
 \delta^* (~(q,w)~) 
@@ -918,49 +935,28 @@ q  \qquad &\text{if $q \in Q, w = \varepsilon$} \\
 Using  this terminology, $M$ accepts a string $w$ over $\Sigma$ if and only if $\delta^*( ~(q_0,w)~) \in F$.
 
 \newpage
-
-Fix  $\Sigma = \{a,b\}$. A state diagram for a DFA that recognizes 
-$\{w \mid w~\text{has $ab$ as a substring and is of even length} \}$:
-
-
-\vspace{120pt}
-
-
-Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
-DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
-$L(M) = A_1 \cap A_2$.
+Suppose A is a language over an alphabet $\Sigma$. By definition, this means A is a subset of $\Sigma^*$.
+{\bf Claim:} if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
+$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
 
 {\bf Proof idea}:
 
 
-{\bf Formal construction}: 
+{\bf Proof}: 
 
 
-\vspace{70pt}
-
-{\bf Application}:  When $A_1 = \{w \mid w~\text{has $ab$ as a substring} \}$ and 
-$A_2 = \{ w \mid w~\text{is of even length} \}$.
 
 
-\newpage
+\vfill
 
-Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
-DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
-$L(M) = A_1 \cup A_2$.  {\it Sipser Theorem 1.25, page 45}
+Application: Design a finite automaton that recognizes the language of all strings over $\{a,b\}$
+whose length is not a multiple of $3$.
 
-{\bf Proof idea}:
+\vfill
 
-
-{\bf Formal construction}: 
-
-\vspace{70pt}
-
-{\bf Application}: A state diagram for a DFA that recognizes $\{w \mid w~\text{has $ab$ as a substring or is of even length} \}$:
-
-\vspace{100pt}
- \vfill
+{\bf Note}: On Friday, we'll see a new kind of finite automaton. It will be helpful to distinguish it from the
+machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
+from Section 1.1. \vfill
 \section*{Week2 friday}
 
 
@@ -968,7 +964,8 @@ $L(M) = A_1 \cup A_2$.  {\it Sipser Theorem 1.25, page 45}
 \begin{center}
 \begin{tabular}{|ll|}
 \hline
-\multicolumn{2}{|l|}{{\bf Nondeterministic finite automaton} $M = (Q, \Sigma, \delta, q_0, F)$} \\
+\multicolumn{2}{|l|}{{\bf Nondeterministic finite automaton}  (Sipser Page 53) Given as $M = (Q, \Sigma, \delta, q_0, F)$}\\
+& \\
 Finite set of states $Q$  & Can  be labelled by any collection  of distinct names. Default: $q0, q1, \ldots$  \\
 Alphabet $\Sigma$ &  Each input to the automaton is a string over  $\Sigma$. \\
 Arrow labels $\Sigma_\varepsilon$ &  $\Sigma_\varepsilon = \Sigma \cup \{ \varepsilon\}$. \\
@@ -979,12 +976,10 @@ gives the {\bf set of possible next states} for a transition \\
 &  from the current state upon reading a symbol or spontaneously moving.\\
 Start state $q_0$ & Element of $Q$.  Each computation of the machine starts at the  start  state.\\
 Accept (final) states $F$ & $F \subseteq  Q$.\\
-$M$ accepts the input string & if and only if {\bf there is} a computation of $M$ on the input string\\
-&  that 
-processes the whole string and ends in an
-accept state.\\
-\hline
-{\it Page 53}& \\
+& \\
+\multicolumn{2}{|p{\textwidth}|}{$M$ accepts the input string $w \in \Sigma^*$ if and only if {\bf there is} a computation of $M$ on 
+$w$ that processes the whole string and ends in an
+accept state.}\\
 \hline
 \end{tabular}
 \end{center}
@@ -998,7 +993,7 @@ The language over $\{0,1\}$ recognized by this NFA is:
 \vspace{70pt}
 
 Change the transition function to get a different NFA which accepts
-the empty string.
+the empty string (and potentially other strings too).
 
 
 \newpage

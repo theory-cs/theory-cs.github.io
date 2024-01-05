@@ -143,7 +143,9 @@ to Section 1.1 on Friday.
 The definition of the union, concatenation, and star operations for languages is given 
 as Definition 1.23 on page 44 and a useful example is Example 1.24.
 
-{\it For Week 2 Monday}: Pages 41-43 (Figures 1.18, 1.19, 1.20) (examples of automata and languages).
+{\it For Week 2 Wednesday}: Pages 41-43 (Figures 1.18, 1.19, 1.20) (examples of automata and languages).
+{\it Notice}: Week 2 Monday is a UCSD Holiday in observance of Martin Luther King Jr. day so there 
+is no CSE 105 class.
 
 {\it Textbook references: Within a chapter, each item is numbered consecutively. Figure 1.22
 is the twenty-second numbered item in chapter one; it comes right after Example 1.21 and right before Definition 1.23.}
@@ -232,8 +234,6 @@ Please complete the review quiz questions on \href{http://gradescope.com}{Grades
 Have a great summer!
 \newpage
 
-{\it Textbook references: Within a chapter, each item is numbered consecutively. Figure 1.22
-is the twenty-second numbered item in chapter one; it comes right after Example 1.21 and right before Definition 1.23.}
 
 In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
 resources might be memory, time, parallelism, randomness, power, etc.
@@ -244,68 +244,76 @@ To be able to compare ``hardness'' of problems, we use a consistent description 
 {\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
 
 So far: we saw that regular expressions are convenient ways of describring patterns in strings.
-DFA give a model of computation for processing strings and and classifying them into Yes (accepted)
+{\bf Finite automata} give a model of computation for processing strings and and classifying them into Yes (accepted)
 or No (rejected). We will see that each set of strings is described by a regular expression if and only 
-if there is a DFA that recognizes it.  Another way of thinking about it: properties described by regular
-expressions require exactly the computational power of DFAs.
+if there is a FA that recognizes it.  Another way of thinking about it: properties described by regular
+expressions require exactly the computational power of these finite automata.
 
 
-\section*{Monday}
-
-\input{../activity-snippets/week2-monday.tex}
-    
-\newpage
-\subsection*{Review: Week 2 Monday}
-
-Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
-the languages recognized by DFAs.
-
-
-Recall: Review quizzes based on class material are assigned each day. 
-These quizzes will help you track and confirm your understanding of the concepts and examples 
-we work in class. Quizzes can be submitted on Gradescope as many times (with no penalty) as 
-you like until the quiz deadline: the three quizzes each week are all due on Friday (with no penalty 
-late submission open until Sunday).
-
-{\bf Pre class reading for next time}: Pages 45-47.
-
-
-\newpage
-\subsection*{Wednesday}
+\subsection*{Wednesday: Finite automaton constructions}
 
 \input{../activity-snippets/week2-wednesday.tex}
 
-\newpage
-\subsection*{Review: Week 2 Wednesday}
-
-Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
-the languages recognized by DFAs.
-
-
-Recall: Review quizzes based on class material are assigned each day. 
-These quizzes will help you track and confirm your understanding of the concepts and examples 
-we work in class. Quizzes can be submitted on Gradescope as many times (with no penalty) as 
-you like until the quiz deadline: the three quizzes each week are all due on Friday (with no penalty 
-late submission open until Sunday).
-
-
-{\bf Pre class reading for next time}: Introduction to Section 1.2
 
 \newpage
-\subsection*{Friday}
+\subsection*{Friday: Nondeterministic automata}
 
 \input{../activity-snippets/week2-friday.tex}
 
 
+
 \newpage
+\subsection*{Week 2 at a glance}
 
-\subsection*{Review: Week 2 Friday}
+\subsubsection*{Textbook reading: Section 1.1, 1.2}
+
+{\it For Wednesday}: Pages 41-43 (Figures 1.18, 1.19, 1.20) (examples of automata and languages).
+
+{\it For Friday}: Pages 48-50 (Figures 1.27, 1.29) (introduction to nondeterminism).
+
+{\it For Week 3 Monday}: Pages 60-61 Theorem 1.47 and Theorem 1.48 (closure proofs).
 
 
-Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
-NFA.
+\subsubsection*{Make sure you can:}
 
-{\bf Pre class reading for next time}: Theorem 1.47, Theorem 1.49
+\begin{itemize}
+\item Use regular expressions and relate them to languages and automata
+\begin{itemize}
+
+   \item Write and debug regular expressions using correct syntax
+
+\end{itemize}
+
+\item Use precise notation to formally define the state diagram of DFA, NFA and 
+use clear English to describe computations of DFA, NFA informally.
+
+\begin{itemize}
+   \item Design an automaton that recognizes a given language
+
+   \item Specify a general construction for DFA based on parameters
+
+   \item Design general constructions for DFA
+
+   \item Motivate the use of nondeterminism
+
+   \item Trace the computation(s) of a nondeterministic finite automaton
+
+\end{itemize}
+
+
+
+
+
+
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item \#FinAid Assignment on Canvas https://canvas.ucsd.edu/courses/51649/quizzes/158899
+   \item Review quizzes based on class material each day. 
+   \item Homework assignment 1 due Thursday.
+\end{list}
 
 \newpage
 

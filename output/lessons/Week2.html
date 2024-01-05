@@ -178,10 +178,6 @@
 <div class="flushright">
 
 </div>
-<p><span><em>Textbook references: Within a chapter, each item is
-numbered consecutively. Figure 1.22 is the twenty-second numbered item
-in chapter one; it comes right after Example 1.21 and right before
-Definition 1.23.</em></span></p>
 <p>In Computer Science, we operationalize “hardest” as “requires most
 resources”, where resources might be memory, time, parallelism,
 randomness, power, etc. To be able to compare “hardness” of problems, we
@@ -191,13 +187,16 @@ use a consistent description of problems</p>
 the input string matches the pattern or property described by the
 problem.</p>
 <p>So far: we saw that regular expressions are convenient ways of
-describring patterns in strings. DFA give a model of computation for
-processing strings and and classifying them into Yes (accepted) or No
-(rejected). We will see that each set of strings is described by a
-regular expression if and only if there is a DFA that recognizes it.
-Another way of thinking about it: properties described by regular
-expressions require exactly the computational power of DFAs.</p>
-<h1 class="unnumbered" id="monday">Monday</h1>
+describring patterns in strings. <span><strong>Finite
+automata</strong></span> give a model of computation for processing
+strings and and classifying them into Yes (accepted) or No (rejected).
+We will see that each set of strings is described by a regular
+expression if and only if there is a FA that recognizes it. Another way
+of thinking about it: properties described by regular expressions
+require exactly the computational power of these finite automata.</p>
+<h2 class="unnumbered"
+id="wednesday-finite-automaton-constructions">Wednesday: Finite
+automaton constructions</h2>
 <p><span><strong>Review</strong></span>: Formal definition of DFA: <span
 class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></p>
 <div class="center">
@@ -218,7 +217,7 @@ class="math inline">\(F\)</span></p></li>
 <p>In the state diagram of <span class="math inline">\(M\)</span>, how
 many outgoing arrows are there from each state?</p>
 <p><span class="math inline">\(M = ( \{ q, r, s\}, \{a,b\}, \delta, q,
-\{s\} )\)</span> where <span class="math inline">\(\delta\)</span> is
+\{q\} )\)</span> where <span class="math inline">\(\delta\)</span> is
 (rows labelled by states and columns labelled by symbols):</p>
 <div class="center">
 <table>
@@ -239,13 +238,13 @@ class="math inline">\(q\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(r\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(q\)</span></td>
+class="math inline">\(r\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span
 class="math inline">\(r\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(r\)</span></td>
+class="math inline">\(s\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(s\)</span></td>
 </tr>
@@ -253,9 +252,9 @@ class="math inline">\(s\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(s\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(s\)</span></td>
+class="math inline">\(q\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(s\)</span></td>
+class="math inline">\(q\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -264,42 +263,36 @@ class="math inline">\(s\)</span></td>
 <p>Give two examples of strings that are accepted by <span
 class="math inline">\(M\)</span> and two examples of strings that are
 rejected by <span class="math inline">\(M\)</span>:</p>
-<p>Add “labels" for states in the state diagram, e.g. “have not seen any
-of desired pattern yet” or “sink state”.</p>
-<p>We can use the analysis of the roles of the states in the state
-diagram to describe the language recognized by the DFA.</p>
 <p><span class="math inline">\(L(M) =\)</span></p>
 <p>A regular expression describing <span
 class="math inline">\(L(M)\)</span> is</p>
 <p>Let the alphabet be <span class="math inline">\(\Sigma_1 =
 \{0,1\}\)</span>.</p>
 <p>A state diagram for a DFA that recognizes <span
-class="math inline">\(\{w \mid w~\text{contains at most two $1$&#39;s}
-\}\)</span> is</p>
+class="math inline">\(\{w \in \Sigma_1^* \mid w~\text{contains at most
+two $1$&#39;s} \}\)</span> is</p>
 <p>A state diagram for a DFA that recognizes <span
-class="math inline">\(\{w \mid w~\text{contains more than two $1$&#39;s}
-\}\)</span> is</p>
-<p><span><em>Extra example:</em></span> A state diagram for DFA
-recognizing <span class="math display">\[\{w \mid w~\text{is a string
-over $\{0,1\}$ whose length is not a multiple of $3$} \}\]</span></p>
-<p>Let <span class="math inline">\(n\)</span> be an arbitrary positive
-integer. What is a formal definition for a DFA recognizing <span
-class="math display">\[\{w \mid w~\text{is a string over $\{0,1\}$ whose
-length is not a multiple of $n$} \}?\]</span></p>
-<h2 class="unnumbered" id="review-week-2-monday">Review: Week 2
-Monday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about the languages
-recognized by DFAs.</p>
-<p>Recall: Review quizzes based on class material are assigned each day.
-These quizzes will help you track and confirm your understanding of the
-concepts and examples we work in class. Quizzes can be submitted on
-Gradescope as many times (with no penalty) as you like until the quiz
-deadline: the three quizzes each week are all due on Friday (with no
-penalty late submission open until Sunday).</p>
-<p><span><strong>Pre class reading for next time</strong></span>: Pages
-45-47.</p>
-<h2 class="unnumbered" id="wednesday">Wednesday</h2>
+class="math inline">\(\{w \in \Sigma_1^* \mid w~\text{contains more than
+two $1$&#39;s} \}\)</span> is</p>
+<p><strong>Strategy</strong>: Add “labels" for states in the state
+diagram, e.g. “have not seen any of desired pattern yet” or “sink
+state”. Then, we can use the analysis of the roles of the states in the
+state diagram to work towards a description of the language recognized
+by the finite automaton.</p>
+<p>A useful bit of terminology: the <span><strong>iterated transition
+function</strong></span> of a DFA <span class="math inline">\(M = (Q,
+\Sigma, \delta, q_0, F)\)</span> is defined recursively by <span
+class="math display">\[\delta^* (~(q,w)~)
+=\begin{cases}
+q  \qquad &amp;\text{if $q \in Q, w = \varepsilon$} \\
+\delta( ~(q,a)~) \qquad &amp;\text{if $q \in Q$, $w = a \in \Sigma$ } \\
+\delta(~(\delta^*(q,u), a) ~) \qquad &amp;\text{if $q \in Q$, $w = ua$
+where $u \in  \Sigma^*$ and $a \in \Sigma$}
+\end{cases}\]</span></p>
+<p>Using this terminology, <span class="math inline">\(M\)</span>
+accepts a string <span class="math inline">\(w\)</span> over <span
+class="math inline">\(\Sigma\)</span> if and only if <span
+class="math inline">\(\delta^*( ~(q_0,w)~) \in F\)</span>.</p>
 <p>Suppose A is a language over an alphabet <span
 class="math inline">\(\Sigma\)</span>. By definition, this means A is a
 subset of <span class="math inline">\(\Sigma^*\)</span>.
@@ -312,102 +305,55 @@ of <span class="math inline">\(A\)</span>, defined as <span
 class="math inline">\(\{ w \in \Sigma^* \mid w \notin A \}\)</span>.</p>
 <p><span><strong>Proof idea</strong></span>:</p>
 <p><span><strong>Proof</strong></span>:</p>
-<p>A useful (optional) bit of terminology: the <span><strong>iterated
-transition function</strong></span> of a DFA <span
-class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span> is
-defined recursively by <span class="math display">\[\delta^* (~(q,w)~)
-=\begin{cases}
-q  \qquad &amp;\text{if $q \in Q, w = \varepsilon$} \\
-\delta( ~(q,a)~) \qquad &amp;\text{if $q \in Q$, $w = a \in \Sigma$ } \\
-\delta(~(\delta^*(q,u), a) ~) \qquad &amp;\text{if $q \in Q$, $w = ua$
-where $u \in  \Sigma^*$ and $a \in \Sigma$}
-\end{cases}\]</span></p>
-<p>Using this terminology, <span class="math inline">\(M\)</span>
-accepts a string <span class="math inline">\(w\)</span> over <span
-class="math inline">\(\Sigma\)</span> if and only if <span
-class="math inline">\(\delta^*( ~(q_0,w)~) \in F\)</span>.</p>
-<p>Fix <span class="math inline">\(\Sigma = \{a,b\}\)</span>. A state
-diagram for a DFA that recognizes <span class="math inline">\(\{w \mid
-w~\text{has $ab$ as a substring and is of even length} \}\)</span>:</p>
-<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
-over an alphabet <span class="math inline">\(\Sigma\)</span>.
-<span><strong>Claim:</strong></span> if there is a DFA <span
-class="math inline">\(M_1\)</span> such that <span
-class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
-class="math inline">\(M_2\)</span> such that <span
-class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
-let’s call it <span class="math inline">\(M\)</span>, such that <span
-class="math inline">\(L(M) = A_1 \cap A_2\)</span>.</p>
-<p><span><strong>Proof idea</strong></span>:</p>
-<p><span><strong>Formal construction</strong></span>:</p>
-<p><span><strong>Application</strong></span>: When <span
-class="math inline">\(A_1 = \{w \mid w~\text{has $ab$ as a substring}
-\}\)</span> and <span class="math inline">\(A_2 = \{ w \mid w~\text{is
-of even length} \}\)</span>.</p>
-<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
-over an alphabet <span class="math inline">\(\Sigma\)</span>.
-<span><strong>Claim:</strong></span> if there is a DFA <span
-class="math inline">\(M_1\)</span> such that <span
-class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
-class="math inline">\(M_2\)</span> such that <span
-class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
-let’s call it <span class="math inline">\(M\)</span>, such that <span
-class="math inline">\(L(M) = A_1 \cup A_2\)</span>. <span><em>Sipser
-Theorem 1.25, page 45</em></span></p>
-<p><span><strong>Proof idea</strong></span>:</p>
-<p><span><strong>Formal construction</strong></span>:</p>
-<p><span><strong>Application</strong></span>: A state diagram for a DFA
-that recognizes <span class="math inline">\(\{w \mid w~\text{has $ab$ as
-a substring or is of even length} \}\)</span>:</p>
-<h2 class="unnumbered" id="review-week-2-wednesday">Review: Week 2
-Wednesday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about the languages
-recognized by DFAs.</p>
-<p>Recall: Review quizzes based on class material are assigned each day.
-These quizzes will help you track and confirm your understanding of the
-concepts and examples we work in class. Quizzes can be submitted on
-Gradescope as many times (with no penalty) as you like until the quiz
-deadline: the three quizzes each week are all due on Friday (with no
-penalty late submission open until Sunday).</p>
-<p><span><strong>Pre class reading for next time</strong></span>:
-Introduction to Section 1.2</p>
-<h2 class="unnumbered" id="friday">Friday</h2>
+<p>Application: Design a finite automaton that recognizes the language
+of all strings over <span class="math inline">\(\{a,b\}\)</span> whose
+length is not a multiple of <span class="math inline">\(3\)</span>.</p>
+<p><span><strong>Note</strong></span>: On Friday, we’ll see a new kind
+of finite automaton. It will be helpful to distinguish it from the
+machines we’ve been talking about so we’ll use
+<span><strong>Deterministic Finite Automaton</strong></span> (DFA) to
+refer to the machines from Section 1.1.</p>
+<h2 class="unnumbered" id="friday-nondeterministic-automata">Friday:
+Nondeterministic automata</h2>
 <div class="center">
 <table>
 <tbody>
 <tr class="odd">
 <td colspan="2" style="text-align: left;"><span><strong>Nondeterministic
-finite automaton</strong></span> <span class="math inline">\(M = (Q,
-\Sigma, \delta, q_0, F)\)</span></td>
+finite automaton</strong></span> (Sipser Page 53) Given as <span
+class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Finite set of states <span
 class="math inline">\(Q\)</span></td>
 <td style="text-align: left;">Can be labelled by any collection of
 distinct names. Default: <span class="math inline">\(q0, q1,
 \ldots\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Alphabet <span
 class="math inline">\(\Sigma\)</span></td>
 <td style="text-align: left;">Each input to the automaton is a string
 over <span class="math inline">\(\Sigma\)</span>.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Arrow labels <span
 class="math inline">\(\Sigma_\varepsilon\)</span></td>
 <td style="text-align: left;"><span
 class="math inline">\(\Sigma_\varepsilon = \Sigma \cup \{
 \varepsilon\}\)</span>.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">Arrows in the state diagram are labelled
 either by symbols from <span class="math inline">\(\Sigma\)</span> or by
 <span class="math inline">\(\varepsilon\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Transition function <span
 class="math inline">\(\delta\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\delta: Q
@@ -415,39 +361,36 @@ class="math inline">\(\delta\)</span></td>
 <span><strong>set of possible next states</strong></span> for a
 transition</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">from the current state upon reading a
 symbol or spontaneously moving.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Start state <span
 class="math inline">\(q_0\)</span></td>
 <td style="text-align: left;">Element of <span
 class="math inline">\(Q\)</span>. Each computation of the machine starts
 at the start state.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Accept (final) states <span
 class="math inline">\(F\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(F
 \subseteq  Q\)</span>.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(M\)</span>
-accepts the input string</td>
-<td style="text-align: left;">if and only if <span><strong>there
-is</strong></span> a computation of <span
-class="math inline">\(M\)</span> on the input string</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">that processes the whole string and ends
-in an accept state.</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span><em>Page 53</em></span></td>
-<td style="text-align: left;"></td>
+<td colspan="2" style="text-align: left;"><span
+class="math inline">\(M\)</span> accepts the input string <span
+class="math inline">\(w \in \Sigma^*\)</span> if and only if
+<span><strong>there is</strong></span> a computation of <span
+class="math inline">\(M\)</span> on <span
+class="math inline">\(w\)</span> that processes the whole string and
+ends in an accept state.</td>
 </tr>
 </tbody>
 </table>
@@ -460,18 +403,48 @@ alt="image" /></p>
 <p>The language over <span class="math inline">\(\{0,1\}\)</span>
 recognized by this NFA is:</p>
 <p>Change the transition function to get a different NFA which accepts
-the empty string.</p>
+the empty string (and potentially other strings too).</p>
 <p>The state diagram of an NFA over <span
 class="math inline">\(\{a,b\}\)</span> is below. The formal definition
 of this NFA is:</p>
 <p><img src="../../resources/machines/Lect5NFA1.png" style="width:2.5in"
 alt="image" /></p>
 <p>The language recognized by this NFA is:</p>
-<h2 class="unnumbered" id="review-week-2-friday">Review: Week 2
-Friday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about NFA.</p>
-<p><span><strong>Pre class reading for next time</strong></span>:
-Theorem 1.47, Theorem 1.49</p>
+<h2 class="unnumbered" id="week-2-at-a-glance">Week 2 at a glance</h2>
+<h3 class="unnumbered" id="textbook-reading-section-1.1-1.2">Textbook
+reading: Section 1.1, 1.2</h3>
+<p><span><em>For Wednesday</em></span>: Pages 41-43 (Figures 1.18, 1.19,
+1.20) (examples of automata and languages).</p>
+<p><span><em>For Friday</em></span>: Pages 48-50 (Figures 1.27, 1.29)
+(introduction to nondeterminism).</p>
+<p><span><em>For Week 3 Monday</em></span>: Pages 60-61 Theorem 1.47 and
+Theorem 1.48 (closure proofs).</p>
+<h3 class="unnumbered" id="make-sure-you-can">Make sure you can:</h3>
+<ul>
+<li><p>Use regular expressions and relate them to languages and
+automata</p>
+<ul>
+<li><p>Write and debug regular expressions using correct syntax</p></li>
+</ul></li>
+<li><p>Use precise notation to formally define the state diagram of DFA,
+NFA and use clear English to describe computations of DFA, NFA
+informally.</p>
+<ul>
+<li><p>Design an automaton that recognizes a given language</p></li>
+<li><p>Specify a general construction for DFA based on
+parameters</p></li>
+<li><p>Design general constructions for DFA</p></li>
+<li><p>Motivate the use of nondeterminism</p></li>
+<li><p>Trace the computation(s) of a nondeterministic finite
+automaton</p></li>
+</ul></li>
+</ul>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>#FinAid Assignment on Canvas
+https://canvas.ucsd.edu/courses/51649/quizzes/158899</p>
+<p>Review quizzes based on class material each day.</p>
+<p>Homework assignment 1 due Thursday.</p>
+</div>
 </body>
 </html>
