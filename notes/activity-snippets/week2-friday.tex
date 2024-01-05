@@ -5,7 +5,8 @@
 \begin{center}
 \begin{tabular}{|ll|}
 \hline
-\multicolumn{2}{|l|}{{\bf Nondeterministic finite automaton} $M = (Q, \Sigma, \delta, q_0, F)$} \\
+\multicolumn{2}{|l|}{{\bf Nondeterministic finite automaton}  (Sipser Page 53) Given as $M = (Q, \Sigma, \delta, q_0, F)$}\\
+& \\
 Finite set of states $Q$  & Can  be labelled by any collection  of distinct names. Default: $q0, q1, \ldots$  \\
 Alphabet $\Sigma$ &  Each input to the automaton is a string over  $\Sigma$. \\
 Arrow labels $\Sigma_\varepsilon$ &  $\Sigma_\varepsilon = \Sigma \cup \{ \varepsilon\}$. \\
@@ -16,12 +17,10 @@ gives the {\bf set of possible next states} for a transition \\
 &  from the current state upon reading a symbol or spontaneously moving.\\
 Start state $q_0$ & Element of $Q$.  Each computation of the machine starts at the  start  state.\\
 Accept (final) states $F$ & $F \subseteq  Q$.\\
-$M$ accepts the input string & if and only if {\bf there is} a computation of $M$ on the input string\\
-&  that 
-processes the whole string and ends in an
-accept state.\\
-\hline
-{\it Page 53}& \\
+& \\
+\multicolumn{2}{|p{\textwidth}|}{$M$ accepts the input string $w \in \Sigma^*$ if and only if {\bf there is} a computation of $M$ on 
+$w$ that processes the whole string and ends in an
+accept state.}\\
 \hline
 \end{tabular}
 \end{center}
@@ -35,7 +34,7 @@ The language over $\{0,1\}$ recognized by this NFA is:
 \vspace{70pt}
 
 Change the transition function to get a different NFA which accepts
-the empty string.
+the empty string (and potentially other strings too).
 
 
 \newpage

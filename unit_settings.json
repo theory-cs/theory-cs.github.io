@@ -82,6 +82,10 @@
         "ExpandInCalendar": false,
         "content": [
             {
+                "name": "Notes",
+                "source": "Week2.tex"
+            },
+            {
                 "name": "(Video) DFA Formal Definition",
                 "source": "https://youtu.be/GwY2en9E4VI"
             },

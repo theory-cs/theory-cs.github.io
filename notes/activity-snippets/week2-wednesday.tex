@@ -1,20 +1,76 @@
 %! app: Regular Languages
 %! outcome: Regular expressions, Formal definition of automata, Informal definition of automata
 
-Suppose A is a language over an alphabet $\Sigma$. By definition, this means A is a subset of $\Sigma^*$.
-{\bf Claim:} if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
-$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
 
-{\bf Proof idea}:
+%%TODO - change example at start to DFA for L3
+%% Move union construction to Week 3.
 
+{\bf Review}: Formal definition of DFA: $M = (Q, \Sigma, \delta, q_0, F)$ 
 
-{\bf Proof}: 
+\begin{center}
+\begin{multicols}{2}
+\begin{itemize}
+\setlength{\itemsep}{2pt}
+\item Finite set of states $Q$
+\item Alphabet $\Sigma$
+\item Transition function $\delta$
+\item Start state $q_0$
+\item Accept (final) states $F$
+\end{itemize}
+\end{multicols}
+\end{center}
+In the state diagram of $M$, how many outgoing arrows are there from each state?
 
+$M = ( \{ q, r, s\}, \{a,b\}, \delta, q, \{q\} )$ 
+where $\delta$ is  (rows labelled by states
+and columns labelled by symbols):
+\begin{center}
+\begin{tabular}{c|cc}
+$\delta$ & $a$ & $b$ \\
+\hline
+$q$ & $r$ & $r$ \\
+$r$ & $s$ & $s$ \\
+$s$ & $q$ & $q$ \\
+\end{tabular}
+\end{center}
 
-
+The state diagram for $M$ is 
 
 \vfill
-A useful (optional) bit of terminology: the {\bf iterated transition function} of a DFA
+
+
+
+Give two examples of strings that are accepted by $M$ and two examples of strings that are rejected by $M$:
+
+\vfill
+
+
+
+$L(M) = $
+
+A regular expression describing $L(M)$ is
+
+
+
+
+\newpage
+Let the alphabet be $\Sigma_1 = \{0,1\}$.
+
+A state diagram for a DFA that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains at most two $1$'s} \}$ is
+
+\vfill
+
+A state diagram for a DFA that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains more than two $1$'s} \}$ is
+
+\vfill
+
+\textbf{Strategy}: Add ``labels" for states in the state diagram, e.g. 
+``have not seen any of desired pattern yet'' or ``sink state''.
+Then, we can use the analysis of the roles of the states in the state diagram to work towards a 
+description of the language recognized by the finite automaton. 
+
+\vfill
+A useful bit of terminology: the {\bf iterated transition function} of a DFA
 $M = (Q, \Sigma, \delta, q_0, F)$ is defined recursively by
 \[
 \delta^* (~(q,w)~) 
@@ -28,45 +84,25 @@ q  \qquad &\text{if $q \in Q, w = \varepsilon$} \\
 Using  this terminology, $M$ accepts a string $w$ over $\Sigma$ if and only if $\delta^*( ~(q_0,w)~) \in F$.
 
 \newpage
-
-Fix  $\Sigma = \{a,b\}$. A state diagram for a DFA that recognizes 
-$\{w \mid w~\text{has $ab$ as a substring and is of even length} \}$:
-
-
-\vspace{120pt}
-
-
-Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
-DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
-$L(M) = A_1 \cap A_2$.
+Suppose A is a language over an alphabet $\Sigma$. By definition, this means A is a subset of $\Sigma^*$.
+{\bf Claim:} if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
+$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
 
 {\bf Proof idea}:
 
 
-{\bf Formal construction}: 
+{\bf Proof}: 
 
 
-\vspace{70pt}
-
-{\bf Application}:  When $A_1 = \{w \mid w~\text{has $ab$ as a substring} \}$ and 
-$A_2 = \{ w \mid w~\text{is of even length} \}$.
 
 
-\newpage
+\vfill
 
-Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
-DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
-$L(M) = A_1 \cup A_2$.  {\it Sipser Theorem 1.25, page 45}
+Application: Design a finite automaton that recognizes the language of all strings over $\{a,b\}$
+whose length is not a multiple of $3$.
 
-{\bf Proof idea}:
+\vfill
 
-
-{\bf Formal construction}: 
-
-\vspace{70pt}
-
-{\bf Application}: A state diagram for a DFA that recognizes $\{w \mid w~\text{has $ab$ as a substring or is of even length} \}$:
-
-\vspace{100pt}
+{\bf Note}: On Friday, we'll see a new kind of finite automaton. It will be helpful to distinguish it from the
+machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
+from Section 1.1.
