@@ -14,10 +14,6 @@
                 "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/553665\" frameborder=\"0\"></iframe>"
             },
             {
-                "name": "Discussion notes",
-                "source": "Week1-discussion.pdf"
-            },
-            {
                 "name": "(Video) Overview",
                 "source": "https://youtu.be/w7JsXayXzqY"
             },
@@ -84,6 +80,10 @@
             {
                 "name": "Notes",
                 "source": "Week2.tex"
+            },
+            {
+                "name": "Discussion notes",
+                "source": "Week2-discussion.pdf"
             },
             {
                 "name": "(Video) DFA Formal Definition",
