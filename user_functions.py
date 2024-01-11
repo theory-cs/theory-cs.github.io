@@ -612,7 +612,7 @@ def create_assignment():
             
     	#pdf.js embed 
 		templateString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
-		title="webviewer" frameborder="0" width="300%" height="600"></iframe> """
+		title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
 		#script for solutions 
 		templateString += """<script>
 			 toggle = document.querySelector('.toggle input')
