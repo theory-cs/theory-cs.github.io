@@ -1428,9 +1428,7 @@ A language is called {\bf regular} when any (hence all) of the above three condi
 
 
 
-
-
-{\bf Review}: Formal definition of DFA: $M = (Q, \Sigma, \delta, q_0, F)$ 
+{\bf Review}: Formal definition of finite automaton: $M = (Q, \Sigma, \delta, q_0, F)$ 
 
 \begin{center}
 \begin{multicols}{2}
@@ -1481,11 +1479,11 @@ A regular expression describing $L(M)$ is
 \newpage
 Let the alphabet be $\Sigma_1 = \{0,1\}$.
 
-A state diagram for a DFA that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains at most two $1$'s} \}$ is
+A state diagram for a finite automaton that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains at most two $1$'s} \}$ is
 
 \vfill
 
-A state diagram for a DFA that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains more than two $1$'s} \}$ is
+A state diagram for a finite automaton that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains more than two $1$'s} \}$ is
 
 \vfill
 
@@ -1495,7 +1493,7 @@ Then, we can use the analysis of the roles of the states in the state diagram to
 description of the language recognized by the finite automaton. 
 
 \vfill
-A useful bit of terminology: the {\bf iterated transition function} of a DFA
+A useful bit of terminology: the {\bf iterated transition function} of a finite automaton
 $M = (Q, \Sigma, \delta, q_0, F)$ is defined recursively by
 \[
 \delta^* (~(q,w)~) 
@@ -1509,7 +1507,7 @@ q  \qquad &\text{if $q \in Q, w = \varepsilon$} \\
 Using  this terminology, $M$ accepts a string $w$ over $\Sigma$ if and only if $\delta^*( ~(q_0,w)~) \in F$.
 
 \newpage
-Suppose A is a language over an alphabet $\Sigma$. By definition, this means A is a subset of $\Sigma^*$.
+Suppose $A$ is a language over an alphabet $\Sigma$. By definition, this means $A$ is a subset of $\Sigma^*$.
 {\bf Claim:} if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
 $L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
 

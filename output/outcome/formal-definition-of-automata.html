@@ -2361,8 +2361,9 @@ A)\)</span></strong></span><br />
 <p>A language is called <span><strong>regular</strong></span> when any
 (hence all) of the above three conditions are met.</p>
 <h1 class="unnumbered" id="week2-wednesday">Week2 wednesday</h1>
-<p><span><strong>Review</strong></span>: Formal definition of DFA: <span
-class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></p>
+<p><span><strong>Review</strong></span>: Formal definition of finite
+automaton: <span class="math inline">\(M = (Q, \Sigma, \delta, q_0,
+F)\)</span></p>
 <div class="center">
 <div class="multicols">
 <p><span>2</span></p>
@@ -2432,10 +2433,10 @@ rejected by <span class="math inline">\(M\)</span>:</p>
 class="math inline">\(L(M)\)</span> is</p>
 <p>Let the alphabet be <span class="math inline">\(\Sigma_1 =
 \{0,1\}\)</span>.</p>
-<p>A state diagram for a DFA that recognizes <span
+<p>A state diagram for a finite automaton that recognizes <span
 class="math inline">\(\{w \in \Sigma_1^* \mid w~\text{contains at most
 two $1$&#39;s} \}\)</span> is</p>
-<p>A state diagram for a DFA that recognizes <span
+<p>A state diagram for a finite automaton that recognizes <span
 class="math inline">\(\{w \in \Sigma_1^* \mid w~\text{contains more than
 two $1$&#39;s} \}\)</span> is</p>
 <p><strong>Strategy</strong>: Add “labels" for states in the state
@@ -2444,9 +2445,9 @@ state”. Then, we can use the analysis of the roles of the states in the
 state diagram to work towards a description of the language recognized
 by the finite automaton.</p>
 <p>A useful bit of terminology: the <span><strong>iterated transition
-function</strong></span> of a DFA <span class="math inline">\(M = (Q,
-\Sigma, \delta, q_0, F)\)</span> is defined recursively by <span
-class="math display">\[\delta^* (~(q,w)~)
+function</strong></span> of a finite automaton <span
+class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span> is
+defined recursively by <span class="math display">\[\delta^* (~(q,w)~)
 =\begin{cases}
 q  \qquad &amp;\text{if $q \in Q, w = \varepsilon$} \\
 \delta( ~(q,a)~) \qquad &amp;\text{if $q \in Q$, $w = a \in \Sigma$ } \\
@@ -2457,9 +2458,10 @@ where $u \in  \Sigma^*$ and $a \in \Sigma$}
 accepts a string <span class="math inline">\(w\)</span> over <span
 class="math inline">\(\Sigma\)</span> if and only if <span
 class="math inline">\(\delta^*( ~(q_0,w)~) \in F\)</span>.</p>
-<p>Suppose A is a language over an alphabet <span
-class="math inline">\(\Sigma\)</span>. By definition, this means A is a
-subset of <span class="math inline">\(\Sigma^*\)</span>.
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>. By definition,
+this means <span class="math inline">\(A\)</span> is a subset of <span
+class="math inline">\(\Sigma^*\)</span>.
 <span><strong>Claim:</strong></span> if there is a DFA <span
 class="math inline">\(M\)</span> such that <span
 class="math inline">\(L(M) = A\)</span> then there is another DFA, let’s
