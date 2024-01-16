@@ -1,60 +1,35 @@
 %! app: Regular Languages
 %! outcome: Formal definition of automata, Informal definition of automata, Nondeterminism
 
-
-\begin{comment}
-
-\vfill
-Let  $\Sigma = \{a,b\}$. A state diagram for a DFA that recognizes 
-$\{w \mid w~\text{has $ab$ as a substring and is of even length} \}$:
-
+{\bf Warmup}: Design a DFA (deterministic finite automaton) and an NFA (nondeterministic
+finite automaton) that each recognize each of the following languages over $\{a,b\}$
+\[
+    \{ w \mid \text{$w$ has an $a$ and ends in $b$}\}
+\]
 
 \vfill
 
+\[
+    \{ w \mid \text{$w$ has an $a$ or ends in $b$}\}
+\]
 
-Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
-DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
-$L(M) = A_1 \cap A_2$.
-
-{\bf Proof idea}:
+\vfill
 
 
-{\bf Formal construction}: 
+
+\textbf{Strategy}: To design DFA or NFA for a given language,  
+identify patterns that can be built up as we process string and create states
+for intermediate stages. Or: decompose the language to a simpler one 
+that we already know how to recognize with a DFA or NFA.
 
 
-\vspace{70pt}
+{\it Recall} (from Wednesday of last week, and in textbook Exercise 1.14): 
+if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
+$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
 
-{\bf Application}:  When $A_1 = \{w \mid w~\text{has $ab$ as a substring} \}$ and 
-$A_2 = \{ w \mid w~\text{is of even length} \}$.
 
-
+Let's practice defining automata constructions by coming up with other ways to get new automata from old.
 \newpage
-
-Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
-DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
-$L(M) = A_1 \cup A_2$.  {\it Sipser Theorem 1.25, page 45}
-
-{\bf Proof idea}:
-
-
-{\bf Formal construction}: 
-
-\vspace{70pt}
-
-{\bf Application}: A state diagram for a DFA that recognizes $\{w \mid w~\text{has $ab$ as a substring or is of even length} \}$:
-
-\vspace{100pt}
-\end{comment}
-
-The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of this NFA is:
-
-\includegraphics[width=2.5in]{../../resources/machines/Lect5NFA1.png}
-
-The language recognized by this NFA is: 
-
-
 
 Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
 {\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
@@ -63,6 +38,10 @@ $L(N) = A_1 \cup A_2$.
 
 {\bf Proof idea}: Use nondeterminism to choose which of $N_1$, $N_2$ to run.
 
+\vfill
+\begin{comment}
+    Draw schematic
+\end{comment}
 
 {\bf Formal construction}: Let 
 $N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)$ and $N_2 = (Q_2, \Sigma, \delta_2,q_2, F_2)$
@@ -70,9 +49,9 @@ and assume $Q_1 \cap Q_2 = \emptyset$ and that $q_0 \notin Q_1 \cup Q_2$.
 Construct $N = (Q, \Sigma, \delta, q_0, F_1 \cup F_2)$ where
 \begin{itemize}
     \item $Q = $
-    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
+    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $x \in \Sigma_{\varepsilon}$:
         \[
-            \phantom{\delta((q,a))=\begin{cases}  \delta_1 ((q,a)) &\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,a)) &\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &\qquad\text{if } q = q_0, a = \varepsilon \\ \emptyset\text{if } q= q_0, a \neq \varepsilon \end{cases}}
+            \phantom{\delta((q,x))=\begin{cases}  \delta_1 ((q,x)) &\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,x)) &\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &\qquad\text{if } q = q_0, x = \varepsilon \\ \emptyset\text{if } q= q_0, x \neq \varepsilon \end{cases}}
         \]
 \end{itemize}
 
@@ -83,102 +62,97 @@ an arbitrary string accepted by $N$, tracing an accepting computation of $N$ on 
 that trace to prove the string is in at least one of $A_1$, $A_2$; then, taking an arbitrary 
 string in $A_1 \cup A_2$ and proving that it is accepted by $N$. Details left for extra practice.}
 
+
+{\bf Example}: The language recognized by the NFA over $\{a,b\}$ with state diagram
+
+
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=yellow!40]
+    
+    \node[initial,state] (q0)          {$q_0$};
+    \node[state]         (q) [above right of=q0, xshift=20pt] {$q$};
+    \node[state]         (r) [right of=q, xshift=20pt] {$r$};
+    \node[state, accepting]         (s) [right of=r, xshift=20pt] {$s$};
+    \node[state, accepting]         (n) [below right of=q0, xshift=20pt] {$n$};
+    \node[state]         (d) [right of=n, xshift=20pt] {$d$};
+    
+    \path (q0) edge  [bend left=0, near start] node {$\varepsilon$} (q)
+            edge [bend right=0, near start] node {$\varepsilon$} (n)
+        (q) edge [bend left=0] node {$a$} (r)
+            edge [loop above, near start] node {$b$} (q)
+        (r) edge [bend left=0] node {$b$} (s)
+            edge [loop above, near start] node {$a,b$} (r)
+        (n) edge [bend left=20] node {$a,b$} (d)
+        (d) edge [bend left=20] node {$a,b$} (n)
+    ;
+    \end{tikzpicture}
+is:
+
+
 \newpage
-Over the alphabet $\{a,b\}$, the language $L$ described by the regular expression 
-$\Sigma^* a \Sigma^* b$
 
- includes the strings \phantom{space for strings here} and excludes the strings 
+Could we do the same construction with DFA?
 
+\vspace{50pt}
 
-The state diagram of a NFA recognizing $L$ is:
-
-\vspace{100pt}
+Happily, though, an analogous claim is true!
 
 Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
-NFA $N_2$ such that $L(N_2) = A_2$, then there is another NFA, let's call it $N$, such that 
-$L(N) = A_1 \circ A_2$.
+{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
+DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
+$L(M) = A_1 \cup A_2$. {\it Theorem 1.25 in Sipser, page 45}
+    
+    {\bf Proof idea}:
+    
+    
+    {\bf Formal construction}: 
+    
+    \vfill
 
-{\bf Proof idea}: Allow computation to move between $N_1$ and $N_2$ ``spontaneously" when reach an accepting state of 
-$N_1$, guessing that we've reached the point where the two parts of the string in the set-wise concatenation 
-are glued together.
-
-
-{\bf Formal construction}: Let 
-$N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)$ and $N_2 = (Q_2, \Sigma, \delta_2,q_2, F_2)$
-and assume $Q_1 \cap Q_2 = \emptyset$.
-Construct $N = (Q, \Sigma, \delta, q_0, F)$ where
-\begin{itemize}
-    \item $Q = $
-    \item $q_0 = $
-    \item $F = $
-    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
-        \[
-            \delta((q,a))=\begin{cases}  
-                \delta_1 ((q,a)) &\qquad\text{if } q\in Q_1 \textrm{ and } q \notin F_1\\ 
-                \delta_1 ((q,a)) &\qquad\text{if } q\in F_1 \textrm{ and } a \in \Sigma\\ 
-                \delta_1 ((q,a)) \cup \{q_2\} &\qquad\text{if } q\in F_1 \textrm{ and } a = \varepsilon\\ 
-                \delta_2 ((q,a)) &\qquad\text{if } q\in Q_2
-            \end{cases}
-        \]
-\end{itemize}
-
-\vfill
-
-{\it Proof of correctness would prove that $L(N) = A_1 \circ A_2$ by considering
-an arbitrary string accepted by $N$, tracing an accepting computation of $N$ on it, and using 
-that trace to prove the string can be written as the result of concatenating two strings, 
-the first in $A_1$ and the second in $A_2$; then, taking an arbitrary 
-string in $A_1 \circ A_2$ and proving that it is accepted by $N$. Details left for extra practice.}
-
-\newpage
-
-Suppose $A$ is a language over an alphabet $\Sigma$.
-{\bf Claim:} if there is a NFA $N$ such that $L(N) = A$, then there is another NFA, let's call it $N'$, such that 
-$L(N') = A^*$.
-
-{\bf Proof idea}: Add a fresh start state, which is an accept state. Add spontaneous 
-moves from each (old) accept state to the old start state.
-
-{\bf Formal construction}: Let 
-$N = (Q, \Sigma, \delta, q_1, F)$ and assume $q_0 \notin Q$.
-Construct $N' = (Q', \Sigma, \delta', q_0, F')$ where
-\begin{itemize}
-    \item $Q' = Q \cup \{q_0\}$
-    \item $F' = F \cup \{q_0\}$
-    \item $\delta': Q' \times \Sigma_\varepsilon \to \mathcal{P}(Q')$ is defined by, for $q \in Q'$ and $a \in \Sigma_{\varepsilon}$:
-        \[
-            \delta'((q,a))=\begin{cases}  
-                \delta ((q,a)) &\qquad\text{if } q\in Q \textrm{ and } q \notin F\\ 
-                \delta ((q,a)) &\qquad\text{if } q\in F \textrm{ and } a \in \Sigma\\ 
-                \delta ((q,a)) \cup \{q_1\} &\qquad\text{if } q\in F \textrm{ and } a = \varepsilon\\ 
-                \{q_1\} &\qquad\text{if } q = q_0 \textrm{ and } a = \varepsilon \\
-                \emptyset &\qquad\text{if } q = q_0 \textrm { and } a \in \Sigma
-            \end{cases}
-        \]
-\end{itemize}
+    
+    {\bf Example}:  When $A_1 = \{w \mid w~\text{has an $a$ and ends in $b$} \}$ and 
+    $A_2 = \{ w \mid w~\text{is of even length} \}$.
+    
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+        \tikzstyle{every state}=[text=black, fill=yellow!40]
+        
+        \node[initial,state,accepting] (qn)          {$(q,n)$};
+        \node[state]         (qd) [below of=qn, yshift=-40pt] {$(q,d)$};
+        \node[state]         (rd) [right of=qn, xshift=20pt] {$(r,d)$};
+        \node[state,accepting]         (rn) [right of=qd, xshift=20pt] {$(r,n)$};
+        \node[state,accepting]         (sn) [right of=rd, xshift=20pt] {$(s,n)$};
+        \node[state,accepting]         (sd) [right of=rn, xshift=20pt] {$(s,d)$};
+        
+        \path (qn) edge  [bend left=20, near start] node {$b$} (qd)
+                edge [bend left=20, near start] node {$a$} (rd)
+            (qd) edge [bend left=20, near start] node {$b$} (qn)
+                edge [bend right=20, near start] node {$a$} (rn)
+            (rn) edge [bend left=20, near start] node {$a$} (rd)
+                edge [bend left=20, near start] node {$b$} (sd)
+            (rd) edge [bend left=20, near start] node {$a$} (rn)
+                edge [bend left=20, near start] node {$b$} (sn)
+            (sn) edge [bend left=20, near start] node {$a$} (rd)
+                edge [bend left=20, near start] node {$b$} (sd)
+            (sd) edge [bend left=20, near start] node {$a$} (rn)
+                edge [bend left=20, near start] node {$b$} (sn)
+        ;
+        \end{tikzpicture}
+    
+    \newpage
+    
+    Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+    {\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
+    DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
+    $L(M) = A_1 \cap A_2$.  {\it Sipser Theorem 1.25, page 45}
+    
+    {\bf Proof idea}:
+    
+    
+    {\bf Formal construction}: 
+    
+    \vspace{70pt}
 
 
-{\it Proof of correctness would prove that $L(N') = A^*$ by considering
-an arbitrary string accepted by $N'$, tracing an accepting computation of $N'$ on it, and using 
-that trace to prove the string can be written as the result of concatenating some number of strings, 
-each of which is in $A$; then, taking an arbitrary 
-string in $A^*$ and proving that it is accepted by $N'$. Details left for extra practice.}
-
-
-{\bf Application}: A state diagram for a NFA over $\Sigma = \{a,b\}$ 
-that recognizes $L (( \Sigma^* b)^* )$:
-
-\vspace{200pt}
-
-
-
-
-{\bf True} or {\bf False}: The state diagram of any DFA is also the state diagram of a NFA.
-
-{\bf True} or {\bf False}: The state diagram of any NFA is also the state diagram of a DFA.
-
-{\bf True} or {\bf False}: The formal definition $(Q, \Sigma, \delta, q_0, F)$ of any DFA is also the formal definition of a NFA.
-
-{\bf True} or {\bf False}: The formal definition $(Q, \Sigma, \delta, q_0, F)$  of any NFA is also the formal definition of a DFA.
+    
+    
 

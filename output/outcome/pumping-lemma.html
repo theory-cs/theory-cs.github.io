@@ -448,22 +448,19 @@ ww^\mathcal{R} \mid w\in \{a,b\}^* \}\)</span></td>
 </table>
 </div>
 <h1 class="unnumbered" id="week3-friday">Week3 friday</h1>
-<p><span><strong>Theorem</strong></span>: For an alphabet <span
-class="math inline">\(\Sigma\)</span>, For each language <span
+<p><span><strong>Definition and Theorem</strong></span>: For an alphabet
+<span class="math inline">\(\Sigma\)</span>, a language <span
 class="math inline">\(L\)</span> over <span
-class="math inline">\(\Sigma\)</span>,</p>
-<div class="center">
-<p><span class="math inline">\(L\)</span> is recognized by some
-DFA<br />
-iff<br />
-<span class="math inline">\(L\)</span> is recognized by some NFA<br />
-iff<br />
-<span class="math inline">\(L\)</span> is described by some regular
+class="math inline">\(\Sigma\)</span> is called
+<span><strong>regular</strong></span> exactly when <span
+class="math inline">\(L\)</span> is recognized by some DFA, which
+happens exactly when <span class="math inline">\(L\)</span> is
+recognized by some NFA, and happens exactly when <span
+class="math inline">\(L\)</span> is described by some regular
 expression</p>
-</div>
-<p>If (any, hence all) these conditions apply, <span
-class="math inline">\(L\)</span> is called
-<span><strong>regular</strong></span>.</p>
+<p><span><strong>We saw that</strong></span>: The class of regular
+languages is closed under complementation, union, intersection, set-wise
+concatenation, and Kleene star.</p>
 <p><span><strong>Prove or Disprove</strong></span>: There is some
 alphabet <span class="math inline">\(\Sigma\)</span> for which there is
 some language recognized by an NFA but not by any DFA.</p>
@@ -474,6 +471,10 @@ class="math inline">\(\Sigma\)</span>.</p>
 <p><span><strong>Prove or Disprove</strong></span>: If a language is
 recognized by an NFA then the complement of this language is not
 recognized by any DFA.</p>
+<p><span><strong>Fix alphabet <span
+class="math inline">\(\Sigma\)</span>. Is every language <span
+class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span> regular?</strong></span></p>
 <div class="center">
 <table>
 <thead>
@@ -544,6 +545,10 @@ class="math inline">\(\{0,1\}\)</span></td>
 </tbody>
 </table>
 </div>
+<p>Strategy: Find an <span><strong>invariant</strong></span> property
+that is true of all regular languages. When analyzing a given language,
+if the invariant is not true about it, then the language is not
+regular.</p>
 <p><span><strong>Pumping Lemma</strong></span> (Sipser Theorem 1.70): If
 <span class="math inline">\(A\)</span> is a regular language, then there
 is a number <span class="math inline">\(p\)</span> (a <span><em>pumping
@@ -558,20 +563,9 @@ class="math inline">\(s = xyz\)</span> such that</p>
 class="math inline">\(xy^i z \in A\)</span></p></li>
 <li><p><span class="math inline">\(|xy| \leq p\)</span>.</p></li>
 </ul>
+<p><span><strong>Proof illustration</strong></span></p>
 <p><span><strong>True or False</strong></span>: A pumping length for
 <span class="math inline">\(A = \{ 0,1 \}^*\)</span> is <span
 class="math inline">\(p = 5\)</span>.</p>
-<p><span><strong>True or False</strong></span>: A pumping length for
-<span class="math inline">\(A = \{1, 01, 001, 0001, 00001 \}\)</span> is
-<span class="math inline">\(p = 4\)</span>.</p>
-<p><span><strong>True or False</strong></span>: A pumping length for
-<span class="math inline">\(A = \{0^j 1 \mid  j \geq 0 \}\)</span> is
-<span class="math inline">\(p = 3\)</span>.</p>
-<p><span><strong>True or False</strong></span>: For any language <span
-class="math inline">\(A\)</span>, if <span
-class="math inline">\(p\)</span> is a pumping length for <span
-class="math inline">\(A\)</span> and <span class="math inline">\(p&#39;
-&gt; p\)</span>, then <span class="math inline">\(p&#39;\)</span> is
-also a pumping length for <span class="math inline">\(A\)</span>.</p>
 </body>
 </html>

@@ -175,13 +175,29 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="monday">Monday</h1>
-<p>The state diagram of an NFA over <span
-class="math inline">\(\{a,b\}\)</span> is below. The formal definition
-of this NFA is:</p>
-<p><img src="../../resources/machines/Lect5NFA1.png" style="width:2.5in"
-alt="image" /></p>
-<p>The language recognized by this NFA is:</p>
+<h1 class="unnumbered" id="monday-automata-constructions">Monday:
+Automata constructions</h1>
+<p><span><strong>Warmup</strong></span>: Design a DFA (deterministic
+finite automaton) and an NFA (nondeterministic finite automaton) that
+each recognize each of the following languages over <span
+class="math inline">\(\{a,b\}\)</span> <span class="math display">\[\{ w
+\mid \text{$w$ has an $a$ and ends in $b$}\}\]</span></p>
+<p><span class="math display">\[\{ w \mid \text{$w$ has an $a$ or ends
+in $b$}\}\]</span></p>
+<p><strong>Strategy</strong>: To design DFA or NFA for a given language,
+identify patterns that can be built up as we process string and create
+states for intermediate stages. Or: decompose the language to a simpler
+one that we already know how to recognize with a DFA or NFA.</p>
+<p><span><em>Recall</em></span> (from Wednesday of last week, and in
+textbook Exercise 1.14): if there is a DFA <span
+class="math inline">\(M\)</span> such that <span
+class="math inline">\(L(M) = A\)</span> then there is another DFA, let’s
+call it <span class="math inline">\(M&#39;\)</span>, such that <span
+class="math inline">\(L(M&#39;) = \overline{A}\)</span>, the complement
+of <span class="math inline">\(A\)</span>, defined as <span
+class="math inline">\(\{ w \in \Sigma^* \mid w \notin A \}\)</span>.</p>
+<p>Let’s practice defining automata constructions by coming up with
+other ways to get new automata from old.</p>
 <p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
 over an alphabet <span class="math inline">\(\Sigma\)</span>.
 <span><strong>Claim:</strong></span> if there is a NFA <span
@@ -205,12 +221,12 @@ F_2)\)</span> and assume <span class="math inline">\(Q_1 \cap Q_2 =
 <li><p><span class="math inline">\(Q =\)</span></p></li>
 <li><p><span class="math inline">\(\delta: Q \times \Sigma_\varepsilon
 \to \mathcal{P}(Q)\)</span> is defined by, for <span
-class="math inline">\(q \in Q\)</span> and <span class="math inline">\(a
+class="math inline">\(q \in Q\)</span> and <span class="math inline">\(x
 \in \Sigma_{\varepsilon}\)</span>: <span
-class="math display">\[\phantom{\delta((q,a))=\begin{cases}  \delta_1
-((q,a)) &amp;\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,a))
+class="math display">\[\phantom{\delta((q,x))=\begin{cases}  \delta_1
+((q,x)) &amp;\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,x))
 &amp;\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &amp;\qquad\text{if } q =
-q_0, a = \varepsilon \\ \emptyset\text{if } q= q_0, a \neq \varepsilon
+q_0, x = \varepsilon \\ \emptyset\text{if } q= q_0, x \neq \varepsilon
 \end{cases}}\]</span></p></li>
 </ul>
 <p><span><em>Proof of correctness would prove that <span
@@ -224,13 +240,56 @@ class="math inline">\(A_2\)</span>; then, taking an arbitrary string in
 <span class="math inline">\(A_1 \cup A_2\)</span> and proving that it is
 accepted by <span class="math inline">\(N\)</span>. Details left for
 extra practice.</em></span></p>
-<p>Over the alphabet <span class="math inline">\(\{a,b\}\)</span>, the
-language <span class="math inline">\(L\)</span> described by the regular
-expression <span class="math inline">\(\Sigma^* a \Sigma^*
-b\)</span></p>
-<p>includes the strings and excludes the strings</p>
-<p>The state diagram of a NFA recognizing <span
-class="math inline">\(L\)</span> is:</p>
+<p><span><strong>Example</strong></span>: The language recognized by the
+NFA over <span class="math inline">\(\{a,b\}\)</span> with state
+diagram</p>
+<p>is:</p>
+<p>Could we do the same construction with DFA?</p>
+<p>Happily, though, an analogous claim is true!</p>
+<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
+over an alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a DFA <span
+class="math inline">\(M_1\)</span> such that <span
+class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
+class="math inline">\(M_2\)</span> such that <span
+class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
+let’s call it <span class="math inline">\(M\)</span>, such that <span
+class="math inline">\(L(M) = A_1 \cup A_2\)</span>. <span><em>Theorem
+1.25 in Sipser, page 45</em></span></p>
+<p><span><strong>Proof idea</strong></span>:</p>
+<p><span><strong>Formal construction</strong></span>:</p>
+<p><span><strong>Example</strong></span>: When <span
+class="math inline">\(A_1 = \{w \mid w~\text{has an $a$ and ends in $b$}
+\}\)</span> and <span class="math inline">\(A_2 = \{ w \mid w~\text{is
+of even length} \}\)</span>.</p>
+<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
+over an alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a DFA <span
+class="math inline">\(M_1\)</span> such that <span
+class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
+class="math inline">\(M_2\)</span> such that <span
+class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
+let’s call it <span class="math inline">\(M\)</span>, such that <span
+class="math inline">\(L(M) = A_1 \cap A_2\)</span>. <span><em>Sipser
+Theorem 1.25, page 45</em></span></p>
+<p><span><strong>Proof idea</strong></span>:</p>
+<p><span><strong>Formal construction</strong></span>:</p>
+<h2 class="unnumbered" id="wednesday-regular-languages">Wednesday:
+Regular languages</h2>
+<p>So far we have that:</p>
+<ul>
+<li><p>If there is a DFA recognizing a language, there is a DFA
+recognizing its complement.</p></li>
+<li><p>If there are NFA recognizing two languages, there is a NFA
+recognizing their union.</p></li>
+<li><p>If there are DFA recognizing two languages, there is a DFA
+recognizing their union.</p></li>
+<li><p>If there are DFA recognizing two languages, there is a DFA
+recognizing their intersection.</p></li>
+</ul>
+<p>Our goals for today are (1) prove similar results about other set
+operations, (2) prove that NFA and DFA are equally expressive, and
+therefore (3) define an important class of languages.</p>
 <p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
 over an alphabet <span class="math inline">\(\Sigma\)</span>.
 <span><strong>Claim:</strong></span> if there is a NFA <span
@@ -331,42 +390,7 @@ by <span class="math inline">\(N&#39;\)</span>. Details left for extra
 practice.</em></span></p>
 <p><span><strong>Application</strong></span>: A state diagram for a NFA
 over <span class="math inline">\(\Sigma = \{a,b\}\)</span> that
-recognizes <span class="math inline">\(L (( \Sigma^* b)^*
-)\)</span>:</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: The state diagram of any DFA is
-also the state diagram of a NFA.</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: The state diagram of any NFA is
-also the state diagram of a DFA.</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: The formal definition <span
-class="math inline">\((Q, \Sigma, \delta, q_0, F)\)</span> of any DFA is
-also the formal definition of a NFA.</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: The formal definition <span
-class="math inline">\((Q, \Sigma, \delta, q_0, F)\)</span> of any NFA is
-also the formal definition of a DFA.</p>
-<h2 class="unnumbered" id="review-week-3-monday">Review: Week 3
-Monday</h2>
-<p>Recall: Review quizzes based on class material are assigned each day.
-These quizzes will help you track and confirm your understanding of the
-concepts and examples we work in class. Quizzes can be submitted on
-Gradescope as many times (with no penalty) as you like until the quiz
-deadline: the three quizzes each week are all due on Friday (with no
-penalty late submission open until Sunday).</p>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about constructions using
-NFAs.</p>
-<p><span><strong>Pre class reading for next time</strong></span>:
-Theorem 1.39 “Proof Idea”, Example 1.41, Example 1.56, Example 1.58.</p>
-<h2 class="unnumbered" id="wednesday">Wednesday</h2>
-<p>Consider the state diagram of an NFA over <span
-class="math inline">\(\{a,b\}\)</span>:</p>
-<p><img src="../../resources/machines/Lect6NFA1.png" style="width:2.5in"
-alt="image" /></p>
-<p>The language recognized by this NFA is</p>
-<p>The state diagram of a DFA recognizing this same language is:</p>
+recognizes <span class="math inline">\(L (( a^*b)^* )\)</span>:</p>
 <p>Suppose <span class="math inline">\(A\)</span> is a language over an
 alphabet <span class="math inline">\(\Sigma\)</span>.
 <span><strong>Claim:</strong></span> if there is a NFA <span
@@ -390,18 +414,68 @@ q \in Q \mid q \in \delta( ~(r,x)~) ~\text{for some $r \in X$ or is
 accessible
 from such an $r$ by spontaneous moves in $N$} \}\]</span></p>
 <p>Consider the state diagram of an NFA over <span
+class="math inline">\(\{a,b\}\)</span>. Use the “macro-state”
+construction to find an equivalent DFA.</p>
+<p><img src="../../resources/machines/Lect6NFA1.png" style="width:2.5in"
+alt="image" /></p>
+<p>Consider the state diagram of an NFA over <span
 class="math inline">\(\{0,1\}\)</span>. Use the “macro-state”
 construction to find an equivalent DFA.</p>
 <p><img src="../../resources/machines/Lect6NFA2.png" style="width:1.8in"
 alt="image" /></p>
-<p>Prune this diagram to get an equivalent DFA with only the
-“macro-states" reachable from the start state.</p>
-<p>Suppose <span class="math inline">\(A\)</span> is a language over an
-alphabet <span class="math inline">\(\Sigma\)</span>.
-<span><strong>Claim:</strong></span> if there is a regular expression
-<span class="math inline">\(R\)</span> such that <span
-class="math inline">\(L(R) = A\)</span>, then there is a NFA, let’s call
-it <span class="math inline">\(N\)</span>, such that <span
+<p>Note: We can often prune the DFAs that result from the “macro-state”
+constructions to get an equivalent DFA with fewer states (e.g. only the
+“macro-states" reachable from the start state).</p>
+<p><span><strong>The class of regular languages</strong></span></p>
+<p>Fix an alphabet <span class="math inline">\(\Sigma\)</span>. For each
+language <span class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span>:</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span><strong>There is a DFA over <span
+class="math inline">\(\Sigma\)</span> that recognizes <span
+class="math inline">\(L\)</span></strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists M
+~(M \textrm{ is a DFA and } L(M) = A)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span><em>if and only
+if</em></span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span><strong>There is a NFA over <span
+class="math inline">\(\Sigma\)</span> that recognizes <span
+class="math inline">\(L\)</span></strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists N
+~(N \textrm{ is a NFA and } L(N) = A)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span><em>if and only
+if</em></span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span><strong>There is a regular
+expression over <span class="math inline">\(\Sigma\)</span> that
+describes <span class="math inline">\(L\)</span></strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists R
+~(R \textrm{ is a regular expression and } L(R) = A)\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A language is called <span><strong>regular</strong></span> when any
+(hence all) of the above three conditions are met.</p>
+<p>We already proved that DFAs and NFAs are equally expressive. It
+remains to prove that regular expressions are too.</p>
+<p>Part 1: Suppose <span class="math inline">\(A\)</span> is a language
+over an alphabet <span class="math inline">\(\Sigma\)</span>. If there
+is a regular expression <span class="math inline">\(R\)</span> such that
+<span class="math inline">\(L(R) = A\)</span>, then there is a NFA,
+let’s call it <span class="math inline">\(N\)</span>, such that <span
 class="math inline">\(L(N) = A\)</span>.</p>
 <p><span><strong>Structural induction</strong></span>: Regular
 expression is built from basis regular expressions using inductive steps
@@ -410,10 +484,9 @@ these in NFAs.</p>
 <p><span><strong>Application</strong></span>: A state diagram for a NFA
 over <span class="math inline">\(\{a,b\}\)</span> that recognizes <span
 class="math inline">\(L(a^* (ab)^*)\)</span>:</p>
-<p>Suppose <span class="math inline">\(A\)</span> is a language over an
-alphabet <span class="math inline">\(\Sigma\)</span>.
-<span><strong>Claim:</strong></span> if there is a DFA <span
-class="math inline">\(M\)</span> such that <span
+<p>Part 2: Suppose <span class="math inline">\(A\)</span> is a language
+over an alphabet <span class="math inline">\(\Sigma\)</span>. If there
+is a DFA <span class="math inline">\(M\)</span> such that <span
 class="math inline">\(L(M) = A\)</span>, then there is a regular
 expression, let’s call it <span class="math inline">\(R\)</span>, such
 that <span class="math inline">\(L(R) = A\)</span>.</p>
@@ -435,49 +508,21 @@ language recognized by machine.</p></li>
 describing the language recognized by the DFA with state diagram</p>
 <p><img src="../../resources/machines/Lect6NFA3.png" style="width:2.5in"
 alt="image" /></p>
-<p><span><strong>Conclusion</strong></span>: For each language <span
-class="math inline">\(L\)</span>,</p>
-<div class="center">
-<p><span><strong>There is a DFA that recognizes <span
-class="math inline">\(L\)</span> <span class="math inline">\(\exists M
-~(M \textrm{ is a DFA and } L(M) = A)\)</span></strong></span><br />
-<span><strong>if and only if</strong></span><br />
-<span><strong>There is a NFA that recognizes <span
-class="math inline">\(L\)</span> <span class="math inline">\(\exists N
-~(N \textrm{ is a NFA and } L(N) = A)\)</span></strong></span><br />
-<span><strong>if and only if</strong></span><br />
-<span><strong>There is a regular expression that describes <span
-class="math inline">\(L\)</span> <span class="math inline">\(\exists R
-~(R \textrm{ is a regular expression and } L(R) =
-A)\)</span></strong></span><br />
-</p>
-</div>
-<p>A language is called <span><strong>regular</strong></span> when any
-(hence all) of the above three conditions are met.</p>
-<h2 class="unnumbered" id="review-week-3-wednesday">Review: Week 3
-Wednesday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about translating between
-DFA, NFA, and regular expressions.</p>
-<p><span><strong>Pre class reading for next time</strong></span>:
-Introduction to Section 1.4 (page 77)</p>
-<h2 class="unnumbered" id="friday">Friday</h2>
-<p><span><strong>Theorem</strong></span>: For an alphabet <span
-class="math inline">\(\Sigma\)</span>, For each language <span
+<h2 class="unnumbered" id="friday-nonregular-languages">Friday:
+Nonregular languages</h2>
+<p><span><strong>Definition and Theorem</strong></span>: For an alphabet
+<span class="math inline">\(\Sigma\)</span>, a language <span
 class="math inline">\(L\)</span> over <span
-class="math inline">\(\Sigma\)</span>,</p>
-<div class="center">
-<p><span class="math inline">\(L\)</span> is recognized by some
-DFA<br />
-iff<br />
-<span class="math inline">\(L\)</span> is recognized by some NFA<br />
-iff<br />
-<span class="math inline">\(L\)</span> is described by some regular
+class="math inline">\(\Sigma\)</span> is called
+<span><strong>regular</strong></span> exactly when <span
+class="math inline">\(L\)</span> is recognized by some DFA, which
+happens exactly when <span class="math inline">\(L\)</span> is
+recognized by some NFA, and happens exactly when <span
+class="math inline">\(L\)</span> is described by some regular
 expression</p>
-</div>
-<p>If (any, hence all) these conditions apply, <span
-class="math inline">\(L\)</span> is called
-<span><strong>regular</strong></span>.</p>
+<p><span><strong>We saw that</strong></span>: The class of regular
+languages is closed under complementation, union, intersection, set-wise
+concatenation, and Kleene star.</p>
 <p><span><strong>Prove or Disprove</strong></span>: There is some
 alphabet <span class="math inline">\(\Sigma\)</span> for which there is
 some language recognized by an NFA but not by any DFA.</p>
@@ -488,6 +533,10 @@ class="math inline">\(\Sigma\)</span>.</p>
 <p><span><strong>Prove or Disprove</strong></span>: If a language is
 recognized by an NFA then the complement of this language is not
 recognized by any DFA.</p>
+<p><span><strong>Fix alphabet <span
+class="math inline">\(\Sigma\)</span>. Is every language <span
+class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span> regular?</strong></span></p>
 <div class="center">
 <table>
 <thead>
@@ -558,6 +607,10 @@ class="math inline">\(\{0,1\}\)</span></td>
 </tbody>
 </table>
 </div>
+<p>Strategy: Find an <span><strong>invariant</strong></span> property
+that is true of all regular languages. When analyzing a given language,
+if the invariant is not true about it, then the language is not
+regular.</p>
 <p><span><strong>Pumping Lemma</strong></span> (Sipser Theorem 1.70): If
 <span class="math inline">\(A\)</span> is a regular language, then there
 is a number <span class="math inline">\(p\)</span> (a <span><em>pumping
@@ -572,27 +625,64 @@ class="math inline">\(s = xyz\)</span> such that</p>
 class="math inline">\(xy^i z \in A\)</span></p></li>
 <li><p><span class="math inline">\(|xy| \leq p\)</span>.</p></li>
 </ul>
+<p><span><strong>Proof illustration</strong></span></p>
 <p><span><strong>True or False</strong></span>: A pumping length for
 <span class="math inline">\(A = \{ 0,1 \}^*\)</span> is <span
 class="math inline">\(p = 5\)</span>.</p>
-<p><span><strong>True or False</strong></span>: A pumping length for
-<span class="math inline">\(A = \{1, 01, 001, 0001, 00001 \}\)</span> is
-<span class="math inline">\(p = 4\)</span>.</p>
-<p><span><strong>True or False</strong></span>: A pumping length for
-<span class="math inline">\(A = \{0^j 1 \mid  j \geq 0 \}\)</span> is
-<span class="math inline">\(p = 3\)</span>.</p>
-<p><span><strong>True or False</strong></span>: For any language <span
-class="math inline">\(A\)</span>, if <span
-class="math inline">\(p\)</span> is a pumping length for <span
-class="math inline">\(A\)</span> and <span class="math inline">\(p&#39;
-&gt; p\)</span>, then <span class="math inline">\(p&#39;\)</span> is
-also a pumping length for <span class="math inline">\(A\)</span>.</p>
-<h2 class="unnumbered" id="review-week-3-friday">Review: Week 3
-Friday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about the class of regular
-languages.</p>
-<p><span><strong>Pre class reading for next time</strong></span>:
-Example 1.75, Example 1.77</p>
+<h2 class="unnumbered" id="week-3-at-a-glance">Week 3 at a glance</h2>
+<h3 class="unnumbered" id="textbook-reading-chapter-1">Textbook reading:
+Chapter 1</h3>
+<p><span><em>For Monday</em></span>: Pages 60-61 Theorem 1.47 and
+Theorem 1.48 (closure proofs).</p>
+<p><span><em>For Wednesday</em></span>: Theorem 1.39 “Proof Idea”,
+Example 1.41, Example 1.56, Example 1.58.</p>
+<p><span><em>For Friday</em></span>: Introduction to Section 1.4 (page
+77)</p>
+<p><span><em>For Week 4 Monday</em></span>: Example 1.75, Example
+1.77</p>
+<h3 class="unnumbered" id="make-sure-you-can">Make sure you can:</h3>
+<ul>
+<li><p>Explain nondeterminism and describe tools for simulating it with
+deterministic computation.</p>
+<ul>
+<li><p>Find equivalent DFA for a given NFA</p></li>
+<li><p>Convert between regular expressions and automata</p></li>
+</ul></li>
+<li><p>Use precise notation to formally define the state diagram of DFA,
+NFA and use clear English to describe computations of DFA, NFA
+informally.</p>
+<ul>
+<li><p>Determine the language recognized by a given NFA</p></li>
+<li><p>Design general constructions for NFA</p></li>
+<li><p>Choose between multiple models to prove that a language is
+regular</p></li>
+</ul></li>
+<li><p>Classify the computational complexity of a set of strings by
+determining whether it is regular</p>
+<ul>
+<li><p>Explain the limits of the class of regular languages</p></li>
+</ul></li>
+<li><p>Use the pumping lemma to prove that a given language is not
+regular.</p>
+<ul>
+<li><p>Justify why the Pumping Lemma is true</p></li>
+</ul></li>
+</ul>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>Review quizzes based on class material each day.</p>
+<p>Homework assignment 2 due next Thursday.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Have you dropped by office hours yet? Find
+the schedule on the calendar:</td>
+<td style="text-align: center;"><img
+src="../../resources/images/officehourslink.png" style="width:2in"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
 </body>
 </html>

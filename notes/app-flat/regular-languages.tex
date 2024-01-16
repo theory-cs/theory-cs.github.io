@@ -5,6 +5,9 @@
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,arrows}
+
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
@@ -481,60 +484,35 @@ $G_1 =  (\{S\}, \{0\}, R, S)$ with rules
 \section*{Week3 monday}
 
 
-
-\begin{comment}
-
-\vfill
-Let  $\Sigma = \{a,b\}$. A state diagram for a DFA that recognizes 
-$\{w \mid w~\text{has $ab$ as a substring and is of even length} \}$:
-
+{\bf Warmup}: Design a DFA (deterministic finite automaton) and an NFA (nondeterministic
+finite automaton) that each recognize each of the following languages over $\{a,b\}$
+\[
+    \{ w \mid \text{$w$ has an $a$ and ends in $b$}\}
+\]
 
 \vfill
 
+\[
+    \{ w \mid \text{$w$ has an $a$ or ends in $b$}\}
+\]
 
-Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
-DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
-$L(M) = A_1 \cap A_2$.
-
-{\bf Proof idea}:
+\vfill
 
 
-{\bf Formal construction}: 
+
+\textbf{Strategy}: To design DFA or NFA for a given language,  
+identify patterns that can be built up as we process string and create states
+for intermediate stages. Or: decompose the language to a simpler one 
+that we already know how to recognize with a DFA or NFA.
 
 
-\vspace{70pt}
+{\it Recall} (from Wednesday of last week, and in textbook Exercise 1.14): 
+if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
+$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
 
-{\bf Application}:  When $A_1 = \{w \mid w~\text{has $ab$ as a substring} \}$ and 
-$A_2 = \{ w \mid w~\text{is of even length} \}$.
 
-
+Let's practice defining automata constructions by coming up with other ways to get new automata from old.
 \newpage
-
-Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
-DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
-$L(M) = A_1 \cup A_2$.  {\it Sipser Theorem 1.25, page 45}
-
-{\bf Proof idea}:
-
-
-{\bf Formal construction}: 
-
-\vspace{70pt}
-
-{\bf Application}: A state diagram for a DFA that recognizes $\{w \mid w~\text{has $ab$ as a substring or is of even length} \}$:
-
-\vspace{100pt}
-\end{comment}
-
-The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of this NFA is:
-
-\includegraphics[width=2.5in]{../../resources/machines/Lect5NFA1.png}
-
-The language recognized by this NFA is: 
-
-
 
 Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
 {\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
@@ -543,6 +521,10 @@ $L(N) = A_1 \cup A_2$.
 
 {\bf Proof idea}: Use nondeterminism to choose which of $N_1$, $N_2$ to run.
 
+\vfill
+\begin{comment}
+    Draw schematic
+\end{comment}
 
 {\bf Formal construction}: Let 
 $N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)$ and $N_2 = (Q_2, \Sigma, \delta_2,q_2, F_2)$
@@ -550,9 +532,9 @@ and assume $Q_1 \cap Q_2 = \emptyset$ and that $q_0 \notin Q_1 \cup Q_2$.
 Construct $N = (Q, \Sigma, \delta, q_0, F_1 \cup F_2)$ where
 \begin{itemize}
     \item $Q = $
-    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
+    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $x \in \Sigma_{\varepsilon}$:
         \[
-            \phantom{\delta((q,a))=\begin{cases}  \delta_1 ((q,a)) &\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,a)) &\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &\qquad\text{if } q = q_0, a = \varepsilon \\ \emptyset\text{if } q= q_0, a \neq \varepsilon \end{cases}}
+            \phantom{\delta((q,x))=\begin{cases}  \delta_1 ((q,x)) &\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,x)) &\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &\qquad\text{if } q = q_0, x = \varepsilon \\ \emptyset\text{if } q= q_0, x \neq \varepsilon \end{cases}}
         \]
 \end{itemize}
 
@@ -563,16 +545,116 @@ an arbitrary string accepted by $N$, tracing an accepting computation of $N$ on 
 that trace to prove the string is in at least one of $A_1$, $A_2$; then, taking an arbitrary 
 string in $A_1 \cup A_2$ and proving that it is accepted by $N$. Details left for extra practice.}
 
+
+{\bf Example}: The language recognized by the NFA over $\{a,b\}$ with state diagram
+
+
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=yellow!40]
+    
+    \node[initial,state] (q0)          {$q_0$};
+    \node[state]         (q) [above right of=q0, xshift=20pt] {$q$};
+    \node[state]         (r) [right of=q, xshift=20pt] {$r$};
+    \node[state, accepting]         (s) [right of=r, xshift=20pt] {$s$};
+    \node[state, accepting]         (n) [below right of=q0, xshift=20pt] {$n$};
+    \node[state]         (d) [right of=n, xshift=20pt] {$d$};
+    
+    \path (q0) edge  [bend left=0, near start] node {$\varepsilon$} (q)
+            edge [bend right=0, near start] node {$\varepsilon$} (n)
+        (q) edge [bend left=0] node {$a$} (r)
+            edge [loop above, near start] node {$b$} (q)
+        (r) edge [bend left=0] node {$b$} (s)
+            edge [loop above, near start] node {$a,b$} (r)
+        (n) edge [bend left=20] node {$a,b$} (d)
+        (d) edge [bend left=20] node {$a,b$} (n)
+    ;
+    \end{tikzpicture}
+is:
+
+
 \newpage
-Over the alphabet $\{a,b\}$, the language $L$ described by the regular expression 
-$\Sigma^* a \Sigma^* b$
 
- includes the strings \phantom{space for strings here} and excludes the strings 
+Could we do the same construction with DFA?
+
+\vspace{50pt}
+
+Happily, though, an analogous claim is true!
+
+Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+{\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
+DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
+$L(M) = A_1 \cup A_2$. {\it Theorem 1.25 in Sipser, page 45}
+    
+    {\bf Proof idea}:
+    
+    
+    {\bf Formal construction}: 
+    
+    \vfill
+
+    
+    {\bf Example}:  When $A_1 = \{w \mid w~\text{has an $a$ and ends in $b$} \}$ and 
+    $A_2 = \{ w \mid w~\text{is of even length} \}$.
+    
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+        \tikzstyle{every state}=[text=black, fill=yellow!40]
+        
+        \node[initial,state,accepting] (qn)          {$(q,n)$};
+        \node[state]         (qd) [below of=qn, yshift=-40pt] {$(q,d)$};
+        \node[state]         (rd) [right of=qn, xshift=20pt] {$(r,d)$};
+        \node[state,accepting]         (rn) [right of=qd, xshift=20pt] {$(r,n)$};
+        \node[state,accepting]         (sn) [right of=rd, xshift=20pt] {$(s,n)$};
+        \node[state,accepting]         (sd) [right of=rn, xshift=20pt] {$(s,d)$};
+        
+        \path (qn) edge  [bend left=20, near start] node {$b$} (qd)
+                edge [bend left=20, near start] node {$a$} (rd)
+            (qd) edge [bend left=20, near start] node {$b$} (qn)
+                edge [bend right=20, near start] node {$a$} (rn)
+            (rn) edge [bend left=20, near start] node {$a$} (rd)
+                edge [bend left=20, near start] node {$b$} (sd)
+            (rd) edge [bend left=20, near start] node {$a$} (rn)
+                edge [bend left=20, near start] node {$b$} (sn)
+            (sn) edge [bend left=20, near start] node {$a$} (rd)
+                edge [bend left=20, near start] node {$b$} (sd)
+            (sd) edge [bend left=20, near start] node {$a$} (rn)
+                edge [bend left=20, near start] node {$b$} (sn)
+        ;
+        \end{tikzpicture}
+    
+    \newpage
+    
+    Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+    {\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
+    DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
+    $L(M) = A_1 \cap A_2$.  {\it Sipser Theorem 1.25, page 45}
+    
+    {\bf Proof idea}:
+    
+    
+    {\bf Formal construction}: 
+    
+    \vspace{70pt}
 
 
-The state diagram of a NFA recognizing $L$ is:
+    
+    
 
-\vspace{100pt}
+ \vfill
+\section*{Week3 wednesday}
+
+
+So far we have that: 
+\begin{itemize}
+\item If there is a DFA recognizing a language, there is a DFA recognizing its complement.
+\item If there are NFA recognizing two languages, there is a NFA recognizing their union.
+\item If there are DFA recognizing two languages, there is a DFA recognizing their union.
+\item If there are DFA recognizing two languages, there is a DFA recognizing their intersection.
+\end{itemize}
+
+Our goals for today are (1) prove similar results about other set operations, (2) prove that 
+NFA and DFA are equally expressive, and therefore (3) define an important class of languages.
+
+\vfill
 
 Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
 {\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
@@ -613,6 +695,8 @@ string in $A_1 \circ A_2$ and proving that it is accepted by $N$. Details left f
 
 \newpage
 
+
+
 Suppose $A$ is a language over an alphabet $\Sigma$.
 {\bf Claim:} if there is a NFA $N$ such that $L(N) = A$, then there is another NFA, let's call it $N'$, such that 
 $L(N') = A^*$.
@@ -647,38 +731,10 @@ string in $A^*$ and proving that it is accepted by $N'$. Details left for extra 
 
 
 {\bf Application}: A state diagram for a NFA over $\Sigma = \{a,b\}$ 
-that recognizes $L (( \Sigma^* b)^* )$:
+that recognizes $L (( a^*b)^* )$:
 
-\vspace{200pt}
-
-
-
-
-{\bf True} or {\bf False}: The state diagram of any DFA is also the state diagram of a NFA.
-
-{\bf True} or {\bf False}: The state diagram of any NFA is also the state diagram of a DFA.
-
-{\bf True} or {\bf False}: The formal definition $(Q, \Sigma, \delta, q_0, F)$ of any DFA is also the formal definition of a NFA.
-
-{\bf True} or {\bf False}: The formal definition $(Q, \Sigma, \delta, q_0, F)$  of any NFA is also the formal definition of a DFA.
-
- \vfill
-\section*{Week3 wednesday}
-
-
-
-Consider the state diagram of an NFA over $\{a,b\}$:
-
-\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA1.png}
-
-
-The language recognized by this NFA is
-
-
-
-The state diagram of a DFA recognizing this same language is:
-
-\vspace{70pt}
+\vfill
+\newpage
 Suppose $A$ is a language over an alphabet $\Sigma$.
 {\bf Claim:} if there is a NFA $N$ such that $L(N) = A$ then 
 there is a DFA $M$ such that $L(M) = A$.
@@ -698,25 +754,52 @@ and
 from such an $r$ by spontaneous moves in $N$} \}
 \]
 
+
+Consider the state diagram of an NFA over $\{a,b\}$. Use the ``macro-state'' construction 
+to find an equivalent DFA.
+
+\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA1.png}
+
+
+
+
 \vfill
 
-\newpage
 Consider the state diagram of an NFA over $\{0,1\}$. Use the ``macro-state'' construction 
 to find an equivalent DFA.
 
 
 \includegraphics[width=1.8in]{../../resources/machines/Lect6NFA2.png}
 
-\vspace{50pt}
 
-Prune this diagram to get an 
-equivalent DFA 
-with only the ``macro-states" reachable from the start state.
+\vfill
 
-\vspace{150pt}
+Note: We can often prune the DFAs that result from the ``macro-state'' constructions to get an 
+equivalent DFA with fewer states (e.g.\ only the ``macro-states" reachable from the start state).
 
-Suppose $A$ is a language over an alphabet $\Sigma$.
-{\bf Claim:} if there is a regular expression $R$ such that $L(R) = A$, then there is a NFA, let's call it $N$, such that 
+\newpage
+
+
+{\bf The class of regular languages}
+
+Fix an alphabet $\Sigma$. For each language $L$ over $\Sigma$:
+\begin{center}
+\begin{tabular}{cc}
+    {\bf There is a DFA over $\Sigma$ that recognizes $L$}&$\exists M ~(M \textrm{ is a DFA and } L(M) = A)$\\
+    {\it if and only if}&\\
+    {\bf There is a NFA over $\Sigma$ that recognizes $L$}&$\exists N ~(N \textrm{ is a NFA and } L(N) = A)$\\
+    {\it if and only if}&\\
+    {\bf There is a regular expression over $\Sigma$ that describes $L$} &$\exists R ~(R \textrm{ is a regular expression and } L(R) = A)$\\
+\end{tabular}
+\end{center}
+
+A language is called {\bf regular} when any (hence all) of the above three conditions are met.
+
+We already proved that DFAs and NFAs are equally expressive. It remains to prove that regular expressions 
+are too.
+
+Part 1: Suppose $A$ is a language over an alphabet $\Sigma$.
+If there is a regular expression $R$ such that $L(R) = A$, then there is a NFA, let's call it $N$, such that 
 $L(N) = A$.
 
 {\bf Structural induction}: Regular expression is built from basis regular expressions using inductive steps
@@ -727,10 +810,8 @@ $L(N) = A$.
 
 \vfill
 
-\newpage
-
-Suppose $A$ is a language over an alphabet $\Sigma$.
-{\bf Claim:} if there is a DFA $M$ such that $L(M) = A$, then there is a regular expression, let's call it $R$, such that 
+Part 2: Suppose $A$ is a language over an alphabet $\Sigma$.
+If there is a DFA $M$ such that $L(M) = A$, then there is a regular expression, let's call it $R$, such that 
 $L(R) = A$.
 
 {\bf Proof idea}: Trace all possible paths from start state to accept state.  Express labels of these paths
@@ -750,53 +831,36 @@ state diagram
 \includegraphics[width=2.5in]{../../resources/machines/Lect6NFA3.png}
 
 \vfill
-
-
-\newpage
-
-{\bf Conclusion}: For each language $L$,
-\begin{center}
-    {\bf There is a DFA that recognizes $L$ \qquad $\exists M ~(M \textrm{ is a DFA and } L(M) = A)$}\\
-    {\bf if and only if}\\
-    {\bf There is a NFA that recognizes $L$  \qquad $\exists N ~(N \textrm{ is a NFA and } L(N) = A)$}\\
-    {\bf if and only if}\\
-    {\bf There is a regular expression that describes $L$ $\exists R ~(R \textrm{ is a regular expression and } L(R) = A)$}\\
-\end{center}
-
-A language is called {\bf regular} when any (hence all) of the above three conditions are met. \vfill
+ \vfill
 \section*{Week3 friday}
 
 
-{\bf Theorem}: For an alphabet $\Sigma$, For each language $L$ over $\Sigma$, 
-\begin{center}
-$L$ is recognized by some DFA \\
-iff\\
-$L$ is recognized by some NFA\\
-iff\\
-$L$ is described by some regular expression
-\end{center}
-If (any, hence all) these conditions apply, $L$ is called {\bf regular}.
+{\bf Definition and Theorem}: For an alphabet $\Sigma$, a language $L$ over $\Sigma$ is called {\bf regular}
+exactly when $L$ is recognized by some DFA, which happens exactly when $L$ is recognized by some NFA, 
+and happens exactly when $L$ is described by some regular expression
 
-
+{\bf We saw that}: The class of regular languages is closed under complementation, union, 
+intersection, set-wise concatenation, and Kleene star.
 
 {\bf Prove or Disprove}: There is some alphabet $\Sigma$ for which there is 
 some language recognized by an NFA but not by any DFA.
 
-\vspace{30pt}
+\vfill
 
 {\bf Prove or Disprove}: There is some alphabet $\Sigma$ for which there is 
 some finite language not described by any regular expression over $\Sigma$.
 
-\vspace{30pt}
-
+\vfill
 
 {\bf Prove or Disprove}: If a language is recognized by an NFA 
 then the complement of this language is not recognized by any DFA.
 
-\vspace{30pt}
-
+\vfill
 
 \newpage
+
+{\bf Fix alphabet $\Sigma$. Is every language $L$ over $\Sigma$ regular?}
+
 \begin{center}
 \begin{tabular}{c|c}
 Set & Cardinality \\
@@ -820,7 +884,8 @@ The set of all regular languages over $\{0,1\}$ & \\
 
 
 \vfill
-
+Strategy: Find an {\bf invariant} property that is true of all regular languages. When analyzing 
+a given language, if the invariant is not true about it, then the language is not regular.
 \newpage
 
 {\bf Pumping Lemma} (Sipser Theorem 1.70): If $A$ is a regular language, then there
@@ -834,22 +899,17 @@ then $s$ may be divided into three pieces, $s = xyz$ such that
 \end{itemize}
 
 
+{\bf Proof illustration}
+
+
+\vfill
+
+
+
+
 {\bf True or False}: A pumping length for $A = \{ 0,1 \}^*$ is $p = 5$.
 
-\vspace{100pt}
-
-{\bf True or False}: A pumping length for $A = \{1, 01, 001, 0001, 00001 \}$ is $p = 4$.
-
-\vspace{100pt}
-
-{\bf True or False}: A pumping length for $A = \{0^j 1 \mid  j \geq 0 \}$ is $p = 3$.
-
-
-\vspace{100pt}
-
-{\bf True or False}: For any language $A$, if $p$  is a  pumping length for $A$ and $p' > p$,  then 
-$p'$ is also a pumping length for $A$.
- \vfill
+\vspace{50pt} \vfill
 \section*{Week2 wednesday}
 
 
