@@ -167,6 +167,10 @@
         "ExpandInCalendar": false,
         "content": [
             {
+                "name": "Notes",
+                "source": "Week3.tex"
+            },
+            {
                 "name": "(Video) NFA More Examples",
                 "source": "https://youtu.be/zqG_9oue9QU"
             },
