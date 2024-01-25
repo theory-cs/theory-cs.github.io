@@ -576,7 +576,7 @@ def create_assignment():
     	
 		#Solutions on/off buttons 
 		if('solutionsFile' in element):
-			templateString += """ <label>Solutions<input type="checkbox" id="toggle-""" + str(collapseVar) + """">
+			templateString += """ <label>Sample solutions<input type="checkbox" id="toggle-""" + str(collapseVar) + """">
 				<span class="slider round"></span>
 				<script>
 					annotated""" + str(collapseVar) + """ = false;
@@ -594,7 +594,7 @@ def create_assignment():
 					}
 
 					
-				</script>
+				</script></label>
 			"""
         	
 			
