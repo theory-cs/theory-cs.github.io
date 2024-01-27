@@ -175,7 +175,8 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="monday">Monday</h1>
+<h1 class="unnumbered" id="monday-pumping-lemma-application">Monday:
+Pumping Lemma Application</h1>
 <p>Recap so far: In DFA, the only memory available is in the states.
 Automata can only “remember” finitely far in the past and finitely much
 information, because they can have only finitely many states. If a
@@ -258,7 +259,14 @@ class="math inline">\(|y| &gt; 0\)</span>.</p>
 <p><span><strong>Example</strong></span>: <span
 class="math inline">\(\Sigma  =  \{0,1\}\)</span>, <span
 class="math inline">\(L = \{w w^{\mathcal{R}} \mid w \in
-\{0,1\}^*\}\)</span>.</p>
+\{0,1\}^*\}\)</span>. Remember that the reverse of a string <span
+class="math inline">\(w\)</span> is denoted <span
+class="math inline">\(w^\mathcal{R}\)</span> and means to write <span
+class="math inline">\(w\)</span> in the opposite order, if <span
+class="math inline">\(w = w_1 \cdots  w_n\)</span> then <span
+class="math inline">\(w^\mathcal{R} = w_n \cdots  w_1\)</span>. Note:
+<span class="math inline">\(\varepsilon^\mathcal{R} =
+\varepsilon\)</span>.</p>
 <p>Fix <span class="math inline">\(p\)</span> an arbitrary positive
 integer. List strings that are in <span class="math inline">\(L\)</span>
 and have length greater than or equal to <span
@@ -447,20 +455,8 @@ ww^\mathcal{R} \mid w\in \{a,b\}^* \}\)</span></td>
 </tbody>
 </table>
 </div>
-<h2 class="unnumbered" id="review-week-4-monday">Review: Week 4
-Monday</h2>
-<p>Recall: Review quizzes based on class material are assigned each day.
-These quizzes will help you track and confirm your understanding of the
-concepts and examples we work in class. Quizzes can be submitted on
-Gradescope as many times (with no penalty) as you like until the quiz
-deadline: the three quizzes each week are all due on Friday (with no
-penalty late submission open until Sunday).</p>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about pumping lemma and
-nonregular sets.</p>
-<p><span><strong>Pre class reading for next time</strong></span>: Page
-112</p>
-<h2 class="unnumbered" id="wednesday">Wednesday</h2>
+<h2 class="unnumbered" id="wednesday-pushdown-automata">Wednesday:
+Pushdown Automata</h2>
 <p>Regular sets are not the end of the story</p>
 <ul>
 <li><p>Many nice / simple / important sets are not regular</p></li>
@@ -530,142 +526,13 @@ class="math display">\[\delta: Q \times
 class="math inline">\(q_0 \in Q\)</span> is the start state, <span
 class="math inline">\(F \subseteq  Q\)</span> is the set of accept
 states.</p>
+<h2 class="unnumbered"
+id="friday-pushdown-automata-constructions">Friday: Pushdown Automata
+Constructions</h2>
 <p>Draw the state diagram and give the formal definition of a PDA with
 <span class="math inline">\(\Sigma = \Gamma\)</span>.</p>
 <p>Draw the state diagram and give the formal definition of a PDA with
 <span class="math inline">\(\Sigma \cap \Gamma = \emptyset\)</span>.</p>
-<p><span><em>Extra practice</em></span>: Consider the state diagram of a
-PDA with input alphabet <span class="math inline">\(\Sigma\)</span> and
-stack alphabet <span class="math inline">\(\Gamma\)</span>.</p>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Label</th>
-<th style="text-align: center;">means</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(a, b ;
-c\)</span> when <span class="math inline">\(a \in \Sigma\)</span>, <span
-class="math inline">\(b\in \Gamma\)</span>, <span
-class="math inline">\(c \in \Gamma\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(a,
-\varepsilon ; c\)</span> when <span class="math inline">\(a \in
-\Sigma\)</span>, <span class="math inline">\(c \in \Gamma\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(a, b ;
-\varepsilon\)</span> when <span class="math inline">\(a \in
-\Sigma\)</span>, <span class="math inline">\(b\in \Gamma\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(a,
-\varepsilon ; \varepsilon\)</span> when <span class="math inline">\(a
-\in \Sigma\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>How does the meaning change if <span class="math inline">\(a\)</span>
-is replaced by <span class="math inline">\(\varepsilon\)</span>?</p>
-<p><span><em>Note: alternate notation is to replace <span
-class="math inline">\(;\)</span> with <span
-class="math inline">\(\to\)</span></em></span></p>
-<h2 class="unnumbered" id="review-week-4-wednesday">Review: Week 4
-Wednesday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about PDA definitions.</p>
-<p><span><strong>Pre class reading for next time</strong></span>: Page
-102</p>
-<h2 class="unnumbered" id="friday">Friday</h2>
 <p>For the PDA state diagrams below, <span class="math inline">\(\Sigma
 = \{0,1\}\)</span>.</p>
 <div class="center">
@@ -753,6 +620,9 @@ alt="image" /></td>
 </tbody>
 </table>
 </div>
+<p><span><em>Note: alternate notation is to replace <span
+class="math inline">\(;\)</span> with <span
+class="math inline">\(\to\)</span></em></span></p>
 <p><span><em>Big picture</em></span>: PDAs were motivated by wanting to
 add some memory of unbounded size to NFA. How do we accomplish a similar
 enhancement of regular expressions to get a syntactic model that is more
@@ -766,132 +636,47 @@ built up recursively according to the expression’s syntax</p>
 <p><span><strong>Context-free grammars</strong></span>: Rules to produce
 one string at a time, adding characters from the middle, beginning, or
 end of the final string as the derivation proceeds.</p>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Term</th>
-<th style="text-align: center;">Typical symbol</th>
-<th style="text-align: left;">Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span><strong>Context-free
-grammar</strong></span> (CFG)</td>
-<td style="text-align: center;"><span
-class="math inline">\(G\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(G = (V,
-\Sigma, R, S)\)</span></td>
-</tr>
-<tr class="even">
-<td
-style="text-align: left;"><span><strong>Variables</strong></span></td>
-<td style="text-align: center;"><span
-class="math inline">\(V\)</span></td>
-<td style="text-align: left;">Finite set of symbols that represent
-phases in production pattern</td>
-</tr>
-<tr class="odd">
-<td
-style="text-align: left;"><span><strong>Terminals</strong></span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\Sigma\)</span></td>
-<td style="text-align: left;">Alphabet of symbols of strings generated
-by CFG</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"><span class="math inline">\(V \cap \Sigma
-= \emptyset\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span><strong>Rules</strong></span></td>
-<td style="text-align: center;"><span
-class="math inline">\(R\)</span></td>
-<td style="text-align: left;">Each rule is <span class="math inline">\(A
-\to u\)</span> with <span class="math inline">\(A \in V\)</span> and
-<span class="math inline">\(u  \in (V  \cup \Sigma)^*\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Start variable</td>
-<td style="text-align: center;"><span
-class="math inline">\(S\)</span></td>
-<td style="text-align: left;">Usually on LHS of first / topmost
-rule</td>
-</tr>
-<tr class="odd">
-<td
-style="text-align: left;"><span><strong>Derivation</strong></span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">Sequence of substitutions in a CFG</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"><span class="math inline">\(S \implies
-\cdots \implies w\)</span></td>
-<td style="text-align: left;">Start with start variable, apply one rule
-to one occurrence of a variable at a time</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span><strong>Language</strong></span>
-generated by the CFG <span class="math inline">\(G\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(L(G)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\{  w \in
-\Sigma^* \mid \text{there is  derivation in $G$ that ends
-  in $w$} \} = \{  w \in \Sigma^* \mid S \implies^* w \}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span><strong>Context-free
-language</strong></span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">A language that is the language generated
-by some CFG</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sipser pages 102-103</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<h2 class="unnumbered" id="week-4-at-a-glance">Week 4 at a glance</h2>
+<h3 class="unnumbered"
+id="textbook-reading-section-1.4-and-section-2.2">Textbook reading:
+Section 1.4 and section 2.2</h3>
+<p><span><em>For Monday</em></span>: Example 1.75, Example 1.77</p>
+<p><span><em>For Wednesday</em></span>: Definition 2.13 (page
+111-112)</p>
+<p><span><em>For Friday</em></span>: Example 2.18 (page 114)</p>
+<p><span><em>For Week 5 Monday</em></span>: Introduction to Section 2.1
+(page 102)</p>
+<h3 class="unnumbered" id="make-sure-you-can">Make sure you can:</h3>
+<ul>
+<li><p>Classify the computational complexity of a set of strings by
+determining whether it is regular</p>
+<ul>
+<li><p>Explain the limits of the class of regular languages</p></li>
+<li><p>Identify some nonregular sets</p></li>
+</ul></li>
+<li><p>Use the pumping lemma to prove that a given language is not
+regular.</p>
+<ul>
+<li><p>Justify why the Pumping Lemma is true</p></li>
+<li><p>Apply the Pumping Lemma in proofs of nonregularity</p></li>
+</ul></li>
+<li><p>Use precise notation to formally define the state diagram of PDA
+and use clear English to describe computations of PDA informally.</p>
+<ul>
+<li><p>Define push-down automata informally and formally</p></li>
+<li><p>Trace the computation of a push-down automaton</p></li>
+<li><p>Determine the language recognized by a given PDA</p></li>
+<li><p>Design push-down automata to recognize specific
+languages</p></li>
+<li><p>Determine whether a language is recognizable by a (D or N) FA
+and/or a PDA</p></li>
+</ul></li>
+</ul>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>Review quizzes based on class material each day.</p>
+<p>Homework assignment 2 due Thursday.</p>
+<p>Test next week on Friday in Discussion section.</p>
 </div>
-<p><span><strong>Examples of context-free grammars, derivations in those
-grammars, and the languages generated by those
-grammars</strong></span></p>
-<p><span class="math inline">\(G_1 =  (\{S\}, \{0\}, R, S)\)</span> with
-rules <span class="math display">\[\begin{aligned}
-    &amp;S \to 0S\\
-    &amp;S \to 0\\
-  
-\end{aligned}\]</span> In <span class="math inline">\(L(G_1)\)</span>
-…</p>
-<p>Not in <span class="math inline">\(L(G_1)\)</span> …</p>
-<p><span class="math inline">\(G_2 =  (\{S\}, \{0,1\}, R, S)\)</span>
-<span class="math display">\[S \to 0S \mid 1S \mid \varepsilon\]</span>
-In <span class="math inline">\(L(G_2)\)</span> …</p>
-<p>Not in <span class="math inline">\(L(G_2)\)</span> …</p>
-<p><span class="math inline">\((\{S, T\}, \{0, 1\}, R, S)\)</span> with
-rules <span class="math display">\[\begin{aligned}
-  &amp;S \to T1T1T1T \\
-  &amp;T \to  0T \mid 1T \mid \varepsilon
-  
-\end{aligned}\]</span></p>
-<p>In <span class="math inline">\(L(G_3)\)</span> …</p>
-<p>Not in <span class="math inline">\(L(G_3)\)</span> …</p>
-<p><span class="math inline">\(G_4 =  (\{A, B\}, \{0, 1\}, R,
-A)\)</span> with rules <span class="math display">\[A \to 0A0 \mid  0A1
-\mid 1A0  \mid 1A1 \mid  1\]</span> In <span
-class="math inline">\(L(G_4)\)</span> …</p>
-<p>Not in <span class="math inline">\(L(G_4)\)</span> …</p>
-<p><span><em>Extra practice</em></span>: Is there a CFG <span
-class="math inline">\(G\)</span> with <span class="math inline">\(L(G) =
-\emptyset\)</span>?</p>
-<h2 class="unnumbered" id="review-week-4-friday">Review: Week 4
-Friday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about PDA construction.</p>
 </body>
 </html>

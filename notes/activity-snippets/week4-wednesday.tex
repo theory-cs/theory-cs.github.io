@@ -53,7 +53,7 @@ Trace the computation of this PDA on the input string $011$.
 
 \vfill
 
-
+\newpage
 A PDA recognizing the set $\{ \hspace{1.5 in} \}$ can be informally described as:
 \begin{quote}
     Read symbols from the input. As each 0 is read, push it onto the stack. 
@@ -68,7 +68,7 @@ Modify the state diagram below to get a PDA that implements this description:
 \includegraphics[width=4in]{../../resources/machines/Lect9PDA.png}
 
 
-\newpage
+\vfill
 {\bf Definition} A {\bf pushdown automaton} (PDA) is  specified by a  $6$-tuple $(Q, \Sigma, \Gamma, \delta, q_0, F)$
 where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$ is the stack alphabet,
 \[
@@ -76,62 +76,3 @@ where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$
 \]
 is the transition function,  $q_0 \in Q$ is the start state, $F \subseteq  Q$ is the set of accept states.
     
-
-\vspace{90pt}
-Draw the state diagram and give the formal definition of a PDA with $\Sigma = \Gamma$.
-
-\vfill
-
-Draw the state diagram and give the formal definition of a PDA with $\Sigma \cap \Gamma = \emptyset$.
-    
-\vfill
-
-    
-\newpage
-{\it Extra practice}: Consider the state diagram of a PDA with input alphabet 
-$\Sigma$ and stack alphabet $\Gamma$.
-
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Label & means \\
-\hline
-$a, b ; c$ when $a \in \Sigma$, $b\in \Gamma$, $c \in \Gamma$ 
-& \hspace{3in} \\
-& \\
-& \\
-& \\
-& \\
-&\\
-\hline
-$a, \varepsilon ; c$ when $a \in \Sigma$, $c \in \Gamma$ 
-& \hspace{3in} \\
-& \\
-& \\
-& \\
-& \\
-&\\
-\hline
-$a, b ; \varepsilon$ when $a \in \Sigma$, $b\in \Gamma$
-& \hspace{3in} \\
-& \\
-& \\
-& \\
-& \\
-&\\
-\hline
-$a, \varepsilon ; \varepsilon$ when $a \in \Sigma$
-& \hspace{3in} \\
-& \\
-& \\
-& \\
-& \\
-&\\
-\hline
-\end{tabular}
-\end{center}
-
-
-How does the meaning change if $a$ is replaced by $\varepsilon$?
-
-{\it Note: alternate notation is to replace $;$ with $\to$}

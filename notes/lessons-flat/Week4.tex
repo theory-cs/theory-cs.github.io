@@ -44,7 +44,7 @@
 \begin{flushright}
     \StrBefore{\currfilename}{.}
 \end{flushright} 
-\section*{Monday}
+\section*{Monday: Pumping Lemma Application}
 
 
 
@@ -127,6 +127,9 @@ Then when $i = \hspace{1in}$, $xy^i z  = \hspace{1in}$
 \newpage
 
 {\bf Example}: $\Sigma  =  \{0,1\}$, $L = \{w w^{\mathcal{R}} \mid w \in \{0,1\}^*\}$.
+Remember that the reverse of a string $w$ is denoted $w^\mathcal{R}$  
+and means to write $w$  in  the opposite order, if $w = w_1 \cdots  w_n$ then $w^\mathcal{R} = w_n \cdots  w_1$. Note: $\varepsilon^\mathcal{R} = \varepsilon$.
+
 
 Fix $p$ an arbitrary positive integer. List strings that are in $L$ and have length  greater than or equal  to $p$:
 
@@ -218,23 +221,8 @@ Then when $i = \hspace{1in}$, $xy^i z  = \hspace{1in}$
     \end{tabular}
 \end{center}
          
-\subsection*{Review: Week 4 Monday}
-
-
-Recall: Review quizzes based on class material are assigned each day. 
-These quizzes will help you track and confirm your understanding of the concepts and examples 
-we work in class. Quizzes can be submitted on Gradescope as many times (with no penalty) as 
-you like until the quiz deadline: the three quizzes each week are all due on Friday (with no penalty 
-late submission open until Sunday).
-
-Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
-pumping lemma and nonregular sets.
-
-{\bf Pre class reading for next time}: Page 112
-
-
 \newpage
-\subsection*{Wednesday}
+\subsection*{Wednesday: Pushdown Automata}
 
 
 
@@ -290,7 +278,7 @@ Trace the computation of this PDA on the input string $011$.
 
 \vfill
 
-
+\newpage
 A PDA recognizing the set $\{ \hspace{1.5 in} \}$ can be informally described as:
 \begin{quote}
     Read symbols from the input. As each 0 is read, push it onto the stack. 
@@ -305,7 +293,7 @@ Modify the state diagram below to get a PDA that implements this description:
 \includegraphics[width=4in]{../../resources/machines/Lect9PDA.png}
 
 
-\newpage
+\vfill
 {\bf Definition} A {\bf pushdown automaton} (PDA) is  specified by a  $6$-tuple $(Q, \Sigma, \Gamma, \delta, q_0, F)$
 where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$ is the stack alphabet,
 \[
@@ -313,8 +301,15 @@ where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$
 \]
 is the transition function,  $q_0 \in Q$ is the start state, $F \subseteq  Q$ is the set of accept states.
     
+ 
 
-\vspace{90pt}
+\newpage
+\subsection*{Friday: Pushdown Automata Constructions}
+
+
+
+
+
 Draw the state diagram and give the formal definition of a PDA with $\Sigma = \Gamma$.
 
 \vfill
@@ -323,8 +318,39 @@ Draw the state diagram and give the formal definition of a PDA with $\Sigma \cap
     
 \vfill
 
-    
 \newpage
+For the PDA state diagrams below, $\Sigma = \{0,1\}$.
+
+
+\begin{center}
+\begin{tabular}{c c}
+Mathematical description of language & State diagram of PDA recognizing language\\
+\hline
+& $\Gamma = \{ \$, \#\}$ \hspace{2.3in} \\
+& \\
+& \includegraphics[width=3.5in]{../../resources/machines/Lect10PDA1.png}\\
+& \\
+& \\
+\hline
+& $\Gamma = \{ {@}, 1\}$ \hspace{2.3in} \\
+& \\
+& \includegraphics[width=3.5in]{../../resources/machines/Lect10PDA2.png}\\
+& \\
+& \\
+\hline
+& \\
+& \\
+& \\
+$\{ 0^i 1^j 0^k \mid i,j,k \geq 0 \}$ & \\
+& \\
+& \\
+\end{tabular}
+\end{center}
+
+ \vfill
+ {\it Note: alternate notation is to replace $;$ with $\to$}
+
+\begin{comment}
 {\it Extra practice}: Consider the state diagram of a PDA with input alphabet 
 $\Sigma$ and stack alphabet $\Gamma$.
 
@@ -370,53 +396,9 @@ $a, \varepsilon ; \varepsilon$ when $a \in \Sigma$
 
 
 How does the meaning change if $a$ is replaced by $\varepsilon$?
-
-{\it Note: alternate notation is to replace $;$ with $\to$}
- 
-\subsection*{Review: Week 4 Wednesday}
-
-Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
-PDA definitions.
-
-{\bf Pre class reading for next time}: Page 102
+\end{comment}
 
 
-
-\newpage
-\subsection*{Friday}
-
-
-
-    
-For the PDA state diagrams below, $\Sigma = \{0,1\}$.
-
-
-\begin{center}
-\begin{tabular}{c c}
-Mathematical description of language & State diagram of PDA recognizing language\\
-\hline
-& $\Gamma = \{ \$, \#\}$ \hspace{2.3in} \\
-& \\
-& \includegraphics[width=3.5in]{../../resources/machines/Lect10PDA1.png}\\
-& \\
-& \\
-\hline
-& $\Gamma = \{ {@}, 1\}$ \hspace{2.3in} \\
-& \\
-& \includegraphics[width=3.5in]{../../resources/machines/Lect10PDA2.png}\\
-& \\
-& \\
-\hline
-& \\
-& \\
-& \\
-$\{ 0^i 1^j 0^k \mid i,j,k \geq 0 \}$ & \\
-& \\
-& \\
-\end{tabular}
-\end{center}
-
-\newpage
 {\it Big picture}: PDAs were motivated by wanting to add some memory of unbounded size to NFA. How 
 do we accomplish a similar enhancement of regular expressions to get a syntactic model that is 
 more expressive?
@@ -430,93 +412,52 @@ described by a regular expression is built up recursively according to the expre
 {\bf Context-free grammars}: Rules to produce one string at a time, adding characters from the middle, beginning, 
 or end of the final string as the derivation proceeds.
 
-
-\begin{center}
-  \hspace{-0.25in}\begin{tabular}{|p{2in}cp{4in}|}
-  \hline 
-  Term & Typical symbol & Definition \\
-  \hline\hline
-  {\bf Context-free grammar} (CFG) & $G$ & $G = (V, \Sigma, R, S)$ \\
-  {\bf Variables}& $V$ & Finite  set of symbols that represent phases in production pattern\\
-  {\bf Terminals} & $\Sigma$ & Alphabet of symbols of strings generated  by CFG \\
-  & & $V \cap \Sigma = \emptyset$ \\
-  {\bf Rules}& $R$ & Each rule is  $A \to u$ with $A \in V$ and $u  \in (V  \cup \Sigma)^*$\\
-  Start variable&  $S$  & Usually  on LHS of first / topmost rule \\
-  {\bf Derivation} & & Sequence  of substitutions in a  CFG \\
-  & $S \implies \cdots \implies w$ & Start with start variable, apply one rule to one occurrence of a variable at a time\\
-  {\bf Language} generated by the CFG $G$ & $L(G)$ &$\{  w \in \Sigma^* \mid \text{there is  derivation in $G$ that ends
-  in $w$} \} = \{  w \in \Sigma^* \mid S \implies^* w \}$\\
-  {\bf Context-free language} & & A language that is the language generated by some CFG\\
-  \hline
-  Sipser pages 102-103 & &\\
-  \hline
-  \end{tabular}
-  \end{center}
-  
-{\bf Examples of context-free grammars, derivations in those grammars, and the languages generated by those grammars}
-  
-$G_1 =  (\{S\}, \{0\}, R, S)$ with rules
-  \begin{align*}
-    &S \to 0S\\
-    &S \to 0\\
-  \end{align*}
-  In  $L(G_1)$ \ldots 
-  
-  \vspace{110pt}
-  
-  Not in $L(G_1)$ \ldots 
-
-  \vspace{110pt}
-
-\newpage
-  $G_2 =  (\{S\}, \{0,1\}, R, S)$
-  \[
-  S \to 0S \mid 1S \mid \varepsilon
-  \]
-  In  $L(G_2)$ \ldots 
-  
-  \vspace{110pt}
-  
-  Not in $L(G_2)$ \ldots 
-
-  \vspace{110pt}
-
-  $(\{S, T\}, \{0, 1\}, R, S)$ with  rules
-  \begin{align*}
-  &S \to T1T1T1T \\
-  &T \to  0T \mid 1T \mid \varepsilon
-  \end{align*}
-
-  In  $L(G_3)$ \ldots 
-  
-  \vspace{110pt}
-  
-  Not in $L(G_3)$ \ldots 
-
-  \vspace{110pt}
-
-\newpage
-  $G_4 =  (\{A, B\}, \{0, 1\}, R, A)$ with rules
-  \[
-    A \to 0A0 \mid  0A1 \mid 1A0  \mid 1A1 \mid  1
-  \]
-  In  $L(G_4)$ \ldots 
-  
-  \vspace{110pt}
-  
-  Not in $L(G_4)$ \ldots 
-
-  \vspace{110pt}
-
-  
-{\it Extra practice}: Is there a CFG $G$ with $L(G) = \emptyset$?
  
 \newpage
-\subsection*{Review: Week 4 Friday}
+
+\subsection*{Week 4 at a glance}
+
+\subsubsection*{Textbook reading: Section 1.4 and section 2.2}
+
+{\it For Monday}: Example 1.75, Example 1.77
+
+{\it For Wednesday}: Definition 2.13 (page 111-112)
+
+{\it For Friday}: Example 2.18 (page 114)
+
+{\it For Week 5 Monday}: Introduction to Section 2.1 (page 102)
 
 
-Please complete the review quiz questions on \href{http://gradescope.com}{Gradescope} about 
-PDA construction.
+\subsubsection*{Make sure you can:}
+\begin{itemize}
+\item Classify the computational complexity of a set of strings by determining whether it is regular
+    \begin{itemize}
+        \item Explain the limits of the class of regular languages
+        \item Identify some nonregular sets
+    \end{itemize}
+\item Use the pumping lemma to prove that a given language is not regular.
+    \begin{itemize}
+        \item Justify why the Pumping Lemma is true
+        \item Apply the Pumping Lemma in proofs of nonregularity    
+    \end{itemize}
+\item Use precise notation to formally define the state diagram of PDA and 
+use clear English to describe computations of PDA informally.
+\begin{itemize}
+    \item Define push-down automata informally and formally
+    \item Trace the computation of a push-down automaton
+    \item Determine the language recognized by a given PDA
+    \item Design push-down automata to recognize specific languages
+    \item Determine whether a language is recognizable by a (D or N) FA and/or a PDA
+\end{itemize}
 
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item Review quizzes based on class material each day.
+   \item Homework assignment 2 due Thursday.
+   \item Test next week on Friday in Discussion section.
+\end{list}
 
 \end{document}
