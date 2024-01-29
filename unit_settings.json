@@ -243,6 +243,10 @@
         "ExpandInCalendar": false,
         "content": [
             {
+                "name": "Notes",
+                "source": "Week4.tex"
+            },
+            {
                 "name": "(Video) Pumping Lemma Applications",
                 "source": "https://youtu.be/e69l6fAmOmI"
             },
