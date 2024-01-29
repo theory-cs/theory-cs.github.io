@@ -458,29 +458,29 @@ following attempted “proof" that the set <span class="math display">\[X
 $w$ are strings over $\{0,1\}$ and have the same length} \}\]</span> is
 nonregular.</p>
 <blockquote>
-<p>“Proof" that <span class="math inline">\(X_1\)</span> is not regular
+<p>“Proof" that <span class="math inline">\(X\)</span> is not regular
 using the Pumping Lemma: Let <span class="math inline">\(p\)</span> be
 an arbitrary positive integer. We will show that <span
 class="math inline">\(p\)</span> is not a pumping length for <span
-class="math inline">\(X_1\)</span>.</p>
+class="math inline">\(X\)</span>.</p>
 <p>Choose <span class="math inline">\(s\)</span> to be the string <span
 class="math inline">\(1^p 0^p\)</span>, which is in <span
-class="math inline">\(X_1\)</span> because we can choose <span
+class="math inline">\(X\)</span> because we can choose <span
 class="math inline">\(u = 1^p\)</span> and <span class="math inline">\(w
 = 0^p\)</span> which each have length <span
 class="math inline">\(p\)</span>. Since <span
 class="math inline">\(s\)</span> is in <span
-class="math inline">\(X_1\)</span> and has length greater than or equal
-to <span class="math inline">\(p\)</span>, if <span
+class="math inline">\(X\)</span> and has length greater than or equal to
+<span class="math inline">\(p\)</span>, if <span
 class="math inline">\(p\)</span> were to be a pumping length for <span
-class="math inline">\(X_1\)</span>, <span
-class="math inline">\(s\)</span> ought to be pump’able. That is, there
-should be a way of dividing <span class="math inline">\(s\)</span> into
-parts <span class="math inline">\(x,y,z\)</span> where <span
+class="math inline">\(X\)</span>, <span class="math inline">\(s\)</span>
+ought to be pump’able. That is, there should be a way of dividing <span
+class="math inline">\(s\)</span> into parts <span
+class="math inline">\(x,y,z\)</span> where <span
 class="math inline">\(s=xyz\)</span>, <span class="math inline">\(|y|
 &gt;0\)</span>, <span class="math inline">\(|xy| \leq p\)</span>, and
 for each <span class="math inline">\(i \geq 0\)</span>, <span
-class="math inline">\(xy^iz \in X_1\)</span>. Suppose <span
+class="math inline">\(xy^iz \in X\)</span>. Suppose <span
 class="math inline">\(x,y,z\)</span> are such that <span
 class="math inline">\(s = xyz\)</span>, <span class="math inline">\(|y|
 &gt; 0\)</span> and <span class="math inline">\(|xy| \leq p\)</span>.
@@ -492,22 +492,22 @@ class="math inline">\(1\)</span> and <span class="math inline">\(|xy|
 class="math inline">\(1\)</span>s. If we let <span
 class="math inline">\(i=2\)</span>, we get a string <span
 class="math inline">\(xy^iz\)</span> that is not in <span
-class="math inline">\(X_1\)</span> because repeating <span
+class="math inline">\(X\)</span> because repeating <span
 class="math inline">\(y\)</span> twice adds <span
 class="math inline">\(1\)</span>s to <span
 class="math inline">\(u\)</span> but not to <span
 class="math inline">\(w\)</span>, and strings in <span
-class="math inline">\(X_1\)</span> are required to have <span
+class="math inline">\(X\)</span> are required to have <span
 class="math inline">\(u\)</span> and <span
 class="math inline">\(w\)</span> be the same length. Thus, <span
 class="math inline">\(s\)</span> is not pumpable (even though it should
 have been if <span class="math inline">\(p\)</span> were to be a pumping
 length) and so <span class="math inline">\(p\)</span> is not a pumping
-length for <span class="math inline">\(X_1\)</span>. Since <span
+length for <span class="math inline">\(X\)</span>. Since <span
 class="math inline">\(p\)</span> was arbitrary, we have demonstrated
-that <span class="math inline">\(X_1\)</span> has no pumping length. By
+that <span class="math inline">\(X\)</span> has no pumping length. By
 the Pumping Lemma, this implies that <span
-class="math inline">\(X_1\)</span> is nonregular.</p>
+class="math inline">\(X\)</span> is nonregular.</p>
 </blockquote>
 <p>Find the (first and/or most significant) logical error in the “proof"
 and describe why it’s wrong. Then, either prove that the set is actually

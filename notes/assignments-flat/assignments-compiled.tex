@@ -484,24 +484,24 @@ $$X = \{ uw \mid \text{$u$ and
 $w$ are strings over $\{0,1\}$ and have the same length} \}$$
 is nonregular.
 \begin{quote}
-``Proof" that $X_1$ is not regular using the Pumping Lemma: Let $p$ be 
-an arbitrary positive integer. We will show that $p$ is not a pumping length for $X_1$. 
+``Proof" that $X$ is not regular using the Pumping Lemma: Let $p$ be 
+an arbitrary positive integer. We will show that $p$ is not a pumping length for $X$. 
 
-Choose $s$ to be the string $1^p 0^p$, which is in $X_1$ because
+Choose $s$ to be the string $1^p 0^p$, which is in $X$ because
 we can choose $u = 1^p$ and $w = 0^p$ which each have length $p$.
-Since $s$ is in $X_1$ and has length greater than or equal to $p$, if $p$ were to be a
-pumping length for $X_1$, $s$ ought to be pump'able. 
+Since $s$ is in $X$ and has length greater than or equal to $p$, if $p$ were to be a
+pumping length for $X$, $s$ ought to be pump'able. 
 That is, there should be a way of dividing $s$ into parts $x,y,z$ where $s=xyz$,
-$|y| >0$, $|xy| \leq p$, and for each $i \geq 0$, $xy^iz \in X_1$.
+$|y| >0$, $|xy| \leq p$, and for each $i \geq 0$, $xy^iz \in X$.
 Suppose $x,y,z$ are such that $s = xyz$, $|y| > 0$ and $|xy| \leq p$.
 Since the first $p$ letters of $s$ are all $1$ and $|xy| \leq p$, we know
 that $x$ and $y$ are made up of all $1$s.  If we let $i=2$, we get 
-a string $xy^iz$ that is not in $X_1$ because repeating $y$ twice adds $1$s to 
-$u$ but not to $w$, and strings in $X_1$ are required to have $u$ and $w$ be the same
+a string $xy^iz$ that is not in $X$ because repeating $y$ twice adds $1$s to 
+$u$ but not to $w$, and strings in $X$ are required to have $u$ and $w$ be the same
 length. Thus, $s$ is not pumpable (even though it should have been if $p$ were to be a pumping length)
-and so $p$ is not a pumping length for $X_1$.  Since $p$ was arbitrary, we have
-demonstrated that $X_1$ has no pumping length.  By the Pumping Lemma, this implies that 
-$X_1$ is nonregular.
+and so $p$ is not a pumping length for $X$.  Since $p$ was arbitrary, we have
+demonstrated that $X$ has no pumping length.  By the Pumping Lemma, this implies that 
+$X$ is nonregular.
 \end{quote}
 Find the (first and/or most significant) logical error in the ``proof" and describe why it's wrong.
 Then, either prove that the set is actually regular (by finding a regular expression that describes it or 
