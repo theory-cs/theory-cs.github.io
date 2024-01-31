@@ -14,6 +14,10 @@
                 "source": "cse105w24_week1discussion.pdf"
             },
             {
+                "name": "Review Quizzes",
+                "source": "Week1RQ.pdf"
+            },
+            {
                 "name": "Lecture Hall",
                 "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/553665\" frameborder=\"0\"></iframe>"
             },
@@ -88,6 +92,10 @@
             {
                 "name": "Discussion notes",
                 "source": "Week2-discussion.pdf"
+            },
+            {
+                "name": "Review Quizzes",
+                "source": "Week2RQ.pdf"
             },
             {
                 "name": "(Video) DFA Formal Definition",
@@ -178,6 +186,10 @@
                 "name": "Discussion Notes",
                 "source": "cse105w24_discussion3.pdf"
             },
+            {
+                "name": "Review Quizzes",
+                "source": "Week3RQ.pdf"
+            }, 
             {
                 "name": "(Video) NFA More Examples",
                 "source": "https://youtu.be/zqG_9oue9QU"
