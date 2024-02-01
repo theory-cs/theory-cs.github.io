@@ -396,8 +396,8 @@ a NFA and assume that <span class="math inline">\(q_0 \notin Q\)</span>.
 Define the new NFA <span class="math inline">\(N_2 = (Q \cup \{q_0\},
 \Sigma, \delta_2, q_0, \{q_1\})\)</span> where <span
 class="math display">\[\delta_2: (Q \cup \{q_0\}) \times
-\Sigma_\varepsilon \to (Q \cup \{q_0\})\]</span> is defined by <span
-class="math display">\[\delta_2 (q,a) = \begin{cases}
+\Sigma_\varepsilon \to \mathcal{P} (Q \cup \{q_0\})\]</span> is defined
+by <span class="math display">\[\delta_2 (q,a) = \begin{cases}
         \{ q&#39; \in Q \mid q \in \delta_1(q&#39;,a)\} &amp;\text{if $q
 \in Q$, $a \in \Sigma_{\varepsilon}$} \\
         F_1 &amp;\text{if $q =q_0$, $a = \varepsilon$}\\

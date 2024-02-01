@@ -253,7 +253,7 @@ for NFAs and translating between state diagrams and formal definitions.
 Consider the following general construction: Let $N_1 = (Q, \Sigma, \delta_1, q_1, F_1)$ be a NFA
 and assume that $q_0 \notin Q$.
 Define the new NFA $N_2 = (Q \cup \{q_0\}, \Sigma, \delta_2, q_0, \{q_1\})$ where 
-$$\delta_2: (Q \cup \{q_0\}) \times \Sigma_\varepsilon \to (Q \cup \{q_0\})$$ is defined by
+$$\delta_2: (Q \cup \{q_0\}) \times \Sigma_\varepsilon \to \mathcal{P} (Q \cup \{q_0\})$$ is defined by
 \[
     \delta_2 (q,a) = \begin{cases}
         \{ q' \in Q \mid q \in \delta_1(q',a)\} &\text{if $q \in Q$, $a \in \Sigma_{\varepsilon}$} \\
