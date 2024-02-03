@@ -3,7 +3,7 @@
         "header": "Week 1",
         "outcomes": "Languages, expressions, and automata",
         "CalendarInfo": "Dates: 1/8/24 - 1/14/24<br> Welcome! Please take our <a href=\"https://canvas.ucsd.edu/courses/53839/quizzes/157507\" target=\"_blank\">pre-class survey</a> on Canvas. See you Monday 2pm in Warren Lecture Hall 2001. Notes for class are linked below: we recommend attending class in person each day (if you can). We'll be working directly on quiz and homework questions in many classes to help you get started with problem solving. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Fridays at 4pm in WLH 2001. Tests will be taken in discussion section twice during the quarter.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -256,7 +256,7 @@
         "header": "Week 4",
         "outcomes": "Pumping Lemma and Pushdown Automata",
         "CalendarInfo": " Dates: 1/29/24 - 2/4/24",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -331,6 +331,10 @@
         "ExpandInCalendar": false,
         "content": [
             {
+                "name": "Notes",
+                "source": "Week5.tex"
+            },
+            {
                 "name": "(Video) PDA Design and reverse engingeering",
                 "source": "https://youtu.be/b-dr_GndeBg"
             },
@@ -385,26 +389,6 @@
             {
                 "name": "(Video) Non-context-free languages",
                 "source": "https://youtu.be/d52BxsDMl9c"
-            },
-            {
-                "name": "(Video) Turing machine introduction",
-                "source": "https://youtu.be/rASd5i-Am7k"
-            },
-            {
-                "name": "(Video) Turing machine definition",
-                "source": "https://youtu.be/pNdYPsb3qCI"
-            },
-            {
-                "name": "(Video) TM state diagram",
-                "source": "https://youtu.be/yxQ_tKk5lL8"
-            },
-            {
-                "name": "(Video) TM trace computation",
-                "source": "https://youtu.be/lnJeWygUIjU"
-            },
-            {
-                "name": "(Video) TM complicated example",
-                "source": "https://youtu.be/g51BMp5Th7M"
             }
         ],
 
@@ -426,6 +410,26 @@
         "CalendarInfo": " Dates: 2/12/24 - 2/18/24",
         "ExpandInCalendar": false,
         "content": [
+            {
+                "name": "(Video) Turing machine introduction",
+                "source": "https://youtu.be/rASd5i-Am7k"
+            },
+            {
+                "name": "(Video) Turing machine definition",
+                "source": "https://youtu.be/pNdYPsb3qCI"
+            },
+            {
+                "name": "(Video) TM state diagram",
+                "source": "https://youtu.be/yxQ_tKk5lL8"
+            },
+            {
+                "name": "(Video) TM trace computation",
+                "source": "https://youtu.be/lnJeWygUIjU"
+            },
+            {
+                "name": "(Video) TM complicated example",
+                "source": "https://youtu.be/g51BMp5Th7M"
+            },
             {
                 "name": "(Video) TM Intro Recap",
                 "source": "https://youtu.be/GuhFK1NLNxg"
