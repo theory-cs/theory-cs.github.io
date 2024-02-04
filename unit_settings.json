@@ -256,7 +256,7 @@
         "header": "Week 4",
         "outcomes": "Pumping Lemma and Pushdown Automata",
         "CalendarInfo": " Dates: 1/29/24 - 2/4/24",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -332,7 +332,7 @@
         "header": "Week 5",
         "outcomes": "Context-free grammars and context-free languages",
         "CalendarInfo": " Dates: 2/5/24 - 2/11/24. Test 1 in discussion section this week.",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
