@@ -419,6 +419,10 @@
         "ExpandInCalendar": false,
         "content": [
             {
+                "name": "Notes",
+                "source": "Week6.tex"
+            },
+            {
                 "name": "(Video) Turing machine introduction",
                 "source": "https://youtu.be/rASd5i-Am7k"
             },
