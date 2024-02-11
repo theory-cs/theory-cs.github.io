@@ -175,13 +175,31 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="monday">Monday</h1>
-<p>For Turing machine <span class="math inline">\(M= (Q, \Sigma, \Gamma,
-\delta, q_0, q_{accept}, q_{reject})\)</span> where <span
-class="math inline">\(\delta\)</span> is the <span><strong>transition
-function</strong></span> <span class="math display">\[\delta: Q\times
-\Gamma \to Q \times \Gamma \times \{L, R\}\]</span> the
-<span><strong>computation</strong></span> of <span
+<h1 class="unnumbered" id="monday-turing-machines">Monday: Turing
+machines</h1>
+<p>We are ready to introduce a formal model that will capture a notion
+of general purpose computation.</p>
+<ul>
+<li><p><span><em>Similar to DFA, NFA, PDA</em></span>: input will be an
+arbitrary string over a fixed alphabet.</p></li>
+<li><p><span><em>Different from NFA, PDA</em></span>: machine is
+deterministic.</p></li>
+<li><p><span><em>Different from DFA, NFA, PDA</em></span>: read-write
+head can move both to the left and to the right, and can extend to the
+right past the original input.</p></li>
+<li><p><span><em>Similar to DFA, NFA, PDA</em></span>: transition
+function drives computation one step at a time by moving within a finite
+set of states, always starting at designated start state.</p></li>
+<li><p><span><em>Different from DFA, NFA, PDA</em></span>: the special
+states for rejecting and accepting take effect immediately.</p></li>
+</ul>
+<p>(See more details: Sipser p. 166)</p>
+<p>Formally: a Turing machine is <span class="math inline">\(M= (Q,
+\Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})\)</span> where
+<span class="math inline">\(\delta\)</span> is the
+<span><strong>transition function</strong></span> <span
+class="math display">\[\delta: Q\times \Gamma \to Q \times \Gamma \times
+\{L, R\}\]</span> The <span><strong>computation</strong></span> of <span
 class="math inline">\(M\)</span> on a string <span
 class="math inline">\(w\)</span> over <span
 class="math inline">\(\Sigma\)</span> is:</p>
@@ -292,9 +310,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 </table>
 </div>
 <p>The language recognized by this machine is …</p>
-<p>To define a Turing machine, we could give a</p>
+<p><span><strong>Describing Turing machines</strong></span> (Sipser p.
+185) To define a Turing machine, we could give a</p>
 <ul>
-<li><p><span><strong>Formal definition</strong></span>, namely the <span
+<li><p><span><strong>Formal definition</strong></span>: the <span
 class="math inline">\(7\)</span>-tuple of parameters including set of
 states, input alphabet, tape alphabet, transition function, start state,
 accept state, and reject state; or,</p></li>
@@ -302,13 +321,55 @@ accept state, and reject state; or,</p></li>
 English prose that describes the Turing machine head movements relative
 to contents of tape, and conditions for accepting / rejecting based on
 those contents.</p></li>
+<li><p><span><strong>High-level description</strong></span>: description
+of algorithm (precise sequence of instructions), without implementation
+details of machine. As part of this description, can “call" and run
+another TM as a subroutine.</p></li>
 </ul>
-<p>Conventions for drawing state diagrams of Turing machines: (1) omit
-the reject state from the diagram (unless it’s the start state), (2) any
-missing transitions in the state diagram have value <span
-class="math inline">\((q_{reject}, ~\textvisiblespace~ ,
-R)\)</span>.</p>
+<p>Fix <span class="math inline">\(\Sigma = \{0,1\}\)</span>, <span
+class="math inline">\(\Gamma = \{ 0, 1, \textvisiblespace\}\)</span> for
+the Turing machines with the following state diagrams:</p>
+<div class="center">
+<p><img src="../../resources/machines/Lect14TM1.png" style="width:2in"
+alt="image" /></p>
+</div>
+<p>Example of string accepted:<br />
+Example of string rejected:<br />
+Implementation-level description</p>
+<p>High-level description</p>
+<div class="center">
+<p><img src="../../resources/machines/Lect14TM2.png" style="width:2in"
+alt="image" /></p>
+</div>
+<p>Example of string accepted:<br />
+Example of string rejected:<br />
+Implementation-level description</p>
+<p>High-level description</p>
+<div class="center">
+<p><img src="../../resources/machines/Lect14TM3.png" style="width:2in"
+alt="image" /></p>
+</div>
+<p>Example of string accepted:<br />
+Example of string rejected:<br />
+Implementation-level description</p>
+<p>High-level description</p>
+<div class="center">
+<p><img src="../../resources/machines/Lect14TM4.png" style="width:2in"
+alt="image" /></p>
+</div>
+<p>Example of string accepted:<br />
+Example of string rejected:<br />
+Implementation-level description</p>
+<p>High-level description</p>
+<h2 class="unnumbered"
+id="wednesday-describing-turing-machines-and-algorithms">Wednesday:
+Describing Turing machines and algorithms</h2>
 <p><span><em>Sipser Figure 3.10</em></span></p>
+<p><span><strong>Conventions in state diagram of TM</strong></span>:
+<span class="math inline">\(b \to R\)</span> label means <span
+class="math inline">\(b \to b, R\)</span> and all arrows missing from
+diagram represent transitions with output <span
+class="math inline">\((q_{reject}, \textvisiblespace , R)\)</span></p>
 <div class="multicols">
 <p><span>2</span></p>
 <div class="center">
@@ -328,6 +389,8 @@ un-crossed-off symbols to the right of <span
 class="math inline">\(\#\)</span>; if there are any, reject; if there
 aren’t, accept.</p>
 </blockquote>
+<p>The language recognized by this machine is <span
+class="math display">\[\{ w \# w \mid w \in \{0,1\}^* \}\]</span></p>
 <p>Computation on input string <span
 class="math inline">\(01\#01\)</span></p>
 <table>
@@ -574,8 +637,12 @@ class="math inline">\(\textvisiblespace\)</span></td>
 </tbody>
 </table>
 </div>
-<p>The language recognized by this machine is <span
-class="math display">\[\{ w \# w \mid w \in \{0,1\}^* \}\]</span></p>
+<div class="multicols">
+<p><span>2</span> High-level description of this machine is</p>
+<p><span><em>Recall:</em></span> High-level descriptions of Turing
+machine algorithms are written as indented text within quotation marks.
+Stages of the algorithm are typically numbered consecutively. The first
+line specifies the input to the machine, which must be a string.</p>
 <p><span><em>Extra practice</em></span></p>
 <p>Computation on input string <span
 class="math inline">\(01\#1\)</span></p>
@@ -846,435 +913,13 @@ class="math inline">\(\textvisiblespace\)</span></td>
 </tr>
 </tbody>
 </table>
-<h2 class="unnumbered" id="review-week-6-monday">Review: Week 6
-Monday</h2>
-<p>Recall: Review quizzes based on class material are assigned each day.
-These quizzes will help you track and confirm your understanding of the
-concepts and examples we work in class. Quizzes can be submitted on
-Gradescope as many times (with no penalty) as you like until the quiz
-deadline: the three quizzes each week are all due on Friday (with no
-penalty late submission open until Sunday).</p>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about formal and
-implementation-level descriptions of Turing machines.</p>
-<p><span><strong>Pre class reading for next time</strong></span>: pages
-176-177 on variants of Turing machines</p>
-<h2 class="unnumbered" id="wednesday">Wednesday</h2>
-<p>Fix <span class="math inline">\(\Sigma = \{0,1\}\)</span>, <span
-class="math inline">\(\Gamma = \{ 0, 1, \textvisiblespace\}\)</span> for
-the Turing machines with the following state diagrams:</p>
-<div class="center">
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><img
-src="../../resources/machines/Lect14TM1.png" style="width:2in"
-alt="image" /></td>
-<td style="text-align: center;"><img
-src="../../resources/machines/Lect14TM2.png" style="width:2in"
-alt="image" /></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Implementation level description:</td>
-<td style="text-align: center;">Implementation level description:</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Example of string accepted:</td>
-<td style="text-align: center;">Example of string accepted:</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Example of string rejected:</td>
-<td style="text-align: center;">Example of string rejected:</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><img
-src="../../resources/machines/Lect14TM3.png" style="width:2in"
-alt="image" /></td>
-<td style="text-align: center;"><img
-src="../../resources/machines/Lect14TM4.png" style="width:2in"
-alt="image" /></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Implementation level description:</td>
-<td style="text-align: center;">Implementation level description:</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Example of string accepted:</td>
-<td style="text-align: center;">Example of string accepted:</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Example of string rejected:</td>
-<td style="text-align: center;">Example of string rejected:</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
 </div>
-<p>Two models of computation are called <span><strong>equally
-expressive</strong></span> when every language recognizable with the
-first model is recognizable with the second, and vice versa.</p>
-<p>True / False: NFAs and PDAs are equally expressive.</p>
-<p>True / False: Regular expressions and CFGs are equally
-expressive.</p>
-<p>To say a language is
-<span><strong>Turing-recognizable</strong></span> means that there is
-some Turing machine that recognizes it.</p>
-<div class="center">
-<p><span><em>Some examples of models that are <span><strong>equally
-expressive</strong></span> with deterministic Turing machines:</em>
-</span></p>
-</div>
-<p>The May-stay machine model is the same as the usual Turing machine
-model, except that on each transition, the tape head may move L, move R,
-or Stay.</p>
-<p>Formally: <span class="math inline">\((Q, \Sigma, \Gamma, \delta,
-q_0, q_{accept}, q_{reject})\)</span> where <span
-class="math display">\[\delta: Q \times \Gamma \to Q \times \Gamma
-\times \{L, R, S\}\]</span></p>
-<p><span><strong>Claim</strong></span>: Turing machines and May-stay
-machines are equally expressive. <span><em>To prove …</em></span></p>
-<p>To translate a standard TM to a may-stay machine:</p>
-<p>To translate one of the may-stay machines to standard TM: any time TM
-would Stay, move right then left.</p>
-<p>Formally: suppose <span class="math inline">\(M_S =  (Q, \Sigma,
-\Gamma, \delta, q_0, q_{acc}, q_{rej})\)</span> has <span
-class="math inline">\(\delta: Q \times \Gamma \to Q \times \Gamma \times
-\{L, R, S\}\)</span>. Define the Turing-machine <span
-class="math display">\[M_{new}
-=  (\phantom{\hspace{2.5in}})\]</span></p>
-<p>A multitape Turing macihne with <span
-class="math inline">\(k\)</span> tapes can be formally representated as
-<span class="math inline">\((Q, \Sigma,  \Gamma, \delta, q_0, q_{acc},
-q_{rej})\)</span> where <span class="math inline">\(Q\)</span> is the
-finite set of states, <span class="math inline">\(\Sigma\)</span> is the
-input alphabet with <span class="math inline">\(\textvisiblespace \notin
-\Sigma\)</span>, <span class="math inline">\(\Gamma\)</span> is the tape
-alphabet with <span class="math inline">\(\Sigma \subsetneq
-\Gamma\)</span> , <span class="math inline">\(\delta: Q\times
-\Gamma^k\to Q \times \Gamma^k \times \{L,R\}^k\)</span> (where <span
-class="math inline">\(k\)</span> is the number of states)</p>
-<p>If <span class="math inline">\(M\)</span> is a standard TM, it is a
-<span class="math inline">\(1\)</span>-tape machine.</p>
-<p>To translate a <span class="math inline">\(k\)</span>-tape machine to
-a standard TM: Use a new symbol to separate the contents of each tape
-and keep track of location of head with special version of each tape
-symbol. <span>Sipser Theorem 3.13</span></p>
-<p><img src="../../resources/images/Figure314.png" style="width:2.5in"
-alt="image" /></p>
-<p><span><em>Extra practice:</em></span> Define a machine <span
-class="math inline">\((Q, \Gamma, b, \Sigma,  q_0, F, \delta)\)</span>
-where <span class="math inline">\(Q\)</span> is the finite set of states
-<span class="math inline">\(\Gamma\)</span> is the tape alphabet, <span
-class="math inline">\(b \in \Gamma\)</span> is the blank symbol, <span
-class="math inline">\(\Sigma \subsetneq \Gamma\)</span> is the input
-alphabet, <span class="math inline">\(q_0 \in  Q\)</span> is the start
-state, <span class="math inline">\(F \subseteq Q\)</span> is the set of
-accept states, <span class="math inline">\(\delta: (Q \setminus
-F)  \times  \Gamma \not\to Q \times  \Gamma  \times \{L, R\}\)</span> is
-a partial transition function If computation enters a state in <span
-class="math inline">\(F\)</span>, it accepts If computation enters a
-configuration where <span class="math inline">\(\delta\)</span> is not
-defined, it rejects . <span>Hopcroft and Ullman, cited by
-Wikipedia</span></p>
-<p>Enumerators give a different model of computation where a language is
-<span><strong>produced, one string at a time</strong></span>, rather
-than recognized by accepting (or not) individual strings.</p>
-<p>Each enumerator machine has finite state control, unlimited work
-tape, and a printer. The computation proceeds according to transition
-function; at any point machine may “send” a string to the printer. <span
-class="math display">\[E  = (Q, \Sigma, \Gamma, \delta, q_0,
-q_{print})\]</span> <span class="math inline">\(Q\)</span> is the finite
-set of states, <span class="math inline">\(\Sigma\)</span> is the output
-alphabet, <span class="math inline">\(\Gamma\)</span> is the tape
-alphabet (<span class="math inline">\(\Sigma  \subsetneq\Gamma,
-\textvisiblespace \in \Gamma \setminus \Sigma\)</span>), <span
-class="math display">\[\delta:  Q  \times  \Gamma \times \Gamma \to  Q
-\times  \Gamma \times  \Gamma \times \{L, R\} \times  \{L, R\}\]</span>
-where in state <span class="math inline">\(q\)</span>, when the working
-tape is scanning character <span class="math inline">\(x\)</span> and
-the printer tape is scanning character <span
-class="math inline">\(y\)</span>, <span class="math inline">\(\delta(
-(q,x,y) ) = (q&#39;, x&#39;, y&#39;, d_w, d_p)\)</span> means transition
-to control state <span class="math inline">\(q&#39;\)</span>, write
-<span class="math inline">\(x&#39;\)</span> on the working tape, write
-<span class="math inline">\(y&#39;\)</span> on the printer tape, move in
-direction <span class="math inline">\(d_w\)</span> on the working tape,
-and move in direction <span class="math inline">\(d_p\)</span> on the
-printer tape. The computation starts in <span
-class="math inline">\(q_0\)</span> and each time the computation enters
-<span class="math inline">\(q_{print}\)</span> the string from the
-leftmost edge of the printer tape to the first blank cell is considered
-to be printed.</p>
-<p>The language <span><strong>enumerated</strong></span> by <span
-class="math inline">\(E\)</span>, <span
-class="math inline">\(L(E)\)</span>, is <span class="math inline">\(\{ w
-\in \Sigma^* \mid \text{$E$ eventually, at finite  time,
-prints $w$} \}\)</span>.</p>
-<div class="center">
-<div class="tabular">
-<p><span>cc</span> <img
-src="../../resources/machines/Lec15enumerator.png" style="width:3.5in"
-alt="image" /> &amp;</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span
-class="math inline">\(q0\)</span></th>
-<th colspan="6" style="text-align: center;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace ~*\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace  ~*\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\textvisiblespace\)</span></td>
-</tr>
-<tr class="odd">
-<td colspan="7" style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td colspan="7" style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td colspan="7" style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td colspan="7" style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><span><strong>Theorem 3.21</strong></span> A language is
-Turing-recognizable iff some enumerator enumerates it.</p>
-<p><span><strong>Proof</strong></span>:</p>
-<p>Assume <span class="math inline">\(L\)</span> is enumerated by some
-enumerator, <span class="math inline">\(E\)</span>, so <span
-class="math inline">\(L = L(E)\)</span>. We’ll use <span
-class="math inline">\(E\)</span> in a subroutine within a high-level
-description of a new Turing machine that we will build to recognize
-<span class="math inline">\(L\)</span>.</p>
-<p><span><strong>Goal</strong></span>: build Turing machine <span
-class="math inline">\(M_E\)</span> with <span
-class="math inline">\(L(M_E) = L(E)\)</span>.</p>
-<p>Define <span class="math inline">\(M_E\)</span> as follows: <span
-class="math inline">\(M_E =\)</span> “On input <span
-class="math inline">\(w\)</span>,</p>
-<ol>
-<li><p>Run <span class="math inline">\(E\)</span>. For each string <span
-class="math inline">\(x\)</span> printed by <span
-class="math inline">\(E\)</span>.</p></li>
-<li><p>Check if <span class="math inline">\(x = w\)</span>. If so,
-accept (and halt); otherwise, continue."</p></li>
-</ol>
-<p>Assume <span class="math inline">\(L\)</span> is Turing-recognizable
-and there is a Turing machine <span class="math inline">\(M\)</span>
-with <span class="math inline">\(L = L(M)\)</span>. We’ll use <span
-class="math inline">\(M\)</span> in a subroutine within a high-level
-description of an enumerator that we will build to enumerate <span
-class="math inline">\(L\)</span>.</p>
-<p><span><strong>Goal</strong></span>: build enumerator <span
-class="math inline">\(E_M\)</span> with <span
-class="math inline">\(L(E_M) = L(M)\)</span>.</p>
-<p><span><strong>Idea</strong></span>: check each string in turn to see
-if it is in <span class="math inline">\(L\)</span>.</p>
-<p><span><em>How?</em></span> Run computation of <span
-class="math inline">\(M\)</span> on each string.
-<span><em>But</em></span>: need to be careful about computations that
-don’t halt.</p>
-<p><span><em>Recall</em></span> String order for <span
-class="math inline">\(\Sigma = \{0,1\}\)</span>: <span
-class="math inline">\(s_1 = \varepsilon\)</span>, <span
-class="math inline">\(s_2 = 0\)</span>, <span class="math inline">\(s_3
-= 1\)</span>, <span class="math inline">\(s_4 = 00\)</span>, <span
-class="math inline">\(s_5 = 01\)</span>, <span
-class="math inline">\(s_6  = 10\)</span>, <span
-class="math inline">\(s_7  =  11\)</span>, <span
-class="math inline">\(s_8 = 000\)</span>, …</p>
-<p>Define <span class="math inline">\(E_M\)</span> as follows: <span
-class="math inline">\(E_{M} =\)</span> “ <span><em>ignore any
-input.</em></span> Repeat the following for <span
-class="math inline">\(i=1, 2, 3, \ldots\)</span></p>
-<ol>
-<li><p>Run the computations of <span class="math inline">\(M\)</span> on
-<span class="math inline">\(s_1\)</span>, <span
-class="math inline">\(s_2\)</span>, …, <span
-class="math inline">\(s_i\)</span> for (at most) <span
-class="math inline">\(i\)</span> steps each</p></li>
-<li><p>For each of these <span class="math inline">\(i\)</span>
-computations that accept during the (at most) <span
-class="math inline">\(i\)</span> steps, print out the accepted
-string."</p></li>
-</ol>
-<h2 class="unnumbered" id="review-week-6-wednesday">Review: Week 6
-Wednesday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about variants of Turing
-machines.</p>
-<p><span><strong>Pre class reading for next time</strong></span>:
-Theorem 3.16 on page 178 (nondeterministism)</p>
-<h2 class="unnumbered" id="friday">Friday</h2>
-<p><span><strong>Nondeterministic Turing machine</strong></span></p>
-<p>At any point in the computation, the nondeterministic machine may
-proceed according to several possibilities: <span
-class="math inline">\((Q, \Sigma, \Gamma, \delta, q_0, q_{acc},
-q_{rej})\)</span> where <span class="math display">\[\delta: Q \times
-\Gamma \to \mathcal{P}(Q \times \Gamma \times \{L, R\})\]</span> The
-computation of a nondeterministic Turing machine is a tree with
-branching when the next step of the computation has multiple
-possibilities. A nondeterministic Turing machine accepts a string
-exactly when some branch of the computation tree enters the accept
-state.</p>
-<p>Given a nondeterministic machine, we can use a <span
-class="math inline">\(3\)</span>-tape Turing machine to simulate it by
-doing a breadth-first search of computation tree: one tape is
-“read-only” input tape, one tape simulates the tape of the
-nondeterministic computation, and one tape tracks nondeterministic
-branching. <span>Sipser page 178</span></p>
-<p>Two models of computation are called <span><strong>equally
-expressive</strong></span> when every language recognizable with the
-first model is recognizable with the second, and vice versa.</p>
-<p><span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183):
-The informal notion of algorithm is formalized completely and correctly
-by the formal definition of a Turing machine. In other words: all
-reasonably expressive models of computation are equally expressive with
-the standard Turing machine.</p>
 <p>A language <span class="math inline">\(L\)</span> is
 <span><strong>recognized by</strong></span> a Turing machine <span
 class="math inline">\(M\)</span> means</p>
 <p>A Turing machine <span class="math inline">\(M\)</span>
 <span><strong>recognizes</strong></span> a language <span
-class="math inline">\(L\)</span> if means</p>
+class="math inline">\(L\)</span> means</p>
 <p>A Turing machine <span class="math inline">\(M\)</span> is a
 <span><strong>decider</strong></span> means</p>
 <p>A language <span class="math inline">\(L\)</span> is
@@ -1324,78 +969,86 @@ alt="image" /></td>
 </tbody>
 </table>
 </div>
+<h2 class="unnumbered"
+id="friday-decidable-and-recognizable-languages">Friday: Decidable and
+Recognizable Languages</h2>
+<p>A <span><strong>Turing-recognizable</strong></span> language is a set
+of strings that is the language recognized by some Turing machine. We
+also say that such languages are recognizable.</p>
+<p>A <span><strong>Turing-decidable</strong></span> language is a set of
+strings that is the language recognized by some decider. We also say
+that such languages are decidable.</p>
+<p>An <span><strong>unrecognizable</strong></span> language is a
+language that is not Turing-recognizable.</p>
+<p>An <span><strong>undecidable</strong></span> language is a language
+that is not Turing-decidable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any decidable language is also
+recognizable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any recognizable language is also
+decidable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any undecidable language is also
+unrecognizable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any unrecognizable language is also
+undecidable.</p>
+<p><span><strong>Claim</strong></span>: If two languages (over a fixed
+alphabet <span class="math inline">\(\Sigma\)</span>) are
+Turing-decidable, then their union is as well.</p>
+<p><span><strong>Proof</strong></span>:</p>
 <p><span><strong>Claim</strong></span>: If two languages (over a fixed
 alphabet <span class="math inline">\(\Sigma\)</span>) are
 Turing-recognizable, then their union is as well.</p>
-<p><span><strong>Proof using Turing machines</strong></span>:</p>
-<p><span><strong>Proof using nondeterministic Turing
-machines</strong></span>:</p>
-<p><span><strong>Proof using enumerators</strong></span>:</p>
-<p><span><strong>Describing Turing machines</strong></span> (Sipser p.
-185)</p>
-<p>To define a Turing machine, we could give a</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p><span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183):
+The informal notion of algorithm is formalized completely and correctly
+by the formal definition of a Turing machine. In other words: all
+reasonably expressive models of computation are equally expressive with
+the standard Turing machine.</p>
+<h2 class="unnumbered" id="week-6-at-a-glance">Week 6 at a glance</h2>
+<h3 class="unnumbered"
+id="textbook-reading-chapter-3-section-4.1">Textbook reading: Chapter 3,
+Section 4.1</h3>
+<p><span><em>For Monday</em></span>: Page 165-166 Introduction to
+Section 3.1</p>
+<p><span><em>For Wednesday</em></span>: Example 3.9 on page 173</p>
+<p><span><em>For Friday</em></span>: Page 184-185 Terminology for
+describing Turing machines</p>
+<h3 class="unnumbered" id="make-sure-you-can">Make sure you can:</h3>
 <ul>
-<li><p><span><strong>Formal definition</strong></span>: the <span
-class="math inline">\(7\)</span>-tuple of parameters including set of
-states, input alphabet, tape alphabet, transition function, start state,
-accept state, and reject state; or,</p></li>
-<li><p><span><strong>Implementation-level definition</strong></span>:
-English prose that describes the Turing machine head movements relative
-to contents of tape, and conditions for accepting / rejecting based on
-those contents.</p></li>
-<li><p><span><strong>High-level description</strong></span>: description
-of algorithm (precise sequence of instructions), without implementation
-details of machine. As part of this description, can “call" and run
-another TM as a subroutine.</p></li>
-</ul>
-<p>The Church-Turing thesis posits that each algorithm can be
-implemented by some Turing machine</p>
-<p>High-level descriptions of Turing machine algorithms are written as
-indented text within quotation marks.</p>
-<p>Stages of the algorithm are typically numbered consecutively.</p>
-<p>The first line specifies the input to the machine, which must be a
-string. This string may be the encoding of some object or list of
-objects.</p>
-<p><span><strong>Notation:</strong></span> <span
-class="math inline">\(\langle O \rangle\)</span> is the string that
-encodes the object <span class="math inline">\(O\)</span>. <span
-class="math inline">\(\langle O_1, \ldots, O_n \rangle\)</span> is the
-string that encodes the list of objects <span class="math inline">\(O_1,
-\ldots, O_n\)</span>.</p>
-<p><span><strong>Assumption</strong></span>: There are Turing machines
-that can be called as subroutines to decode the string representations
-of common objects and interact with these objects as intended (data
-structures).</p>
-<p>For example, since there are algorithms to answer each of the
-following questions, by Church-Turing thesis, there is a Turing machine
-that accepts exactly those strings for which the answer to the question
-is “yes”</p>
+<li><p>Use and design automata both formally and informally, including
+DFA, NFA, PDA, TM.</p>
 <ul>
-<li><p>Does a string over <span class="math inline">\(\{0,1\}\)</span>
-have even length?</p></li>
-<li><p>Does a string over <span class="math inline">\(\{0,1\}\)</span>
-encode a string of ASCII characters?<a href="#fn1" class="footnote-ref"
-id="fnref1" role="doc-noteref"><sup>1</sup></a></p></li>
-<li><p>Does a DFA have a specific number of states?</p></li>
-<li><p>Do two NFAs have any state names in common?</p></li>
-<li><p>Do two CFGs have the same start variable?</p></li>
+<li><p>Use precise notation to formally define the state diagram of DFA,
+NFA, PDA, TM.</p></li>
+<li><p>Use clear English to describe computations of DFA, NFA, PDA, TM
+informally</p></li>
+<li><p>Determine whether a language is recognizable by a (D or N) FA
+and/or a PDA</p></li>
+<li><p>Motivate the definition of a Turing machine</p></li>
+<li><p>Trace the computation of a Turing machine on given input</p></li>
+<li><p>Describe the language recognized by a Turing machine</p></li>
+<li><p>Determine if a Turing machine is a decider</p></li>
+<li><p>Given an implementation-level description of a Turing
+machine</p></li>
+<li><p>Use high-level descriptions to define and trace Turing
+machines</p></li>
+<li><p>Apply dovetailing in high-level definitions of machines</p></li>
+<li><p>State and use the Church-Turing thesis</p></li>
+</ul></li>
+<li><p>Classify the computational complexity of a set of strings by
+determining whether it is regular, context-free, decidable, or
+recognizable.</p></li>
+<li><p>Give examples of sets that are regular, context-free, decidable,
+or recognizable.</p></li>
 </ul>
-<h2 class="unnumbered" id="review-week-6-friday">Review: Week 6
-Friday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about descriptions of Turing
-machines.</p>
-<p><span><strong>Pre class reading for next time</strong></span>: Page
-184-185 Terminology for describing Turing machines</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>An introduction to ASCII is available on the w3 tutorial
-<a
-href="https://www.w3schools.com/charsets/ref_html_ascii.asp">here</a>.<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>Review quizzes based on class material each day.</p>
+<p>Homework assignment 3 due this Thursday.</p>
+<p>Project due next Thursday.</p>
+</div>
 </body>
 </html>
