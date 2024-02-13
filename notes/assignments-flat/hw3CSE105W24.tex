@@ -212,8 +212,9 @@ Consider the push-down automata $M_1$ and $M_2$ over $\{a,b\}$ with stack alphab
     $\delta: Q \times \Sigma_\varepsilon \times \Gamma_\varepsilon \to \mathcal{P}(Q \times \Gamma_\varepsilon)$
     given by 
     $$\delta( q,a,b) = \begin{cases}
-        \delta_1 (q,a,b) &\text{if $q \in Q_1$, $a \in \Sigma_\varepsilon$, $b \in {\Gamma_1}_\varepsilon$} \\
+        \delta_1 (q,a,b) &\text{if $q \in Q_1 \setminus F_1$, $a \in \Sigma_\varepsilon$, $b \in {\Gamma_1}_\varepsilon$} \\
         \delta_2 (q,a,b) &\text{if $q \in Q_2$, $a \in \Sigma_\varepsilon$, $b \in {\Gamma_2}_\varepsilon$} \\
+        \delta_1 (q,a,b) &\text{if $q \in F_1$, $a \in \Sigma$ or $b\in \Gamma_1$}\\
         \delta_1 (q,a,b) \cup \{ (q_2, \varepsilon)\} &\text{if $q \in F_1$, $a =\varepsilon$, $b=\varepsilon$}\\
         \emptyset &\text{otherwise}
     \end{cases}$$
@@ -234,7 +235,7 @@ this precise by showing that every regular language is context-free, in two ways
 \item\gradeCorrect When we first introduced PDAs we saw that any NFA can be transformed to a PDA by not using the stack 
 of the PDA at all. Make this precise by completing the following construction: Given a NFA $N = (Q, \Sigma, \delta_N, q_0, F)$
 we define a PDA $M$ with $L(M) = L(N)$ by choosing \ldots
-A complete solution will have precise, correct definitions for each of the defining paramaters of $M$: the set of states,
+A complete solution will have precise, correct definitions for each of the defining parameters of $M$: the set of states,
 the input alphabet, the stack alphabet, the transition function, the start state, and the set of accept states. Be careful
 to use notation that matches the types of the objects involved.
 

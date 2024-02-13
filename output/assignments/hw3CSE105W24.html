@@ -320,10 +320,12 @@ F_2)\]</span> with <span class="math inline">\(\delta: Q \times
 \Sigma_\varepsilon \times \Gamma_\varepsilon \to \mathcal{P}(Q \times
 \Gamma_\varepsilon)\)</span> given by <span
 class="math display">\[\delta( q,a,b) = \begin{cases}
-        \delta_1 (q,a,b) &amp;\text{if $q \in Q_1$, $a \in
+        \delta_1 (q,a,b) &amp;\text{if $q \in Q_1 \setminus F_1$, $a \in
 \Sigma_\varepsilon$, $b \in {\Gamma_1}_\varepsilon$} \\
         \delta_2 (q,a,b) &amp;\text{if $q \in Q_2$, $a \in
 \Sigma_\varepsilon$, $b \in {\Gamma_2}_\varepsilon$} \\
+        \delta_1 (q,a,b) &amp;\text{if $q \in F_1$, $a \in \Sigma$ or
+$b\in \Gamma_1$}\\
         \delta_1 (q,a,b) \cup \{ (q_2, \varepsilon)\} &amp;\text{if $q
 \in F_1$, $a =\varepsilon$, $b=\varepsilon$}\\
         \emptyset &amp;\text{otherwise}
@@ -360,7 +362,7 @@ following construction: Given a NFA <span class="math inline">\(N = (Q,
 \Sigma, \delta_N, q_0, F)\)</span> we define a PDA <span
 class="math inline">\(M\)</span> with <span class="math inline">\(L(M) =
 L(N)\)</span> by choosing … A complete solution will have precise,
-correct definitions for each of the defining paramaters of <span
+correct definitions for each of the defining parameters of <span
 class="math inline">\(M\)</span>: the set of states, the input alphabet,
 the stack alphabet, the transition function, the start state, and the
 set of accept states. Be careful to use notation that matches the types
