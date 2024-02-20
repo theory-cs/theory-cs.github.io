@@ -531,6 +531,43 @@ An {\bf undecidable} language is a language that is not Turing-decidable.
 \newpage
 
 
+{\bf True} or {\bf False}: The class of Turing-decidable languages is closed under complementation.
+
+\vfill
+
+Using formal definition:
+\vfill
+
+Using high-level description:
+\vfill
+
+
+{\bf  Church-Turing Thesis} (Sipser p. 183): The informal notion of algorithm is formalized completely  and correctly by the 
+formal definition of a  Turing machine. In other words: all reasonably expressive models of 
+computation are equally expressive with the standard Turing machine.
+
+\newpage
+Definition: A language $L$ over an  alphabet $\Sigma$ is called {\bf co-recognizable} if its complement,  defined
+as $\Sigma^* \setminus L  = \{ x  \in  \Sigma^* \mid x \notin  L \}$, is Turing-recognizable.
+
+
+\vfill 
+{\bf  Theorem} (Sipser Theorem 4.22): A  language is Turing-decidable if and only if both  it and its complement
+are Turing-recognizable.
+
+{\bf Proof, first direction:}  Suppose  language  $L$ is  Turing-decidable.   WTS  that both it and its complement 
+are Turing-recognizable.
+
+\vfill
+
+{\bf Proof, second direction:}  Suppose  language  $L$ is  Turing-recognizable, and  so is  its complement.   WTS  that $L$
+is Turing-decidable.
+\vfill
+
+
+Notation: The complement  of a set $X$ is denoted with  a superscript $c$, $X^c$, or an overline,  $\overline{X}$.
+
+\newpage
 
 {\bf Claim}: If two languages  (over a fixed alphabet  $\Sigma$) are Turing-decidable, then  their union  is  as well.
 
@@ -544,12 +581,6 @@ An {\bf undecidable} language is a language that is not Turing-decidable.
 
 {\bf Proof}:
 
-\newpage
-
-
-{\bf  Church-Turing Thesis} (Sipser p. 183): The informal notion of algorithm is formalized completely  and correctly by the 
-formal definition of a  Turing machine. In other words: all reasonably expressive models of 
-computation are equally expressive with the standard Turing machine.
  
 \newpage
 

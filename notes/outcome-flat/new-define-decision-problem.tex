@@ -43,128 +43,74 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Week7 monday}
+\end{flushright} \section*{Week7 wednesday}
 
 
+{\bf The Church-Turing thesis posits that each algorithm can be implemented by some Turing machine.}
 
-\begin{center}
-    \begin{tabular}{|l|l|l|l|}
-    \hline
-    & Suppose $M$ is  a TM & Suppose $D$ is  a TM & Suppose $E$ is  an
-    enumerator  \\
-    &that  recognizes $L$  &that  decides $L$  &that enumerates $L$ \\
-    \hline
-    If string $w$ is in  $L$ then  \ldots  &&& \\
-    &&&\\
-    &&&\\
-    If string $w$ is not in  $L$ then  \ldots  && &\\
-    &&&\\
-    &&&\\
-    \hline
-    \end{tabular}
-\end{center}
+{\bf Describing  algorithms} (Sipser p. 185) To define a Turing machine, we could give a 
+\begin{itemize}
+\item {\bf Formal definition}: the $7$-tuple of parameters including set of states, 
+input alphabet, tape alphabet, transition function, start state, accept state, and reject state.
+This is the low-level programming view that models the logic computation flow in a processor.
+\item {\bf Implementation-level definition}: English prose that describes the Turing machine head 
+movements relative to contents of tape, and conditions for accepting / rejecting based on those contents.
+This level describes memory management and implementing data access with data structures.
+  \begin{itemize}
+    \item Mention the tape or its contents (e.g.\ ``Scan the tape from left to right until a blank is seen.'')
+    \item Mention the tape head (e.g.\ ``Return the tape head to the left end of the tape.'')
+  \end{itemize}
+\item {\bf High-level description} of algorithm executed by Turing machine: 
+description of algorithm (precise sequence of instructions), 
+without implementation details of machine. 
+High-level descriptions of  Turing machine algorithms are written as indented text within quotation marks.   
+Stages of the algorithm are typically numbered consecutively.
+The first line specifies the input to the machine, which must be a string.
+  \begin{itemize}
+    \item Use other Turing machines as subroutines (e.g.\ ``Run $M$ on $w$'')
+    \item Build new machines from existing machines using previously shown results (e.g.\ 
+    ``Given NFA $A$ construct an NFA $B$ such that $L(B) = \overline{L(A)}$'')
+    \item Use previously shown conversions and constructions (e.g.\ ``Convert regular expression $R$ 
+    to an NFA $N$'')
+  \end{itemize}
+\end{itemize}
 
+{\bf Formatted inputs to Turing machine algorithms}
 
-A language $L$ is {\bf recognized by} a Turing machine $M$ means
-
-\vspace{15pt}
-
-A Turing  machine  $M$ {\bf  recognizes} a language $L$ if means
-
-\vspace{15pt}
-
-A Turing machine $M$ is a {\bf decider}  means
-
-\vspace{15pt}
-
-A language  $L$ is {\bf decided by} a Turing  machine  $M$  means
-
-\vspace{15pt}
-
-A  Turing machine $M$ {\bf decides} a language $L$ means
-
-\vspace{15pt}
+The input to a Turing machine is always a string. 
+The format of the input to a Turing machine can be checked to interpret 
+this string as representing structured data (like a csv file, the formal definition of a DFA, another Turing machine, etc.)
 
 
-{\it From Friday's review quiz: }
-Which of the following sentences make sense? Which of those are true?
-
-A language is a decider if it always halts.
-
-\vfill
-
-The union of two deciders is a decider.
-
-\vfill
-
-A language is decidable if and only if it is recognizable.
-
-\vfill
-
-There is a Turing machine that isn't decidable.
-
-\vfill
-
-There is a recognizable language that isn't decided by any Turing machine.
-
-\vfill
-
-\newpage
-
-
-{\bf Claim}: If two languages  (over a fixed alphabet  $\Sigma$) are Turing-recognizable, then  their union  is  as well.
-
-{\bf Proof using Turing machines}:
-
-\vfill
-
-{\bf Proof using nondeterministic Turing machines}: 
-
-\vfill  
-
-{\bf  Proof using enumerators}:
-
-\vfill
-
-\newpage
-
-
-The first line of a {\bf high-level description} of a Turing machine specifies the input to the machine, which must be a string.
 This string may be the encoding of some object or  list of  objects.  
 
 {\bf Notation:} $\langle O \rangle$ is the string that encodes the object $O$.
 $\langle O_1, \ldots, O_n \rangle$ is the string that encodes the list of objects $O_1, \ldots, O_n$.
 
-{\bf Assumption}: There are Turing  machines that can be called as subroutines
+{\bf Assumption}: There are algorithms (Turing  machines) that can be called as subroutines
 to decode the string representations of common objects and  interact with these objects as intended
-(data structures).
+(data structures). These algorithms are able to ``type-check'' and string representations for different
+data structures are unique.
   
+\newpage
 For example, since there are algorithms to answer each of the following questions,
 by Church-Turing thesis, there is a Turing machine that accepts exactly those strings for which the 
 answer to the question is ``yes''
 \begin{itemize}
     \item Does a string over $\{0,1\}$ have even length?
 
-    \vfill
-
     \item Does a string over $\{0,1\}$ encode a string of ASCII characters?\footnote{An introduction to ASCII 
     is available on the w3 tutorial \href{https://www.w3schools.com/charsets/ref_html_ascii.asp}{here}.}
 
-    \vfill
-
     \item Does a DFA have a specific number of states?
-
-    \vfill
 
     \item Do two NFAs have any state names in common?
 
-    \vfill
-
     \item Do two CFGs have the same start variable?
 
-    \vfill
-
   \end{itemize}
+
+
 
 A {\bf computational problem} is decidable iff language encoding its positive problem instances
 is decidable.
@@ -192,17 +138,18 @@ The computational problem ``Is the given Turing machine a decider?'' is encoded 
 
 {\it Note: writing down the language encoding a computational problem is only the first step in 
 determining if it's recognizable, decidable, or \ldots }
- \vfill
-\section*{Week7 wednesday}
-
 
 Deciding a computational problem means building / defining a Turing 
 machine that recognizes the language encoding the computational problem, and that 
 is a decider.
 
+ \vfill
+\section*{Week7 friday}
 
-{\bf Some classes of computational problems help us understand the differences between the machine models we've been studying:}
 
+
+Some classes of computational problems will 
+help us understand the differences between the machine models we've been studying. (Sipser Section 4.1)
 
     \begin{center}
     \begin{tabular}{|lcl|}
@@ -219,7 +166,6 @@ is a decider.
     that generates input string $w$}\}$ \\
     \ldots for PDA & $A_{PDA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a PDA that accepts input string $w$}\}$ \\
     & & \\
-    & & \\
     \hline
     \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
     & & \\
@@ -231,7 +177,6 @@ is a decider.
     and  $L(G) = \emptyset$\}}$ \\
     \ldots for PDA & $E_{PDA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a PDA and  $L(A) = \emptyset$\}}$ \\
     & & \\
-    & & \\
     \hline
     \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
     & & \\
@@ -242,29 +187,10 @@ is a decider.
     \ldots for CFG & $EQ_{CFG}$ & $\{ \langle G, G' \rangle \mid  \text{$G$ and $G'$ are CFGs and  $L(G) =L(G')$\}}$ \\
     \ldots for PDA & $EQ_{PDA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are PDAs and  $L(A) =L(B)$\}}$ \\
     \hline
-    Sipser Section 4.1 &&\\
-    \hline
     \end{tabular}
     \end{center}
     
-    
-    
-    \newpage
-    
-    \begin{center}
-    \begin{tabular}{|c|c|c|}
-    \hline
-    $M_1$  \includegraphics[width=2in]{Lect17DFA1.png} &  
-    $M_2$ \includegraphics[width=2in]{Lect17DFA2.png} &  
-    $M_3$ \includegraphics[width=2in]{Lect17DFA3.png} \\ 
-    && \\
-    && \\
-    && \\
-    && \\
-    \hline
-    \end{tabular}
-    \end{center}
-    
+
     Example strings in $A_{DFA}$
     
     \vfill
@@ -278,11 +204,13 @@ is a decider.
     \vfill
 
   
+    \newpage
+
   \begin{quote}
   $M_1 = $ ``On input $\langle M,w\rangle$, where $M$ is a DFA and $w$ is a string:
   \begin{enumerate}
   \setcounter{enumi}{-1}
-  \item Type check encoding to check input is correct type.
+  \item Type check encoding to check input is correct type. If not, reject.
   \item Simulate $M$ on input $w$ (by keeping track of states in $M$, transition function of $M$, etc.) 
   \item If the simulations ends in an accept state of $M$, accept. If it ends in a non-accept state of $M$, reject. "
   \end{enumerate}
@@ -297,30 +225,13 @@ Is $M_1$ a decider?
 
 \vfill
 
-  
-  \begin{quote}
-  $M_2 =  $``On  input  $\langle M, w \rangle$ where $M$ is a  DFA and  $w$ is  a string, 
-  \begin{enumerate}
-  \item Run $M$ on  input  $w$.
-  \item If $M$  accepts, accept; if $M$ rejects, reject."
-  \end{enumerate}
-  \end{quote}
-  
 
-  What is $L(M_2)$? 
+{\it Alternate description}:
+Sometimes omit step 0 from listing and do implicit type check.
 
-  \vfill
-  
-  Is $M_2$ a decider?
-  
-  \vfill
-  
-    
+Synonyms: ``Simulate'', ``run'', ``call''.
+
 \newpage
-  $A_{REX} = $
-
-  $A_{NFA} = $
-
 
   True / False: $A_{REX} = A_{NFA} = A_{DFA}$
 
@@ -334,10 +245,12 @@ Is $M_1$ a decider?
   A Turing machine that  decides $A_{REX}$ is: 
   
   \vfill
-  \newpage
-  
+
+  $E_{DFA} = \{ \langle A \rangle \mid  \text{$A$ is a  DFA and  $L(A) = \emptyset$}\}$. 
+  True/False: A Turing machine that  decides $E_{DFA}$ is
+
   \begin{quote}
-  $M_3 =  $``On  input  $\langle M\rangle$ where $M$ is a  DFA,
+  $M_2 =  $``On  input  $\langle M\rangle$ where $M$ is a  DFA,
   \begin{enumerate}
   \item For integer  $i = 1, 2, \ldots$
   \item \qquad Let  $s_i$ be the  $i$th string over  the alphabet of  $M$ (ordered in  string order).
@@ -347,18 +260,20 @@ Is $M_1$ a decider?
   \end{quote}
   
 
-Choose the correct option to help fill in the blank so that $M_3$ recognizes $E_{DFA}$
+Choose the correct option to help fill in the blank so that $M_2$ recognizes $E_{DFA}$
 \begin{itemize}
 \item[A.] accepts
 \item[B.] rejects
 \item[C.] loop for ever
 \item[D.] We can't fill in the blank in any way to make this work
-\item[E.] None of the above
 \end{itemize}
+
+\newpage
+  
 
   
   \begin{quote}
-  $M_4 =  $ `` On  input $\langle M \rangle$ where $M$ is  a  DFA,
+  $M_3 =  $ `` On  input $\langle M \rangle$ where $M$ is  a  DFA,
   \begin{enumerate}
   \item Mark the start  state  of $M$.
   \item Repeat until no  new states get marked:
@@ -394,156 +309,6 @@ $M_{EQDFA} = $
   we have a machine recognizing the language of the union (or intersection, concatenation)
   of the languages of the original machines; converting regular expressions to equivalent DFA; 
   converting DFA to equivalent regular expressions, etc.
-
-\newpage \vfill
-\section*{Week7 friday}
-
-
-\begin{center}
-    \begin{tabular}{|lcl|}
-    \hline
-    \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
-    & & \\
-    \ldots for DFA & $A_{DFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  DFA that accepts input 
-    string $w$}\}$ \\
-    \ldots for NFA & $A_{NFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  NFA that accepts input 
-    string $w$}\}$ \\
-    \ldots for regular expressions & $A_{REX}$ & $\{ \langle R,w \rangle \mid  \text{$R$ is a  regular
-    expression that generates input string $w$}\}$ \\
-    \ldots for CFG & $A_{CFG}$ & $\{ \langle G,w \rangle \mid  \text{$G$ is a context-free grammar 
-    that generates input string $w$}\}$ \\
-    \ldots for PDA & $A_{PDA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a PDA that accepts input string $w$}\}$ \\
-    & & \\
-    & & \\
-    \hline
-    \end{tabular}
-\end{center}
-
-\begin{center}
-\begin{tabular}{|lcl|}
-\hline
-\multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
-for Turing  machines  & $A_{TM}$ & $\{ \langle M,w \rangle \mid  \text{$M$ is a Turing machine that accepts input 
-string $w$}\}$ \\
-\hline
-\multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
- for Turing machines & $E_{TM}$ & $\{ \langle M \rangle \mid  \text{$M$ is a Turing machine and  $L(M) = \emptyset$\}}$ \\
-\hline
-\multicolumn{3}{|l|}{{\bf Language equality testing} } \\
- for Turing machines& $EQ_{TM}$ & $\{ \langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing machines and  
- $L(M_1) =L(M_2)$\}}$\\
-\hline
-Sipser Section 4.1 &&\\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{multicols}{3}
-$M_1$ \includegraphics[width=2in]{Week8WarmupTM1.png} 
-
-\columnbreak
-
-$M_2$ \includegraphics[width=2in]{Week8WarmupTM2.png}
-
-\columnbreak
-
-$M_3$ \includegraphics[width=2in]{Week8WarmupTM3.png}
-\end{multicols}
-
-Example strings in $A_{TM}$
-
-\vfill
-
-Example strings in  $E_{TM}$
-
-\vfill
-
-Example strings in  $EQ_{TM}$
-
-\vfill
-
-\newpage
-
-{\bf  Theorem}: $A_{TM}$  is  Turing-recognizable.
-
-
-{\bf  Strategy}:  To prove this theorem, we need  to  define  a Turing  machine  $R_{ATM}$ such that 
-$L(R_{ATM}) = A_{TM}$.
-
-
-Define $R_{ATM} =  $ ``
-
-\vspace{150pt}
-
-
-Proof of correctness: 
-
-
-\vfill
-\vfill
-
-We will show that $A_{TM}$ is undecidable.   {\it First, let's explore what that means.}
-
-\newpage
-
-A {\bf Turing-recognizable} language is a set of strings that 
-is the language recognized by some Turing machine. We also 
-say that such languages are recognizable.
-
-A {\bf Turing-decidable} language is a set of strings that 
-is the language recognized by some decider. We also 
-say that such languages are decidable.
-
-An {\bf unrecognizable} language is a language that is not Turing-recognizable.
-
-An {\bf undecidable} language is a language that is not Turing-decidable.
-
-
-{\bf  True} or {\bf False}: Any  undecidable language  is  also  unrecognizable.
-
-
-{\bf  True} or {\bf False}: Any  unrecognizable language  is  also  undecidable.
-
-
-To prove that a computational problem is {\bf decidable}, we find/ build a Turing 
-machine that recognizes the language encoding the computational problem, and that 
-is a decider.
-
-
-How do we prove a specific problem is {\bf not decidable}?
-
-How would we even find such a computational problem?
-
-
-{\it Counting arguments for the existence of an undecidable language:}
-\begin{itemize}
-    \item The set of all Turing machines is countably infinite.
-    \item Each Turing-recognizable language is associated with a Turing machine
-    in a one-to-one relationship, so there can be no more Turing-recognizable
-    languages than there are Turing machines. 
-    \item Since there are infinitely many Turing-recognizable languages
-    (think of the singleton sets), there are countably infinitely 
-    many Turing-recognizable languages.
-    \item Such the set of Turing-decidable languages is an infinite subset 
-    of the set of Turing-recognizable languages, the set of 
-    Turing-decidable languages is also countably infinite.
-\end{itemize}
-
-Since there are uncountably many languages (because $\mathcal{P}(\Sigma^*)$
-is uncountable), there are uncountably many unrecognizable languages
-and there are uncountably many undecidable languages.
-
-
-Thus, there's at least one undecidable language!
-
-\vfill
-
-{\bf What's a specific example of a language that is unrecognizable or undecidable?}
-
-To prove that a language is undecidable, we need to prove that there is no Turing machine that decides it.
-
-{\bf Key idea}: proof by contradiction relying on self-referential disagreement.
-
  \vfill
 \section*{Week1 monday}
 

@@ -1295,6 +1295,37 @@ unrecognizable.</p>
 <p><span><strong>True</strong></span> or
 <span><strong>False</strong></span>: Any unrecognizable language is also
 undecidable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The class of Turing-decidable
+languages is closed under complementation.</p>
+<p>Using formal definition:</p>
+<p>Using high-level description:</p>
+<p><span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183):
+The informal notion of algorithm is formalized completely and correctly
+by the formal definition of a Turing machine. In other words: all
+reasonably expressive models of computation are equally expressive with
+the standard Turing machine.</p>
+<p>Definition: A language <span class="math inline">\(L\)</span> over an
+alphabet <span class="math inline">\(\Sigma\)</span> is called
+<span><strong>co-recognizable</strong></span> if its complement, defined
+as <span class="math inline">\(\Sigma^* \setminus L  = \{
+x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
+Turing-recognizable.</p>
+<p><span><strong>Theorem</strong></span> (Sipser Theorem 4.22): A
+language is Turing-decidable if and only if both it and its complement
+are Turing-recognizable.</p>
+<p><span><strong>Proof, first direction:</strong></span> Suppose
+language <span class="math inline">\(L\)</span> is Turing-decidable. WTS
+that both it and its complement are Turing-recognizable.</p>
+<p><span><strong>Proof, second direction:</strong></span> Suppose
+language <span class="math inline">\(L\)</span> is Turing-recognizable,
+and so is its complement. WTS that <span
+class="math inline">\(L\)</span> is Turing-decidable.</p>
+<p>Notation: The complement of a set <span
+class="math inline">\(X\)</span> is denoted with a superscript <span
+class="math inline">\(c\)</span>, <span
+class="math inline">\(X^c\)</span>, or an overline, <span
+class="math inline">\(\overline{X}\)</span>.</p>
 <p><span><strong>Claim</strong></span>: If two languages (over a fixed
 alphabet <span class="math inline">\(\Sigma\)</span>) are
 Turing-decidable, then their union is as well.</p>
@@ -1303,11 +1334,6 @@ Turing-decidable, then their union is as well.</p>
 alphabet <span class="math inline">\(\Sigma\)</span>) are
 Turing-recognizable, then their union is as well.</p>
 <p><span><strong>Proof</strong></span>:</p>
-<p><span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183):
-The informal notion of algorithm is formalized completely and correctly
-by the formal definition of a Turing machine. In other words: all
-reasonably expressive models of computation are equally expressive with
-the standard Turing machine.</p>
 <h1 class="unnumbered" id="week3-monday">Week3 monday</h1>
 <p><span><strong>Warmup</strong></span>: Design a DFA (deterministic
 finite automaton) and an NFA (nondeterministic finite automaton) that

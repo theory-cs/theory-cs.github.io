@@ -175,114 +175,68 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="monday">Monday</h1>
-<div class="center">
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Suppose <span
-class="math inline">\(M\)</span> is a TM</td>
-<td style="text-align: left;">Suppose <span
-class="math inline">\(D\)</span> is a TM</td>
-<td style="text-align: left;">Suppose <span
-class="math inline">\(E\)</span> is an enumerator</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">that recognizes <span
-class="math inline">\(L\)</span></td>
-<td style="text-align: left;">that decides <span
-class="math inline">\(L\)</span></td>
-<td style="text-align: left;">that enumerates <span
-class="math inline">\(L\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">If string <span
-class="math inline">\(w\)</span> is in <span
-class="math inline">\(L\)</span> then …</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">If string <span
-class="math inline">\(w\)</span> is not in <span
-class="math inline">\(L\)</span> then …</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>A language <span class="math inline">\(L\)</span> is
-<span><strong>recognized by</strong></span> a Turing machine <span
-class="math inline">\(M\)</span> means</p>
-<p>A Turing machine <span class="math inline">\(M\)</span>
-<span><strong>recognizes</strong></span> a language <span
-class="math inline">\(L\)</span> if means</p>
-<p>A Turing machine <span class="math inline">\(M\)</span> is a
-<span><strong>decider</strong></span> means</p>
-<p>A language <span class="math inline">\(L\)</span> is
-<span><strong>decided by</strong></span> a Turing machine <span
-class="math inline">\(M\)</span> means</p>
-<p>A Turing machine <span class="math inline">\(M\)</span>
-<span><strong>decides</strong></span> a language <span
-class="math inline">\(L\)</span> means</p>
-<p><span><em>From Friday’s review quiz:</em> </span> Which of the
-following sentences make sense? Which of those are true?</p>
-<p>A language is a decider if it always halts.</p>
-<p>The union of two deciders is a decider.</p>
-<p>A language is decidable if and only if it is recognizable.</p>
-<p>There is a Turing machine that isn’t decidable.</p>
-<p>There is a recognizable language that isn’t decided by any Turing
-machine.</p>
-<p><span><strong>Claim</strong></span>: If two languages (over a fixed
-alphabet <span class="math inline">\(\Sigma\)</span>) are
-Turing-recognizable, then their union is as well.</p>
-<p><span><strong>Proof using Turing machines</strong></span>:</p>
-<p><span><strong>Proof using nondeterministic Turing
-machines</strong></span>:</p>
-<p><span><strong>Proof using enumerators</strong></span>:</p>
-<p>The first line of a <span><strong>high-level
-description</strong></span> of a Turing machine specifies the input to
-the machine, which must be a string. This string may be the encoding of
-some object or list of objects.</p>
+<h1 class="unnumbered" id="wednesday-computational-problems">Wednesday:
+Computational Problems</h1>
+<p><span><strong>The Church-Turing thesis posits that each algorithm can
+be implemented by some Turing machine.</strong></span></p>
+<p><span><strong>Describing algorithms</strong></span> (Sipser p. 185)
+To define a Turing machine, we could give a</p>
+<ul>
+<li><p><span><strong>Formal definition</strong></span>: the <span
+class="math inline">\(7\)</span>-tuple of parameters including set of
+states, input alphabet, tape alphabet, transition function, start state,
+accept state, and reject state. This is the low-level programming view
+that models the logic computation flow in a processor.</p></li>
+<li><p><span><strong>Implementation-level definition</strong></span>:
+English prose that describes the Turing machine head movements relative
+to contents of tape, and conditions for accepting / rejecting based on
+those contents. This level describes memory management and implementing
+data access with data structures.</p>
+<ul>
+<li><p>Mention the tape or its contents (e.g. “Scan the tape from left
+to right until a blank is seen.”)</p></li>
+<li><p>Mention the tape head (e.g. “Return the tape head to the left end
+of the tape.”)</p></li>
+</ul></li>
+<li><p><span><strong>High-level description</strong></span> of algorithm
+executed by Turing machine: description of algorithm (precise sequence
+of instructions), without implementation details of machine. High-level
+descriptions of Turing machine algorithms are written as indented text
+within quotation marks. Stages of the algorithm are typically numbered
+consecutively. The first line specifies the input to the machine, which
+must be a string.</p>
+<ul>
+<li><p>Use other Turing machines as subroutines (e.g. “Run <span
+class="math inline">\(M\)</span> on <span
+class="math inline">\(w\)</span>”)</p></li>
+<li><p>Build new machines from existing machines using previously shown
+results (e.g. “Given NFA <span class="math inline">\(A\)</span>
+construct an NFA <span class="math inline">\(B\)</span> such that <span
+class="math inline">\(L(B) = \overline{L(A)}\)</span>”)</p></li>
+<li><p>Use previously shown conversions and constructions (e.g. “Convert
+regular expression <span class="math inline">\(R\)</span> to an NFA
+<span class="math inline">\(N\)</span>”)</p></li>
+</ul></li>
+</ul>
+<p><span><strong>Formatted inputs to Turing machine
+algorithms</strong></span></p>
+<p>The input to a Turing machine is always a string. The format of the
+input to a Turing machine can be checked to interpret this string as
+representing structured data (like a csv file, the formal definition of
+a DFA, another Turing machine, etc.)</p>
+<p>This string may be the encoding of some object or list of
+objects.</p>
 <p><span><strong>Notation:</strong></span> <span
 class="math inline">\(\langle O \rangle\)</span> is the string that
 encodes the object <span class="math inline">\(O\)</span>. <span
 class="math inline">\(\langle O_1, \ldots, O_n \rangle\)</span> is the
 string that encodes the list of objects <span class="math inline">\(O_1,
 \ldots, O_n\)</span>.</p>
-<p><span><strong>Assumption</strong></span>: There are Turing machines
-that can be called as subroutines to decode the string representations
-of common objects and interact with these objects as intended (data
-structures).</p>
+<p><span><strong>Assumption</strong></span>: There are algorithms
+(Turing machines) that can be called as subroutines to decode the string
+representations of common objects and interact with these objects as
+intended (data structures). These algorithms are able to “type-check”
+and string representations for different data structures are unique.</p>
 <p>For example, since there are algorithms to answer each of the
 following questions, by Church-Turing thesis, there is a Turing machine
 that accepts exactly those strings for which the answer to the question
@@ -324,27 +278,15 @@ string } w, \textrm{$M$ halts on $w$} \}
 <p><span><em>Note: writing down the language encoding a computational
 problem is only the first step in determining if it’s recognizable,
 decidable, or …</em></span></p>
-<h2 class="unnumbered" id="review-week-7-monday">Review: Week 7
-Monday</h2>
-<p>Recall: Review quizzes based on class material are assigned each day.
-These quizzes will help you track and confirm your understanding of the
-concepts and examples we work in class. Quizzes can be submitted on
-Gradescope as many times (with no penalty) as you like until the quiz
-deadline: the three quizzes each week are all due on Friday (with no
-penalty late submission open until Sunday).</p>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about computational
-problems.</p>
-<p><span><strong>Pre class reading for next time</strong></span>:
-Decidable problems concerning regular languages, Sipser pages
-194-196.</p>
-<h2 class="unnumbered" id="wednesday">Wednesday</h2>
 <p>Deciding a computational problem means building / defining a Turing
 machine that recognizes the language encoding the computational problem,
 and that is a decider.</p>
-<p><span><strong>Some classes of computational problems help us
-understand the differences between the machine models we’ve been
-studying:</strong></span></p>
+<h2 class="unnumbered"
+id="friday-decidable-problems-about-regular-languages">Friday: Decidable
+Problems about Regular Languages</h2>
+<p>Some classes of computational problems will help us understand the
+differences between the machine models we’ve been studying. (Sipser
+Section 4.1)</p>
 <div class="center">
 <table>
 <tbody>
@@ -403,20 +345,15 @@ $w$}\}\)</span></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
 <td colspan="3" style="text-align: left;"><span><strong>Language
 emptiness testing</strong></span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">…for DFA</td>
 <td style="text-align: center;"><span
 class="math inline">\(E_{DFA}\)</span></td>
@@ -424,7 +361,7 @@ class="math inline">\(E_{DFA}\)</span></td>
 \rangle \mid  \text{$A$ is a  DFA and  $L(A) =
 \emptyset$\}}\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">…for NFA</td>
 <td style="text-align: center;"><span
 class="math inline">\(E_{NFA}\)</span></td>
@@ -432,7 +369,7 @@ class="math inline">\(E_{NFA}\)</span></td>
 A\rangle \mid  \text{$A$ is a NFA and  $L(A) =
 \emptyset$\}}\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">…for regular expressions</td>
 <td style="text-align: center;"><span
 class="math inline">\(E_{REX}\)</span></td>
@@ -440,7 +377,7 @@ class="math inline">\(E_{REX}\)</span></td>
 \rangle \mid  \text{$R$ is a  regular
     expression and  $L(R) = \emptyset$\}}\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">…for CFG</td>
 <td style="text-align: center;"><span
 class="math inline">\(E_{CFG}\)</span></td>
@@ -448,18 +385,13 @@ class="math inline">\(E_{CFG}\)</span></td>
 \rangle \mid  \text{$G$ is a context-free grammar
     and  $L(G) = \emptyset$\}}\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">…for PDA</td>
 <td style="text-align: center;"><span
 class="math inline">\(E_{PDA}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\{ \langle A
 \rangle \mid  \text{$A$ is a PDA and  $L(A) =
 \emptyset$\}}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
@@ -515,48 +447,6 @@ class="math inline">\(EQ_{PDA}\)</span></td>
 B \rangle \mid  \text{$A$ and $B$ are PDAs and  $L(A)
 =L(B)$\}}\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Sipser Section 4.1</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="center">
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(M_1\)</span>
-<img src="../../resources/machines/Lect17DFA1.png" style="width:2in"
-alt="image" /></td>
-<td style="text-align: center;"><span class="math inline">\(M_2\)</span>
-<img src="../../resources/machines/Lect17DFA2.png" style="width:2in"
-alt="image" /></td>
-<td style="text-align: center;"><span class="math inline">\(M_3\)</span>
-<img src="../../resources/machines/Lect17DFA3.png" style="width:2in"
-alt="image" /></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -569,7 +459,8 @@ class="math inline">\(\langle M,w\rangle\)</span>, where <span
 class="math inline">\(M\)</span> is a DFA and <span
 class="math inline">\(w\)</span> is a string:</p>
 <ol start="0">
-<li><p>Type check encoding to check input is correct type.</p></li>
+<li><p>Type check encoding to check input is correct type. If not,
+reject.</p></li>
 <li><p>Simulate <span class="math inline">\(M\)</span> on input <span
 class="math inline">\(w\)</span> (by keeping track of states in <span
 class="math inline">\(M\)</span>, transition function of <span
@@ -581,22 +472,9 @@ state of <span class="math inline">\(M\)</span>, reject. "</p></li>
 </blockquote>
 <p>What is <span class="math inline">\(L(M_1)\)</span>?</p>
 <p>Is <span class="math inline">\(M_1\)</span> a decider?</p>
-<blockquote>
-<p><span class="math inline">\(M_2 =\)</span>“On input <span
-class="math inline">\(\langle M, w \rangle\)</span> where <span
-class="math inline">\(M\)</span> is a DFA and <span
-class="math inline">\(w\)</span> is a string,</p>
-<ol>
-<li><p>Run <span class="math inline">\(M\)</span> on input <span
-class="math inline">\(w\)</span>.</p></li>
-<li><p>If <span class="math inline">\(M\)</span> accepts, accept; if
-<span class="math inline">\(M\)</span> rejects, reject."</p></li>
-</ol>
-</blockquote>
-<p>What is <span class="math inline">\(L(M_2)\)</span>?</p>
-<p>Is <span class="math inline">\(M_2\)</span> a decider?</p>
-<p><span class="math inline">\(A_{REX} =\)</span></p>
-<p><span class="math inline">\(A_{NFA} =\)</span></p>
+<p><span><em>Alternate description</em></span>: Sometimes omit step 0
+from listing and do implicit type check.</p>
+<p>Synonyms: “Simulate”, “run”, “call”.</p>
 <p>True / False: <span class="math inline">\(A_{REX} = A_{NFA} =
 A_{DFA}\)</span></p>
 <p>True / False: <span class="math inline">\(A_{REX} \cap A_{NFA} =
@@ -607,8 +485,12 @@ A_{DFA}\)</span></p>
 class="math inline">\(A_{NFA}\)</span> is:</p>
 <p>A Turing machine that decides <span
 class="math inline">\(A_{REX}\)</span> is:</p>
+<p><span class="math inline">\(E_{DFA} = \{ \langle A \rangle
+\mid  \text{$A$ is a  DFA and  $L(A) = \emptyset$}\}\)</span>.
+True/False: A Turing machine that decides <span
+class="math inline">\(E_{DFA}\)</span> is</p>
 <blockquote>
-<p><span class="math inline">\(M_3 =\)</span>“On input <span
+<p><span class="math inline">\(M_2 =\)</span>“On input <span
 class="math inline">\(\langle M\rangle\)</span> where <span
 class="math inline">\(M\)</span> is a DFA,</p>
 <ol>
@@ -626,17 +508,16 @@ class="math inline">\(i\)</span> and keep going."</p></li>
 </ol>
 </blockquote>
 <p>Choose the correct option to help fill in the blank so that <span
-class="math inline">\(M_3\)</span> recognizes <span
+class="math inline">\(M_2\)</span> recognizes <span
 class="math inline">\(E_{DFA}\)</span></p>
 <ul>
 <li><p>accepts</p></li>
 <li><p>rejects</p></li>
 <li><p>loop for ever</p></li>
 <li><p>We can’t fill in the blank in any way to make this work</p></li>
-<li><p>None of the above</p></li>
 </ul>
 <blockquote>
-<p><span class="math inline">\(M_4 =\)</span> “ On input <span
+<p><span class="math inline">\(M_3 =\)</span> “ On input <span
 class="math inline">\(\langle M \rangle\)</span> where <span
 class="math inline">\(M\)</span> is a DFA,</p>
 <ol>
@@ -676,205 +557,59 @@ or NFA from two DFA or NFA so that we have a machine recognizing the
 language of the union (or intersection, concatenation) of the languages
 of the original machines; converting regular expressions to equivalent
 DFA; converting DFA to equivalent regular expressions, etc.</p>
-<h2 class="unnumbered" id="review-week-7-wednesday">Review: Week 7
-Wednesday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about decidable
-computational problems.</p>
-<p><span><strong>Pre class reading for next time</strong></span>: An
-undecidable language, Sipser pages 207-209.</p>
-<h2 class="unnumbered" id="friday">Friday</h2>
-<div class="center">
-<table>
-<tbody>
-<tr class="odd">
-<td colspan="3" style="text-align: left;"><span><strong>Acceptance
-problem</strong></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">…for DFA</td>
-<td style="text-align: center;"><span
-class="math inline">\(A_{DFA}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
-\rangle \mid  \text{$B$ is a  DFA that accepts input
-    string $w$}\}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">…for NFA</td>
-<td style="text-align: center;"><span
-class="math inline">\(A_{NFA}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
-\rangle \mid  \text{$B$ is a  NFA that accepts input
-    string $w$}\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">…for regular expressions</td>
-<td style="text-align: center;"><span
-class="math inline">\(A_{REX}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\{ \langle R,w
-\rangle \mid  \text{$R$ is a  regular
-    expression that generates input string $w$}\}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">…for CFG</td>
-<td style="text-align: center;"><span
-class="math inline">\(A_{CFG}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\{ \langle G,w
-\rangle \mid  \text{$G$ is a context-free grammar
-    that generates input string $w$}\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">…for PDA</td>
-<td style="text-align: center;"><span
-class="math inline">\(A_{PDA}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
-\rangle \mid  \text{$B$ is a PDA that accepts input string
-$w$}\}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="center">
-<table>
-<tbody>
-<tr class="odd">
-<td colspan="3" style="text-align: left;"><span><strong>Acceptance
-problem</strong></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">for Turing machines</td>
-<td style="text-align: center;"><span
-class="math inline">\(A_{TM}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\{ \langle M,w
-\rangle \mid  \text{$M$ is a Turing machine that accepts input
-string $w$}\}\)</span></td>
-</tr>
-<tr class="odd">
-<td colspan="3" style="text-align: left;"><span><strong>Language
-emptiness testing</strong></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">for Turing machines</td>
-<td style="text-align: center;"><span
-class="math inline">\(E_{TM}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\{ \langle M
-\rangle \mid  \text{$M$ is a Turing machine and  $L(M) =
-\emptyset$\}}\)</span></td>
-</tr>
-<tr class="odd">
-<td colspan="3" style="text-align: left;"><span><strong>Language
-equality testing</strong></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">for Turing machines</td>
-<td style="text-align: center;"><span
-class="math inline">\(EQ_{TM}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\{
-\langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing
-machines and  
-$L(M_1) =L(M_2)$\}}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sipser Section 4.1</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="multicols">
-<p><span>3</span> <span class="math inline">\(M_1\)</span> <img
-src="../../resources/machines/Week8WarmupTM1.png" style="width:2in"
-alt="image" /></p>
-<p><span class="math inline">\(M_2\)</span> <img
-src="../../resources/machines/Week8WarmupTM2.png" style="width:2in"
-alt="image" /></p>
-<p><span class="math inline">\(M_3\)</span> <img
-src="../../resources/machines/Week8WarmupTM3.png" style="width:2in"
-alt="image" /></p>
-</div>
-<p>Example strings in <span class="math inline">\(A_{TM}\)</span></p>
-<p>Example strings in <span class="math inline">\(E_{TM}\)</span></p>
-<p>Example strings in <span class="math inline">\(EQ_{TM}\)</span></p>
-<p><span><strong>Theorem</strong></span>: <span
-class="math inline">\(A_{TM}\)</span> is Turing-recognizable.</p>
-<p><span><strong>Strategy</strong></span>: To prove this theorem, we
-need to define a Turing machine <span
-class="math inline">\(R_{ATM}\)</span> such that <span
-class="math inline">\(L(R_{ATM}) = A_{TM}\)</span>.</p>
-<p>Define <span class="math inline">\(R_{ATM} =\)</span> “</p>
-<p>Proof of correctness:</p>
-<p>We will show that <span class="math inline">\(A_{TM}\)</span> is
-undecidable. <span><em>First, let’s explore what that
-means.</em></span></p>
-<p>A <span><strong>Turing-recognizable</strong></span> language is a set
-of strings that is the language recognized by some Turing machine. We
-also say that such languages are recognizable.</p>
-<p>A <span><strong>Turing-decidable</strong></span> language is a set of
-strings that is the language recognized by some decider. We also say
-that such languages are decidable.</p>
-<p>An <span><strong>unrecognizable</strong></span> language is a
-language that is not Turing-recognizable.</p>
-<p>An <span><strong>undecidable</strong></span> language is a language
-that is not Turing-decidable.</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: Any undecidable language is also
-unrecognizable.</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: Any unrecognizable language is also
-undecidable.</p>
-<p>To prove that a computational problem is
-<span><strong>decidable</strong></span>, we find/ build a Turing machine
-that recognizes the language encoding the computational problem, and
-that is a decider.</p>
-<p>How do we prove a specific problem is <span><strong>not
-decidable</strong></span>?</p>
-<p>How would we even find such a computational problem?</p>
-<p><span><em>Counting arguments for the existence of an undecidable
-language:</em></span></p>
+<h2 class="unnumbered" id="week-7-at-a-glance">Week 7 at a glance</h2>
+<h3 class="unnumbered" id="textbook-reading-sections-3.3-4.1">Textbook
+reading: Sections 3.3, 4.1</h3>
+<p><span><em>No lecture on Monday in observance of Presidents
+Day</em></span></p>
+<p><span><em>For Wednesday</em></span>: Example 3.23 on page 185</p>
+<p><span><em>For Friday</em></span>: Decidable problems concerning
+regular languages, Sipser pages 194-196.</p>
+<p><span><em>For Monday of Week 8:</em></span> An undecidable language,
+Sipser pages 207-209.</p>
+<h3 class="unnumbered" id="make-sure-you-can">Make sure you can:</h3>
 <ul>
-<li><p>The set of all Turing machines is countably infinite.</p></li>
-<li><p>Each Turing-recognizable language is associated with a Turing
-machine in a one-to-one relationship, so there can be no more
-Turing-recognizable languages than there are Turing machines.</p></li>
-<li><p>Since there are infinitely many Turing-recognizable languages
-(think of the singleton sets), there are countably infinitely many
-Turing-recognizable languages.</p></li>
-<li><p>Such the set of Turing-decidable languages is an infinite subset
-of the set of Turing-recognizable languages, the set of Turing-decidable
-languages is also countably infinite.</p></li>
+<li><p>Use and design automata both formally and informally, including
+DFA, NFA, PDA, TM.</p>
+<ul>
+<li><p>Describe the language recognized by a Turing machine</p></li>
+<li><p>Determine if a Turing machine is a decider</p></li>
+</ul></li>
+<li><p>Explain the Church-Turing thesis and use it to operationalize the
+notion of algorithm</p>
+<ul>
+<li><p>State and use the Church-Turing thesis</p></li>
+<li><p>Use high-level descriptions to define and trace Turing
+machines</p></li>
+<li><p>Apply dovetailing in high-level definitions of machines</p></li>
+</ul></li>
+<li><p>Translate a decision problem to a set of strings coding the
+problem.</p>
+<ul>
+<li><p>Connect languages and computational problems</p></li>
+<li><p>Describe and use the encoding of objects as inputs to Turing
+machines</p></li>
+<li><p>Describe common computational problems with respect to DFA, NFA,
+regular expressions, PDA, and context-free grammars.</p></li>
+<li><p>Give high-level descriptions of Turing machines that decide
+common computational problems with respect to DFA, NFA, regular
+expressions, PDA, and context-free grammars.</p></li>
+<li><p>Give examples of decidable problems.</p></li>
+<li><p>Trace high-level descriptions of algorithms for computational
+problems</p></li>
+</ul></li>
+<li><p>Classify the computational complexity of a set of strings by
+determining whether it is regular, context-free, decidable, or
+recognizable.</p></li>
+<li><p>Give examples of sets that are regular, context-free, decidable,
+or recognizable.</p></li>
 </ul>
-<p>Since there are uncountably many languages (because <span
-class="math inline">\(\mathcal{P}(\Sigma^*)\)</span> is uncountable),
-there are uncountably many unrecognizable languages and there are
-uncountably many undecidable languages.</p>
-<p>Thus, there’s at least one undecidable language!</p>
-<p><span><strong>What’s a specific example of a language that is
-unrecognizable or undecidable?</strong></span></p>
-<p>To prove that a language is undecidable, we need to prove that there
-is no Turing machine that decides it.</p>
-<p><span><strong>Key idea</strong></span>: proof by contradiction
-relying on self-referential disagreement.</p>
-<h2 class="unnumbered" id="review-week-7-friday">Review: Week 7
-Friday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about undecidability and
-unrecognizability.</p>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>Review quizzes based on class material each day.</p>
+<p>Project due this Thursday.</p>
+<p>Homework assignment 4 due next Thursday.</p>
+</div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
