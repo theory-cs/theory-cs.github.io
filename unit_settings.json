@@ -343,6 +343,10 @@
                 "source": "Week5.tex"
             },
             {
+                "name": "Review Quizzes",
+                "source": "Week5RQ.pdf"
+            }, 
+            {
                 "name": "(Video) PDA Design and reverse engingeering",
                 "source": "https://youtu.be/b-dr_GndeBg"
             },
