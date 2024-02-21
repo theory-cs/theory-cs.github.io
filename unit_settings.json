@@ -423,6 +423,10 @@
         "ExpandInCalendar": false,
         "content": [
             {
+                "name": "Review Quizzes",
+                "source": "Week6RQ.pdf"
+            }, 
+            {
                 "name": "(Video) Turing machine introduction",
                 "source": "https://youtu.be/rASd5i-Am7k"
             },
