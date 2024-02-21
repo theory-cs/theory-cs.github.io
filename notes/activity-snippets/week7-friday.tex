@@ -1,7 +1,11 @@
 %! app: Decidable Languages, Undecidable Languages
 %! outcome: Classify language, Find example languages, Define decision problem, Classify decision problem
     
-\begin{center}
+
+Some classes of computational problems will 
+help us understand the differences between the machine models we've been studying. (Sipser Section 4.1)
+
+    \begin{center}
     \begin{tabular}{|lcl|}
     \hline
     \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
@@ -16,133 +20,146 @@
     that generates input string $w$}\}$ \\
     \ldots for PDA & $A_{PDA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a PDA that accepts input string $w$}\}$ \\
     & & \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
+    & & \\
+    \ldots for DFA & $E_{DFA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a  DFA and  $L(A) = \emptyset$\}}$ \\
+    \ldots for NFA & $E_{NFA}$ & $\{ \langle A\rangle \mid  \text{$A$ is a NFA and  $L(A) = \emptyset$\}}$ \\
+    \ldots for regular expressions & $E_{REX}$ & $\{ \langle R \rangle \mid  \text{$R$ is a  regular
+    expression and  $L(R) = \emptyset$\}}$ \\
+    \ldots for CFG & $E_{CFG}$ & $\{ \langle G \rangle \mid  \text{$G$ is a context-free grammar 
+    and  $L(G) = \emptyset$\}}$ \\
+    \ldots for PDA & $E_{PDA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a PDA and  $L(A) = \emptyset$\}}$ \\
     & & \\
     \hline
+    \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
+    & & \\
+    \ldots for DFA & $EQ_{DFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are DFAs and  $L(A) =L(B)$\}}$\\
+    \ldots for NFA & $EQ_{NFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are NFAs and  $L(A) =L(B)$\}}$\\
+    \ldots for regular expressions & $EQ_{REX}$ & $\{ \langle R, R' \rangle \mid  \text{$R$ and $R'$ are regular
+    expressions and  $L(R) =L(R')$\}}$\\
+    \ldots for CFG & $EQ_{CFG}$ & $\{ \langle G, G' \rangle \mid  \text{$G$ and $G'$ are CFGs and  $L(G) =L(G')$\}}$ \\
+    \ldots for PDA & $EQ_{PDA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are PDAs and  $L(A) =L(B)$\}}$ \\
+    \hline
     \end{tabular}
-\end{center}
+    \end{center}
+    
 
-\begin{center}
-\begin{tabular}{|lcl|}
-\hline
-\multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
-for Turing  machines  & $A_{TM}$ & $\{ \langle M,w \rangle \mid  \text{$M$ is a Turing machine that accepts input 
-string $w$}\}$ \\
-\hline
-\multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
- for Turing machines & $E_{TM}$ & $\{ \langle M \rangle \mid  \text{$M$ is a Turing machine and  $L(M) = \emptyset$\}}$ \\
-\hline
-\multicolumn{3}{|l|}{{\bf Language equality testing} } \\
- for Turing machines& $EQ_{TM}$ & $\{ \langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing machines and  
- $L(M_1) =L(M_2)$\}}$\\
-\hline
-Sipser Section 4.1 &&\\
-\hline
-\end{tabular}
-\end{center}
+    Example strings in $A_{DFA}$
+    
+    \vfill
+    
+    Example strings in  $E_{DFA}$
+    
+    \vfill
+    
+    Example strings in  $EQ_{DFA}$
+    
+    \vfill
 
-\begin{multicols}{3}
-$M_1$ \includegraphics[width=2in]{../../resources/machines/Week8WarmupTM1.png} 
+  
+    \newpage
 
-\columnbreak
+  \begin{quote}
+  $M_1 = $ ``On input $\langle M,w\rangle$, where $M$ is a DFA and $w$ is a string:
+  \begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item Type check encoding to check input is correct type. If not, reject.
+  \item Simulate $M$ on input $w$ (by keeping track of states in $M$, transition function of $M$, etc.) 
+  \item If the simulations ends in an accept state of $M$, accept. If it ends in a non-accept state of $M$, reject. "
+  \end{enumerate}
+  \end{quote}
+  
 
-$M_2$ \includegraphics[width=2in]{../../resources/machines/Week8WarmupTM2.png}
-
-\columnbreak
-
-$M_3$ \includegraphics[width=2in]{../../resources/machines/Week8WarmupTM3.png}
-\end{multicols}
-
-Example strings in $A_{TM}$
+What is $L(M_1)$? 
 
 \vfill
 
-Example strings in  $E_{TM}$
+Is $M_1$ a decider?
 
 \vfill
 
-Example strings in  $EQ_{TM}$
 
-\vfill
+{\it Alternate description}:
+Sometimes omit step 0 from listing and do implicit type check.
+
+Synonyms: ``Simulate'', ``run'', ``call''.
 
 \newpage
 
-{\bf  Theorem}: $A_{TM}$  is  Turing-recognizable.
+  True / False: $A_{REX} = A_{NFA} = A_{DFA}$
 
+  True / False: $A_{REX} \cap A_{NFA} = \emptyset$, $A_{REX} \cap A_{DFA} = \emptyset$, $A_{DFA} \cap A_{NFA} = \emptyset$
 
-{\bf  Strategy}:  To prove this theorem, we need  to  define  a Turing  machine  $R_{ATM}$ such that 
-$L(R_{ATM}) = A_{TM}$.
+  
+  A Turing machine that  decides $A_{NFA}$ is: 
+  
+  \vfill
+  
+  A Turing machine that  decides $A_{REX}$ is: 
+  
+  \vfill
 
+  $E_{DFA} = \{ \langle A \rangle \mid  \text{$A$ is a  DFA and  $L(A) = \emptyset$}\}$. 
+  True/False: A Turing machine that  decides $E_{DFA}$ is
 
-Define $R_{ATM} =  $ ``
+  \begin{quote}
+  $M_2 =  $``On  input  $\langle M\rangle$ where $M$ is a  DFA,
+  \begin{enumerate}
+  \item For integer  $i = 1, 2, \ldots$
+  \item \qquad Let  $s_i$ be the  $i$th string over  the alphabet of  $M$ (ordered in  string order).
+  \item \qquad Run $M$ on  input  $s_i$.
+  \item \qquad If $M$  accepts,  $\underline{\phantom{FILL  IN BLANK}}$.  If $M$  rejects, increment $i$ and keep going."
+  \end{enumerate}
+  \end{quote}
+  
 
-\vspace{150pt}
-
-
-Proof of correctness: 
-
-
-\vfill
-\vfill
-
-We will show that $A_{TM}$ is undecidable.   {\it First, let's explore what that means.}
-
-\newpage
-
-A {\bf Turing-recognizable} language is a set of strings that 
-is the language recognized by some Turing machine. We also 
-say that such languages are recognizable.
-
-A {\bf Turing-decidable} language is a set of strings that 
-is the language recognized by some decider. We also 
-say that such languages are decidable.
-
-An {\bf unrecognizable} language is a language that is not Turing-recognizable.
-
-An {\bf undecidable} language is a language that is not Turing-decidable.
-
-
-{\bf  True} or {\bf False}: Any  undecidable language  is  also  unrecognizable.
-
-
-{\bf  True} or {\bf False}: Any  unrecognizable language  is  also  undecidable.
-
-
-To prove that a computational problem is {\bf decidable}, we find/ build a Turing 
-machine that recognizes the language encoding the computational problem, and that 
-is a decider.
-
-
-How do we prove a specific problem is {\bf not decidable}?
-
-How would we even find such a computational problem?
-
-
-{\it Counting arguments for the existence of an undecidable language:}
+Choose the correct option to help fill in the blank so that $M_2$ recognizes $E_{DFA}$
 \begin{itemize}
-    \item The set of all Turing machines is countably infinite.
-    \item Each Turing-recognizable language is associated with a Turing machine
-    in a one-to-one relationship, so there can be no more Turing-recognizable
-    languages than there are Turing machines. 
-    \item Since there are infinitely many Turing-recognizable languages
-    (think of the singleton sets), there are countably infinitely 
-    many Turing-recognizable languages.
-    \item Such the set of Turing-decidable languages is an infinite subset 
-    of the set of Turing-recognizable languages, the set of 
-    Turing-decidable languages is also countably infinite.
+\item[A.] accepts
+\item[B.] rejects
+\item[C.] loop for ever
+\item[D.] We can't fill in the blank in any way to make this work
 \end{itemize}
 
-Since there are uncountably many languages (because $\mathcal{P}(\Sigma^*)$
-is uncountable), there are uncountably many unrecognizable languages
-and there are uncountably many undecidable languages.
+\newpage
+  
+
+  
+  \begin{quote}
+  $M_3 =  $ `` On  input $\langle M \rangle$ where $M$ is  a  DFA,
+  \begin{enumerate}
+  \item Mark the start  state  of $M$.
+  \item Repeat until no  new states get marked:
+  \item \qquad Loop over the states of $M$. 
+  \item \qquad Mark any unmarked  state  that  has an incoming  edge  from a marked state.
+  \item If  no  accept state of $A$ is  marked, $\underline{\phantom{FILL  IN BLANK}}$;  otherwise, 
+  $\underline{\phantom{FILL  IN BLANK}}$".
+  \end{enumerate}
+  \end{quote}
+  
+  
+  
+To build a Turing machine that decides $EQ_{DFA}$, notice that 
+\[
+L_1 = L_2 \qquad\textrm{iff}\qquad (~(L_1 \cap \overline{L_2}) \cup (L_2 \cap \overline L_1)~) = \emptyset  
+\]
+{\it There are no elements that are in one set and not the other}
 
 
-Thus, there's at least one undecidable language!
+$M_{EQDFA} = $ 
 
-\vfill
 
-{\bf What's a specific example of a language that is unrecognizable or undecidable?}
+  \vfill
+  
 
-To prove that a language is undecidable, we need to prove that there is no Turing machine that decides it.
-
-{\bf Key idea}: proof by contradiction relying on self-referential disagreement.
-
+  {\bf Summary}:  We can use the decision procedures (Turing machines) of decidable problems
+  as subroutines in other algorithms. For example, we have subroutines for deciding each of 
+  $A_{DFA}$, $E_{DFA}$, $EQ_{DFA}$.  We can also use algorithms for known constructions
+  as subroutines in other algorithms. For example, we have subroutines for: counting the number 
+  of states in a state diagram, counting the number of characters in an alphabet, converting DFA
+  to a DFA recognizing the complement of the original language or a DFA recognizing the 
+  Kleene star of the original language, constructing a DFA or NFA from two DFA or NFA so that 
+  we have a machine recognizing the language of the union (or intersection, concatenation)
+  of the languages of the original machines; converting regular expressions to equivalent DFA; 
+  converting DFA to equivalent regular expressions, etc.
