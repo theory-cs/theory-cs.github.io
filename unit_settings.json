@@ -343,6 +343,10 @@
                 "source": "Week5.tex"
             },
             {
+                "name": "Review Quizzes",
+                "source": "Week5RQ.pdf"
+            }, 
+            {
                 "name": "(Video) PDA Design and reverse engingeering",
                 "source": "https://youtu.be/b-dr_GndeBg"
             },
@@ -422,6 +426,10 @@
                 "name": "Notes",
                 "source": "Week6.tex"
             },
+            {
+                "name": "Review Quizzes",
+                "source": "Week6RQ.pdf"
+            }, 
             {
                 "name": "(Video) Turing machine introduction",
                 "source": "https://youtu.be/rASd5i-Am7k"
