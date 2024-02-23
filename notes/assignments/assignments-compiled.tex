@@ -847,21 +847,28 @@ and
 \]
 We say that self-set-wise concatenation of the set $L_1$ is $L_1 \circ L_1$.
 
+
+{\it Note: there was a bug in the version of this assignment 
+that was first released.}
+
 \begin{enumerate}
-\item[(a)]\gradeComplete Prove that this Turing machine construction can be used to prove that the
-class of decidable languages over $\{0,1\}$ is closed under one of the above operations ($SUBSTRING$ or self-set-wise concatenation).
-A complete answer will first explain which of the operations the closure claim is about and then write 
-out the proof of correctness for the closure claim. That is: ``Let $L_1 $ be a decidable language over $\{0,1\}$ and 
-assume we are given a decider $M_1$ so that $L(M_1) = L_1$. Consider the new Turing machine 
-$M_{new}$ defined above. We will show that $M_{new}$ is a decider and that $L(M_{new}) = $... {\it (fill in either 
-$SUBSTRING(L_1)$ or $L_1\circ L_1$ and then complete the proof)}''
+\item[(a)]\gradeComplete Prove that this Turing machine construction 
+{\bf cannot} be used to prove that the
+class of decidable languages over $\{0,1\}$ is closed under {\bf either} of the above operations
+($SUBSTRING$ or self-set-wise concatenation).
+A complete answer will give a counterexample or general description why the construction doesn't work for 
+both operations.
 \item[(b)] \gradeCorrect Prove that this Turing machine construction cannot be used to prove that the
-class of recognizable languages over $\{0,1\}$ is closed under the operation you identified in part (a). In particular, 
+class of recognizable languages over $\{0,1\}$ is closed under the $SUBSTRING$ set operation. In particular, 
 give a counterexample of a specific language $L_1$ and Turing machine $M_1$ recognizing it where $M_{new}$ does not
-recognize the language resulting from applying the operation to $L_1$.
+recognize $SUBSTRING(L_1)$.
 \item[(c)] \gradeComplete Define a new construction by slightly modifiying this one that can be used to prove  that the
-class of recognizable languages over $\{0,1\}$ is closed under the operation you identified in part (a). Justify that 
-your construction works.
+class of recognizable languages over $\{0,1\}$ is closed under $SUBSTRING$. Justify that 
+your construction works. The proof of correctness for the closure claim can be structured like: 
+``Let $L_1 $ be a recognizable language over $\{0,1\}$ and 
+assume we are given a Turing machine $M_1$ so that $L(M_1) = L_1$. Consider the new Turing machine 
+$M_{new}$ defined above. We will show that $L(M_{new}) = SUBSTRING(L_1) $... {\it complete the proof
+by proving subset inclusion in two directions, by tracing the relevant Turing machine computations}''
 \end{enumerate}
 
 %%%%%%%%%%% PROBLEM 4 %%%%%%%%%%%

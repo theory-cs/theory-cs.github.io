@@ -1323,41 +1323,42 @@ sets of strings <span class="math display">\[SUBSTRING(L_1) = \{ w \in
 v \in L_2 \}\]</span> We say that self-set-wise concatenation of the set
 <span class="math inline">\(L_1\)</span> is <span
 class="math inline">\(L_1 \circ L_1\)</span>.</p>
+<p><span><em>Note: there was a bug in the version of this assignment
+that was first released.</em></span></p>
 <ol>
 <li><p>(<span><em>Graded for completeness</em></span>) Prove that this
-Turing machine construction can be used to prove that the class of
-decidable languages over <span class="math inline">\(\{0,1\}\)</span> is
-closed under one of the above operations (<span
+Turing machine construction <span><strong>cannot</strong></span> be used
+to prove that the class of decidable languages over <span
+class="math inline">\(\{0,1\}\)</span> is closed under
+<span><strong>either</strong></span> of the above operations (<span
 class="math inline">\(SUBSTRING\)</span> or self-set-wise
-concatenation). A complete answer will first explain which of the
-operations the closure claim is about and then write out the proof of
-correctness for the closure claim. That is: “Let <span
-class="math inline">\(L_1\)</span> be a decidable language over <span
-class="math inline">\(\{0,1\}\)</span> and assume we are given a decider
-<span class="math inline">\(M_1\)</span> so that <span
-class="math inline">\(L(M_1) = L_1\)</span>. Consider the new Turing
-machine <span class="math inline">\(M_{new}\)</span> defined above. We
-will show that <span class="math inline">\(M_{new}\)</span> is a decider
-and that <span class="math inline">\(L(M_{new}) =\)</span>...
-<span><em>(fill in either <span
-class="math inline">\(SUBSTRING(L_1)\)</span> or <span
-class="math inline">\(L_1\circ L_1\)</span> and then complete the
-proof)</em></span>”</p></li>
+concatenation). A complete answer will give a counterexample or general
+description why the construction doesn’t work for both
+operations.</p></li>
 <li><p>(<span><em>Graded for correctness</em></span>) Prove that this
 Turing machine construction cannot be used to prove that the class of
 recognizable languages over <span class="math inline">\(\{0,1\}\)</span>
-is closed under the operation you identified in part (a). In particular,
-give a counterexample of a specific language <span
-class="math inline">\(L_1\)</span> and Turing machine <span
+is closed under the <span class="math inline">\(SUBSTRING\)</span> set
+operation. In particular, give a counterexample of a specific language
+<span class="math inline">\(L_1\)</span> and Turing machine <span
 class="math inline">\(M_1\)</span> recognizing it where <span
-class="math inline">\(M_{new}\)</span> does not recognize the language
-resulting from applying the operation to <span
-class="math inline">\(L_1\)</span>.</p></li>
+class="math inline">\(M_{new}\)</span> does not recognize <span
+class="math inline">\(SUBSTRING(L_1)\)</span>.</p></li>
 <li><p>(<span><em>Graded for completeness</em></span>) Define a new
 construction by slightly modifiying this one that can be used to prove
 that the class of recognizable languages over <span
-class="math inline">\(\{0,1\}\)</span> is closed under the operation you
-identified in part (a). Justify that your construction works.</p></li>
+class="math inline">\(\{0,1\}\)</span> is closed under <span
+class="math inline">\(SUBSTRING\)</span>. Justify that your construction
+works. The proof of correctness for the closure claim can be structured
+like: “Let <span class="math inline">\(L_1\)</span> be a recognizable
+language over <span class="math inline">\(\{0,1\}\)</span> and assume we
+are given a Turing machine <span class="math inline">\(M_1\)</span> so
+that <span class="math inline">\(L(M_1) = L_1\)</span>. Consider the new
+Turing machine <span class="math inline">\(M_{new}\)</span> defined
+above. We will show that <span class="math inline">\(L(M_{new}) =
+SUBSTRING(L_1)\)</span>... <span><em>complete the proof by proving
+subset inclusion in two directions, by tracing the relevant Turing
+machine computations</em></span>”</p></li>
 </ol></li>
 <li><p><strong>Computational problems</strong> (10 points): Recall the
 definitions of some example computational problems from class</p>
