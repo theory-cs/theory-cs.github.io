@@ -571,6 +571,10 @@
         "ExpandInCalendar": false,
         "content": [
             {
+                "name": "Notes",
+                "source": "Week8.tex"
+            },
+            {
                 "name": "(Video) ATM undecidable via diagonalization",
                 "source": "https://youtu.be/2OR5wIIy5w8"
             },
