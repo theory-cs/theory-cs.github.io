@@ -176,6 +176,106 @@
 
 </div>
 <h1 class="unnumbered" id="week8-monday">Week8 monday</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Acceptance
+problem</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M,w
+\rangle \mid  \text{$M$ is a Turing machine that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+emptiness testing</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M
+\rangle \mid  \text{$M$ is a Turing machine and  $L(M) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+equality testing</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{
+\langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing
+machines and  
+     $L(M_1) =L(M_2)$\}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="multicols">
+<p><span>3</span> <span class="math inline">\(M_1\)</span> <img
+src="../../resources/machines/Week8WarmupTM1.png" style="width:2in"
+alt="image" /></p>
+<p><span class="math inline">\(M_2\)</span> <img
+src="../../resources/machines/Week8WarmupTM2.png" style="width:2in"
+alt="image" /></p>
+<p><span class="math inline">\(M_3\)</span> <img
+src="../../resources/machines/Week8WarmupTM3.png" style="width:2in"
+alt="image" /></p>
+</div>
+<p>Example strings in <span class="math inline">\(A_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(E_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(EQ_{TM}\)</span></p>
+<p><span><strong>Theorem</strong></span>: <span
+class="math inline">\(A_{TM}\)</span> is Turing-recognizable.</p>
+<p><span><strong>Strategy</strong></span>: To prove this theorem, we
+need to define a Turing machine <span
+class="math inline">\(R_{ATM}\)</span> such that <span
+class="math inline">\(L(R_{ATM}) = A_{TM}\)</span>.</p>
+<p>Define <span class="math inline">\(R_{ATM} =\)</span> “</p>
+<p>Proof of correctness:</p>
+<p>We will show that <span class="math inline">\(A_{TM}\)</span> is
+undecidable. <span><em>First, let’s explore what that
+means.</em></span></p>
+<p>To prove that a computational problem is
+<span><strong>decidable</strong></span>, we find/ build a Turing machine
+that recognizes the language encoding the computational problem, and
+that is a decider.</p>
+<p>How do we prove a specific problem is <span><strong>not
+decidable</strong></span>?</p>
+<p>How would we even find such a computational problem?</p>
+<p><span><em>Counting arguments for the existence of an undecidable
+language:</em></span></p>
+<ul>
+<li><p>The set of all Turing machines is countably infinite.</p></li>
+<li><p>Each recognizable language has at least one Turing machine that
+recognizes it (by definition), so there can be no more
+Turing-recognizable languages than there are Turing machines.</p></li>
+<li><p>Since there are infinitely many Turing-recognizable languages
+(think of the singleton sets), there are countably infinitely many
+Turing-recognizable languages.</p></li>
+<li><p>Such the set of Turing-decidable languages is an infinite subset
+of the set of Turing-recognizable languages, the set of Turing-decidable
+languages is also countably infinite.</p></li>
+</ul>
+<p>Since there are uncountably many languages (because <span
+class="math inline">\(\mathcal{P}(\Sigma^*)\)</span> is uncountable),
+there are uncountably many unrecognizable languages and there are
+uncountably many undecidable languages.</p>
+<p>Thus, there’s at least one undecidable language!</p>
+<p><span><strong>What’s a specific example of a language that is
+unrecognizable or undecidable?</strong></span></p>
+<p>To prove that a language is undecidable, we need to prove that there
+is no Turing machine that decides it.</p>
+<p><span><strong>Key idea</strong></span>: proof by contradiction
+relying on self-referential disagreement.</p>
 <p><span><strong>Theorem</strong></span>: <span
 class="math inline">\(A_{TM}\)</span> is not Turing-decidable.</p>
 <p><span><strong>Proof</strong></span>: Suppose <span><strong>towards a
@@ -215,6 +315,12 @@ accept."</p></li>
 <p>What is the result of the computation of <span
 class="math inline">\(D\)</span> on <span class="math inline">\(\langle
 D \rangle\)</span>?</p>
+<p>Definition: A language <span class="math inline">\(L\)</span> over an
+alphabet <span class="math inline">\(\Sigma\)</span> is called
+<span><strong>co-recognizable</strong></span> if its complement, defined
+as <span class="math inline">\(\Sigma^* \setminus L  = \{
+x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
+Turing-recognizable.</p>
 <p><span><strong>Theorem</strong></span> (Sipser Theorem 4.22): A
 language is Turing-decidable if and only if both it and its complement
 are Turing-recognizable.</p>
@@ -225,20 +331,6 @@ that both it and its complement are Turing-recognizable.</p>
 language <span class="math inline">\(L\)</span> is Turing-recognizable,
 and so is its complement. WTS that <span
 class="math inline">\(L\)</span> is Turing-decidable.</p>
-<p>Give an example of a <span><strong>decidable</strong></span> set:</p>
-<p>Give an example of a <span><strong>recognizable
-undecidable</strong></span> set:</p>
-<p>Give an example of an <span><strong>unrecognizable</strong></span>
-set:</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: The class of Turing-decidable
-languages is closed under complementation?</p>
-<p>Definition: A language <span class="math inline">\(L\)</span> over an
-alphabet <span class="math inline">\(\Sigma\)</span> is called
-<span><strong>co-recognizable</strong></span> if its complement, defined
-as <span class="math inline">\(\Sigma^* \setminus L  = \{
-x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
-Turing-recognizable.</p>
 <p>Notation: The complement of a set <span
 class="math inline">\(X\)</span> is denoted with a superscript <span
 class="math inline">\(c\)</span>, <span

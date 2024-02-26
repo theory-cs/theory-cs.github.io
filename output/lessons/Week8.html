@@ -175,7 +175,110 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="monday">Monday</h1>
+<h1 class="unnumbered"
+id="monday-a_tm-is-recognizable-but-undecidable">Monday: <span
+class="math inline">\(A_{TM}\)</span> is recognizable but
+undecidable</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Acceptance
+problem</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M,w
+\rangle \mid  \text{$M$ is a Turing machine that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+emptiness testing</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M
+\rangle \mid  \text{$M$ is a Turing machine and  $L(M) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: left;"><span><strong>Language
+equality testing</strong></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{
+\langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing
+machines and  
+     $L(M_1) =L(M_2)$\}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="multicols">
+<p><span>3</span> <span class="math inline">\(M_1\)</span> <img
+src="../../resources/machines/Week8WarmupTM1.png" style="width:2in"
+alt="image" /></p>
+<p><span class="math inline">\(M_2\)</span> <img
+src="../../resources/machines/Week8WarmupTM2.png" style="width:2in"
+alt="image" /></p>
+<p><span class="math inline">\(M_3\)</span> <img
+src="../../resources/machines/Week8WarmupTM3.png" style="width:2in"
+alt="image" /></p>
+</div>
+<p>Example strings in <span class="math inline">\(A_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(E_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(EQ_{TM}\)</span></p>
+<p><span><strong>Theorem</strong></span>: <span
+class="math inline">\(A_{TM}\)</span> is Turing-recognizable.</p>
+<p><span><strong>Strategy</strong></span>: To prove this theorem, we
+need to define a Turing machine <span
+class="math inline">\(R_{ATM}\)</span> such that <span
+class="math inline">\(L(R_{ATM}) = A_{TM}\)</span>.</p>
+<p>Define <span class="math inline">\(R_{ATM} =\)</span> “</p>
+<p>Proof of correctness:</p>
+<p>We will show that <span class="math inline">\(A_{TM}\)</span> is
+undecidable. <span><em>First, let’s explore what that
+means.</em></span></p>
+<p>To prove that a computational problem is
+<span><strong>decidable</strong></span>, we find/ build a Turing machine
+that recognizes the language encoding the computational problem, and
+that is a decider.</p>
+<p>How do we prove a specific problem is <span><strong>not
+decidable</strong></span>?</p>
+<p>How would we even find such a computational problem?</p>
+<p><span><em>Counting arguments for the existence of an undecidable
+language:</em></span></p>
+<ul>
+<li><p>The set of all Turing machines is countably infinite.</p></li>
+<li><p>Each recognizable language has at least one Turing machine that
+recognizes it (by definition), so there can be no more
+Turing-recognizable languages than there are Turing machines.</p></li>
+<li><p>Since there are infinitely many Turing-recognizable languages
+(think of the singleton sets), there are countably infinitely many
+Turing-recognizable languages.</p></li>
+<li><p>Such the set of Turing-decidable languages is an infinite subset
+of the set of Turing-recognizable languages, the set of Turing-decidable
+languages is also countably infinite.</p></li>
+</ul>
+<p>Since there are uncountably many languages (because <span
+class="math inline">\(\mathcal{P}(\Sigma^*)\)</span> is uncountable),
+there are uncountably many unrecognizable languages and there are
+uncountably many undecidable languages.</p>
+<p>Thus, there’s at least one undecidable language!</p>
+<p><span><strong>What’s a specific example of a language that is
+unrecognizable or undecidable?</strong></span></p>
+<p>To prove that a language is undecidable, we need to prove that there
+is no Turing machine that decides it.</p>
+<p><span><strong>Key idea</strong></span>: proof by contradiction
+relying on self-referential disagreement.</p>
 <p><span><strong>Theorem</strong></span>: <span
 class="math inline">\(A_{TM}\)</span> is not Turing-decidable.</p>
 <p><span><strong>Proof</strong></span>: Suppose <span><strong>towards a
@@ -215,6 +318,12 @@ accept."</p></li>
 <p>What is the result of the computation of <span
 class="math inline">\(D\)</span> on <span class="math inline">\(\langle
 D \rangle\)</span>?</p>
+<p>Definition: A language <span class="math inline">\(L\)</span> over an
+alphabet <span class="math inline">\(\Sigma\)</span> is called
+<span><strong>co-recognizable</strong></span> if its complement, defined
+as <span class="math inline">\(\Sigma^* \setminus L  = \{
+x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
+Turing-recognizable.</p>
 <p><span><strong>Theorem</strong></span> (Sipser Theorem 4.22): A
 language is Turing-decidable if and only if both it and its complement
 are Turing-recognizable.</p>
@@ -225,36 +334,14 @@ that both it and its complement are Turing-recognizable.</p>
 language <span class="math inline">\(L\)</span> is Turing-recognizable,
 and so is its complement. WTS that <span
 class="math inline">\(L\)</span> is Turing-decidable.</p>
-<p>Give an example of a <span><strong>decidable</strong></span> set:</p>
-<p>Give an example of a <span><strong>recognizable
-undecidable</strong></span> set:</p>
-<p>Give an example of an <span><strong>unrecognizable</strong></span>
-set:</p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: The class of Turing-decidable
-languages is closed under complementation?</p>
-<p>Definition: A language <span class="math inline">\(L\)</span> over an
-alphabet <span class="math inline">\(\Sigma\)</span> is called
-<span><strong>co-recognizable</strong></span> if its complement, defined
-as <span class="math inline">\(\Sigma^* \setminus L  = \{
-x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
-Turing-recognizable.</p>
 <p>Notation: The complement of a set <span
 class="math inline">\(X\)</span> is denoted with a superscript <span
 class="math inline">\(c\)</span>, <span
 class="math inline">\(X^c\)</span>, or an overline, <span
 class="math inline">\(\overline{X}\)</span>.</p>
-<h2 class="unnumbered" id="review-week-8-monday">Review: Week 8
-Monday</h2>
-<p>Recall: Review quizzes based on class material are assigned each day.
-These quizzes will help you track and confirm your understanding of the
-concepts and examples we work in class. Quizzes can be submitted on
-Gradescope as many times (with no penalty) as you like until the quiz
-deadline: the three quizzes each week are all due on Friday (with no
-penalty late submission open until Sunday).</p>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about undecidability.</p>
-<h2 class="unnumbered" id="wednesday">Wednesday</h2>
+<h2 class="unnumbered"
+id="wednesday-computable-functions-and-reduction">Wednesday: Computable
+functions and reduction</h2>
 <p><span><strong>Mapping reduction</strong></span></p>
 <p>Motivation: Proving that <span class="math inline">\(A_{TM}\)</span>
 is undecidable was hard. How can we leverage that work? Can we relate
@@ -357,14 +444,8 @@ class="math display">\[\delta&#39;( (q,x) ) = \begin{cases}
 empty string and that maps strings that code CFGs to the code of a PDA
 that recognizes the language generated by the CFG.</p>
 <p><span><em>Other examples?</em></span></p>
-<h2 class="unnumbered" id="review-week-8-wednesday">Review: Week 8
-Wednesday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about mapping
-reductions.</p>
-<p><span><strong>Pre class reading for next time</strong></span>:
-Theorem 5.21 (page 236)</p>
-<h2 class="unnumbered" id="friday">Friday</h2>
+<h2 class="unnumbered" id="friday-the-halting-problem">Friday: The
+Halting problem</h2>
 <p>Recall definition: <span class="math inline">\(A\)</span> is
 <span><strong>mapping reducible to</strong></span> <span
 class="math inline">\(B\)</span> means there is a computable function
@@ -387,8 +468,6 @@ class="math inline">\(B\)</span>.</p>
 \leq_m A_{TM}\)</span></p>
 <p><span><em>Example</em></span>: <span class="math inline">\(A_{DFA}
 \leq_m \{ ww \mid  w \in \{0,1\}^* \}\)</span></p>
-<p><span><em>Example</em></span>: <span class="math inline">\(\{
-0^i  1^j \mid i  \geq 0, j \geq 0 \} \leq_m A_{TM}\)</span></p>
 <p><span><strong>Theorem</strong></span> (Sipser 5.22): If <span
 class="math inline">\(A \leq_m B\)</span> and <span
 class="math inline">\(B\)</span> is decidable, then <span
@@ -416,24 +495,54 @@ like <span class="math inline">\(M\)</span> except, if the computation
 ever were to go to a reject state, <span
 class="math inline">\(M&#39;\)</span> loops instead.</p>
 <p><span class="math inline">\(F( \langle
-\includegraphics[width=1.5in]{../../resources/machines/Lect22TM1.png}
-,  001  \rangle)\)</span> =</p>
-<p><span class="math inline">\(F( \langle
 \includegraphics[width=2.5in]{../../resources/machines/Lect22TM2.png}
-,  1  \rangle)\)</span> =</p>
+,  \varepsilon  \rangle)\)</span> =</p>
 <p>To use this function to prove that <span class="math inline">\(A_{TM}
 \leq_m HALT_{TM}\)</span>, we need two claims:</p>
 <p>Claim (1): <span class="math inline">\(F\)</span> is computable</p>
 <p>Claim (2): for every <span class="math inline">\(x\)</span>, <span
 class="math inline">\(x \in  A_{TM}\)</span> iff <span
 class="math inline">\(F(x) \in HALT_{TM}\)</span>.</p>
-<h2 class="unnumbered" id="review-week-8-friday">Review: Week 8
-Friday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about the relationship
-between <span class="math inline">\(A_{TM}\)</span> and <span
-class="math inline">\(HALT_{TM}\)</span></p>
-<p><span><strong>Pre class reading for next time</strong></span>:
-Example 5.30.</p>
+<h2 class="unnumbered" id="week-8-at-a-glance">Week 8 at a glance</h2>
+<h3 class="unnumbered"
+id="textbook-reading-section-4.1-4.2-5.3">Textbook reading: Section 4.1,
+4.2, 5.3</h3>
+<p><span><em>For Monday</em></span>: An undecidable language, Sipser
+pages 207-209.</p>
+<p><span><em>For Wednesday</em></span>: Definition 5.20 and figure 5.21
+(page 236)</p>
+<p><span><em>For Friday</em></span>: Example 5.24 (page 236)</p>
+<p><span><em>For Monday of Week 9</em></span>: Example 5.26 (page
+237)</p>
+<h3 class="unnumbered" id="make-sure-you-can">Make sure you can:</h3>
+<ul>
+<li><p>Classify the computational complexity of a set of strings by
+determining whether it is decidable or undecidable and recognizable or
+unrecognizable.</p>
+<ul>
+<li><p>State, prove, and use theorems relating decidability,
+recognizability, and co-recognizability.</p></li>
+<li><p>Prove that a language is decidable or recognizable by defining
+and analyzing a Turing machines with appropriate properties.</p></li>
+</ul></li>
+<li><p>Use diagonalization to prove that there are ’hard’ languages
+relative to certain models of computation.</p></li>
+<li><p>Use mapping reduction to deduce the complexity of a language by
+comparing to the complexity of another.</p>
+<ul>
+<li><p>Define computable functions, and use them to give mapping
+reductions between computational problems</p></li>
+<li><p>Define and explain <span class="math inline">\(A_{TM}\)</span>
+and <span class="math inline">\(HALT_{TM}\)</span></p></li>
+<li><p>Build and analyze mapping reductions between computational
+problems</p></li>
+</ul></li>
+</ul>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>Review quizzes based on class material each day.</p>
+<p>Homework assignment 4 due this Thursday.</p>
+<p>Test 2 next Friday.</p>
+</div>
 </body>
 </html>
