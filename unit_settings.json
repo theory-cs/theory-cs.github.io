@@ -515,6 +515,14 @@
                 "source": "Week7.tex"
             },
             {
+                "name": "Discussion notes",
+                "source": "Week7-discussion.pdf"
+            },
+            {
+                "name": "Review Quizzes",
+                "source": "Week7RQ.pdf"
+            }, 
+            {
                 "name": "(Video) Decidable computational problems",
                 "source": "https://youtu.be/VQU2rk_XGWI"
             },
