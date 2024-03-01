@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CSE105W24" />
+  <title>HW5CSE105W24: Homework assignment 5</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">HW5CSE105W24: Homework assignment 5</h1>
+<p class="author">CSE105W24</p>
+<p class="date">Due: March 14 at 5pm (no penalty late submission until
+8am next morning), via Gradescope</p>
+</header>
+<p><span><strong>In this assignment,</strong></span> You will practice
+analyzing, designing, and working with Turing machines. You will use
+general constructions and specific machines to explore the classes of
+recognizable and decidable languages. You will explore various ways to
+encode machines as strings so that computational problems can be
+recognized.</p>
+<p><span><strong>Resources</strong></span>: To review the topics for
+this assignment, see the class material from Weeks 7-10. We will post
+frequently asked questions and our answers to them in a pinned Piazza
+post.</p>
+<p><span><strong>Reading and extra practice problems</strong></span>:
+Sipser Sections 4.2, 5.3, 5.1. Chapter 4 problems 4.9, 4.12. Chapter 5
+exercises 5.4, 5.5, 5.6, 5.7. Chapter 5 problems 5.22, 5.23, 5.24,
+5.28</p>
+<p><span><strong>For all HW assignments:</strong></span> Weekly homework
+may be done individually or in groups of up to 3 students. You may
+switch HW partners for different HW assignments. Please ensure your
+name(s) and PID(s) are clearly visible on the first page of your
+homework submission and then upload the PDF to Gradescope. If working in
+a group, submit only one submission per group: one partner uploads the
+submission through their Gradescope account and then adds the other
+group member(s) to the Gradescope submission by selecting their name(s)
+in the “Add Group Members" dialog box. You will need to re-add your
+group member(s) every time you resubmit a new version of your
+assignment. Each homework question will be graded either for correctness
+(including clear and precise explanations and justifications of all
+answers) or fair effort completeness. For “graded for correctness”
+questions: collaboration is allowed only with CSE 105 students in your
+group; if your group has questions about a problem, you may ask in
+drop-in help hours or post a private post (visible only to the
+Instructors) on Piazza. For “graded for completeness” questions:
+collaboration is allowed with any CSE 105 students this quarter; if your
+group has questions about a problem, you may ask in drop-in help hours
+or post a public post on Piazza.</p>
+<p>All submitted homework for this class must be typed. You can use a
+word processing editor if you like (Microsoft Word, Open Office,
+Notepad, Vim, Google Docs, etc.) but you might find it useful to take
+this opportunity to learn LaTeX. LaTeX is a markup language used widely
+in computer science and mathematics. The homework assignments are typed
+using LaTeX and you can use the source files as templates for
+typesetting your solutions. To generate state diagrams of machines, we
+recommend using Flap.js or JFLAP. Photographs of clearly hand-drawn
+diagrams may also be used. We recommend that you submit early drafts to
+Gradescope so that in case of any technical difficulties, at least some
+of your work is present. You may update your submission as many times as
+you’d like up to the deadline.</p>
+<p><span><strong>Integrity reminders</strong></span></p>
+<ul>
+<li><p>Problems should be solved together, not divided up between the
+partners. The homework is designed to give you practice with the main
+concepts and techniques of the course, while getting to know and learn
+from your classmates.</p></li>
+<li><p>You may not collaborate on homework questions graded for
+correctness with anyone other than your group members. You may ask
+questions about the homework in office hours (of the instructor, TAs,
+and/or tutors) and on Piazza (as private notes viewable only to the
+Instructors). You <em>cannot</em> use any online resources about the
+course content other than the class material from this quarter – this is
+primarily to ensure that we all use consistent notation and definitions
+(aligned with the textbook) and also to protect the learning experience
+you will have when the ‘aha’ moments of solving the problem
+authentically happen.</p></li>
+<li><p>Do not share written solutions or partial solutions for homework
+with other students in the class who are not in your group. Doing so
+would dilute their learning experience and detract from their success in
+the class.</p></li>
+</ul>
+<p>You will submit this assignment via Gradescope (<a
+href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
+assignment called “hw5CSE105W24”.</p>
+<p><span><strong>Assigned questions</strong></span></p>
+<ol>
+<li><p><strong>Computational problems</strong> (14 points): For each of
+the following statements, determine if it is true or false. Clearly
+label your choice by starting your solution with True or False and then
+provide a justification for your answer.</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+True or False: The language <span class="math display">\[\{\langle N_1,
+N_2 \rangle \mid N_1, N_2 \text{ are both NFAs over $\{0,1\}$
+    and } L(N_1) \subseteq L(N_2)\}\]</span> is recognizable.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+True or False: The language <span class="math display">\[\{\langle D
+\rangle \mid D \text{ is a DFA over $\{0,1\}$ and } L(D) = L(0^*)
+\}\]</span> is decidable.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) True or False: The
+language <span class="math display">\[\{\langle M \rangle \mid M \text{
+is a Turing machine and its start state equals its reject state}
+\}\]</span> is decidable.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) True or False:
+The language <span class="math display">\[\{\langle M \rangle \mid M
+\text{ is a Turing machine and } L(M) = \emptyset \}\]</span> is
+decidable.</p></li>
+<li><p>Challenge; not graded: what’s the difference between (c) and
+(d)?</p></li>
+</ol></li>
+<li><p><strong>What’s wrong with these reductions?</strong> (13 points):
+Suppose your friends are practicing coming up with mapping reductions
+<span class="math inline">\(A \leq_m B\)</span> and their witnessing
+functions <span class="math inline">\(f: \Sigma^* \to \Sigma^*\)</span>.
+For each of the following attempts, determine if it is has error(s) or
+is correct. Do so by labelling each attempt with all and only the labels
+below that apply, and justifying this labelling.</p>
+<ul>
+<li><p><em>Error Type 1:</em> The given function can’t witness the
+claimed mapping reduction because there exists an <span
+class="math inline">\(x \in A\)</span> such that <span
+class="math inline">\(f(x) \not\in B\)</span>.</p></li>
+<li><p><em>Error Type 2:</em> The given function can’t witness the
+claimed mapping reduction because there exists an <span
+class="math inline">\(x \not\in A\)</span> such that <span
+class="math inline">\(f(x) \in B\)</span>.</p></li>
+<li><p><em>Error Type 3:</em> The given function can’t witness the
+claimed mapping reduction because the specified function is not
+computable.</p></li>
+<li><p><em>Correct:</em> The claimed mapping reduction is true and is
+witnessed by the given function.</p></li>
+</ul>
+<p>Clearly present your answer by providing a brief (3-4 sentences or
+so) justification for whether <span><strong>each</strong></span> of
+these labels applies to each example.</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) <span
+class="math inline">\(A_{\mathrm{TM}} \le_m HALT_{\mathrm{TM}}\)</span>
+and <span class="math display">\[f(x) = \begin{cases}
+\scalebox{.5}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten &gt;=1pt, auto, node
+distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+  \node[initial,state,accepting]
+(q0)                    {$q_{\mathrm{acc}}$};
+;
+\end{tikzpicture}}
+$\rangle$}  
+&amp; \text{if } x = \langle M, w \rangle \text{ for a Turing machine
+$M$ and string $w$}\\
+&amp; \qquad \qquad \text{ and } w \in L(M) \\
+
+\scalebox{.5}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten &gt;=1pt, auto, node
+distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+  \node[initial,state] (q0)                    {$q_0$};
+  \node[state,accepting] (qacc) [right of = q0, xshift = 20]{$q_{acc}$};
+  \path (q0) edge  [loop above] node {$0, 1,
+\scalebox{1.5}{\textvisiblespace}\to R$} (q0)
+;
+\end{tikzpicture}}
+$\rangle$}
+&amp; \text{otherwise}
+\end{cases}\]</span></p>
+<p><span><em>Hint:</em></span> There are two errors with this
+attempt.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) <span
+class="math inline">\(\{ w \mid w \in \{0,1\}^* \} \le_m \{w w \mid w
+\in \{0,1\}^* \}\)</span> and <span class="math inline">\(f(x) =
+xx\)</span> for each <span class="math inline">\(x \in
+\{0,1\}^*\)</span>.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) <span
+class="math inline">\(HALT_{\mathrm{TM}} \le_m EQ_{\mathrm{TM}}\)</span>
+with <span class="math display">\[f(x) = \begin{cases}
+\scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten &gt;=1pt, auto, node
+distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+  \node[initial,state,accepting]
+(q0)                    {$q_{\mathrm{acc}}$};
+;
+\end{tikzpicture}}
+, $M_w \rangle$}  &amp; \text{if } x = \langle M, w \rangle \text{ for a
+Turing machine $M$ and string $w$}\\\\
+\scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+    \begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten &gt;=1pt, auto,
+node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state,accepting]
+(q0)                    {$q_{\mathrm{acc}}$};
+     ;
+    \end{tikzpicture}}}
+    , ~~~
+    \scalebox{.7}{\hspace{-.5cm}
+\raisebox{-.4cm}{\begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten
+&gt;=1pt, auto, node distance=2cm, semithick]
+        \tikzstyle{every state}=[text=black, fill=yellow!40]
+        \node[initial,state]
+(qrej)                    {$q_{\mathrm{rej}}$};
+        \node[state,accepting] (qacc) [right
+of=qrej]            {$q_{\mathrm{acc}}$};
+       ;
+      \end{tikzpicture}}$\rangle$ }  &amp; \text{otherwise}.
+\end{cases}\]</span> Where for each Turing machine <span
+class="math inline">\(M\)</span>, we define <span
+class="math display">\[\begin{aligned}
+    M_w = ``&amp;\text{On input y} \\
+    &amp;1. \text{   Simulate $M$ on $w$.}\\
+    &amp;2. \text{   If it accepts, accept.}\\
+    &amp;3. \text{   If it rejects, reject.&quot;}
+\end{aligned}\]</span></p></li>
+</ol></li>
+<li><p><strong>Using mapping reductions</strong> (14 points): Consider
+the following computational problems we’ve discussed <span
+class="math display">\[\begin{aligned}
+A_{TM} &amp;= \{ \langle M, w \rangle \mid M \text{ is a Turing machine,
+} w \text{ is a string and $M$ accepts $w$}\} \\
+HALT_{TM} &amp;= \{ \langle M, w \rangle \mid M \text{ is a Turing
+machine, } w \text{ is a string and $M$ halts on $w$}\} \\
+E_{TM} &amp;=  \{ \langle M \rangle \mid M \text{ is a Turing machine
+and } L(M) = \emptyset\} \\
+EQ_{TM} &amp;= \{ \langle M_1, M_2 \rangle \mid M_1, M_2 \text{ are both
+Turing machines and } L(M_1) = L(M_2) \}
+\end{aligned}\]</span> and the new computational problem <span
+class="math display">\[One_{TM} = \{ \langle M \rangle \mid M \text{ is
+a Turing machine and $M$ accepts exactly one string} \}\]</span></p>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) Give an example of
+a string that is an element of <span
+class="math inline">\(One_{TM}\)</span> and a string that is not an
+element <span class="math inline">\(One_{TM}\)</span> and briefly
+justify your choices.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Prove that <span
+class="math inline">\(One_{TM}\)</span> is not decidable by showing that
+<span class="math inline">\(A_{TM} \leq_m One_{TM}\)</span>.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Give a different
+proof that <span class="math inline">\(One_{TM}\)</span> is not
+decidable by showing that <span class="math inline">\(HALT_{TM} \leq_m
+One_{TM}\)</span>.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Is <span
+class="math inline">\(One_{TM}\)</span> recognizable? Justify your
+answer.</p></li>
+</ol></li>
+<li><p><strong>Examples of languages</strong> (9 points):</p>
+<p>For each part of the question, use precise mathematical notation or
+English to define your examples and then briefly justify why they
+work.</p>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) Two undecidable
+languages <span class="math inline">\(L_1\)</span> and <span
+class="math inline">\(L_2\)</span> over the same alphabet whose union
+<span class="math inline">\(L_1 \cup L_2\)</span> is decidable, or write
+<span><strong>NONE</strong></span> if there is no such example (and
+explain why).</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) A regular language
+<span class="math inline">\(L_3\)</span> and an unrecognizable language
+<span class="math inline">\(L_4\)</span> over the same alphabet whose
+intersection <span class="math inline">\(L_3 \cap L_4\)</span> is
+unrecognizable, or write <span><strong>NONE</strong></span> if there is
+no such example (and explain why).</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) A co-recognizable
+language <span class="math inline">\(L_5\)</span> that is NP-complete,
+or write <span><strong>NONE</strong></span> if there is no such example
+(and explain why). Recall the definition: A language <span
+class="math inline">\(L\)</span> over an alphabet <span
+class="math inline">\(\Sigma\)</span> is called
+<span><strong>co-recognizable</strong></span> if its complement, defined
+as <span class="math inline">\(\Sigma^* \setminus L  = \{
+x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
+Turing-recognizable.</p></li>
+</ol></li>
+</ol>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This means you will get full credit so long as your
+submission demonstrates honest effort to answer the question. You will
+not be penalized for incorrect answers. To demonstrate your honest
+effort in answering the question, we expect you to include your attempt
+to answer *each* part of the question. If you get stuck with your
+attempt, you can still demonstrate your effort by explaining where you
+got stuck and what you did to try to get unstuck.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This means your solution will be evaluated not only on
+the correctness of your answers, but on your ability to present your
+ideas clearly and logically. You should explain how you arrived at your
+conclusions, using mathematically sound reasoning. Whether you use
+formal proof techniques or write a more informal argument for why
+something is true, your answers should always be well-supported. Your
+goal should be to convince the reader that your results and methods are
+sound.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
