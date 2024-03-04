@@ -175,54 +175,44 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="week9-wednesday">Week9 wednesday</h1>
-<p>Recall: <span class="math inline">\(A\)</span> is
+<h1 class="unnumbered" id="week9-monday">Week9 monday</h1>
+<p>Recall definition: <span class="math inline">\(A\)</span> is
 <span><strong>mapping reducible to</strong></span> <span
-class="math inline">\(B\)</span>, written <span class="math inline">\(A
-\leq_m B\)</span>, means there is a computable function <span
-class="math inline">\(f : \Sigma^* \to \Sigma^*\)</span> such that
+class="math inline">\(B\)</span> means there is a computable function
+<span class="math inline">\(f : \Sigma^* \to \Sigma^*\)</span> such that
 <span><em>for all</em></span> strings <span
 class="math inline">\(x\)</span> in <span
 class="math inline">\(\Sigma^*\)</span>, <span
 class="math display">\[x  \in  A \qquad \qquad \text{if and  only  if}
-\qquad \qquad f(x) \in B.\]</span></p>
+\qquad \qquad f(x) \in B.\]</span> Notation: when <span
+class="math inline">\(A\)</span> is mapping reducible to <span
+class="math inline">\(B\)</span>, we write <span
+class="math inline">\(A  \leq_m B\)</span>.</p>
+<p><span><strong>Theorem</strong></span> (Sipser 5.23): If <span
+class="math inline">\(A \leq_m B\)</span> and <span
+class="math inline">\(A\)</span> is undecidable, then <span
+class="math inline">\(B\)</span> is undecidable.</p>
+<p><span><em>Last time</em></span> we proved that <span
+class="math inline">\(A_{TM} \le_m HALT_{TM}\)</span> where <span
+class="math display">\[HALT_{TM} = \{ \langle M, w \rangle \mid
+\text{$M$ is a  Turing machine, $w$ is  a string, and $M$ halts on $w$}
+\}\]</span> and since <span class="math inline">\(A_{TM}\)</span> is
+undecidable, <span class="math inline">\(HALT_{TM}\)</span> is also
+undecidable. The function witnessing the mapping reduction mapped
+strings in <span class="math inline">\(A_{TM}\)</span> to strings in
+<span class="math inline">\(HALT_{TM}\)</span> and strings not in <span
+class="math inline">\(A_{TM}\)</span> to strings not in <span
+class="math inline">\(HALT_{TM}\)</span> by changing encoded Turing
+machines to ones that had identical computations except looped instead
+of rejecting.</p>
 <p>True or False: <span class="math inline">\(\overline{A_{TM}} \leq_m
 \overline{HALT_{TM}}\)</span></p>
 <p>True or False: <span class="math inline">\(HALT_{TM} \leq_m
 A_{TM}\)</span>.</p>
-<p><span><strong>Theorem</strong></span> (Sipser 5.28): If <span
-class="math inline">\(A \leq_m B\)</span> and <span
-class="math inline">\(B\)</span> is recognizable, then <span
-class="math inline">\(A\)</span> is recognizable.</p>
-<p><span><strong>Proof</strong></span>:</p>
-<p><span><strong>Corollary</strong></span>: If <span
-class="math inline">\(A \leq_m B\)</span> and <span
-class="math inline">\(A\)</span> is unrecognizable, then <span
-class="math inline">\(B\)</span> is unrecognizable.</p>
-<p><span><em>Strategy</em></span>:</p>
-<p>(i) To prove that a recognizable language <span
-class="math inline">\(R\)</span> is undecidable, prove that <span
-class="math inline">\(A_{TM} \leq_m R\)</span>.</p>
-<p>(ii) To prove that a co-recognizable language <span
-class="math inline">\(U\)</span> is undecidable, prove that <span
-class="math inline">\(\overline{A_{TM}} \leq_m U\)</span>, i.e. that
-<span class="math inline">\(A_{TM} \leq_m \overline{U}\)</span>.</p>
-<p><span class="math display">\[E_{TM} = \{ \langle M \rangle \mid
-\text{$M$ is a Turing machine and $L(M) = \emptyset$} \}\]</span></p>
-<p>Example string in <span class="math inline">\(E_{TM}\)</span> is
-<u></u> . Example string not in <span
-class="math inline">\(E_{TM}\)</span> is <u></u> .</p>
-<p><span class="math inline">\(E_{TM}\)</span> is   decidable /
-undecidable   and   recognizable / unrecognizable  .</p>
-<p><span class="math inline">\(\overline{E_{TM}}\)</span> is   decidable
-/ undecidable   and   recognizable / unrecognizable  .</p>
-<p><span><strong>Claim</strong></span>: <span
-class="math inline">\(\underline{\phantom{\hspace{1.6in}}}  \leq_m
-\overline{E_{TM}}\)</span>.</p>
 <p><span><strong>Proof</strong></span>: Need computable function <span
 class="math inline">\(F: \Sigma^* \to \Sigma^*\)</span> such that <span
-class="math inline">\(x \in A_{TM}\)</span> iff <span
-class="math inline">\(F(x)  \notin  E_{TM}\)</span>. Define</p>
+class="math inline">\(x \in HALT_{TM}\)</span> iff <span
+class="math inline">\(F(x)  \in  A_{TM}\)</span>. Define</p>
 <blockquote>
 <p><span class="math inline">\(F =  ``\)</span> On input <span
 class="math inline">\(x\)</span>,</p>
@@ -230,77 +220,18 @@ class="math inline">\(x\)</span>,</p>
 <li><p>Type-check whether <span class="math inline">\(x = \langle M, w
 \rangle\)</span> for some TM <span class="math inline">\(M\)</span> and
 string <span class="math inline">\(w\)</span>. If so, move to step 2; if
-not, output</p></li>
+not, output <span class="math inline">\(\langle \hspace{2in}
+\rangle\)</span></p></li>
 <li><p>Construct the following machine <span
 class="math inline">\(M&#39;_x\)</span>:</p></li>
-<li><p>Output <span class="math inline">\(\langle M&#39;_x
-\rangle\)</span>."</p></li>
+<li><p>Output <span class="math inline">\(\langle M&#39;_x ,
+w\rangle\)</span>."</p></li>
 </ul>
 </blockquote>
-<p>Verifying correctness:</p>
-<div class="center">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Input string</th>
-<th style="text-align: center;">Output string</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\langle M, w
-\rangle\)</span> where <span class="math inline">\(w \in
-L(M)\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\langle M, w
-\rangle\)</span> where <span class="math inline">\(w \notin
-L(M)\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(x\)</span>
-not encoding any pair of TM and string</td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 class="unnumbered" id="week9-friday">Week9 friday</h1>
-<p>Recall: <span class="math inline">\(A\)</span> is
-<span><strong>mapping reducible to</strong></span> <span
-class="math inline">\(B\)</span>, written <span class="math inline">\(A
-\leq_m B\)</span>, means there is a computable function <span
-class="math inline">\(f : \Sigma^* \to \Sigma^*\)</span> such that
-<span><em>for all</em></span> strings <span
-class="math inline">\(x\)</span> in <span
-class="math inline">\(\Sigma^*\)</span>, <span
-class="math display">\[x  \in  A \qquad \qquad \text{if and  only  if}
-\qquad \qquad f(x) \in B.\]</span> <span class="math display">\[EQ_{TM}
-= \{ \langle M, M&#39; \rangle \mid \text{$M$ and $M&#39;$ are both
-Turing machines and $L(M) =L(M&#39;)$} \}\]</span></p>
-<p>Example string in <span class="math inline">\(EQ_{TM}\)</span> is
-<u></u> . Example string not in <span
-class="math inline">\(EQ_{TM}\)</span> is <u></u> .</p>
-<p><span class="math inline">\(EQ_{TM}\)</span> is   decidable /
-undecidable   and   recognizable / unrecognizable  .</p>
-<p><span class="math inline">\(\overline{EQ_{TM}}\)</span> is
-  decidable / undecidable   and   recognizable / unrecognizable  .</p>
-<p>To prove, show that <span
-class="math inline">\(\underline{\phantom{\hspace{1.6in}}}  \leq_m
-EQ_{TM}\)</span> and that <span
-class="math inline">\(\underline{\phantom{\hspace{1.6in}}}  \leq_m
-\overline{EQ_{TM}}\)</span>.</p>
-<p>Verifying correctness:</p>
+<p>Verifying correctness: (1) Is function well-defined and computable?
+(2) Does it have the translation property <span class="math inline">\(x
+\in HALT_{TM}\)</span> iff its image is in <span
+class="math inline">\(A_{TM}\)</span>?</p>
 <div class="center">
 <table>
 <thead>
@@ -321,9 +252,17 @@ class="math inline">\(\underline{\phantom{\hspace{1.6in}}}  \leq_m
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
 <td style="text-align: center;"><span class="math inline">\(\langle M, w
-\rangle\)</span> where <span class="math inline">\(M\)</span> loops on
-<span class="math inline">\(w\)</span></td>
+\rangle\)</span> where <span class="math inline">\(M\)</span> does not
+halt on <span class="math inline">\(w\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
@@ -335,55 +274,570 @@ class="math inline">\(\underline{\phantom{\hspace{1.6in}}}  \leq_m
 not encoding any pair of TM and string</td>
 <td style="text-align: center;"></td>
 </tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
 </tbody>
 </table>
 </div>
-<p>In practice, computers (and Turing machines) don’t have infinite
-tape, and we can’t afford to wait unboundedly long for an answer.
-“Decidable" isn’t good enough - we want “Efficiently decidable".</p>
-<p>For a given algorithm working on a given input, how long do we need
-to wait for an answer? How does the running time depend on the input in
-the worst-case? average-case? We expect to have to spend more time on
-computations with larger inputs.</p>
-<p>A language is <span><strong>recognizable</strong></span> if
-<u></u></p>
-<p>A language is <span><strong>decidable</strong></span> if <u></u></p>
-<p>A language is <span><strong>efficiently decidable</strong></span> if
-<u></u></p>
-<p>A function is <span><strong>computable</strong></span> if <u></u></p>
-<p>A function is <span><strong>efficiently computable</strong></span> if
-<u></u><br />
-</p>
-<p>Definition (Sipser 7.1): For <span class="math inline">\(M\)</span> a
-deterministic decider, its <span><strong>running time</strong></span> is
-the function <span class="math inline">\(f: \mathbb{N} \to
-\mathbb{N}\)</span> given by <span class="math display">\[f(n)
-=  \text{max number of  steps $M$ takes before halting, over all
-inputs  of length $n$}\]</span></p>
-<p>Definition (Sipser 7.7): For each function <span
-class="math inline">\(t(n)\)</span>, the <span><strong>time complexity
-class</strong></span> <span class="math inline">\(TIME(t(n))\)</span>,
-is defined by <span class="math display">\[TIME( t(n)) = \{ L \mid
-\text{$L$ is decidable by  a Turing machine with running time
-in  $O(t(n))$} \}\]</span></p>
-<p>An example of an element of <span
-class="math inline">\(TIME(  1  )\)</span> is</p>
-<p>An example of an element of <span
-class="math inline">\(TIME(  n  )\)</span> is</p>
-<p>Note: <span class="math inline">\(TIME( 1) \subseteq TIME
-(n)  \subseteq TIME(n^2)\)</span></p>
-<p>Definition (Sipser 7.12) : <span class="math inline">\(P\)</span> is
-the class of languages that are decidable in polynomial time on a
-deterministic 1-tape Turing machine <span
-class="math display">\[P  =  \bigcup_k TIME(n^k)\]</span></p>
-<p><span><em>Compare to exponential time: brute-force
-search.</em></span></p>
-<p>Theorem (Sipser 7.8): Let <span class="math inline">\(t(n)\)</span>
-be a function with <span class="math inline">\(t(n)  \geq n\)</span>.
-Then every <span class="math inline">\(t(n)\)</span> time deterministic
-multitape Turing machine has an equivalent <span
-class="math inline">\(O(t^2(n))\)</span> time deterministic 1-tape
-Turing machine.</p>
+<p><span><strong>Theorem</strong></span> (Sipser 5.28): If <span
+class="math inline">\(A \leq_m B\)</span> and <span
+class="math inline">\(B\)</span> is recognizable, then <span
+class="math inline">\(A\)</span> is recognizable.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p><span><strong>Corollary</strong></span>: If <span
+class="math inline">\(A \leq_m B\)</span> and <span
+class="math inline">\(A\)</span> is unrecognizable, then <span
+class="math inline">\(B\)</span> is unrecognizable.</p>
+<p><span><em>Strategy</em></span>:</p>
+<p>(i) To prove that a recognizable language <span
+class="math inline">\(R\)</span> is undecidable, prove that <span
+class="math inline">\(A_{TM} \leq_m R\)</span>.</p>
+<p>(ii) To prove that a co-recognizable language <span
+class="math inline">\(U\)</span> is undecidable, prove that <span
+class="math inline">\(\overline{A_{TM}} \leq_m U\)</span>, i.e. that
+<span class="math inline">\(A_{TM} \leq_m \overline{U}\)</span>.</p>
+<p><span class="math display">\[E_{TM} = \{ \langle M \rangle \mid
+\text{$M$ is a Turing machine and $L(M) = \emptyset$} \}\]</span></p>
+<p>Can we find algorithms to recognize</p>
+<p><span class="math inline">\(E_{TM}\)</span> ?</p>
+<p><span class="math inline">\(\overline{E_{TM}}\)</span> ?</p>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(A_{TM}  \leq_m \overline{E_{TM}}\)</span>.
+<span><em>And hence also</em> </span> <span
+class="math inline">\(\overline{A_{TM}} \leq_m E_{TM}\)</span></p>
+<p><span><strong>Proof</strong></span>: Need computable function <span
+class="math inline">\(F: \Sigma^* \to \Sigma^*\)</span> such that <span
+class="math inline">\(x \in A_{TM}\)</span> iff <span
+class="math inline">\(F(x)  \notin  E_{TM}\)</span>. Define</p>
+<blockquote>
+<p><span class="math inline">\(F =  ``\)</span> On input <span
+class="math inline">\(x\)</span>,</p>
+<ul>
+<li><p>Type-check whether <span class="math inline">\(x = \langle M, w
+\rangle\)</span> for some TM <span class="math inline">\(M\)</span> and
+string <span class="math inline">\(w\)</span>. If so, move to step 2; if
+not, output <span class="math inline">\(\langle \hspace{2in}
+\rangle\)</span></p></li>
+<li><p>Construct the following machine <span
+class="math inline">\(M&#39;_x\)</span>:</p></li>
+<li><p>Output <span class="math inline">\(\langle M&#39;_x
+\rangle\)</span>."</p></li>
+</ul>
+</blockquote>
+<p>Verifying correctness: (1) Is function well-defined and computable?
+(2) Does it have the translation property <span class="math inline">\(x
+\in A_{TM}\)</span> iff its image is <span><strong>not</strong></span>
+in <span class="math inline">\(E_{TM}\)</span> ?</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Input string</th>
+<th style="text-align: center;">Output string</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(w \in
+L(M)\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(w \notin
+L(M)\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(x\)</span>
+not encoding any pair of TM and string</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="week9-wednesday">Week9 wednesday</h1>
+<p>Recall: <span class="math inline">\(A\)</span> is
+<span><strong>mapping reducible to</strong></span> <span
+class="math inline">\(B\)</span>, written <span class="math inline">\(A
+\leq_m B\)</span>, means there is a computable function <span
+class="math inline">\(f : \Sigma^* \to \Sigma^*\)</span> such that
+<span><em>for all</em></span> strings <span
+class="math inline">\(x\)</span> in <span
+class="math inline">\(\Sigma^*\)</span>, <span
+class="math display">\[x  \in  A \qquad \qquad \text{if and  only  if}
+\qquad \qquad f(x) \in B.\]</span></p>
+<p>So far:</p>
+<ul>
+<li><p><span class="math inline">\(A_{TM}\)</span> is recognizable,
+undecidable, and not-co-recognizable.</p></li>
+<li><p><span class="math inline">\(\overline{A_{TM}}\)</span> is
+unrecognizable, undecidable, and co-recognizable.</p></li>
+<li><p><span class="math inline">\(HALT_{TM}\)</span> is recognizable,
+undecidable, and not-co-recognizable.</p></li>
+<li><p><span class="math inline">\(\overline{HALT_{TM}}\)</span> is
+unrecognizable, undecidable, and co-recognizable.</p></li>
+<li><p><span class="math inline">\(E_{TM}\)</span> is unrecognizable,
+undecidable, and co-recognizable.</p></li>
+<li><p><span class="math inline">\(\overline{E_{TM}}\)</span> is
+recognizable, undecidable, and not-co-recognizable.</p></li>
+</ul>
+<p><span class="math display">\[EQ_{TM} = \{ \langle M, M&#39; \rangle
+\mid \text{$M$ and $M&#39;$ are both Turing machines and $L(M)
+=L(M&#39;)$} \}\]</span></p>
+<p>Can we find algorithms to recognize</p>
+<p><span class="math inline">\(EQ_{TM}\)</span> ?</p>
+<p><span class="math inline">\(\overline{EQ_{TM}}\)</span> ?</p>
+<p><span><em>Goal</em></span>: Show that <span
+class="math inline">\(EQ_{TM}\)</span> is not recognizable and that
+<span class="math inline">\(\overline{EQ_{TM}}\)</span> is not
+recognizable.</p>
+<p>Using Corollary to <span><strong>Theorem 5.28</strong></span>: If
+<span class="math inline">\(A \leq_m B\)</span> and <span
+class="math inline">\(A\)</span> is unrecognizable, then <span
+class="math inline">\(B\)</span> is unrecognizable, it’s enough to prove
+that</p>
+<ul>
+<li><p><span class="math inline">\(\overline{HALT_{TM}} \leq_m
+EQ_{TM}\)</span> aka <span class="math inline">\(HALT_{TM} \leq_m
+\overline{EQ_{TM}}\)</span></p></li>
+<li><p><span class="math inline">\(\overline{HALT_{TM}}  \leq_m
+\overline{EQ_{TM}}\)</span> aka <span class="math inline">\(HALT_{TM}
+\leq_m EQ_{TM}\)</span></p></li>
+</ul>
+<p>Need computable function <span class="math inline">\(F_1: \Sigma^*
+\to \Sigma^*\)</span> such that <span class="math inline">\(x \in
+HALT_{TM}\)</span> iff <span
+class="math inline">\(F_1(x)  \notin  EQ_{TM}\)</span>.</p>
+<p><span><em>Strategy</em></span>:</p>
+<p>Map strings <span class="math inline">\(\langle M, w \rangle\)</span>
+to strings <span class="math inline">\(\langle M&#39;_{x},
+\scalebox{0.5}{\begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten
+&gt;=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state] (q0)                    {$q_0$};
+      \node[state,accepting] (qacc) [right of = q0, xshift =
+20]{$q_{acc}$};
+      \path (q0) edge  [loop above] node {$0, 1,
+\scalebox{1.5}{\textvisiblespace} \to R$} (q0)
+     ;
+    \end{tikzpicture}}
+    \rangle\)</span> . This image string is not in <span
+class="math inline">\(EQ_{TM}\)</span> when <span
+class="math inline">\(L(M&#39;_x) \neq \emptyset\)</span>.</p>
+<p>We will build <span class="math inline">\(M&#39;_x\)</span> so that
+<span class="math inline">\(L(M&#39;_{x}) = \Sigma^*\)</span> when <span
+class="math inline">\(M\)</span> halts on <span
+class="math inline">\(w\)</span> and <span
+class="math inline">\(L(M&#39;_x) = \emptyset\)</span> when <span
+class="math inline">\(M\)</span> loops on <span
+class="math inline">\(w\)</span>.</p>
+<p>Thus: when <span class="math inline">\(\langle M,w \rangle \in
+HALT_{TM}\)</span> it gets mapped to a string not in <span
+class="math inline">\(EQ_{TM}\)</span> and when <span
+class="math inline">\(\langle M,w \rangle \notin HALT_{TM}\)</span> it
+gets mapped to a string that is in <span
+class="math inline">\(EQ_{TM}\)</span>.</p>
+<p>Define</p>
+<blockquote>
+<p><span class="math inline">\(F_1 =  ``\)</span> On input <span
+class="math inline">\(x\)</span>,</p>
+<ul>
+<li><p>Type-check whether <span class="math inline">\(x = \langle M, w
+\rangle\)</span> for some TM <span class="math inline">\(M\)</span> and
+string <span class="math inline">\(w\)</span>. If so, move to step 2; if
+not, output <span class="math inline">\(\langle \hspace{2in}
+\rangle\)</span></p></li>
+<li><p>Construct the following machine <span
+class="math inline">\(M&#39;_x\)</span>:</p></li>
+<li><p>Output <span class="math inline">\(\langle M&#39;_x
+\rangle\)</span>."</p></li>
+</ul>
+</blockquote>
+<p>Verifying correctness: (1) Is function well-defined and computable?
+(2) Does it have the translation property <span class="math inline">\(x
+\in HALT_{TM}\)</span> iff its image is
+<span><strong>not</strong></span> in <span
+class="math inline">\(EQ_{TM}\)</span> ?</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Input string</th>
+<th style="text-align: center;">Output string</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(M\)</span> halts on
+<span class="math inline">\(w\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(M\)</span> loops on
+<span class="math inline">\(w\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(x\)</span>
+not encoding any pair of TM and string</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Conclude: <span class="math inline">\(HALT_{TM} \leq_m
+\overline{EQ_{TM}}\)</span></p>
+<p>Need computable function <span class="math inline">\(F_2: \Sigma^*
+\to \Sigma^*\)</span> such that <span class="math inline">\(x \in
+HALT_{TM}\)</span> iff <span
+class="math inline">\(F_2(x)  \in  EQ_{TM}\)</span>.</p>
+<p><span><em>Strategy</em></span>:</p>
+<p>Map strings <span class="math inline">\(\langle M, w \rangle\)</span>
+to strings <span class="math inline">\(\langle M&#39;_{x},
+\scalebox{0.5}{\begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten
+&gt;=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state,accepting] (q0)                    {$q_0$};
+     ;
+    \end{tikzpicture}}
+    \rangle\)</span> . This image string is in <span
+class="math inline">\(EQ_{TM}\)</span> when <span
+class="math inline">\(L(M&#39;_x) = \Sigma^*\)</span>.</p>
+<p>We will build <span class="math inline">\(M&#39;_x\)</span> so that
+<span class="math inline">\(L(M&#39;_{x}) = \Sigma^*\)</span> when <span
+class="math inline">\(M\)</span> halts on <span
+class="math inline">\(w\)</span> and <span
+class="math inline">\(L(M&#39;_x) = \emptyset\)</span> when <span
+class="math inline">\(M\)</span> loops on <span
+class="math inline">\(w\)</span>.</p>
+<p>Thus: when <span class="math inline">\(\langle M,w \rangle \in
+HALT_{TM}\)</span> it gets mapped to a string in <span
+class="math inline">\(EQ_{TM}\)</span> and when <span
+class="math inline">\(\langle M,w \rangle \notin HALT_{TM}\)</span> it
+gets mapped to a string that is not in <span
+class="math inline">\(EQ_{TM}\)</span>.</p>
+<p>Define</p>
+<blockquote>
+<p><span class="math inline">\(F_2 =  ``\)</span> On input <span
+class="math inline">\(x\)</span>,</p>
+<ul>
+<li><p>Type-check whether <span class="math inline">\(x = \langle M, w
+\rangle\)</span> for some TM <span class="math inline">\(M\)</span> and
+string <span class="math inline">\(w\)</span>. If so, move to step 2; if
+not, output <span class="math inline">\(\langle \hspace{2in}
+\rangle\)</span></p></li>
+<li><p>Construct the following machine <span
+class="math inline">\(M&#39;_x\)</span>:</p></li>
+<li><p>Output <span class="math inline">\(\langle M&#39;_x
+\rangle\)</span>."</p></li>
+</ul>
+</blockquote>
+<p>Verifying correctness: (1) Is function well-defined and computable?
+(2) Does it have the translation property <span class="math inline">\(x
+\in HALT_{TM}\)</span> iff its image is in <span
+class="math inline">\(EQ_{TM}\)</span> ?</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Input string</th>
+<th style="text-align: center;">Output string</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(M\)</span> halts on
+<span class="math inline">\(w\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\langle M, w
+\rangle\)</span> where <span class="math inline">\(M\)</span> loops on
+<span class="math inline">\(w\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(x\)</span>
+not encoding any pair of TM and string</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Conclude: <span class="math inline">\(HALT_{TM} \leq_m
+EQ_{TM}\)</span></p>
+<h1 class="unnumbered" id="week9-friday">Week9 friday</h1>
+<p>Two models of computation are called <span><strong>equally
+expressive</strong></span> when every language recognizable with the
+first model is recognizable with the second, and vice versa.</p>
+<p>True / False: NFAs and PDAs are equally expressive.</p>
+<p>True / False: Regular expressions and CFGs are equally
+expressive.</p>
+<p><span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183):
+The informal notion of algorithm is formalized completely and correctly
+by the formal definition of a Turing machine. In other words: all
+reasonably expressive models of computation are equally expressive with
+the standard Turing machine.</p>
+<div class="center">
+<p><span><em>Some examples of models that are <span><strong>equally
+expressive</strong></span> with deterministic Turing machines:</em>
+</span></p>
+</div>
+<p>The May-stay machine model is the same as the usual Turing machine
+model, except that on each transition, the tape head may move L, move R,
+or Stay.</p>
+<p>Formally: <span class="math inline">\((Q, \Sigma, \Gamma, \delta,
+q_0, q_{accept}, q_{reject})\)</span> where <span
+class="math display">\[\delta: Q \times \Gamma \to Q \times \Gamma
+\times \{L, R, S\}\]</span></p>
+<p><span><strong>Claim</strong></span>: Turing machines and May-stay
+machines are equally expressive. <span><em>To prove …</em></span></p>
+<p>To translate a standard TM to a may-stay machine: never use the
+direction <span class="math inline">\(S\)</span>!</p>
+<p>To translate one of the may-stay machines to standard TM: any time TM
+would Stay, move right then left.</p>
+<p>A multitape Turing macihne with <span
+class="math inline">\(k\)</span> tapes can be formally representated as
+<span class="math inline">\((Q, \Sigma,  \Gamma, \delta, q_0, q_{acc},
+q_{rej})\)</span> where <span class="math inline">\(Q\)</span> is the
+finite set of states, <span class="math inline">\(\Sigma\)</span> is the
+input alphabet with <span class="math inline">\(\textvisiblespace \notin
+\Sigma\)</span>, <span class="math inline">\(\Gamma\)</span> is the tape
+alphabet with <span class="math inline">\(\Sigma \subsetneq
+\Gamma\)</span> , <span class="math inline">\(\delta: Q\times
+\Gamma^k\to Q \times \Gamma^k \times \{L,R\}^k\)</span> (where <span
+class="math inline">\(k\)</span> is the number of states)</p>
+<p>If <span class="math inline">\(M\)</span> is a standard TM, it is a
+<span class="math inline">\(1\)</span>-tape machine.</p>
+<p>To translate a <span class="math inline">\(k\)</span>-tape machine to
+a standard TM: Use a new symbol to separate the contents of each tape
+and keep track of location of head with special version of each tape
+symbol. <span>Sipser Theorem 3.13</span></p>
+<p><img src="../../resources/images/Figure314.png" style="width:2.5in"
+alt="image" /></p>
+<p>Enumerators give a different model of computation where a language is
+<span><strong>produced, one string at a time</strong></span>, rather
+than recognized by accepting (or not) individual strings.</p>
+<p>Each enumerator machine has finite state control, unlimited work
+tape, and a printer. The computation proceeds according to transition
+function; at any point machine may “send” a string to the printer. <span
+class="math display">\[E  = (Q, \Sigma, \Gamma, \delta, q_0,
+q_{print})\]</span> <span class="math inline">\(Q\)</span> is the finite
+set of states, <span class="math inline">\(\Sigma\)</span> is the output
+alphabet, <span class="math inline">\(\Gamma\)</span> is the tape
+alphabet (<span class="math inline">\(\Sigma  \subsetneq\Gamma,
+\textvisiblespace \in \Gamma \setminus \Sigma\)</span>), <span
+class="math display">\[\delta:  Q  \times  \Gamma \times \Gamma \to  Q
+\times  \Gamma \times  \Gamma \times \{L, R\} \times  \{L, R\}\]</span>
+where in state <span class="math inline">\(q\)</span>, when the working
+tape is scanning character <span class="math inline">\(x\)</span> and
+the printer tape is scanning character <span
+class="math inline">\(y\)</span>, <span class="math inline">\(\delta(
+(q,x,y) ) = (q&#39;, x&#39;, y&#39;, d_w, d_p)\)</span> means transition
+to control state <span class="math inline">\(q&#39;\)</span>, write
+<span class="math inline">\(x&#39;\)</span> on the working tape, write
+<span class="math inline">\(y&#39;\)</span> on the printer tape, move in
+direction <span class="math inline">\(d_w\)</span> on the working tape,
+and move in direction <span class="math inline">\(d_p\)</span> on the
+printer tape. The computation starts in <span
+class="math inline">\(q_0\)</span> and each time the computation enters
+<span class="math inline">\(q_{print}\)</span> the string from the
+leftmost edge of the printer tape to the first blank cell is considered
+to be printed.</p>
+<p>The language <span><strong>enumerated</strong></span> by <span
+class="math inline">\(E\)</span>, <span
+class="math inline">\(L(E)\)</span>, is <span class="math inline">\(\{ w
+\in \Sigma^* \mid \text{$E$ eventually, at finite  time,
+prints $w$} \}\)</span>.</p>
+<p><span><strong>Theorem 3.21</strong></span> A language is
+Turing-recognizable iff some enumerator enumerates it.</p>
+<p><span><strong>Proof, part 1</strong></span>: Assume <span
+class="math inline">\(L\)</span> is enumerated by some enumerator, <span
+class="math inline">\(E\)</span>, so <span class="math inline">\(L =
+L(E)\)</span>. We’ll use <span class="math inline">\(E\)</span> in a
+subroutine within a high-level description of a new Turing machine that
+we will build to recognize <span class="math inline">\(L\)</span>.</p>
+<p><span><strong>Goal</strong></span>: build Turing machine <span
+class="math inline">\(M_E\)</span> with <span
+class="math inline">\(L(M_E) = L(E)\)</span>.</p>
+<p>Define <span class="math inline">\(M_E\)</span> as follows: <span
+class="math inline">\(M_E =\)</span> “On input <span
+class="math inline">\(w\)</span>,</p>
+<ol>
+<li><p>Run <span class="math inline">\(E\)</span>. For each string <span
+class="math inline">\(x\)</span> printed by <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Check if <span class="math inline">\(x = w\)</span>. If so,
+accept (and halt); otherwise, continue."</p></li>
+</ol>
+<p><span><strong>Proof, part 2</strong></span>: Assume <span
+class="math inline">\(L\)</span> is Turing-recognizable and there is a
+Turing machine <span class="math inline">\(M\)</span> with <span
+class="math inline">\(L = L(M)\)</span>. We’ll use <span
+class="math inline">\(M\)</span> in a subroutine within a high-level
+description of an enumerator that we will build to enumerate <span
+class="math inline">\(L\)</span>.</p>
+<p><span><strong>Goal</strong></span>: build enumerator <span
+class="math inline">\(E_M\)</span> with <span
+class="math inline">\(L(E_M) = L(M)\)</span>.</p>
+<p><span><strong>Idea</strong></span>: check each string in turn to see
+if it is in <span class="math inline">\(L\)</span>.</p>
+<p><span><em>How?</em></span> Run computation of <span
+class="math inline">\(M\)</span> on each string.
+<span><em>But</em></span>: need to be careful about computations that
+don’t halt.</p>
+<p><span><em>Recall</em></span> String order for <span
+class="math inline">\(\Sigma = \{0,1\}\)</span>: <span
+class="math inline">\(s_1 = \varepsilon\)</span>, <span
+class="math inline">\(s_2 = 0\)</span>, <span class="math inline">\(s_3
+= 1\)</span>, <span class="math inline">\(s_4 = 00\)</span>, <span
+class="math inline">\(s_5 = 01\)</span>, <span
+class="math inline">\(s_6  = 10\)</span>, <span
+class="math inline">\(s_7  =  11\)</span>, <span
+class="math inline">\(s_8 = 000\)</span>, …</p>
+<p>Define <span class="math inline">\(E_M\)</span> as follows: <span
+class="math inline">\(E_{M} =\)</span> “ <span><em>ignore any
+input.</em></span> Repeat the following for <span
+class="math inline">\(i=1, 2, 3, \ldots\)</span></p>
+<ol>
+<li><p>Run the computations of <span class="math inline">\(M\)</span> on
+<span class="math inline">\(s_1\)</span>, <span
+class="math inline">\(s_2\)</span>, …, <span
+class="math inline">\(s_i\)</span> for (at most) <span
+class="math inline">\(i\)</span> steps each</p></li>
+<li><p>For each of these <span class="math inline">\(i\)</span>
+computations that accept during the (at most) <span
+class="math inline">\(i\)</span> steps, print out the accepted
+string."</p></li>
+</ol>
+<p>At any point in the computation, the nondeterministic machine may
+proceed according to several possibilities: <span
+class="math inline">\((Q, \Sigma, \Gamma, \delta, q_0, q_{acc},
+q_{rej})\)</span> where <span class="math display">\[\delta: Q \times
+\Gamma \to \mathcal{P}(Q \times \Gamma \times \{L, R\})\]</span> The
+computation of a nondeterministic Turing machine is a tree with
+branching when the next step of the computation has multiple
+possibilities. A nondeterministic Turing machine accepts a string
+exactly when some branch of the computation tree enters the accept
+state.</p>
+<p>Given a nondeterministic machine, we can use a <span
+class="math inline">\(3\)</span>-tape Turing machine to simulate it by
+doing a breadth-first search of computation tree: one tape is
+“read-only” input tape, one tape simulates the tape of the
+nondeterministic computation, and one tape tracks nondeterministic
+branching. <span>Sipser page 178</span></p>
+<p><span><strong>Summary</strong></span></p>
+<p>Two models of computation are called <span><strong>equally
+expressive</strong></span> when every language recognizable with the
+first model is recognizable with the second, and vice versa.</p>
+<p>To prove the existence of a Turing machine that decides / recognizes
+some language, it’s enough to construct an example using any of the
+equally expressive models.</p>
+<p>But: some of the <span><strong>performance</strong></span> properties
+of these models are not equivalent.</p>
 <h1 class="unnumbered" id="week8-monday">Week8 monday</h1>
 <div class="center">
 <table>
@@ -1955,18 +2409,64 @@ language of the union (or intersection, concatenation) of the languages
 of the original machines; converting regular expressions to equivalent
 DFA; converting DFA to equivalent regular expressions, etc.</p>
 <h1 class="unnumbered" id="week10-monday">Week10 monday</h1>
-<p>Recall Definition (Sipser 7.1): For <span
-class="math inline">\(M\)</span> a deterministic decider, its
-<span><strong>running time</strong></span> is the function <span
-class="math inline">\(f: \mathbb{N} \to \mathbb{N}\)</span> given by
-<span class="math display">\[f(n) =  \text{max number of  steps $M$
-takes before halting, over all inputs  of length $n$}\]</span></p>
-<p>Recall Definition (Sipser 7.7): For each function <span
+<p>In practice, computers (and Turing machines) don’t have infinite
+tape, and we can’t afford to wait unboundedly long for an answer.
+“Decidable" isn’t good enough - we want “Efficiently decidable".</p>
+<p>For a given algorithm working on a given input, how long do we need
+to wait for an answer? How does the running time depend on the input in
+the worst-case? average-case? We expect to have to spend more time on
+computations with larger inputs.</p>
+<p>A language is <span><strong>recognizable</strong></span> if
+<u></u></p>
+<p>A language is <span><strong>decidable</strong></span> if <u></u></p>
+<p>A language is <span><strong>efficiently decidable</strong></span> if
+<u></u></p>
+<p>A function is <span><strong>computable</strong></span> if <u></u></p>
+<p>A function is <span><strong>efficiently computable</strong></span> if
+<u></u><br />
+</p>
+<p>Definition (Sipser 7.1): For <span class="math inline">\(M\)</span> a
+deterministic decider, its <span><strong>running time</strong></span> is
+the function <span class="math inline">\(f: \mathbb{N} \to
+\mathbb{N}\)</span> given by <span class="math display">\[f(n)
+=  \text{max number of  steps $M$ takes before halting, over all
+inputs  of length $n$}\]</span></p>
+<p>Definition (Sipser 7.7): For each function <span
 class="math inline">\(t(n)\)</span>, the <span><strong>time complexity
 class</strong></span> <span class="math inline">\(TIME(t(n))\)</span>,
 is defined by <span class="math display">\[TIME( t(n)) = \{ L \mid
 \text{$L$ is decidable by  a Turing machine with running time
-in  $O(t(n))$} \}\]</span> Recall Definition (Sipser 7.12) : <span
+in  $O(t(n))$} \}\]</span></p>
+<p>An example of an element of <span
+class="math inline">\(TIME(  1  )\)</span> is</p>
+<p>An example of an element of <span
+class="math inline">\(TIME(  n  )\)</span> is</p>
+<p>Note: <span class="math inline">\(TIME( 1) \subseteq TIME
+(n)  \subseteq TIME(n^2)\)</span></p>
+<p>Definition (Sipser 7.12) : <span class="math inline">\(P\)</span> is
+the class of languages that are decidable in polynomial time on a
+deterministic 1-tape Turing machine <span
+class="math display">\[P  =  \bigcup_k TIME(n^k)\]</span></p>
+<p><span><em>Compare to exponential time: brute-force
+search.</em></span></p>
+<p>Theorem (Sipser 7.8): Let <span class="math inline">\(t(n)\)</span>
+be a function with <span class="math inline">\(t(n)  \geq n\)</span>.
+Then every <span class="math inline">\(t(n)\)</span> time deterministic
+multitape Turing machine has an equivalent <span
+class="math inline">\(O(t^2(n))\)</span> time deterministic 1-tape
+Turing machine.</p>
+<p>Definition (Sipser 7.1): For <span class="math inline">\(M\)</span> a
+deterministic decider, its <span><strong>running time</strong></span> is
+the function <span class="math inline">\(f: \mathbb{N} \to
+\mathbb{N}\)</span> given by <span class="math display">\[f(n)
+=  \text{max number of  steps $M$ takes before halting, over all
+inputs  of length $n$}\]</span></p>
+<p>Definition (Sipser 7.7): For each function <span
+class="math inline">\(t(n)\)</span>, the <span><strong>time complexity
+class</strong></span> <span class="math inline">\(TIME(t(n))\)</span>,
+is defined by <span class="math display">\[TIME( t(n)) = \{ L \mid
+\text{$L$ is decidable by  a Turing machine with running time
+in  $O(t(n))$} \}\]</span> Definition (Sipser 7.12) : <span
 class="math inline">\(P\)</span> is the class of languages that are
 decidable in polynomial time on a deterministic 1-tape Turing machine
 <span class="math display">\[P  =  \bigcup_k TIME(n^k)\]</span></p>
@@ -1990,7 +2490,13 @@ NTIME(n^k)\]</span></p>
 class="math inline">\(TIME(n^2) \subseteq NTIME(n^2)\)</span></p>
 <p><span><strong>True</strong></span> or
 <span><strong>False</strong></span>: <span
-class="math inline">\(NTIME(n^2) \subseteq DTIME(n^2)\)</span></p>
+class="math inline">\(NTIME(n^2) \subseteq TIME(n^2)\)</span></p>
+<p><span><strong>Every problem in NP is decidable with an
+exponential-time algorithm</strong></span></p>
+<p>Nondeterministic approach: guess a possible solution, verify that it
+works.</p>
+<p>Brute-force (worst-case exponential time) approach: iterate over all
+possible solutions, for each one, check if it works.</p>
 <p><span><strong>Examples in <span
 class="math inline">\(P\)</span></strong> </span></p>
 <p><span><em>Can’t use nondeterminism; Can use multiple tapes; Often
@@ -2021,12 +2527,6 @@ class="math display">\[CLIQUE = \{ \langle G,k\rangle \mid \textrm{$G$
 is an undirected graph with $n$ nodes that has a $k$-clique}\}\]</span>
 <span class="math display">\[SAT =\{ \langle X \rangle \mid \textrm{$X$
 is a satisfiable Boolean formula with $n$ variables}\}\]</span></p>
-<p><span><strong>Every problem in NP is decidable with an
-exponential-time algorithm</strong></span></p>
-<p>Nondeterministic approach: guess a possible solution, verify that it
-works.</p>
-<p>Brute-force (worst-case exponential time) approach: iterate over all
-possible solutions, for each one, check if it works.</p>
 <div class="center">
 <table>
 <thead>
@@ -2087,6 +2587,9 @@ class="math inline">\(\ldots\)</span></td>
 </tbody>
 </table>
 </div>
+<p><span><strong></strong></span> Notice: <span class="math inline">\(NP
+\subseteq \{ L \mid L \text{ is decidable} \}\)</span> so <span
+class="math inline">\(A_{TM} \notin NP\)</span></p>
 <p>Million-dollar question: Is <span class="math inline">\(P =
 NP\)</span>?</p>
 <p>One approach to trying to answer it is to look for
@@ -2137,8 +2640,19 @@ Boolean formula in conjunctive normal form (a conjunction of disjunctive
 clauses of literals) and each clause has three literals. <span
 class="math display">\[3SAT  = \{  \langle  \phi \rangle \mid
 \text{$\phi$ is  a  satisfiable 3cnf-formula} \}\]</span></p>
-<p>Example strings in <span class="math inline">\(3SAT\)</span></p>
-<p>Example strings not in <span class="math inline">\(3SAT\)</span></p>
+<p>Example string in <span class="math inline">\(3SAT\)</span> <span
+class="math display">\[\langle (x \vee \bar{y} \vee {\bar z}) \wedge
+(\bar{x}  \vee y  \vee  z) \wedge (x \vee y  \vee z)
+\rangle\]</span></p>
+<p>Example string not in <span class="math inline">\(3SAT\)</span> <span
+class="math display">\[\langle (x \vee y \vee z) \wedge
+    (x \vee y \vee{\bar z}) \wedge
+    (x \vee \bar{y} \vee z) \wedge
+    (x \vee \bar{y} \vee \bar{z}) \wedge
+    (\bar{x} \vee y \vee z) \wedge
+    (\bar{x} \vee y \vee{\bar z}) \wedge
+    (\bar{x} \vee \bar{y} \vee z) \wedge
+    (\bar{x} \vee \bar{y} \vee \bar{z}) \rangle\]</span></p>
 <p><span><strong>Cook-Levin Theorem</strong></span>: <span
 class="math inline">\(3SAT\)</span> is <span
 class="math inline">\(NP\)</span>-complete.</p>
@@ -2164,9 +2678,8 @@ graph is a maximally connected subgraph with <span
 class="math inline">\(k\)</span> nodes. <span
 class="math display">\[CLIQUE  = \{  \langle G, k \rangle \mid \text{$G$
 is an  undirected graph with  a $k$-clique} \}\]</span></p>
-<p>Example strings in <span class="math inline">\(CLIQUE\)</span></p>
-<p>Example strings not in <span
-class="math inline">\(CLIQUE\)</span></p>
+<p>Example string in <span class="math inline">\(CLIQUE\)</span></p>
+<p>Example string not in <span class="math inline">\(CLIQUE\)</span></p>
 <p>Theorem (Sipser 7.32): <span class="math display">\[3SAT  \leq_P
 CLIQUE\]</span></p>
 <p>Given a Boolean formula in conjunctive normal form with <span

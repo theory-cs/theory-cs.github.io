@@ -11,15 +11,17 @@ Notation:  when $A$  is mapping reducible to $B$, we write $A  \leq_m B$.
 
 {\bf Theorem} (Sipser 5.23): If $A \leq_m B$ and $A$ is undecidable, then $B$ is undecidable.
     
-{\bf Halting problem}
+
+{\it Last time} we proved that $A_{TM} \le_m HALT_{TM}$ where
     \[
     HALT_{TM} = \{ \langle M, w \rangle \mid \text{$M$ is a  Turing machine, $w$ is  a string, and $M$ halts on $w$} \}
     \]
+and since $A_{TM}$ is undecidable, $HALT_{TM}$ is also undecidable. The function 
+witnessing the mapping reduction mapped strings in $A_{TM}$ to strings in $HALT_{TM}$ and 
+strings not in $A_{TM}$ to strings not in $HALT_{TM}$ by changing encoded Turing machines to 
+ones that had identical computations except looped instead of rejecting.
 
-We will define a computable function that witnesses the mapping reduction $A_{TM} \leq_m HALT_{TM}$.
-
-Using Theorem 5.23, we can then conclude that $HALT_{TM}$ is undecidable.
-
+\begin{comment}
 Define $F: \Sigma^* \to \Sigma^*$ by
     \[
     F(x) =  \begin{cases}
@@ -52,15 +54,128 @@ Define $F: \Sigma^* \to \Sigma^*$ by
     Claim (2): for every  $x$,  $x \in  A_{TM}$ iff $F(x) \in HALT_{TM}$.  
     
     \vfill
-   
-    
-\newpage
+\end{comment}
+
 True or False: $\overline{A_{TM}} \leq_m \overline{HALT_{TM}}$
 
 \vfill
 
 True or False: $HALT_{TM} \leq_m A_{TM}$.
 
+{\bf Proof}: Need computable function  $F: \Sigma^* \to \Sigma^*$  such that  
+$x \in HALT_{TM}$ iff $F(x)  \in  A_{TM}$.
+Define
+
+\vspace{-15pt}
+
+\begin{quote}
+$F =  ``$ On input $x$,
+\begin{itemize}
+\item[1.] Type-check whether  $x = \langle M, w \rangle$ for some TM $M$ and string $w$. 
+If so, move to step 2; if  not, output  $\langle \hspace{2in} \rangle$
+\item[2.] Construct the following machine $M'_x$:
+\vspace{50pt}
+\item[3.] Output $\langle M'_x , w\rangle$."
+\end{itemize}
+\end{quote}
+
+Verifying correctness: (1) Is function well-defined and computable? (2) Does it have the 
+translation property $x \in HALT_{TM}$ iff its image is in $A_{TM}$? 
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Input string &  Output string \\
+\hline
+$\langle M, w \rangle$ where  $M$ halts on $w$ & \phantom{\hspace{4in}} \\
+& \\& \\
+$\langle M, w \rangle$ where $M$ does not halt on $w$ & \\
+& \\&\\
+$x$ not encoding any pair of  TM and string   &  \\
+& \\
+\hline
+\end{tabular}
+\end{center}
+
 \vfill
 
 \newpage
+
+
+{\bf Theorem} (Sipser 5.28): If $A \leq_m B$ and $B$ is recognizable, then $A$ is recognizable.
+
+{\bf Proof}: 
+
+\vfill
+
+{\bf Corollary}: If  $A \leq_m B$ and $A$ is unrecognizable, then $B$ is unrecognizable.
+
+\vfill
+
+{\it Strategy}:  
+
+(i) To prove that a recognizable language $R$ is undecidable, prove that $A_{TM} \leq_m R$.
+
+
+(ii) To prove that a co-recognizable language $U$ is undecidable, prove that $\overline{A_{TM}} \leq_m U$,
+ i.e. that $A_{TM} \leq_m \overline{U}$.
+
+ \newpage
+
+\[
+E_{TM} = \{ \langle M \rangle \mid \text{$M$ is a Turing machine and $L(M) = \emptyset$} \}
+\]
+
+\begin{comment}
+Example  string in  $E_{TM}$ is \underline{\phantom{\hspace{1.6in}}} .
+Example  string not  in  $E_{TM}$ is \underline{\phantom{\hspace{1.6in}}} .
+\end{comment}
+
+Can we find algorithms to recognize
+
+$E_{TM}$  ? 
+
+$\overline{E_{TM}}$ ? 
+
+\vfill
+
+
+{\bf Claim}: $A_{TM}  \leq_m \overline{E_{TM}}$. {\it And hence also } $\overline{A_{TM}} \leq_m E_{TM}$
+
+{\bf Proof}: Need computable function  $F: \Sigma^* \to \Sigma^*$  such that  $x \in A_{TM}$ iff $F(x)  \notin  E_{TM}$.
+Define
+
+\vspace{-15pt}
+
+\begin{quote}
+$F =  ``$ On input $x$,
+\begin{itemize}
+\item[1.] Type-check whether  $x = \langle M, w \rangle$ for some TM $M$ and string $w$. 
+If so, move to step 2; if  not, output  $\langle \hspace{2in} \rangle$
+\item[2.] Construct the following machine $M'_x$:
+\vspace{50pt}
+\item[3.] Output $\langle M'_x \rangle$."
+\end{itemize}
+\end{quote}
+
+Verifying correctness: (1) Is function well-defined and computable? (2) Does it have the 
+translation property $x \in A_{TM}$ iff its image is {\bf not} in $E_{TM}$ ? 
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Input string &  Output string \\
+\hline
+$\langle M, w \rangle$ where  $w \in L(M)$ & \phantom{\hspace{4in}} \\
+& \\
+& \\
+& \\
+$\langle M, w \rangle$ where $w \notin L(M)$ & \\
+& \\
+&\\ & \\
+$x$ not encoding any pair of  TM and string   &  \\
+& \\
+& \\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill

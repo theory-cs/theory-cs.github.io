@@ -175,19 +175,66 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="monday">Monday</h1>
-<p>Recall Definition (Sipser 7.1): For <span
-class="math inline">\(M\)</span> a deterministic decider, its
-<span><strong>running time</strong></span> is the function <span
-class="math inline">\(f: \mathbb{N} \to \mathbb{N}\)</span> given by
-<span class="math display">\[f(n) =  \text{max number of  steps $M$
-takes before halting, over all inputs  of length $n$}\]</span></p>
-<p>Recall Definition (Sipser 7.7): For each function <span
+<h1 class="unnumbered" id="monday-time-complexity">Monday: Time
+Complexity</h1>
+<p>In practice, computers (and Turing machines) don’t have infinite
+tape, and we can’t afford to wait unboundedly long for an answer.
+“Decidable" isn’t good enough - we want “Efficiently decidable".</p>
+<p>For a given algorithm working on a given input, how long do we need
+to wait for an answer? How does the running time depend on the input in
+the worst-case? average-case? We expect to have to spend more time on
+computations with larger inputs.</p>
+<p>A language is <span><strong>recognizable</strong></span> if
+<u></u></p>
+<p>A language is <span><strong>decidable</strong></span> if <u></u></p>
+<p>A language is <span><strong>efficiently decidable</strong></span> if
+<u></u></p>
+<p>A function is <span><strong>computable</strong></span> if <u></u></p>
+<p>A function is <span><strong>efficiently computable</strong></span> if
+<u></u><br />
+</p>
+<p>Definition (Sipser 7.1): For <span class="math inline">\(M\)</span> a
+deterministic decider, its <span><strong>running time</strong></span> is
+the function <span class="math inline">\(f: \mathbb{N} \to
+\mathbb{N}\)</span> given by <span class="math display">\[f(n)
+=  \text{max number of  steps $M$ takes before halting, over all
+inputs  of length $n$}\]</span></p>
+<p>Definition (Sipser 7.7): For each function <span
 class="math inline">\(t(n)\)</span>, the <span><strong>time complexity
 class</strong></span> <span class="math inline">\(TIME(t(n))\)</span>,
 is defined by <span class="math display">\[TIME( t(n)) = \{ L \mid
 \text{$L$ is decidable by  a Turing machine with running time
-in  $O(t(n))$} \}\]</span> Recall Definition (Sipser 7.12) : <span
+in  $O(t(n))$} \}\]</span></p>
+<p>An example of an element of <span
+class="math inline">\(TIME(  1  )\)</span> is</p>
+<p>An example of an element of <span
+class="math inline">\(TIME(  n  )\)</span> is</p>
+<p>Note: <span class="math inline">\(TIME( 1) \subseteq TIME
+(n)  \subseteq TIME(n^2)\)</span></p>
+<p>Definition (Sipser 7.12) : <span class="math inline">\(P\)</span> is
+the class of languages that are decidable in polynomial time on a
+deterministic 1-tape Turing machine <span
+class="math display">\[P  =  \bigcup_k TIME(n^k)\]</span></p>
+<p><span><em>Compare to exponential time: brute-force
+search.</em></span></p>
+<p>Theorem (Sipser 7.8): Let <span class="math inline">\(t(n)\)</span>
+be a function with <span class="math inline">\(t(n)  \geq n\)</span>.
+Then every <span class="math inline">\(t(n)\)</span> time deterministic
+multitape Turing machine has an equivalent <span
+class="math inline">\(O(t^2(n))\)</span> time deterministic 1-tape
+Turing machine.</p>
+<p>Definition (Sipser 7.1): For <span class="math inline">\(M\)</span> a
+deterministic decider, its <span><strong>running time</strong></span> is
+the function <span class="math inline">\(f: \mathbb{N} \to
+\mathbb{N}\)</span> given by <span class="math display">\[f(n)
+=  \text{max number of  steps $M$ takes before halting, over all
+inputs  of length $n$}\]</span></p>
+<p>Definition (Sipser 7.7): For each function <span
+class="math inline">\(t(n)\)</span>, the <span><strong>time complexity
+class</strong></span> <span class="math inline">\(TIME(t(n))\)</span>,
+is defined by <span class="math display">\[TIME( t(n)) = \{ L \mid
+\text{$L$ is decidable by  a Turing machine with running time
+in  $O(t(n))$} \}\]</span> Definition (Sipser 7.12) : <span
 class="math inline">\(P\)</span> is the class of languages that are
 decidable in polynomial time on a deterministic 1-tape Turing machine
 <span class="math display">\[P  =  \bigcup_k TIME(n^k)\]</span></p>
@@ -211,7 +258,13 @@ NTIME(n^k)\]</span></p>
 class="math inline">\(TIME(n^2) \subseteq NTIME(n^2)\)</span></p>
 <p><span><strong>True</strong></span> or
 <span><strong>False</strong></span>: <span
-class="math inline">\(NTIME(n^2) \subseteq DTIME(n^2)\)</span></p>
+class="math inline">\(NTIME(n^2) \subseteq TIME(n^2)\)</span></p>
+<p><span><strong>Every problem in NP is decidable with an
+exponential-time algorithm</strong></span></p>
+<p>Nondeterministic approach: guess a possible solution, verify that it
+works.</p>
+<p>Brute-force (worst-case exponential time) approach: iterate over all
+possible solutions, for each one, check if it works.</p>
 <p><span><strong>Examples in <span
 class="math inline">\(P\)</span></strong> </span></p>
 <p><span><em>Can’t use nondeterminism; Can use multiple tapes; Often
@@ -242,12 +295,6 @@ class="math display">\[CLIQUE = \{ \langle G,k\rangle \mid \textrm{$G$
 is an undirected graph with $n$ nodes that has a $k$-clique}\}\]</span>
 <span class="math display">\[SAT =\{ \langle X \rangle \mid \textrm{$X$
 is a satisfiable Boolean formula with $n$ variables}\}\]</span></p>
-<p><span><strong>Every problem in NP is decidable with an
-exponential-time algorithm</strong></span></p>
-<p>Nondeterministic approach: guess a possible solution, verify that it
-works.</p>
-<p>Brute-force (worst-case exponential time) approach: iterate over all
-possible solutions, for each one, check if it works.</p>
 <div class="center">
 <table>
 <thead>
@@ -308,6 +355,9 @@ class="math inline">\(\ldots\)</span></td>
 </tbody>
 </table>
 </div>
+<p><span><strong></strong></span> Notice: <span class="math inline">\(NP
+\subseteq \{ L \mid L \text{ is decidable} \}\)</span> so <span
+class="math inline">\(A_{TM} \notin NP\)</span></p>
 <p>Million-dollar question: Is <span class="math inline">\(P =
 NP\)</span>?</p>
 <p>One approach to trying to answer it is to look for
@@ -319,13 +369,7 @@ class="math inline">\(P = NP\)</span>, or (2) these problems might be
 good candidates for showing that there are problems in <span
 class="math inline">\(NP\)</span> for which there are no efficient
 algorithms.</p>
-<h2 class="unnumbered" id="review-week-10-monday">Review: Week 10
-Monday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about complexity (<span
-class="math inline">\(P\)</span> and <span
-class="math inline">\(NP\)</span>)</p>
-<h2 class="unnumbered" id="wednesday">Wednesday</h2>
+<h2 class="unnumbered" id="wednesday-p-vs.-np">Wednesday: P vs. NP</h2>
 <p>Definition (Sipser 7.29) Language <span
 class="math inline">\(A\)</span> is <span><strong>polynomial-time
 mapping reducible</strong></span> to language <span
@@ -364,8 +408,19 @@ Boolean formula in conjunctive normal form (a conjunction of disjunctive
 clauses of literals) and each clause has three literals. <span
 class="math display">\[3SAT  = \{  \langle  \phi \rangle \mid
 \text{$\phi$ is  a  satisfiable 3cnf-formula} \}\]</span></p>
-<p>Example strings in <span class="math inline">\(3SAT\)</span></p>
-<p>Example strings not in <span class="math inline">\(3SAT\)</span></p>
+<p>Example string in <span class="math inline">\(3SAT\)</span> <span
+class="math display">\[\langle (x \vee \bar{y} \vee {\bar z}) \wedge
+(\bar{x}  \vee y  \vee  z) \wedge (x \vee y  \vee z)
+\rangle\]</span></p>
+<p>Example string not in <span class="math inline">\(3SAT\)</span> <span
+class="math display">\[\langle (x \vee y \vee z) \wedge
+    (x \vee y \vee{\bar z}) \wedge
+    (x \vee \bar{y} \vee z) \wedge
+    (x \vee \bar{y} \vee \bar{z}) \wedge
+    (\bar{x} \vee y \vee z) \wedge
+    (\bar{x} \vee y \vee{\bar z}) \wedge
+    (\bar{x} \vee \bar{y} \vee z) \wedge
+    (\bar{x} \vee \bar{y} \vee \bar{z}) \rangle\]</span></p>
 <p><span><strong>Cook-Levin Theorem</strong></span>: <span
 class="math inline">\(3SAT\)</span> is <span
 class="math inline">\(NP\)</span>-complete.</p>
@@ -391,9 +446,8 @@ graph is a maximally connected subgraph with <span
 class="math inline">\(k\)</span> nodes. <span
 class="math display">\[CLIQUE  = \{  \langle G, k \rangle \mid \text{$G$
 is an  undirected graph with  a $k$-clique} \}\]</span></p>
-<p>Example strings in <span class="math inline">\(CLIQUE\)</span></p>
-<p>Example strings not in <span
-class="math inline">\(CLIQUE\)</span></p>
+<p>Example string in <span class="math inline">\(CLIQUE\)</span></p>
+<p>Example string not in <span class="math inline">\(CLIQUE\)</span></p>
 <p>Theorem (Sipser 7.32): <span class="math display">\[3SAT  \leq_P
 CLIQUE\]</span></p>
 <p>Given a Boolean formula in conjunctive normal form with <span
@@ -410,12 +464,7 @@ except</p>
 </ul>
 <p>Example: <span class="math inline">\((x \vee \bar{y} \vee {\bar z})
 \wedge (\bar{x}  \vee y  \vee  z) \wedge (x \vee y  \vee z)\)</span></p>
-<h2 class="unnumbered" id="review-week-10-wednesday">Review: Week 10
-Wednesday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> about complexity (<span
-class="math inline">\(NP\)</span>-completeness)</p>
-<h2 class="unnumbered" id="friday">Friday</h2>
+<h2 class="unnumbered" id="friday-review">Friday: Review</h2>
 <div class="center">
 <table>
 <tbody>
@@ -576,10 +625,55 @@ decidable languages is closed under concatenation.</p>
 <p><img src="../../resources/images/wood-951875_960_720.jpeg"
 style="width:5in" alt="image" /></p>
 </div>
-<h2 class="unnumbered" id="review-week-10-friday">Review: Week 10
-Friday</h2>
-<p>Please complete the review quiz questions on <a
-href="http://gradescope.com">Gradescope</a> giving feedback on the
-quarter. Have a great summer!</p>
+<h2 class="unnumbered" id="week-10-at-a-glance">Week 10 at a glance</h2>
+<h3 class="unnumbered" id="textbook-reading-chapter-7">Textbook reading:
+Chapter 7</h3>
+<p><span><em>For Monday</em></span>: Definition 7.1 (page 276)</p>
+<p><span><em>For Wednesday</em></span>: Definition 7.7 (page 279)</p>
+<h3 class="unnumbered" id="make-sure-you-can">Make sure you can:</h3>
+<ul>
+<li><p>Classify the computational complexity of a set of strings by
+determining whether it is decidable or undecidable and recognizable or
+unrecognizable.</p>
+<ul>
+<li><p>Distinguish between computability and complexity</p></li>
+<li><p>Articulate motivating questions of complexity</p></li>
+<li><p>Define NP-completeness</p></li>
+<li><p>Give examples of PTIME-decidable, NPTIME-decidable, and
+NP-complete problems</p></li>
+</ul></li>
+<li><p>Use mapping reduction to deduce the complexity of a language by
+comparing to the complexity of another.</p>
+<ul>
+<li><p>Distinguish between computability and complexity</p></li>
+<li><p>Articulate motivating questions of complexity</p></li>
+<li><p>Use appropriate reduction (e.g. mapping, Turing, polynomial-time)
+to deduce the complexity of a language by comparing to the complexity of
+another.</p></li>
+<li><p>Use polynomial-time reduction to prove NP-completeness</p></li>
+</ul></li>
+</ul>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>Student Evaluations of Teaching forms: Evaluations are open for
+completion anytime BEFORE 8AM on Saturday, March 16. Access your SETs
+from the Evaluations site</p>
+<blockquote>
+<p><a href="https://academicaffairs.ucsd.edu/Modules/Evals"
+class="uri">https://academicaffairs.ucsd.edu/Modules/Evals</a></p>
+</blockquote>
+<p>You will separately evaluate each of your listed instructors for each
+enrolled course.</p>
+<p>**NEW** WINTER 2024 SET INCENTIVE LOTTERY: In Winter 2024, students
+who complete all of their student evaluation forms for their
+undergraduate course will be entered into a lottery to win one of 5 $100
+Visa gift cards! To be entered into the lottery, students must complete
+at least one instructor evaluation for EACH of their undergraduate
+courses. They will be automatically entered when they have completed an
+instructor evaluation for all of their undergraduate courses.</p>
+<p>Review quizzes based on class material each day; review quiz for
+Friday includes opportunity for feedback for course.</p>
+<p>Homework assignment 5 due Thursday.</p>
+</div>
 </body>
 </html>
