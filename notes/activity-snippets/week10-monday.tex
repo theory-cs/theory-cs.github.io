@@ -1,17 +1,73 @@
 %! app: Decidable Languages, Undecidable Languages
 %! outcome: Classify language, Classify decision problem, Reduction, Nondeterminism
 
-Recall Definition  (Sipser 7.1): For  $M$ a deterministic decider, its {\bf running time} is the function  $f: \mathbb{N} \to \mathbb{N}$
+
+In practice, computers (and Turing machines) don't have infinite tape, 
+and we can't afford to wait unboundedly long for an answer.
+``Decidable" isn't good enough - we want ``Efficiently decidable".
+
+For a given algorithm working on a given input, how long do we need to wait for an answer? 
+How does the running time depend on the input in the worst-case? average-case? 
+We expect to have to spend more time on computations with larger inputs.
+
+
+A language is {\bf recognizable} if \underline{\phantom{\hspace{4.5in}}}
+
+A language is {\bf decidable} if \underline{\phantom{\hspace{4.7in}}}
+
+A language is {\bf efficiently  decidable} if \underline{\phantom{\hspace{4in}}}
+
+A function is {\bf computable} if \underline{\phantom{\hspace{4.7in}}}
+
+A function is {\bf efficiently computable} if \underline{\phantom{\hspace{4in}}}\\
+
+\vfill
+
+Definition  (Sipser 7.1): For  $M$ a deterministic decider, its {\bf running time} is the function  $f: \mathbb{N} \to \mathbb{N}$
 given  by
 \[
 f(n) =  \text{max number of  steps $M$ takes before halting, over all inputs  of length $n$}
 \]
 
-Recall Definition (Sipser 7.7): For each function $t(n)$, the {\bf time complexity class}  $TIME(t(n))$, is defined  by
+Definition (Sipser 7.7): For each function $t(n)$, the {\bf time complexity class}  $TIME(t(n))$, is defined  by
 \[
 TIME( t(n)) = \{ L \mid \text{$L$ is decidable by  a Turing machine with running time in  $O(t(n))$} \}
 \]
-Recall Definition (Sipser 7.12) : $P$ is the class of languages that  are decidable in polynomial time on 
+
+An example of an element of  $TIME(  1  )$ is 
+
+An example of an element of  $TIME(  n  )$ is 
+
+
+Note: $TIME( 1) \subseteq TIME (n)  \subseteq TIME(n^2)$
+
+\vfill
+
+Definition (Sipser 7.12) : $P$ is the class of languages that  are decidable in polynomial time on 
+a deterministic 1-tape  Turing  machine
+\[
+P  =  \bigcup_k TIME(n^k)
+\]
+
+{\it Compare to exponential time: brute-force search.}
+
+
+Theorem (Sipser 7.8): Let $t(n)$ be a  function with  $t(n)  \geq n$.  Then every $t(n)$ time deterministic 
+multitape Turing machine has an equivalent $O(t^2(n))$ time deterministic 1-tape Turing machine.
+
+\newpage
+
+Definition  (Sipser 7.1): For  $M$ a deterministic decider, its {\bf running time} is the function  $f: \mathbb{N} \to \mathbb{N}$
+given  by
+\[
+f(n) =  \text{max number of  steps $M$ takes before halting, over all inputs  of length $n$}
+\]
+
+Definition (Sipser 7.7): For each function $t(n)$, the {\bf time complexity class}  $TIME(t(n))$, is defined  by
+\[
+TIME( t(n)) = \{ L \mid \text{$L$ is decidable by  a Turing machine with running time in  $O(t(n))$} \}
+\]
+Definition (Sipser 7.12) : $P$ is the class of languages that  are decidable in polynomial time on 
 a deterministic 1-tape  Turing  machine
 \[
 P  =  \bigcup_k TIME(n^k)
@@ -37,7 +93,18 @@ NP = \bigcup_k NTIME(n^k)
 
 \vfill
 
-{\bf True} or {\bf False}: $NTIME(n^2) \subseteq DTIME(n^2)$
+{\bf True} or {\bf False}: $NTIME(n^2) \subseteq TIME(n^2)$
+
+\vfill
+
+{\bf Every problem in NP is decidable with an exponential-time algorithm}
+
+Nondeterministic approach: guess a possible solution, verify that it works.
+
+Brute-force (worst-case exponential time) approach: iterate over all possible solutions, for each 
+one, check if it works.
+
+
 
 \vfill
 \newpage
@@ -81,14 +148,6 @@ nodes that has a $k$-node vertex cover}\}
 \]
 
 \vfill
-\newpage
-{\bf Every problem in NP is decidable with an exponential-time algorithm}
-
-Nondeterministic approach: guess a possible solution, verify that it works.
-
-Brute-force (worst-case exponential time) approach: iterate over all possible solutions, for each 
-one, check if it works.
-
 
 
 \begin{center}
@@ -106,6 +165,10 @@ one, check if it works.
     $\ldots$ &\\
 \end{tabular}
 \end{center}
+
+{\bf} Notice: $NP \subseteq \{ L \mid L \text{ is decidable} \}$ so $A_{TM} \notin NP$
+
+\vfill 
 
 Million-dollar question: Is $P = NP$?
 

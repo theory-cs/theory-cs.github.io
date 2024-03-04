@@ -951,8 +951,8 @@ Recall the definitions of some example computational problems from class
 \end{enumerate}
 \newpage
 
-\title{HW4CSE105W24: Homework assignment 5}
-\date{Due: February 29th at 5pm (no penalty late submission until 8am next morning), via Gradescope}
+\title{HW5CSE105W24: Homework assignment 5}
+\date{Due: March 14 at 5pm (no penalty late submission until 8am next morning), via Gradescope}
 
 
 \maketitle
@@ -966,193 +966,188 @@ You will explore various ways to encode machines as strings so that
 computational problems can be recognized.
 
 {\bf Resources}: To review the topics 
-for this assignment, see the class material from Weeks 5-7.
+for this assignment, see the class material from Weeks 7-10.
 We will post frequently asked questions and our answers to them in a 
 pinned Piazza post.
 
 {\bf Reading and extra practice problems}:  
-Sipser Sections 3.1, 3.3, 4.1
-Chapter 3 exercises 3.1, 3.2, 3.5, 3.8.
-Chapter 4 exercises 4.1, 4.2, 4.3, 4.4, 4.5.
+Sipser Sections 4.2, 5.3, 5.1.
+Chapter 4 problems 4.9, 4.12.
+Chapter 5 exercises 5.4, 5.5, 5.6, 5.7. 
+Chapter 5 problems 5.22, 5.23, 5.24, 5.28
 
 \instructions
 
 You will submit this assignment via Gradescope
 (\href{https://www.gradescope.com}{https://www.gradescope.com}) 
-in the assignment called ``hw4CSE105W24''.
+in the assignment called ``hw5CSE105W24''.
 
 {\bf Assigned questions}
 \begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
 
 
 %%%%%%%%%%% PROBLEM 1 %%%%%%%%%%%
-\item\textbf{Classifying languages} (10 points):
-Our first example of a more complicated Turing machine was of a Turing machine 
-that recognized the language $\{w \# w \mid w \in\{0,1\}^*\}$, which we 
-know is not context-free. The language
-\[
-    \{0^n 1^n 2^n \mid n \geq 0\}
-\]
-is also not context-free. 
+\item\textbf{Computational problems} (14 points):
+For each of the following statements, determine if it is true or false. 
+Clearly label your choice by starting your solution with True or False and then provide a 
+ justification for your answer.
 
 \begin{enumerate}
-    \item\gradeCorrectFirst Give an implementation-level description of a Turing machine 
-    that recognizes this language.
-    \item\gradeCompleteFirst Draw a state diagram of the Turing machine you gave in part (a) and trace
-    the computation of this Turing machine on the input $012$. You may use all 
-    our usual conventions for state diagrams of Turing machines 
-    (we do not include the node for the reject state $qrej$ and any missing transitions 
-    in the state diagram have value $(qrej,\square,R)$; 
-    $b \to R$ label means $b \to b, R$ ).
+    \item\gradeCompleteFirst True or False: The language $$\{\langle N_1, N_2 \rangle \mid N_1, N_2 \text{ are both NFAs over $\{0,1\}$
+    and } L(N_1) \subseteq L(N_2)\}$$ is recognizable.
+    \item\gradeCorrectFirst True or False: The language $$\{\langle D \rangle \mid D \text{ is a DFA over $\{0,1\}$ and } L(D) = L(0^*) \}$$
+    is decidable.
+    \item\gradeCorrect True or False: The language $$\{\langle M \rangle \mid M \text{ is a Turing machine and its start state equals its reject state} \}$$
+    is decidable.
+    \item\gradeComplete True or False: The language $$\{\langle M \rangle \mid M \text{ is a Turing machine and } L(M) = \emptyset \}$$
+    is decidable.
+
+    \item[] Challenge; not graded: what's the difference between (c) and (d)?
 \end{enumerate}
 
 
 %%%%%%%%%%% PROBLEM 2 %%%%%%%%%%%
-\item \textbf{Deciders, Recognizers, Decidability, and Recognizability} (15 points):
-For this question, consider the alphabet $\Sigma = \{0,1\}$.
+\item \textbf{What's wrong with these reductions?} (13 points):
+Suppose your friends are practicing
+coming up with mapping reductions $A \leq_m B$ and their witnessing
+functions $f: \Sigma^* \to \Sigma^*$. For each of the following 
+attempts, determine if it is has error(s) or is correct.
+Do so by labelling each attempt with all and 
+only the labels below that apply, and justifying
+this labelling.
+\begin{itemize}
+\item \textit{Error Type 1:} The given function 
+can't witness the claimed mapping reduction because there
+exists an $x \in A$ such that $f(x) \not\in B$.
+\item \textit{Error Type 2:} The given function 
+can't witness the claimed mapping reduction because there 
+exists an $x \not\in A$ such that $f(x) \in B$.
+\item \textit{Error Type 3:} The given function 
+can't witness the claimed mapping reduction because the specified
+function is not computable.
+\item \textit{Correct:} The 
+claimed mapping reduction is true and 
+is witnessed by the given function.
+\end{itemize}
+
+Clearly present your answer by
+providing a brief (3-4 sentences or so) justification for 
+whether {\bf each} of these labels applies to each example.
+
 \begin{enumerate}
-\item[(a)]\gradeCorrect Give an example of a finite, nonempty language over $\Sigma$ and 
-two different Turing machines that recognize it: one that is a decider and one that is not.
-A complete solution will include a precise definition for your example language, 
-along with {\bf both} a state diagram and an implementation-level description 
-of each Turing machines, along with a brief explanation of why each of them recognizes
-the language and why one is a decider and there other is not.
+\item\gradeComplete $A_{\mathrm{TM}} \le_m HALT_{\mathrm{TM}}$ and 
+\[
+f(x) = \begin{cases}
+ \scalebox{.5}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+  \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+ ;
+\end{tikzpicture}}
+$\rangle$}  
+& \text{if } x = \langle M, w \rangle \text{ for a Turing machine $M$ and string $w$}\\
+& \qquad \qquad \text{ and } w \in L(M) \\
 
-\item[(b)]\gradeCorrect True or false: There is a Turing machine that is not a decider that recognizes 
-the empty set. A complete solution will include a witness Turing machine (given by 
-state diagram or implementation-level description or high-level description) and a justification 
-for why it's not a decider and why it does not accept any strings, or a complete and correct
-justification for why there is no such Turing machine.
+\scalebox{.5}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+  \node[initial,state] (q0)                    {$q_0$};
+  \node[state,accepting] (qacc) [right of = q0, xshift = 20]{$q_{acc}$};
+  \path (q0) edge  [loop above] node {$0, 1, \blank \to R$} (q0)
+ ;
+\end{tikzpicture}}
+$\rangle$} 
+& \text{otherwise}
+\end{cases} 
+\]
 
-\item[(c)]\gradeCorrect True or false: There is a Turing machine that is not a decider that recognizes 
-the set of all string $\Sigma^*$.  A complete solution will include a witness Turing machine 
-(given by 
-state diagram or implementation-level description or high-level description) and a justification 
-for why it's not a decider and why it accept each string over $\{0,1\}$, or a complete and correct
-justification for why there is no such Turing machine.
-\end{enumerate}
+{\it Hint:} There are two errors with this attempt.
 
-%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
-\item\textbf{Closure} (15 points):
-Suppose $M$ is a Turing machine over the alphabet $\{0,1\}$. 
-Let $s_1, s_2, \ldots$ be a list of all strings in 
-$\{0,1\}^*$ in string (shortlex) order.
-We define a new Turing machine 
-by giving its high-level description as follows: 
+\item\gradeCorrect $\{ w \mid w \in \{0,1\}^* \} \le_m \{w w \mid w \in \{0,1\}^* \}$ and
+$f(x) = xx$
+for each $x \in \{0,1\}^*$.
+\item\gradeCorrect $HALT_{\mathrm{TM}} \le_m EQ_{\mathrm{TM}} $ with 
+\[
+f(x) = \begin{cases}
+ \scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+  \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+ ;
+\end{tikzpicture}}
+, $M_w \rangle$}  & \text{if } x = \langle M, w \rangle \text{ for a Turing machine $M$ and string $w$}\\\\
+\scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+     ;
+    \end{tikzpicture}}}
+    , ~~~
+    \scalebox{.7}{\hspace{-.5cm} \raisebox{-.4cm}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+        \tikzstyle{every state}=[text=black, fill=yellow!40]
+        \node[initial,state] (qrej)                    {$q_{\mathrm{rej}}$};
+        \node[state,accepting] (qacc) [right of=qrej]            {$q_{\mathrm{acc}}$};
+       ;
+      \end{tikzpicture}}$\rangle$ }  & \text{otherwise}.
+\end{cases}
+\]
+Where for each Turing machine $M$, we  define 
 \begin{align*}
-   M_{new} &= ``\text{On input }w:\\
-    &\text{1. For $n = 1, 2, \ldots$}\\
-    &\text{2.~~~For $j = 1, 2, \ldots n$} \\
-    &\text{3.~~~For $k = 1, 2, \ldots, n$} \\
-    &\text{4.~~~~~~Run the computation of $M$ on $s_jws_k$}\\
-    &\text{5.~~~~~~If it accepts, accept.}\\
-    &\text{6.~~~~~~If it rejects, go to the next iteration of the loop"}\\
+    M_w = ``&\text{On input y} \\
+    &1. \text{   Simulate $M$ on $w$.}\\
+    &2. \text{   If it accepts, accept.}\\
+    &3. \text{   If it rejects, reject."}
 \end{align*}
 
-Recall the definitions we have: 
-For languages $L_1, L_2$ over the alphabet $\Sigma = \{0,1\}$, we have the 
-associated sets of strings
+\end{enumerate}
+
+
+%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
+\item\textbf{Using mapping reductions} (14 points):
+Consider the following computational problems we've discussed
+\begin{align*}
+A_{TM} &= \{ \langle M, w \rangle \mid M \text{ is a Turing machine, } w \text{ is a string and $M$ accepts $w$}\} \\
+HALT_{TM} &= \{ \langle M, w \rangle \mid M \text{ is a Turing machine, } w \text{ is a string and $M$ halts on $w$}\} \\
+E_{TM} &=  \{ \langle M \rangle \mid M \text{ is a Turing machine and } L(M) = \emptyset\} \\
+EQ_{TM} &= \{ \langle M_1, M_2 \rangle \mid M_1, M_2 \text{ are both Turing machines and } L(M_1) = L(M_2) \}
+\end{align*}
+and the new computational problem
 \[
-   SUBSTRING(L_1) = \{ w \in \Sigma^* ~|~ \text{there exist } a,b \in \Sigma^* \text{ such that } awb \in L_1\}
+    One_{TM} = \{ \langle M \rangle \mid M \text{ is a Turing machine and $M$ accepts exactly one string} \}
 \]
-and 
-\[
-   L_1 \circ L_2 = \{ w \in \Sigma^* ~|~ w = uv \text{ for some strings } u \in L_1 \text{ and } v \in L_2 \}
-\]
-We say that self-set-wise concatenation of the set $L_1$ is $L_1 \circ L_1$.
 
 \begin{enumerate}
-\item[(a)]\gradeComplete Prove that this Turing machine construction can be used to prove that the
-class of decidable languages over $\{0,1\}$ is closed under one of the above operations ($SUBSTRING$ or self-set-wise concatenation).
-A complete answer will first explain which of the operations the closure claim is about and then write 
-out the proof of correctness for the closure claim. That is: ``Let $L_1 $ be a decidable language over $\{0,1\}$ and 
-assume we are given a decider $M_1$ so that $L(M_1) = L_1$. Consider the new Turing machine 
-$M_{new}$ defined above. We will show that $M_{new}$ is a decider and that $L(M_{new}) = $... {\it (fill in either 
-$SUBSTRING(L_1)$ or $L_1\circ L_1$ and then complete the proof)}''
-\item[(b)] \gradeCorrect Prove that this Turing machine construction cannot be used to prove that the
-class of recognizable languages over $\{0,1\}$ is closed under the operation you identified in part (a). In particular, 
-give a counterexample of a specific language $L_1$ and Turing machine $M_1$ recognizing it where $M_{new}$ does not
-recognize the language resulting from applying the operation to $L_1$.
-\item[(c)] \gradeComplete Define a new construction by slightly modifiying this one that can be used to prove  that the
-class of recognizable languages over $\{0,1\}$ is closed under the operation you identified in part (a). Justify that 
-your construction works.
+\item[(a)] \gradeCorrect Give an example of a string that is an element of $One_{TM}$ and a string that is not an element 
+$One_{TM}$ and briefly justify your choices.
+\item[(b)] \gradeComplete Prove that $One_{TM}$ is not decidable by showing that $A_{TM} \leq_m One_{TM}$.
+\item[(c)] \gradeCorrect Give a different proof that $One_{TM}$ is not decidable by showing that $HALT_{TM} \leq_m One_{TM}$.
+\item[(d)] \gradeComplete Is $One_{TM}$ recognizable? Justify your answer.
 \end{enumerate}
 
 %%%%%%%%%%% PROBLEM 4 %%%%%%%%%%%
-\item \textbf{Computational problems} (10 points):
-Recall the definitions of some example computational problems from class
+\item \textbf{Examples of languages} (9 points):
 
-\hspace{-30pt}
-    \begin{tabular}{|lcl|}
-    \hline
-    \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
-    & & \\
-    \ldots for DFA & $A_{DFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  DFA that accepts input 
-    string $w$}\}$ \\
-    \ldots for NFA & $A_{NFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  NFA that accepts input 
-    string $w$}\}$ \\
-    \ldots for regular expressions & $A_{REX}$ & $\{ \langle R,w \rangle \mid  \text{$R$ is a  regular
-    expression that generates input string $w$}\}$ \\
-    \ldots for CFG & $A_{CFG}$ & $\{ \langle G,w \rangle \mid  \text{$G$ is a context-free grammar 
-    that generates input string $w$}\}$ \\
-    \ldots for PDA & $A_{PDA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a PDA that accepts input string $w$}\}$ \\
-    & & \\
-    \hline
-    \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
-    & & \\
-    \ldots for DFA & $E_{DFA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a  DFA and  $L(A) = \emptyset$\}}$ \\
-    \ldots for NFA & $E_{NFA}$ & $\{ \langle A\rangle \mid  \text{$A$ is a NFA and  $L(A) = \emptyset$\}}$ \\
-    \ldots for regular expressions & $E_{REX}$ & $\{ \langle R \rangle \mid  \text{$R$ is a  regular
-    expression and  $L(R) = \emptyset$\}}$ \\
-    \ldots for CFG & $E_{CFG}$ & $\{ \langle G \rangle \mid  \text{$G$ is a context-free grammar 
-    and  $L(G) = \emptyset$\}}$ \\
-    \ldots for PDA & $E_{PDA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a PDA and  $L(A) = \emptyset$\}}$ \\
-    & & \\
-    \hline
-    \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
-    & & \\
-    \ldots for DFA & $EQ_{DFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are DFAs and  $L(A) =L(B)$\}}$\\
-    \ldots for NFA & $EQ_{NFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are NFAs and  $L(A) =L(B)$\}}$\\
-    \ldots for regular expressions & $EQ_{REX}$ & $\{ \langle R, R' \rangle \mid  \text{$R$ and $R'$ are regular
-    expressions and  $L(R) =L(R')$\}}$\\
-    \ldots for CFG & $EQ_{CFG}$ & $\{ \langle G, G' \rangle \mid  \text{$G$ and $G'$ are CFGs and  $L(G) =L(G')$\}}$ \\
-    \ldots for PDA & $EQ_{PDA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are PDAs and  $L(A) =L(B)$\}}$ \\
-    \hline
-    \end{tabular}
+For each part of the question, use precise mathematical notation or English to define your examples
+and then briefly justify why they work.
 
 \begin{enumerate}
-    \item[(a)] \gradeComplete Pick five of the computational problems above and give 
-    examples (preferably different from the ones we talked about in class) of strings that are
-    in each of the corresponding languages. Remember to use the 
-    notation $\langle \cdots \rangle$ to denote the string encoding of relevant objects.
-    {\it Extension, not for credit:} Explain why it's hard to write a specific string of 
-    $0$s and $1$s and make a claim about membership in one of these sets.
-    \item[(b)] \gradeComplete Computational problems can also be defined about Turing machines.
-    Consider the two high-level descriptions of Turing machines below.
-    Reverse-engineer them to define the computational problem that is being
-    recognized, where $L(M_{DFA})$ is the language corresponding to this computational
-    problem about DFA and $L(M_{TM})$ is the language corresponding to this computational
-    problem about Turing machines. {\it Hint}: the computational problem is not acceptance,
-    language emptiness, or language equality (but is related to one of them).
-
-    Let $s_1, s_2, \ldots$ be a list of all strings in 
-    $\{0,1\}^*$ in string (shortlex) order. Consider the following Turing machines
-    \begin{align*}
-        M_{DFA} &= ``\text{On input $\langle D \rangle$ where $D$ is a DFA}:\\
-         &\text{1. for $i=1, 2, 3, \ldots$} \\
-         &\text{2.~~~ Run $D$ on $s_i$} \\
-         &\text{3.~~~~If it accepts, accept.}\\
-         &\text{4.~~~~If it rejects, go to the next iteration of the loop"}\\
-     \end{align*}
-     and
-     \begin{align*}
-        M_{TM} &= ``\text{On input $\langle T \rangle$ where $T$ is a Turing machine}:\\
-         &\text{1. for $i=1, 2, 3, \ldots$} \\
-         &\text{2.~~~ Run $T$ for $i$ steps on each input $s_1, s_2, \ldots, s_i$ in turn} \\
-         &\text{3.~~~~If $T$ has accepted any of these, accept.}\\
-         &\text{4.~~~~Otherwise, go to the next iteration of the loop"}\\
-     \end{align*}
+    \item\gradeCorrect Two undecidable languages $L_1$ and $L_2$ over the same alphabet
+        whose union $L_1 \cup L_2$ is decidable, or write {\bf NONE}
+        if there is no such example (and explain why).
+    
+    \item\gradeCorrect A regular language $L_3$ and an unrecognizable
+        language $L_4$ over the same alphabet whose intersection $L_3 \cap L_4$ is unrecognizable, 
+        or write {\bf NONE} if there is no such example (and explain why).
+    
+    
+    \item\gradeCorrect A co-recognizable language $L_5$ that is NP-complete,
+         or write {\bf NONE} if there is no such example (and explain why).
+        Recall the definition: A language $L$ over an  alphabet $\Sigma$ is called {\bf co-recognizable} if its complement,  defined
+        as $\Sigma^* \setminus L  = \{ x  \in  \Sigma^* \mid x \notin  L \}$, is Turing-recognizable.
+        
 \end{enumerate}
+    
+
 
 
 \end{enumerate}
