@@ -2,6 +2,113 @@
 %! outcome: Classify language, Find example languages, Classify decision problem, Diagonalization, Reduction
     
 
+
+\begin{center}
+    \begin{tabular}{|lcl|}
+    \hline
+    \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
+    for Turing  machines  & $A_{TM}$ & $\{ \langle M,w \rangle \mid  \text{$M$ is a Turing machine that accepts input 
+    string $w$}\}$ \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
+     for Turing machines & $E_{TM}$ & $\{ \langle M \rangle \mid  \text{$M$ is a Turing machine and  $L(M) = \emptyset$\}}$ \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
+     for Turing machines& $EQ_{TM}$ & $\{ \langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing machines and  
+     $L(M_1) =L(M_2)$\}}$\\
+    \hline
+    \end{tabular}
+    \end{center}
+    
+    \begin{multicols}{3}
+    $M_1$ \includegraphics[width=2in]{../../resources/machines/Week8WarmupTM1.png} 
+    
+    \columnbreak
+    
+    $M_2$ \includegraphics[width=2in]{../../resources/machines/Week8WarmupTM2.png}
+    
+    \columnbreak
+    
+    $M_3$ \includegraphics[width=2in]{../../resources/machines/Week8WarmupTM3.png}
+    \end{multicols}
+    
+    Example strings in $A_{TM}$
+    
+    \vfill
+    
+    Example strings in  $E_{TM}$
+    
+    \vfill
+    
+    Example strings in  $EQ_{TM}$
+    
+    \vfill
+    
+    \newpage
+    
+    {\bf  Theorem}: $A_{TM}$  is  Turing-recognizable.
+    
+    
+    {\bf  Strategy}:  To prove this theorem, we need  to  define  a Turing  machine  $R_{ATM}$ such that 
+    $L(R_{ATM}) = A_{TM}$.
+    
+    
+    Define $R_{ATM} =  $ ``
+    
+    \vspace{150pt}
+    
+    
+    Proof of correctness: 
+    
+    
+    \vfill
+    \vfill
+    
+    We will show that $A_{TM}$ is undecidable.   {\it First, let's explore what that means.}
+    
+    \newpage
+    
+    To prove that a computational problem is {\bf decidable}, we find/ build a Turing 
+    machine that recognizes the language encoding the computational problem, and that 
+    is a decider.
+    
+    
+    How do we prove a specific problem is {\bf not decidable}?
+    
+    How would we even find such a computational problem?
+    
+    
+    {\it Counting arguments for the existence of an undecidable language:}
+    \begin{itemize}
+        \item The set of all Turing machines is countably infinite.
+        \item Each recognizable language has at least one Turing machine that recognizes it (by definition), 
+        so there can be no more Turing-recognizable
+        languages than there are Turing machines. 
+        \item Since there are infinitely many Turing-recognizable languages
+        (think of the singleton sets), there are countably infinitely 
+        many Turing-recognizable languages.
+        \item Such the set of Turing-decidable languages is an infinite subset 
+        of the set of Turing-recognizable languages, the set of 
+        Turing-decidable languages is also countably infinite.
+    \end{itemize}
+    
+    Since there are uncountably many languages (because $\mathcal{P}(\Sigma^*)$
+    is uncountable), there are uncountably many unrecognizable languages
+    and there are uncountably many undecidable languages.
+    
+    
+    Thus, there's at least one undecidable language!
+    
+    \vfill
+    
+    {\bf What's a specific example of a language that is unrecognizable or undecidable?}
+    
+    To prove that a language is undecidable, we need to prove that there is no Turing machine that decides it.
+    
+    {\bf Key idea}: proof by contradiction relying on self-referential disagreement.
+    
+    
+
 {\bf  Theorem}: $A_{TM}$  is  not  Turing-decidable.
 
 {\bf  Proof}: Suppose {\bf towards a  contradiction}  that there  is a Turing machine  that decides $A_{TM}$.  
@@ -27,18 +134,23 @@ $D =  $`` On  input $\langle M \rangle$, where  $M$  is  a Turing machine:
 
 Is $D$ a  Turing machine?
 
-\vspace{50pt}
+\vspace{30pt}
 
 Is  $D$ a  decider? 
 
-\vspace{50pt}
+\vspace{30pt}
 
 What is the result of the computation  of $D$  on  $\langle D \rangle$?
 
 \vfill
 
-\newpage
 
+\newpage
+Definition: A language $L$ over an  alphabet $\Sigma$ is called {\bf co-recognizable} if its complement,  defined
+as $\Sigma^* \setminus L  = \{ x  \in  \Sigma^* \mid x \notin  L \}$, is Turing-recognizable.
+
+
+\vfill 
 {\bf  Theorem} (Sipser Theorem 4.22): A  language is Turing-decidable if and only if both  it and its complement
 are Turing-recognizable.
 
@@ -50,30 +162,6 @@ are Turing-recognizable.
 {\bf Proof, second direction:}  Suppose  language  $L$ is  Turing-recognizable, and  so is  its complement.   WTS  that $L$
 is Turing-decidable.
 \vfill
-
-
-Give an example of a {\bf decidable} set: 
-
-\vspace{20pt}
-
-Give an example of a {\bf recognizable undecidable} set: 
-
-\vspace{20pt}
-
-Give an example of an {\bf unrecognizable} set: 
-
-\vspace{20pt}
-
-
-\newpage
-
-{\bf True} or {\bf False}: The class of Turing-decidable languages is closed under complementation?
-
-\vfill
-\vfill
-\vfill
-Definition: A language $L$ over an  alphabet $\Sigma$ is called {\bf co-recognizable} if its complement,  defined
-as $\Sigma^* \setminus L  = \{ x  \in  \Sigma^* \mid x \notin  L \}$, is Turing-recognizable.
 
 
 Notation: The complement  of a set $X$ is denoted with  a superscript $c$, $X^c$, or an overline,  $\overline{X}$.

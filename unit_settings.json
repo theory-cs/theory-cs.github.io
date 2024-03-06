@@ -515,6 +515,10 @@
                 "source": "Week7.tex"
             },
             {
+                "name": "Discussion notes",
+                "source": "Week7-discussion.pdf"
+            },
+            {
                 "name": "Review Quizzes",
                 "source": "Week7RQ.pdf"
             }, 
@@ -574,6 +578,10 @@
         "CalendarInfo": " Dates: 2/26/24 - 3/3/24",
         "ExpandInCalendar": false,
         "content": [
+            {
+                "name": "Notes",
+                "source": "Week8.tex"
+            },
             {
                 "name": "Review Quizzes",
                 "source": "Week8RQ.pdf"
@@ -655,6 +663,10 @@
         "ExpandInCalendar": false,
         "content": [
             {
+                "name": "Notes",
+                "source": "Week9.tex"
+            },
+            {
                 "name": "(Video) Reducing A_TM to HALT_TM",
                 "source": "https://youtu.be/u8u7mYsZFWE"
             },
@@ -722,6 +734,10 @@
         "CalendarInfo": " Dates: 3/11/24 - 3/17/24.",
         "ExpandInCalendar": false,
         "content": [
+            {
+                "name": "Notes",
+                "source": "Week10.tex"
+            },
             {
                 "name": "(Video) Complexity motivation",
                 "source": "https://youtu.be/L63nHGGVktI"

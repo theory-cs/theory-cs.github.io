@@ -25,15 +25,10 @@ of difficulty of $A$ is less than or equal the level of difficulty of $B$.
 %
 %\vfill
 
-{\it Example}: $\{ 0^i  1^j \mid i  \geq 0, j \geq 0 \} \leq_m A_{TM}$ 
+%{\it Example}: $\{ 0^i  1^j \mid i  \geq 0, j \geq 0 \} \leq_m A_{TM}$ 
+%
+%\vfill
 
-\vfill
-
-{\bf Theorem} (Sipser 5.22): If $A \leq_m B$ and $B$ is decidable, then $A$ is decidable.
-    
-
-{\bf Theorem} (Sipser 5.23): If $A \leq_m B$ and $A$ is undecidable, then $B$ is undecidable.
-    
 
 \newpage
 
@@ -51,19 +46,15 @@ of difficulty of $A$ is less than or equal the level of difficulty of $B$.
     \]
     where $const_{out}  =  \langle  \includegraphics[width=1.5in]{../../resources/machines/Lect22TM1.png} ,  \varepsilon  \rangle$
     and  $M'$ is a Turing machine that computes like $M$ except, if the computation ever were to go to a  reject state,
-    $M'$ loops instead.
-    
-    \vfill
+    $M'$ loops instead.   
+%    \vfill
+%
+%    $F( \langle \includegraphics[width=1.5in]{../../resources/machines/Lect22TM1.png} ,  001  \rangle)$ =
+%
+%   \vfill
 
-    $F( \langle \includegraphics[width=1.5in]{../../resources/machines/Lect22TM1.png} ,  001  \rangle)$ =
+    $F( \langle \includegraphics[width=2.5in]{../../resources/machines/Lect22TM2.png} ,  \varepsilon  \rangle)$ =
 
-    \vfill
-
-    $F( \langle \includegraphics[width=2.5in]{../../resources/machines/Lect22TM2.png} ,  1  \rangle)$ =
-
-    \vfill
-    
-    \newpage
     To use this function  to prove that $A_{TM} \leq_m HALT_{TM}$, we need  two claims:
 
     
@@ -74,4 +65,5 @@ of difficulty of $A$ is less than or equal the level of difficulty of $B$.
     Claim (2): for every  $x$,  $x \in  A_{TM}$ iff $F(x) \in HALT_{TM}$.  
     
     \vfill
-    
+    \vfill
+    \vfill

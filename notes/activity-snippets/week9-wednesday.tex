@@ -1,81 +1,191 @@
 %! app: Decidable Languages, Undecidable Languages
 %! outcome: Classify language, Classify decision problem, Reduction
  
+
+
+
 Recall:  $A$ is  {\bf  mapping  reducible to} $B$, written $A \leq_m B$,  means there is a computable function 
 $f : \Sigma^* \to \Sigma^*$ such that {\it for all} strings  $x$ in $\Sigma^*$, 
 \[
 x  \in  A \qquad \qquad \text{if and  only  if} \qquad \qquad f(x) \in B.
 \]
 
-True or False: $\overline{A_{TM}} \leq_m \overline{HALT_{TM}}$
+So far: 
+\begin{itemize}
+\item $A_{TM}$ is recognizable, undecidable, and not-co-recognizable.
+\item $\overline{A_{TM}}$ is unrecognizable, undecidable, and co-recognizable.
+\item $HALT_{TM}$ is recognizable, undecidable, and not-co-recognizable.
+\item $\overline{HALT_{TM}}$ is unrecognizable, undecidable, and co-recognizable.
+\item $E_{TM}$ is unrecognizable, undecidable, and co-recognizable.
+\item $\overline{E_{TM}}$ is recognizable, undecidable, and not-co-recognizable.
+\end{itemize}
 
-\vfill
-
-True or False: $HALT_{TM} \leq_m A_{TM}$.
-
-\vfill
-
-
-{\bf Theorem} (Sipser 5.28): If $A \leq_m B$ and $B$ is recognizable, then $A$ is recognizable.
-
-{\bf Proof}: 
-
-\vfill
-
-{\bf Corollary}: If  $A \leq_m B$ and $A$ is unrecognizable, then $B$ is unrecognizable.
-
-\vfill
-
-\newpage
-{\it Strategy}:  
-
-(i) To prove that a  recognizable language $R$ is undecidable, prove that $A_{TM} \leq_m R$.
-
-
-(ii) To prove that a co-recognizable language $U$ is undecidable, prove that $\overline{A_{TM}} \leq_m U$,
- i.e. that $A_{TM} \leq_m \overline{U}$.
-
- 
 
 \[
-E_{TM} = \{ \langle M \rangle \mid \text{$M$ is a Turing machine and $L(M) = \emptyset$} \}
+EQ_{TM} = \{ \langle M, M' \rangle \mid \text{$M$ and $M'$ are both Turing machines and $L(M) =L(M')$} \}
 \]
 
-Example  string in  $E_{TM}$ is \underline{\phantom{\hspace{1.6in}}} .
-Example  string not  in  $E_{TM}$ is \underline{\phantom{\hspace{1.6in}}} .
 
-$E_{TM}$ is ~~decidable /  undecidable~~ and ~~recognizable /  unrecognizable~~.
+Can we find algorithms to recognize
 
-$\overline{E_{TM}}$ is ~~decidable /  undecidable~~ and ~~recognizable /  unrecognizable~~.
+$EQ_{TM}$  ? 
 
+$\overline{EQ_{TM}}$ ? 
 
-{\bf Claim}: $\underline{\phantom{\hspace{1.6in}}}  \leq_m \overline{E_{TM}}$.
+\vfill
 
-{\bf Proof}: Need computable function  $F: \Sigma^* \to \Sigma^*$  such that  $x \in A_{TM}$ iff $F(x)  \notin  E_{TM}$.
-Define
-\begin{quote}
-$F =  ``$ On input $x$,
+{\it Goal}: Show that $EQ_{TM}$ is not recognizable and that $\overline{EQ_{TM}}$ is not recognizable.
+
+Using Corollary to {\bf Theorem 5.28}: If  $A \leq_m B$ and $A$ is unrecognizable, then $B$ is unrecognizable,
+it's enough to prove that 
 \begin{itemize}
-\item[1.] Type-check whether  $x = \langle M, w \rangle$ for some TM $M$ and string $w$.   If so, move to step 2; if  not, output 
+    \item[] $\overline{HALT_{TM}} \leq_m EQ_{TM}$ \hfill aka $HALT_{TM} \leq_m \overline{EQ_{TM}}$
+    \item[] $\overline{HALT_{TM}}  \leq_m \overline{EQ_{TM}}$ \hfill aka $HALT_{TM} \leq_m EQ_{TM}$
+\end{itemize}
+
+\vfill
+
+\newpage 
+Need computable function  $F_1: \Sigma^* \to \Sigma^*$  such that  $x \in HALT_{TM}$ iff 
+$F_1(x)  \notin  EQ_{TM}$.
+
+
+
+{\it Strategy}:
+
+\vspace{-15pt}
+
+Map strings $\langle M, w \rangle$ to strings $\langle M'_{x},
+\scalebox{0.5}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state] (q0)                    {$q_0$};
+      \node[state,accepting] (qacc) [right of = q0, xshift = 20]{$q_{acc}$};
+      \path (q0) edge  [loop above] node {$0, 1, \scalebox{1.5}{\textvisiblespace} \to R$} (q0)
+     ;
+    \end{tikzpicture}}
+    \rangle$ 
+    . This image string is not in $EQ_{TM}$ when $L(M'_x) \neq \emptyset$.
+    
+We will build $M'_x$ so that 
+    $L(M'_{x}) = \Sigma^*$ when $M$ halts on $w$ and $L(M'_x) = \emptyset$ when $M$ loops on $w$.
+
+
+Thus: when $\langle M,w \rangle \in HALT_{TM}$ it gets mapped to a string not in $EQ_{TM}$ and 
+when $\langle M,w \rangle \notin HALT_{TM}$ it gets mapped to a string that is in $EQ_{TM}$.
+
+\vfill
+
+Define
+
+\vspace{-15pt}
+
+\begin{quote}
+$F_1 =  ``$ On input $x$,
+\begin{itemize}
+\item[1.] Type-check whether  $x = \langle M, w \rangle$ for some TM $M$ and string $w$. 
+If so, move to step 2; if  not, output  $\langle \hspace{2in} \rangle$
 \item[2.] Construct the following machine $M'_x$:
 \vspace{50pt}
 \item[3.] Output $\langle M'_x \rangle$."
 \end{itemize}
 \end{quote}
 
-Verifying correctness:
+\vfill
+
+Verifying correctness: (1) Is function well-defined and computable? (2) Does it have the 
+translation property $x \in HALT_{TM}$ iff its image is {\bf not} in $EQ_{TM}$ ? 
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
 Input string &  Output string \\
 \hline
-$\langle M, w \rangle$ where  $w \in L(M)$ & \phantom{\hspace{4in}} \\
+$\langle M, w \rangle$ where  $M$ halts on $w$ & \phantom{\hspace{4in}} \\
 & \\
-$\langle M, w \rangle$ where $w \notin L(M)$ & \\
-&\\
+& \\
+& \\
+$\langle M, w \rangle$ where $M$ loops on $w$ & \\
+& \\
+&\\ & \\
 $x$ not encoding any pair of  TM and string   &  \\
+& \\
+& \\
 \hline
 \end{tabular}
 \end{center}
 
+
+\vfill
+
+Conclude: $HALT_{TM} \leq_m \overline{EQ_{TM}}$
 \newpage
+
+\newpage 
+Need computable function  $F_2: \Sigma^* \to \Sigma^*$  such that  $x \in HALT_{TM}$ iff 
+$F_2(x)  \in  EQ_{TM}$.
+
+
+
+{\it Strategy}:
+
+\vspace{-15pt}
+
+Map strings $\langle M, w \rangle$ to strings $\langle M'_{x},
+\scalebox{0.5}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state,accepting] (q0)                    {$q_0$};
+     ;
+    \end{tikzpicture}}
+    \rangle$ 
+    . This image string is in $EQ_{TM}$ when $L(M'_x) = \Sigma^*$.
+    
+We will build $M'_x$ so that 
+    $L(M'_{x}) = \Sigma^*$ when $M$ halts on $w$ and $L(M'_x) = \emptyset$ when $M$ loops on $w$.
+
+
+Thus: when $\langle M,w \rangle \in HALT_{TM}$ it gets mapped to a string  in $EQ_{TM}$ and 
+when $\langle M,w \rangle \notin HALT_{TM}$ it gets mapped to a string that is not in $EQ_{TM}$.
+
+\vfill
+
+Define
+
+\vspace{-15pt}
+
+\begin{quote}
+$F_2 =  ``$ On input $x$,
+\begin{itemize}
+\item[1.] Type-check whether  $x = \langle M, w \rangle$ for some TM $M$ and string $w$. 
+If so, move to step 2; if  not, output  $\langle \hspace{2in} \rangle$
+\item[2.] Construct the following machine $M'_x$:
+\vspace{50pt}
+\item[3.] Output $\langle M'_x \rangle$."
+\end{itemize}
+\end{quote}
+
+\vfill
+
+Verifying correctness: (1) Is function well-defined and computable? (2) Does it have the 
+translation property $x \in HALT_{TM}$ iff its image is in $EQ_{TM}$ ? 
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Input string &  Output string \\
+\hline
+$\langle M, w \rangle$ where  $M$ halts on $w$ & \phantom{\hspace{4in}} \\
+& \\
+& \\
+& \\
+$\langle M, w \rangle$ where $M$ loops on $w$ & \\
+& \\
+&\\ & \\
+$x$ not encoding any pair of  TM and string   &  \\
+& \\
+& \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\vfill
+
+Conclude: $HALT_{TM} \leq_m EQ_{TM}$

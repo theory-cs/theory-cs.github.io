@@ -1,0 +1,203 @@
+\input{../../resources/assignment-head.tex}
+
+\title{HW5CSE105W24: Homework assignment 5}
+\date{Due: March 14 at 5pm (no penalty late submission until 8am next morning), via Gradescope}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+{\bf In this assignment,}
+You will  practice analyzing, designing, and working with Turing machines.
+You will use general constructions and specific machines to explore the classes 
+of recognizable and decidable languages. 
+You will explore various ways to encode machines as strings so that 
+computational problems can be recognized.
+
+{\bf Resources}: To review the topics 
+for this assignment, see the class material from Weeks 7-10.
+We will post frequently asked questions and our answers to them in a 
+pinned Piazza post.
+
+{\bf Reading and extra practice problems}:  
+Sipser Sections 4.2, 5.3, 5.1.
+Chapter 4 problems 4.9, 4.12.
+Chapter 5 exercises 5.4, 5.5, 5.6, 5.7. 
+Chapter 5 problems 5.22, 5.23, 5.24, 5.28
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw5CSE105W24''.
+
+{\bf Assigned questions}
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+
+
+%%%%%%%%%%% PROBLEM 1 %%%%%%%%%%%
+\item\textbf{Computational problems} (14 points):
+For each of the following statements, determine if it is true or false. 
+Clearly label your choice by starting your solution with True or False and then provide a 
+ justification for your answer.
+
+\begin{enumerate}
+    \item\gradeCompleteFirst True or False: The language $$\{\langle N_1, N_2 \rangle \mid N_1, N_2 \text{ are both NFAs over $\{0,1\}$
+    and } L(N_1) \subseteq L(N_2)\}$$ is recognizable.
+    \item\gradeCorrectFirst True or False: The language $$\{\langle D \rangle \mid D \text{ is a DFA over $\{0,1\}$ and } L(D) = L(0^*) \}$$
+    is decidable.
+    \item\gradeCorrect True or False: The language $$\{\langle M \rangle \mid M \text{ is a Turing machine and its start state equals its reject state} \}$$
+    is decidable.
+    \item\gradeComplete True or False: The language $$\{\langle M \rangle \mid M \text{ is a Turing machine and } L(M) = \emptyset \}$$
+    is decidable.
+
+    \item[] Challenge; not graded: what's the difference between (c) and (d)?
+\end{enumerate}
+
+
+%%%%%%%%%%% PROBLEM 2 %%%%%%%%%%%
+\item \textbf{What's wrong with these reductions?} (13 points):
+Suppose your friends are practicing
+coming up with mapping reductions $A \leq_m B$ and their witnessing
+functions $f: \Sigma^* \to \Sigma^*$. For each of the following 
+attempts, determine if it is has error(s) or is correct.
+Do so by labelling each attempt with all and 
+only the labels below that apply, and justifying
+this labelling.
+\begin{itemize}
+\item \textit{Error Type 1:} The given function 
+can't witness the claimed mapping reduction because there
+exists an $x \in A$ such that $f(x) \not\in B$.
+\item \textit{Error Type 2:} The given function 
+can't witness the claimed mapping reduction because there 
+exists an $x \not\in A$ such that $f(x) \in B$.
+\item \textit{Error Type 3:} The given function 
+can't witness the claimed mapping reduction because the specified
+function is not computable.
+\item \textit{Correct:} The 
+claimed mapping reduction is true and 
+is witnessed by the given function.
+\end{itemize}
+
+Clearly present your answer by
+providing a brief (3-4 sentences or so) justification for 
+whether {\bf each} of these labels applies to each example.
+
+\begin{enumerate}
+\item\gradeComplete $A_{\mathrm{TM}} \le_m HALT_{\mathrm{TM}}$ and 
+\[
+f(x) = \begin{cases}
+ \scalebox{.5}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+  \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+ ;
+\end{tikzpicture}}
+$\rangle$}  
+& \text{if } x = \langle M, w \rangle \text{ for a Turing machine $M$ and string $w$}\\
+& \qquad \qquad \text{ and } w \in L(M) \\
+
+\scalebox{.5}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+  \node[initial,state] (q0)                    {$q_0$};
+  \node[state,accepting] (qacc) [right of = q0, xshift = 20]{$q_{acc}$};
+  \path (q0) edge  [loop above] node {$0, 1, \blank \to R$} (q0)
+ ;
+\end{tikzpicture}}
+$\rangle$} 
+& \text{otherwise}
+\end{cases} 
+\]
+
+{\it Hint:} There are two errors with this attempt.
+
+\item\gradeCorrect $\{ w \mid w \in \{0,1\}^* \} \le_m \{w w \mid w \in \{0,1\}^* \}$ and
+$f(x) = xx$
+for each $x \in \{0,1\}^*$.
+\item\gradeCorrect $HALT_{\mathrm{TM}} \le_m EQ_{\mathrm{TM}} $ with 
+\[
+f(x) = \begin{cases}
+ \scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=yellow!40]
+  \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+ ;
+\end{tikzpicture}}
+, $M_w \rangle$}  & \text{if } x = \langle M, w \rangle \text{ for a Turing machine $M$ and string $w$}\\\\
+\scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+     ;
+    \end{tikzpicture}}}
+    , ~~~
+    \scalebox{.7}{\hspace{-.5cm} \raisebox{-.4cm}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+        \tikzstyle{every state}=[text=black, fill=yellow!40]
+        \node[initial,state] (qrej)                    {$q_{\mathrm{rej}}$};
+        \node[state,accepting] (qacc) [right of=qrej]            {$q_{\mathrm{acc}}$};
+       ;
+      \end{tikzpicture}}$\rangle$ }  & \text{otherwise}.
+\end{cases}
+\]
+Where for each Turing machine $M$, we  define 
+\begin{align*}
+    M_w = ``&\text{On input y} \\
+    &1. \text{   Simulate $M$ on $w$.}\\
+    &2. \text{   If it accepts, accept.}\\
+    &3. \text{   If it rejects, reject."}
+\end{align*}
+
+\end{enumerate}
+
+
+%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
+\item\textbf{Using mapping reductions} (14 points):
+Consider the following computational problems we've discussed
+\begin{align*}
+A_{TM} &= \{ \langle M, w \rangle \mid M \text{ is a Turing machine, } w \text{ is a string and $M$ accepts $w$}\} \\
+HALT_{TM} &= \{ \langle M, w \rangle \mid M \text{ is a Turing machine, } w \text{ is a string and $M$ halts on $w$}\} \\
+E_{TM} &=  \{ \langle M \rangle \mid M \text{ is a Turing machine and } L(M) = \emptyset\} \\
+EQ_{TM} &= \{ \langle M_1, M_2 \rangle \mid M_1, M_2 \text{ are both Turing machines and } L(M_1) = L(M_2) \}
+\end{align*}
+and the new computational problem
+\[
+    One_{TM} = \{ \langle M \rangle \mid M \text{ is a Turing machine and $M$ accepts exactly one string} \}
+\]
+
+\begin{enumerate}
+\item[(a)] \gradeCorrect Give an example of a string that is an element of $One_{TM}$ and a string that is not an element 
+$One_{TM}$ and briefly justify your choices.
+\item[(b)] \gradeComplete Prove that $One_{TM}$ is not decidable by showing that $A_{TM} \leq_m One_{TM}$.
+\item[(c)] \gradeCorrect Give a different proof that $One_{TM}$ is not decidable by showing that $HALT_{TM} \leq_m One_{TM}$.
+\item[(d)] \gradeComplete Is $One_{TM}$ recognizable? Justify your answer.
+\end{enumerate}
+
+%%%%%%%%%%% PROBLEM 4 %%%%%%%%%%%
+\item \textbf{Examples of languages} (9 points):
+
+For each part of the question, use precise mathematical notation or English to define your examples
+and then briefly justify why they work.
+
+\begin{enumerate}
+    \item\gradeCorrect Two undecidable languages $L_1$ and $L_2$ over the same alphabet
+        whose union $L_1 \cup L_2$ is decidable, or write {\bf NONE}
+        if there is no such example (and explain why).
+    
+    \item\gradeCorrect A regular language $L_3$ and an unrecognizable
+        language $L_4$ over the same alphabet whose intersection $L_3 \cap L_4$ is unrecognizable, 
+        or write {\bf NONE} if there is no such example (and explain why).
+    
+    
+    \item\gradeCorrect A co-recognizable language $L_5$ that is NP-complete,
+         or write {\bf NONE} if there is no such example (and explain why).
+        Recall the definition: A language $L$ over an  alphabet $\Sigma$ is called {\bf co-recognizable} if its complement,  defined
+        as $\Sigma^* \setminus L  = \{ x  \in  \Sigma^* \mid x \notin  L \}$, is Turing-recognizable.
+        
+\end{enumerate}
+    
+
+
+
+\end{enumerate}
+\end{document}
