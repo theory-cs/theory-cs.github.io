@@ -488,8 +488,18 @@ not, output <span class="math inline">\(\langle \hspace{2in}
 \rangle\)</span></p></li>
 <li><p>Construct the following machine <span
 class="math inline">\(M&#39;_x\)</span>:</p></li>
-<li><p>Output <span class="math inline">\(\langle M&#39;_x
-\rangle\)</span>."</p></li>
+<li><p>Output <span class="math inline">\(\langle M&#39;_{x},
+\scalebox{0.5}{\begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten
+&gt;=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state] (q0)                    {$q_0$};
+      \node[state,accepting] (qacc) [right of = q0, xshift =
+20]{$q_{acc}$};
+      \path (q0) edge  [loop above] node {$0, 1,
+\scalebox{1.5}{\textvisiblespace} \to R$} (q0)
+     ;
+    \end{tikzpicture}}
+    \rangle\)</span> "</p></li>
 </ul>
 </blockquote>
 <p>Verifying correctness: (1) Is function well-defined and computable?
@@ -601,8 +611,14 @@ not, output <span class="math inline">\(\langle \hspace{2in}
 \rangle\)</span></p></li>
 <li><p>Construct the following machine <span
 class="math inline">\(M&#39;_x\)</span>:</p></li>
-<li><p>Output <span class="math inline">\(\langle M&#39;_x
-\rangle\)</span>."</p></li>
+<li><p>Output <span class="math inline">\(\langle M&#39;_{x},
+\scalebox{0.5}{\begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten
+&gt;=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state,accepting] (q0)                    {$q_0$};
+     ;
+    \end{tikzpicture}}
+    \rangle\)</span> "</p></li>
 </ul>
 </blockquote>
 <p>Verifying correctness: (1) Is function well-defined and computable?

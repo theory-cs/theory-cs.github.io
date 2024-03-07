@@ -317,7 +317,15 @@ $F_1 =  ``$ On input $x$,
 If so, move to step 2; if  not, output  $\langle \hspace{2in} \rangle$
 \item[2.] Construct the following machine $M'_x$:
 \vspace{50pt}
-\item[3.] Output $\langle M'_x \rangle$."
+\item[3.] Output $\langle M'_{x},
+\scalebox{0.5}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state] (q0)                    {$q_0$};
+      \node[state,accepting] (qacc) [right of = q0, xshift = 20]{$q_{acc}$};
+      \path (q0) edge  [loop above] node {$0, 1, \scalebox{1.5}{\textvisiblespace} \to R$} (q0)
+     ;
+    \end{tikzpicture}}
+    \rangle$ "
 \end{itemize}
 \end{quote}
 
@@ -389,7 +397,13 @@ $F_2 =  ``$ On input $x$,
 If so, move to step 2; if  not, output  $\langle \hspace{2in} \rangle$
 \item[2.] Construct the following machine $M'_x$:
 \vspace{50pt}
-\item[3.] Output $\langle M'_x \rangle$."
+\item[3.] Output $\langle M'_{x},
+\scalebox{0.5}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=yellow!40]
+      \node[initial,state,accepting] (q0)                    {$q_0$};
+     ;
+    \end{tikzpicture}}
+    \rangle$ "
 \end{itemize}
 \end{quote}
 
