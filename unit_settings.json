@@ -583,6 +583,10 @@
                 "source": "Week8.tex"
             },
             {
+                "name": "Review Quizzes",
+                "source": "Week8RQ.pdf"
+            }, 
+            {
                 "name": "(Video) ATM undecidable via diagonalization",
                 "source": "https://youtu.be/2OR5wIIy5w8"
             },
