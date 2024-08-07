@@ -16,5 +16,4 @@ notes/drafts/*
 notes/assignments-solutions/*
 notes/assignments/assignments-compiled.tex
 notes/archive/*
-*.pyc
-notes/assignments/assignments-compiled.tex
+grades/*
