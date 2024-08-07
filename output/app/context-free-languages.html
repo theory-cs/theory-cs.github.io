@@ -166,7 +166,6 @@
       vertical-align: middle;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
@@ -180,19 +179,19 @@
 <div class="center">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><span><strong>Term</strong></span></td>
 <td style="text-align: center;"><span><strong>Typical
 symbol</strong></span></td>
 <td style="text-align: left;"><span><strong>Meaning</strong></span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: center;">or
 <span><strong>Notation</strong></span></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><span><strong>Context-free
 grammar</strong></span> (CFG)</td>
 <td style="text-align: center;"><span
@@ -200,7 +199,7 @@ class="math inline">\(G\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(G = (V,
 \Sigma, R, S)\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">The set of
 <span><strong>variables</strong></span></td>
 <td style="text-align: center;"><span
@@ -208,7 +207,7 @@ class="math inline">\(V\)</span></td>
 <td style="text-align: left;">Finite set of symbols that represent
 phases in production pattern</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">The set of
 <span><strong>terminals</strong></span></td>
 <td style="text-align: center;"><span
@@ -216,13 +215,13 @@ class="math inline">\(\Sigma\)</span></td>
 <td style="text-align: left;">Alphabet of symbols of strings generated
 by CFG</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"><span class="math inline">\(V \cap \Sigma
 = \emptyset\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">The set of
 <span><strong>rules</strong></span></td>
 <td style="text-align: center;"><span
@@ -231,7 +230,7 @@ class="math inline">\(R\)</span></td>
 \to u\)</span> with <span class="math inline">\(A \in V\)</span> and
 <span class="math inline">\(u  \in (V  \cup \Sigma)^*\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">The <span><strong>start</strong></span>
 variable</td>
 <td style="text-align: center;"><span
@@ -239,12 +238,12 @@ class="math inline">\(S\)</span></td>
 <td style="text-align: left;">Usually on left-hand-side of first/
 topmost rule</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td
 style="text-align: left;"><span><strong>Derivation</strong></span></td>
 <td style="text-align: center;"><span class="math inline">\(S
@@ -257,7 +256,7 @@ right-hand-side of the rule. The derivation must end when the current
 string has only terminals (no variables) because then there are no
 instances of variables to apply a rule to.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">Language
 <span><strong>generated</strong></span> by the context-free grammar
 <span class="math inline">\(G\)</span></td>
@@ -270,7 +269,7 @@ derivation in <span class="math inline">\(G\)</span>. Symbolically:
 \text{there is  derivation in $G$ that ends
     in $w$} \}\]</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><span><strong>Context-free
 language</strong></span></td>
 <td style="text-align: center;"></td>
@@ -519,7 +518,7 @@ states.</p>
 <div class="center">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;">Mathematical description of
 language</th>
 <th style="text-align: center;">State diagram of PDA recognizing
@@ -527,74 +526,74 @@ language</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span class="math inline">\(\Gamma = \{
 \$, \#\}\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><img
 src="../../resources/machines/Lect10PDA1.png" style="width:3.5in"
 alt="image" /></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span class="math inline">\(\Gamma = \{
 {@}, 1\}\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><img
 src="../../resources/machines/Lect10PDA2.png" style="width:3.5in"
 alt="image" /></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span class="math inline">\(\{ 0^i 1^j
 0^k \mid i,j,k \geq 0 \}\)</span></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
@@ -621,25 +620,25 @@ end of the final string as the derivation proceeds.</p>
 <div class="center">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><span><strong>Model of
 Computation</strong></span></td>
 <td style="text-align: left;"><span><strong>Class of
 Languages</strong></span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><span><strong>Deterministic finite
 automata</strong></span>: formal definition, how to design for a given
 language, how to describe language of a machine?
@@ -654,15 +653,15 @@ languages</strong></span>: what are the closure properties of this
 class? which languages are not in the class? using <span><strong>pumping
 lemma</strong></span> to prove nonregularity.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><span><strong>Push-down
 automata</strong></span>: formal definition, how to design for a given
 language, how to describe language of a machine?
@@ -673,39 +672,39 @@ grammar?</td>
 languages</strong></span>: what are the closure properties of this
 class? which languages are not in the class?</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">Turing machines that always halt in
 polynomial time</td>
 <td style="text-align: left;"><span
 class="math inline">\(P\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">Nondeterministic Turing machines that
 always halt in polynomial time</td>
 <td style="text-align: left;"><span
 class="math inline">\(NP\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><span><strong>Deciders</strong></span>
 (Turing machines that always halt): formal definition, how to design for
 a given language, how to describe language of a machine?</td>
@@ -714,15 +713,15 @@ languages</strong></span>: what are the closure properties of this
 class? which languages are not in the class? using diagonalization and
 mapping reduction to show undecidability</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><span><strong>Turing
 machines</strong></span> formal definition, how to design for a given
 language, how to describe language of a machine?</td>
@@ -731,7 +730,7 @@ languages</strong></span>: what are the closure properties of this
 class? which languages are not in the class? using closure and mapping
 reduction to show unrecognizability</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>

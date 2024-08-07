@@ -2,9 +2,15 @@
 /* Google Font Link */
 /*@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap'); */
 
+:root {
+    --maincolor: #182B49;
+    --deprecated: #B6B1A9; /*copy this value to maincolor when deprecate */
+    --dark-blue: #182B49; /*copy this value to maincolor when active */
+}
+
 .topnav {
     overflow: hidden;
-    background-color: #182B49;
+    background-color: var(--maincolor);
     position: fixed;
     width: 100%;
     z-index: 6;
@@ -21,13 +27,13 @@
   
 .topnav a:hover {
     background-color: #00C6D7;
-    color: #182B49;
+    color: var(--maincolor);
 }
   
 .topnav a.active {
     font-weight: bolder;
     color: white;
-    text-shadow: 1px 1px #182B49;
+    text-shadow: 1px 1px var(--maincolor);
 }
   
 .topnav-right {
@@ -52,7 +58,7 @@ h1 {
     font-weight: bolder;
     font-size: 300%;
     line-height: normal;
-    color: #182B49;
+    color: var(--maincolor);
 }
 
 h2 {
@@ -60,22 +66,18 @@ h2 {
     font-weight: bold;
     font-size: 200%;
     line-height: 45px;
-    color: #182B49;
+    color: var(--maincolor);
 }
 
 h3 {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-weight: bold;
     font-size: 150%;
-    color: #182B49;
+    color: var(--maincolor);
 }
 
-h4 {
-    font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-weight: bold;
-    font-style: italic;
-    font-size: 150%;
-    color: #182B49;
+h4, h5 {
+    color: var(--maincolor);
 }
 
 .column dl{
@@ -166,7 +168,7 @@ table.cinereousTable thead {
 table.cinereousTable thead th {
     font-size: 15px;
     font-weight: bold;
-    color: #182B49;
+    color: var(--maincolor);
     text-align: center;
 }
 
@@ -211,11 +213,13 @@ table.cinereousTable thead th {
 }
 
 p {
+    color: var(--maincolor);
     font-size: 140%;
 }
 
 ul {
     /*list-style:none;*/
+     color: var(--maincolor);
      font-size: 140%;
      margin-left: 2%;
      text-decoration: none;
@@ -422,6 +426,7 @@ label {
 }
 
 dl{
+    color: var(--maincolor);
     font-size: 140%;
 }
 dd{

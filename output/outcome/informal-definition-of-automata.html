@@ -166,7 +166,6 @@
       vertical-align: middle;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
@@ -383,7 +382,7 @@ states.</p>
 <div class="center">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;">Mathematical description of
 language</th>
 <th style="text-align: center;">State diagram of PDA recognizing
@@ -391,74 +390,74 @@ language</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span class="math inline">\(\Gamma = \{
 \$, \#\}\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><img
 src="../../resources/machines/Lect10PDA1.png" style="width:3.5in"
 alt="image" /></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span class="math inline">\(\Gamma = \{
 {@}, 1\}\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><img
 src="../../resources/machines/Lect10PDA2.png" style="width:3.5in"
 alt="image" /></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span class="math inline">\(\{ 0^i 1^j
 0^k \mid i,j,k \geq 0 \}\)</span></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
@@ -540,14 +539,14 @@ style="width:2.5in" alt="image" /></p>
 <p>Sample computation:</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"><span
 class="math inline">\(q0\downarrow\)</span></th>
 <th colspan="6" style="text-align: center;"></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(0\)</span></td>
 <td style="text-align: center;"><span
@@ -563,10 +562,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\textvisiblespace\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -575,10 +574,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -587,10 +586,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -599,10 +598,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -698,14 +697,14 @@ class="math display">\[\{ w \# w \mid w \in \{0,1\}^* \}\]</span></p>
 class="math inline">\(01\#01\)</span></p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"><span class="math inline">\(q_1
 \downarrow\)</span></th>
 <th colspan="6" style="text-align: center;"></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(0\)</span></td>
 <td style="text-align: center;"><span
@@ -721,10 +720,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\textvisiblespace\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -733,10 +732,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -745,10 +744,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -757,10 +756,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -769,10 +768,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -781,10 +780,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -793,10 +792,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -805,10 +804,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -817,10 +816,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -829,10 +828,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -841,10 +840,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -853,10 +852,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -865,10 +864,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -877,10 +876,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -889,10 +888,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -901,10 +900,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -913,10 +912,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -925,10 +924,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -951,14 +950,14 @@ line specifies the input to the machine, which must be a string.</p>
 class="math inline">\(01\#1\)</span></p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"><span
 class="math inline">\(q_1\downarrow\)</span></th>
 <th colspan="6" style="text-align: center;"></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(0\)</span></td>
 <td style="text-align: center;"><span
@@ -974,10 +973,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\textvisiblespace\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -986,10 +985,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -998,10 +997,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1010,10 +1009,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1022,10 +1021,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1034,10 +1033,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1046,10 +1045,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1058,10 +1057,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1070,10 +1069,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1082,10 +1081,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1094,10 +1093,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1106,10 +1105,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1118,10 +1117,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1130,10 +1129,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1142,10 +1141,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1154,10 +1153,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1166,10 +1165,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1178,10 +1177,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1190,10 +1189,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1202,10 +1201,10 @@ class="math inline">\(\textvisiblespace\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="7" style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1237,7 +1236,7 @@ the Turing machines with the following state diagrams:</p>
 <div class="center">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><img
 src="../../resources/machines/Lect14TM1.png" style="width:2in"
 alt="image" /></td>
@@ -1245,15 +1244,15 @@ alt="image" /></td>
 src="../../resources/machines/Lect14TM2.png" style="width:2in"
 alt="image" /></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">Decider? Yes   /    No</td>
 <td style="text-align: center;">Decider? Yes   /    No</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><img
 src="../../resources/machines/Lect14TM3.png" style="width:2in"
 alt="image" /></td>
@@ -1261,11 +1260,11 @@ alt="image" /></td>
 src="../../resources/machines/Lect14TM4.png" style="width:2in"
 alt="image" /></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">Decider? Yes   /    No</td>
 <td style="text-align: center;">Decider? Yes   /    No</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
@@ -1590,31 +1589,31 @@ class="math inline">\(\Sigma\)</span>:</p>
 <div class="center">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span><strong>There is a DFA over <span
 class="math inline">\(\Sigma\)</span> that recognizes <span
 class="math inline">\(L\)</span></strong></span></td>
 <td style="text-align: center;"><span class="math inline">\(\exists M
 ~(M \textrm{ is a DFA and } L(M) = A)\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span><em>if and only
 if</em></span></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span><strong>There is a NFA over <span
 class="math inline">\(\Sigma\)</span> that recognizes <span
 class="math inline">\(L\)</span></strong></span></td>
 <td style="text-align: center;"><span class="math inline">\(\exists N
 ~(N \textrm{ is a NFA and } L(N) = A)\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span><em>if and only
 if</em></span></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span><strong>There is a regular
 expression over <span class="math inline">\(\Sigma\)</span> that
 describes <span class="math inline">\(L\)</span></strong></span></td>
@@ -1692,7 +1691,7 @@ many outgoing arrows are there from each state?</p>
 <div class="center">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"><span
 class="math inline">\(\delta\)</span></th>
 <th style="text-align: center;"><span
@@ -1702,7 +1701,7 @@ class="math inline">\(b\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(q\)</span></td>
 <td style="text-align: center;"><span
@@ -1710,7 +1709,7 @@ class="math inline">\(r\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(r\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(r\)</span></td>
 <td style="text-align: center;"><span
@@ -1718,7 +1717,7 @@ class="math inline">\(s\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(s\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(s\)</span></td>
 <td style="text-align: center;"><span
@@ -1788,42 +1787,42 @@ refer to the machines from Section 1.1.</p>
 <div class="center">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td colspan="2" style="text-align: left;"><span><strong>Nondeterministic
 finite automaton</strong></span> (Sipser Page 53) Given as <span
 class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">Finite set of states <span
 class="math inline">\(Q\)</span></td>
 <td style="text-align: left;">Can be labelled by any collection of
 distinct names. Default: <span class="math inline">\(q0, q1,
 \ldots\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">Alphabet <span
 class="math inline">\(\Sigma\)</span></td>
 <td style="text-align: left;">Each input to the automaton is a string
 over <span class="math inline">\(\Sigma\)</span>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">Arrow labels <span
 class="math inline">\(\Sigma_\varepsilon\)</span></td>
 <td style="text-align: left;"><span
 class="math inline">\(\Sigma_\varepsilon = \Sigma \cup \{
 \varepsilon\}\)</span>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">Arrows in the state diagram are labelled
 either by symbols from <span class="math inline">\(\Sigma\)</span> or by
 <span class="math inline">\(\varepsilon\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">Transition function <span
 class="math inline">\(\delta\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\delta: Q
@@ -1831,29 +1830,29 @@ class="math inline">\(\delta\)</span></td>
 <span><strong>set of possible next states</strong></span> for a
 transition</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">from the current state upon reading a
 symbol or spontaneously moving.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">Start state <span
 class="math inline">\(q_0\)</span></td>
 <td style="text-align: left;">Element of <span
 class="math inline">\(Q\)</span>. Each computation of the machine starts
 at the start state.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">Accept (final) states <span
 class="math inline">\(F\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(F
 \subseteq  Q\)</span>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td colspan="2" style="text-align: left;"><span
 class="math inline">\(M\)</span> accepts the input string <span
 class="math inline">\(w \in \Sigma^*\)</span> if and only if
