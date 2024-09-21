@@ -43,304 +43,7 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Week3 wednesday}
-
-
-So far we have that: 
-\begin{itemize}
-\item If there is a DFA recognizing a language, there is a DFA recognizing its complement.
-\item If there are NFA recognizing two languages, there is a NFA recognizing their union.
-\item If there are DFA recognizing two languages, there is a DFA recognizing their union.
-\item If there are DFA recognizing two languages, there is a DFA recognizing their intersection.
-\end{itemize}
-
-Our goals for today are (1) prove similar results about other set operations, (2) prove that 
-NFA and DFA are equally expressive, and therefore (3) define an important class of languages.
-
-\vfill
-
-Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
-{\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
-NFA $N_2$ such that $L(N_2) = A_2$, then there is another NFA, let's call it $N$, such that 
-$L(N) = A_1 \circ A_2$.
-
-{\bf Proof idea}: Allow computation to move between $N_1$ and $N_2$ ``spontaneously" when reach an accepting state of 
-$N_1$, guessing that we've reached the point where the two parts of the string in the set-wise concatenation 
-are glued together.
-
-
-{\bf Formal construction}: Let 
-$N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)$ and $N_2 = (Q_2, \Sigma, \delta_2,q_2, F_2)$
-and assume $Q_1 \cap Q_2 = \emptyset$.
-Construct $N = (Q, \Sigma, \delta, q_0, F)$ where
-\begin{itemize}
-    \item $Q = $
-    \item $q_0 = $
-    \item $F = $
-    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
-        \[
-            \delta((q,a))=\begin{cases}  
-                \delta_1 ((q,a)) &\qquad\text{if } q\in Q_1 \textrm{ and } q \notin F_1\\ 
-                \delta_1 ((q,a)) &\qquad\text{if } q\in F_1 \textrm{ and } a \in \Sigma\\ 
-                \delta_1 ((q,a)) \cup \{q_2\} &\qquad\text{if } q\in F_1 \textrm{ and } a = \varepsilon\\ 
-                \delta_2 ((q,a)) &\qquad\text{if } q\in Q_2
-            \end{cases}
-        \]
-\end{itemize}
-
-\vfill
-
-{\it Proof of correctness would prove that $L(N) = A_1 \circ A_2$ by considering
-an arbitrary string accepted by $N$, tracing an accepting computation of $N$ on it, and using 
-that trace to prove the string can be written as the result of concatenating two strings, 
-the first in $A_1$ and the second in $A_2$; then, taking an arbitrary 
-string in $A_1 \circ A_2$ and proving that it is accepted by $N$. Details left for extra practice.}
-
-\newpage
-
-
-
-Suppose $A$ is a language over an alphabet $\Sigma$.
-{\bf Claim:} if there is a NFA $N$ such that $L(N) = A$, then there is another NFA, let's call it $N'$, such that 
-$L(N') = A^*$.
-
-{\bf Proof idea}: Add a fresh start state, which is an accept state. Add spontaneous 
-moves from each (old) accept state to the old start state.
-
-{\bf Formal construction}: Let 
-$N = (Q, \Sigma, \delta, q_1, F)$ and assume $q_0 \notin Q$.
-Construct $N' = (Q', \Sigma, \delta', q_0, F')$ where
-\begin{itemize}
-    \item $Q' = Q \cup \{q_0\}$
-    \item $F' = F \cup \{q_0\}$
-    \item $\delta': Q' \times \Sigma_\varepsilon \to \mathcal{P}(Q')$ is defined by, for $q \in Q'$ and $a \in \Sigma_{\varepsilon}$:
-        \[
-            \delta'((q,a))=\begin{cases}  
-                \delta ((q,a)) &\qquad\text{if } q\in Q \textrm{ and } q \notin F\\ 
-                \delta ((q,a)) &\qquad\text{if } q\in F \textrm{ and } a \in \Sigma\\ 
-                \delta ((q,a)) \cup \{q_1\} &\qquad\text{if } q\in F \textrm{ and } a = \varepsilon\\ 
-                \{q_1\} &\qquad\text{if } q = q_0 \textrm{ and } a = \varepsilon \\
-                \emptyset &\qquad\text{if } q = q_0 \textrm { and } a \in \Sigma
-            \end{cases}
-        \]
-\end{itemize}
-
-
-{\it Proof of correctness would prove that $L(N') = A^*$ by considering
-an arbitrary string accepted by $N'$, tracing an accepting computation of $N'$ on it, and using 
-that trace to prove the string can be written as the result of concatenating some number of strings, 
-each of which is in $A$; then, taking an arbitrary 
-string in $A^*$ and proving that it is accepted by $N'$. Details left for extra practice.}
-
-
-{\bf Application}: A state diagram for a NFA over $\Sigma = \{a,b\}$ 
-that recognizes $L (( a^*b)^* )$:
-
-\vfill
-\newpage
-Suppose $A$ is a language over an alphabet $\Sigma$.
-{\bf Claim:} if there is a NFA $N$ such that $L(N) = A$ then 
-there is a DFA $M$ such that $L(M) = A$.
-
-{\bf Proof idea}: States in $M$ are ``macro-states" -- collections of states from $N$ -- 
-that represent the set of possible states a computation of $N$ might be in.
-
-
-{\bf Formal construction}: Let $N = (Q, \Sigma, \delta, q_0, F)$.  Define 
-\[
-M = (~ \mathcal{P}(Q), \Sigma, \delta', q',  \{ X \subseteq Q \mid X \cap F \neq \emptyset \}~ )
-\]
-where $q' = \{ q \in Q \mid \text{$q = q_0$ or is accessible from $q_0$ by spontaneous moves in $N$} \}$
-and 
-\[
-    \delta' (~(X, x)~) = \{ q \in Q \mid q \in \delta( ~(r,x)~) ~\text{for some $r \in X$ or is accessible 
-from such an $r$ by spontaneous moves in $N$} \}
-\]
-
-
-Consider the state diagram of an NFA over $\{a,b\}$. Use the ``macro-state'' construction 
-to find an equivalent DFA.
-
-\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA1.png}
-
-
-
-
-\vfill
-
-Consider the state diagram of an NFA over $\{0,1\}$. Use the ``macro-state'' construction 
-to find an equivalent DFA.
-
-
-\includegraphics[width=1.8in]{../../resources/machines/Lect6NFA2.png}
-
-
-\vfill
-
-Note: We can often prune the DFAs that result from the ``macro-state'' constructions to get an 
-equivalent DFA with fewer states (e.g.\ only the ``macro-states" reachable from the start state).
-
-\newpage
-
-
-{\bf The class of regular languages}
-
-Fix an alphabet $\Sigma$. For each language $L$ over $\Sigma$:
-\begin{center}
-\begin{tabular}{cc}
-    {\bf There is a DFA over $\Sigma$ that recognizes $L$}&$\exists M ~(M \textrm{ is a DFA and } L(M) = A)$\\
-    {\it if and only if}&\\
-    {\bf There is a NFA over $\Sigma$ that recognizes $L$}&$\exists N ~(N \textrm{ is a NFA and } L(N) = A)$\\
-    {\it if and only if}&\\
-    {\bf There is a regular expression over $\Sigma$ that describes $L$} &$\exists R ~(R \textrm{ is a regular expression and } L(R) = A)$\\
-\end{tabular}
-\end{center}
-
-A language is called {\bf regular} when any (hence all) of the above three conditions are met.
-
-We already proved that DFAs and NFAs are equally expressive. It remains to prove that regular expressions 
-are too.
-
-Part 1: Suppose $A$ is a language over an alphabet $\Sigma$.
-If there is a regular expression $R$ such that $L(R) = A$, then there is a NFA, let's call it $N$, such that 
-$L(N) = A$.
-
-{\bf Structural induction}: Regular expression is built from basis regular expressions using inductive steps
-(union, concatenation, Kleene star symbols). Use constructions to mirror these in NFAs.
-
-
-{\bf Application}: A state diagram for a NFA over $\{a,b\}$ that recognizes $L(a^* (ab)^*)$:
-
-\vfill
-
-Part 2: Suppose $A$ is a language over an alphabet $\Sigma$.
-If there is a DFA $M$ such that $L(M) = A$, then there is a regular expression, let's call it $R$, such that 
-$L(R) = A$.
-
-{\bf Proof idea}: Trace all possible paths from start state to accept state.  Express labels of these paths
-as regular expressions, and union them all.
-
-\begin{enumerate}
-\item Add new start state with $\varepsilon$ arrow to old start state.
-\item Add new accept state with $\varepsilon$ arrow from old accept states.  Make old accept states
-non-accept.
-\item Remove one (of the old) states at a time: modify regular expressions on arrows that went through removed
-state to restore language recognized by machine.
-\end{enumerate}
-
-{\bf Application}: Find a regular expression describing the language recognized by the DFA with 
-state diagram
-
-\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA3.png}
-
-\vfill
- \vfill
-\section*{Week2 wednesday}
-
-
-
-{\bf Review}: Formal definition of finite automaton: $M = (Q, \Sigma, \delta, q_0, F)$ 
-
-\begin{center}
-\begin{multicols}{2}
-\begin{itemize}
-\setlength{\itemsep}{2pt}
-\item Finite set of states $Q$
-\item Alphabet $\Sigma$
-\item Transition function $\delta$
-\item Start state $q_0$
-\item Accept (final) states $F$
-\end{itemize}
-\end{multicols}
-\end{center}
-In the state diagram of $M$, how many outgoing arrows are there from each state?
-
-$M = ( \{ q, r, s\}, \{a,b\}, \delta, q, \{q\} )$ 
-where $\delta$ is  (rows labelled by states
-and columns labelled by symbols):
-\begin{center}
-\begin{tabular}{c|cc}
-$\delta$ & $a$ & $b$ \\
-\hline
-$q$ & $r$ & $r$ \\
-$r$ & $s$ & $s$ \\
-$s$ & $q$ & $q$ \\
-\end{tabular}
-\end{center}
-
-The state diagram for $M$ is 
-
-\vfill
-
-
-
-Give two examples of strings that are accepted by $M$ and two examples of strings that are rejected by $M$:
-
-\vfill
-
-
-
-$L(M) = $
-
-A regular expression describing $L(M)$ is
-
-
-
-
-\newpage
-Let the alphabet be $\Sigma_1 = \{0,1\}$.
-
-A state diagram for a finite automaton that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains at most two $1$'s} \}$ is
-
-\vfill
-
-A state diagram for a finite automaton that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains more than two $1$'s} \}$ is
-
-\vfill
-
-\textbf{Strategy}: Add ``labels" for states in the state diagram, e.g. 
-``have not seen any of desired pattern yet'' or ``sink state''.
-Then, we can use the analysis of the roles of the states in the state diagram to work towards a 
-description of the language recognized by the finite automaton. 
-
-\vfill
-A useful bit of terminology: the {\bf iterated transition function} of a finite automaton
-$M = (Q, \Sigma, \delta, q_0, F)$ is defined recursively by
-\[
-\delta^* (~(q,w)~) 
-=\begin{cases}
-q  \qquad &\text{if $q \in Q, w = \varepsilon$} \\
-\delta( ~(q,a)~) \qquad &\text{if $q \in Q$, $w = a \in \Sigma$ } \\
-\delta(~(\delta^*(q,u), a) ~) \qquad &\text{if $q \in Q$, $w = ua$ where $u \in  \Sigma^*$ and $a \in \Sigma$}
-\end{cases}
-\]
-
-Using  this terminology, $M$ accepts a string $w$ over $\Sigma$ if and only if $\delta^*( ~(q_0,w)~) \in F$.
-
-\newpage
-Suppose $A$ is a language over an alphabet $\Sigma$. By definition, this means $A$ is a subset of $\Sigma^*$.
-{\bf Claim:} if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
-$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
-
-{\bf Proof idea}:
-
-
-{\bf Proof}: 
-
-
-
-
-\vfill
-
-Application: Design a finite automaton that recognizes the language of all strings over $\{a,b\}$
-whose length is not a multiple of $3$.
-
-\vfill
-
-{\bf Note}: On Friday, we'll see a new kind of finite automaton. It will be helpful to distinguish it from the
-machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
-from Section 1.1. \vfill
-\section*{Week1 wednesday}
+\end{flushright} \section*{Week1 monday}
 
 
 Our motivation in studying sets of strings is that they can be used to encode problems.
@@ -437,71 +140,12 @@ is $L(~(\Sigma_1 \Sigma_1 \Sigma_1)^*~) = $
 
 \vfill
 
-The language described by the regular expression $1^+$ is $L(~(1^+)~) = L(1^* \circ 1) = $
+The language described by the regular expression $1^* \circ 1$ is $L(1^* \circ 1) = $
 
 \vfill
+ \vfill
+\section*{Week1 wednesday}
 
-
-{\it Shorthand and conventions} (Sipser pages 63-65)
-\begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    & \\
-    \multicolumn{2}{|l|}{Assuming $\Sigma$ is the alphabet, we use the following conventions}\\
-    & \\
-    $\Sigma$   & regular  expression describing language consisting of  all strings  of length  $1$ over $\Sigma$\\
-    $*$ then $\circ$ then $\cup$   & precedence order, unless parentheses are used to change it\\
-    $R_1R_2$ & shorthand  for  $R_1  \circ R_2$ (concatenation symbol is implicit) \\
-    $R^+$ & shorthand for $R^* \circ R$ \\
-    $R^k$ & shorthand for $R$ concatenated with itself $k$ times, where $k$ is a (specific) natural number\\
-    & \\
-    \hline
-    \end{tabular}
-\end{center}
-
-\newpage
-{\bf Caution: many programming languages that support regular expressions build in functionality
-that is more powerful than the ``pure'' definition of regular expressions given here. }
-
-Regular expressions are everywhere (once you start looking for them).
-
-Software tools and languages often have built-in support for regular expressions to describe
-{\bf patterns} that we want to match (e.g. Excel/ Sheets, grep, Perl, python, Java, Ruby).
-
-Under the hood, the first phase of {\bf compilers} is to transform the strings we write 
-in code to tokens (keywords, operators, identifiers, literals). Compilers use regular expressions
-to describe the sets of strings that can be used for each token type.
-
-Next time: we'll start to see how to build machines that decide whether strings match the pattern
-described by a regular expression.
-
-\vfill
-
-
-{\it Extra examples for practice:}
-
-Which regular expression(s) below describe a language that includes the string $a$ as an element?
-
-$a^* b^*$ 
-
-\vfill
-
-$a(ba)^* b$
-
-\vfill
-
-$a^* \cup b^*$
-
-\vfill
-
-$(aaa)^*$
-
-\vfill
-
-$(\varepsilon \cup a) b$
-
-\vfill \vfill
-\section*{Week1 friday}
 
 
 {\bf Review}: Determine whether each statement below about regular expressions
@@ -526,6 +170,73 @@ True or False: \qquad
 
 True or False: \qquad 
    $\varepsilon \in L( ~ aa^* \cup bb^* ~)$
+
+\vfill
+
+{\it Shorthand and conventions} (Sipser pages 63-65)
+
+\vspace{-20pt}
+
+\begin{center}
+    \begin{tabular}{|ll|}
+    \hline
+    & \\
+    \multicolumn{2}{|l|}{Assuming $\Sigma$ is the alphabet, we use the following conventions}\\
+    & \\
+    $\Sigma$   & regular  expression describing language consisting of  all strings  of length  $1$ over $\Sigma$\\
+    $*$ then $\circ$ then $\cup$   & precedence order, unless parentheses are used to change it\\
+    $R_1R_2$ & shorthand  for  $R_1  \circ R_2$ (concatenation symbol is implicit) \\
+    $R^+$ & shorthand for $R^* \circ R$ \\
+    $R^k$ & shorthand for $R$ concatenated with itself $k$ times, where $k$ is a (specific) natural number\\
+    & \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\vfill 
+
+{\bf Caution: many programming languages that support regular expressions build in functionality
+that is more powerful than the ``pure'' definition of regular expressions given here. }
+
+Regular expressions are everywhere (once you start looking for them).
+
+Software tools and languages often have built-in support for regular expressions to describe
+{\bf patterns} that we want to match (e.g. Excel/ Sheets, grep, Perl, python, Java, Ruby).
+
+Under the hood, the first phase of {\bf compilers} is to transform the strings we write 
+in code to tokens (keywords, operators, identifiers, literals). Compilers use regular expressions
+to describe the sets of strings that can be used for each token type.
+
+Next time: we'll start to see how to build machines that decide whether strings match the pattern
+described by a regular expression.
+
+\newpage
+
+Practice with the regular expressions over $\{a,b\}$ below.
+
+For example: Which regular expression(s) below describe a language that includes the string $a$ as an element?
+
+$a^* b^*$ 
+
+\vfill
+
+$a(ba)^* b$
+
+\vfill
+
+$a^* \cup b^*$
+
+\vfill
+
+$(aaa)^*$
+
+\vfill
+
+$(\varepsilon \cup a) b$
+
+\vfill \vfill
+\section*{Week1 friday}
+
 
 
 **This definition was in the pre-class reading**
@@ -584,6 +295,7 @@ What is {\bf finite} about all finite automata? (Select all that apply)
    \item[$\square$] The length of each computation of the machine
    \item[$\square$] The number of strings that are accepted by the machine
 \end{itemize}
+\newpage
   
 \begin{figure}[h]
    \centering
@@ -592,7 +304,8 @@ What is {\bf finite} about all finite automata? (Select all that apply)
    
 The formal definition of this FA is
    
-\vspace{100pt}
+\vfill
+\vfill
    
 
 Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the FA or rejected by the FA.  
@@ -604,8 +317,10 @@ Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the FA or r
 
 The language recognized by this automaton is
   
-\vspace{100pt}
-   
+
+\vfill
+
+\newpage
 
 \begin{figure}[h]
   \centering
@@ -615,7 +330,11 @@ The language recognized by this automaton is
 
 The language recognized by this automaton is
   
-\vspace{100pt}
+
+
+\vfill
+
+\hrule
 
 \begin{figure}[h]
     \centering
@@ -624,6 +343,6 @@ The language recognized by this automaton is
 
 The language recognized by this automaton is
   
-\vspace{100pt}
- \vfill
+
+\vfill \vfill
 \end{document}

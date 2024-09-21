@@ -76,7 +76,15 @@ h3 {
     color: var(--maincolor);
 }
 
-h4, h5 {
+h4 {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 150%;
+    color: var(--maincolor);
+}
+
+h5 {
     color: var(--maincolor);
 }
 

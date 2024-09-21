@@ -209,14 +209,14 @@ href="http://care.ucsd.edu">http://care.ucsd.edu</a>.</p>
 <p>Please reach out (minnes@ucsd.edu) if you need support with
 extenuating circumstances affecting CSE 105.</p>
 <h1 class="unnumbered" id="introductions">Introductions</h1>
-<p>Class website: <a
-href="https://canvas.ucsd.edu/courses/51649/">https://canvas.ucsd.edu/courses/51649/</a></p>
+<p>Class website on Canvas <a
+href="https://canvas.ucsd.edu/">https://canvas.ucsd.edu</a></p>
 <p>Instructor: Prof. Mia Minnes <span><span>"Minnes" rhymes with
 Guinness</span></span>, minnes@ucsd.edu, <a
 href="http://cseweb.ucsd.edu/~minnes">http://cseweb.ucsd.edu/ minnes</a></p>
 <p>Our team: One instructor + two TAs and eleven tutors + all of you</p>
 <p>Fill in contact info for students around you, if you’d like:</p>
-<p>Welcome to CSE 105: Introduction to Theory of Computation in Winter
+<p>Welcome to CSE 105: Introduction to Theory of Computation in Fall
 2024!</p>
 <h1 class="unnumbered" id="cse-105s-big-questions">CSE 105’s Big
 Questions</h1>
@@ -244,8 +244,79 @@ description of problems</p>
 <p><span><strong>Output</strong></span>: Yes/ No, where Yes means that
 the input string matches the pattern or property described by the
 problem.</p>
-<h1 class="unnumbered" id="monday-terminology-and-notation">Monday:
-Terminology and Notation</h1>
+<h2 class="unnumbered" id="weeks-0-and-1-at-a-glance">Weeks 0 and 1 at a
+glance</h2>
+<h3 class="unnumbered"
+id="textbook-reading-chapter-0-sections-1.3-1.1">Textbook reading:
+Chapter 0, Sections 1.3, 1.1</h3>
+<p>Before Monday, review class syllabus on Canvas
+(https://canvas.ucsd.edu/) and read Example 1.51 and Definition 1.52
+(definition of regular expressions) on page 64.
+<span><em>Notice</em></span>: we are jumping to Section 1.3 and then
+will come back to Section 1.1 on Wednesday.</p>
+<p>Before Wednesday, read Figure 1.4 and Definition 1.5 (definition of
+finite automata) on pages 34-35.</p>
+<p>Before Friday, read the definition of the union, concatenation, and
+star operations for languages is given as Definition 1.23 on page 44 and
+a useful example is Example 1.24.</p>
+<p>For Week 2 Monday: Pages 41-43 (Figures 1.18, 1.19, 1.20) (examples
+of automata and languages).</p>
+<p><span><em>Textbook references: Within a chapter, each item is
+numbered consecutively. Figure 1.22 is the twenty-second numbered item
+in chapter one; it comes right after Example 1.21 and right before
+Definition 1.23.</em></span></p>
+<h3 class="unnumbered" id="we-will-be-learning-and-practicing-to">We
+will be learning and practicing to:</h3>
+<ul>
+<li><p>Clearly and unambiguously communicate computational ideas using
+appropriate formalism. Translate across levels of abstraction.</p>
+<ul>
+<li><p>Translate a decision problem to a set of strings coding the
+problem.</p>
+<ul>
+<li><p><span><strong>Distinguish between alphabet, language, sets, and
+strings</strong></span></p></li>
+</ul></li>
+<li><p>Use regular expressions and relate them to languages and
+automata.</p>
+<ul>
+<li><p><span><strong>Write and debug regular expressions using correct
+syntax</strong></span></p></li>
+<li><p><span><strong>Determine if a given string is in the language
+described by a regular expression</strong></span></p></li>
+</ul></li>
+<li><p>Use precise notation to formally define the state diagram of
+finite automata.</p></li>
+<li><p>Use clear English to describe computations of finite automata TM
+informally.</p>
+<ul>
+<li><p><span><strong>State the formal definition of (deterministic)
+finite automata</strong></span></p></li>
+<li><p><span><strong>Trace the computation of a finite automaton on a
+given string using its state diagram</strong></span></p></li>
+<li><p><span><strong>Translate between a state diagram and a formal
+definition</strong></span></p></li>
+<li><p><span><strong>Determine if a given string is in the language
+described by a finite automaton</strong></span></p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>#FinAid Assignment on Canvas (complete as soon as possible) and read
+syllabus on Canvas</p>
+<p>Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2,
+and Test 2 Attempt 2 times at PrairieTest
+(http://us.prairietest.com)</p>
+<p>Review Quiz on PrairieLearn (http://us.prairielearn.com), complete by
+Sunday 10/6/2024</p>
+<p>Create a homework groups, possibly by using the Piazza
+(https://piazza.com/) find-a-teammate tool</p>
+<p>Homework 1 submitted via Gradescope (https://www.gradescope.com/),
+due Tuesday 10/8/2024</p>
+</div>
+<h1 class="unnumbered" id="week-0-friday-terminology-and-notation">Week
+0 Friday: Terminology and Notation</h1>
 <p>The CSE 105 vocabulary and notation build on discrete math and
 introduction to proofs classes. Some of the conventions may be a bit
 different from what you saw before so we’ll draw your attention to
@@ -490,7 +561,8 @@ ordering <span class="math inline">\(0 &lt;  1\)</span>:</p>
 <p>The first five strings over <span
 class="math inline">\(\Sigma_2\)</span> in string order, using the usual
 alphabetical ordering for single letters:</p>
-<h2 class="unnumbered" id="week-1-wednesday">Week 1 Wednesday</h2>
+<h1 class="unnumbered" id="week-1-monday-regular-expressions">Week 1
+Monday: Regular expressions</h1>
 <p>Our motivation in studying sets of strings is that they can be used
 to encode problems. To calibrate how difficult a problem is to solve, we
 describe how complicated the set of strings that encodes it is. How do
@@ -594,8 +666,24 @@ class="math inline">\(L(\emptyset) = \emptyset\)</span></p>
 class="math inline">\((\Sigma_1 \Sigma_1 \Sigma_1)^*\)</span> is <span
 class="math inline">\(L(~(\Sigma_1 \Sigma_1 \Sigma_1)^*~) =\)</span></p>
 <p>The language described by the regular expression <span
-class="math inline">\(1^+\)</span> is <span
-class="math inline">\(L(~(1^+)~) = L(1^* \circ 1) =\)</span></p>
+class="math inline">\(1^* \circ 1\)</span> is <span
+class="math inline">\(L(1^* \circ 1) =\)</span></p>
+<h2 class="unnumbered"
+id="week-1-wednesday-regular-expressions-conventions">Week 1 Wednesday:
+Regular expressions conventions</h2>
+<p><span><strong>Review</strong></span>: Determine whether each
+statement below about regular expressions over the alphabet <span
+class="math inline">\(\{a,b,c\}\)</span> is true or false:</p>
+<p>True or False: <span class="math inline">\(ab  \in L(~ (a \cup
+b)^*  ~)\)</span></p>
+<p>True or False: <span class="math inline">\(ba \in L( ~ a^* b^*
+~)\)</span></p>
+<p>True or False: <span class="math inline">\(\varepsilon  \in L(a \cup
+b \cup c)\)</span></p>
+<p>True or False: <span class="math inline">\(\varepsilon  \in L(~ (a
+\cup b)^*  ~)\)</span></p>
+<p>True or False: <span class="math inline">\(\varepsilon \in L( ~ aa^*
+\cup bb^* ~)\)</span></p>
 <p><span><em>Shorthand and conventions</em></span> (Sipser pages
 63-65)</p>
 <div class="center">
@@ -673,28 +761,18 @@ Compilers use regular expressions to describe the sets of strings that
 can be used for each token type.</p>
 <p>Next time: we’ll start to see how to build machines that decide
 whether strings match the pattern described by a regular expression.</p>
-<p><span><em>Extra examples for practice:</em></span></p>
-<p>Which regular expression(s) below describe a language that includes
-the string <span class="math inline">\(a\)</span> as an element?</p>
+<p>Practice with the regular expressions over <span
+class="math inline">\(\{a,b\}\)</span> below.</p>
+<p>For example: Which regular expression(s) below describe a language
+that includes the string <span class="math inline">\(a\)</span> as an
+element?</p>
 <p><span class="math inline">\(a^* b^*\)</span></p>
 <p><span class="math inline">\(a(ba)^* b\)</span></p>
 <p><span class="math inline">\(a^* \cup b^*\)</span></p>
 <p><span class="math inline">\((aaa)^*\)</span></p>
 <p><span class="math inline">\((\varepsilon \cup a) b\)</span></p>
-<h2 class="unnumbered" id="week-1-friday">Week 1 Friday</h2>
-<p><span><strong>Review</strong></span>: Determine whether each
-statement below about regular expressions over the alphabet <span
-class="math inline">\(\{a,b,c\}\)</span> is true or false:</p>
-<p>True or False: <span class="math inline">\(ab  \in L(~ (a \cup
-b)^*  ~)\)</span></p>
-<p>True or False: <span class="math inline">\(ba \in L( ~ a^* b^*
-~)\)</span></p>
-<p>True or False: <span class="math inline">\(\varepsilon  \in L(a \cup
-b \cup c)\)</span></p>
-<p>True or False: <span class="math inline">\(\varepsilon  \in L(~ (a
-\cup b)^*  ~)\)</span></p>
-<p>True or False: <span class="math inline">\(\varepsilon \in L( ~ aa^*
-\cup bb^* ~)\)</span></p>
+<h2 class="unnumbered" id="week-1-friday-finite-automata">Week 1 Friday:
+Finite automata</h2>
 <p>**This definition was in the pre-class reading** A finite automaton
 (FA) is specified by <span class="math inline">\(M = (Q, \Sigma, \delta,
 q_0, F)\)</span>. This <span class="math inline">\(5\)</span>-tuple is
@@ -774,67 +852,11 @@ arrows)</p></li>
 <img src="../../resources/machines/Lect2DFA2.png" style="width:3in" />
 </figure>
 <p>The language recognized by this automaton is</p>
+<hr />
 <figure>
 <img src="../../resources/machines/Lect2DFA3.png" style="width:3in" />
 </figure>
 <p>The language recognized by this automaton is</p>
-<h2 class="unnumbered" id="week-1-at-a-glance">Week 1 at a glance</h2>
-<h3 class="unnumbered"
-id="textbook-reading-chapter-0-sections-1.3-1.1">Textbook reading:
-Chapter 0, Sections 1.3, 1.1</h3>
-<p><span><em>For Monday</em></span>: Class syllabus
-https://canvas.ucsd.edu/courses/45073.</p>
-<p><span><em>For Wednesday</em></span>: Example 1.51 and Definition 1.52
-(definition of regular expressions) on page 64.
-<span><em>Notice</em></span>: we are jumping to Section 1.3 and then
-will come back to Section 1.1 on Friday.</p>
-<p><span><em>For Friday</em></span>: Figure 1.4 and Definition 1.5
-(definition of finite automata) on pages 34-35. The definition of the
-union, concatenation, and star operations for languages is given as
-Definition 1.23 on page 44 and a useful example is Example 1.24.</p>
-<p><span><em>For Week 2 Wednesday</em></span>: Pages 41-43 (Figures
-1.18, 1.19, 1.20) (examples of automata and languages).
-<span><em>Notice</em></span>: Week 2 Monday is a UCSD Holiday in
-observance of Martin Luther King Jr. day so there is no CSE 105
-class.</p>
-<p><span><em>Textbook references: Within a chapter, each item is
-numbered consecutively. Figure 1.22 is the twenty-second numbered item
-in chapter one; it comes right after Example 1.21 and right before
-Definition 1.23.</em></span></p>
-<h3 class="unnumbered" id="make-sure-you-can">Make sure you can:</h3>
-<ul>
-<li><p>Distinguish between alphabet, language, sets, and
-strings</p></li>
-<li><p>Translate a decision problem to a set of strings coding the
-problem</p></li>
-<li><p>Use regular expressions and relate them to languages and
-automata</p>
-<ul>
-<li><p>Write and debug regular expressions using correct syntax</p></li>
-<li><p>Determine if a given string is in the language described by a
-regular expression</p></li>
-</ul></li>
-<li><p>Use precise notation to formally define the state diagram of
-finite automata and use clear English to describe computations of finite
-automata informally.</p>
-<ul>
-<li><p>State the formal definition of (deterministic) finite
-automata</p></li>
-<li><p>Trace the computation of a finite automaton on a given string
-using its state diagram</p></li>
-<li><p>Translate between a state diagram and a formal
-definition</p></li>
-<li><p>Determine if a given string is in the language described by a
-finite automaton</p></li>
-</ul></li>
-</ul>
-<h3 class="unnumbered" id="todo">TODO:</h3>
-<div class="list">
-<p>#FinAid Assignment on Canvas
-https://canvas.ucsd.edu/courses/51649/quizzes/158899</p>
-<p>Review quizzes based on class material each day.</p>
-<p>Homework assignment 1 due next week.</p>
-</div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />

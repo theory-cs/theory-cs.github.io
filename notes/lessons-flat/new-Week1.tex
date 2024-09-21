@@ -85,7 +85,7 @@ Please reach out (minnes@ucsd.edu) if you need support with extenuating circumst
 \vfill
 
 \section*{Introductions}
-Class website: \href{https://canvas.ucsd.edu/courses/51649/}{https://canvas.ucsd.edu/courses/51649/}
+Class website on Canvas \href{https://canvas.ucsd.edu/}{https://canvas.ucsd.edu}
 
 
 Instructor: Prof. Mia Minnes {\tiny{"Minnes" rhymes with Guinness}}, minnes@ucsd.edu, 
@@ -96,32 +96,11 @@ Our team: One instructor + two TAs and eleven tutors + all of you
 
 Fill in contact info for students around you, if you'd like:
 
-\vfill
 
-\begin{comment}
-On a typical week: {\bf MWF} Lectures + review quizzes, {\bf Tu} Homework due, {\bf WF} Discussion.
-Office hours (hosted by instructors and TAs and tutors, where you can come to talk 
-about course concepts and ask for help as you work through sample problems) and Q+A on Piazza available throughout the week.
-All dates are on \href{https://canvas.ucsd.edu/}{Canvas (click for link)} and details are on
- \href{https://canvas.ucsd.edu/courses/51649/}{the Syllabus page}.
-
-
-There are lots of great reasons to have a laptop, tablet, or phone open during class. You might be taking notes, 
-getting a photo of an important moment on the board, trying out a construction that we're developing together, working 
-on the review quiz, and so on. 
-The main issue with screens and technology in the classroom isn't your own distraction (which is your responsibility to manage), 
-it's the distraction of other students. Anyone sitting behind you cannot help but have your screen in their field of view. 
-Having distracting content on your screen can really harm their learning experience.
-
-With this in mind, the device policy for the course is that if you have a screen open, you either:
-
-Have only content onscreen that's directly related to the current lecture.
-Have unrelated content open and sit in one of the back two rows of the room to mitigate the effects on other students. 
-\end{comment}
 \vfill
 
 \newpage 
-Welcome to CSE 105: Introduction to Theory of Computation in Winter 2024!
+Welcome to CSE 105: Introduction to Theory of Computation in Fall 2024!
 
 \section*{CSE 105's Big Questions}
 \begin{itemize}
@@ -153,9 +132,73 @@ To be able to compare ``hardness'' of problems, we use a consistent description 
 
 {\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
 
+\newpage
+
+\subsection*{Weeks 0 and 1 at a glance}
+
+\subsubsection*{Textbook reading: Chapter 0, Sections 1.3, 1.1}
+
+\vspace{-15pt}
+
+Before Monday, review class syllabus on Canvas (https://canvas.ucsd.edu/) and 
+read Example 1.51 and Definition 1.52 (definition of regular expressions) on page 64.
+{\it Notice}: we are jumping to Section 1.3 and then will come back 
+to Section 1.1 on Wednesday.
+
+Before Wednesday, read Figure 1.4 and Definition 1.5 (definition of finite automata) on pages 34-35.
+
+Before Friday, read the definition of the union, concatenation, and star operations for languages is given 
+as Definition 1.23 on page 44 and a useful example is Example 1.24.
+
+For Week 2 Monday: Pages 41-43 (Figures 1.18, 1.19, 1.20) (examples of automata and languages).
+
+
+{\it Textbook references: Within a chapter, each item is numbered consecutively. Figure 1.22
+is the twenty-second numbered item in chapter one; it comes right after Example 1.21 and right before Definition 1.23.}
+
+
+\subsubsection*{We will be learning and practicing to:}
+\begin{itemize}
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+   \item Translate a decision problem to a set of strings coding the problem.
+   \begin{itemize}
+   \item {\bf Distinguish between alphabet, language, sets, and strings}
+   \end{itemize}
+   \item Use regular expressions and relate them to languages and automata.
+   \begin{itemize}
+      \item {\bf Write and debug regular expressions using correct syntax}
+      \item {\bf Determine if a given string is in the language described by a regular expression}
+   \end{itemize}
+   \item Use precise notation to formally define the state diagram of finite automata.
+   \item Use clear English to describe computations of finite automata TM informally.
+   \begin{itemize}
+      \item {\bf State the formal definition of (deterministic) finite automata}   
+      \item {\bf Trace the computation of a finite automaton on a given string using its state diagram}
+      \item {\bf Translate between a state diagram and a formal definition}
+      \item {\bf Determine if a given string is in the language described by a finite automaton}
+   \end{itemize}
+\end{itemize}
+
+
+
+
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}{\itemsep-10pt}
+   \item \#FinAid Assignment on Canvas (complete as soon as possible) and read syllabus on Canvas
+   \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
+   at PrairieTest (http://us.prairietest.com)
+   \item Review Quiz on PrairieLearn (http://us.prairielearn.com), complete by Sunday 10/6/2024
+   \item Create a homework groups, possibly by using the Piazza (https://piazza.com/) find-a-teammate tool
+   \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due Tuesday 10/8/2024
+\end{list}
 
 \newpage
-\section*{Monday: Terminology and Notation}
+
+\newpage
+\section*{Week 0 Friday: Terminology and Notation}
 
 
 
@@ -273,7 +316,7 @@ The first five strings over $\Sigma_2$ in string order, using the usual alphabet
      
 \newpage
 
-\subsection*{Week 1 Wednesday}
+\section*{Week 1 Monday: Regular expressions}
 
 
 
@@ -371,73 +414,14 @@ is $L(~(\Sigma_1 \Sigma_1 \Sigma_1)^*~) = $
 
 \vfill
 
-The language described by the regular expression $1^+$ is $L(~(1^+)~) = L(1^* \circ 1) = $
+The language described by the regular expression $1^* \circ 1$ is $L(1^* \circ 1) = $
 
 \vfill
-
-
-{\it Shorthand and conventions} (Sipser pages 63-65)
-\begin{center}
-    \begin{tabular}{|ll|}
-    \hline
-    & \\
-    \multicolumn{2}{|l|}{Assuming $\Sigma$ is the alphabet, we use the following conventions}\\
-    & \\
-    $\Sigma$   & regular  expression describing language consisting of  all strings  of length  $1$ over $\Sigma$\\
-    $*$ then $\circ$ then $\cup$   & precedence order, unless parentheses are used to change it\\
-    $R_1R_2$ & shorthand  for  $R_1  \circ R_2$ (concatenation symbol is implicit) \\
-    $R^+$ & shorthand for $R^* \circ R$ \\
-    $R^k$ & shorthand for $R$ concatenated with itself $k$ times, where $k$ is a (specific) natural number\\
-    & \\
-    \hline
-    \end{tabular}
-\end{center}
-
+     
 \newpage
-{\bf Caution: many programming languages that support regular expressions build in functionality
-that is more powerful than the ``pure'' definition of regular expressions given here. }
 
-Regular expressions are everywhere (once you start looking for them).
+\subsection*{Week 1 Wednesday: Regular expressions conventions}
 
-Software tools and languages often have built-in support for regular expressions to describe
-{\bf patterns} that we want to match (e.g. Excel/ Sheets, grep, Perl, python, Java, Ruby).
-
-Under the hood, the first phase of {\bf compilers} is to transform the strings we write 
-in code to tokens (keywords, operators, identifiers, literals). Compilers use regular expressions
-to describe the sets of strings that can be used for each token type.
-
-Next time: we'll start to see how to build machines that decide whether strings match the pattern
-described by a regular expression.
-
-\vfill
-
-
-{\it Extra examples for practice:}
-
-Which regular expression(s) below describe a language that includes the string $a$ as an element?
-
-$a^* b^*$ 
-
-\vfill
-
-$a(ba)^* b$
-
-\vfill
-
-$a^* \cup b^*$
-
-\vfill
-
-$(aaa)^*$
-
-\vfill
-
-$(\varepsilon \cup a) b$
-
-\vfill 
-
-\newpage
-\subsection*{Week 1 Friday}
 
 
 
@@ -463,6 +447,76 @@ True or False: \qquad
 
 True or False: \qquad 
    $\varepsilon \in L( ~ aa^* \cup bb^* ~)$
+
+\vfill
+
+{\it Shorthand and conventions} (Sipser pages 63-65)
+
+\vspace{-20pt}
+
+\begin{center}
+    \begin{tabular}{|ll|}
+    \hline
+    & \\
+    \multicolumn{2}{|l|}{Assuming $\Sigma$ is the alphabet, we use the following conventions}\\
+    & \\
+    $\Sigma$   & regular  expression describing language consisting of  all strings  of length  $1$ over $\Sigma$\\
+    $*$ then $\circ$ then $\cup$   & precedence order, unless parentheses are used to change it\\
+    $R_1R_2$ & shorthand  for  $R_1  \circ R_2$ (concatenation symbol is implicit) \\
+    $R^+$ & shorthand for $R^* \circ R$ \\
+    $R^k$ & shorthand for $R$ concatenated with itself $k$ times, where $k$ is a (specific) natural number\\
+    & \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\vfill 
+
+{\bf Caution: many programming languages that support regular expressions build in functionality
+that is more powerful than the ``pure'' definition of regular expressions given here. }
+
+Regular expressions are everywhere (once you start looking for them).
+
+Software tools and languages often have built-in support for regular expressions to describe
+{\bf patterns} that we want to match (e.g. Excel/ Sheets, grep, Perl, python, Java, Ruby).
+
+Under the hood, the first phase of {\bf compilers} is to transform the strings we write 
+in code to tokens (keywords, operators, identifiers, literals). Compilers use regular expressions
+to describe the sets of strings that can be used for each token type.
+
+Next time: we'll start to see how to build machines that decide whether strings match the pattern
+described by a regular expression.
+
+\newpage
+
+Practice with the regular expressions over $\{a,b\}$ below.
+
+For example: Which regular expression(s) below describe a language that includes the string $a$ as an element?
+
+$a^* b^*$ 
+
+\vfill
+
+$a(ba)^* b$
+
+\vfill
+
+$a^* \cup b^*$
+
+\vfill
+
+$(aaa)^*$
+
+\vfill
+
+$(\varepsilon \cup a) b$
+
+\vfill 
+
+\newpage
+\subsection*{Week 1 Friday: Finite automata}
+
+
 
 
 **This definition was in the pre-class reading**
@@ -521,6 +575,7 @@ What is {\bf finite} about all finite automata? (Select all that apply)
    \item[$\square$] The length of each computation of the machine
    \item[$\square$] The number of strings that are accepted by the machine
 \end{itemize}
+\newpage
   
 \begin{figure}[h]
    \centering
@@ -529,7 +584,8 @@ What is {\bf finite} about all finite automata? (Select all that apply)
    
 The formal definition of this FA is
    
-\vspace{100pt}
+\vfill
+\vfill
    
 
 Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the FA or rejected by the FA.  
@@ -541,8 +597,10 @@ Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the FA or r
 
 The language recognized by this automaton is
   
-\vspace{100pt}
-   
+
+\vfill
+
+\newpage
 
 \begin{figure}[h]
   \centering
@@ -552,7 +610,11 @@ The language recognized by this automaton is
 
 The language recognized by this automaton is
   
-\vspace{100pt}
+
+
+\vfill
+
+\hrule
 
 \begin{figure}[h]
     \centering
@@ -561,69 +623,8 @@ The language recognized by this automaton is
 
 The language recognized by this automaton is
   
-\vspace{100pt}
- 
 
-\newpage
-\subsection*{Week 1 at a glance}
+\vfill 
 
-\subsubsection*{Textbook reading: Chapter 0, Sections 1.3, 1.1}
-
-{\it For Monday}: Class syllabus https://canvas.ucsd.edu/courses/45073.
-
-{\it For Wednesday}: Example 1.51 and Definition 1.52 (definition of regular expressions) on page 64.
-{\it Notice}: we are jumping to Section 1.3 and then will come back 
-to Section 1.1 on Friday.
-
-{\it For Friday}: Figure 1.4 and Definition 1.5 (definition of finite automata) on pages 34-35.
-The definition of the union, concatenation, and star operations for languages is given 
-as Definition 1.23 on page 44 and a useful example is Example 1.24.
-
-{\it For Week 2 Wednesday}: Pages 41-43 (Figures 1.18, 1.19, 1.20) (examples of automata and languages).
-{\it Notice}: Week 2 Monday is a UCSD Holiday in observance of Martin Luther King Jr. day so there 
-is no CSE 105 class.
-
-{\it Textbook references: Within a chapter, each item is numbered consecutively. Figure 1.22
-is the twenty-second numbered item in chapter one; it comes right after Example 1.21 and right before Definition 1.23.}
-
-
-\subsubsection*{Make sure you can:}
-
-\begin{itemize}
-\item Distinguish between alphabet, language, sets, and strings
-
-\item Translate a decision problem to a set of strings coding the problem
-
-\item Use regular expressions and relate them to languages and automata
-\begin{itemize}
-
-   \item Write and debug regular expressions using correct syntax
-
-   \item Determine if a given string is in the language described by a regular expression
-
-\end{itemize}
-
-\item Use precise notation to formally define the state diagram of finite automata and 
-use clear English to describe computations of finite automata informally.
-
-\begin{itemize}
-   \item State the formal definition of (deterministic) finite automata
-
-   \item Trace the computation of a finite automaton on a given string using its state diagram
-
-   \item Translate between a state diagram and a formal definition
-
-   \item Determine if a given string is in the language described by a finite automaton
-\end{itemize}
-
-\end{itemize}
-
-\subsubsection*{TODO:}
-\begin{list}
-   {\itemsep2pt}
-   \item \#FinAid Assignment on Canvas https://canvas.ucsd.edu/courses/51649/quizzes/158899
-   \item Review quizzes based on class material each day. 
-   \item Homework assignment 1 due next week.
-\end{list}
 
 \end{document}

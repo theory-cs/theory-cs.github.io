@@ -1,106 +1,36 @@
 %! app: Regular Languages
 %! outcome: Regular expressions
 
-Our motivation in studying sets of strings is that they can be used to encode problems.
-To calibrate how difficult a problem is to solve, we describe how complicated the set of strings that encodes it is. 
-How do we define sets of strings?
 
+{\bf Review}: Determine whether each statement below about regular expressions
+over the alphabet $\{a,b,c\}$ is true or false:
 
-\vfill
+\begin{comment}
+True or False: \qquad 
+   $a  \in L(~(a \cup b )~\cup c)$
+\end{comment}
 
-How would you describe the language that has no elements at all?
+True or False: \qquad 
+   $ab  \in L(~ (a \cup b)^*  ~)$
+   
+True or False: \qquad    
+   $ba \in L( ~ a^* b^* ~)$
+   
+True or False: \qquad 
+   $\varepsilon  \in L(a \cup b \cup c)$
+   
+True or False: \qquad 
+   $\varepsilon  \in L(~ (a \cup b)^*  ~)$
 
-\vfill
-
-How would you describe the language that has all strings over $\{0,1\}$ as its elements?
-
-\vfill
-
-\newpage
-
-**This definition was in the pre-class reading**
-{\bf Definition 1.52}: A {\bf regular expression} over alphabet $\Sigma$
-is a syntactic expression that can describe a language over $\Sigma$. The collection of all regular
-expressions over $\Sigma$ is defined recursively:
-\begin{itemize}
-\item[] {\it Basis steps of recursive definition}
-\begin{quote}    
-    $a$ is a regular expression, for $a \in \Sigma$
-
-    $\varepsilon$ is a regular expression
-
-    $\emptyset$ is a regular expression
-\end{quote}
-
-\item[] {\it Recursive steps of recursive definition}
-\begin{quote}
-    $(R_1 \cup R_2)$ is a regular expression when $R_1$, $R_2$ are regular expressions 
-
-    $(R_1 \circ R_2)$ is a regular expression when $R_1$, $R_2$ are regular expressions
-
-    $(R_1^*)$ is a regular expression when $R_1$ is a regular expression 
-\end{quote}
-\end{itemize}
- 
-
-The {\it semantics} (or meaning) of the syntactic regular expression is the {\bf language
-described by the regular expression}. The function that assigns a language to a regular expression
-over $\Sigma$ is defined recursively, using familiar set operations:
-
-
-\begin{itemize}
-    \item[] {\it Basis steps of recursive definition}
-    \begin{quote}    
-        The language described by $a$, for $a \in \Sigma$, is $\{a\}$ and we write 
-        $L(a) = \{a\}$
-    
-        The language described by $\varepsilon$ is $\{\varepsilon\}$ and we write 
-        $L(\varepsilon) = \{ \varepsilon\}$
-    
-        The language described by $\emptyset$ is $\{\}$ and we write
-        $L(\emptyset) = \emptyset$.
-    \end{quote}
-    
-    \item[] {\it Recursive steps of recursive definition}
-    \begin{quote}
-        When $R_1$, $R_2$ are regular expressions, the language described by the regular
-        expression $(R_1 \cup R_2)$ is the union of the languages described by $R_1$ and $R_2$, 
-        and we write 
-        $$L(~(R_1 \cup R_2)~) = L(R_1) \cup L(R_2) = \{ w \mid w \in L(R_1) \lor w \in L(R_2)\}$$
-    
-        When $R_1$, $R_2$ are regular expressions, the language described by the regular
-        expression $(R_1 \circ R_2)$ is the concatenation of the languages described by $R_1$ and $R_2$, 
-        and we write 
-        $$L(~(R_1 \circ R_2)~) = L(R_1) \circ L(R_2) = \{ uv \mid u \in L(R_1) \land v \in L(R_2)\}$$
-    
-        When $R_1$ is a regular expression, the language described by the regular 
-        expression $(R_1^*)$ is the {\bf Kleene star} of the language described by $R_1$ and we write
-        $$L(~(R_1^*)~) = (~L(R_1)~)^* = \{ w_1 \cdots w_k \mid k \geq 0 \textrm{ and each } w_i \in L(R_1)\}$$
-    \end{quote}
-\end{itemize}
-  
-\newpage
-For the following examples assume the alphabet is $\Sigma_1 =  \{0,1\}$:
-    
-The language described by the regular expression $0$ is $L(0) = \{ 0 \}$
-
-The language described by the regular expression $1$ is $L(1)  = \{ 1 \}$
-
-The language described by the regular expression $\varepsilon$ is $L(\varepsilon) = \{ \varepsilon  \}$
-
-The language described by the regular expression $\emptyset$ is $L(\emptyset) = \emptyset$
-
-The language described by the regular expression $(\Sigma_1 \Sigma_1 \Sigma_1)^*$ 
-is $L(~(\Sigma_1 \Sigma_1 \Sigma_1)^*~) = $
+True or False: \qquad 
+   $\varepsilon \in L( ~ aa^* \cup bb^* ~)$
 
 \vfill
-
-The language described by the regular expression $1^+$ is $L(~(1^+)~) = L(1^* \circ 1) = $
-
-\vfill
-
 
 {\it Shorthand and conventions} (Sipser pages 63-65)
+
+\vspace{-20pt}
+
 \begin{center}
     \begin{tabular}{|ll|}
     \hline
@@ -117,7 +47,8 @@ The language described by the regular expression $1^+$ is $L(~(1^+)~) = L(1^* \c
     \end{tabular}
 \end{center}
 
-\newpage
+\vfill 
+
 {\bf Caution: many programming languages that support regular expressions build in functionality
 that is more powerful than the ``pure'' definition of regular expressions given here. }
 
@@ -133,12 +64,11 @@ to describe the sets of strings that can be used for each token type.
 Next time: we'll start to see how to build machines that decide whether strings match the pattern
 described by a regular expression.
 
-\vfill
+\newpage
 
+Practice with the regular expressions over $\{a,b\}$ below.
 
-{\it Extra examples for practice:}
-
-Which regular expression(s) below describe a language that includes the string $a$ as an element?
+For example: Which regular expression(s) below describe a language that includes the string $a$ as an element?
 
 $a^* b^*$ 
 
