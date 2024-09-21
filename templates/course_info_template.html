@@ -33,14 +33,14 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/sidebarStyle.css">
 
-  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' >
-	<link rel="shortcut icon" href="../resources/images/wood-951875_960_720.jpeg" type="image/x-icon">
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+  <link rel="shortcut icon" href="../resources/images/wood-951875_960_720.jpeg" type="image/x-icon">
 </head>
 
 
 <body>
   <!-- Navigation Bar -->
-  
+
 
   <!-- Insert sidebar -->
   $unitSidebar
@@ -50,137 +50,165 @@
 
 
   <!-- Overview -->
-  <div class = "content">
-  <div class="row">
-    <h1>Theory of Computation
-    </h1>
-    <h2>$courseTitle</h2>
-    <h3>
-      Is there a problem that NO computer can ever solve?<br>
-      
-      What resources are needed to solve a problem?<br>
-      
-      Are some problems harder than others? <br>
-    </h3>
-    <p>In this course, we will explore what it means to be "computable".
-    </p>
-    <p>We begin with a very constrained model of
-      computation, and work our way to the most powerful, the Turing machine. We'll see how remarkable 
-      this model is in terms of how much it captures about the capabilities of computation, even though 
-      it appears far removed from implementation. 
-      <strong>Alan Turing</strong>
-       formalized the notion of "algorithm" using this model <i>even before there were any physical computers</i>.
-       Remarkably, it is still relevant today and is equivalent to super computers and quantum computers!
+  <div class="content">
+    <div class="row">
+      <h1>Theory of Computation
+      </h1>
+      <h2>$courseTitle</h2>
+      <h3>
+        Is there a problem that NO computer can ever solve?<br>
+
+        What resources are needed to solve a problem?<br>
+
+        Are some problems harder than others? <br>
+      </h3>
+      <p>In this course, we will explore what it means to be "computable".
+      </p>
+      <p>We begin with a very constrained model of
+        computation, and work our way to the most powerful, the Turing machine. We'll see how remarkable
+        this model is in terms of how much it captures about the capabilities of computation, even though
+        it appears far removed from implementation.
+        <strong>Alan Turing</strong>
+        formalized the notion of "algorithm" using this model <i>even before there were any physical computers</i>.
+        Remarkably, it is still relevant today and is equivalent to supercomputers and quantum computers!
       </p>
       <p>
-      We'll also explore the relationship of these models to some essential tools in a computer 
-      scientist's toolkit, such as regular expressions and reductions. Throughout the course, you'll develop 
-      your technical communication skills in writing formal arguments and proofs. 
-    </p>
-    <!-- Syllabus -->
-    <h2>Syllabus</h2>
-    <dl>
-      <dt>Pre-class survey</dt><dd>Please fill out the pre-class survey
-        that was sent to your @ucsd.edu email so that we can learn about your preferences
-        and needs for this quarter; you can also find a link to this survey on our
-        <a href="https://canvas.ucsd.edu/courses/51649" aria-label="Go to Canvas" target="_blank">Canvas</a> page
-        as the <a href="https://canvas.ucsd.edu/courses/51649/quizzes/158899" aria-label="Go to FinAid assignment" target="_blank">#FinAid assignment</a> for this quarter.</dd>
-      <dt>Notes and resources</dt><dd>Use our <a href="overview_calendar.html" aria-label="Go to Calendar">Calendar</a> to get links to
-      class times and notes. Lecture
-      material is available in PDF, tex, and html formats so you can download and annotate or print
-      it if you'd like. In class, we'll explore concepts and work through examples.
-      There will often be some <a href="#textbook">pre-class reading</a> (listed on the notes PDF) to help you prepare for class.
-      The reading is often just a few lines of text or an example in the book and will be very helpful so we can jump into 
-      problem solving in class. You can also watch the posted supplementary videos listed with
-      <a href="overview_calendar.html" aria-label="Go to Calendar">each week</a>.
-      </dd>
-      <dt>Learn by doing</dt><dd> After each class, you'll work on 
-        review quizzes to
-        track and confirm your understanding of the concepts and examples we covered in class.
-        Quizzes can be submitted on <a href="http://gradescope.com" aria-label="Go to Gradescope" target="_blank">Gradescope</a> 
-        as many times (with no penalty) as you like until the quiz deadline:
-        the three quizzes each week are all due on Friday (with no penalty late submission open until Sunday).
-        Open-ended (group-optional) homework assignments will stretch your understanding and 
-        will ask you to put together complete, coherent, convincing explanations.
-        There will also be a project and two (in person, synchronous) tests.
-        In each of these <a href="#grades">assessments</a>
-        you will practice using precise tools to represent and solve technical
-        problems and to communicate your solutions, and you will get feedback on your work.</dd>
-      <dt>Collaborate</dt><dd> 
-        In-class, in office hours, and on the online discussion board, we encourage you to discuss
-        the course concepts and examples. Review quiz questions are open to collaboration with everyone 
-        in CSE 105. 
-        To get the maximum benefit from working on homework assignments, we encourage you to find a group
-        to work with.
-        Students in previous versions of the class often found group
-        conversations helped them learn the material more deeply, and were fun 
-        (and also an <a href="https://dl.acm.org/doi/10.1145/3478431.3499286" target="_blank">evidence-based practice</a> for learning).
-        To find group members: reach out to
-        people sitting around you in class, in discussion section, or during office hours; you 
-        can also use the "find teammate" tool on Piazza. The pre-survey
-        asks if you want help finding group members: the CSE 105 instructional team can help you connect with
-        other students. We highly recommend
-        meeting synchronously so that your group can work through the homework problems *together*
-        (<a href="https://students.ucsd.edu/campus-services/technology/campus-study-locations.html" target="_blank" )>
-          in person</a> or online).
-        Questions in homework assignments that are labelled "graded for correctness" 
-        (rather than for "fair effort completeness") should only be discussed with your group members
-        and the CSE 105 instructional team.
-        The project assignment will be completed individually.</dd>
-    <dt>Ask for help</dt><dd>Reach out to the CSE 105 team
-      if you have questions. The CSE 105 instructional team this quarter is one instructor (Mia Minnes), 
-      two TAs (Rachel Lim and Xinsong Lin), 
-      and eleven tutors.
-      On our Canvas page, select "People" and filter by "Roles" to see our names, contact information, and brief profiles.
-      This term we will be using Piazza for class discussion; you can access Piazza through our Canvas 
-      site or <a href="https://piazza.com/ucsd/winter2024/cse105_wi24_a00/" aria-label="Piazza discussion board">directly</a>
-      (the Piazza roster is synced to the Registrar class list and waitlist). Drop-in (in person
-      and Zoom) Q&A times are listed on the <a href="office_hours.html">office hours</a> page.
-      You can also reach out to your instructor directly by email: minnes@ucsd.edu .
-      <em>To address me, please use Prof. Minnes, Dr. Minnes,
-        and/or Mia (with pronouns she/her), as you feel comfortable. 
-        Please do not use the title Ms./ Mrs. for me</em>.
-      </dd>
-    </dl>
-  </div>
+        We'll also explore the relationship of these models to some essential tools in a computer
+        scientist's toolkit, such as regular expressions and reductions. Throughout the course, you'll develop
+        your technical communication skills in writing formal arguments and proofs.
+      </p>
+      <!-- Syllabus -->
+      <h2>Syllabus</h2>
+      <dl>
+        <dt>A typical week</dt>
+        <dd>
+          We'll meet in class on Mondays, Wednesdays, and Friday. Each week, we'll release a packet of notes
+          that we'll work through together during class. You can download a PDF of these notes to annotate, or you can
+          pick up
+          a printed version in class. The notes will also refer to textbook sections we ask you to read before class.
+          Wednesday afternoons are discussion sections, where you can work through additional questions
+          and review homework. Weekly review quizzes will test your understanding
+          and prepare you to complete the weekly open-ended homework assignments. In addition to these quizzes and
+          homework assignments, you'll 
+          demonstrate what you learned in two in-person, self-scheduled tests, and you'll complete an individual, open-ended project.
+          We recommend talking about CSE 105 concepts with other students, and with the instructional team
+          in class, discussion, and drop-in office hours.
+        </dd>
+        </dt>
+        <dt>Pre-class survey</dt>
+        <dd>Please fill out the pre-class survey
+          on <a href="http://canvas.ucsd.edu" aria-label="Go to Canvas" target="_blank">Canvas</a> <a href="http://canvas.ucsd.edu" aria-label="Go to Canvas" target="_blank">Canvas</a> <a href="http://canvas.ucsd.edu" aria-label="Go to Canvas" target="_blank">Canvas</a> <a href="http://canvas.ucsd.edu" aria-label="Go to Canvas" target="_blank">Canvas</a> <a href="http://canvas.ucsd.edu" aria-label="Go to Canvas" target="_blank">Canvas</a> <a href="http://canvas.ucsd.edu" aria-label="Go to Canvas" target="_blank">Canvas</a> labelled #FinAid .
+        </dd>
+        <dt>Notes and resources</dt>
+        <dd>Use our <a href="overview_calendar.html" aria-label="Go to Calendar">Calendar</a> to get links to
+          class times and notes. Lecture
+          material is available in PDF, tex, and html formats so you can download and annotate or print
+          it if you'd like. In class, we'll explore concepts and work through examples.
+          There will often be some <a href="#textbook">pre-class reading</a> (listed on the notes PDF) to help you
+          prepare for class.
+          The reading is often just a few lines of text or an example in the book and will be very helpful so we can
+          jump into
+          problem solving in class. You can also watch the posted supplementary videos listed with
+          <a href="overview_calendar.html" aria-label="Go to Calendar">each week</a>.
+        </dd>
+        <dt>Learn by doing</dt>
+        <dd> After each class, you'll work on
+          review quizzes to
+          track and confirm your understanding of the concepts and examples we covered in class.
+          Quizzes are on <a href="http://us.prairielearn.com"
+          aria-label="Go to PrairieLearn" target="_blank">PrairieLearn</a>; we recommend completing
+          the quiz questions for each week's material before the next week begins.
+          Open-ended (group-optional) homework assignments will stretch your understanding and
+          will ask you to put together complete, coherent, convincing explanations.
+          You will upload PDFs of your typed solutions on <a href="http://gradescope.com"
+          aria-label="Go to Gradescope" target="_blank">Gradescope</a>.
+          There will also be a project and two (in-person, self-scheduled at the
+          <a href= "https://tritontesting.ucsd.edu/" aria-label="Go to Triton Testing Center homepage"
+          target="_blank">Computer Based Testing Facility</a>) tests.
+          In each of these <a href="#grades">assessments</a>
+          you will practice using precise language to represent and solve technical
+          problems and to communicate your solutions, and you will get feedback on your work.</dd>
+        <dt>Collaborate</dt>
+        <dd>
+          In-class, in office hours, and on the online discussion board, we encourage you to discuss
+          the course concepts and examples. Review quiz questions are open to collaboration with everyone
+          in CSE 105.
+          To get the maximum benefit from working on homework assignments, we encourage you to find a group
+          to work with.
+          Students in previous versions of the class often found group
+          conversations helped them learn the material more deeply, and were fun
+          (and also an <a href="https://dl.acm.org/doi/10.1145/3478431.3499286" target="_blank">evidence-based
+            practice</a> for learning).
+          To find group members: reach out to
+          people sitting around you in class, in discussion section, or during office hours; you
+          can also use the "find teammate" tool on <a href="https://piazza.com/ucsd/fall2024/cse105_fa24_a00/"
+          aria-label="Piazza discussion board">Piazza</a>. The pre-survey
+          asks if you want help finding group members: the CSE 105 instructional team can help you connect with
+          other students. We highly recommend
+          meeting synchronously so that your group can work through the homework problems *together*
+          (<a href="https://students.ucsd.edu/campus-services/technology/campus-study-locations.html" target="_blank" )>
+            in person</a> or online).
+          Permitted collaboration is described in the <a href="#grades">grading and academic integrity</a>
+          section.</dd>
+        <dt>Ask for help</dt>
+        <dd>Reach out to the CSE 105 team
+          if you have questions. The CSE 105 instructional team this quarter is one instructor (Mia Minnes),
+          two TAs,
+          and eight tutors.
+          On our <a href="http://canvas.ucsd.edu" aria-label="Go to Canvas" target="_blank">Canvas</a>  page, select "People" and filter by "Roles" to see our names, contact information, and brief
+          profiles.
+          This term we will be using Piazza for class discussion; you can access Piazza through our Canvas
+          site or <a href="https://piazza.com/ucsd/fall2024/cse105_fa24_a00/"
+            aria-label="Piazza discussion board">directly</a>
+          (the Piazza roster is synced to the Registrar class list and waitlist). Drop-in (in person
+          and Zoom) Q&A times are listed on the <a href="office_hours.html">office hours</a> page.
+          You can also reach out to your instructor directly by email: minnes@ucsd.edu .
+          <em>To address me, please use Prof. Minnes, Dr. Minnes,
+            and/or Mia (with pronouns she/her), as you feel comfortable.
+            Please do not use the title Ms./ Mrs. for me</em>.
+        </dd>
+      </dl>
+    </div>
 
-  <!-- Resources -->
-  <div class="row">
-    <h2>Resources</h2>
+    <!-- Resources -->
+    <div class="row">
+      <h2>Resources</h2>
 
-    <a name="textbook"></a>
-    <h3>Textbook and lecture resources</h3>
+      <a name="textbook"></a>
+      <h3>Textbook and lecture resources</h3>
 
-    <p>
-      Lecture material is available in PDF and html formats so you can download and annotate or print
-      it if you'd like. If you would like a hard copy of the notes and don't have access to a printer, please 
-      let your instructor know (minnes@ucsd.edu).
-    </p>
+      <p>
+        Lecture material is available in PDF and html formats so you can download and annotate or print
+        it if you'd like. If you would like a hard copy of the notes and don't have access to a printer, please
+        let your instructor know (minnes@ucsd.edu).
+      </p>
 
-    <p>The <b>required</b> textbook for this course is <b>Sipser, Michael </b> 
-      <i>Introduction to the Theory of Computation </i>.
-      We highly recommend this book for the class - it's very well-written and we'll be using it extensively.
-      
-      For a physical copy, the Third Edition of this book is available through multiple vendors;
-      we've seen it listed online for approximately 30 dollars. 
-      I also have a number of copies of the textbook available to borrow for the term 
-      if you have difficulty accessing the book. Please reach out (minnes@ucsd.edu) to arrange a time to 
-      pick up a copy.</p>
-      
-      <p>To brush up on proofs, you can refer to:  Richard Hammack, <i> Book of Proof, 2nd ed.</i> 
+      <p>The <b>required</b> textbook for this course is <b>Sipser, Michael </b>
+        <i>Introduction to the Theory of Computation </i>.
+        We highly recommend this book for the class - it's very well-written and we'll be using it extensively.
+
+        For a physical copy, the Third Edition of this book is available through multiple vendors;
+        we've seen it listed online for approximately 30 dollars.
+        The library has a copy on reserves.
+        I also have a number of copies of the textbook available to borrow for the term
+        if you have difficulty accessing the book. Please reach out (minnes@ucsd.edu) to arrange a time to
+        pick up a copy.
+      </p>
+
+      <p>To brush up on proofs, you can refer to: Richard Hammack, <i> Book of Proof, 2nd ed.</i>
         (available for download <a href="http://www.people.vcu.edu/~rhammack/BookOfProof" target="_blank"> here</a>).
       </p>
-      
+
       <h3>Typesetting (LaTeX) Resources</h3>
       <p>All submitted homework for this class must be typed. Diagrams may be hand-drawn and
         scanned and included in the typed document. You can use a word processing editor if you
         like (Microsoft Word, Open Office, Notepad, Vim, Google Docs, etc.). You might
         find it useful to take this opportunity to learn LaTeX. LaTeX is a markup language used
         widely in computer science and mathematics. The homework assignment prompts are typed using LaTeX
-        and you can use the source files as templates for typesetting your solutions (click the "LaTeX" 
-        button at the top of each assignment on the <a href="assignments.html">Assignments</a> page to 
+        and you can use the source files as templates for typesetting your solutions (click the "LaTeX"
+        button at the top of each assignment on the <a href="assignments.html">Assignments</a> page to
         download the source files).</p>
-  
+
       <p>If you have never used LaTeX, we recommend cloud resources
         that don't require you to download and install LaTeX on your local machine.
         A good example is <a href="https://www.overleaf.com/" target="_blank" aria-label="Go to Overleaf">Overleaf</a>,
@@ -192,13 +220,13 @@
         If your group has 3 people, you can turn on link sharing: Click on “Share” in the top right,
         Click “Turn on link sharing”, Copy the displayed link and share it with your group members.
         To export your work, click on the “Download PDF” button on the right-hand side.
-        If you want to export the raw source files, click on the "Menu" button in the top-left, 
+        If you want to export the raw source files, click on the "Menu" button in the top-left,
         then click on "Source".
-  
+
       <p>This <a href="http://en.wikibooks.org/wiki/LaTeX" target="_blank">open source LaTeX reference</a>
         can be helpful when getting started,
         and you can use the .tex source of all the files we use in class as templates.</p>
-  
+
       <p>Alternatively, you can use Google Docs, which is available through your @ucsd.edu account.
         You can create documents and then share them with your group members with manual invites
         or a shareable link. Google Docs has a LaTex add-on that lets you type formulas in
@@ -206,255 +234,380 @@
         You'll need to use the display environment (start and end with $$$$) for all the
         portions you want rendered with LaTeX.
       </p>
-  
-  
+
+
 
       <h3>Software tools for state diagrams and formal models</h3>
 
       <p>
-        <a href="https://flapjs.web.app/" target="_blank">flap.js</a> is a webapp under development by a group of 
-        UCSD students that is being piloted in CSE 105. Click the "Help" icon for a  tutorial for using the app, and 
+        <a href="https://flapjs.web.app/" target="_blank">flap.js</a> is a webapp under development by a group of
+        UCSD students that is being piloted in CSE 105. Click the "Help" icon for a tutorial for using the app, and
         hit "Save" to download an image of the diagram you create or to get a permalink for your machine.
         flap.js is being customized for use in this class; the github repo
-        is https://github.com/flapjs . You can find older versions of the app there, e.g https://flapjs.github.io/FLAPJS-WebApp/ , 
+        is https://github.com/flapjs . You can find older versions of the app there, e.g
+        https://flapjs.github.io/FLAPJS-WebApp/ ,
         if you're curious in its development.
-        At the end of the quarter, you can also let me know 
-        if you're interested in joining the development team for flap.js to help future CSE 105 students.</p>
-        
-      <p>  
-        <a href="https://www.jflap.org/" target="_blank">JFLAP</a> was developed starting in the 1990s 
-      by a team led by Susan Rodger (RPI, then Duke).  It is now a mature tool with a lot  of functionality, but some  
-      of the conventions and notation it uses are different from the  course textbook for CSE 105. 
-      You can follow the instructions on the JFLAP website to download and install the current stable version
-      (you may need to install the Java Virtual Machine as well).
-      If you use JFLAP, here are some things to keep in mind:
+        At the end of the quarter, you can also let me know
+        if you're interested in joining the development team for flap.js to help future CSE 105 students.
+      </p>
+
+      <p>
+        <a href="https://www.jflap.org/" target="_blank">JFLAP</a> was developed starting in the 1990s
+        by a team led by Susan Rodger (RPI, then Duke). It is now a mature tool with a lot of functionality, but some
+        of the conventions and notation it uses are different from the course textbook for CSE 105.
+        You can follow the instructions on the JFLAP website to download and install the current stable version
+        (you may need to install the Java Virtual Machine as well).
+        If you use JFLAP, here are some things to keep in mind:
       <dl>
-        <dt>Regular expressions</dt><dd>Do not use whitespace in your regular expressions unless a 
-          space is a valid symbol in the alphabet. JFLAP uses a + symbol instead of the U used in the textbook 
+        <dt>Regular expressions</dt>
+        <dd>Do not use whitespace in your regular expressions unless a
+          space is a valid symbol in the alphabet. JFLAP uses a + symbol instead of the U used in the textbook
           to indicate union.</dd>
-        <dt>Start and Accept States</dt><dd>Don't forget to specify these when drawing your automata!</dd>
-        <dt>Multiple Transitions</dt><dd>If you need multiple possible inputs for the same arrow in your diagram 
-          (e.g. if you can move between states on either a 0 or a 1), this is done by creating separate edges in JFLAP 
-          for each input symbol. JFLAP will combine these into one arrow on your diagram. Automata with transitions 
-          labeled with a comma (e.g. "0,1") are not equivalent, because those transitions will not be followed unless 
+        <dt>Start and Accept States</dt>
+        <dd>Don't forget to specify these when drawing your automata!</dd>
+        <dt>Multiple Transitions</dt>
+        <dd>If you need multiple possible inputs for the same arrow in your diagram
+          (e.g. if you can move between states on either a 0 or a 1), this is done by creating separate edges in JFLAP
+          for each input symbol. JFLAP will combine these into one arrow on your diagram. Automata with transitions
+          labeled with a comma (e.g. "0,1") are not equivalent, because those transitions will not be followed unless
           "0,1" actually appears in your input string.</dd>
-        <dt>Empty String</dt><dd>In class and in the textbook, we use ε (epsilon) to denote the empty string. The instructions 
-            above help you change the JFLAP default λ (lambda) to match our conventions. If you need a state transition 
-            (or a stack symbol for PDA's) for ε, do not enter any characters into the text box for that transition and ε will appear. 
-            Entering a space does not work; that transition will be followed only if the input string has a space on it. 
-            Similarly, entering E or "epsilon" will not work because JFLAP will try to match those exact symbols in your 
-            input string for the transition.</dd>
-        <dt>Push Down Automata</dt><dd>Each transition has three labels: an input symbol, a stack symbol to pop, 
-            and a stack symbol to push. JFLAP uses the semicolon (;) instead of a right arrow to separate the stack symbols. 
-            Any of the three labels can be the empty string. Settings: Your PDAs should be "Single Character Input" 
-            (this option appears when you first create an automaton), and they should accept by final state, not by empty stack.</dd>
-        <dt>Context Free Grammars</dt><dd>If you have a production rule of the form "S -> A | B", enter it as two rules 
+        <dt>Empty String</dt>
+        <dd>In class and in the textbook, we use ε (epsilon) to denote the empty string. The instructions
+          above help you change the JFLAP default λ (lambda) to match our conventions. If you need a state transition
+          (or a stack symbol for PDA's) for ε, do not enter any characters into the text box for that transition and ε
+          will appear.
+          Entering a space does not work; that transition will be followed only if the input string has a space on it.
+          Similarly, entering E or "epsilon" will not work because JFLAP will try to match those exact symbols in your
+          input string for the transition.</dd>
+        <dt>Push Down Automata</dt>
+        <dd>Each transition has three labels: an input symbol, a stack symbol to pop,
+          and a stack symbol to push. JFLAP uses the semicolon (;) instead of a right arrow to separate the stack
+          symbols.
+          Any of the three labels can be the empty string. Settings: Your PDAs should be "Single Character Input"
+          (this option appears when you first create an automaton), and they should accept by final state, not by empty
+          stack.</dd>
+        <dt>Context Free Grammars</dt>
+        <dd>If you have a production rule of the form "S -> A | B", enter it as two rules
           "S -> A" and "S -> B"</dd>
       </dl>
       </p>
-      
-    <a name="grades"></a>
-    <h2 style="line-height: 20px;"><br><br>Grading and academic integrity<br><br><br></h2>
 
-    <p>Grades in this class are designed to reflect your work and to document evidence of your learning this core
-      material.
-      Please reach out to your instructor (minnes@ucsd.edu) if you face extenuating circumstances that you think will impede your
-      ability to participate in the planned CSE 105 activities; I'd like to work out a solution together.
-    </p>
+      <a name="grades"></a>
+      <h2 style="line-height: 20px;"><br><br>Grading and academic integrity<br><br><br></h2>
 
-    <p>
-      The graded components for CSE 105 will be <b>engagement</b>, <b>assignments</b>, <b>tests</b>.
+      <p>Grades in this class are designed to reflect your work and to document evidence of your learning this core
+        material.
+        Please reach out to your instructor (minnes@ucsd.edu) if you face extenuating circumstances that you think will
+        impede your
+        ability to participate in the planned CSE 105 activities; I'd like to work out a solution together.
+      </p>
+
+      <p>
+        There are two kinds of graded components for CSE 105: <b>assignments</b> and <b>tests</b>.
       <dl>
-      <dt>Engagement</dt>
-      <dd>Engagement in class is reflected in <b>review quizzes</b> available on 
-        <a href="http://www.gradescope.com" aria-label="Go to Gradescope">Gradescope</a>.
-        These quizzes help you
-        track and confirm your understanding of the concepts and examples we work in class
-        and give you immediate feedback. They will also sometimes preview upcoming class topics based on the assigned
-        textbook reading. Quizzes can be submitted as many times (with no penalty) as you like
-        until the quiz deadline:
-        the three quizzes each week are all due on Friday (with late submission open until Sunday; 
-        no penalty for late submission of quizzes). You can collaborate with other CSE 105
-        students on review quizzes and you can ask questions about them in public
-        posts on Piazza and in drop-in help hours. You get credit for a quiz by getting most of the questions right. 
+        <dt>Assignments</dt>
+        <dd>
+          <b>Homework</b>: open-ended, group optional homework is due (most) Tuesdays at 5pm and is associated with the
+          class material from the previous week or two.
+          Assignments are listed on the <a href="assignments.html" aria-label="Go to assignments page">assignments
+            page</a>.
+          <br><br>
+          Homework
+          assignments give you practice with the main concepts and techniques of the course, while getting to
+          know and learn from your classmates.
+          These homework assignments may be done individually or in groups of up to 3 students.
+          You may switch homework partners for different homework assignments. Please ensure your name(s) and PID(s)
+          are clearly visible on the first page of your homework submission and then upload the PDF to
+          <a href="http://gradescope.com" target="_blank" aria-label="Go to Gradescope">Gradescope</a>.
+          If you're working in a group, <i>submit only one submission per group</i>: one partner uploads the
+          submission through their Gradescope account and then adds the other group member(s) to the Gradescope
+          submission
+          by selecting their name(s) in the "Add Group Members" dialog box. You will need to re-add your group member(s)
+          every time you resubmit a new version of your assignment.
+          <br><br>
+          Each homework question will be graded either for
+          <i>correctness</i> (including clear and precise explanations and justifications of all answers) or
+          <i>fair effort completeness</i>. On the "graded for correctness"
+          questions, you may only collaborate with CSE 105 students in your group; if your
+          group has questions about a problem, you may ask in drop-in help hours or post a private
+          post (visible only to the Instructors) on Piazza. On the "graded for completeness" questions, you 
+          may collaborate with all other CSE 105 students this quarter, and you may make public posts about these questions 
+          on Piazza.
+          <br><br>
+          <b>Review quizzes</b>: weekly, multi-attempt quizzes on
+          <a href="http://us.prairielearn.com" aria-label="Go to PrairieLearn" target="_blank">PrairieLearn</a>.
+          The review quizzes can also be used to
+          demonstrate your achievement with relevant concepts even after the homework is due:
+          earning full credit on the quizzes relevant to a homework assignment
+          will increase your grade on that assignment
+          by one letter grade (if possible).
+          For example, if your homework assignment earned a grade of B and have credit for the
+          quiz(zes) associated with that assignment, then that assignment will be recorded as an A.
+          Also, if you did not submit a homework assignment but you have credit for the
+          quiz(zes) associated with that assignment, then that assignment will be recorded as a C.
+          <br><br>
+          <b>Project</b>: In the project you'll
+          go deeper and extend your work to explore an application of your
+          choosing. The project is an individual assignment, and is listed on the
+          <a href="assignments.html" aria-label="Go to assignments page">assignments page</a>.
+          It will serve as the take-home final for the class and is due on Gradescope
+          during the published final exam time.
+          <br><br>
+          The late submission deadline for assignments is there as a buffer if you have technical issues
+          or extenuating circumstances at the deadline. There are no submissions after the late submission deadline.
+          I recommend starting homework assignments well before the deadline and submitting early drafts so
+          that last minute extenuating circumstances do not have as big an impact.
+          If there are extenuating
+          circumstances that prevent you from submitting a homework please use this form to let us know:
+          <a href="https://forms.gle/ju7tcSZXSjSvfe9x5" target="_blank">https://forms.gle/ju7tcSZXSjSvfe9x5</a> .
+          Completing this form does not mean that we will be able to accept a late submission of the assignment.
+          However, it can help us work with you to support your work in this class.<br>
         </dd>
-      <dt>Assignments</dt>
-      <dd>Assignments are biweekly
-        homeworks plus one project, all listed on the <a href="assignments.html" aria-label="Go to assignments page">assignments page</a>.
-        <b>Homework</b> assignments give you practice with the main concepts and techniques of the course, while getting to
-        know and learn from your classmates.
-        These homework assignments may be done individually or in groups of up to 3 students.
-        You may switch HW partners for different HW assignments. Please ensure your name(s) and PID(s)
-        are clearly visible on the first page of your homework
-        submission and then upload the PDF to
-        <a href="http://gradescope.com" target="_blank" aria-label="Go to Gradescope">Gradescope</a>.
-        If you're working in a group, <i>submit only one submission per group</i>: one partner uploads the
-        submission through their Gradescope account and then adds the other group member(s) to the Gradescope submission
-        by selecting their name(s) in the "Add Group Members" dialog box. You will need to re-add your group member(s)
-        every time you resubmit a new version of your assignment. Each homework question will be graded either for
-        <i>correctness</i> (including clear and precise explanations and justifications of all answers) or
-        <i>fair effort completeness</i>. You may only collaborate on "graded for correctness" 
-        questions with CSE 105 students in your group; if your
-        group has questions about a problem, you may ask in drop-in help hours or post a private
-        post (visible only to the Instructors) on Piazza. In the <b>project</b> you'll 
-        go deeper and extend your work to explore an application of your
-        choosing. The project is an individual assignment.</dd>
         <dt>Tests</dt>
         <dd>
-        There are two <b>tests</b> in the course, one in week 5 and one in week 9, scheduled (in person and synchronous)
-        during the Friday afternoon discussion section.
-        The scheduled final exam time during finals week will give you an opportunity to retake 
-        an equivalent version to one or both of these tests if you miss them or get low scores.
-        There are no make-up tests for the tests during the quarter. 
-        If you miss an in-class test, you can regain credit for it from that part of the final exam. 
-        This policy is designed to encourage you to treat the in-class tests as learning opportunities 
-        so that you can study any mistakes you make and re-apply that knowledge on the final.
-        In addition, if you score high enough on the tests during the quarter, 
-        you can skip the final exam with no penalty and just have the test grades applied to your grade.
-
-        </dd> 
+          There are two 45-minute <b>tests</b> in the course, and you can sign up for
+          up to two attempts at each. You must self-schedule the tests to be
+          taken in-person at the Computer Based Testing Facility (CBTF).
+          <br><br>
+          <b>Test 1</b>: Attempt 1 available 11/4/2024 - 11/6/2024, Attempt 2
+          available 12/2/2024 - 12/6/2024.
+          <br><br>
+          <b>Test 2</b>: Attempt 1 available 11/25/2024 - 11/27/2024, Attempt 2
+          available 12/2/2024 - 12/6/2024.
+          <br><br>
+          Having two attempts for each test helps the tests serve as learning opportunities
+          so that you can study any mistakes you make and re-apply that knowledge on the second attempt.
+          You do not need to take both attempts for each test. At the end of the quarter, 
+          for each test we will record your highest attempt grade.
+          <br><br>
+          Tests for this course will be administered by the Triton Testing Center (TTC) in
+          the Computer-Based Testing Lab in AP&M B349. The TTC's rules concerning
+          testing are the rules for this course.
+          <br><br>
+          You must schedule your tests in advance, and it is recommended that you do so as
+          soon as possible. Scheduling for all tests opens on the first day of instruction. To
+          schedule, visit prairietest.com and log in with your UC San Diego credentials (after selecting
+          "Sign in with Google").
+          <br><br>
+          More information about testing policies and procedures can be found on the
+          TTC's website. You may also email tritontesting@ucsd.edu for assistance.
+          <br><br>
+          Please note that, if you plan to use OSD-approved accommodations for your test,
+          you will take it at the TTC's Pepper Canyon Hall location. You must schedule
+          your test at least three days in advance through the RegisterBlast system.
+          <br><br>
+          There are no make-up tests for the tests during the quarter.
+        </dd>
       </dl>
-    </p>
+      </p>
 
-    <p>
-    At the end of the quarter, grades will be assigned according to the following standards: </p>
+      <p>
+        At the end of the quarter, grades will be assigned according to the following standards: </p>
       <dl>
         <dt>A</dt>
-        <dd>A on both tests <b>or</b>  A on one of the tests and B on the other</dd>
-        <dd><b>And one of</b>:<br>
-            A on at least 4 homeworks, B or above on project, any grade on rest of assignments. <br><b>or</b><br>
-            B or above on at least 4 homeworks, A on project, any grade on rest of assignments.
+        <dd>A on one test and B or above on the other test</dd>
+        <dd><b>And</b>:<br>
+          A on at least 4 homeworks, B or above on at least one homework, any grade on remaining homework</dd>
+        <dd><b>And</b>:<br>
+          Passing grade on the project. Modifiers: A+ for exceptional projects; A- if the grade on the project is B or
+          lower.
+
         </dd>
         <dt>B</dt>
-        <dd>B or higher on both tests <b>or</b>  A on one of the tests and C on the other</dd>
-        <dd><b>And one of</b>:<br>
-            B or above on at least 4 homeworks, C or above on project, any grade on rest of assignments. <br><b>or</b><br>
-            C or above on at least 4 homeworks, B on project, any grade on rest of assignments.
+        <dd>B or higher on both tests <b>or</b> A on one of the tests and C on the other</dd>
+        <dd><b>And</b>:<br>
+          B or above on at least 4 homeworks, C or above on at least one homework, any grade on remaining homework</dd>
+
+        <dd><b>And</b>:<br>
+          Passing grade on the project. Modifiers: B+ if the grade on the project is A; B- if the grade on the project
+          is C or lower.
+
         </dd>
         <dt>C</dt>
         <dd>C or higher on both tests</dd>
         <dd><b>And</b>:<br>
-            C or above on at least 3 homeworks and the project, any grade on rest of assignments.
+          C or above on at least 3 among the homeworks and the project, any grade on rest of assignments.
+          Note: you do not need to pass the project to pass the class if you earn passing grades on at least three
+          assignments (after review quiz credit is factored in). Modifiers: C+ if the grade on the project is B or
+          higher; C- if the grade on the project is not passing.
         </dd>
       </dl>
-  <p>
-  The assigned letter grade will be the highest grade for which the standards are met.
-  Engagement is used to add +/- modifiers at the end of the quarter, and won't make the difference between A/B/C etc.
-  We may adjust the above scale to be more lenient, but we guarantee that we will not adjust the scale to make it harder to get a better grade.
-  </p>
+      <p>
+        The assigned letter grade will be the highest grade for which the standards are met.
+        The project is also used to add +/- modifiers at the end of the quarter.
+        We may adjust the above scale to be more lenient, but we guarantee that we will not adjust the scale to make it
+        harder to get a better grade.
+      </p>
 
-    <p>The UC San Diego Academic Integrity pledge is
-      <a href="https://academicintegrity.ucsd.edu/forms/form-pledge.html" target="_blank">here</a>.
-      Academic integrity violations will be taken seriously and reported to the campus-wide Academic Integrity Office.
-      Key facts about academic integrity related to CSE 105:
-    <ul>
-      <li>Use only resources explicitly allowed for each assignment. Resources not affiliated with this quarter's
-        version of the class may use inconsistent notation or definitions. If you need help, please reach out to the
-        instructor, TAs, and tutors.</li>
-      <li>Do not share written solutions or partial solutions for homework with other students in the class who are not
-        in your group. Doing so would dilute their learning experience and detract from their success in the class.</li>
-      <li>Before and during taking any individual assessment, do not attempt to obtain information about the contents of
-        the test from students who have already taken it or from any nonauthorized source.</li>
-      <li>You may not ask for help from anyone while taking individual assessments since they are intended to reflect
-        <i>your own</i> mastery of the material. In particular, you may not collaborate on exam questions with other
-        students in the class and you may not post any portion of the exam on forums where others may assist you.
-      </li>
-      <li>After taking an exam or test, do not discuss its contents with anyone in the class
-        who has not yet taken it. Do not post information about it or share information about it with others who haven't
-        taken it.</li>
-    </ul>
-    </p>
+      <p>The UC San Diego Academic Integrity pledge is
+        <a href="https://academicintegrity.ucsd.edu/forms/form-pledge.html" target="_blank">here</a>.
+        Academic integrity violations will be taken seriously and reported to the campus-wide Academic Integrity Office.
+        Key facts about academic integrity related to CSE 105:
+      <dl>
+        <dd>&check; Use only resources explicitly allowed for each assignment. Resources not affiliated with this
+          quarter's
+          version of the class may use inconsistent notation or definitions. If you need help, please reach out to the
+          instructor, TAs, and tutors.</dd>
+        <dd>&check; Do not share written solutions or partial solutions for homework with other students in the class
+          who are not
+          in your group. Doing so would dilute their learning experience and detract from their success in the class.
+        </dd>
+        <dd>&check; Before and during taking any individual assessment, do not attempt to obtain information about the
+          contents of
+          the test from students who have already taken it or from any nonauthorized source.</dd>
+        <dd>&check; You may not ask for help from anyone while taking individual assessments since they are intended to
+          reflect
+          <i>your own</i> mastery of the material. In particular, you may not collaborate on exam questions with other
+          students in the class and you may not post any portion of the exam on forums where others may assist you.
+        </dd>
+        <dd>&check; After taking an exam or test, do not discuss its contents with anyone in the class
+          who has not yet taken it. Do not post information about it or share information about it with others who
+          haven't
+          taken it.</dd>
+      </dl>
+      </p>
 
-    <p>UC San Diego has fantastic resources to support your learning, with integrity. Of course, the 
-      <a href="office_hours.html">instructional
-      team for CSE 105</a> is here to help you navigate the course content. The
-      <a href="http://jacobsschool.ucsd.edu/idea/" aria-label="Go to IDEA Center" target="_blank">
-        Jacobs School of Engineering IDEA Center</a> organizes group study sessions and can connect
-      you with student organizations.
-      The <a href="https://commons.ucsd.edu/" aria-label="Go to Teaching + Learning Commons" target="_blank">Teaching
-        and Learning Commons</a>
-      continues to offer their full suite of student success programs, including learning strategies coaching.
+      <p>UC San Diego has fantastic resources to support your learning, with integrity. Of course, the
+        <a href="office_hours.html">instructional
+          team for CSE 105</a> is here to help you navigate the course content. The
+        <a href="http://jacobsschool.ucsd.edu/idea/" aria-label="Go to IDEA Center" target="_blank">
+          Jacobs School of Engineering IDEA Center</a> organizes group study sessions and can connect
+        you with student organizations.
+        The <a href="https://commons.ucsd.edu/" aria-label="Go to Teaching + Learning Commons" target="_blank">Teaching
+          and Learning Commons</a>
+        continues to offer their full suite of student success programs, including learning strategies coaching.
+      </p>
+
+      <p>
+        Sometimes, circumstances beyond a student's control prevent them from completing a class
+        even once they have completed the majority of the coursework at a passing level.
+        UCSD has a process in place for you to request an Incomplete (I) if this happens to you.
+        Here is the campus policy about the Incomplete grade:
+        <a href="https://senate.ucsd.edu/Operating-Procedures/Senate-Manual/Regulations/500"
+          target="
+                                                      _blank">https://senate.ucsd.edu/Operating-Procedures/Senate-Manual/Regulations/500</a>
+        and some information about it:
+        <a href="https://students.ucsd.edu/academics/exams-grades-transcripts/grades/request-remove-incomplete.html"
+          target="_blank">https://students.ucsd.edu/academics/exams-grades-transcripts/grades/request-remove-incomplete.html</a>
+      </p>
+    </div>
+
+
+    <div class="row">
+      <a name="policy"></a>
+      <h2>Policies</h2>
+
+      <h3>Late Adds</h3>
+      <p>I follow the CSE department guidance on Late Adds, namely that
+        "all students are expected to attend class for the first two weeks and complete assignments
+        if they are on the waitlist for a course. Attending class and completing course assignments does
+        not guarantee enrollment. If students choose to miss class or not turn in assignments while on the waitlist,
+        the student will receive a "0" on all missed assignments, if they secure a seat in the course off the waitlist."
+      </p>
+
+      <h3>Regrades</h3>
+      <p>The window for requesting regrades once assignment feedback has been published will
+        be set in <a href="http://gradescope.com" target="_blank" aria-label="Go to Gradescope">Gradescope</a>
+        and will typically be 2-3 days.
+        If you submit a regrade request, please include a brief but detailed explanation of why you
+        think there was an error in the grading. A regrade request may lead to us reviewing the entire
+        assignment and may lead to the score
+        being adjusted up or down depending on any errors found in the original grading. All regrades will
+        be considered once the regrade window closes; thank you in advance for your patience while we
+        carefully look through them.</p>
+
+      <h3>Computer Based Testing Facility (CBTF)</h3>
+      <p>
+        Tests for this course will be administered by the Triton Testing Center (TTC) at
+        AP&M B349. The TTC's rules concerning testing are the rules for this course.
+        You must schedule your tests in advance. To do so, visit <a href="http://us.prairietest.com"
+          target="_blank">http://us.prairietest.com</a> and log in
+        with your UC San Diego credentials after selecting "Sign in with Google". More information about testing policies and
+        procedures can be found on the TTC's website <a href="https://tritontesting.ucsd.edu/"
+          target="_blank">https://tritontesting.ucsd.edu/</a>.
+        You may also email tritontesting@ucsd.edu for assistance.</p>
+      <p>
+        Students must schedule their tests in advance. Walk-ins are not permitted. Students are allowed
+        to change their reservation until 10 minutes before the test begins.</p>
+      <p>
+        Students must store all personal belongings in the designated lockers before entering the testing
+        room. The only permitted items are writing utensils and physical identification. All other items
+        are strictly prohibited.
+      </p>
+
+      <h3>Accommodations for students with disabilities</h3>
+      <p>We would like to work with each of you to make this course accessible
+        and approachable. All course material is available in multiple formats
+        to improve support for screen readers. Videos will also be captioned (to the
+        best of our abilities). We need and want to hear from you if additional accommodations
+        would improve your experience in the course.
+
+        If you have documented need for accommodations because of a disability,
+        please work with the Office for Students with Disabilities (OSD)
+        to get a current Authorization for
+        Accommodation (AFA) letter. The office is located in
+        University Center 202 behind Center Hall and also provides
+        the <a href="https://academicaffairs.ucsd.edu/sso/osdsp/home" target="_blank">OSD Student Portal</a>.
+        We ask that you work
+        to organize the AFA and to let us know about it as early in the quarter as possible
+        so that we can best support your needs.
+        For more information, see
+        <a href="http://disabilities.ucsd.edu" target="_blank" aria-label="Disability Resources at UCSD">Disability
+          Resources at UCSD</a>.
+      </p>
+
+      <h3>Class material and intellectual property</h3>
+      <p> Our lectures and course materials, including videos, assignments, and
+        similar materials, are protected by U.S. copyright law and by University policy. We are the
+        exclusive owner of the copyright in those materials we create. We acknowledge the cumulative
+        contributions to this course material of previous CSE 105 instructors, TAs, and tutors, as well
+        as contributions to the class structure from colleagues in CSE and at UCSD.
+      </p>
+      <p>
+        You may take notes and make
+        copies of course materials for your own use. You may also share those materials with another
+        student who is enrolled in or auditing this course.
+        You may not reproduce, distribute or display (post/upload) lecture notes or recordings or
+        course materials in any other way — whether or not a fee is charged — without our express
+        prior written consent. You also may not allow others to do so.
+        If you do so, you may be subject to student conduct proceedings under the UC San Diego
+        Student Code of Conduct.</p>
+      <p>
+        Similarly, you own the copyright in your original work. If I am interested in
+        posting your answers or papers on the course web site, I will ask for your written permission.</p>
+
+      <h3>Solicitation</h3>
+      <p> Individuals are not permitted to approach students to offer services of any kind in exchange
+        for pay, including tutoring services. This is considered solicitation for business and is
+        strictly prohibited by University policy.</p>
+
+      <h3>Satisfactory Academic Progress</h3>
+      <p>Satisfactory Academic Progress (SAP) refers to the academic standards students must maintain to remain eligible
+        for federal, state, and institutional financial aid. If you are receiving financial aid, please ensure you
+        review the
+        SAP requirements and the appeals process. <a href="https://fas.ucsd.edu/forms-and-resources/sap/index.html"
+          target="_blank"> https://fas.ucsd.edu/forms-and-resources/sap/index.html</a></p>
+
+    <h3>Student Conduct Policy</h3>
+    <p>UC San Diego strives to maintain a climate of fairness, cooperation, and professionalism. 
+      It is expected that you practice basic principles, including, but not limited to, mutual respect, 
+      civility, and decency, towards maintaining an atmosphere free of abusive or demeaning treatment. 
+      Non-academic student misconduct will be reported to the Center for Student Accountability, 
+      Growth, and Education for violating UC San Diego's Principles of Community.
     </p>
+    </div>
+
+    <div class="row">
+
+      <h2>Learning goals</h2>
+      <p>You can find the learning outcomes for CSE 105 in this
+        <a href="overview_outcome.html" aria-label="Go to Learning Outcomes Overview page">overview page</a>.
+        The <a href="index.html">Theory-CS homepage</a> also links to archived course sites.
+      </p>
+
+
+    </div>
   </div>
-
-
-  <div class="row">
-    <a name="policy"></a>
-    <h2>Policies</h2>
-
-    <h3>Regrades</h3>
-    <p>The window for requesting regrades once assignment feedback has been published will
-      be set in <a href="http://gradescope.com" target="_blank" aria-label="Go to Gradescope">Gradescope</a>
-      and will typically be 2-3 days.
-      If you submit a  regrade request, please include a brief but detailed explanation of why you
-      think there was an error in the grading. A regrade request may lead to us reviewing the entire 
-      assignment and may lead to the score
-      being adjusted up or down depending on any errors found in the original grading. All regrades will
-      be considered once the regrade window closes; thank you in advance for your patience while we
-      carefully look through them.</p>
-
-
-    <h3>Accommodations for students with disabilities</h3>
-    <p>We would like to work with each of you to make this course accessible
-      and approachable. All course material is available in multiple formats
-      to improve support for screen readers. Videos will also be captioned (to the
-      best of our abilities). We need and want to hear from you if additional accommodations
-      would improve your experience in the course.
-
-      If you have documented need for accommodations because of a disability,
-      please work with the Office for Students with Disabilities (OSD)
-      to get a current Authorization for
-      Accommodation (AFA) letter. The office is located in
-      University Center 202 behind Center Hall and also provides
-      the <a href="https://academicaffairs.ucsd.edu/sso/osdsp/home" target="_blank">OSD Student Portal</a>. 
-      We ask that you work
-      to organize the AFA and to let us know about it as early in the quarter as possible
-      so that we can best support your needs.
-      For more information, see
-      <a href="http://disabilities.ucsd.edu" target="_blank" aria-label="Disability Resources at UCSD">Disability
-        Resources at UCSD</a>.
-    </p>
-
-    <h3>Class material and intellectual property</h3>
-    <p> Our lectures and course materials, including videos, assignments, and
-      similar materials, are protected by U.S. copyright law and by University policy. We are the
-      exclusive owner of the copyright in those materials we create. We acknowledge the cumulative
-      contributions to this course material of previous CSE 105 instructors, TAs, and tutors, as well
-      as contributions to the class structure from colleagues in CSE and at UCSD.
-    </p>
-    <p>
-      You may take notes and make
-      copies of course materials for your own use. You may also share those materials with another
-      student who is enrolled in or auditing this course.
-      You may not reproduce, distribute or display (post/upload) lecture notes or recordings or
-      course materials in any other way — whether or not a fee is charged — without our express
-      prior written consent. You also may not allow others to do so.
-      If you do so, you may be subject to student conduct proceedings under the UC San Diego
-      Student Code of Conduct.</p>
-    <p>
-      Similarly, you own the copyright in your original work. If I am interested in
-      posting your answers or papers on the course web site, I will ask for your written permission.</p>
-
-    <h3>Solicitation</h3>
-    <p> Individuals are not permitted to approach students to offer services of any kind in exchange 
-      for pay, including tutoring services. This is considered solicitation for business and is 
-      strictly prohibited by University policy.</p>
-
-  </div>
-
-
-
-  <div class="row">
-
-    <h2>Learning goals</h2>
-    <p>You can find the learning outcomes for CSE 105 in this
-      <a href="overview_outcome.html" aria-label="Go to Learning Outcomes Overview page">overview page</a>.
-      The <a href="index.html">Theory-CS homepage</a> also links to archived course sites.
-    </p>
-
-
-  </div>
-</div>
 
 
   <!-- /.container -->

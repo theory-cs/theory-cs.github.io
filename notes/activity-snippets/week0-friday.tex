@@ -1,0 +1,114 @@
+%! app: Regular Languages
+%! outcome: Define decision problem
+
+The CSE 105 vocabulary and notation build on discrete
+math and introduction to proofs classes.  Some of the conventions may 
+be a bit different from what you saw before so we'll draw your attention to them.
+
+For consistency, we will use the notation from this class' textbook\footnote{Page references are to 
+the 3rd edition of Sipser's Introduction to the Theory of Computation,
+available through various sources for approximately \$30. You may be able to 
+opt in to purchase a digital copy through Canvas. Copies of the book are also available 
+for those who can't access the book
+to borrow from the course instructor, while supplies last (minnes@ucsd.edu)}.
+
+These definitions are on pages 3, 4, 6, 13, 14, 53.
+
+\begin{center}
+    \begin{tabular}{|p{2.6in}cp{3.5in}|}
+    \hline 
+    {\bf Term} & {\bf Typical symbol} & {\bf Meaning} \\
+     & or {\bf Notation} & \\
+    \hline
+    && \\
+    Alphabet & $\Sigma$, $\Gamma$ & A non-empty finite set	 \\
+    Symbol over $\Sigma$  & $\sigma$, $b$, $x$ & An element of the alphabet $\Sigma$\\ 
+    String over $\Sigma$  &	$u$, $v$, $w$ & A finite list of symbols from $\Sigma$\\
+    (The) empty string &$\varepsilon$ & The (only) string of length $0$\\
+    The set of all strings over $\Sigma$ & $\Sigma^*$ & The collection of all possible strings formed from symbols from $\Sigma$ \\ 
+    (Some) language over $\Sigma$& $L$ & (Some) set of strings over $\Sigma$ \\ 
+    (The) empty language &$\emptyset$ & The empty set, i.e. the set that has no strings (and no other elements either)\\
+    && \\
+    \hline
+    && \\
+    The power set of a set $X$ &$\mathcal{P}(X)$ & The set of all subsets of $X$ \\
+    (The set of) natural numbers &$\mathcal{N}$ & The set of positive integers \\ 
+    (Some) finite set & & The empty set or a set whose distinct elements can be counted by a natural number\\
+    (Some) infinite set & & A set that is not finite.\\ 
+    &&\\
+    \hline
+    && \\
+    Reverse of a string $w$ & $w^\mathcal{R}$  & write $w$  in  the opposite order, if $w = w_1 \cdots  w_n$ then $w^\mathcal{R} = w_n \cdots  w_1$. Note: $\varepsilon^\mathcal{R} = \varepsilon$\\
+    Concatenating strings $x$ and $y$ & $xy$ &  take $x = x_1 \cdots x_m$, $y=y_1 \cdots y_n$ and form $xy = x_1 \cdots x_m y_1 \cdots y_n$\\
+    String $z$ is a substring of string $w$ & & there are strings $u,v$ such that $w = uzv$\\
+    String $x$ is a prefix of string $y$ & & there is a string $z$ such that $y = xz$ \\
+    String $x$ is a proper prefix of string $y$ & & $x$ is a prefix of $y$ and $x \neq y$\\
+    && \\
+    \hline
+    &&\\
+    Shortlex order, also known as string order over alphabet $\Sigma$ & & Order strings over  $\Sigma$ first 
+    by length and then according to the dictionary order, assuming symbols in $\Sigma$  have an ordering\\ \hline
+    \end{tabular}
+\end{center}
+
+\vfill
+    
+\newpage
+Write out in words the meaning of the symbols below: 
+
+\[
+    \{ a, b, c\}
+\]
+
+\phantom{The set whose elements are $a$, $b$, and $c$}
+
+\[
+    | \{a, b, a \} | = 2
+\]
+
+\phantom{The number of elements in the set $\{a,b,a\}$ is $2$.}
+
+\[
+    | aba | = 3
+\]
+
+\phantom{The length of the string $aba$ is $3$.}
+
+\begin{comment}
+
+\[
+    (a, 3, 2, b, b)
+\]
+
+\phantom{The $5$-tuple whose first components is $a$, second component 
+is $3$, third component is $2$, fourth component is $b$, and fifth component is $b$.}
+\end{comment}
+
+{\it Circle the correct choice}:
+
+A {\bf string} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*$ ~~ OR ~~ a subset of $\Sigma^*$}.
+    
+A {\bf language} over an alphabet $\Sigma$ is \underline{~~an element of $\Sigma^*$ ~~ OR ~~ a subset of $\Sigma^*$}.
+
+
+With $\Sigma_1 = \{0,1\}$ and 
+$\Sigma_2 = \{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}$
+and $\Gamma = \{0,1,x,y,z\}$
+
+{\bf True} or {\bf False}: $\varepsilon \in \Sigma_1$
+
+{\bf True} or {\bf False}: $\varepsilon$ is  a string over $\Sigma_1$
+
+{\bf True} or {\bf False}: $\varepsilon$ is a language over $\Sigma_1$
+
+{\bf True} or {\bf False}: $\varepsilon$ is a prefix of some string over  $\Sigma_1$
+
+{\bf True} or {\bf False}: There is a string over $\Sigma_1$ that is a proper prefix of $\varepsilon$
+    
+
+The first five strings over $\Sigma_1$ in string order, using the ordering $0 <  1$: \vfill
+    
+The first five strings over $\Sigma_2$ in string order, using the usual alphabetical ordering for single letters: \vfill
+
+
+

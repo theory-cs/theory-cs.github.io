@@ -1,25 +1,17 @@
 [
     {
-        "header": "Week 1",
+        "header": "Weeks 0 and 1",
         "outcomes": "Languages, expressions, and automata",
-        "CalendarInfo": "Dates: 1/8/24 - 1/14/24<br> Welcome! Please take our <a href=\"https://canvas.ucsd.edu/courses/53839/quizzes/157507\" target=\"_blank\">pre-class survey</a> on Canvas. See you Monday 2pm in Warren Lecture Hall 2001. Notes for class are linked below: we recommend attending class in person each day (if you can). We'll be working directly on quiz and homework questions in many classes to help you get started with problem solving. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Fridays at 4pm in WLH 2001. Tests will be taken in discussion section twice during the quarter.",
-        "ExpandInCalendar": false,
+        "CalendarInfo": "Dates: 9/23/24 - 10/6/24<br> Welcome! Please take our <a href=\"https://canvas.ucsd.edu/courses/58707/quizzes/185297/\" target=\"_blank\">pre-class survey</a> on Canvas. See you Friday 9am in Catalyst 125. Notes for class are linked below: we recommend attending class in person each day (if you can). We'll be working directly on quiz and homework questions in many classes to help you get started with problem solving. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Wednesdays at 4pm in WLH 2001.",
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week1.tex"
             },
             {
-                "name": "Discussion notes",
-                "source": "cse105w24_week1discussion.pdf"
-            },
-            {
-                "name": "Review Quizzes",
-                "source": "Week1RQ.pdf"
-            },
-            {
                 "name": "Lecture Hall",
-                "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/553665\" frameborder=\"0\"></iframe>"
+                "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/576554?s/cataly?mc/32.88175510544609,-117.24196599999999?z/18?lvl/0?share\" frameborder=\"0\"></iframe>"
             },
             {
                 "name": "(Video) Overview",
@@ -73,29 +65,26 @@
 
         "Due Dates": [
             {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "1/12/24 at 5pm (no penalty late submission until Sunday)"
+                "name": "Canvas #FinAid Quiz",
+                "link": "https://canvas.ucsd.edu/",
+                "due": "9/29/24"
+            },
+            {
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "10/6/24"
             }
         ]
     },
     {
         "header": "Week 2",
         "outcomes": "Regular languages and nondeterminism",
-        "CalendarInfo": " Dates: 1/15/24 - 1/21/24. No class on Monday (in observance of Martin Luther King, Jr. Day).",
+        "CalendarInfo": " Dates: 10/7/24 - 10/13/24.",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week2.tex"
-            },
-            {
-                "name": "Discussion notes",
-                "source": "Week2-discussion.pdf"
-            },
-            {
-                "name": "Review Quizzes",
-                "source": "Week2RQ.pdf"
             },
             {
                 "name": "(Video) DFA Formal Definition",
@@ -162,29 +151,25 @@
 
         "Due Dates": [
             {
-                "name": "hw1CSE105W24",
-                "due": "1/18/24 at 5pm (no penalty late submission until 8am next morning)"
+                "name": "hw1CSE105F24",
+                "due": "10/8/24 at 5pm (late submission open until 8am next morning)"
             },
             {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "1/19/24 at 5pm (no penalty late submission until Sunday)"
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "10/13/24"
             }
         ]
     },
     {
         "header": "Week 3",
         "outcomes": "Automata constructions and nonregular languages",
-        "CalendarInfo": " Dates: 1/22/24 - 1/28/24",
+        "CalendarInfo": " Dates: 10/14/24 - 10/20/24",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week3.tex"
-            },
-            {
-                "name": "Discussion Notes",
-                "source": "cse105w24_discussion3.pdf"
             },
             {
                 "name": "Review Quizzes",
@@ -246,30 +231,26 @@
 
         "Due Dates": [
             {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "1/26/24 at 5pm (no penalty late submission until Sunday)"
+                "name": "hw2CSE105F24",
+                "due": "10/15/24 at 5pm (late submission open until 8am next morning)"
+            },
+            {
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "10/20/24"
             }
         ]
     },
     {
         "header": "Week 4",
         "outcomes": "Pumping Lemma and Pushdown Automata",
-        "CalendarInfo": " Dates: 1/29/24 - 2/4/24",
+        "CalendarInfo": " Dates: 10/21/24 - 10/27/24",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week4.tex"
             },
-            {
-                "name": "Discussion notes",
-                "source": "Week4-discussion.pdf"
-            },
-            {
-                "name": "Review Quizzes",
-                "source": "Week4RQ.pdf"
-            }, 
             {
                 "name": "(Video) Pumping Lemma Applications",
                 "source": "https://youtu.be/e69l6fAmOmI"
@@ -322,30 +303,26 @@
 
         "Due Dates": [
             {
-                "name": "hw2CSE105W24",
-                "due": "2/1/24 at 5pm (no penalty late submission until 8am next day)"
+                "name": "hw3CSE105F24",
+                "due": "10/22/24 at 5pm (late submission open until 8am next morning)"
             },
             {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "2/2/24 at 5pm (no penalty late submission until Sunday)"
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "10/27/24"
             }
         ]
     },
     {
         "header": "Week 5",
         "outcomes": "Context-free grammars and context-free languages",
-        "CalendarInfo": " Dates: 2/5/24 - 2/11/24. Test 1 in discussion section this week, Friday Feb 9 in discussion section 4pm-4:50pm WLH 2001.  The test covers material in Weeks 1 through 4 and Monday of Week 5. In particular, you should make sure you can:<ul> <li>Distinguish between alphabet, language, sets, and strings</li><li>Translate a decision problem to a set of strings coding the problem</li><li>Use regular expressions and relate them to languages and automata</li><li>Write and debug regular expressions using correct syntax</li><li>Determine if a given string is in the language described by a regular expression</li><li>Use precise notation to formally define the state diagram of DFA, NFA and use clear English to describe computations of DFA, NFA informally.</li><li>State the formal definition of (deterministic) finite automata</li><li>Trace the computation of a finite automaton on a given string using its state diagram</li><li>Translate between a state diagram and a formal definition</li><li>Determine if a given string is in the language described by a finite automaton</li><li>Design and analyze an automaton that recognizes a given language</li><li>Specify a general construction for DFA based on parameters</li><li>Design and analyze general constructions for DFA</li><li>Motivate the use of nondeterminism</li><li>Trace the computation(s) of a nondeterministic finite automaton</li><li>Determine the language recognized by a given NFA</li><li>Design and analyze general constructions for NFA</li><li>Choose between multiple models to prove that a language is regular</li><li>Explain nondeterminism and describe tools for simulating it with deterministic computation.</li><li>Find equivalent DFA for a given NFA</li><li>Convert between regular expressions and automata</li><li>Classify the computational complexity of a set of strings by determining whether it is regular</li><li>Explain the limits of the class of regular languages</li><li>Identify some nonregular sets</li><li>Use the pumping lemma to prove that a given language is not regular.</li><li>Justify why the Pumping Lemma is true</li><li>Apply the Pumping Lemma in proofs of nonregularity</li><li>Use precise notation to formally define the state diagram of PDA and use clear English to describe computations of PDA informally.</li><li>Define push-down automata informally and formally</li><li>Trace the computation of a push-down automaton</li><li>Determine the language recognized by a given PDA</li><li>Design push-down automata to recognize specific languages</li><li>Determine whether a language is recognizable by a (D or N) FA and/or a PDA</li><li>Use context-free grammars and relate them to languages and pushdown automata.</li><li>Identify the components of a formal definition of a context-free grammar (CFG)</li><li>Derive strings in the language of a given CFG</li><li>Determine the language of a given CFG</li><li>Design a CFG generating a given language</li></ul><p>To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, podcast, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, textbook examples listed in hw, review quizzes -- PDFs now available on the class website, discussion examples) and getting feedback (office hours and Piazza).</p>",
+        "CalendarInfo": " Dates: 10/28/24 - 11/3/24.",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week5.tex"
             },
-            {
-                "name": "Review Quizzes",
-                "source": "Week5RQ.pdf"
-            }, 
             {
                 "name": "(Video) PDA Design and reverse engingeering",
                 "source": "https://youtu.be/b-dr_GndeBg"
@@ -406,20 +383,16 @@
 
         "Due Dates": [
             {
-                "name": "Test 1",
-                "due": "2/9/24 in discussion section"
-            },
-            {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "2/9/24 at 5pm (no penalty late submission until Sunday)"
+                "name": "Weekly Review Quiz",
+                "link": "https://www.prairielearn.com/",
+                "due": "11/3/24"
             }
         ]
     },
     {
         "header": "Week 6",
         "outcomes": "Turing machines, algorithms, and decidability",
-        "CalendarInfo": " Dates: 2/12/24 - 2/18/24",
+        "CalendarInfo": "Dates: 11/4/24 - 11/10/24.  Test 1 in CBTF this week.  The test covers material in Weeks 1 through 4 and Monday of Week 5. In particular, you should make sure you can:<ul> <li>Distinguish between alphabet, language, sets, and strings</li><li>Translate a decision problem to a set of strings coding the problem</li><li>Use regular expressions and relate them to languages and automata</li><li>Write and debug regular expressions using correct syntax</li><li>Determine if a given string is in the language described by a regular expression</li><li>Use precise notation to formally define the state diagram of DFA, NFA and use clear English to describe computations of DFA, NFA informally.</li><li>State the formal definition of (deterministic) finite automata</li><li>Trace the computation of a finite automaton on a given string using its state diagram</li><li>Translate between a state diagram and a formal definition</li><li>Determine if a given string is in the language described by a finite automaton</li><li>Design and analyze an automaton that recognizes a given language</li><li>Specify a general construction for DFA based on parameters</li><li>Design and analyze general constructions for DFA</li><li>Motivate the use of nondeterminism</li><li>Trace the computation(s) of a nondeterministic finite automaton</li><li>Determine the language recognized by a given NFA</li><li>Design and analyze general constructions for NFA</li><li>Choose between multiple models to prove that a language is regular</li><li>Explain nondeterminism and describe tools for simulating it with deterministic computation.</li><li>Find equivalent DFA for a given NFA</li><li>Convert between regular expressions and automata</li><li>Classify the computational complexity of a set of strings by determining whether it is regular</li><li>Explain the limits of the class of regular languages</li><li>Identify some nonregular sets</li><li>Use the pumping lemma to prove that a given language is not regular.</li><li>Justify why the Pumping Lemma is true</li><li>Apply the Pumping Lemma in proofs of nonregularity</li><li>Use precise notation to formally define the state diagram of PDA and use clear English to describe computations of PDA informally.</li><li>Define push-down automata informally and formally</li><li>Trace the computation of a push-down automaton</li><li>Determine the language recognized by a given PDA</li><li>Design push-down automata to recognize specific languages</li><li>Determine whether a language is recognizable by a (D or N) FA and/or a PDA</li><li>Use context-free grammars and relate them to languages and pushdown automata.</li><li>Identify the components of a formal definition of a context-free grammar (CFG)</li><li>Derive strings in the language of a given CFG</li><li>Determine the language of a given CFG</li><li>Design a CFG generating a given language</li></ul><p>To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, podcast, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, textbook examples listed in hw, review quizzes -- PDFs now available on the class website, discussion examples) and getting feedback (office hours and Piazza).</p>",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -493,35 +466,27 @@
         ],
 
         "Due Dates": [
+            {
+                "name": "Test 1",
+                "due": "Testing window: 11/4 - 11/6. Sign up in advance at the CBTF."
+            },
            {
-                "name": "hw3CSE105W24",
-                "due": "2/15/24 at 5pm (no penalty late submission until 8am next day)"
-           },
-           {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "2/16/24 at 5pm (no penalty late submission until Sunday)"
-            }
+            "name": "Weekly Review Quiz",
+            "link": "https://www.prairielearn.com/",
+            "due": "11/10/24"
+        }
         ]
     },
     {
         "header": "Week 7",
         "outcomes": "Computational problems: decidable and undecidable",
-        "CalendarInfo": " Dates: 2/19/24 - 2/25/24. No class on Monday (in observance of Presidents Day).",
+        "CalendarInfo": " Dates: 11/11/24 - 11/17/24. No class on Monday (in observance of Veterans Day). Asynchronous class on Wednesday: please watch the supplementary videos linked below and post questions on Piazza. We'll be back to synchronous, in-person class on Friday.",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week7.tex"
             },
-            {
-                "name": "Discussion notes",
-                "source": "Week7-discussion.pdf"
-            },
-            {
-                "name": "Review Quizzes",
-                "source": "Week7RQ.pdf"
-            }, 
             {
                 "name": "(Video) Decidable computational problems",
                 "source": "https://youtu.be/VQU2rk_XGWI"
@@ -562,34 +527,26 @@
 
         "Due Dates": [
             {
-                "name": "projectCSE105W24",
-                "due": "2/22/24 at 5pm (no penalty late submission until 8am next day)"
+                "name": "hw4CSE105F24",
+                "due": "11/12/24 at 5pm (late submission open until 8am next morning)"
             },
             {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "2/23/24 at 5pm (no penalty late submission until Sunday)"
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "11/17/24"
             }
         ]
     },
     {
         "header": "Week 8",
         "outcomes": "How undecidable: mapping reductions and the halting problem",
-        "CalendarInfo": " Dates: 2/26/24 - 3/3/24",
+        "CalendarInfo": "Dates: 11/18/24 - 11/24/24",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week8.tex"
             },
-            {
-                "name": "Discussion Notes",
-                "source": "cse105w24_week8discussion.pdf"
-            },
-            {
-                "name": "Review Quizzes",
-                "source": "Week8RQ.pdf"
-            }, 
             {
                 "name": "(Video) ATM undecidable via diagonalization",
                 "source": "https://youtu.be/2OR5wIIy5w8"
@@ -650,20 +607,20 @@
 
         "Due Dates": [
             {
-                "name": "hw4CSE105W24",
-                "due": "2/29/24 at 5pm (no penalty late submission until 8am next day)"
+                "name": "hw5CSE105F24",
+                "due": "11/19/24 at 5pm (late submission open until 8am next morning)"
             },
             {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "3/1/24 at 5pm (no penalty late submission until Sunday)"
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "11/24/24"
             }
         ]
     },
     {
         "header": "Week 9",
         "outcomes": "Mapping reductions and the Church-Turing thesis.",
-        "CalendarInfo": " Dates: 3/4/24 - 3/10/24. Test 2 in discussion section this week.",
+        "CalendarInfo": "Dates: 11/25/24 - 12/1/24.  Test 2 in CBTF this week. No class on Friday in observance of Thanksgiving.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -720,22 +677,22 @@
             }
         ],
 
-        "Due Dates": [
+        "Due Dates":[
             {
                 "name": "Test 2",
-                "due": "3/8/24 in discussion section"
+                "due": "Testing window: 11/25 - 11/27. Sign up in advance at the CBTF."
             },
-            {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "3/8/24 at 5pm (no penalty late submission until Sunday)"
-            }
+           {
+            "name": "Weekly Review Quiz",
+            "link": "https://www.prairielearn.com/",
+            "due": "12/1/24"
+        }
         ]
     },
     {
         "header": "Week 10",
         "outcomes": "Time Complexity: P vs. NP",
-        "CalendarInfo": " Dates: 3/11/24 - 3/17/24.",
+        "CalendarInfo": " Dates: 12/2/24 - 12/8/24.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -786,31 +743,35 @@
 
         "Due Dates": [
             {
-                "name": "hw5CSE105W24",
-                "due": "3/14/24 at 5pm (no penalty late submission until 8am next day)"
+                "name": "Test 1 Attempt 2 and/or Test 2 Attempt 2",
+                "due": "Testing window: 12/2 - 12/6. Sign up in advance at the CBTF."
             },
             {
-                "name": "Daily Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "3/15/24 at 5pm (no penalty late submission until Sunday)"
+                "name": "hw6CSE105F24",
+                "due": "12/3/24 at 5pm (late submission open until 8am next morning)"
+            },
+            {
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "12/8/24"
             }
         ]
     },
     {
         "header": "Finals week",
         "outcomes": "Final exam",
-        "CalendarInfo":  "Date: 3/18/24. The Final Exam is Monday March 18 at 3pm (see schedule of classes https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudent.htm)  in the REC GYM. <br><br>Assigned seats for the final exam will be posted on Canvas. Students who requested a left-handed seat for Test 1/Test 2 will be assigned to a left-handed seat in the final. <br><br>The Final Exam has two parts, the first corresponding to the material covered for Week 5's Test 1 and the second corresponding to the material covered for Week 9's Test 2. Each part has 4 questions and is scored out of 50 points.<br><br>You will have 65 minutes to complete each part and you can choose to take zero, one, or both of the parts.<br><br>We will distribute Part 1 at 3pm.  You may bring in one note sheet for Part 1. When we collect Part 1 exams, we will collect all note sheets and paper used during Part 1.<br><br>We will distribute Part 2 at 4:30pm.  You may bring in one note sheet for Part 2.  If you plan to take Part 1 and Part 2, make sure your note sheets are separate since we will collect Part 1's note sheet before distributing Part 2. If you plan to take Part 2 and not Part 1, please wait (quietly, to minimize disruption to those taking Part 1) outside the REC gym until we finish collecting all Part 1 exams and call you in.  When we collect Part 2 exams, we will collect all note sheets and paper used during Part 2.<br><br>The grade recorded for you for Test 1 will be max (Grade on Week 5's Test 1, Grade on Part 1 of Final). The grade recorded for you for Test 2 will be max (Grade on Week 9's Test 2, Grade on Part 2 of Final).",
-        "ExpandInCalendar": true,
+        "CalendarInfo":  "Project due",
+        "ExpandInCalendar": false,
         "content": [
             {
-                "name": "Final exam details",
-                "source": "<p>See syllabus and Canvas announcement (https://canvas.ucsd.edu/courses/51649/discussion_topics/748509) for details.</p>"
+                "name": "Project",
+                "source": "<p>See assignments page for details.</p>"
             }
         ],
         "Due Dates": [
             {
-                "name": "Final exam",
-                "due": "3/18/24, 3pm-6pm. Room TBA."
+                "name": "projectCSE105F24",
+                "due": "12/11/24 11am."
             }
         ]
     }
