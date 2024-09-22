@@ -33,8 +33,165 @@ in the assignment called ``hw1CSE105F24''.
 
 {\bf Assigned questions}
 
-Coming soon.
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+%%%%%%%%%%% PROBLEM 1 %%%%%%%%%%%
+\item\textbf{Finding examples and edge cases} (12 points):
 
+With $\Sigma= \{0,1,2,3,4,5,6,7,8,9\}$
+and $\Gamma = \{0,1,2, 3, 4, 5,6, 7, 8, 9, A, B, C, D, E, F\}$
+
+    \begin{enumerate}
+    \item\gradeCompleteFirst  Give an example of a string over $\Sigma$ that is meaningful to you in some way
+    and whose length is between $5$ and $20$, and explain 
+    why this string is meaningful to you.
+
+    \item\gradeComplete Calculate the number of distinct strings of length 3 over $\Sigma$ and then 
+     explain your calculation.
+
+    \item\gradeComplete With the ordering $0 < 1 < 2 < 3 < 4< 5< 6< 7 < 8 < 9< A < B < C < D< E< F$, 
+    list the first 50 strings over $\Gamma$ in string order. Explain how you constructed this list.
+    {\it Note: you can write a program
+    to generate this list if you'd like, and you may use any external tools to help you write this program.
+    If you do use a program to generate the list, include it (and documentation for how it works) as part of your
+    submission.}
+
+    \item\gradeCorrectFirst Give an example of a finite set that is a language over $\Sigma$ and over $\Gamma$, 
+    or explain why there is no such set. A complete and correct answer will use clear and precise notation 
+    (consistent with the textbook and class notes) and will include a description of why the given example 
+    is a language over $\Sigma$ and over $\Gamma$ and is finite, or an explanation why there is no such example.
+    
+    \item\gradeCorrect Give an example of an infinite set that is a language over $\Sigma$  and not over $\Gamma$, 
+    or explain why there is no such set. A complete and correct answer will use clear and precise notation
+    (consistent with the textbook and class notes) and will include a description of why the given example 
+    is a language over $\Sigma$ and not over $\Gamma$ and is infinite, or an explanation why there is no such example.
+
+    \end{enumerate}
+
+%%%%%%%%%%% PROBLEM 2 %%%%%%%%%%%
+\item\textbf{Regular expressions} (10 points):
+
+    \begin{enumerate}
+    \item\gradeComplete  Give three regular expressions that all describe the set of all strings over $\{a,b\}$ that have 
+    odd length. Ungraded bonus challenge: Make the expressions as different as possible!
+
+    \item\gradeComplete  A friend tells you that each regular expression that has a Kleene star ($~^*$) describes an
+    infinite language. Are they right? Either help them justify their claim or give a counterexample to disprove it
+    and explain your counterexample.
+
+    \end{enumerate}
+
+%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
+\item\textbf{Functions over languages} (15 points):
+
+For each language $L$ over the alphabet $\Sigma_1 = \{0,1\}$, we have the 
+associated sets of strings
+\[
+    SUBSTRING(L) = \{ w \in \Sigma_1^* ~|~ \text{there exist } x,y \in \Sigma_1^* \text{ such that } xwy \in L\}
+\]
+and 
+\[
+    EXTEND(L) = \{ w \in \Sigma_1^* ~|~ w = uv \text{ for some strings } u \in L \text{ and } v \in \Sigma_1^* \}
+\]
+    \begin{enumerate}
+    \item\gradeComplete Specify an example language $A$ over $\Sigma_1$ such that 
+    $SUBSTRING(A) = EXTEND(A)$, 
+    or explain why there is no such example. 
+    A complete solution will include either (1) a precise and
+    clear description of your example language $A$ 
+    and a precise and clear description of
+    the result of computing $SUBSTRING(A)$, $EXTEND(A)$ (using the given definitions)
+    to justify this description and to justify the set equality,
+    or (2) a sufficiently general and correct argument
+    why there is no such example, referring back to the relevant definitions.
+
+    \item\gradeCorrect Specify an example language $B$ over $\Sigma_1$ such that 
+    $$SUBSTRING(B) = \{\varepsilon\}$$ and $$EXTEND(B) = \Sigma_1^*$$
+    or explain why there is no such example. 
+    A complete solution will include either (1) a precise and
+    clear description of your example language $B$ 
+    and a precise and clear description of
+    the result of computing $SUBSTRING(B)$, $EXTEND(B)$ (using the given definitions)
+    to justify this description and to justify the set equality with 
+    $\{\varepsilon\}$ and $\Sigma_1^*$ (respectively), or (2) a sufficiently general and correct argument
+    why there is no such example, referring back to the relevant definitions.
+
+    \item\gradeCorrect Specify an example {\bf infinite} language $C$ over $\Sigma_1$ such that 
+    $$SUBSTRING(C) \neq \Sigma_1^*$$ and $$EXTEND(C) \neq \Sigma_1^*$$, or 
+    explain why there is no such example.
+    A complete solution will include either (1) a precise and
+    clear description of your example language $C$ 
+    and a precise and clear description of
+    the result of computing $SUBSTRING(B)$, $EXTEND(B)$ (using the given definitions)
+    to justify this description and to justify the set nonequality claims, 
+    or (2) a sufficiently general and correct argument
+    why there is no such example, referring back to the relevant definitions.
+    \end{enumerate}
+
+
+%%%%%%%%%%% PROBLEM 4 %%%%%%%%%%%
+\item\textbf{Finite automata} (13 points):
+
+Consider the finite automaton $(Q, \Sigma, \delta, q_0, F)$ whose state diagram is depicted below
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+\tikzstyle{every state}=[text=black, fill=none]
+
+\node[initial,state, accepting] (q0)          {$q_0$};
+\node[state]         (q1) [right of=q0, xshift=20pt] {$q_1$};
+\node[state]         (q2) [right of=q1, xshift=20pt] {$q_2$};
+
+\path (q0) edge  [loop above, near start] node {$0$} (q0)
+        edge [bend left=20, near end] node {$1$} (q1)
+    (q1) edge [bend left=0] node {$0$} (q2)
+        edge [bend left=20] node {$1$} (q0)
+    (q2) edge [loop right] node {$0,1$} (q2)
+;
+\end{tikzpicture}
+\end{center}
+where $Q = \{q_0, q_1, q_2\}$, $\Sigma = \{0,1\}$, and $F = \{q_0\}$, and $\delta: Q \times \Sigma \to Q$
+is specified by the look-up table
+\begin{center}
+\begin{tabular}{c|cc}
+        & $0$ & $1$ \\
+    \hline
+  $q_0$ & $q_0$ & $q_1$ \\
+  $q_1$ & $q_2$ & $q_0$ \\
+  $q_2$ & $q_2$ & $q_2$
+\end{tabular}
+\end{center}
+    \begin{enumerate}
+    \item\gradeComplete A friend tries to summarize the transition function with the formula
+    \[
+        \delta(q_i,x) = \begin{cases}
+            q_0 &\text{ when $i=0$ and $x=0$} \\
+            q_2 &\text{ when $x < i$}\\
+            q_j &\text{ when $j = (i+1) \mod 2$ and $x=1$}
+        \end{cases}
+    \]
+    for $x \in \{0,1\}$ and $i \in \{0,1,2\}$.
+    Are they right? Either help them justify their claim or give a counterexample to disprove it and then 
+    fix their formula.
+
+    \item\gradeCorrect Give a regular expression $R$ so that $L(R)$ is the language 
+    recognized by this finite automaton. Justify your answer by referring to the 
+    definition of the semantics of regular expressions and computations of finite automata. 
+    Include an explanation for why each string in $L(R)$ is accepted by the finite automaton {\it and}
+    for why each string not in $L(R)$ is rejected by the finite automaton.
+
+    \item\gradeCorrect Keeping the same set of states $Q = \{q_0, q_1, q_2\}$, alphabet $\Sigma = \{0,1\}$, 
+    same start state $q_0$, and same transition 
+    function $\delta$, choose a new set of accepting states $F_{new}$ so that the new 
+    finite automaton that results accepts at least one string that the original one rejected {\bf and} rejects
+    at least one string that the original one accepted, or explain why there is no such choice of $F_{new}$.
+    A complete solution will include either (1) a precise and
+    clear description of your choice of $F_{new}$
+    and a precise and clear the two example strings using relevant definitions 
+    to justify them, or (2) a sufficiently general and correct argument
+    why there is no such example, referring back to the relevant definitions.
+
+    \end{enumerate}
+    
+    \end{enumerate}
 \newpage
 
 \end{document}
