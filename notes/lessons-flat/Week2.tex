@@ -43,7 +43,89 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Week2 monday}
+\end{flushright} 
+\subsection*{Week 2 at a glance}
+
+\subsubsection*{Textbook reading: Sections 1.1, 1.2}
+
+\vspace{-15pt}
+
+Before Monday, read pages 41-43 (Figures 1.18, 1.19, 1.20) for examples of automata and languages.
+
+Before Wednesday, read pages 48-50 (Figures 1.27, 1.29) which introduces nondeterminism.
+
+Before Friday, read pages 60-61 Theorem 1.47 and Theorem 1.48 that we'll refer to as ``closure proofs".
+
+For Week 3 Monday: Theorem 1.39 ``Proof Idea'', Example 1.41, Example 1.56, Example 1.58.
+
+
+\subsubsection*{We will be learning and practicing to:}
+\begin{itemize}
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+   \item Give examples of sets that are regular (and prove that they are).
+   \begin{itemize}
+      \item {\bf State the definition of the class of regular languages}
+      \item {\bf Give examples of regular languages, using each of the three equivalent models of computation for proving regularity.}
+   \end{itemize}
+   \item Describe and use models of computation that don't involve state machines.
+   \begin{itemize}
+      \item {\bf Given a DFA or NFA, find a regular expression that describes its language.}
+      \item {\bf Given a regular expression, find a DFA or NFA that recognizes its language.}
+   \end{itemize}
+   \item Use precise notation to formally define the state diagram of finite automata.
+   \item Use clear English to describe computations of finite automata TM informally.
+   \begin{itemize}
+      \item {\bf Design an automaton that recognizes a given language}
+      \item {\bf Specify a general construction for DFA based on parameters}
+      \item {\bf Design general constructions for DFA}
+      \item {\bf Motivate the use of nondeterminism}
+      \item {\bf State the formal definition of NFA}   
+      \item {\bf Trace the computation(s) of a NFA on a given string using its state diagram}
+      \item {\bf Determine if a given string is in the language recognized by a NFA}
+      \item {\bf Translate between a state diagram and a formal definition of a NFA}
+   \end{itemize}
+\end{itemize}
+
+
+
+\item Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.
+\begin{itemize}
+    \item Explain nondeterminism and describe tools for simulating it with deterministic computation.
+    \begin{itemize}
+      \item {\bf Given a nondeterministic finite automaton, find a deterministic finite automaton that recognizes its language.}
+   \end{itemize}
+\end{itemize}
+
+\end{itemize}
+
+
+\subsubsection*{TODO:}
+\begin{list}{\itemsep-10pt}
+   \item \#FinAid Assignment on Canvas (complete as soon as possible) and read syllabus on Canvas
+   \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
+   at PrairieTest (http://us.prairietest.com)
+   \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due Tuesday 10/8/2024
+   \item Review Quiz on PrairieLearn (http://us.prairielearn.com), complete by Sunday 10/13/2024
+\end{list}
+\newpage
+
+In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
+resources might be memory, time, parallelism, randomness, power, etc.
+To be able to compare ``hardness'' of problems, we use a consistent description of problems
+
+{\bf Input}: String
+
+{\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
+
+So far: we saw that regular expressions are convenient ways of describring patterns in strings.
+{\bf Finite automata} give a model of computation for processing strings and and classifying them into Yes (accepted)
+or No (rejected). We will see that each set of strings is described by a regular expression if and only 
+if there is a FA that recognizes it.  Another way of thinking about it: properties described by regular
+expressions require exactly the computational power of these finite automata.
+
+\subsection*{Monday: Finite automaton constructions}
+
 
 
 {\bf Review}: Formal definition of DFA: $M = (Q, \Sigma, \delta, q_0, F)$ 
@@ -129,8 +211,9 @@ Let $n$ be an arbitrary positive integer. What is a formal definition for a DFA 
 
 {\bf Note}: On Wednesday, we'll see a new kind of finite automaton. It will be helpful to distinguish it from the
 machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
-from Section 1.1. \vfill
-\section*{Week2 wednesday}
+from Section 1.1. 
+\newpage
+\subsection*{Wednesday: Nondeterministic automata}
 
 
 \begin{center}
@@ -179,8 +262,10 @@ The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of t
 
 \vspace{-10pt}
 
-The language recognized by this NFA is:  \vfill
-\section*{Week2 friday}
+The language recognized by this NFA is:  
+\newpage
+\subsection*{Friday: Automata constructions}
+
 {\bf Warmup}: Design a DFA (deterministic finite automaton) and an NFA (nondeterministic
 finite automaton) that each recognize each of the following languages over $\{a,b\}$
 \[
@@ -334,115 +419,6 @@ $L(M) = A_1 \cup A_2$. {\it Theorem 1.25 in Sipser, page 45}
 
 
     
- \vfill
-\section*{Week1 friday}
+ 
 
-
-
-**This definition was in the pre-class reading**
-A finite automaton (FA) is specified by  $M = (Q, \Sigma, \delta, q_0, F)$.
-This $5$-tuple is called the {\bf formal definition} of the FA. The FA can also 
-be represented by its state diagram: with nodes for the state, labelled edges specifying the 
-transition function, and decorations on nodes denoting the start and accept states.
-
-\begin{quote}
-Finite set of states $Q$ can be labelled by any collection of distinct names. Often
-we use default state labels $q0, q1, \ldots$ 
-\end{quote}
-
-\begin{quote}  
-The alphabet $\Sigma$ determines the possible inputs to the automaton. 
-Each input to the automaton is a string over  $\Sigma$, and the automaton ``processes'' the input
-one symbol (or character) at a time.
-\end{quote}
-
-\begin{quote}
-The transition function $\delta$ gives the next state of the automaton based on the current state of 
-the machine and on the next input symbol.
-\end{quote}
-
-\begin{quote}
-The start state $q_0$ is an element of $Q$.  Each computation of the machine starts at the  start  state.
-\end{quote}
-
-\begin{quote}
-The accept (final) states $F$ form a subset of the states of the automaton, $F \subseteq  Q$. 
-These states are used to flag if the machine accepts or rejects an input string.
-\end{quote}
-
-
-\begin{quote}
-The computation of a machine on an input string is a sequence of states
-in the machine,  starting with the start state, determined by transitions 
-of the machine as it reads successive input symbols.
-\end{quote}
-
-\begin{quote}
-The finite automaton $M$ accepts the given input string exactly when the computation of $M$ on the input string
-ends in an accept state. $M$ rejects the given input string exactly when the computation of 
-$M$ on the input string ends in a nonaccept state, that is, a state that is not in $F$.
-\end{quote}
-
-\begin{quote} 
-The language of $M$, $L(M)$, is defined as the set of  all strings that are each accepted 
-by the machine $M$. Each string that is rejected by $M$ is not in $L(M)$.
-The language of $M$ is also called the language recognized by $M$.
-\end{quote}   
-   
-What is {\bf finite} about all finite automata? (Select all that apply)
-\begin{itemize}
-   \item[$\square$] The size of the machine (number of states, number of arrows)
-   \item[$\square$] The length of each computation of the machine
-   \item[$\square$] The number of strings that are accepted by the machine
-\end{itemize}
-\newpage
-  
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=3in]{../../resources/machines/Lect2DFA1.png} 
-\end{figure}
-   
-The formal definition of this FA is
-   
-\vfill
-\vfill
-   
-
-Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the FA or rejected by the FA.  
-
-{\it Why are these the only two options?}
-
-\vspace{200pt}
-
-
-The language recognized by this automaton is
-  
-
-\vfill
-
-\newpage
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=3in]{../../resources/machines/Lect2DFA2.png} 
-\end{figure}
-   
-
-The language recognized by this automaton is
-  
-
-
-\vfill
-
-\hrule
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=3in]{../../resources/machines/Lect2DFA3.png} 
-\end{figure}
-
-The language recognized by this automaton is
-  
-
-\vfill \vfill
 \end{document}

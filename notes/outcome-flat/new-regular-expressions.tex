@@ -43,7 +43,144 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Week1 monday}
+\end{flushright} \section*{Week2 monday}
+
+
+{\bf Review}: Formal definition of DFA: $M = (Q, \Sigma, \delta, q_0, F)$ 
+
+\begin{center}
+\begin{multicols}{2}
+\begin{itemize}
+\setlength{\itemsep}{2pt}
+\item Finite set of states $Q$
+\item Alphabet $\Sigma$
+\item Transition function $\delta$
+\item Start state $q_0$
+\item Accept (final) states $F$
+\end{itemize}
+\end{multicols}
+\end{center}
+In the state diagram of $M$, how many outgoing arrows are there from each state?
+
+$M = ( \{ q, r, s\}, \{a,b\}, \delta, q, \{s\} )$ 
+where $\delta$ is  (rows labelled by states
+and columns labelled by symbols):
+\begin{center}
+\begin{tabular}{c|cc}
+$\delta$ & $a$ & $b$ \\
+\hline
+$q$ & $r$ & $q$ \\
+$r$ & $r$ & $s$ \\
+$s$ & $s$ & $s$ \\
+\end{tabular}
+\end{center}
+
+The state diagram for $M$ is 
+
+\vfill
+
+
+
+Give two examples of strings that are accepted by $M$ and two examples of strings that are rejected by $M$:
+
+\vfill
+
+Add ``labels" for states in the state diagram, e.g. ``have not seen any of desired pattern yet'' or
+``sink state''.
+\newpage
+
+We can use the analysis of the roles of the states in the state diagram to describe the language
+recognized by the DFA. 
+
+
+$L(M) = $
+
+A regular expression describing $L(M)$ is
+
+
+
+
+\vspace{300pt}
+
+Let the alphabet be $\Sigma_1 = \{0,1\}$.
+
+A state diagram for a DFA that recognizes $\{w \mid w~\text{contains at most two $1$'s} \}$ is
+
+\vspace{70pt}
+
+A state diagram for a DFA that recognizes $\{w \mid w~\text{contains more than two $1$'s} \}$ is
+
+\vspace{70pt}
+
+
+\newpage
+{\it Extra example:} A state diagram for DFA recognizing
+$$\{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $3$} \}$$
+
+\vspace{70pt}
+
+
+Let $n$ be an arbitrary positive integer. What is a formal definition for a DFA recognizing
+\[
+\{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $n$} \}?
+\]
+
+\vfill
+
+{\bf Note}: On Wednesday, we'll see a new kind of finite automaton. It will be helpful to distinguish it from the
+machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
+from Section 1.1. \vfill
+\section*{Week2 wednesday}
+
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|l|}{{\bf Nondeterministic finite automaton}  (Sipser Page 53) Given as $M = (Q, \Sigma, \delta, q_0, F)$}\\
+& \\
+Finite set of states $Q$  & Can  be labelled by any collection  of distinct names. Default: $q0, q1, \ldots$  \\
+Alphabet $\Sigma$ &  Each input to the automaton is a string over  $\Sigma$. \\
+Arrow labels $\Sigma_\varepsilon$ &  $\Sigma_\varepsilon = \Sigma \cup \{ \varepsilon\}$. \\
+&  Arrows 
+in the state diagram are labelled either by symbols from $\Sigma$ or by $\varepsilon$ \\
+Transition function $\delta$  & $\delta: Q \times \Sigma_{\varepsilon} \to \mathcal{P}(Q)$
+gives the {\bf set of possible next states} for a transition \\
+&  from the current state upon reading a symbol or spontaneously moving.\\
+Start state $q_0$ & Element of $Q$.  Each computation of the machine starts at the  start  state.\\
+Accept (final) states $F$ & $F \subseteq  Q$.\\
+& \\
+\multicolumn{2}{|p{\textwidth}|}{$M$ accepts the input string $w \in \Sigma^*$ if and only if {\bf there is} a computation of $M$ on 
+$w$ that processes the whole string and ends in an
+accept state.}\\
+\hline
+\end{tabular}
+\end{center}
+
+The formal definition of the NFA over $\{0,1\}$ given by this state diagram is: 
+
+\includegraphics[width=2in]{Lect4NFA1.png}
+
+The language over $\{0,1\}$ recognized by this NFA is:
+
+\vspace{70pt}
+
+Change the transition function to get a different NFA which accepts
+the empty string (and potentially other strings too).
+
+
+\newpage
+
+The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of this NFA is:
+
+\vspace{-30pt}
+
+\includegraphics[width=2.5in]{Lect5NFA1.png}
+
+
+\vspace{-10pt}
+
+The language recognized by this NFA is:  \vfill
+\section*{Week1 monday}
 
 
 Our motivation in studying sets of strings is that they can be used to encode problems.

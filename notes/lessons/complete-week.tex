@@ -133,7 +133,7 @@ is the twenty-second numbered item in chapter one; it comes right after Example 
       \item {\bf State the formal definition of (deterministic) finite automata}   
       \item {\bf Trace the computation of a finite automaton on a given string using its state diagram}
       \item {\bf Translate between a state diagram and a formal definition}
-      \item {\bf Determine if a given string is in the language described by a finite automaton}
+      \item {\bf Determine if a given string is in the language recognized by a finite automaton}
    \end{itemize}
 \end{itemize}
 %\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
@@ -154,13 +154,12 @@ is the twenty-second numbered item in chapter one; it comes right after Example 
    \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
    at PrairieTest (http://us.prairietest.com)
    \item Review Quiz on PrairieLearn (http://us.prairielearn.com), complete by Sunday 10/6/2024
-   \item Create a homework groups, possibly by using the Piazza (https://piazza.com/) find-a-teammate tool
+   \item Create a homework group, possibly by using the Piazza (https://piazza.com/) find-a-teammate tool
    \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due Tuesday 10/8/2024
 \end{list}
 
 \newpage
 
-\newpage
 \section*{Week 0 Friday: Terminology and Notation}
 
 \input{../activity-snippets/week0-friday.tex}
@@ -183,6 +182,107 @@ is the twenty-second numbered item in chapter one; it comes right after Example 
 
 \input{../activity-snippets/week1-friday.tex}
 
+
+
+\newpage
+
+\subsection*{Week 2 at a glance}
+
+\subsubsection*{Textbook reading: Sections 1.1, 1.2}
+
+\vspace{-15pt}
+
+Before Monday, read pages 41-43 (Figures 1.18, 1.19, 1.20) for examples of automata and languages.
+
+Before Wednesday, read pages 48-50 (Figures 1.27, 1.29) which introduces nondeterminism.
+
+Before Friday, read pages 60-61 Theorem 1.47 and Theorem 1.48 that we'll refer to as ``closure proofs".
+
+For Week 3 Monday: Theorem 1.39 ``Proof Idea'', Example 1.41, Example 1.56, Example 1.58.
+
+
+\subsubsection*{We will be learning and practicing to:}
+%Define decision problem, Formal definition of automata, Informal definition of automata, Find example languages, 
+%Describe and use models of computation that don't involve state machines.
+\begin{itemize}
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+   \item Give examples of sets that are regular (and prove that they are).
+   \begin{itemize}
+      \item {\bf State the definition of the class of regular languages}
+      \item {\bf Give examples of regular languages, using each of the three equivalent models of computation for proving regularity.}
+   \end{itemize}
+   \item Describe and use models of computation that don't involve state machines.
+   \begin{itemize}
+      \item {\bf Given a DFA or NFA, find a regular expression that describes its language.}
+      \item {\bf Given a regular expression, find a DFA or NFA that recognizes its language.}
+   \end{itemize}
+   \item Use precise notation to formally define the state diagram of finite automata.
+   \item Use clear English to describe computations of finite automata TM informally.
+   \begin{itemize}
+      \item {\bf Design an automaton that recognizes a given language}
+      \item {\bf Specify a general construction for DFA based on parameters}
+      \item {\bf Design general constructions for DFA}
+      \item {\bf Motivate the use of nondeterminism}
+      \item {\bf State the formal definition of NFA}   
+      \item {\bf Trace the computation(s) of a NFA on a given string using its state diagram}
+      \item {\bf Determine if a given string is in the language recognized by a NFA}
+      \item {\bf Translate between a state diagram and a formal definition of a NFA}
+   \end{itemize}
+\end{itemize}
+
+%\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+%\begin{itemize}
+%   \item 
+%\end{itemize}
+
+\item Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.
+\begin{itemize}
+    \item Explain nondeterminism and describe tools for simulating it with deterministic computation.
+    \begin{itemize}
+      \item {\bf Given a nondeterministic finite automaton, find a deterministic finite automaton that recognizes its language.}
+   \end{itemize}
+\end{itemize}
+
+\end{itemize}
+
+
+\subsubsection*{TODO:}
+\begin{list}{\itemsep-10pt}
+   \item \#FinAid Assignment on Canvas (complete as soon as possible) and read syllabus on Canvas
+   \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
+   at PrairieTest (http://us.prairietest.com)
+   \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due Tuesday 10/8/2024
+   \item Review Quiz on PrairieLearn (http://us.prairielearn.com), complete by Sunday 10/13/2024
+\end{list}
+\newpage
+
+In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
+resources might be memory, time, parallelism, randomness, power, etc.
+To be able to compare ``hardness'' of problems, we use a consistent description of problems
+
+{\bf Input}: String
+
+{\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
+
+So far: we saw that regular expressions are convenient ways of describring patterns in strings.
+{\bf Finite automata} give a model of computation for processing strings and and classifying them into Yes (accepted)
+or No (rejected). We will see that each set of strings is described by a regular expression if and only 
+if there is a FA that recognizes it.  Another way of thinking about it: properties described by regular
+expressions require exactly the computational power of these finite automata.
+
+\subsection*{Monday: Finite automaton constructions}
+
+\input{../activity-snippets/week2-monday.tex}
+
+\newpage
+\subsection*{Wednesday: Nondeterministic automata}
+\input{../activity-snippets/week2-wednesday.tex}
+
+\newpage
+\subsection*{Friday: Automata constructions}
+
+\input{../activity-snippets/week2-friday.tex}
 
 
 \newpage

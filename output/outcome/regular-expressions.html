@@ -174,6 +174,196 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week2-monday">Week2 monday</h1>
+<p><span><strong>Review</strong></span>: Formal definition of DFA: <span
+class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></p>
+<div class="center">
+<div class="multicols">
+<p><span>2</span></p>
+<ul>
+<li><p>Finite set of states <span
+class="math inline">\(Q\)</span></p></li>
+<li><p>Alphabet <span class="math inline">\(\Sigma\)</span></p></li>
+<li><p>Transition function <span
+class="math inline">\(\delta\)</span></p></li>
+<li><p>Start state <span class="math inline">\(q_0\)</span></p></li>
+<li><p>Accept (final) states <span
+class="math inline">\(F\)</span></p></li>
+</ul>
+</div>
+</div>
+<p>In the state diagram of <span class="math inline">\(M\)</span>, how
+many outgoing arrows are there from each state?</p>
+<p><span class="math inline">\(M = ( \{ q, r, s\}, \{a,b\}, \delta, q,
+\{s\} )\)</span> where <span class="math inline">\(\delta\)</span> is
+(rows labelled by states and columns labelled by symbols):</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">\(\delta\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(a\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(b\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(r\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(r\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(r\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(s\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(s\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(s\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(s\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The state diagram for <span class="math inline">\(M\)</span> is</p>
+<p>Give two examples of strings that are accepted by <span
+class="math inline">\(M\)</span> and two examples of strings that are
+rejected by <span class="math inline">\(M\)</span>:</p>
+<p>Add “labels" for states in the state diagram, e.g. “have not seen any
+of desired pattern yet” or “sink state”.</p>
+<p>We can use the analysis of the roles of the states in the state
+diagram to describe the language recognized by the DFA.</p>
+<p><span class="math inline">\(L(M) =\)</span></p>
+<p>A regular expression describing <span
+class="math inline">\(L(M)\)</span> is</p>
+<p>Let the alphabet be <span class="math inline">\(\Sigma_1 =
+\{0,1\}\)</span>.</p>
+<p>A state diagram for a DFA that recognizes <span
+class="math inline">\(\{w \mid w~\text{contains at most two $1$&#39;s}
+\}\)</span> is</p>
+<p>A state diagram for a DFA that recognizes <span
+class="math inline">\(\{w \mid w~\text{contains more than two $1$&#39;s}
+\}\)</span> is</p>
+<p><span><em>Extra example:</em></span> A state diagram for DFA
+recognizing <span class="math display">\[\{w \mid w~\text{is a string
+over $\{0,1\}$ whose length is not a multiple of $3$} \}\]</span></p>
+<p>Let <span class="math inline">\(n\)</span> be an arbitrary positive
+integer. What is a formal definition for a DFA recognizing <span
+class="math display">\[\{w \mid w~\text{is a string over $\{0,1\}$ whose
+length is not a multiple of $n$} \}?\]</span></p>
+<p><span><strong>Note</strong></span>: On Wednesday, we’ll see a new
+kind of finite automaton. It will be helpful to distinguish it from the
+machines we’ve been talking about so we’ll use
+<span><strong>Deterministic Finite Automaton</strong></span> (DFA) to
+refer to the machines from Section 1.1.</p>
+<h1 class="unnumbered" id="week2-wednesday">Week2 wednesday</h1>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td colspan="2" style="text-align: left;"><span><strong>Nondeterministic
+finite automaton</strong></span> (Sipser Page 53) Given as <span
+class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Finite set of states <span
+class="math inline">\(Q\)</span></td>
+<td style="text-align: left;">Can be labelled by any collection of
+distinct names. Default: <span class="math inline">\(q0, q1,
+\ldots\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Alphabet <span
+class="math inline">\(\Sigma\)</span></td>
+<td style="text-align: left;">Each input to the automaton is a string
+over <span class="math inline">\(\Sigma\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Arrow labels <span
+class="math inline">\(\Sigma_\varepsilon\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(\Sigma_\varepsilon = \Sigma \cup \{
+\varepsilon\}\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Arrows in the state diagram are labelled
+either by symbols from <span class="math inline">\(\Sigma\)</span> or by
+<span class="math inline">\(\varepsilon\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Transition function <span
+class="math inline">\(\delta\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\delta: Q
+\times \Sigma_{\varepsilon} \to \mathcal{P}(Q)\)</span> gives the
+<span><strong>set of possible next states</strong></span> for a
+transition</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">from the current state upon reading a
+symbol or spontaneously moving.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Start state <span
+class="math inline">\(q_0\)</span></td>
+<td style="text-align: left;">Element of <span
+class="math inline">\(Q\)</span>. Each computation of the machine starts
+at the start state.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Accept (final) states <span
+class="math inline">\(F\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(F
+\subseteq  Q\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: left;"><span
+class="math inline">\(M\)</span> accepts the input string <span
+class="math inline">\(w \in \Sigma^*\)</span> if and only if
+<span><strong>there is</strong></span> a computation of <span
+class="math inline">\(M\)</span> on <span
+class="math inline">\(w\)</span> that processes the whole string and
+ends in an accept state.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The formal definition of the NFA over <span
+class="math inline">\(\{0,1\}\)</span> given by this state diagram
+is:</p>
+<p><img src="../../resources/machines/Lect4NFA1.png" style="width:2in"
+alt="image" /></p>
+<p>The language over <span class="math inline">\(\{0,1\}\)</span>
+recognized by this NFA is:</p>
+<p>Change the transition function to get a different NFA which accepts
+the empty string (and potentially other strings too).</p>
+<p>The state diagram of an NFA over <span
+class="math inline">\(\{a,b\}\)</span> is below. The formal definition
+of this NFA is:</p>
+<p><img src="../../resources/machines/Lect5NFA1.png" style="width:2.5in"
+alt="image" /></p>
+<p>The language recognized by this NFA is:</p>
 <h1 class="unnumbered" id="week1-monday">Week1 monday</h1>
 <p>Our motivation in studying sets of strings is that they can be used
 to encode problems. To calibrate how difficult a problem is to solve, we

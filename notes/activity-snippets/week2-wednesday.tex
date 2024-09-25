@@ -1,105 +1,50 @@
 %! app: Regular Languages
 %! outcome: Regular expressions, Formal definition of automata, Informal definition of automata
 
-
-{\bf Review}: Formal definition of finite automaton: $M = (Q, \Sigma, \delta, q_0, F)$ 
-
 \begin{center}
-\begin{multicols}{2}
-\begin{itemize}
-\setlength{\itemsep}{2pt}
-\item Finite set of states $Q$
-\item Alphabet $\Sigma$
-\item Transition function $\delta$
-\item Start state $q_0$
-\item Accept (final) states $F$
-\end{itemize}
-\end{multicols}
-\end{center}
-In the state diagram of $M$, how many outgoing arrows are there from each state?
-
-$M = ( \{ q, r, s\}, \{a,b\}, \delta, q, \{q\} )$ 
-where $\delta$ is  (rows labelled by states
-and columns labelled by symbols):
-\begin{center}
-\begin{tabular}{c|cc}
-$\delta$ & $a$ & $b$ \\
+\begin{tabular}{|ll|}
 \hline
-$q$ & $r$ & $r$ \\
-$r$ & $s$ & $s$ \\
-$s$ & $q$ & $q$ \\
+\multicolumn{2}{|l|}{{\bf Nondeterministic finite automaton}  (Sipser Page 53) Given as $M = (Q, \Sigma, \delta, q_0, F)$}\\
+& \\
+Finite set of states $Q$  & Can  be labelled by any collection  of distinct names. Default: $q0, q1, \ldots$  \\
+Alphabet $\Sigma$ &  Each input to the automaton is a string over  $\Sigma$. \\
+Arrow labels $\Sigma_\varepsilon$ &  $\Sigma_\varepsilon = \Sigma \cup \{ \varepsilon\}$. \\
+&  Arrows 
+in the state diagram are labelled either by symbols from $\Sigma$ or by $\varepsilon$ \\
+Transition function $\delta$  & $\delta: Q \times \Sigma_{\varepsilon} \to \mathcal{P}(Q)$
+gives the {\bf set of possible next states} for a transition \\
+&  from the current state upon reading a symbol or spontaneously moving.\\
+Start state $q_0$ & Element of $Q$.  Each computation of the machine starts at the  start  state.\\
+Accept (final) states $F$ & $F \subseteq  Q$.\\
+& \\
+\multicolumn{2}{|p{\textwidth}|}{$M$ accepts the input string $w \in \Sigma^*$ if and only if {\bf there is} a computation of $M$ on 
+$w$ that processes the whole string and ends in an
+accept state.}\\
+\hline
 \end{tabular}
 \end{center}
 
-The state diagram for $M$ is 
+The formal definition of the NFA over $\{0,1\}$ given by this state diagram is: 
 
-\vfill
+\includegraphics[width=2in]{../../resources/machines/Lect4NFA1.png}
 
+The language over $\{0,1\}$ recognized by this NFA is:
 
+\vspace{70pt}
 
-Give two examples of strings that are accepted by $M$ and two examples of strings that are rejected by $M$:
-
-\vfill
-
-
-
-$L(M) = $
-
-A regular expression describing $L(M)$ is
-
-
+Change the transition function to get a different NFA which accepts
+the empty string (and potentially other strings too).
 
 
 \newpage
-Let the alphabet be $\Sigma_1 = \{0,1\}$.
 
-A state diagram for a finite automaton that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains at most two $1$'s} \}$ is
+The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of this NFA is:
 
-\vfill
+\vspace{-30pt}
 
-A state diagram for a finite automaton that recognizes $\{w \in \Sigma_1^* \mid w~\text{contains more than two $1$'s} \}$ is
-
-\vfill
-
-\textbf{Strategy}: Add ``labels" for states in the state diagram, e.g. 
-``have not seen any of desired pattern yet'' or ``sink state''.
-Then, we can use the analysis of the roles of the states in the state diagram to work towards a 
-description of the language recognized by the finite automaton. 
-
-\vfill
-A useful bit of terminology: the {\bf iterated transition function} of a finite automaton
-$M = (Q, \Sigma, \delta, q_0, F)$ is defined recursively by
-\[
-\delta^* (~(q,w)~) 
-=\begin{cases}
-q  \qquad &\text{if $q \in Q, w = \varepsilon$} \\
-\delta( ~(q,a)~) \qquad &\text{if $q \in Q$, $w = a \in \Sigma$ } \\
-\delta(~(\delta^*(q,u), a) ~) \qquad &\text{if $q \in Q$, $w = ua$ where $u \in  \Sigma^*$ and $a \in \Sigma$}
-\end{cases}
-\]
-
-Using  this terminology, $M$ accepts a string $w$ over $\Sigma$ if and only if $\delta^*( ~(q_0,w)~) \in F$.
-
-\newpage
-Suppose $A$ is a language over an alphabet $\Sigma$. By definition, this means $A$ is a subset of $\Sigma^*$.
-{\bf Claim:} if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
-$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
-
-{\bf Proof idea}:
+\includegraphics[width=2.5in]{../../resources/machines/Lect5NFA1.png}
 
 
-{\bf Proof}: 
+\vspace{-10pt}
 
-
-
-
-\vfill
-
-Application: Design a finite automaton that recognizes the language of all strings over $\{a,b\}$
-whose length is not a multiple of $3$.
-
-\vfill
-
-{\bf Note}: On Friday, we'll see a new kind of finite automaton. It will be helpful to distinguish it from the
-machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
-from Section 1.1.
+The language recognized by this NFA is: 
