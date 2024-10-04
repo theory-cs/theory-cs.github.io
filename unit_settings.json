@@ -3,7 +3,7 @@
         "header": "Weeks 0 and 1",
         "outcomes": "Languages, expressions, and automata",
         "CalendarInfo": "Dates: 9/23/24 - 10/6/24<br> Welcome! Please take our <a href=\"https://canvas.ucsd.edu/courses/58707/quizzes/185297/\" target=\"_blank\">pre-class survey</a> on Canvas. See you Friday 9am in Catalyst 125. Notes for class are linked below: we recommend attending class in person each day (if you can). We'll be working directly on quiz and homework questions in many classes to help you get started with problem solving. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Wednesdays at 4pm in WLH 2001.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -80,7 +80,7 @@
         "header": "Week 2",
         "outcomes": "Regular languages and nondeterminism",
         "CalendarInfo": " Dates: 10/7/24 - 10/13/24.",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -145,28 +145,7 @@
             {
                 "name": "(Video) NFA Overview and Example",
                 "source": "https://youtu.be/1FiuofzjlC0"
-            }
-            
-        ],
-
-        "Due Dates": [
-            {
-                "name": "hw1CSE105F24",
-                "due": "10/8/24 at 5pm (late submission open until 8am next morning)"
-            },
-            {
-                "name": "Weekly Review Quiz",
-                "link": "https://us.prairielearn.com/pl/",
-                "due": "10/13/24"
-            }
-        ]
-    },
-    {
-        "header": "Week 3",
-        "outcomes": "Automata constructions and nonregular languages",
-        "CalendarInfo": " Dates: 10/14/24 - 10/20/24",
-        "ExpandInCalendar": false,
-        "content": [
+            },            
             {
                 "name": "Notes",
                 "source": "Week3.tex"
@@ -194,7 +173,28 @@
             {
                 "name": "(Video) Regular Languages Kleene Star",
                 "source": "https://youtu.be/gSfDNaD2Za0"
+            }
+            
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw1CSE105F24",
+                "due": "10/8/24 at 5pm (late submission open until 8am next morning)"
             },
+            {
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "10/13/24"
+            }
+        ]
+    },
+    {
+        "header": "Week 3",
+        "outcomes": "Automata constructions and nonregular languages",
+        "CalendarInfo": " Dates: 10/14/24 - 10/20/24",
+        "ExpandInCalendar": false,
+        "content": [
             {
                 "name": "(Video) NFA to DFA",
                 "source": "https://youtu.be/DQj5Jq3eJx8"
