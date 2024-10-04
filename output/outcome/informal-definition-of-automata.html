@@ -192,11 +192,17 @@ class="math inline">\(F\)</span></p></li>
 </ul>
 </div>
 </div>
-<p>In the state diagram of <span class="math inline">\(M\)</span>, how
-many outgoing arrows are there from each state?</p>
-<p><span class="math inline">\(M = ( \{ q, r, s\}, \{a,b\}, \delta, q,
-\{s\} )\)</span> where <span class="math inline">\(\delta\)</span> is
-(rows labelled by states and columns labelled by symbols):</p>
+<p>Quick check: In the state diagram of <span
+class="math inline">\(M\)</span>, how many outgoing arrows are there
+from each state?</p>
+<p><span><strong>Note</strong></span>: We’ll see a new kind of finite
+automaton. It will be helpful to distinguish it from the machines we’ve
+been talking about so we’ll use <span><strong>Deterministic Finite
+Automaton</strong></span> (DFA) to refer to the machines from Section
+1.1.</p>
+<p><span class="math inline">\(M = ( \{ q0, q1, q2\}, \{a,b\}, \delta,
+q, \{q0\} )\)</span> where <span class="math inline">\(\delta\)</span>
+is (rows labelled by states and columns labelled by symbols):</p>
 <div class="center">
 <table>
 <thead>
@@ -212,27 +218,27 @@ class="math inline">\(b\)</span></th>
 <tbody>
 <tr>
 <td style="text-align: center;"><span
-class="math inline">\(q\)</span></td>
+class="math inline">\(q0\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(r\)</span></td>
+class="math inline">\(q1\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(q\)</span></td>
+class="math inline">\(q1\)</span></td>
 </tr>
 <tr>
 <td style="text-align: center;"><span
-class="math inline">\(r\)</span></td>
+class="math inline">\(q1\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(r\)</span></td>
+class="math inline">\(q2\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(s\)</span></td>
+class="math inline">\(q2\)</span></td>
 </tr>
 <tr>
 <td style="text-align: center;"><span
-class="math inline">\(s\)</span></td>
+class="math inline">\(q2\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(s\)</span></td>
+class="math inline">\(q0\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(s\)</span></td>
+class="math inline">\(q0\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -241,33 +247,56 @@ class="math inline">\(s\)</span></td>
 <p>Give two examples of strings that are accepted by <span
 class="math inline">\(M\)</span> and two examples of strings that are
 rejected by <span class="math inline">\(M\)</span>:</p>
-<p>Add “labels" for states in the state diagram, e.g. “have not seen any
-of desired pattern yet” or “sink state”.</p>
-<p>We can use the analysis of the roles of the states in the state
-diagram to describe the language recognized by the DFA.</p>
-<p><span class="math inline">\(L(M) =\)</span></p>
 <p>A regular expression describing <span
 class="math inline">\(L(M)\)</span> is</p>
-<p>Let the alphabet be <span class="math inline">\(\Sigma_1 =
+<p>A state diagram for a finite automaton recognizing <span
+class="math display">\[\{w \mid w~\text{is a string over $\{a,b\}$ whose
+length is not a multiple of $3$} \}\]</span></p>
+<p>Extra example: Let <span class="math inline">\(n\)</span> be an
+arbitrary positive integer. What is a formal definition for a finite
+automaton recognizing <span class="math display">\[\{w \mid w~\text{is a
+string over $\{0,1\}$ whose length is not a multiple of $n$}
+\}?\]</span></p>
+<p>Consider the alphabet <span class="math inline">\(\Sigma_1 =
 \{0,1\}\)</span>.</p>
-<p>A state diagram for a DFA that recognizes <span
+<p>A state diagram for a finite automaton that recognizes <span
 class="math inline">\(\{w \mid w~\text{contains at most two $1$&#39;s}
 \}\)</span> is</p>
-<p>A state diagram for a DFA that recognizes <span
+<p>A state diagram for a finite automaton that recognizes <span
 class="math inline">\(\{w \mid w~\text{contains more than two $1$&#39;s}
 \}\)</span> is</p>
-<p><span><em>Extra example:</em></span> A state diagram for DFA
-recognizing <span class="math display">\[\{w \mid w~\text{is a string
-over $\{0,1\}$ whose length is not a multiple of $3$} \}\]</span></p>
-<p>Let <span class="math inline">\(n\)</span> be an arbitrary positive
-integer. What is a formal definition for a DFA recognizing <span
-class="math display">\[\{w \mid w~\text{is a string over $\{0,1\}$ whose
-length is not a multiple of $n$} \}?\]</span></p>
-<p><span><strong>Note</strong></span>: On Wednesday, we’ll see a new
-kind of finite automaton. It will be helpful to distinguish it from the
-machines we’ve been talking about so we’ll use
-<span><strong>Deterministic Finite Automaton</strong></span> (DFA) to
-refer to the machines from Section 1.1.</p>
+<p><strong>Strategy</strong>: Add “labels" for states in the state
+diagram, e.g. “have not seen any of desired pattern yet” or “sink
+state”. Then, we can use the analysis of the roles of the states in the
+state diagram to work towards a description of the language recognized
+by the finite automaton.</p>
+<p>Or: decompose the language to a simpler one that we already know how
+to recognize with a DFA or NFA.</p>
+<p>Textbook Exercise 1.14: Suppose <span
+class="math inline">\(A\)</span> is a language over an alphabet <span
+class="math inline">\(\Sigma\)</span>. If there is a DFA <span
+class="math inline">\(M\)</span> such that <span
+class="math inline">\(L(M) = A\)</span> then there is another DFA, let’s
+call it <span class="math inline">\(M&#39;\)</span>, such that <span
+class="math inline">\(L(M&#39;) = \overline{A}\)</span>, the complement
+of <span class="math inline">\(A\)</span>, defined as <span
+class="math inline">\(\{ w \in \Sigma^* \mid w \notin A \}\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>:</p>
+<p>A useful bit of terminology: the <span><strong>iterated transition
+function</strong></span> of a finite automaton <span
+class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span> is
+defined recursively by <span class="math display">\[\delta^* (~(q,w)~)
+=\begin{cases}
+q  \qquad &amp;\text{if $q \in Q, w = \varepsilon$} \\
+\delta( ~(q,a)~) \qquad &amp;\text{if $q \in Q$, $w = a \in \Sigma$ } \\
+\delta(~(\delta^*(q,u), a) ~) \qquad &amp;\text{if $q \in Q$, $w = ua$
+where $u \in  \Sigma^*$ and $a \in \Sigma$}
+\end{cases}\]</span></p>
+<p>Using this terminology, <span class="math inline">\(M\)</span>
+accepts a string <span class="math inline">\(w\)</span> over <span
+class="math inline">\(\Sigma\)</span> if and only if <span
+class="math inline">\(\delta^*( ~(q_0,w)~) \in F\)</span>.</p>
+<p><span><strong>Proof</strong></span>:</p>
 <h1 class="unnumbered" id="week2-wednesday">Week2 wednesday</h1>
 <div class="center">
 <table>
@@ -363,29 +392,6 @@ class="math inline">\(\{a,b\}\)</span> is below. The formal definition
 of this NFA is:</p>
 <p><img src="../../resources/machines/Lect5NFA1.png" style="width:2.5in"
 alt="image" /></p>
-<p>The language recognized by this NFA is:</p>
-<h1 class="unnumbered" id="week2-friday">Week2 friday</h1>
-<p><span><strong>Warmup</strong></span>: Design a DFA (deterministic
-finite automaton) and an NFA (nondeterministic finite automaton) that
-each recognize each of the following languages over <span
-class="math inline">\(\{a,b\}\)</span> <span class="math display">\[\{ w
-\mid \text{$w$ has an $a$ and ends in $b$}\}\]</span></p>
-<p><span class="math display">\[\{ w \mid \text{$w$ has an $a$ or ends
-in $b$}\}\]</span></p>
-<p><strong>Strategy</strong>: To design DFA or NFA for a given language,
-identify patterns that can be built up as we process strings and create
-states for intermediate stages. Or: decompose the language to a simpler
-one that we already know how to recognize with a DFA or NFA.</p>
-<p><span><em>Recall</em></span> (from Wednesday of last week, and in
-textbook Exercise 1.14): if there is a DFA <span
-class="math inline">\(M\)</span> such that <span
-class="math inline">\(L(M) = A\)</span> then there is another DFA, let’s
-call it <span class="math inline">\(M&#39;\)</span>, such that <span
-class="math inline">\(L(M&#39;) = \overline{A}\)</span>, the complement
-of <span class="math inline">\(A\)</span>, defined as <span
-class="math inline">\(\{ w \in \Sigma^* \mid w \notin A \}\)</span>.</p>
-<p>Let’s practice defining automata constructions by coming up with
-other ways to get new automata from old.</p>
 <p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
 over an alphabet <span class="math inline">\(\Sigma\)</span>.
 <span><strong>Claim:</strong></span> if there is a NFA <span
@@ -428,11 +434,22 @@ class="math inline">\(A_2\)</span>; then, taking an arbitrary string in
 <span class="math inline">\(A_1 \cup A_2\)</span> and proving that it is
 accepted by <span class="math inline">\(N\)</span>. Details left for
 extra practice.</em></span></p>
-<p><span><strong>Example</strong></span>: The language recognized by the
+<h1 class="unnumbered" id="week2-friday">Week2 friday</h1>
+<p><span><strong>Review</strong></span>: The language recognized by the
 NFA over <span class="math inline">\(\{a,b\}\)</span> with state
 diagram</p>
 <p>is:</p>
-<p>Could we do the same construction with DFA?</p>
+<p>So far, we know:</p>
+<ul>
+<li><p>The collection of languages that are each recognizable by a DFA
+is <span><strong>closed</strong></span> under complementation.</p>
+<p><span><em>Could we do the same construction with
+NFA?</em></span></p></li>
+<li><p>The collection of languages that are each recognizable by a NFA
+is <span><strong>closed</strong></span> under complementation.</p>
+<p><span><em>Could we do the same construction with
+DFA?</em></span></p></li>
+</ul>
 <p>Happily, though, an analogous claim is true!</p>
 <p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
 over an alphabet <span class="math inline">\(\Sigma\)</span>.
@@ -458,8 +475,8 @@ class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
 class="math inline">\(M_2\)</span> such that <span
 class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
 let’s call it <span class="math inline">\(M\)</span>, such that <span
-class="math inline">\(L(M) = A_1 \cap A_2\)</span>. <span><em>Sipser
-Theorem 1.25, page 45</em></span></p>
+class="math inline">\(L(M) = A_1 \cap A_2\)</span>. <span><em>Footnote
+to Sipser Theorem 1.25, page 46</em></span></p>
 <p><span><strong>Proof idea</strong></span>:</p>
 <p><span><strong>Formal construction</strong></span>:</p>
 <h1 class="unnumbered" id="week1-friday">Week1 friday</h1>

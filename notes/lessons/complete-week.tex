@@ -188,6 +188,8 @@ is the twenty-second numbered item in chapter one; it comes right after Example 
 
 \subsection*{Week 2 at a glance}
 
+\vspace{-15pt}
+
 \subsubsection*{Textbook reading: Sections 1.1, 1.2}
 
 \vspace{-15pt}
@@ -196,10 +198,11 @@ Before Monday, read pages 41-43 (Figures 1.18, 1.19, 1.20) for examples of autom
 
 Before Wednesday, read pages 48-50 (Figures 1.27, 1.29) which introduces nondeterminism.
 
-Before Friday, read pages 60-61 Theorem 1.47 and Theorem 1.48 that we'll refer to as ``closure proofs".
+Before Friday, read pages 45-46 (Theorem 1.25) that we'll refer to as a ``closure proof".
 
-For Week 3 Monday: Theorem 1.39 ``Proof Idea'', Example 1.41, Example 1.56, Example 1.58.
+For Week 3 Monday: Theorem 1.47 + 1.48, Theorem 1.39 ``Proof Idea'', Example 1.41, Example 1.56.
 
+\vspace{-20pt}
 
 \subsubsection*{We will be learning and practicing to:}
 %Define decision problem, Formal definition of automata, Informal definition of automata, Find example languages, 
@@ -236,16 +239,17 @@ For Week 3 Monday: Theorem 1.39 ``Proof Idea'', Example 1.41, Example 1.56, Exam
 %   \item 
 %\end{itemize}
 
-\item Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.
-\begin{itemize}
-    \item Explain nondeterminism and describe tools for simulating it with deterministic computation.
-    \begin{itemize}
-      \item {\bf Given a nondeterministic finite automaton, find a deterministic finite automaton that recognizes its language.}
-   \end{itemize}
-\end{itemize}
+% \item Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.
+% \begin{itemize}
+%     \item Explain nondeterminism and describe tools for simulating it with deterministic computation.
+%     \begin{itemize}
+%       \item {\bf Given a nondeterministic finite automaton, find a deterministic finite automaton that recognizes its language.}
+%    \end{itemize}
+% \end{itemize}
 
 \end{itemize}
 
+\vspace{-50pt}
 
 \subsubsection*{TODO:}
 \begin{list}{\itemsep-10pt}
@@ -253,30 +257,25 @@ For Week 3 Monday: Theorem 1.39 ``Proof Idea'', Example 1.41, Example 1.56, Exam
    \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
    at PrairieTest (http://us.prairietest.com)
    \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due Tuesday 10/8/2024
-   \item Review Quiz on PrairieLearn (http://us.prairielearn.com), complete by Sunday 10/13/2024
+   \item Review Quiz 2 on PrairieLearn (http://us.prairielearn.com), complete by Sunday 10/13/2024
 \end{list}
+
+
 \newpage
-
-In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
-resources might be memory, time, parallelism, randomness, power, etc.
-To be able to compare ``hardness'' of problems, we use a consistent description of problems
-
-{\bf Input}: String
-
-{\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
-
-So far: we saw that regular expressions are convenient ways of describring patterns in strings.
-{\bf Finite automata} give a model of computation for processing strings and and classifying them into Yes (accepted)
-or No (rejected). We will see that each set of strings is described by a regular expression if and only 
-if there is a FA that recognizes it.  Another way of thinking about it: properties described by regular
-expressions require exactly the computational power of these finite automata.
-
 \subsection*{Monday: Finite automaton constructions}
 
 \input{../activity-snippets/week2-monday.tex}
 
 \newpage
 \subsection*{Wednesday: Nondeterministic automata}
+
+We saw that whenever a language is recognized by a DFA, its
+complement is also recognized by some (other) DFA. 
+
+Another way to say this is that the collection of languages
+that are each recognizable by a DFA is {\bf closed} under complementation.
+
+
 \input{../activity-snippets/week2-wednesday.tex}
 
 \newpage

@@ -60,18 +60,24 @@
 \end{itemize}
 \end{multicols}
 \end{center}
-In the state diagram of $M$, how many outgoing arrows are there from each state?
+Quick check: In the state diagram of $M$, how many outgoing arrows are there from each state?
 
-$M = ( \{ q, r, s\}, \{a,b\}, \delta, q, \{s\} )$ 
+
+
+{\bf Note}: We'll see a new kind of finite automaton. It will be helpful to distinguish it from the
+machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
+from Section 1.1.
+
+$M = ( \{ q0, q1, q2\}, \{a,b\}, \delta, q, \{q0\} )$ 
 where $\delta$ is  (rows labelled by states
 and columns labelled by symbols):
 \begin{center}
 \begin{tabular}{c|cc}
 $\delta$ & $a$ & $b$ \\
 \hline
-$q$ & $r$ & $q$ \\
-$r$ & $r$ & $s$ \\
-$s$ & $s$ & $s$ \\
+$q0$ & $q1$ & $q1$ \\
+$q1$ & $q2$ & $q2$ \\
+$q2$ & $q0$ & $q0$ \\
 \end{tabular}
 \end{center}
 
@@ -80,56 +86,79 @@ The state diagram for $M$ is
 \vfill
 
 
-
 Give two examples of strings that are accepted by $M$ and two examples of strings that are rejected by $M$:
 
 \vfill
 
-Add ``labels" for states in the state diagram, e.g. ``have not seen any of desired pattern yet'' or
-``sink state''.
-\newpage
-
-We can use the analysis of the roles of the states in the state diagram to describe the language
-recognized by the DFA. 
-
-
-$L(M) = $
 
 A regular expression describing $L(M)$ is
 
 
+\vfill 
 
+A state diagram for a finite automaton recognizing
+$$\{w \mid w~\text{is a string over $\{a,b\}$ whose length is not a multiple of $3$} \}$$
 
-\vspace{300pt}
+\vfill
 
-Let the alphabet be $\Sigma_1 = \{0,1\}$.
-
-A state diagram for a DFA that recognizes $\{w \mid w~\text{contains at most two $1$'s} \}$ is
-
-\vspace{70pt}
-
-A state diagram for a DFA that recognizes $\{w \mid w~\text{contains more than two $1$'s} \}$ is
-
-\vspace{70pt}
-
-
-\newpage
-{\it Extra example:} A state diagram for DFA recognizing
-$$\{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $3$} \}$$
-
-\vspace{70pt}
-
-
-Let $n$ be an arbitrary positive integer. What is a formal definition for a DFA recognizing
+Extra example: Let $n$ be an arbitrary positive integer. What is a formal definition for a finite automaton recognizing
 \[
 \{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $n$} \}?
 \]
 
+\newpage
+
+Consider the alphabet $\Sigma_1 = \{0,1\}$.
+
+A state diagram for a finite automaton that recognizes $\{w \mid w~\text{contains at most two $1$'s} \}$ is
+
+\vspace{70pt}
+
+A state diagram for a finite automaton that recognizes $\{w \mid w~\text{contains more than two $1$'s} \}$ is
+
+\vspace{70pt}
+
+
+\textbf{Strategy}: Add ``labels" for states in the state diagram, 
+e.g. ``have not seen any of desired pattern yet'' or
+``sink state''. Then, we can use the analysis of the roles of the states in the 
+state diagram to work towards a description of the language recognized
+by the finite automaton.
+
+
+Or: decompose the language to a simpler one 
+that we already know how to recognize with a DFA or NFA.
+
+
+Textbook Exercise 1.14: 
+Suppose $A$ is a language over an alphabet $\Sigma$. 
+If there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
+$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
+
+
+{\bf Proof idea}:
+
+
+\vfill
+A useful bit of terminology: the {\bf iterated transition function} of a finite automaton
+$M = (Q, \Sigma, \delta, q_0, F)$ is defined recursively by
+\[
+\delta^* (~(q,w)~) 
+=\begin{cases}
+q  \qquad &\text{if $q \in Q, w = \varepsilon$} \\
+\delta( ~(q,a)~) \qquad &\text{if $q \in Q$, $w = a \in \Sigma$ } \\
+\delta(~(\delta^*(q,u), a) ~) \qquad &\text{if $q \in Q$, $w = ua$ where $u \in  \Sigma^*$ and $a \in \Sigma$}
+\end{cases}
+\]
+
+Using  this terminology, $M$ accepts a string $w$ over $\Sigma$ if and only if $\delta^*( ~(q_0,w)~) \in F$.
+
+
+{\bf Proof}: 
 \vfill
 
-{\bf Note}: On Wednesday, we'll see a new kind of finite automaton. It will be helpful to distinguish it from the
-machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
-from Section 1.1. \vfill
+
+ \vfill
 \section*{Week2 wednesday}
 
 
@@ -177,40 +206,6 @@ The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of t
 \includegraphics[width=2.5in]{Lect5NFA1.png}
 
 
-\vspace{-10pt}
-
-The language recognized by this NFA is:  \vfill
-\section*{Week2 friday}
-{\bf Warmup}: Design a DFA (deterministic finite automaton) and an NFA (nondeterministic
-finite automaton) that each recognize each of the following languages over $\{a,b\}$
-\[
-    \{ w \mid \text{$w$ has an $a$ and ends in $b$}\}
-\]
-
-\vfill
-
-\[
-    \{ w \mid \text{$w$ has an $a$ or ends in $b$}\}
-\]
-
-\vfill
-
-
-
-\textbf{Strategy}: To design DFA or NFA for a given language,  
-identify patterns that can be built up as we process strings and create states
-for intermediate stages. Or: decompose the language to a simpler one 
-that we already know how to recognize with a DFA or NFA.
-
-
-{\it Recall} (from Wednesday of last week, and in textbook Exercise 1.14): 
-if there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
-$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
-
-
-Let's practice defining automata constructions by coming up with other ways to get new automata from old.
-\newpage
-
 Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
 {\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
 NFA $N_2$ such that $L(N_2) = A_2$, then there is another NFA, let's call it $N$, such that 
@@ -241,9 +236,11 @@ Construct $N = (Q, \Sigma, \delta, q_0, F_1 \cup F_2)$ where
 an arbitrary string accepted by $N$, tracing an accepting computation of $N$ on it, and using 
 that trace to prove the string is in at least one of $A_1$, $A_2$; then, taking an arbitrary 
 string in $A_1 \cup A_2$ and proving that it is accepted by $N$. Details left for extra practice.}
+ \vfill
+\section*{Week2 friday}
 
 
-{\bf Example}: The language recognized by the NFA over $\{a,b\}$ with state diagram
+{\bf Review}: The language recognized by the NFA over $\{a,b\}$ with state diagram
 
 
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
@@ -269,9 +266,28 @@ string in $A_1 \cup A_2$ and proving that it is accepted by $N$. Details left fo
 is:
 
 
-\newpage
+\vfill
 
-Could we do the same construction with DFA?
+So far, we know: 
+\begin{itemize}
+\item The collection of languages that are each recognizable by a 
+DFA is {\bf closed} under complementation.
+
+{\it Could we do the same construction with NFA?}
+
+\vspace{100pt}
+
+\item The collection of languages that are each recognizable by a 
+NFA is {\bf closed} under complementation.
+
+{\it Could we do the same construction with DFA?}
+
+\vspace{100pt}
+
+\end{itemize}
+
+
+\newpage
 
 \vspace{50pt}
 
@@ -323,7 +339,7 @@ $L(M) = A_1 \cup A_2$. {\it Theorem 1.25 in Sipser, page 45}
     Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
     {\bf Claim:} if there is a DFA $M_1$ such that $L(M_1) = A_1$ and 
     DFA $M_2$ such that $L(M_2) = A_2$, then there is another DFA, let's call it $M$, such that 
-    $L(M) = A_1 \cap A_2$.  {\it Sipser Theorem 1.25, page 45}
+    $L(M) = A_1 \cap A_2$.  {\it Footnote to Sipser Theorem 1.25, page 46}
     
     {\bf Proof idea}:
     

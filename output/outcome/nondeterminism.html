@@ -175,74 +175,21 @@
 
 </div>
 <h1 class="unnumbered" id="week2-friday">Week2 friday</h1>
-<p><span><strong>Warmup</strong></span>: Design a DFA (deterministic
-finite automaton) and an NFA (nondeterministic finite automaton) that
-each recognize each of the following languages over <span
-class="math inline">\(\{a,b\}\)</span> <span class="math display">\[\{ w
-\mid \text{$w$ has an $a$ and ends in $b$}\}\]</span></p>
-<p><span class="math display">\[\{ w \mid \text{$w$ has an $a$ or ends
-in $b$}\}\]</span></p>
-<p><strong>Strategy</strong>: To design DFA or NFA for a given language,
-identify patterns that can be built up as we process strings and create
-states for intermediate stages. Or: decompose the language to a simpler
-one that we already know how to recognize with a DFA or NFA.</p>
-<p><span><em>Recall</em></span> (from Wednesday of last week, and in
-textbook Exercise 1.14): if there is a DFA <span
-class="math inline">\(M\)</span> such that <span
-class="math inline">\(L(M) = A\)</span> then there is another DFA, let’s
-call it <span class="math inline">\(M&#39;\)</span>, such that <span
-class="math inline">\(L(M&#39;) = \overline{A}\)</span>, the complement
-of <span class="math inline">\(A\)</span>, defined as <span
-class="math inline">\(\{ w \in \Sigma^* \mid w \notin A \}\)</span>.</p>
-<p>Let’s practice defining automata constructions by coming up with
-other ways to get new automata from old.</p>
-<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
-over an alphabet <span class="math inline">\(\Sigma\)</span>.
-<span><strong>Claim:</strong></span> if there is a NFA <span
-class="math inline">\(N_1\)</span> such that <span
-class="math inline">\(L(N_1) = A_1\)</span> and NFA <span
-class="math inline">\(N_2\)</span> such that <span
-class="math inline">\(L(N_2) = A_2\)</span>, then there is another NFA,
-let’s call it <span class="math inline">\(N\)</span>, such that <span
-class="math inline">\(L(N) = A_1 \cup A_2\)</span>.</p>
-<p><span><strong>Proof idea</strong></span>: Use nondeterminism to
-choose which of <span class="math inline">\(N_1\)</span>, <span
-class="math inline">\(N_2\)</span> to run.</p>
-<p><span><strong>Formal construction</strong></span>: Let <span
-class="math inline">\(N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)\)</span>
-and <span class="math inline">\(N_2 = (Q_2, \Sigma, \delta_2,q_2,
-F_2)\)</span> and assume <span class="math inline">\(Q_1 \cap Q_2 =
-\emptyset\)</span> and that <span class="math inline">\(q_0 \notin Q_1
-\cup Q_2\)</span>. Construct <span class="math inline">\(N = (Q, \Sigma,
-\delta, q_0, F_1 \cup F_2)\)</span> where</p>
-<ul>
-<li><p><span class="math inline">\(Q =\)</span></p></li>
-<li><p><span class="math inline">\(\delta: Q \times \Sigma_\varepsilon
-\to \mathcal{P}(Q)\)</span> is defined by, for <span
-class="math inline">\(q \in Q\)</span> and <span class="math inline">\(x
-\in \Sigma_{\varepsilon}\)</span>: <span
-class="math display">\[\phantom{\delta((q,x))=\begin{cases}  \delta_1
-((q,x)) &amp;\qquad\text{if } q\in Q_1 \\ \delta_2 ((q,x))
-&amp;\qquad\text{if } q\in Q_2 \\ \{q1,q2\} &amp;\qquad\text{if } q =
-q_0, x = \varepsilon \\ \emptyset\text{if } q= q_0, x \neq \varepsilon
-\end{cases}}\]</span></p></li>
-</ul>
-<p><span><em>Proof of correctness would prove that <span
-class="math inline">\(L(N) = A_1 \cup A_2\)</span> by considering an
-arbitrary string accepted by <span class="math inline">\(N\)</span>,
-tracing an accepting computation of <span
-class="math inline">\(N\)</span> on it, and using that trace to prove
-the string is in at least one of <span
-class="math inline">\(A_1\)</span>, <span
-class="math inline">\(A_2\)</span>; then, taking an arbitrary string in
-<span class="math inline">\(A_1 \cup A_2\)</span> and proving that it is
-accepted by <span class="math inline">\(N\)</span>. Details left for
-extra practice.</em></span></p>
-<p><span><strong>Example</strong></span>: The language recognized by the
+<p><span><strong>Review</strong></span>: The language recognized by the
 NFA over <span class="math inline">\(\{a,b\}\)</span> with state
 diagram</p>
 <p>is:</p>
-<p>Could we do the same construction with DFA?</p>
+<p>So far, we know:</p>
+<ul>
+<li><p>The collection of languages that are each recognizable by a DFA
+is <span><strong>closed</strong></span> under complementation.</p>
+<p><span><em>Could we do the same construction with
+NFA?</em></span></p></li>
+<li><p>The collection of languages that are each recognizable by a NFA
+is <span><strong>closed</strong></span> under complementation.</p>
+<p><span><em>Could we do the same construction with
+DFA?</em></span></p></li>
+</ul>
 <p>Happily, though, an analogous claim is true!</p>
 <p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
 over an alphabet <span class="math inline">\(\Sigma\)</span>.
@@ -268,8 +215,8 @@ class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
 class="math inline">\(M_2\)</span> such that <span
 class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
 let’s call it <span class="math inline">\(M\)</span>, such that <span
-class="math inline">\(L(M) = A_1 \cap A_2\)</span>. <span><em>Sipser
-Theorem 1.25, page 45</em></span></p>
+class="math inline">\(L(M) = A_1 \cap A_2\)</span>. <span><em>Footnote
+to Sipser Theorem 1.25, page 46</em></span></p>
 <p><span><strong>Proof idea</strong></span>:</p>
 <p><span><strong>Formal construction</strong></span>:</p>
 </body>
