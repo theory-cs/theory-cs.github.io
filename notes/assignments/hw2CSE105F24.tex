@@ -1,0 +1,249 @@
+\input{../../resources/assignment-head.tex}
+
+\title{HW2CSE105F24: Homework assignment 2}
+\date{Due: October 15th at 5pm, via Gradescope}
+
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+{\bf In this assignment,}
+
+You will practice designing multiple representations of regular languages and working with 
+general constructions of automata to demonstrate the richness of the class of regular languages.
+
+
+{\bf Resources}: To review the topics 
+for this assignment, see the class material from Week 2.
+We will post frequently asked questions and our answers to them in a 
+pinned Piazza post. 
+
+{\bf Reading and extra practice problems}:  
+Sipser Section 1.1, 1.2, 1.3. 
+Chapter 1 exercises 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.14, 1.15, 
+1.16, 1.17, 1.19, 1.20, 1.21, 1.22. Chapter 1 problem 1.51.
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw2CSE105F24''.
+
+{\bf Assigned questions}
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+%%%%%%%%%%% PROBLEM 1 %%%%%%%%%%%
+\item \textbf{Automata design} (12 points):
+As background to this question, recall that integers can be represented using base $b$ expansions, for 
+any convenient choice of base $b$. The precise definition is:
+for $b$ an integer greater than $1$ and $n$ a positive integer, 
+the {\bf base $b$ expansion of $n$}  is defined to be
+\[
+(a_{k-1} \cdots a_1 a_0)_b
+\]
+where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ 
+are nonnegative integers less than $b$, $a_{k-1} \neq  0$, and
+\[
+n =  \sum_{i=0}^{k-1} a_{i} b^{i}
+\]
+
+Notice: {\it The base $b$ expansion of a positive integer $n$ is a string over the alphabet 
+$\{x \in \mathbb{Z} \st 0 \leq x < b\}$
+whose leftmost character is nonzero.}
+
+An important property of base $b$ expansions of integers is that, for each integer $b$ greater than $1$,
+each positive integer $n = (a_{k-1} \cdots a_1 a_0)_b$, and each nonnegative integer $a$ less than $b$, 
+\[
+    bn + a = (a_{k-1} \cdots a_1 a_0a)_b
+\]
+In other words, shifting the base $b$ expansion to the left results in multiplying the integer value by the base.
+In this question we'll explore building deterministic finite automata that recognize 
+languages that correspond to useful sets of integers.
+
+    \begin{enumerate}
+    \item\gradeCompleteFirst Design a DFA that recognizes the set of binary (base $2$) expansions of 
+    positive integers that are powers of $2$. A complete solution will include the state diagram of your DFA and 
+    a brief justification 
+    of your construction by explaining the role each state plays in the machine, as well as a brief 
+    justification about how the strings accepted and rejected by the machine connect to the specified language.
+
+    {\it Hints}: (1) A power of $2$ is an integer $x$ that can be written as $2^y$ for some nonnegative integer $y$, 
+    (2) the DFA should accept the strings $100$, $10$ and $100000$ and should reject the 
+    strings $010$, $1101$, and $\varepsilon$ (can you see why?).
+
+    \item\gradeComplete Consider arbitrary positive integer $m$. Design a DFA that recognizes the 
+    set of binary (base $2$) expansions of positive integers that are multiples of $m$. A complete solution will
+    include the formal definition of your DFA (paramterized by $m$) and a brief justification of your 
+    construction by explaining the role each state plays in the machine, as well as a brief 
+    justification about how the strings accepted and rejected by the machine connect to the specified language.
+
+    {\it Hints}: (1) Consider having a state for each possible remainder upon division by $m$.
+     (2) To determine transitions, notice that reading a new character will shift what we already read over by
+     one slot.
+
+    \item\gradeCorrectFirst Choose a positive integer $m_{0}$ between $5$ and $8$ (inclusive) and draw the state diagram
+    of a DFA recognizing the following language over $\{0,1,2,3\}$ 
+    $$\{ w \in \{0,1,2,3\}^* \mid w \text{ is a base $4$ expansion of a positive 
+    integer that is a multiple of $m_0$}\}$$
+    A complete solution will include the state diagram of your DFA and 
+    a brief justification 
+    of your construction by explaining the role each state plays in the machine, as well as a brief 
+    justification about how the strings accepted and rejected by the machine connect to the specified language.
+    \end{enumerate}
+
+    {\it Bonus extension to think about (ungraded):} Which other languages related to sets of integers 
+    can be proved to be regular using a similar strategy? 
+
+%%%%%%%%%%% PROBLEM 2 %%%%%%%%%%%
+\item \textbf{Nondeterminism} (15 points): For this question, the alphabet is $\{a,b\}$.
+\begin{enumerate}
+\item\gradeComplete Design a DFA that recognizes the language
+    \[ 
+    \{w \in \{a,b\}^* \mid w \text{ contains at most one $a$ {\bf and} at least two $b$s}\}
+    \]
+    You can design this DFA directly or use the constructions from class (and the footnote to Theorem 
+    1.25 in the book) to build this DFA from DFA for the simpler languages that are intersected
+    to give this language.
+    
+    A complete solution will include the state diagram of your DFA and 
+    a brief justification 
+    of your construction either by explaining the role each state plays in the machine, as well as a brief 
+    justification about how the strings accepted and rejected by the machine connect to the specified language, 
+    or by justifying the design of the DFA for the simpler languages and then describing how the Theorem was used.
+
+
+    \item\gradeCorrect Design a NFA with at most $6$ states that recognizes the language
+\[ 
+\{w \in \{a,b\}^* \mid w \text{ contains at most one $a$ {\bf and} at least two $b$s}\}
+\]
+A complete solution will include the state diagram of your NFA and 
+    a brief justification 
+    of your construction by explaining the role each state plays in the machine, as well as a brief 
+    justification about how the strings accepted and rejected by the machine connect to the specified language.
+    Give one example string in the language and explain the computation of the NFA
+    that witnesses that the machine accepts this string.
+    Also, give one example string not in the language and explain why the NFA rejects this string.
+
+\item\gradeCorrect Design a NFA with at most $6$ states that recognizes the language
+\[ 
+\{w \in \{a,b\}^* \mid w \text{ contains at most one $a$ {\bf or} at least two $b$s}\}
+\]
+A complete solution will include the state diagram of your NFA and 
+    a brief justification 
+    of your construction by explaining the role each state plays in the machine, as well as a brief 
+    justification about how the strings accepted and rejected by the machine connect to the specified language.
+    Give one example string in the language and explain the computation of the NFA
+    that witnesses that the machine accepts this string.
+    Also, give one example string not in the language and explain why the NFA rejects this string.
+\end{enumerate}
+{\it Bonus extension to think about (ungraded):} Did you need all $6$ states? Could you design DFA with $6$ states that recognize
+each of these langauges?
+
+%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
+\item\textbf{General constructions} (15 points):
+In this question, you'll practice working with formal general constructions
+for NFAs and translating between state diagrams and formal definitions.
+
+\begin{enumerate}
+\item\gradeCorrect Consider the following general construction: Let $N_1 = (Q, \Sigma, \delta_1, q_1, F_1)$ be a NFA
+and assume that $q_0 \notin Q$.
+Define the new NFA $N_2 = (Q \cup \{q_0\}, \Sigma, \delta_2, q_0, \{q_1\})$ where 
+$$\delta_2: (Q \cup \{q_0\}) \times \Sigma_\varepsilon \to \mathcal{P} (Q \cup \{q_0\})$$ is defined by
+\[
+    \delta_2 (q,a) = \begin{cases}
+        \{ q' \in Q \mid q \in \delta_1(q',a)\} &\text{if $q \in Q$, $a \in \Sigma_{\varepsilon}$} \\
+        F_1 &\text{if $q =q_0$, $a = \varepsilon$}\\
+        \emptyset &\text{if $q = q_0$, $a \in \Sigma$}
+    \end{cases}
+\]
+Illustrate this construction by defining a specific example NFA $N_1$ and applying the 
+construction above to create the new NFA $N_2$. Your example NFA should
+\begin{itemize}
+    \item Have exactly four states (all reachable from the start state),
+    \item Accept at least one string and reject at least one string, and
+    \item Not have any states labelled $q_0$.
+\end{itemize}
+Apply the construction above to create the new NFA. A complete submission 
+will include the state diagram of your example NFA $N_1$ and the state diagram of the NFA $N_2$ resulting 
+from this construction and a precise and clear description of $L(N_1)$ and $L(N_2)$, justified
+by explaining the role each state plays in the machine, as well as a brief 
+justification about how the strings accepted and rejected by the machine connect to the language.
+
+\item 
+In Week 2's review quiz, we saw the definition that a set $X$ is said to be 
+{\bf closed under an operation} if, for any elements in
+$X$, applying to them gives an element in $X$. For example, the set of
+integers is closed under multiplication because if we take any two
+integers, their product is also an integer .
+
+Recall the definitions we have: 
+For each language $L$ over the alphabet $\Sigma_1 = \{0,1\}$, we have the 
+associated set of strings
+  $$EXTEND(L) = \{ w \in \Sigma_1^* ~|~ w = uv \text{ for some strings } u \in L \text{ and } v \in \Sigma_1^* \}$$
+We will prove that the collection of languages over $\{0,1\}$ that are each 
+recognizable by some NFA is closed under the $EXTEND$ operation.
+
+\begin{enumerate}
+ 
+   \item \gradeComplete As a helpful tool in our construction\footnote{A result that is proved in 
+   order to work towards a larger theorem is called a Lemma.}, prove that every NFA can be 
+   converted to an equivalent one that has a single accept state. Note: this is exercise 1.11 in 
+   the textbook.
+
+   \item \gradeCorrect Prove that the collection of languages over $\{0,1\}$ that are each 
+   recognizable by some NFA is closed under the $EXTEND$ operation. You can assume 
+   that you are given a NFA with a single accept state $N = (Q, \{0,1\}, \delta, q_0, \{q_{acc}\})$
+   and you need to define a new NFA, $N_{new} = (Q_{new}, \{0,1\}, \delta_{new}, q_{new}, F_{new})$,
+    so that $L(N_{new}) = EXTEND(L(N))$. 
+
+    A complete solution will include precise definitions for $Q_{new}, \delta_{new}, q_{new},$ and 
+    $F_{new}$, as well as a 
+    a brief justification 
+    of your construction by explaining why these definitions work, referring 
+    specifically to the definition of $EXTEND$ and to acceptance of NFA.
+
+\end{enumerate}
+
+\end{enumerate}
+%%%%%%%%%%% PROBLEM 4 %%%%%%%%%%%
+\item\textbf{Multiple representations} (8 points):
+For any language $L \subseteq \Sigma^*$, recall that we define its \emph{complement} as 
+$$\overline{L} := \Sigma^* - L = \{w \in \Sigma^* \mid w \notin L\}$$ That is, the complement of $L$ 
+contains all and only those strings which are not in $L$. Our notation for regular expressions does not 
+include the complement symbol. However, 
+it turns out that the complement of a language described by a regular expression is guaranteed to also be describable by a 
+(different) regular expression.\footnote{We'll see that this is connected to the 
+result we proved in class that the complement of each language recognizable by a DFA is 
+recognizable by a(nother) DFA.}
+
+For example, over the alphabet $\Sigma = \{a,b\}$, the complement of the language described 
+by the regular expression $\Sigma^* b$ is described by the regular expression $\varepsilon \cup \Sigma^*a$
+because any string that does not end in $b$
+must either be the empty string or end in $a$.
+
+For each of the regular expressions $R$ over the alphabet $\Sigma = \{a,b\}$ below, write the regular 
+expression for~$\overline{L(R)}$. Your regular expressions may use the symbols
+$\varnothing$, $\varepsilon$, $a$, $b$, and the 
+following operations to combine them: union, concatenation, 
+and Kleene star.
+
+Briefly justify why your solution for each part works by giving plain English descriptions of the language 
+described by the regular expression and of its complement and connecting them to the regular 
+expression via relevant definitions. An English description that is more 
+detailed than simply negating the description in the original language will likely be helpful in the justification.
+
+Alternatively, you can justify your solution by first designing a DFA that recognizes $L(R)$, 
+using the construction from class and the book to modify this DFA to get a new DFA that recognizes~$\overline{L(R)}$, 
+and then applying the constructions from class and the book to convert this new DFA to a regular expression.
+
+For each part of the question, clearly state which approach you're taking and include enough intermediate
+steps to illustrate your work.
+
+
+\begin{enumerate}
+    \item\gradeCorrect $(a \cup b)^*a(a \cup b)^*$
+    \item\gradeCorrect $(a \cup b) (a \cup b) (a \cup b)$
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
