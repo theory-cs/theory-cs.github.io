@@ -201,7 +201,7 @@ been talking about so we’ll use <span><strong>Deterministic Finite
 Automaton</strong></span> (DFA) to refer to the machines from Section
 1.1.</p>
 <p><span class="math inline">\(M = ( \{ q0, q1, q2\}, \{a,b\}, \delta,
-q, \{q0\} )\)</span> where <span class="math inline">\(\delta\)</span>
+q0, \{q0\} )\)</span> where <span class="math inline">\(\delta\)</span>
 is (rows labelled by states and columns labelled by symbols):</p>
 <div class="center">
 <table>
@@ -289,8 +289,8 @@ defined recursively by <span class="math display">\[\delta^* (~(q,w)~)
 =\begin{cases}
 q  \qquad &amp;\text{if $q \in Q, w = \varepsilon$} \\
 \delta( ~(q,a)~) \qquad &amp;\text{if $q \in Q$, $w = a \in \Sigma$ } \\
-\delta(~(\delta^*(q,u), a) ~) \qquad &amp;\text{if $q \in Q$, $w = ua$
-where $u \in  \Sigma^*$ and $a \in \Sigma$}
+\delta(~(\delta^*(~(q,u)~), a) ~) \qquad &amp;\text{if $q \in Q$, $w =
+ua$ where $u \in  \Sigma^*$ and $a \in \Sigma$}
 \end{cases}\]</span></p>
 <p>Using this terminology, <span class="math inline">\(M\)</span>
 accepts a string <span class="math inline">\(w\)</span> over <span

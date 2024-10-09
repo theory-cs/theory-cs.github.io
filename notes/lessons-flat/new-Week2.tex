@@ -77,7 +77,7 @@ For Week 3 Monday: Theorem 1.47 + 1.48, Theorem 1.39 ``Proof Idea'', Example 1.4
       \item {\bf Given a regular expression, find a DFA or NFA that recognizes its language.}
    \end{itemize}
    \item Use precise notation to formally define the state diagram of finite automata.
-   \item Use clear English to describe computations of finite automata TM informally.
+   \item Use clear English to describe computations of finite automata informally.
    \begin{itemize}
       \item {\bf Design an automaton that recognizes a given language}
       \item {\bf Specify a general construction for DFA based on parameters}
@@ -135,7 +135,7 @@ Quick check: In the state diagram of $M$, how many outgoing arrows are there fro
 machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
 from Section 1.1.
 
-$M = ( \{ q0, q1, q2\}, \{a,b\}, \delta, q, \{q0\} )$ 
+$M = ( \{ q0, q1, q2\}, \{a,b\}, \delta, q0, \{q0\} )$ 
 where $\delta$ is  (rows labelled by states
 and columns labelled by symbols):
 \begin{center}
@@ -214,7 +214,7 @@ $M = (Q, \Sigma, \delta, q_0, F)$ is defined recursively by
 =\begin{cases}
 q  \qquad &\text{if $q \in Q, w = \varepsilon$} \\
 \delta( ~(q,a)~) \qquad &\text{if $q \in Q$, $w = a \in \Sigma$ } \\
-\delta(~(\delta^*(q,u), a) ~) \qquad &\text{if $q \in Q$, $w = ua$ where $u \in  \Sigma^*$ and $a \in \Sigma$}
+\delta(~(\delta^*(~(q,u)~), a) ~) \qquad &\text{if $q \in Q$, $w = ua$ where $u \in  \Sigma^*$ and $a \in \Sigma$}
 \end{cases}
 \]
 
