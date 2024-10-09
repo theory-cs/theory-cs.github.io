@@ -196,6 +196,10 @@
         "ExpandInCalendar": false,
         "content": [
             {
+                "name": "Notes",
+                "source": "Week3.tex"
+            },
+            {
                 "name": "(Video) NFA to DFA",
                 "source": "https://youtu.be/DQj5Jq3eJx8"
             },
