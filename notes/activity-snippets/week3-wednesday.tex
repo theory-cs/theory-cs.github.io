@@ -1,0 +1,78 @@
+%! app: Regular Languages
+%! outcome: Classify language, Find example languages, Pumping Lemma
+
+{\bf Definition and Theorem}: For an alphabet $\Sigma$, a language $L$ over $\Sigma$ is called {\bf regular}
+exactly when $L$ is recognized by some DFA, which happens exactly when $L$ is recognized by some NFA, 
+and happens exactly when $L$ is described by some regular expression
+
+{\bf We saw that}: The class of regular languages is closed under complementation, union, 
+intersection, set-wise concatenation, and Kleene star.
+
+{\bf Prove or Disprove}: There is some alphabet $\Sigma$ for which there is 
+some language recognized by an NFA but not by any DFA.
+
+\vfill
+
+{\bf Prove or Disprove}: There is some alphabet $\Sigma$ for which there is 
+some finite language not described by any regular expression over $\Sigma$.
+
+\vfill
+
+{\bf Prove or Disprove}: If a language is recognized by an NFA 
+then the complement of this language is not recognized by any DFA.
+
+\vfill
+
+\newpage
+
+{\bf Fix alphabet $\Sigma$. Is every language $L$ over $\Sigma$ regular?}
+
+\begin{center}
+\begin{tabular}{c|c}
+Set & Cardinality \\
+\hline
+& \\
+$\{0,1\}$ & \\
+& \\
+$\{0,1\}^*$ & \\
+& \\
+$\mathcal{P}( \{0,1\})$ & \\
+& \\
+The set of all languages over $\{0,1\}$ & \\
+& \\
+The set of all regular expressions over $\{0,1\}$ & \\
+& \\
+The set of all regular languages over $\{0,1\}$ & \\
+& \\
+\end{tabular}
+\end{center}
+
+
+
+\vfill
+Strategy: Find an {\bf invariant} property that is true of all regular languages. When analyzing 
+a given language, if the invariant is not true about it, then the language is not regular.
+\newpage
+
+{\bf Pumping Lemma} (Sipser Theorem 1.70): If $A$ is a regular language, then there
+is a number $p$ (a {\it pumping length}) where, if $s$ is any string in $A$ of length at least $p$, 
+then $s$ may be divided into three pieces, $s = xyz$ such that
+\vspace{-10pt}
+\begin{itemize}
+\item $|y| > 0$
+\item for each $i \geq 0$, $xy^i z \in A$
+\item $|xy| \leq p$.
+\end{itemize}
+
+
+{\bf Proof illustration}
+
+
+\vfill
+
+
+
+
+{\bf True or False}: A pumping length for $A = \{ 0,1 \}^*$ is $p = 5$.
+
+\vfill

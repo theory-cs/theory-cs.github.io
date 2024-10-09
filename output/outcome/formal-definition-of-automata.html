@@ -174,6 +174,239 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week3-monday">Week3 monday</h1>
+<p>So far we have that:</p>
+<ul>
+<li><p>If there is a DFA recognizing a language, there is a DFA
+recognizing its complement.</p></li>
+<li><p>If there are NFA recognizing two languages, there is a NFA
+recognizing their union.</p></li>
+<li><p>If there are DFA recognizing two languages, there is a DFA
+recognizing their union.</p></li>
+<li><p>If there are DFA recognizing two languages, there is a DFA
+recognizing their intersection.</p></li>
+</ul>
+<p>Our goals for today are (1) prove similar results about other set
+operations, (2) prove that NFA and DFA are equally expressive, and
+therefore (3) define an important class of languages.</p>
+<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
+over an alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a NFA <span
+class="math inline">\(N_1\)</span> such that <span
+class="math inline">\(L(N_1) = A_1\)</span> and NFA <span
+class="math inline">\(N_2\)</span> such that <span
+class="math inline">\(L(N_2) = A_2\)</span>, then there is another NFA,
+let’s call it <span class="math inline">\(N\)</span>, such that <span
+class="math inline">\(L(N) = A_1 \circ A_2\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: Allow computation to move
+between <span class="math inline">\(N_1\)</span> and <span
+class="math inline">\(N_2\)</span> “spontaneously" when reach an
+accepting state of <span class="math inline">\(N_1\)</span>, guessing
+that we’ve reached the point where the two parts of the string in the
+set-wise concatenation are glued together.</p>
+<p><span><strong>Formal construction</strong></span>: Let <span
+class="math inline">\(N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)\)</span>
+and <span class="math inline">\(N_2 = (Q_2, \Sigma, \delta_2,q_2,
+F_2)\)</span> and assume <span class="math inline">\(Q_1 \cap Q_2 =
+\emptyset\)</span>. Construct <span class="math inline">\(N = (Q,
+\Sigma, \delta, q_0, F)\)</span> where</p>
+<ul>
+<li><p><span class="math inline">\(Q =\)</span></p></li>
+<li><p><span class="math inline">\(q_0 =\)</span></p></li>
+<li><p><span class="math inline">\(F =\)</span></p></li>
+<li><p><span class="math inline">\(\delta: Q \times \Sigma_\varepsilon
+\to \mathcal{P}(Q)\)</span> is defined by, for <span
+class="math inline">\(q \in Q\)</span> and <span class="math inline">\(a
+\in \Sigma_{\varepsilon}\)</span>: <span
+class="math display">\[\delta((q,a))=\begin{cases}  
+                \delta_1 ((q,a)) &amp;\qquad\text{if } q\in Q_1 \textrm{
+and } q \notin F_1\\
+                \delta_1 ((q,a)) &amp;\qquad\text{if } q\in F_1 \textrm{
+and } a \in \Sigma\\
+                \delta_1 ((q,a)) \cup \{q_2\} &amp;\qquad\text{if } q\in
+F_1 \textrm{ and } a = \varepsilon\\
+                \delta_2 ((q,a)) &amp;\qquad\text{if } q\in Q_2
+            \end{cases}\]</span></p></li>
+</ul>
+<p><span><em>Proof of correctness would prove that <span
+class="math inline">\(L(N) = A_1 \circ A_2\)</span> by considering an
+arbitrary string accepted by <span class="math inline">\(N\)</span>,
+tracing an accepting computation of <span
+class="math inline">\(N\)</span> on it, and using that trace to prove
+the string can be written as the result of concatenating two strings,
+the first in <span class="math inline">\(A_1\)</span> and the second in
+<span class="math inline">\(A_2\)</span>; then, taking an arbitrary
+string in <span class="math inline">\(A_1 \circ A_2\)</span> and proving
+that it is accepted by <span class="math inline">\(N\)</span>. Details
+left for extra practice.</em></span></p>
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a NFA <span
+class="math inline">\(N\)</span> such that <span
+class="math inline">\(L(N) = A\)</span>, then there is another NFA,
+let’s call it <span class="math inline">\(N&#39;\)</span>, such that
+<span class="math inline">\(L(N&#39;) = A^*\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: Add a fresh start state,
+which is an accept state. Add spontaneous moves from each (old) accept
+state to the old start state.</p>
+<p><span><strong>Formal construction</strong></span>: Let <span
+class="math inline">\(N = (Q, \Sigma, \delta, q_1, F)\)</span> and
+assume <span class="math inline">\(q_0 \notin Q\)</span>. Construct
+<span class="math inline">\(N&#39; = (Q&#39;, \Sigma, \delta&#39;, q_0,
+F&#39;)\)</span> where</p>
+<ul>
+<li><p><span class="math inline">\(Q&#39; = Q \cup
+\{q_0\}\)</span></p></li>
+<li><p><span class="math inline">\(F&#39; = F \cup
+\{q_0\}\)</span></p></li>
+<li><p><span class="math inline">\(\delta&#39;: Q&#39; \times
+\Sigma_\varepsilon \to \mathcal{P}(Q&#39;)\)</span> is defined by, for
+<span class="math inline">\(q \in Q&#39;\)</span> and <span
+class="math inline">\(a \in \Sigma_{\varepsilon}\)</span>: <span
+class="math display">\[\delta&#39;((q,a))=\begin{cases}  
+                \delta ((q,a)) &amp;\qquad\text{if } q\in Q \textrm{ and
+} q \notin F\\
+                \delta ((q,a)) &amp;\qquad\text{if } q\in F \textrm{ and
+} a \in \Sigma\\
+                \delta ((q,a)) \cup \{q_1\} &amp;\qquad\text{if } q\in F
+\textrm{ and } a = \varepsilon\\
+                \{q_1\} &amp;\qquad\text{if } q = q_0 \textrm{ and } a =
+\varepsilon \\
+                \emptyset &amp;\qquad\text{if } q = q_0 \textrm { and }
+a \in \Sigma
+            \end{cases}\]</span></p></li>
+</ul>
+<p><span><em>Proof of correctness would prove that <span
+class="math inline">\(L(N&#39;) = A^*\)</span> by considering an
+arbitrary string accepted by <span
+class="math inline">\(N&#39;\)</span>, tracing an accepting computation
+of <span class="math inline">\(N&#39;\)</span> on it, and using that
+trace to prove the string can be written as the result of concatenating
+some number of strings, each of which is in <span
+class="math inline">\(A\)</span>; then, taking an arbitrary string in
+<span class="math inline">\(A^*\)</span> and proving that it is accepted
+by <span class="math inline">\(N&#39;\)</span>. Details left for extra
+practice.</em></span></p>
+<p><span><strong>Application</strong></span>: A state diagram for a NFA
+over <span class="math inline">\(\Sigma = \{a,b\}\)</span> that
+recognizes <span class="math inline">\(L (( a^*b)^* )\)</span>:</p>
+<p>Suppose <span class="math inline">\(A\)</span> is a language over an
+alphabet <span class="math inline">\(\Sigma\)</span>.
+<span><strong>Claim:</strong></span> if there is a NFA <span
+class="math inline">\(N\)</span> such that <span
+class="math inline">\(L(N) = A\)</span> then there is a DFA <span
+class="math inline">\(M\)</span> such that <span
+class="math inline">\(L(M) = A\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: States in <span
+class="math inline">\(M\)</span> are “macro-states" – collections of
+states from <span class="math inline">\(N\)</span> – that represent the
+set of possible states a computation of <span
+class="math inline">\(N\)</span> might be in.</p>
+<p><span><strong>Formal construction</strong></span>: Let <span
+class="math inline">\(N = (Q, \Sigma, \delta, q_0, F)\)</span>. Define
+<span class="math display">\[M = (~ \mathcal{P}(Q), \Sigma, \delta&#39;,
+q&#39;,  \{ X \subseteq Q \mid X \cap F \neq \emptyset \}~ )\]</span>
+where <span class="math inline">\(q&#39; = \{ q \in Q \mid \text{$q =
+q_0$ or is accessible from $q_0$ by spontaneous moves in $N$}
+\}\)</span> and <span class="math display">\[\delta&#39; (~(X, x)~) = \{
+q \in Q \mid q \in \delta( ~(r,x)~) ~\text{for some $r \in X$ or is
+accessible
+from such an $r$ by spontaneous moves in $N$} \}\]</span></p>
+<p>Consider the state diagram of an NFA over <span
+class="math inline">\(\{a,b\}\)</span>. Use the “macro-state”
+construction to find an equivalent DFA.</p>
+<p><img src="../../resources/machines/Lect6NFA1.png" style="width:2.5in"
+alt="image" /></p>
+<p>Consider the state diagram of an NFA over <span
+class="math inline">\(\{0,1\}\)</span>. Use the “macro-state”
+construction to find an equivalent DFA.</p>
+<p><img src="../../resources/machines/Lect6NFA2.png" style="width:1.8in"
+alt="image" /></p>
+<p>Note: We can often prune the DFAs that result from the “macro-state”
+constructions to get an equivalent DFA with fewer states (e.g. only the
+“macro-states" reachable from the start state).</p>
+<p><span><strong>The class of regular languages</strong></span></p>
+<p>Fix an alphabet <span class="math inline">\(\Sigma\)</span>. For each
+language <span class="math inline">\(L\)</span> over <span
+class="math inline">\(\Sigma\)</span>:</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><span><strong>There is a DFA over <span
+class="math inline">\(\Sigma\)</span> that recognizes <span
+class="math inline">\(L\)</span></strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists M
+~(M \textrm{ is a DFA and } L(M) = A)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span><em>if and only
+if</em></span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span><strong>There is a NFA over <span
+class="math inline">\(\Sigma\)</span> that recognizes <span
+class="math inline">\(L\)</span></strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists N
+~(N \textrm{ is a NFA and } L(N) = A)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span><em>if and only
+if</em></span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span><strong>There is a regular
+expression over <span class="math inline">\(\Sigma\)</span> that
+describes <span class="math inline">\(L\)</span></strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(\exists R
+~(R \textrm{ is a regular expression and } L(R) = A)\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A language is called <span><strong>regular</strong></span> when any
+(hence all) of the above three conditions are met.</p>
+<p>We already proved that DFAs and NFAs are equally expressive. It
+remains to prove that regular expressions are too.</p>
+<p>Part 1: Suppose <span class="math inline">\(A\)</span> is a language
+over an alphabet <span class="math inline">\(\Sigma\)</span>. If there
+is a regular expression <span class="math inline">\(R\)</span> such that
+<span class="math inline">\(L(R) = A\)</span>, then there is a NFA,
+let’s call it <span class="math inline">\(N\)</span>, such that <span
+class="math inline">\(L(N) = A\)</span>.</p>
+<p><span><strong>Structural induction</strong></span>: Regular
+expression is built from basis regular expressions using inductive steps
+(union, concatenation, Kleene star symbols). Use constructions to mirror
+these in NFAs.</p>
+<p><span><strong>Application</strong></span>: A state diagram for a NFA
+over <span class="math inline">\(\{a,b\}\)</span> that recognizes <span
+class="math inline">\(L(a^* (ab)^*)\)</span>:</p>
+<p>Part 2: Suppose <span class="math inline">\(A\)</span> is a language
+over an alphabet <span class="math inline">\(\Sigma\)</span>. If there
+is a DFA <span class="math inline">\(M\)</span> such that <span
+class="math inline">\(L(M) = A\)</span>, then there is a regular
+expression, let’s call it <span class="math inline">\(R\)</span>, such
+that <span class="math inline">\(L(R) = A\)</span>.</p>
+<p><span><strong>Proof idea</strong></span>: Trace all possible paths
+from start state to accept state. Express labels of these paths as
+regular expressions, and union them all.</p>
+<ol>
+<li><p>Add new start state with <span
+class="math inline">\(\varepsilon\)</span> arrow to old start
+state.</p></li>
+<li><p>Add new accept state with <span
+class="math inline">\(\varepsilon\)</span> arrow from old accept states.
+Make old accept states non-accept.</p></li>
+<li><p>Remove one (of the old) states at a time: modify regular
+expressions on arrows that went through removed state to restore
+language recognized by machine.</p></li>
+</ol>
+<p><span><strong>Application</strong></span>: Find a regular expression
+describing the language recognized by the DFA with state diagram</p>
+<p><img src="../../resources/machines/Lect6NFA3.png" style="width:2.5in"
+alt="image" /></p>
 <h1 class="unnumbered" id="week2-monday">Week2 monday</h1>
 <p><span><strong>Review</strong></span>: Formal definition of DFA: <span
 class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></p>
@@ -446,7 +679,7 @@ is <span><strong>closed</strong></span> under complementation.</p>
 <p><span><em>Could we do the same construction with
 NFA?</em></span></p></li>
 <li><p>The collection of languages that are each recognizable by a NFA
-is <span><strong>closed</strong></span> under complementation.</p>
+is <span><strong>closed</strong></span> under union.</p>
 <p><span><em>Could we do the same construction with
 DFA?</em></span></p></li>
 </ul>

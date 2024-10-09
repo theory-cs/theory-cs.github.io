@@ -1,0 +1,584 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,arrows}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} 
+\subsection*{Week 3 at a glance}
+
+\vspace{-15pt}
+
+\subsubsection*{Textbook reading: Chapter 1}
+
+\vspace{-15pt}
+
+Before Monday, Theorem 1.47 + 1.48, Theorem 1.39 ``Proof Idea'', Example 1.41, Example 1.56.
+
+Before Wednesday, read Introduction to Section 1.4 (page 77) which introduces nonregularity.
+
+Before Friday, read Example 1.75, Example 1.77.
+
+For Week 4 Monday: read Definition 2.13 (page 111-112) introducing Pushdown Automata.
+
+\vspace{-20pt}
+
+\subsubsection*{We will be learning and practicing to:}
+
+\vspace{-15pt}
+
+\begin{itemize}
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+   \item Give examples of sets that are regular (and prove that they are).
+   \begin{itemize}
+      \item {\bf State the definition of the class of regular languages}
+      \item {\bf Give examples of regular languages, using each of the three equivalent models of computation for proving regularity.}
+      \item {\bf Choose between multiple models to prove that a language is regular}
+      \item {\bf Explain the limits of the class of regular languages}
+   \end{itemize}
+   \item Describe and use models of computation that don't involve state machines.
+   \begin{itemize}
+      \item {\bf Given a DFA or NFA, find a regular expression that describes its language.}
+      \item {\bf Given a regular expression, find a DFA or NFA that recognizes its language.}
+   \end{itemize}
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. 
+\begin{itemize}
+\item Apply classical techniques including pumping lemma, determinization, diagonalization, and reduction to analyze the complexity of languages and problems.
+\begin{itemize}
+    \item {\bf Justify why the Pumping Lemma is true.}
+    \item {\bf Use the pumping lemma to prove that a given language is not regular.}
+\end{itemize}
+\end{itemize}
+
+\item Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.
+ \begin{itemize}
+     \item Explain nondeterminism and describe tools for simulating it with deterministic computation.
+     \begin{itemize}
+       \item {\bf Given a NFA, find a DFA that recognizes its language.}
+       \item {\bf Convert between regular expressions and automata}
+     \end{itemize}
+ \end{itemize}
+
+\end{itemize}
+
+\vspace{-20pt}
+
+\subsubsection*{TODO:}
+\begin{list}{\itemsep-10pt}
+   \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
+   at PrairieTest (http://us.prairietest.com)
+   \item Homework 2 submitted via Gradescope (https://www.gradescope.com/), due Tuesday 10/15/2024
+   \item Review Quiz 2 on PrairieLearn (http://us.prairielearn.com), complete by Sunday 10/20/2024
+\end{list}
+
+\newpage
+
+In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
+resources might be memory, time, parallelism, randomness, power, etc.
+To be able to compare ``hardness'' of problems, we use a consistent description of problems
+
+{\bf Input}: String
+
+{\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
+
+So far: we saw that regular expressions are convenient ways of describring patterns in strings.
+{\bf Finite automata} give a model of computation for processing strings and and classifying them into Yes (accepted)
+or No (rejected). We will see that each set of strings is described by a regular expression if and only 
+if there is a FA that recognizes it.  Another way of thinking about it: properties described by regular
+expressions require exactly the computational power of these finite automata.
+
+\subsection*{Monday: Regular languages}
+
+
+
+So far we have that: 
+\begin{itemize}
+\item If there is a DFA recognizing a language, there is a DFA recognizing its complement.
+\item If there are NFA recognizing two languages, there is a NFA recognizing their union.
+\item If there are DFA recognizing two languages, there is a DFA recognizing their union.
+\item If there are DFA recognizing two languages, there is a DFA recognizing their intersection.
+\end{itemize}
+
+Our goals for today are (1) prove similar results about other set operations, (2) prove that 
+NFA and DFA are equally expressive, and therefore (3) define an important class of languages.
+
+\vfill
+
+\newpage
+Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
+{\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
+NFA $N_2$ such that $L(N_2) = A_2$, then there is another NFA, let's call it $N$, such that 
+$L(N) = A_1 \circ A_2$.
+
+{\bf Proof idea}: Allow computation to move between $N_1$ and $N_2$ ``spontaneously" when reach an accepting state of 
+$N_1$, guessing that we've reached the point where the two parts of the string in the set-wise concatenation 
+are glued together.
+
+
+{\bf Formal construction}: Let 
+$N_1 = (Q_1, \Sigma, \delta_1, q_1, F_1)$ and $N_2 = (Q_2, \Sigma, \delta_2,q_2, F_2)$
+and assume $Q_1 \cap Q_2 = \emptyset$.
+Construct $N = (Q, \Sigma, \delta, q_0, F)$ where
+\begin{itemize}
+    \item $Q = $
+    \item $q_0 = $
+    \item $F = $
+    \item $\delta: Q \times \Sigma_\varepsilon \to \mathcal{P}(Q)$ is defined by, for $q \in Q$ and $a \in \Sigma_{\varepsilon}$:
+        \[
+            \delta((q,a))=\begin{cases}  
+                \delta_1 ((q,a)) &\qquad\text{if } q\in Q_1 \textrm{ and } q \notin F_1\\ 
+                \delta_1 ((q,a)) &\qquad\text{if } q\in F_1 \textrm{ and } a \in \Sigma\\ 
+                \delta_1 ((q,a)) \cup \{q_2\} &\qquad\text{if } q\in F_1 \textrm{ and } a = \varepsilon\\ 
+                \delta_2 ((q,a)) &\qquad\text{if } q\in Q_2
+            \end{cases}
+        \]
+\end{itemize}
+
+\vfill
+
+{\it Proof of correctness would prove that $L(N) = A_1 \circ A_2$ by considering
+an arbitrary string accepted by $N$, tracing an accepting computation of $N$ on it, and using 
+that trace to prove the string can be written as the result of concatenating two strings, 
+the first in $A_1$ and the second in $A_2$; then, taking an arbitrary 
+string in $A_1 \circ A_2$ and proving that it is accepted by $N$. Details left for extra practice.}
+
+\newpage
+
+
+
+Suppose $A$ is a language over an alphabet $\Sigma$.
+{\bf Claim:} if there is a NFA $N$ such that $L(N) = A$, then there is another NFA, let's call it $N'$, such that 
+$L(N') = A^*$.
+
+{\bf Proof idea}: Add a fresh start state, which is an accept state. Add spontaneous 
+moves from each (old) accept state to the old start state.
+
+{\bf Formal construction}: Let 
+$N = (Q, \Sigma, \delta, q_1, F)$ and assume $q_0 \notin Q$.
+Construct $N' = (Q', \Sigma, \delta', q_0, F')$ where
+\begin{itemize}
+    \item $Q' = Q \cup \{q_0\}$
+    \item $F' = F \cup \{q_0\}$
+    \item $\delta': Q' \times \Sigma_\varepsilon \to \mathcal{P}(Q')$ is defined by, for $q \in Q'$ and $a \in \Sigma_{\varepsilon}$:
+        \[
+            \delta'((q,a))=\begin{cases}  
+                \delta ((q,a)) &\qquad\text{if } q\in Q \textrm{ and } q \notin F\\ 
+                \delta ((q,a)) &\qquad\text{if } q\in F \textrm{ and } a \in \Sigma\\ 
+                \delta ((q,a)) \cup \{q_1\} &\qquad\text{if } q\in F \textrm{ and } a = \varepsilon\\ 
+                \{q_1\} &\qquad\text{if } q = q_0 \textrm{ and } a = \varepsilon \\
+                \emptyset &\qquad\text{if } q = q_0 \textrm { and } a \in \Sigma
+            \end{cases}
+        \]
+\end{itemize}
+
+
+{\it Proof of correctness would prove that $L(N') = A^*$ by considering
+an arbitrary string accepted by $N'$, tracing an accepting computation of $N'$ on it, and using 
+that trace to prove the string can be written as the result of concatenating some number of strings, 
+each of which is in $A$; then, taking an arbitrary 
+string in $A^*$ and proving that it is accepted by $N'$. Details left for extra practice.}
+
+
+{\bf Application}: A state diagram for a NFA over $\Sigma = \{a,b\}$ 
+that recognizes $L (( a^*b)^* )$:
+
+\vfill
+\newpage
+Suppose $A$ is a language over an alphabet $\Sigma$.
+{\bf Claim:} if there is a NFA $N$ such that $L(N) = A$ then 
+there is a DFA $M$ such that $L(M) = A$.
+
+{\bf Proof idea}: States in $M$ are ``macro-states" -- collections of states from $N$ -- 
+that represent the set of possible states a computation of $N$ might be in.
+
+
+{\bf Formal construction}: Let $N = (Q, \Sigma, \delta, q_0, F)$.  Define 
+\[
+M = (~ \mathcal{P}(Q), \Sigma, \delta', q',  \{ X \subseteq Q \mid X \cap F \neq \emptyset \}~ )
+\]
+where $q' = \{ q \in Q \mid \text{$q = q_0$ or is accessible from $q_0$ by spontaneous moves in $N$} \}$
+and 
+\[
+    \delta' (~(X, x)~) = \{ q \in Q \mid q \in \delta( ~(r,x)~) ~\text{for some $r \in X$ or is accessible 
+from such an $r$ by spontaneous moves in $N$} \}
+\]
+
+
+Consider the state diagram of an NFA over $\{a,b\}$. Use the ``macro-state'' construction 
+to find an equivalent DFA.
+
+\includegraphics[width=2.5in]{Lect6NFA1.png}
+
+
+
+
+\vfill
+
+Consider the state diagram of an NFA over $\{0,1\}$. Use the ``macro-state'' construction 
+to find an equivalent DFA.
+
+
+\includegraphics[width=1.8in]{Lect6NFA2.png}
+
+
+\vfill
+
+Note: We can often prune the DFAs that result from the ``macro-state'' constructions to get an 
+equivalent DFA with fewer states (e.g.\ only the ``macro-states" reachable from the start state).
+
+\newpage
+
+
+{\bf The class of regular languages}
+
+Fix an alphabet $\Sigma$. For each language $L$ over $\Sigma$:
+\begin{center}
+\begin{tabular}{cc}
+    {\bf There is a DFA over $\Sigma$ that recognizes $L$}&$\exists M ~(M \textrm{ is a DFA and } L(M) = A)$\\
+    {\it if and only if}&\\
+    {\bf There is a NFA over $\Sigma$ that recognizes $L$}&$\exists N ~(N \textrm{ is a NFA and } L(N) = A)$\\
+    {\it if and only if}&\\
+    {\bf There is a regular expression over $\Sigma$ that describes $L$} &$\exists R ~(R \textrm{ is a regular expression and } L(R) = A)$\\
+\end{tabular}
+\end{center}
+
+A language is called {\bf regular} when any (hence all) of the above three conditions are met.
+
+We already proved that DFAs and NFAs are equally expressive. It remains to prove that regular expressions 
+are too.
+
+Part 1: Suppose $A$ is a language over an alphabet $\Sigma$.
+If there is a regular expression $R$ such that $L(R) = A$, then there is a NFA, let's call it $N$, such that 
+$L(N) = A$.
+
+{\bf Structural induction}: Regular expression is built from basis regular expressions using inductive steps
+(union, concatenation, Kleene star symbols). Use constructions to mirror these in NFAs.
+
+
+{\bf Application}: A state diagram for a NFA over $\{a,b\}$ that recognizes $L(a^* (ab)^*)$:
+
+\vfill
+
+Part 2: Suppose $A$ is a language over an alphabet $\Sigma$.
+If there is a DFA $M$ such that $L(M) = A$, then there is a regular expression, let's call it $R$, such that 
+$L(R) = A$.
+
+{\bf Proof idea}: Trace all possible paths from start state to accept state.  Express labels of these paths
+as regular expressions, and union them all.
+
+\begin{enumerate}
+\item Add new start state with $\varepsilon$ arrow to old start state.
+\item Add new accept state with $\varepsilon$ arrow from old accept states.  Make old accept states
+non-accept.
+\item Remove one (of the old) states at a time: modify regular expressions on arrows that went through removed
+state to restore language recognized by machine.
+\end{enumerate}
+
+{\bf Application}: Find a regular expression describing the language recognized by the DFA with 
+state diagram
+
+\includegraphics[width=2.5in]{Lect6NFA3.png}
+
+\vfill
+ 
+\newpage
+\subsection*{Wednesday: Nonregular languages}
+
+
+
+{\bf Definition and Theorem}: For an alphabet $\Sigma$, a language $L$ over $\Sigma$ is called {\bf regular}
+exactly when $L$ is recognized by some DFA, which happens exactly when $L$ is recognized by some NFA, 
+and happens exactly when $L$ is described by some regular expression
+
+{\bf We saw that}: The class of regular languages is closed under complementation, union, 
+intersection, set-wise concatenation, and Kleene star.
+
+{\bf Prove or Disprove}: There is some alphabet $\Sigma$ for which there is 
+some language recognized by an NFA but not by any DFA.
+
+\vfill
+
+{\bf Prove or Disprove}: There is some alphabet $\Sigma$ for which there is 
+some finite language not described by any regular expression over $\Sigma$.
+
+\vfill
+
+{\bf Prove or Disprove}: If a language is recognized by an NFA 
+then the complement of this language is not recognized by any DFA.
+
+\vfill
+
+\newpage
+
+{\bf Fix alphabet $\Sigma$. Is every language $L$ over $\Sigma$ regular?}
+
+\begin{center}
+\begin{tabular}{c|c}
+Set & Cardinality \\
+\hline
+& \\
+$\{0,1\}$ & \\
+& \\
+$\{0,1\}^*$ & \\
+& \\
+$\mathcal{P}( \{0,1\})$ & \\
+& \\
+The set of all languages over $\{0,1\}$ & \\
+& \\
+The set of all regular expressions over $\{0,1\}$ & \\
+& \\
+The set of all regular languages over $\{0,1\}$ & \\
+& \\
+\end{tabular}
+\end{center}
+
+
+
+\vfill
+Strategy: Find an {\bf invariant} property that is true of all regular languages. When analyzing 
+a given language, if the invariant is not true about it, then the language is not regular.
+\newpage
+
+{\bf Pumping Lemma} (Sipser Theorem 1.70): If $A$ is a regular language, then there
+is a number $p$ (a {\it pumping length}) where, if $s$ is any string in $A$ of length at least $p$, 
+then $s$ may be divided into three pieces, $s = xyz$ such that
+\vspace{-10pt}
+\begin{itemize}
+\item $|y| > 0$
+\item for each $i \geq 0$, $xy^i z \in A$
+\item $|xy| \leq p$.
+\end{itemize}
+
+
+{\bf Proof illustration}
+
+
+\vfill
+
+
+
+
+{\bf True or False}: A pumping length for $A = \{ 0,1 \}^*$ is $p = 5$.
+
+\vfill 
+\newpage
+\subsection*{Friday: Pumping Lemma}
+
+
+
+Recap so far: In DFA, the only memory available is in the states. Automata can only
+``remember'' finitely far in the past and finitely much information, because
+they can have only finitely many states. If a computation path of a DFA visits 
+the same state more than once, the machine can't tell the difference between 
+the first time and future times it visits this state. Thus, if 
+a DFA accepts one long string, then it must accept (infinitely) many 
+similar strings.
+
+{\bf Definition}  A positive integer $p$ is a {\bf pumping length} of a language $L$ over $\Sigma$ means
+that, for each string $s  \in  \Sigma^*$, if  $|s| \geq p$ and $s \in L$, then there are strings $x,y,z$
+such that 
+\[
+s = xyz
+\]
+and  
+\[
+|y| > 0,  \qquad \qquad 
+\text{ for each $i \geq 0$, $xy^i z \in L$}, \qquad \text{and}
+\qquad  \qquad
+|xy| \leq p.
+\]
+
+{\bf Negation}: A positive integer  $p$  is {\bf not a pumping length} of a language  $L$ over  $\Sigma$  iff
+\[
+\exists s \left(~  |s| \geq  p \wedge s \in L \wedge \forall x \forall y \forall z  \left( ~\left( s = xyz \wedge 
+|y| > 0 \wedge |xy| \leq p~ \right) \to \exists i  (  i \geq 0  \wedge xy^iz  \notin L ) \right) ~\right) 
+\]
+{\it Informally: }
+
+
+Restating {\bf Pumping Lemma}: If $L$ is a regular language, then it  has
+a pumping length.
+
+
+{\bf Contrapositive}: If $L$ has no pumping length, then  it is nonregular.
+
+\vfill
+
+{\Large The Pumping Lemma {\it cannot} be used to prove that a language {\it is} regular.} 
+
+{\Large The Pumping Lemma {\bf can} be used to prove that a language {\it is not} regular.}
+
+{\it Extra practice}: Exercise 1.49 in the book.
+
+
+\vfill
+
+{\bf Proof strategy}: To prove that a language $L$ is {\bf not} regular, 
+\begin{itemize}
+    \item Consider an arbitrary positive integer $p$
+    \item Prove that $p$ is not a pumping length for $L$
+    \item Conclude that $L$ does not have {\it any} pumping length, and therefore it is not regular.
+\end{itemize}
+
+\newpage
+{\bf Example}: $\Sigma  =  \{0,1\}$, $L = \{ 0^n 1^n \mid n  \geq 0\}$.
+
+Fix $p$ an arbitrary positive integer. List strings that are in $L$ and have length  greater than or equal  to $p$:
+
+\vspace{20pt}
+
+Pick $s = $
+
+
+Suppose $s = xyz$ with  $|xy|  \leq  p$ and $|y| > 0$.
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+ \\
+\hspace{4in} \\
+\hline
+\end{tabular}
+\end{center}
+
+Then when $i = \hspace{1in}$, $xy^i z  = \hspace{1in}$
+
+\newpage
+
+{\bf Example}: $\Sigma  =  \{0,1\}$, $L = \{w w^{\mathcal{R}} \mid w \in \{0,1\}^*\}$.
+Remember that the reverse of a string $w$ is denoted $w^\mathcal{R}$  
+and means to write $w$  in  the opposite order, if $w = w_1 \cdots  w_n$ then $w^\mathcal{R} = w_n \cdots  w_1$. Note: $\varepsilon^\mathcal{R} = \varepsilon$.
+
+
+Fix $p$ an arbitrary positive integer. List strings that are in $L$ and have length  greater than or equal  to $p$:
+
+\vspace{10pt}
+
+Pick $s = $
+
+Suppose $s = xyz$ with  $|xy|  \leq  p$ and $|y| > 0$.
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+ \\
+\hspace{4in} \\
+\hline
+\end{tabular}
+\end{center}
+Then when $i = \hspace{1in}$, $xy^i z  = \hspace{1in}$
+
+
+\vspace{30pt} 
+
+{\bf Example}: $\Sigma  =  \{0,1\}$, $L = \{0^j1^k  \mid j \geq k  \geq 0\}$.
+
+Fix $p$ an arbitrary positive integer. List strings that are in $L$ and have length  greater than or equal  to $p$:
+
+\vspace{10pt}
+
+Pick $s = $
+
+
+Suppose $s = xyz$ with  $|xy|  \leq  p$ and $|y| > 0$.
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+ \\
+\hspace{4in} \\
+\hline
+\end{tabular}
+\end{center}
+Then when $i = \hspace{1in}$, $xy^i z  = \hspace{1in}$
+
+
+
+\vspace{30pt} 
+
+{\bf Example}: $\Sigma  =  \{0,1\}$, $L = \{0^n1^m0^n  \mid m,n  \geq 0\}$.
+
+Fix $p$ an arbitrary positive integer. List strings that are in $L$ and have length  greater than or equal  to $p$:
+
+\vspace{10pt}
+
+Pick $s = $
+
+
+Suppose $s = xyz$ with  $|xy|  \leq  p$ and $|y| > 0$.
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+ \\
+\hspace{4in} \\
+\hline
+\end{tabular}
+\end{center}
+Then when $i = \hspace{1in}$, $xy^i z  = \hspace{1in}$
+
+\newpage
+{\it Extra practice}:
+
+
+\begin{center}
+    \begin{tabular}{c|c| c| c}
+    Language & $s \in L$ & $s \notin L$ & Is the language regular or nonregular?  \\
+    \hline
+     & \hspace{1in} & \hspace{1in}  &  \\
+    $\{a^nb^n \mid 0  \leq n  \leq 5 \}$ & & & \\
+     & & & \\
+    $\{b^n a^n \mid  n  \geq 2\}$  & & & \\
+     & & & \\
+    $\{a^m b^n \mid  0 \leq m\leq n\}$  & & & \\
+     & & & \\
+    $\{a^m b^n \mid  m \geq n+3,  n \geq 0\}$  & & & \\
+     & & & \\
+    $\{b^m a^n \mid  m \geq 1, n \geq  3\}$  & & & \\
+     & & & \\
+    $\{ w  \in \{a,b\}^* \mid w = w^\mathcal{R} \}$ & & & \\
+     & & & \\ 
+    $\{ ww^\mathcal{R} \mid w\in \{a,b\}^* \}$ & & & \\
+     & & & \\ 
+    \end{tabular}
+\end{center}
+     
+\end{document}
