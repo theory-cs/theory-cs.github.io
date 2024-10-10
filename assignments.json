@@ -2,7 +2,8 @@
    {
       "name": "hw1CSE105F24",
       "addExtensions": true,
-      "Information": "This is a group optional assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw1CSE105F24solutions.pdf"
    },
    {
       "name": "hw2CSE105F24",
