@@ -80,7 +80,7 @@
         "header": "Week 2",
         "outcomes": "Regular languages and nondeterminism",
         "CalendarInfo": " Dates: 10/7/24 - 10/13/24.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -185,7 +185,7 @@
         "header": "Week 3",
         "outcomes": "Automata constructions and nonregular languages",
         "CalendarInfo": " Dates: 10/14/24 - 10/20/24",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
