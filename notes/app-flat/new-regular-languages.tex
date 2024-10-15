@@ -691,7 +691,7 @@ string in $A_1 \cup A_2$ and proving that it is accepted by $N$. Details left fo
 
 
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
-    \tikzstyle{every state}=[text=black, fill=yellow!40]
+    \tikzstyle{every state}=[text=black, fill=none]
     
     \node[initial,state] (q0)          {$q_0$};
     \node[state]         (q) [above right of=q0, xshift=20pt] {$q$};
@@ -757,7 +757,7 @@ $L(M) = A_1 \cup A_2$. {\it Theorem 1.25 in Sipser, page 45}
     $A_2 = \{ w \mid w~\text{is of even length} \}$.
     
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
-        \tikzstyle{every state}=[text=black, fill=yellow!40]
+        \tikzstyle{every state}=[text=black, fill=none]
         
         \node[initial,state,accepting] (qn)          {$(q,n)$};
         \node[state]         (qd) [below of=qn, yshift=-40pt] {$(q,d)$};
