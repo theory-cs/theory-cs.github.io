@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>context-free-grammars</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="week4-friday">Week4 friday</h1>
+<p><span><em>Big picture</em></span>: PDAs were motivated by wanting to
+add some memory of unbounded size to NFA. How do we accomplish a similar
+enhancement of regular expressions to get a syntactic model that is more
+expressive?</p>
+<p>DFA, NFA, PDA: Machines process one input string at a time; the
+computation of a machine on its input string reads the input from left
+to right.</p>
+<p>Regular expressions: Syntactic descriptions of all strings that match
+a particular pattern; the language described by a regular expression is
+built up recursively according to the expression’s syntax</p>
+<p><span><strong>Context-free grammars</strong></span>: Rules to produce
+one string at a time, adding characters from the middle, beginning, or
+end of the final string as the derivation proceeds.<br />
+Definitions below are on pages 101-102.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><span><strong>Term</strong></span></td>
+<td style="text-align: center;"><span><strong>Typical
+symbol</strong></span></td>
+<td style="text-align: left;"><span><strong>Meaning</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">or
+<span><strong>Notation</strong></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Context-free
+grammar</strong></span> (CFG)</td>
+<td style="text-align: center;"><span
+class="math inline">\(G\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(G = (V,
+\Sigma, R, S)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">The set of
+<span><strong>variables</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(V\)</span></td>
+<td style="text-align: left;">Finite set of symbols that represent
+phases in production pattern</td>
+</tr>
+<tr>
+<td style="text-align: left;">The set of
+<span><strong>terminals</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Sigma\)</span></td>
+<td style="text-align: left;">Alphabet of symbols of strings generated
+by CFG</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><span class="math inline">\(V \cap \Sigma
+= \emptyset\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">The set of
+<span><strong>rules</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(R\)</span></td>
+<td style="text-align: left;">Each rule is <span class="math inline">\(A
+\to u\)</span> with <span class="math inline">\(A \in V\)</span> and
+<span class="math inline">\(u  \in (V  \cup \Sigma)^*\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">The <span><strong>start</strong></span>
+variable</td>
+<td style="text-align: center;"><span
+class="math inline">\(S\)</span></td>
+<td style="text-align: left;">Usually on left-hand-side of first/
+topmost rule</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><span><strong>Derivation</strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(S
+\Rightarrow \cdots \Rightarrow w\)</span></td>
+<td style="text-align: left;">Sequence of substitutions in a CFG (also
+written <span class="math inline">\(S \Rightarrow^* w\)</span>). At each
+step, we can apply one rule to one occurrence of a variable in the
+current string by substituting that occurrence of the variable with the
+right-hand-side of the rule. The derivation must end when the current
+string has only terminals (no variables) because then there are no
+instances of variables to apply a rule to.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Language
+<span><strong>generated</strong></span> by the context-free grammar
+<span class="math inline">\(G\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(L(G)\)</span></td>
+<td style="text-align: left;">The set of strings for which there is a
+derivation in <span class="math inline">\(G\)</span>. Symbolically:
+<span class="math inline">\(\{  w \in \Sigma^* \mid S \Rightarrow^* w
+\}\)</span> i.e. <span class="math display">\[\{  w \in \Sigma^* \mid
+\text{there is  derivation in $G$ that ends
+    in $w$} \}\]</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Context-free
+language</strong></span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">A language that is the language generated
+by some context-free grammar</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Examples of context-free grammars, derivations in those
+grammars, and the languages generated by those
+grammars</strong></span></p>
+<p><span class="math inline">\(G_1 =  (\{S\}, \{0\}, R, S)\)</span> with
+rules <span class="math display">\[\begin{aligned}
+    &amp;S \to 0S\\
+    &amp;S \to 0\\
+  
+\end{aligned}\]</span> In <span class="math inline">\(L(G_1)\)</span>
+…</p>
+<p>Not in <span class="math inline">\(L(G_1)\)</span> …</p>
+<p><span class="math inline">\(G_2 =  (\{S\}, \{0,1\}, R, S)\)</span>
+<span class="math display">\[S \to 0S \mid 1S \mid \varepsilon\]</span>
+In <span class="math inline">\(L(G_2)\)</span> …</p>
+<p>Not in <span class="math inline">\(L(G_2)\)</span> …</p>
+<p><span class="math inline">\((\{S, T\}, \{0, 1\}, R, S)\)</span> with
+rules <span class="math display">\[\begin{aligned}
+  &amp;S \to T1T1T1T \\
+  &amp;T \to  0T \mid 1T \mid \varepsilon
+  
+\end{aligned}\]</span></p>
+<p>In <span class="math inline">\(L(G_3)\)</span> …</p>
+<p>Not in <span class="math inline">\(L(G_3)\)</span> …</p>
+<p><span class="math inline">\(G_4 =  (\{A, B\}, \{0, 1\}, R,
+A)\)</span> with rules <span class="math display">\[A \to 0A0 \mid  0A1
+\mid 1A0  \mid 1A1 \mid  1\]</span> In <span
+class="math inline">\(L(G_4)\)</span> …</p>
+<p>Not in <span class="math inline">\(L(G_4)\)</span> …</p>
+<p>Design a CFG to generate the language <span
+class="math inline">\(\{a^n b^n \mid  n  \geq  0\}\)</span></p>
+<p><span><em>Sample derivation:</em></span></p>
+</body>
+</html>

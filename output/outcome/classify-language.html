@@ -174,6 +174,312 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="week4-monday">Week4 monday</h1>
+<p>Regular sets are not the end of the story</p>
+<ul>
+<li><p>Many nice / simple / important sets are not regular</p></li>
+<li><p>Limitation of the finite-state automaton model: Can’t “count",
+Can only remember finitely far into the past, Can’t backtrack, Must make
+decisions in “real-time"</p></li>
+<li><p>We know actual computers are more powerful than this
+model...</p></li>
+</ul>
+<p>The <span><strong>next</strong></span> model of computation. Idea:
+allow some memory of unbounded size. How?</p>
+<ul>
+<li><p>To generalize regular expressions: <span><strong>context-free
+grammars</strong></span><br />
+</p></li>
+<li><p>To generalize NFA: <span><strong>Pushdown
+automata</strong></span>, which is like an NFA with access to a stack:
+Number of states is fixed, number of entries in stack is unbounded. At
+each step (1) Transition to new state based on current state, letter
+read, and top letter of stack, then (2) (Possibly) push or pop a letter
+to (or from) top of stack. Accept a string iff there is some sequence of
+states and some sequence of stack contents which helps the PDA processes
+the entire input string and ends in an accepting state.</p></li>
+</ul>
+<p>Is there a PDA that recognizes the nonregular language <span
+class="math inline">\(\{0^n1^n \mid n \geq 0 \}\)</span>?</p>
+<p>The PDA with state diagram above can be informally described as:</p>
+<blockquote>
+<p>Read symbols from the input. As each 0 is read, push it onto the
+stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If
+the stack becomes empty and we are at the end of the input string,
+accept the input. If the stack becomes empty and there are 1s left to
+read, or if 1s are finished while the stack still contains 0s, or if any
+0s appear in the string following 1s, reject the input.</p>
+</blockquote>
+<p>Trace the computation of this PDA on the input string <span
+class="math inline">\(01\)</span>.</p>
+<p>Trace the computation of this PDA on the input string <span
+class="math inline">\(011\)</span>.</p>
+<p>A PDA recognizing the set <span class="math inline">\(\{ \hspace{1.5
+in} \}\)</span> can be informally described as:</p>
+<blockquote>
+<p>Read symbols from the input. As each 0 is read, push it onto the
+stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If
+the stack becomes empty and there is exactly one 1 left to read, read
+that 1 and accept the input. If the stack becomes empty and there are
+either zero or more than one 1s left to read, or if the 1s are finished
+while the stack still contains 0s, or if any 0s appear in the input
+following 1s, reject the input.</p>
+</blockquote>
+<p>Modify the state diagram below to get a PDA that implements this
+description:</p>
+<h1 class="unnumbered" id="week4-wednesday">Week4 wednesday</h1>
+<p><span><strong>Definition</strong></span> A <span><strong>pushdown
+automaton</strong></span> (PDA) is specified by a <span
+class="math inline">\(6\)</span>-tuple <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, F)\)</span> where <span
+class="math inline">\(Q\)</span> is the finite set of states, <span
+class="math inline">\(\Sigma\)</span> is the input alphabet, <span
+class="math inline">\(\Gamma\)</span> is the stack alphabet, <span
+class="math display">\[\delta: Q \times
+\Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times
+\Gamma_\varepsilon)\]</span> is the transition function, <span
+class="math inline">\(q_0 \in Q\)</span> is the start state, <span
+class="math inline">\(F \subseteq  Q\)</span> is the set of accept
+states.</p>
+<p>Draw the state diagram and give the formal definition of a PDA with
+<span class="math inline">\(\Sigma = \Gamma\)</span>.</p>
+<p>Draw the state diagram and give the formal definition of a PDA with
+<span class="math inline">\(\Sigma \cap \Gamma = \emptyset\)</span>.</p>
+<p>For the PDA state diagrams below, <span class="math inline">\(\Sigma
+= \{0,1\}\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mathematical description of
+language</th>
+<th style="text-align: center;">State diagram of PDA recognizing
+language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\Gamma = \{
+\$, \#\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\Gamma = \{
+\sun, 1\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(\{ 0^i 1^j
+0^k \mid i,j,k \geq 0 \}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><em>Note: alternate notation is to replace <span
+class="math inline">\(;\)</span> with <span
+class="math inline">\(\to\)</span></em></span></p>
+<h1 class="unnumbered" id="week4-friday">Week4 friday</h1>
+<p><span><em>Big picture</em></span>: PDAs were motivated by wanting to
+add some memory of unbounded size to NFA. How do we accomplish a similar
+enhancement of regular expressions to get a syntactic model that is more
+expressive?</p>
+<p>DFA, NFA, PDA: Machines process one input string at a time; the
+computation of a machine on its input string reads the input from left
+to right.</p>
+<p>Regular expressions: Syntactic descriptions of all strings that match
+a particular pattern; the language described by a regular expression is
+built up recursively according to the expression’s syntax</p>
+<p><span><strong>Context-free grammars</strong></span>: Rules to produce
+one string at a time, adding characters from the middle, beginning, or
+end of the final string as the derivation proceeds.<br />
+Definitions below are on pages 101-102.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><span><strong>Term</strong></span></td>
+<td style="text-align: center;"><span><strong>Typical
+symbol</strong></span></td>
+<td style="text-align: left;"><span><strong>Meaning</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">or
+<span><strong>Notation</strong></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Context-free
+grammar</strong></span> (CFG)</td>
+<td style="text-align: center;"><span
+class="math inline">\(G\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(G = (V,
+\Sigma, R, S)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">The set of
+<span><strong>variables</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(V\)</span></td>
+<td style="text-align: left;">Finite set of symbols that represent
+phases in production pattern</td>
+</tr>
+<tr>
+<td style="text-align: left;">The set of
+<span><strong>terminals</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Sigma\)</span></td>
+<td style="text-align: left;">Alphabet of symbols of strings generated
+by CFG</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><span class="math inline">\(V \cap \Sigma
+= \emptyset\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">The set of
+<span><strong>rules</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(R\)</span></td>
+<td style="text-align: left;">Each rule is <span class="math inline">\(A
+\to u\)</span> with <span class="math inline">\(A \in V\)</span> and
+<span class="math inline">\(u  \in (V  \cup \Sigma)^*\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">The <span><strong>start</strong></span>
+variable</td>
+<td style="text-align: center;"><span
+class="math inline">\(S\)</span></td>
+<td style="text-align: left;">Usually on left-hand-side of first/
+topmost rule</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><span><strong>Derivation</strong></span></td>
+<td style="text-align: center;"><span class="math inline">\(S
+\Rightarrow \cdots \Rightarrow w\)</span></td>
+<td style="text-align: left;">Sequence of substitutions in a CFG (also
+written <span class="math inline">\(S \Rightarrow^* w\)</span>). At each
+step, we can apply one rule to one occurrence of a variable in the
+current string by substituting that occurrence of the variable with the
+right-hand-side of the rule. The derivation must end when the current
+string has only terminals (no variables) because then there are no
+instances of variables to apply a rule to.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Language
+<span><strong>generated</strong></span> by the context-free grammar
+<span class="math inline">\(G\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(L(G)\)</span></td>
+<td style="text-align: left;">The set of strings for which there is a
+derivation in <span class="math inline">\(G\)</span>. Symbolically:
+<span class="math inline">\(\{  w \in \Sigma^* \mid S \Rightarrow^* w
+\}\)</span> i.e. <span class="math display">\[\{  w \in \Sigma^* \mid
+\text{there is  derivation in $G$ that ends
+    in $w$} \}\]</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Context-free
+language</strong></span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">A language that is the language generated
+by some context-free grammar</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Examples of context-free grammars, derivations in those
+grammars, and the languages generated by those
+grammars</strong></span></p>
+<p><span class="math inline">\(G_1 =  (\{S\}, \{0\}, R, S)\)</span> with
+rules <span class="math display">\[\begin{aligned}
+    &amp;S \to 0S\\
+    &amp;S \to 0\\
+  
+\end{aligned}\]</span> In <span class="math inline">\(L(G_1)\)</span>
+…</p>
+<p>Not in <span class="math inline">\(L(G_1)\)</span> …</p>
+<p><span class="math inline">\(G_2 =  (\{S\}, \{0,1\}, R, S)\)</span>
+<span class="math display">\[S \to 0S \mid 1S \mid \varepsilon\]</span>
+In <span class="math inline">\(L(G_2)\)</span> …</p>
+<p>Not in <span class="math inline">\(L(G_2)\)</span> …</p>
+<p><span class="math inline">\((\{S, T\}, \{0, 1\}, R, S)\)</span> with
+rules <span class="math display">\[\begin{aligned}
+  &amp;S \to T1T1T1T \\
+  &amp;T \to  0T \mid 1T \mid \varepsilon
+  
+\end{aligned}\]</span></p>
+<p>In <span class="math inline">\(L(G_3)\)</span> …</p>
+<p>Not in <span class="math inline">\(L(G_3)\)</span> …</p>
+<p><span class="math inline">\(G_4 =  (\{A, B\}, \{0, 1\}, R,
+A)\)</span> with rules <span class="math display">\[A \to 0A0 \mid  0A1
+\mid 1A0  \mid 1A1 \mid  1\]</span> In <span
+class="math inline">\(L(G_4)\)</span> …</p>
+<p>Not in <span class="math inline">\(L(G_4)\)</span> …</p>
+<p>Design a CFG to generate the language <span
+class="math inline">\(\{a^n b^n \mid  n  \geq  0\}\)</span></p>
+<p><span><em>Sample derivation:</em></span></p>
 <h1 class="unnumbered" id="week3-wednesday">Week3 wednesday</h1>
 <p><span><strong>Definition and Theorem</strong></span>: For an alphabet
 <span class="math inline">\(\Sigma\)</span>, a language <span
