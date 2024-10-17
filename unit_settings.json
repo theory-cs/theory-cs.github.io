@@ -185,7 +185,7 @@
         "header": "Week 3",
         "outcomes": "Automata constructions and nonregular languages",
         "CalendarInfo": " Dates: 10/14/24 - 10/20/24",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -222,30 +222,6 @@
             {
                 "name": "(Video) Pumping Lemma and Finite Sets",
                 "source": "https://youtu.be/1F502GBzRq8"
-            }
-        ],
-
-        "Due Dates": [
-            {
-                "name": "hw2CSE105F24",
-                "due": "10/15/24 at 5pm (late submission open until 8am next morning)"
-            },
-            {
-                "name": "Weekly Review Quiz",
-                "link": "https://us.prairielearn.com/pl/",
-                "due": "10/20/24"
-            }
-        ]
-    },
-    {
-        "header": "Week 4",
-        "outcomes": "Pumping Lemma and Pushdown Automata",
-        "CalendarInfo": " Dates: 10/21/24 - 10/27/24",
-        "ExpandInCalendar": false,
-        "content": [
-            {
-                "name": "Notes",
-                "source": "Week4.tex"
             },
             {
                 "name": "(Video) Pumping Lemma Applications",
@@ -266,6 +242,30 @@
             {
                 "name": "(Video) Nonregular sets summary",
                 "source": "https://youtu.be/u7_jpg4JDJI"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw2CSE105F24",
+                "due": "10/15/24 at 5pm (late submission open until 8am next morning)"
+            },
+            {
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "10/20/24"
+            }
+        ]
+    },
+    {
+        "header": "Week 4",
+        "outcomes": "Pushdown Automata and Context-free Grammars",
+        "CalendarInfo": " Dates: 10/21/24 - 10/27/24",
+        "ExpandInCalendar": true,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week4.tex"
             },
             {
                 "name": "(Video) PDA introduction",
@@ -294,30 +294,6 @@
             {
                 "name": "(Video) PDA arrow labels",
                 "source": "https://youtu.be/nqbwhhWqWHo"
-            }
-        ],
-
-        "Due Dates": [
-            {
-                "name": "hw3CSE105F24",
-                "due": "10/22/24 at 5pm (late submission open until 8am next morning)"
-            },
-            {
-                "name": "Weekly Review Quiz",
-                "link": "https://us.prairielearn.com/pl/",
-                "due": "10/27/24"
-            }
-        ]
-    },
-    {
-        "header": "Week 5",
-        "outcomes": "Context-free grammars and context-free languages",
-        "CalendarInfo": " Dates: 10/28/24 - 11/3/24.",
-        "ExpandInCalendar": false,
-        "content": [
-            {
-                "name": "Notes",
-                "source": "Week5.tex"
             },
             {
                 "name": "(Video) PDA Design and reverse engingeering",
@@ -360,6 +336,62 @@
                 "source": "https://youtu.be/7Wd1qPZgRnM"
             },
             {
+                "name": "(Video) Turing machine introduction",
+                "source": "https://youtu.be/rASd5i-Am7k"
+            },
+            {
+                "name": "(Video) Turing machine definition",
+                "source": "https://youtu.be/pNdYPsb3qCI"
+            },
+            {
+                "name": "(Video) TM state diagram",
+                "source": "https://youtu.be/yxQ_tKk5lL8"
+            },
+            {
+                "name": "(Video) TM trace computation",
+                "source": "https://youtu.be/lnJeWygUIjU"
+            },
+            {
+                "name": "(Video) TM complicated example",
+                "source": "https://youtu.be/g51BMp5Th7M"
+            },
+            {
+                "name": "(Video) TM Intro Recap",
+                "source": "https://youtu.be/GuhFK1NLNxg"
+            },
+            {
+                "name": "(Video) TM Accept, Reject, Loop",
+                "source": "https://youtu.be/ZBBdSNihLB4"
+            },
+            {
+                "name": "(Video) TM Recognize vs Decide",
+                "source": "https://youtu.be/-R9Qbm-vHM0"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw3CSE105F24",
+                "due": "10/22/24 at 5pm (late submission open until 8am next morning)"
+            },
+            {
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "10/27/24"
+            }
+        ]
+    },
+    {
+        "header": "Week 5",
+        "outcomes": "Context-free languages and Turing Machines",
+        "CalendarInfo": " Dates: 10/28/24 - 11/3/24.",
+        "ExpandInCalendar": false,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week5.tex"
+            },
+            {
                 "name": "(Video) Context-free languages intro",
                 "source": "https://youtu.be/q-bEQWWyepw"
             },
@@ -398,38 +430,6 @@
             {
                 "name": "Review Quizzes",
                 "source": "Week6RQ.pdf"
-            }, 
-            {
-                "name": "(Video) Turing machine introduction",
-                "source": "https://youtu.be/rASd5i-Am7k"
-            },
-            {
-                "name": "(Video) Turing machine definition",
-                "source": "https://youtu.be/pNdYPsb3qCI"
-            },
-            {
-                "name": "(Video) TM state diagram",
-                "source": "https://youtu.be/yxQ_tKk5lL8"
-            },
-            {
-                "name": "(Video) TM trace computation",
-                "source": "https://youtu.be/lnJeWygUIjU"
-            },
-            {
-                "name": "(Video) TM complicated example",
-                "source": "https://youtu.be/g51BMp5Th7M"
-            },
-            {
-                "name": "(Video) TM Intro Recap",
-                "source": "https://youtu.be/GuhFK1NLNxg"
-            },
-            {
-                "name": "(Video) TM Accept, Reject, Loop",
-                "source": "https://youtu.be/ZBBdSNihLB4"
-            },
-            {
-                "name": "(Video) TM Recognize vs Decide",
-                "source": "https://youtu.be/-R9Qbm-vHM0"
             },
             {
                 "name": "(Video) TM Implementation-level and formal definition Example 1",

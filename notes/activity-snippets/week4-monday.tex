@@ -1,0 +1,96 @@
+%! app: Regular Languages, Context-free Languages
+%! outcome: Formal definition of automata, Informal definition of automata, Nondeterminism, Classify language
+
+Regular sets are not the end of the story
+\begin{itemize}
+    \item Many nice / simple / important sets are not regular
+    \item Limitation of the finite-state automaton model: Can't ``count", Can only remember finitely far into the past,
+    Can't backtrack, Must make decisions in ``real-time"
+    \item We know actual computers are more powerful than this model...
+\end{itemize}
+
+The {\bf next} model of computation. Idea: allow some memory of unbounded size. How? 
+\begin{itemize}
+    \item To generalize regular expressions: {\bf context-free grammars}\\
+    \item To generalize NFA: {\bf Pushdown automata}, which is like an NFA with access to a stack: 
+    Number of states is fixed, number of entries in stack is unbounded. At each step
+    (1) Transition to new state based on current state, letter read, and top letter of stack, then
+    (2) (Possibly) push or pop a letter to (or from) top of stack. Accept a string iff
+    there is some sequence of states and some sequence of stack contents 
+    which helps the PDA processes the entire input string and ends in an accepting state.
+\end{itemize}
+
+\vfill
+
+\vfill
+
+Is there a PDA that recognizes the nonregular language $\{0^n1^n \mid n \geq 0 \}$?
+
+\vfill
+
+\newpage
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state,accepting] (q0)          {$q0$};
+    \node[state]         (q1) [right of=q0, xshift=20pt] {$q1$};
+    \node[state]         (q2) [below right of=q1, xshift=20pt] {$q2$};
+    \node[state,accepting]         (q3) [left of=q2, xshift=-20pt] {$q3$};
+    
+    \path (q0) edge [bend left=0] node {$\varepsilon, \varepsilon; \$$} (q1)
+        (q1) edge  [loop above] node {$0, \varepsilon; 0$} (q1)
+        (q1) edge [bend left=0] node {$1, 0; \varepsilon$} (q2)
+        (q2) edge  [loop right] node {$1, 0; \varepsilon$} (q2)
+        (q2) edge  [bend left=0] node {$\varepsilon, \$; \varepsilon$} (q3)
+    ;
+\end{tikzpicture}
+
+The PDA with state diagram above can be informally described as:
+\begin{quote}
+    Read symbols from the input. As each 0 is read, push it onto the stack. 
+    As soon as 1s are seen, pop a 0 off the stack for each 1 read. 
+    If the stack becomes empty and we are at the end of the input string, accept the input. 
+    If the stack becomes empty and there are 1s left to read, 
+    or if 1s are finished while the stack still contains 0s, or if any 0s
+    appear in the string following 1s, 
+    reject the input.
+\end{quote}
+    
+
+Trace the computation of this PDA on the input string $01$.
+
+\vfill
+    
+Trace the computation of this PDA on the input string $011$.
+
+\vfill
+
+\newpage
+A PDA recognizing the set $\{ \hspace{1.5 in} \}$ can be informally described as:
+\begin{quote}
+    Read symbols from the input. As each 0 is read, push it onto the stack. 
+    As soon as 1s are seen, pop a 0 off the stack for each 1 read. 
+    If the stack becomes empty and there is exactly one 1 left to read, read that 1 and accept the input. 
+    If the stack becomes empty and there are either zero or more than one 1s left to read, 
+    or if the 1s are finished while the stack still contains 0s, or if any 0s appear in the input following 1s, 
+    reject the input.
+\end{quote}
+Modify the state diagram below to get a PDA that implements this description:
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state,accepting] (q0)          {$q0$};
+    \node[state]         (q1) [right of=q0, xshift=20pt] {$q1$};
+    \node[state]         (q2) [below right of=q1, xshift=20pt] {$q2$};
+    \node[state,accepting]         (q3) [left of=q2, xshift=-20pt] {$q3$};
+    
+    \path (q0) edge [bend left=0] node {$\varepsilon, \varepsilon; \$$} (q1)
+        (q1) edge  [loop above] node {$0, \varepsilon; 0$} (q1)
+        (q1) edge [bend left=0] node {$1, 0; \varepsilon$} (q2)
+        (q2) edge  [loop right] node {$1, 0; \varepsilon$} (q2)
+        (q2) edge  [bend left=0] node {$\varepsilon, \$; \varepsilon$} (q3)
+    ;
+\end{tikzpicture}
+    
