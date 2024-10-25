@@ -261,7 +261,7 @@
         "header": "Week 4",
         "outcomes": "Pushdown Automata and Context-free Grammars",
         "CalendarInfo": " Dates: 10/21/24 - 10/27/24",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -334,6 +334,46 @@
             {
                 "name": "(Video) CFG Design for nonregular language",
                 "source": "https://youtu.be/7Wd1qPZgRnM"
+            }
+        ],
+
+        "Due Dates": [
+            {
+                "name": "hw3CSE105F24",
+                "due": "10/22/24 at 5pm (late submission open until 8am next morning)"
+            },
+            {
+                "name": "Weekly Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "10/27/24"
+            }
+        ]
+    },
+    {
+        "header": "Week 5",
+        "outcomes": "Context-free languages and Turing Machines",
+        "CalendarInfo": " Dates: 10/28/24 - 11/3/24.",
+        "ExpandInCalendar": true,
+        "content": [
+            {
+                "name": "Notes",
+                "source": "Week5.tex"
+            },
+            {
+                "name": "(Video) Context-free languages intro",
+                "source": "https://youtu.be/q-bEQWWyepw"
+            },
+            {
+                "name": "(Video) CFL applications",
+                "source": "https://youtu.be/QxyMc7YE4uI"
+            },
+            {
+                "name": "(Video) CFL closure",
+                "source": "https://youtu.be/jZ_XSmnk8q0"
+            },
+            {
+                "name": "(Video) Non-context-free languages",
+                "source": "https://youtu.be/d52BxsDMl9c"
             },
             {
                 "name": "(Video) Turing machine introduction",
@@ -366,46 +406,6 @@
             {
                 "name": "(Video) TM Recognize vs Decide",
                 "source": "https://youtu.be/-R9Qbm-vHM0"
-            }
-        ],
-
-        "Due Dates": [
-            {
-                "name": "hw3CSE105F24",
-                "due": "10/22/24 at 5pm (late submission open until 8am next morning)"
-            },
-            {
-                "name": "Weekly Review Quiz",
-                "link": "https://us.prairielearn.com/pl/",
-                "due": "10/27/24"
-            }
-        ]
-    },
-    {
-        "header": "Week 5",
-        "outcomes": "Context-free languages and Turing Machines",
-        "CalendarInfo": " Dates: 10/28/24 - 11/3/24.",
-        "ExpandInCalendar": false,
-        "content": [
-            {
-                "name": "Notes",
-                "source": "Week5.tex"
-            },
-            {
-                "name": "(Video) Context-free languages intro",
-                "source": "https://youtu.be/q-bEQWWyepw"
-            },
-            {
-                "name": "(Video) CFL applications",
-                "source": "https://youtu.be/QxyMc7YE4uI"
-            },
-            {
-                "name": "(Video) CFL closure",
-                "source": "https://youtu.be/jZ_XSmnk8q0"
-            },
-            {
-                "name": "(Video) Non-context-free languages",
-                "source": "https://youtu.be/d52BxsDMl9c"
             }
         ],
 
