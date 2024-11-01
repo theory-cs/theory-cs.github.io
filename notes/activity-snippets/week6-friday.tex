@@ -2,57 +2,6 @@
 %! outcome: Formal definition of automata, Informal definition of automata, Classify language, Find example languages
 
 
-
-A {\bf Turing-recognizable} language is a set of strings that 
-is the language recognized by some Turing machine. We also 
-say that such languages are recognizable.
-
-A {\bf Turing-decidable} language is a set of strings that 
-is the language recognized by some decider. We also 
-say that such languages are decidable.
-
-
-An {\bf unrecognizable} language is a language that is not Turing-recognizable.
-
-An {\bf undecidable} language is a language that is not Turing-decidable.
-
-\vfill
-
-{\bf  True} or {\bf False}: Any  decidable language  is  also  recognizable.
-
-\vfill
-
-{\bf  True} or {\bf False}: Any  recognizable language  is  also  decidable.
-
-\vfill
-
-{\bf  True} or {\bf False}: Any  undecidable language  is  also  unrecognizable.
-
-\vfill
-
-{\bf  True} or {\bf False}: Any  unrecognizable language  is  also  undecidable.
-
-\vfill
-
-\newpage
-
-
-{\bf True} or {\bf False}: The class of Turing-decidable languages is closed under complementation.
-
-\vfill
-
-Using formal definition:
-\vfill
-
-Using high-level description:
-\vfill
-
-
-{\bf  Church-Turing Thesis} (Sipser p. 183): The informal notion of algorithm is formalized completely  and correctly by the 
-formal definition of a  Turing machine. In other words: all reasonably expressive models of 
-computation are equally expressive with the standard Turing machine.
-
-\newpage
 Definition: A language $L$ over an  alphabet $\Sigma$ is called {\bf co-recognizable} if its complement,  defined
 as $\Sigma^* \setminus L  = \{ x  \in  \Sigma^* \mid x \notin  L \}$, is Turing-recognizable.
 

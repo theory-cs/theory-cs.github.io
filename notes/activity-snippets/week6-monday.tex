@@ -1,0 +1,265 @@
+%! app: Decidable Languages, Undecidable Languages
+%! outcome: Formal definition of automata, Informal definition of automata, Classify language, Find example languages
+    
+
+{\it Sipser Figure  3.10}
+
+{\bf Conventions in state diagram of TM}: $b \to R$ label means $b \to b, R$ and
+all arrows missing from diagram represent transitions with output $(q_{reject}, \textvisiblespace , R)$
+
+\begin{multicols}{2}
+\vspace{-20pt}
+\begin{center}
+\includegraphics[width=4in]{../../resources/machines/Lect13TM3.png}
+\end{center}
+
+Implementation level description of this machine:
+\begin{quote}
+Zig-zag across tape to corresponding positions on either side of $\#$ to check whether the 
+characters in these positions agree. If they do not, or if there is no $\#$, reject. If they 
+do, cross them off.
+
+Once all symbols to the left of the $\#$ are crossed off, check for any un-crossed-off symbols 
+to the right of $\#$; if there are any, reject; if there aren't, accept.
+\end{quote}
+
+The language recognized by this machine is
+\[
+  \{ w \# w \mid w \in \{0,1\}^* \}
+\]
+
+\columnbreak
+
+Computation on  input  string  $01\#01$
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c}{$q_1 \downarrow$} &  \multicolumn{6}{c|}{\phantom{A}}\\
+\hline
+$0$ & $1$  & $\#$  & $0$ & $1$ & $\textvisiblespace $& $\textvisiblespace $\\
+\hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \multicolumn{7}{|c|}{\phantom{A}}\\
+  \hline
+  \phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+  \hline
+  \end{tabular}
+\end{multicols}
+
+\begin{multicols}{2}
+High-level description of this machine is
+
+\vfill
+
+
+{\it Recall:} 
+High-level descriptions of  Turing machine algorithms are written as indented text within quotation marks.   
+Stages of the algorithm are typically numbered consecutively.
+The first line specifies the input to the machine, which must be a string.
+
+\columnbreak
+
+{\it Extra practice}
+
+Computation on  input  string  $01\#1$
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c}{$q_1\downarrow$} &  \multicolumn{6}{c|}{\phantom{A}}\\
+\hline
+$0$ & $1$  & $\#$  & $1$ & $\textvisiblespace $& $\textvisiblespace $&  $\textvisiblespace $\\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\multicolumn{7}{|c|}{\phantom{A}}\\
+\hline
+\phantom{AA} & \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA}& \phantom{AA} \\
+\hline
+\end{tabular}
+
+\end{multicols}
+\newpage
+
+
+
+A language $L$ is {\bf recognized by} a Turing machine $M$ means
+
+\vfill
+
+A Turing  machine  $M$ {\bf  recognizes} a language $L$ means
+
+\vfill
+
+A Turing machine $M$ is a {\bf decider}  means
+
+\vfill
+
+A language  $L$ is {\bf decided by} a Turing  machine  $M$  means
+
+\vfill
+
+A  Turing machine $M$ {\bf decides} a language $L$ means
+
+\vfill
+
+Fix $\Sigma = \{0,1\}$, $\Gamma = \{ 0, 1, \textvisiblespace\}$ for the Turing machines with  the following state diagrams:
+  
+  \begin{center}
+  \begin{tabular}{|c|c|}
+  \hline
+  \hspace{0.8in}\includegraphics[width=2in]{../../resources/machines/Lect14TM1.png} \phantom{\hspace{0.8in}}&\hspace{0.8in} \includegraphics[width=2in]{../../resources/machines/Lect14TM2.png} \phantom{\hspace{0.8in}}\\
+  Decider? Yes~~~/ ~~~No
+  &Decider? Yes~~~/ ~~~No\\
+  & \\
+  \hline
+  \includegraphics[width=2in]{../../resources/machines/Lect14TM3.png} & \includegraphics[width=2in]{../../resources/machines/Lect14TM4.png} \\
+  Decider? Yes~~~/ ~~~No
+  &Decider? Yes~~~/ ~~~No\\
+  & \\
+  
+  \hline
+  \end{tabular}
+  \end{center}
+  \newpage
+
