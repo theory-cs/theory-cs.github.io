@@ -248,12 +248,49 @@ Fix $\Sigma = \{0,1\}$, $\Gamma = \{ 0, 1, \textvisiblespace\}$ for the Turing m
   \begin{center}
   \begin{tabular}{|c|c|}
   \hline
-  \hspace{0.8in}\includegraphics[width=2in]{../../resources/machines/Lect14TM1.png} \phantom{\hspace{0.8in}}&\hspace{0.8in} \includegraphics[width=2in]{../../resources/machines/Lect14TM2.png} \phantom{\hspace{0.8in}}\\
+  \hspace{0.8in}
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state] (q0)          {$q0$};
+    \node[state,accepting]         (qacc) [right of=q0, xshift=20pt] {$q_{acc}$};
+    
+    \path (q0) edge  [loop above] node {$\square; \square, R$} (qacc)
+    ;
+  \end{tikzpicture}
+%  \includegraphics[width=2in]{../../resources/machines/Lect14TM1.png} 
+  \phantom{\hspace{0.8in}}&\hspace{0.8in} 
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state] (qrej)          {$q_{rej}$};
+    \node[state,accepting]         (qacc) [right of=qrej, xshift=20pt] {$q_{acc}$};
+  \end{tikzpicture}
+  \phantom{\hspace{0.8in}}\\
   Decider? Yes~~~/ ~~~No
   &Decider? Yes~~~/ ~~~No\\
   & \\
   \hline
-  \includegraphics[width=2in]{../../resources/machines/Lect14TM3.png} & \includegraphics[width=2in]{../../resources/machines/Lect14TM4.png} \\
+
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state] (q0)          {$q0$};
+    \node[state,accepting]         (qacc) [right of=q0, xshift=20pt] {$q_{acc}$};
+
+    \path (q0) edge [bend left=0] node {$\square; \square, R$} (qacc)
+    ;
+  \end{tikzpicture} & 
+  
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state] (q0)          {$q0$};
+    \node[state,accepting]         (qacc) [right of=q0, xshift=20pt] {$q_{acc}$};
+    
+    \path (q0) edge  [loop above] node {\parbox{1cm}{$0; \square, R$\newline$1; \square, R$\newline $\square; \square, R$}} (q0)
+    ;
+  \end{tikzpicture}\\
   Decider? Yes~~~/ ~~~No
   &Decider? Yes~~~/ ~~~No\\
   & \\
