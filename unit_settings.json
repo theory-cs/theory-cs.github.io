@@ -10,6 +10,10 @@
                 "source": "Week1.tex"
             },
             {
+                "name": "Discussion Notes",
+                "source": "Week1-discussion.pdf"
+            },
+            {
                 "name": "Lecture Hall",
                 "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/576554?s/cataly?mc/32.88175510544609,-117.24196599999999?z/18?lvl/0?share\" frameborder=\"0\"></iframe>"
             },
@@ -85,6 +89,10 @@
             {
                 "name": "Notes",
                 "source": "Week2.tex"
+            },
+            {
+                "name": "Discussion Notes",
+                "source": "Week2-discussion.pdf"
             },
             {
                 "name": "(Video) DFA Formal Definition",
@@ -192,6 +200,10 @@
                 "source": "Week3.tex"
             },
             {
+                "name": "Discussion Notes",
+                "source": "Week3-discussion.pdf"
+            },
+            {
                 "name": "(Video) NFA to DFA",
                 "source": "https://youtu.be/DQj5Jq3eJx8"
             },
@@ -266,6 +278,10 @@
             {
                 "name": "Notes",
                 "source": "Week4.tex"
+            },
+            {
+                "name": "Discussion Notes",
+                "source": "Week4-discussion.pdf"
             },
             {
                 "name": "(Video) PDA introduction",
@@ -358,6 +374,10 @@
             {
                 "name": "Notes",
                 "source": "Week5.tex"
+            },
+            {
+                "name": "Discussion Notes",
+                "source": "Week5-discussion.pdf"
             },
             {
                 "name": "(Video) Context-free languages intro",
