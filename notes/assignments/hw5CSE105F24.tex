@@ -1,0 +1,205 @@
+\input{../../resources/assignment-head.tex}
+
+\title{HW5CSE105F24: Homework assignment 5}
+\date{Due: November 19, 2024 at 5pm, via Gradescope}
+
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+{\bf In this assignment,}
+
+You will  practice analyzing, designing, and working with Turing machines.
+You will use general constructions and specific machines to explore the classes 
+of recognizable and decidable languages. 
+You will explore various ways to encode machines as strings so that 
+computational problems can be recognized.
+
+{\bf Resources}: To review the topics 
+for this assignment, see the class material from Weeks 6 and 7.
+We will post frequently asked questions and our answers to them in a 
+pinned Piazza post. 
+
+{\bf Reading and extra practice problems}:  
+Sipser Sections 3.1, 3.3, 4.1
+Chapter 3 exercises 3.1, 3.2, 3.5, 3.8.
+Chapter 4 exercises 4.1, 4.2, 4.3, 4.4, 4.5.
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw5CSE105F24''.
+
+{\bf Assigned questions}
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+
+%%%%%%%%%%% PROBLEM 1 %%%%%%%%%%%
+\item\textbf{Classifying languages} (10 points):
+Our first example of a more complicated Turing machine was of a Turing machine 
+that recognized the language $\{w \# w \mid w \in\{0,1\}^*\}$, which we 
+know is not context-free. Let's call that Turing machine $M_0$. The language
+\[
+    L = \{ww \mid w \in \{0,1\}^*\}
+\]
+is also not context-free. 
+
+\begin{enumerate}
+    \item\gradeCorrectFirst Choose an example string of length $4$ in $L$ that is in {\bf not} in $\{w \# w \mid w \in\{0,1\}^*\}$ and describe the computation of the Turing machine $M_0$ on your example string. 
+    Include the contents of the  tape, the state of the machine, and the location of the read/write head at each step in the computation.
+    \item\gradeCompleteFirst Explain why the Turing machine from the textbook 
+    and class that recognized $\{w \# w \mid w \in\{0,1\}^*\}$ does 
+    not recognize $\{ww \mid w \in \{0,1\}^*\}$. Use your example to explain why $M_0$ doesn't recognize $L$.
+    \item\gradeComplete Explain how you would change $M_0$ to get a 
+    new Turing machine that does recognize $L$. Describe this new Turing machine using both an implementation-level definition and a state diagram of the Turing machine. You may use all 
+    our usual conventions for state diagrams of Turing machines 
+    (we do not include the node for the reject state $qrej$ and any missing transitions 
+    in the state diagram have value $(qrej,\square,R)$; 
+    $b \to R$ label means $b \to b, R$ ).
+\end{enumerate}
+
+%%%%%%%%%%% PROBLEM 2 %%%%%%%%%%%
+\item\textbf{Closure} (18 points):
+Suppose $M$ is a Turing machine over the alphabet $\{0,1\}$. 
+Let $s_1, s_2, \ldots$ be a list of all strings in 
+$\{0,1\}^*$ in string (shortlex) order.
+We define a new Turing machine 
+by giving its high-level description as follows: 
+\begin{align*}
+   M_{new} &= ``\text{On input }w:\\
+    &\text{1. For $n = 1, 2, \ldots$}\\
+    &\text{2.~~~For $j = 1, 2, \ldots n$} \\
+    &\text{3.~~~For $k = 1, 2, \ldots, n$} \\
+    &\text{4.~~~~~~Run the computation of $M$ on $s_jws_k$}\\
+    &\text{5.~~~~~~If it accepts, accept.}\\
+    &\text{6.~~~~~~If it rejects, go to the next iteration of the loop"}\\
+\end{align*}
+
+Recall the definitions we have:   For each language $L$ over the alphabet $\Sigma_1 = \{0,1\}$, we have the 
+associated sets of strings
+  $$SUBSTRING(L) = \{ w \in \Sigma_1^* ~|~ \text{there exist } x,y \in \Sigma_1^* \text{ such that } xwy \in L\}$$
+and 
+  $$EXTEND(L) = \{ w \in \Sigma_1^* ~|~ w = uv \text{ for some strings } u \in L \text{ and } v \in \Sigma_1^* \}$$
+
+\begin{enumerate}
+\item[(a)]\gradeCorrect Prove that this Turing machine construction 
+{\bf cannot} be used to prove that the
+class of decidable languages over $\{0,1\}$ is closed under the 
+$EXTEND$ operation.
+A complete and correct answer will give a counterexample which is a set $A$ over $\Sigma_1$ that  is decidable, along with a definition of Turing machine $M_A$ 
+that decides $A$ 
+(with a justification why this Turing machine accepts all 
+strings in $A$ and rejects all strings not in $A$), and then either a description of the language of $M_{new}$ that results when setting the Turing machine $M = M_A$ and an explanation why $L(M_{new}) \neq EXTEND(A)$ or 
+a description why $M_{new}$ is not a decider and therefore can't witness that $EXTEND(A)$ is decidable.
+
+\item[(b)] \gradeCorrect Prove that this Turing machine construction cannot be used to prove that the
+class of recognizable languages over $\{0,1\}$ is closed under the $SUBSTRING$ set operation. A complete and correct answer will 
+give a counterexample of a specific language $B$ and Turing machine $M_B$ 
+recognizing it
+(with a justification why this Turing machine accepts all and only strings in $B$), and then a description of the language of $M_{new}$ that results when 
+setting the Turing machine $M = M_B$ and an explanation why $L(M_{new}) \neq SUBSTRING(B)$
+
+\item[(c)] \gradeComplete Define a new construction by slightly modifiying this one that can be used to prove  that the
+class of recognizable languages over $\{0,1\}$ is closed under $SUBSTRING$. Justify that 
+your construction works. The proof of correctness for the closure claim can be structured like: 
+``Let $L_1 $ be a recognizable language over $\{0,1\}$ and 
+assume we are given a Turing machine $M_1$ so that $L(M_1) = L_1$. Consider the new Turing machine 
+$M_{new}$ defined above. We will show that $L(M_{new}) = SUBSTRING(L_1) $... {\it complete the proof
+by proving subset inclusion in two directions, by tracing the relevant Turing machine computations}''
+
+\item[(d)] \gradeComplete Prove that the class of recognizable languages over 
+$\{0,1\}$ is closed under $EXTEND$.
+\end{enumerate}
+
+%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
+\item \textbf{Computational problems} (12 points):
+Recall the definitions of some example computational problems from class
+
+\hspace{-30pt}
+    \begin{tabular}{|lcl|}
+    \hline
+    \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
+    & & \\
+    \ldots for DFA & $A_{DFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  DFA that accepts input 
+    string $w$}\}$ \\
+    \ldots for NFA & $A_{NFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  NFA that accepts input 
+    string $w$}\}$ \\
+    \ldots for regular expressions & $A_{REX}$ & $\{ \langle R,w \rangle \mid  \text{$R$ is a  regular
+    expression that generates input string $w$}\}$ \\
+    \ldots for CFG & $A_{CFG}$ & $\{ \langle G,w \rangle \mid  \text{$G$ is a context-free grammar 
+    that generates input string $w$}\}$ \\
+    \ldots for PDA & $A_{PDA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a PDA that accepts input string $w$}\}$ \\
+    & & \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
+    & & \\
+    \ldots for DFA & $E_{DFA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a  DFA and  $L(A) = \emptyset$\}}$ \\
+    \ldots for NFA & $E_{NFA}$ & $\{ \langle A\rangle \mid  \text{$A$ is a NFA and  $L(A) = \emptyset$\}}$ \\
+    \ldots for regular expressions & $E_{REX}$ & $\{ \langle R \rangle \mid  \text{$R$ is a  regular
+    expression and  $L(R) = \emptyset$\}}$ \\
+    \ldots for CFG & $E_{CFG}$ & $\{ \langle G \rangle \mid  \text{$G$ is a context-free grammar 
+    and  $L(G) = \emptyset$\}}$ \\
+    \ldots for PDA & $E_{PDA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a PDA and  $L(A) = \emptyset$\}}$ \\
+    & & \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
+    & & \\
+    \ldots for DFA & $EQ_{DFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are DFAs and  $L(A) =L(B)$\}}$\\
+    \ldots for NFA & $EQ_{NFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are NFAs and  $L(A) =L(B)$\}}$\\
+    \ldots for regular expressions & $EQ_{REX}$ & $\{ \langle R, R' \rangle \mid  \text{$R$ and $R'$ are regular
+    expressions and  $L(R) =L(R')$\}}$\\
+    \ldots for CFG & $EQ_{CFG}$ & $\{ \langle G, G' \rangle \mid  \text{$G$ and $G'$ are CFGs and  $L(G) =L(G')$\}}$ \\
+    \ldots for PDA & $EQ_{PDA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are PDAs and  $L(A) =L(B)$\}}$ \\
+    \hline
+    \end{tabular}
+
+\begin{enumerate}
+    \item[(a)] \gradeComplete Pick five of the computational problems above and give 
+    examples (preferably different from the ones we talked about in class) of strings that are
+    in each of the corresponding languages. Remember to use the 
+    notation $\langle \cdots \rangle$ to denote the string encoding of relevant objects.
+    {\it Extension, not for credit:} Explain why it's hard to write a specific string of 
+    $0$s and $1$s and make a claim about membership in one of these sets.
+    \item[(b)] \gradeComplete Computational problems can also be defined about Turing machines.
+    Consider the two high-level descriptions of Turing machines below.
+    Reverse-engineer them to define the computational problem that is being
+    recognized, where $L(M_{DFA})$ is the language corresponding to this computational
+    problem about DFA and $L(M_{TM})$ is the language corresponding to this computational
+    problem about Turing machines. {\it Hint}: the computational problem is not acceptance,
+    language emptiness, or language equality (but is related to one of them).
+
+    Let $s_1, s_2, \ldots$ be a list of all strings in 
+    $\{0,1\}^*$ in string (shortlex) order. Consider the following Turing machines
+    \begin{align*}
+        M_{DFA} &= ``\text{On input $\langle D \rangle$ where $D$ is a DFA}:\\
+         &\text{1. for $i=1, 2, 3, \ldots$} \\
+         &\text{2.~~~ Run $D$ on $s_i$} \\
+         &\text{3.~~~~If it accepts, accept.}\\
+         &\text{4.~~~~If it rejects, go to the next iteration of the loop"}\\
+     \end{align*}
+     and
+     \begin{align*}
+        M_{TM} &= ``\text{On input $\langle T \rangle$ where $T$ is a Turing machine}:\\
+         &\text{1. for $i=1, 2, 3, \ldots$} \\
+         &\text{2.~~~ Run $T$ for $i$ steps on each input $s_1, s_2, \ldots, s_i$ in turn} \\
+         &\text{3.~~~~If $T$ has accepted any of these, accept.}\\
+         &\text{4.~~~~Otherwise, go to the next iteration of the loop"}\\
+     \end{align*}
+\end{enumerate}
+
+
+%%%%%%%%%%% PROBLEM 4 %%%%%%%%%%%
+\item\textbf{Computational problems} (10 points):
+For each of the following statements, determine if it is true or false. 
+Clearly label your choice by starting your solution with True or False and then provide a 
+ justification for your answer.
+
+\begin{enumerate}
+    \item\gradeCorrect Prove that the language $$\{\langle D \rangle \mid D \text{ is an NFA over $\{0,1\}$ and } L(D) = L(0^*\cup 1^*) \}$$
+    is decidable.
+    \item\gradeCorrect Prove that the language $$\{\langle R_1, R_2 \rangle \mid R_1, R_2 \text{ are regular expressions over $\{0,1\}$ and } L(R_1) \subseteq L(R_2) \}$$ is decidable.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
