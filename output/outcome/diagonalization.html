@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>diagonalization</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="week8-monday">Week8 monday</h1>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td colspan="3" style="text-align: left;"><span><strong>Acceptance
+problem</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M,w
+\rangle \mid  \text{$M$ is a Turing machine that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr>
+<td colspan="3" style="text-align: left;"><span><strong>Language
+emptiness testing</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M
+\rangle \mid  \text{$M$ is a Turing machine and  $L(M) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr>
+<td colspan="3" style="text-align: left;"><span><strong>Language
+equality testing</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{
+\langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing
+machines and  
+     $L(M_1) =L(M_2)$\}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(M_1\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(M_2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Example strings in <span class="math inline">\(A_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(E_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(EQ_{TM}\)</span></p>
+<p><span><strong>Theorem</strong></span>: <span
+class="math inline">\(A_{TM}\)</span> is Turing-recognizable.</p>
+<p><span><strong>Strategy</strong></span>: To prove this theorem, we
+need to define a Turing machine <span
+class="math inline">\(R_{ATM}\)</span> such that <span
+class="math inline">\(L(R_{ATM}) = A_{TM}\)</span>.</p>
+<p>Define <span class="math inline">\(R_{ATM} =\)</span> “</p>
+<p>Proof of correctness:</p>
+<p>We will show that <span class="math inline">\(A_{TM}\)</span> is
+undecidable. <span><em>First, let’s explore what that
+means.</em></span></p>
+<p>To prove that a computational problem is
+<span><strong>decidable</strong></span>, we find/ build a Turing machine
+that recognizes the language encoding the computational problem, and
+that is a decider.</p>
+<p>How do we prove a specific problem is <span><strong>not
+decidable</strong></span>?</p>
+<p>How would we even find such a computational problem?</p>
+<p><span><em>Counting arguments for the existence of an undecidable
+language:</em></span></p>
+<ul>
+<li><p>The set of all Turing machines is countably infinite.</p></li>
+<li><p>Each recognizable language has at least one Turing machine that
+recognizes it (by definition), so there can be no more
+Turing-recognizable languages than there are Turing machines.</p></li>
+<li><p>Since there are infinitely many Turing-recognizable languages
+(think of the singleton sets), there are countably infinitely many
+Turing-recognizable languages.</p></li>
+<li><p>Such the set of Turing-decidable languages is an infinite subset
+of the set of Turing-recognizable languages, the set of Turing-decidable
+languages is also countably infinite.</p></li>
+</ul>
+<p>Since there are uncountably many languages (because <span
+class="math inline">\(\mathcal{P}(\Sigma^*)\)</span> is uncountable),
+there are uncountably many unrecognizable languages and there are
+uncountably many undecidable languages.</p>
+<p>Thus, there’s at least one undecidable language!</p>
+<p><span><strong>What’s a specific example of a language that is
+unrecognizable or undecidable?</strong></span></p>
+<p>To prove that a language is undecidable, we need to prove that there
+is no Turing machine that decides it.</p>
+<p><span><strong>Key idea</strong></span>: proof by contradiction
+relying on self-referential disagreement.</p>
+<p><span><strong>Theorem</strong></span>: <span
+class="math inline">\(A_{TM}\)</span> is not Turing-decidable.</p>
+<p><span><strong>Proof</strong></span>: Suppose <span><strong>towards a
+contradiction</strong></span> that there is a Turing machine that
+decides <span class="math inline">\(A_{TM}\)</span>. We call this
+presumed machine <span class="math inline">\(M_{ATM}\)</span>.</p>
+<p>By assumption, for every Turing machine <span
+class="math inline">\(M\)</span> and every string <span
+class="math inline">\(w\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(w \in L(M)\)</span>, then the
+computation of <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M,w \rangle ~~
+\underline{\phantom{\hspace{2.5in}}}\)</span></p></li>
+<li><p>If <span class="math inline">\(w \notin L(M)\)</span>, then the
+computation of <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M,w \rangle ~~
+\underline{\phantom{\hspace{2.5in}}}\)</span></p></li>
+</ul>
+<p>Define a <span><strong>new</strong></span> Turing machine using the
+high-level description:</p>
+<blockquote>
+<p><span class="math inline">\(D =\)</span>“ On input <span
+class="math inline">\(\langle M \rangle\)</span>, where <span
+class="math inline">\(M\)</span> is a Turing machine:</p>
+<ul>
+<li><p>Run <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M, \langle M
+\rangle  \rangle\)</span>.</p></li>
+<li><p>If <span class="math inline">\(M_{ATM}\)</span> accepts, reject;
+if <span class="math inline">\(M_{ATM}\)</span> rejects,
+accept."</p></li>
+</ul>
+</blockquote>
+<p>Is <span class="math inline">\(D\)</span> a Turing machine?</p>
+<p>Is <span class="math inline">\(D\)</span> a decider?</p>
+<p>What is the result of the computation of <span
+class="math inline">\(D\)</span> on <span class="math inline">\(\langle
+D \rangle\)</span>?</p>
+<p><span><strong>Summarizing</strong></span>:</p>
+<ul>
+<li><p><span class="math inline">\(A_{TM}\)</span> is
+recognizable.</p></li>
+<li><p><span class="math inline">\(A_{TM}\)</span> is not
+decidable.</p></li>
+</ul>
+<p>Recall definition: A language <span class="math inline">\(L\)</span>
+over an alphabet <span class="math inline">\(\Sigma\)</span> is called
+<span><strong>co-recognizable</strong></span> if its complement, defined
+as <span class="math inline">\(\Sigma^* \setminus L  = \{
+x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
+Turing-recognizable.</p>
+<p>and Recall Theorem (Sipser Theorem 4.22): A language is
+Turing-decidable if and only if both it and its complement are
+Turing-recognizable.</p>
+<ul>
+<li><p><span class="math inline">\(A_{TM}\)</span> is
+recognizable.</p></li>
+<li><p><span class="math inline">\(A_{TM}\)</span> is not
+decidable.</p></li>
+<li><p><span class="math inline">\(\overline{A_{TM}}\)</span> is not
+recognizable.</p></li>
+<li><p><span class="math inline">\(\overline{A_{TM}}\)</span> is not
+decidable.</p></li>
+</ul>
+</body>
+</html>

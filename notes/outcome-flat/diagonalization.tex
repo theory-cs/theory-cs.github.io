@@ -1,0 +1,241 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,arrows}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Week8 monday}
+
+
+
+
+\begin{center}
+    \begin{tabular}{|lcl|}
+    \hline
+    \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
+    for Turing  machines  & $A_{TM}$ & $\{ \langle M,w \rangle \mid  \text{$M$ is a Turing machine that accepts input 
+    string $w$}\}$ \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
+     for Turing machines & $E_{TM}$ & $\{ \langle M \rangle \mid  \text{$M$ is a Turing machine and  $L(M) = \emptyset$\}}$ \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
+     for Turing machines& $EQ_{TM}$ & $\{ \langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing machines and  
+     $L(M_1) =L(M_2)$\}}$\\
+    \hline
+    \end{tabular}
+    \end{center}
+    
+    \begin{tabular}{p{3in}p{3in}}
+    $M_1$ & $M_2$ \\
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+        \tikzstyle{every state}=[text=black, fill=none]
+        
+        \node[initial,state] (q0)          {$q0$};
+        \node[state]         (q1) [right of=q0, xshift=80pt] {$q1$};
+        \node[state,accepting]   (qacc) [above of=q0] {$q_{acc}$};
+        
+        \path (q0) edge [bend left=20] node {\parbox{1cm}{$0; 0,R$\newline $1; 1, R$}} (q1)
+            (q1) edge [bend left=20] node {\parbox{1cm}{$0; 0,R$\newline $1; 1, R$}} (q0)
+            (q0) edge  [bend left=0] node {$\square; \square, R$} (qacc)
+        ;
+    \end{tikzpicture}
+    &
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+        \tikzstyle{every state}=[text=black, fill=none]
+        
+        \node[initial,state] (q0)          {$q0$};
+        \node[state]         (q1) [right of=q0, xshift=40pt] {$q1$};
+        \node[state]         (q2) [right of=q1, xshift=20pt] {$q2$};
+        \node[state,accepting]   (qacc) [right of=q2, xshift=20pt] {$q_{acc}$};
+        
+        \path (q0) edge [loop above] node {\parbox{1cm}{$\square; \square, R$}} (q0)
+        (q0) edge [bend left=00] node {\parbox{1cm}{$0; \square,R$\newline $1; \square, R$}} (q1)
+            (q1) edge [bend left=20] node {\parbox{1cm}{$0; \square,R$\newline $1; \square, R$}} (q2)
+            (q2) edge [bend left=20] node {\parbox{1cm}{$0; \square,R$\newline $1; \square, R$}} (q1)
+            (q2) edge  [bend left=0] node {$\square; \square, R$} (qacc)
+        ;
+    \end{tikzpicture}
+    
+    \end{tabular}
+    
+    Example strings in $A_{TM}$
+    
+    \vfill
+    
+    Example strings in  $E_{TM}$
+    
+    \vfill
+    
+    Example strings in  $EQ_{TM}$
+    
+    \vfill
+    
+    \newpage
+    
+    {\bf  Theorem}: $A_{TM}$  is  Turing-recognizable.
+    
+    
+    {\bf  Strategy}:  To prove this theorem, we need  to  define  a Turing  machine  $R_{ATM}$ such that 
+    $L(R_{ATM}) = A_{TM}$.
+    
+    
+    Define $R_{ATM} =  $ ``
+    
+    \vspace{150pt}
+    
+    
+    Proof of correctness: 
+    
+    
+    \vfill
+    \vfill
+    
+    We will show that $A_{TM}$ is undecidable.   {\it First, let's explore what that means.}
+    
+    \newpage
+    
+    To prove that a computational problem is {\bf decidable}, we find/ build a Turing 
+    machine that recognizes the language encoding the computational problem, and that 
+    is a decider.
+    
+    
+    How do we prove a specific problem is {\bf not decidable}?
+    
+    How would we even find such a computational problem?
+    
+    
+    {\it Counting arguments for the existence of an undecidable language:}
+    \begin{itemize}
+        \item The set of all Turing machines is countably infinite.
+        \item Each recognizable language has at least one Turing machine that recognizes it (by definition), 
+        so there can be no more Turing-recognizable
+        languages than there are Turing machines. 
+        \item Since there are infinitely many Turing-recognizable languages
+        (think of the singleton sets), there are countably infinitely 
+        many Turing-recognizable languages.
+        \item Such the set of Turing-decidable languages is an infinite subset 
+        of the set of Turing-recognizable languages, the set of 
+        Turing-decidable languages is also countably infinite.
+    \end{itemize}
+    
+    Since there are uncountably many languages (because $\mathcal{P}(\Sigma^*)$
+    is uncountable), there are uncountably many unrecognizable languages
+    and there are uncountably many undecidable languages.
+    
+    
+    Thus, there's at least one undecidable language!
+    
+    \vfill
+    
+    {\bf What's a specific example of a language that is unrecognizable or undecidable?}
+    
+    To prove that a language is undecidable, we need to prove that there is no Turing machine that decides it.
+    
+    {\bf Key idea}: proof by contradiction relying on self-referential disagreement.
+    
+    
+
+{\bf  Theorem}: $A_{TM}$  is  not  Turing-decidable.
+
+{\bf  Proof}: Suppose {\bf towards a  contradiction}  that there  is a Turing machine  that decides $A_{TM}$.  
+We call this presumed machine  $M_{ATM}$.
+
+By  assumption, for every  Turing machine  $M$ and every  string $w$
+
+\begin{itemize}
+\item If $w \in L(M)$, then  the computation of $M_{ATM}$  on  $\langle M,w \rangle ~~ \underline{\phantom{\hspace{2.5in}}}$
+\item If $w \notin L(M)$, then  the computation of $M_{ATM}$  on  $\langle M,w \rangle ~~ \underline{\phantom{\hspace{2.5in}}}$
+\end{itemize}
+
+
+Define  a {\bf new} Turing machine using  the high-level description:
+\begin{quote}
+$D =  $`` On  input $\langle M \rangle$, where  $M$  is  a Turing machine:
+\begin{itemize}
+\item[1.] Run  $M_{ATM}$ on  $\langle M, \langle M \rangle  \rangle$.
+\item[2.] If $M_{ATM}$ accepts, reject; if  $M_{ATM}$ rejects, accept."
+\end{itemize}
+\end{quote}
+
+
+Is $D$ a  Turing machine?
+
+\vspace{30pt}
+
+Is  $D$ a  decider? 
+
+\vspace{30pt}
+
+What is the result of the computation  of $D$  on  $\langle D \rangle$?
+
+\vfill
+
+
+\newpage
+
+{\bf Summarizing}: 
+
+\begin{itemize}
+    \item $A_{TM}$  is recognizable.
+    \item $A_{TM}$  is  not  decidable.
+\end{itemize}
+
+\vfill
+
+Recall definition: A language $L$ over an  alphabet $\Sigma$ is called {\bf co-recognizable} if its complement,  defined
+as $\Sigma^* \setminus L  = \{ x  \in  \Sigma^* \mid x \notin  L \}$, is Turing-recognizable.
+
+and Recall  Theorem (Sipser Theorem 4.22): A  language is Turing-decidable if and only if both  it and its complement
+are Turing-recognizable.
+
+\vfill
+
+\begin{itemize}
+    \item $A_{TM}$  is recognizable.
+    \item $A_{TM}$  is  not  decidable.
+    \item $\overline{A_{TM}}$   is  not  recognizable.
+    \item $\overline{A_{TM}}$   is  not  decidable.
+\end{itemize}
+
+\vfill \vfill
+\end{document}
