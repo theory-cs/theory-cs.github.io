@@ -21,40 +21,6 @@ witnessing the mapping reduction mapped strings in $A_{TM}$ to strings in $HALT_
 strings not in $A_{TM}$ to strings not in $HALT_{TM}$ by changing encoded Turing machines to 
 ones that had identical computations except looped instead of rejecting.
 
-\begin{comment}
-Define $F: \Sigma^* \to \Sigma^*$ by
-    \[
-    F(x) =  \begin{cases}
-    const_{out} \qquad &\text{if  $x \neq \langle M,w \rangle$ for any Turing machine  $M$ and string  $w$ over the alphabet of $M$} \\
-    \langle M', w \rangle \qquad &  \text{if $x = \langle M, w \rangle$ for some Turing machine  $M$ and string $w$ over the alphabet of $M$.}
-    \end{cases}
-    \]
-    where $const_{out}  =  \langle  \includegraphics[width=1.5in]{../../resources/machines/Lect22TM1.png} ,  \varepsilon  \rangle$
-    and  $M'$ is a Turing machine that computes like $M$ except, if the computation ever were to go to a  reject state,
-    $M'$ loops instead.
-    
-    \vfill
-
-    $F( \langle \includegraphics[width=1.5in]{../../resources/machines/Lect22TM1.png} ,  001  \rangle)$ =
-
-    \vfill
-
-    $F( \langle \includegraphics[width=2.5in]{../../resources/machines/Lect22TM2.png} ,  1  \rangle)$ =
-
-    \vfill
-    
-    \newpage
-    To use this function  to prove that $A_{TM} \leq_m HALT_{TM}$, we need  two claims:
-
-    
-    Claim (1): $F$ is computable \phantom{\hspace{2in}}
-    
-    \vfill
-
-    Claim (2): for every  $x$,  $x \in  A_{TM}$ iff $F(x) \in HALT_{TM}$.  
-    
-    \vfill
-\end{comment}
 
 True or False: $\overline{A_{TM}} \leq_m \overline{HALT_{TM}}$
 

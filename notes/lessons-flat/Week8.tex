@@ -54,7 +54,7 @@ For Monday, ``An undecidable language", Sipser pages 207-209.
 
 For Wednesday, Definition 5.20 and figure 5.21 (page 236) of mapping reduction.
 
-For Friday, Example 5.24 (page 236),
+For Friday, Example 5.24 (page 236).
 
 {\it For Monday of Week 9}: Example 5.26 (page 237)
 
@@ -492,15 +492,39 @@ of difficulty of $A$ is less than or equal the level of difficulty of $B$.
     \[
     F(x) =  \begin{cases}
     const_{out} \qquad &\text{if  $x \neq \langle M,w \rangle$ for any Turing machine  $M$ and string  $w$ over the alphabet of $M$} \\
-    \langle M', w \rangle \qquad &  \text{if $x = \langle M, w \rangle$ for some Turing machine  $M$ and string $w$ over the alphabet of $M$.}
+    \langle M'_x, w \rangle \qquad &  \text{if $x = \langle M, w \rangle$ for some Turing machine  $M$ and string $w$ over the alphabet of $M$.}
     \end{cases}
     \]
-    where $const_{out}  =  \langle  \includegraphics[width=1.5in]{../../resources/machines/Lect22TM1.png} ,  \varepsilon  \rangle$
-    and  $M'$ is a Turing machine that computes like $M$ except, if the computation ever were to go to a  reject state,
-    $M'$ loops instead.   
+    where $const_{out}  =  \langle  
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+            \tikzstyle{every state}=[text=black, fill=none]
+            
+            \node[initial,state] (q0)          {$q0$};
+            \node[state,accepting]         (qacc) [right of=q0, xshift=20pt] {$q_{acc}$};
+            
+            \path (q0) edge  [loop above] node {\parbox{1cm}{$0; \square, R$\newline$1; \square, R$\newline $\square; \square, R$}} (q0)
+            ;
+          \end{tikzpicture},  \varepsilon  \rangle$
+    and  $M'_x$ is a Turing machine that computes like $M$ except, if the computation of $M$ ever were to go to a  reject state,
+    $M'_x$ loops instead.   
 
 
-    $F( \langle \includegraphics[width=2.5in]{../../resources/machines/Lect22TM2.png} ,  \varepsilon  \rangle)$ =
+
+
+    $F( \langle 
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+            \tikzstyle{every state}=[text=black, fill=none]
+            
+            \node[initial,state] (q0)          {$q0$};
+            \node[state]         (q1) [right of=q0, xshift=80pt] {$q1$};
+            \node[state,accepting]   (qacc) [above of=q0] {$q_{acc}$};
+            
+            \path (q0) edge [bend left=20] node {\parbox{1cm}{$0; 0,R$\newline $1; 1, R$}} (q1)
+                (q1) edge [bend left=20] node {\parbox{1cm}{$0; 0,R$\newline $1; 1, R$}} (q0)
+                (q0) edge  [bend left=0] node {$\square; \square, R$} (qacc)
+            ;
+        \end{tikzpicture}, \varepsilon \rangle)$ = 
+
 
     To use this function  to prove that $A_{TM} \leq_m HALT_{TM}$, we need  two claims:
 
