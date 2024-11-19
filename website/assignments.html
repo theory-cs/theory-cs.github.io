@@ -288,7 +288,26 @@
 			Hw4Cse105F24</h2> </button> <div class="boxContent" style="display: none;"> <hr> <p> This is a group optional assignment</p> <p> Due: 11/12/24 at 5pm (late submission open until 8am next morning)</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
 		href=../output/assignments/hw4CSE105F24.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
 			href=../notes/assignments-flat/hw4CSE105F24.tex download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
-			href= ../output/assignments/hw4CSE105F24.html target="HTML">Raw HTML</a><br> <br> <iframe class="PDFjs" id="hw4CSE105F24" src="web/viewer.html?file=../../output/assignments/hw4CSE105F24.pdf" 
+			href= ../output/assignments/hw4CSE105F24.html target="HTML">Raw HTML</a><br> <label>Sample solutions<input type="checkbox" id="toggle-4">
+				<span class="slider round"></span>
+				<script>
+					annotated4 = false;
+					document.getElementById("toggle-4").onclick = function() {
+						if(annotated4  == false) {
+							console.log("false to true");
+							annotated4  = true;
+							annotations(true, "../output/assignments/hw4CSE105F24.pdf","../files/hw4CSE105F24solutions.pdf", "hw4CSE105F24")
+						}
+						else {
+							console.log("true to false");
+							annotated4  = false;
+							annotations(false, "../output/assignments/hw4CSE105F24.pdf","../files/hw4CSE105F24solutions.pdf", "hw4CSE105F24")
+						}
+					}
+
+					
+				</script></label>
+			 <br> <iframe class="PDFjs" id="hw4CSE105F24" src="web/viewer.html?file=../../output/assignments/hw4CSE105F24.pdf" 
 		title="webviewer" frameborder="0" width="100%" height="600"></iframe> <script>
 			 toggle = document.querySelector('.toggle input')
 
