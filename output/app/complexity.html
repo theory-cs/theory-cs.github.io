@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>complexity</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="week10-friday">Week10 friday</h1>
+<p><span><strong>NP-Complete Problems</strong></span></p>
+<p><span><strong>3SAT</strong></span>: A literal is a Boolean variable
+(e.g. <span class="math inline">\(x\)</span>) or a negated Boolean
+variable (e.g. <span class="math inline">\(\bar{x}\)</span>). A Boolean
+formula is a <span><strong>3cnf-formula</strong></span> if it is a
+Boolean formula in conjunctive normal form (a conjunction of disjunctive
+clauses of literals) and each clause has three literals. <span
+class="math display">\[3SAT  = \{  \langle  \phi \rangle \mid
+\text{$\phi$ is  a  satisfiable 3cnf-formula} \}\]</span></p>
+<p>Example string in <span class="math inline">\(3SAT\)</span> <span
+class="math display">\[\langle (x \vee \bar{y} \vee {\bar z}) \wedge
+(\bar{x}  \vee y  \vee  z) \wedge (x \vee y  \vee z)
+\rangle\]</span></p>
+<p>Example string not in <span class="math inline">\(3SAT\)</span> <span
+class="math display">\[\langle (x \vee y \vee z) \wedge
+    (x \vee y \vee{\bar z}) \wedge
+    (x \vee \bar{y} \vee z) \wedge
+    (x \vee \bar{y} \vee \bar{z}) \wedge
+    (\bar{x} \vee y \vee z) \wedge
+    (\bar{x} \vee y \vee{\bar z}) \wedge
+    (\bar{x} \vee \bar{y} \vee z) \wedge
+    (\bar{x} \vee \bar{y} \vee \bar{z}) \rangle\]</span></p>
+<p><span><strong>Cook-Levin Theorem</strong></span>: <span
+class="math inline">\(3SAT\)</span> is <span
+class="math inline">\(NP\)</span>-complete.</p>
+<p><span><em>Are there other <span
+class="math inline">\(NP\)</span>-complete problems?</em></span> To
+prove that <span class="math inline">\(X\)</span> is <span
+class="math inline">\(NP\)</span>-complete</p>
+<ul>
+<li><p><span><em>From scratch</em></span>: prove <span
+class="math inline">\(X\)</span> is in <span
+class="math inline">\(NP\)</span> and that all <span
+class="math inline">\(NP\)</span> problems are polynomial-time reducible
+to <span class="math inline">\(X\)</span>.</p></li>
+<li><p><span><em>Using reduction</em></span>: prove <span
+class="math inline">\(X\)</span> is in <span
+class="math inline">\(NP\)</span> and that a known-to-be <span
+class="math inline">\(NP\)</span>-complete problem is polynomial-time
+reducible to <span class="math inline">\(X\)</span>.</p></li>
+</ul>
+<p><span><strong>CLIQUE</strong></span>: A <span><strong><span
+class="math inline">\(k\)</span>-clique</strong></span> in an undirected
+graph is a maximally connected subgraph with <span
+class="math inline">\(k\)</span> nodes. <span
+class="math display">\[CLIQUE  = \{  \langle G, k \rangle \mid \text{$G$
+is an  undirected graph with  a $k$-clique} \}\]</span></p>
+<p>Example string in <span class="math inline">\(CLIQUE\)</span></p>
+<p>Example string not in <span class="math inline">\(CLIQUE\)</span></p>
+<p>Theorem (Sipser 7.32): <span class="math display">\[3SAT  \leq_P
+CLIQUE\]</span></p>
+<p>Given a Boolean formula in conjunctive normal form with <span
+class="math inline">\(k\)</span> clauses and three literals per clause,
+we will map it to a graph so that the graph has a clique if the original
+formula is satisfiable and the graph does not have a clique if the
+original formula is not satisfiable.</p>
+<p>The graph has <span class="math inline">\(3k\)</span> vertices (one
+for each literal in each clause) and an edge between all vertices
+except</p>
+<ul>
+<li><p>vertices for two literals in the same clause</p></li>
+<li><p>vertices for literals that are negations of one another</p></li>
+</ul>
+<p>Example: <span class="math inline">\((x \vee \bar{y} \vee {\bar z})
+\wedge (\bar{x}  \vee y  \vee  z) \wedge (x \vee y  \vee z)\)</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Model of
+Computation</strong></span></td>
+<td style="text-align: left;"><span><strong>Class of
+Languages</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Deterministic finite
+automata</strong></span>: formal definition, how to design for a given
+language, how to describe language of a machine?
+<span><strong>Nondeterministic finite automata</strong></span>: formal
+definition, how to design for a given language, how to describe language
+of a machine? <span><strong>Regular expressions</strong></span>: formal
+definition, how to design for a given language, how to describe language
+of expression? <span><em>Also</em></span>: converting between different
+models.</td>
+<td style="text-align: left;"><span><strong>Class of regular
+languages</strong></span>: what are the closure properties of this
+class? which languages are not in the class? using <span><strong>pumping
+lemma</strong></span> to prove nonregularity.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Push-down
+automata</strong></span>: formal definition, how to design for a given
+language, how to describe language of a machine?
+<span><strong>Context-free grammars</strong></span>: formal definition,
+how to design for a given language, how to describe language of a
+grammar?</td>
+<td style="text-align: left;"><span><strong>Class of context-free
+languages</strong></span>: what are the closure properties of this
+class? which languages are not in the class?</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Turing machines that always halt in
+polynomial time</td>
+<td style="text-align: left;"><span
+class="math inline">\(P\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Nondeterministic Turing machines that
+always halt in polynomial time</td>
+<td style="text-align: left;"><span
+class="math inline">\(NP\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Deciders</strong></span>
+(Turing machines that always halt): formal definition, how to design for
+a given language, how to describe language of a machine?</td>
+<td style="text-align: left;"><span><strong>Class of decidable
+languages</strong></span>: what are the closure properties of this
+class? which languages are not in the class? using diagonalization and
+mapping reduction to show undecidability</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Turing
+machines</strong></span> formal definition, how to design for a given
+language, how to describe language of a machine?</td>
+<td style="text-align: left;"><span><strong>Class of recognizable
+languages</strong></span>: what are the closure properties of this
+class? which languages are not in the class? using closure and mapping
+reduction to show unrecognizability</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Given a language, prove it is
+regular</strong></span></p>
+<p><span><em>Strategy 1</em></span>: construct DFA recognizing the
+language and prove it works.</p>
+<p><span><em>Strategy 2</em></span>: construct NFA recognizing the
+language and prove it works.</p>
+<p><span><em>Strategy 3</em></span>: construct regular expression
+recognizing the language and prove it works.</p>
+<p><span><em>“Prove it works” means …</em></span></p>
+<p><span><strong>Example</strong></span>: <span
+class="math inline">\(L  = \{ w \in \{0,1\}^* \mid \textrm{$w$ has odd
+number of $1$s or starts with $0$}\}\)</span></p>
+<p>Using NFA</p>
+<p>Using regular expressions</p>
+<p><span><strong>Example</strong></span>: Select all and only the
+options that result in a true statement: “To show a language <span
+class="math inline">\(A\)</span> is not regular, we can…”</p>
+<ol>
+<li><p>Show <span class="math inline">\(A\)</span> is finite</p></li>
+<li><p>Show there is a CFG generating <span
+class="math inline">\(A\)</span></p></li>
+<li><p>Show <span class="math inline">\(A\)</span> has no pumping
+length</p></li>
+<li><p>Show <span class="math inline">\(A\)</span> is
+undecidable</p></li>
+</ol>
+<p><span><strong>Example</strong></span>: What is the language generated
+by the CFG with rules <span class="math display">\[\begin{aligned}
+    S &amp;\to aSb \mid bY \mid Ya \\
+    Y &amp;\to bY \mid Ya \mid \varepsilon
+\end{aligned}\]</span></p>
+<p><span><strong>Example</strong></span>: Prove that the language <span
+class="math inline">\(T = \{ \langle M \rangle \mid \textrm{$M$ is a
+Turing machine and $L(M)$ is infinite}\}\)</span> is undecidable.</p>
+<p><span><strong>Example</strong></span>: Prove that the class of
+decidable languages is closed under concatenation.</p>
+</body>
+</html>
