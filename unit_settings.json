@@ -448,6 +448,10 @@
                 "source": "Week6.tex"
             },
             {
+                "name": "Discussion Notes",
+                "source": "Week6-discussion.pdf"
+            },
+            {
                 "name": "(Video) TM Implementation-level and formal definition Example 1",
                 "source": "https://youtu.be/q47wZ3Hdt2Y"
             },
@@ -498,6 +502,10 @@
             {
                 "name": "Notes",
                 "source": "Week7.tex"
+            },
+            {
+                "name": "Discussion Notes",
+                "source": "Week7-discussion.pdf"
             },
             {
                 "name": "(Video) Decidable computational problems",
@@ -554,6 +562,10 @@
             {
                 "name": "Notes",
                 "source": "Week8.tex"
+            },
+            {
+                "name": "Discussion Notes",
+                "source": "Week8-discussion.pdf"
             },
             {
                 "name": "(Video) ATM recognizable",
@@ -638,6 +650,10 @@
             {
                 "name": "Notes",
                 "source": "Week9.tex"
+            },
+            {
+                "name": "Discussion Notes",
+                "source": "Week9-discussion.pdf"
             },
             {
                 "name": "(Video) Reducing A_TM to HALT_TM",
