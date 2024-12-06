@@ -32,7 +32,8 @@
    {
       "name": "hw6CSE105F24",
       "addExtensions": true,
-      "Information": "This is a group optional assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw6CSE105F24solutions.pdf"
    },
    {
       "name": "projectCSE105F24",
