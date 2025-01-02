@@ -26,24 +26,61 @@ accept state.}\\
 
 The formal definition of the NFA over $\{0,1\}$ given by this state diagram is: 
 
-\includegraphics[width=2in]{../../resources/machines/Lect4NFA1.png}
+\begin{center}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+       \tikzstyle{every state}=[text=black, fill=none]
+       
+       \node[initial,state] (q0)          {$q0$};
+       \node[state,accepting]         (q1) [right of=q0, xshift=10pt]{$q1$};
+       
+       \path (q0) edge  [loop above] node {$0,1$} (q0)
+           (q0) edge [bend left=0] node {$1$} (q1)
+       ;
+    \end{tikzpicture}
+ \end{center}
+
 
 The language over $\{0,1\}$ recognized by this NFA is:
 
 \vspace{70pt}
 
-Change the transition function to get a different NFA which accepts
+{\it Practice}: Change the transition function to get a different NFA which accepts
 the empty string (and potentially other strings too).
 
 
 \newpage
 
-The state diagram of an NFA over $\{a,b\}$ is below.  The formal definition of this NFA is:
+The state diagram of an NFA over $\{a,b\}$ is:
 
-\vspace{-30pt}
+\begin{center}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+       \tikzstyle{every state}=[text=black, fill=none]
+       
+       \node[initial,state] (q0)          {$q0$};
+       \node[state,accepting]         (n) [below right of=q0, xshift=20pt] {$n$};
+       \node[state]     (d) [right of=n, xshift=20pt] {$d$};
+       \node[state]     (q) [above right of=q0, xshift=10pt] {$q$};
+       \node[state]     (r) [right of=q, xshift=10pt] {$r$};
+       \node[state,accepting]     (s) [right of=r, xshift=10pt] {$s$};
+       
+       \path (q0) edge  [bend left=0] node {$\varepsilon$} (q)
+           (q0) edge  [bend left=0] node {$\varepsilon$} (n)
+           (q) edge [bend left=0] node {$a$} (r)
+           (q) edge [loop above] node {$b$} (q)
+           (r) edge [bend left=0] node {$b$} (s)
+           (r) edge [loop above] node {$a$} (r)
+           (s) edge [loop above] node {$a,b$} (s)
+           (n) edge [bend left=20] node {$a,b$} (d)
+           (d) edge [bend left=20] node {$a,b$} (n)
+       ;
+    \end{tikzpicture}
+ \end{center}
 
-\includegraphics[width=2.5in]{../../resources/machines/Lect5NFA1.png}
+ The formal definition of this NFA is:
 
+ \vfill
+
+\newpage
 
 Suppose $A_1, A_2$ are languages over an alphabet $\Sigma$.
 {\bf Claim:} if there is a NFA $N_1$ such that $L(N_1) = A_1$ and 
