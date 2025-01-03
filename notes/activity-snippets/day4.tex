@@ -1,0 +1,149 @@
+%! app: Regular Languages 
+%! outcome: Regular expressions, Formal definition of automata, Informal definition of automata
+
+
+**This definition was in the pre-class reading**
+A finite automaton (FA) is specified by  $M = (Q, \Sigma, \delta, q_0, F)$.
+This $5$-tuple is called the {\bf formal definition} of the FA. The FA can also 
+be represented by its state diagram: with nodes for the state, labelled edges specifying the 
+transition function, and decorations on nodes denoting the start and accept states.
+
+\begin{quote}
+Finite set of states $Q$ can be labelled by any collection of distinct names. Often
+we use default state labels $q0, q1, \ldots$ 
+\end{quote}
+
+\begin{quote}  
+The alphabet $\Sigma$ determines the possible inputs to the automaton. 
+Each input to the automaton is a string over  $\Sigma$, and the automaton ``processes'' the input
+one symbol (or character) at a time.
+\end{quote}
+
+\begin{quote}
+The transition function $\delta$ gives the next state of the automaton based on the current state of 
+the machine and on the next input symbol.
+\end{quote}
+
+\begin{quote}
+The start state $q_0$ is an element of $Q$.  Each computation of the machine starts at the  start  state.
+\end{quote}
+
+\begin{quote}
+The accept (final) states $F$ form a subset of the states of the automaton, $F \subseteq  Q$. 
+These states are used to flag if the machine accepts or rejects an input string.
+\end{quote}
+
+
+\begin{quote}
+The computation of a machine on an input string is a sequence of states
+in the machine,  starting with the start state, determined by transitions 
+of the machine as it reads successive input symbols.
+\end{quote}
+
+\begin{quote}
+The finite automaton $M$ accepts the given input string exactly when the computation of $M$ on the input string
+ends in an accept state. $M$ rejects the given input string exactly when the computation of 
+$M$ on the input string ends in a nonaccept state, that is, a state that is not in $F$.
+\end{quote}
+
+\begin{quote} 
+The language of $M$, $L(M)$, is defined as the set of  all strings that are each accepted 
+by the machine $M$. Each string that is rejected by $M$ is not in $L(M)$.
+The language of $M$ is also called the language recognized by $M$.
+\end{quote}   
+   
+What is {\bf finite} about all finite automata? (Select all that apply)
+\begin{itemize}
+   \item[$\square$] The size of the machine (number of states, number of arrows)
+   \item[$\square$] The length of each computation of the machine
+   \item[$\square$] The number of strings that are accepted by the machine
+\end{itemize}
+\newpage
+  
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+   \tikzstyle{every state}=[text=black, fill=none]
+   
+   \node[initial,state,accepting] (q0)          {$q0$};
+   \node[state,accepting]         (q1) [above right of=q0, xshift=20pt] {$q1$};
+   \node[state,accepting]         (q2) [below right of=q0, xshift=20pt] {$q2$};
+   \node[state]                   (q3) [below right of=q1, xshift=40pt] {$q3$};
+   
+   \path (q0) edge  [bend left=0] node {$a$} (q1)
+       (q1) edge [loop above] node {$a$} (q1)
+       (q1) edge [bend left=0] node {$b$} (q3)
+       (q0) edge [bend left=0] node {$b$} (q2)
+       (q2) edge [loop above] node {$b$} (q2)
+       (q2) edge [bend left=0] node {$a$} (q3)
+       (q3) edge [loop above] node {$a,b$} (q3)
+   ;
+\end{tikzpicture}
+\end{center}
+The formal definition of this FA is
+   
+\vfill
+\vfill
+   
+
+Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the FA or rejected by the FA.  
+
+{\it Why are these the only two options?}
+
+\vspace{200pt}
+
+
+The language recognized by this automaton is
+  
+
+\vfill
+
+\newpage
+
+\begin{center}
+   \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=none]
+      
+      \node[initial,state,accepting] (q0)          {$q0$};
+      \node[state,accepting]         (q1) [right of=q0, xshift=20pt] {$q1$};
+      \node[state]         (q2) [right of=q1, xshift=20pt] {$q2$};
+      
+      \path (q0) edge  [bend left=0] node {$b$} (q1)
+          (q0) edge [loop above] node {$a$} (q0)
+          (q1) edge [bend left=0] node {$a$} (q2)
+          (q1) edge [loop above] node {$b$} (q1)
+          (q2) edge [loop above] node {$a,b$} (q2)
+      ;
+   \end{tikzpicture}
+\end{center}
+
+The language recognized by this automaton is
+  
+
+
+\vfill
+
+\hrule
+
+\begin{center}
+   \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=none]
+      
+      \node[initial,state] (q0)          {$q0$};
+      \node[state,accepting]         (q1) [above right of=q0, xshift=10pt, yshift=20pt] {$q1$};
+      \node[state,accepting]         (q2) [right of=q1, xshift=20pt] {$q2$};
+      \node[state]          (q3) [below right of=q2, xshift=10pt, yshift=-20pt] {$q3$};
+      
+      \path (q0) edge  [bend left=0] node {$a$} (q1)
+          (q0) edge [bend left=0] node {$b$} (q3)
+          (q1) edge [bend left=0] node {$b$} (q2)
+          (q1) edge [bend left=0] node {$a$} (q3)
+          (q2) edge [bend left=0] node {$a,b$} (q3)
+          (q3) edge [loop right] node {$a,b$} (q3)
+      ;
+   \end{tikzpicture}
+\end{center}
+
+The language recognized by this automaton is
+  
+
+\vfill

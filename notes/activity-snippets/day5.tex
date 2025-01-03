@@ -1,0 +1,114 @@
+%! app: Regular Languages
+%! outcome: Regular expressions, Formal definition of automata, Informal definition of automata
+
+{\bf Review}: Formal definition of DFA: $M = (Q, \Sigma, \delta, q_0, F)$ 
+
+\begin{center}
+\begin{multicols}{2}
+\begin{itemize}
+\setlength{\itemsep}{2pt}
+\item Finite set of states $Q$
+\item Alphabet $\Sigma$
+\item Transition function $\delta$
+\item Start state $q_0$
+\item Accept (final) states $F$
+\end{itemize}
+\end{multicols}
+\end{center}
+Quick check: In the state diagram of $M$, how many outgoing arrows are there from each state?
+
+
+
+{\bf Note}: We'll see a new kind of finite automaton. It will be helpful to distinguish it from the
+machines we've been talking about so we'll use {\bf Deterministic Finite Automaton} (DFA) to refer to the machines 
+from Section 1.1.
+
+$M = ( \{ q0, q1, q2\}, \{a,b\}, \delta, q0, \{q0\} )$ 
+where $\delta$ is  (rows labelled by states
+and columns labelled by symbols):
+\begin{center}
+\begin{tabular}{c|cc}
+$\delta$ & $a$ & $b$ \\
+\hline
+$q0$ & $q1$ & $q1$ \\
+$q1$ & $q2$ & $q2$ \\
+$q2$ & $q0$ & $q0$ \\
+\end{tabular}
+\end{center}
+
+The state diagram for $M$ is 
+
+\vfill
+
+
+Give two examples of strings that are accepted by $M$ and two examples of strings that are rejected by $M$:
+
+\vfill
+
+
+A regular expression describing $L(M)$ is
+
+
+\vfill 
+
+A state diagram for a finite automaton recognizing
+$$\{w \mid w~\text{is a string over $\{a,b\}$ whose length is not a multiple of $3$} \}$$
+
+\vfill
+
+Extra example: Let $n$ be an arbitrary positive integer. What is a formal definition for a finite automaton recognizing
+\[
+\{w \mid w~\text{is a string over $\{0,1\}$ whose length is not a multiple of $n$} \}?
+\]
+
+\newpage
+
+Consider the alphabet $\Sigma_1 = \{0,1\}$.
+
+A state diagram for a finite automaton that recognizes $\{w \mid w~\text{contains at most two $1$'s} \}$ is
+
+\vfill
+A state diagram for a finite automaton that recognizes $\{w \mid w~\text{contains more than two $1$'s} \}$ is
+
+\vfill
+
+\textbf{Strategy}: Add ``labels" for states in the state diagram, 
+e.g. ``have not seen any of desired pattern yet'' or
+``sink state''. Then, we can use the analysis of the roles of the states in the 
+state diagram to work towards a description of the language recognized
+by the finite automaton.
+
+
+\vfill
+\newpage
+Or: decompose the language to a simpler one 
+that we already know how to recognize with a DFA or NFA.
+
+
+Textbook Exercise 1.14: 
+Suppose $A$ is a language over an alphabet $\Sigma$. 
+If there is a DFA $M$ such that $L(M) = A$ then there is another DFA, let's call it $M'$, such that 
+$L(M') = \overline{A}$, the complement of $A$, defined as $\{ w \in \Sigma^* \mid w \notin A \}$.
+
+
+{\bf Proof idea}:
+
+
+\vfill
+A useful bit of terminology: the {\bf iterated transition function} of a finite automaton
+$M = (Q, \Sigma, \delta, q_0, F)$ is defined recursively by
+\[
+\delta^* (~(q,w)~) 
+=\begin{cases}
+q  \qquad &\text{if $q \in Q, w = \varepsilon$} \\
+\delta( ~(q,a)~) \qquad &\text{if $q \in Q$, $w = a \in \Sigma$ } \\
+\delta(~(\delta^*(~(q,u)~), a) ~) \qquad &\text{if $q \in Q$, $w = ua$ where $u \in  \Sigma^*$ and $a \in \Sigma$}
+\end{cases}
+\]
+
+Using  this terminology, $M$ accepts a string $w$ over $\Sigma$ if and only if $\delta^*( ~(q_0,w)~) \in F$.
+
+
+{\bf Proof}: 
+\vfill
+

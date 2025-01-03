@@ -8,13 +8,16 @@
 
 \vspace{-15pt}
 
-Before Monday, read pages 41-43 (Figures 1.18, 1.19, 1.20) for examples of automata and languages.
+Before Monday, read Figure 1.4 and Definition 1.5 (definition of finite automata) on pages 34-35.
 
-Before Wednesday, read pages 48-50 (Figures 1.27, 1.29) which introduces nondeterminism.
+Before Wednesday, read pages 41-43 (Figures 1.18, 1.19, 1.20) for examples of automata and languages.
 
-Before Friday, read pages 45-46 (Theorem 1.25) that we'll refer to as a ``closure proof".
+Before Friday, read pages 48-50 (Figures 1.27, 1.29) which introduces nondeterminism.
 
-For Week 3 Monday: Theorem 1.47 + 1.48, Theorem 1.39 ``Proof Idea'', Example 1.41, Example 1.56.
+No class on Week 3 Monday in observance of Martin Luther King Jr. Day.
+
+For Week 3 Wednesday: read the definition of the union, concatenation, and star operations for languages,  given 
+as Definition 1.23 on page 44 and a useful example is Example 1.24.
 
 \vspace{-20pt}
 
@@ -31,35 +34,21 @@ For Week 3 Monday: Theorem 1.47 + 1.48, Theorem 1.39 ``Proof Idea'', Example 1.4
    \end{itemize}
    \item Describe and use models of computation that don't involve state machines.
    \begin{itemize}
-      \item {\bf Given a DFA or NFA, find a regular expression that describes its language.}
-      \item {\bf Given a regular expression, find a DFA or NFA that recognizes its language.}
+      \item {\bf Given a DFA, find a regular expression that describes its language.}
+      \item {\bf Given a regular expression, find a DFA that recognizes its language.}
    \end{itemize}
    \item Use precise notation to formally define the state diagram of finite automata.
    \item Use clear English to describe computations of finite automata informally.
-   \begin{itemize}
-      \item {\bf Design an automaton that recognizes a given language}
-      \item {\bf Specify a general construction for DFA based on parameters}
-      \item {\bf Design general constructions for DFA}
-      \item {\bf Motivate the use of nondeterminism}
-      \item {\bf State the formal definition of NFA}   
-      \item {\bf Trace the computation(s) of a NFA on a given string using its state diagram}
-      \item {\bf Determine if a given string is in the language recognized by a NFA}
-      \item {\bf Translate between a state diagram and a formal definition of a NFA}
+      \begin{itemize}
+         \item {\bf State the formal definition of (deterministic) finite automata}   
+         \item {\bf Trace the computation of a finite automaton on a given string using its state diagram}
+         \item {\bf Translate between a state diagram and a formal definition}
+         \item {\bf Determine if a given string is in the language recognized by a finite automaton}
+         \item {\bf Design an automaton that recognizes a given language}
+         \item {\bf Specify a general construction for DFA based on parameters}
+         \item {\bf Design general constructions for DFA}
    \end{itemize}
 \end{itemize}
-
-%\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
-%\begin{itemize}
-%   \item 
-%\end{itemize}
-
-% \item Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.
-% \begin{itemize}
-%     \item Explain nondeterminism and describe tools for simulating it with deterministic computation.
-%     \begin{itemize}
-%       \item {\bf Given a nondeterministic finite automaton, find a deterministic finite automaton that recognizes its language.}
-%    \end{itemize}
-% \end{itemize}
 
 \end{itemize}
 
@@ -70,18 +59,26 @@ For Week 3 Monday: Theorem 1.47 + 1.48, Theorem 1.39 ``Proof Idea'', Example 1.4
    \item \#FinAid Assignment on Canvas (complete as soon as possible) and read syllabus on Canvas
    \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
    at PrairieTest (http://us.prairietest.com)
-   \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due Tuesday 10/8/2024
-   \item Review Quiz 2 on PrairieLearn (http://us.prairielearn.com), complete by Sunday 10/13/2024
+   \item Review Quiz 1 on PrairieLearn (http://us.prairielearn.com), complete by 1/15/25
+   \item Review Quiz 2 on PrairieLearn (http://us.prairielearn.com), complete by 1/15/25
+   \item Create a homework group, possibly by using the Piazza (https://piazza.com/) find-a-teammate tool
+   \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due 1/16/25
 \end{list}
 
 
 \newpage
-\subsection*{Monday: Finite automaton constructions}
 
-\input{../activity-snippets/week2-monday.tex}
+\subsection*{Week 2 Monday: Finite automata}
+
+\input{../activity-snippets/day4.tex}
+
+
+\subsection*{Week 2 Wednesay: Finite automaton constructions}
+
+\input{../activity-snippets/day5.tex}
 
 \newpage
-\subsection*{Wednesday: Nondeterministic automata}
+\subsection*{Week 2 Friday: Nondeterministic automata}
 
 We saw that whenever a language is recognized by a DFA, its
 complement is also recognized by some (other) DFA. 
@@ -90,12 +87,14 @@ Another way to say this is that the collection of languages
 that are each recognizable by a DFA is {\bf closed} under complementation.
 
 
-\input{../activity-snippets/week2-wednesday.tex}
+Before we continue with more complicated constructions, let's revisit some of 
+the assumption of the {\bf D}FA model.
 
-\newpage
-\subsection*{Friday: Automata constructions}
+Recall that the computation of {\bf deterministic} finite automaton has exactly one choice for its next step given the current state and the current character to read.
 
-\input{../activity-snippets/week2-friday.tex}
+
+\input{../activity-snippets/day6.tex}
+
 
 
 \end{document}

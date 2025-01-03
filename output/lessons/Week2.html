@@ -177,14 +177,17 @@
 <h2 class="unnumbered" id="week-2-at-a-glance">Week 2 at a glance</h2>
 <h3 class="unnumbered" id="textbook-reading-sections-1.1-1.2">Textbook
 reading: Sections 1.1, 1.2</h3>
-<p>Before Monday, read pages 41-43 (Figures 1.18, 1.19, 1.20) for
+<p>Before Monday, read Figure 1.4 and Definition 1.5 (definition of
+finite automata) on pages 34-35.</p>
+<p>Before Wednesday, read pages 41-43 (Figures 1.18, 1.19, 1.20) for
 examples of automata and languages.</p>
-<p>Before Wednesday, read pages 48-50 (Figures 1.27, 1.29) which
-introduces nondeterminism.</p>
-<p>Before Friday, read pages 45-46 (Theorem 1.25) that we’ll refer to as
-a “closure proof".</p>
-<p>For Week 3 Monday: Theorem 1.47 + 1.48, Theorem 1.39 “Proof Idea”,
-Example 1.41, Example 1.56.</p>
+<p>Before Friday, read pages 48-50 (Figures 1.27, 1.29) which introduces
+nondeterminism.</p>
+<p>No class on Week 3 Monday in observance of Martin Luther King Jr.
+Day.</p>
+<p>For Week 3 Wednesday: read the definition of the union,
+concatenation, and star operations for languages, given as Definition
+1.23 on page 44 and a useful example is Example 1.24.</p>
 <h3 class="unnumbered" id="we-will-be-learning-and-practicing-to">We
 will be learning and practicing to:</h3>
 <ul>
@@ -203,9 +206,9 @@ regularity.</strong></span></p></li>
 <li><p>Describe and use models of computation that don’t involve state
 machines.</p>
 <ul>
-<li><p><span><strong>Given a DFA or NFA, find a regular expression that
+<li><p><span><strong>Given a DFA, find a regular expression that
 describes its language.</strong></span></p></li>
-<li><p><span><strong>Given a regular expression, find a DFA or NFA that
+<li><p><span><strong>Given a regular expression, find a DFA that
 recognizes its language.</strong></span></p></li>
 </ul></li>
 <li><p>Use precise notation to formally define the state diagram of
@@ -213,22 +216,20 @@ finite automata.</p></li>
 <li><p>Use clear English to describe computations of finite automata
 informally.</p>
 <ul>
+<li><p><span><strong>State the formal definition of (deterministic)
+finite automata</strong></span></p></li>
+<li><p><span><strong>Trace the computation of a finite automaton on a
+given string using its state diagram</strong></span></p></li>
+<li><p><span><strong>Translate between a state diagram and a formal
+definition</strong></span></p></li>
+<li><p><span><strong>Determine if a given string is in the language
+recognized by a finite automaton</strong></span></p></li>
 <li><p><span><strong>Design an automaton that recognizes a given
 language</strong></span></p></li>
 <li><p><span><strong>Specify a general construction for DFA based on
 parameters</strong></span></p></li>
 <li><p><span><strong>Design general constructions for
 DFA</strong></span></p></li>
-<li><p><span><strong>Motivate the use of
-nondeterminism</strong></span></p></li>
-<li><p><span><strong>State the formal definition of
-NFA</strong></span></p></li>
-<li><p><span><strong>Trace the computation(s) of a NFA on a given string
-using its state diagram</strong></span></p></li>
-<li><p><span><strong>Determine if a given string is in the language
-recognized by a NFA</strong></span></p></li>
-<li><p><span><strong>Translate between a state diagram and a formal
-definition of a NFA</strong></span></p></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -239,14 +240,104 @@ syllabus on Canvas</p>
 <p>Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2,
 and Test 2 Attempt 2 times at PrairieTest
 (http://us.prairietest.com)</p>
-<p>Homework 1 submitted via Gradescope (https://www.gradescope.com/),
-due Tuesday 10/8/2024</p>
+<p>Review Quiz 1 on PrairieLearn (http://us.prairielearn.com), complete
+by 1/15/25</p>
 <p>Review Quiz 2 on PrairieLearn (http://us.prairielearn.com), complete
-by Sunday 10/13/2024</p>
+by 1/15/25</p>
+<p>Create a homework group, possibly by using the Piazza
+(https://piazza.com/) find-a-teammate tool</p>
+<p>Homework 1 submitted via Gradescope (https://www.gradescope.com/),
+due 1/16/25</p>
 </div>
+<h2 class="unnumbered" id="week-2-monday-finite-automata">Week 2 Monday:
+Finite automata</h2>
+<p>**This definition was in the pre-class reading** A finite automaton
+(FA) is specified by <span class="math inline">\(M = (Q, \Sigma, \delta,
+q_0, F)\)</span>. This <span class="math inline">\(5\)</span>-tuple is
+called the <span><strong>formal definition</strong></span> of the FA.
+The FA can also be represented by its state diagram: with nodes for the
+state, labelled edges specifying the transition function, and
+decorations on nodes denoting the start and accept states.</p>
+<blockquote>
+<p>Finite set of states <span class="math inline">\(Q\)</span> can be
+labelled by any collection of distinct names. Often we use default state
+labels <span class="math inline">\(q0, q1, \ldots\)</span></p>
+</blockquote>
+<blockquote>
+<p>The alphabet <span class="math inline">\(\Sigma\)</span> determines
+the possible inputs to the automaton. Each input to the automaton is a
+string over <span class="math inline">\(\Sigma\)</span>, and the
+automaton “processes” the input one symbol (or character) at a time.</p>
+</blockquote>
+<blockquote>
+<p>The transition function <span class="math inline">\(\delta\)</span>
+gives the next state of the automaton based on the current state of the
+machine and on the next input symbol.</p>
+</blockquote>
+<blockquote>
+<p>The start state <span class="math inline">\(q_0\)</span> is an
+element of <span class="math inline">\(Q\)</span>. Each computation of
+the machine starts at the start state.</p>
+</blockquote>
+<blockquote>
+<p>The accept (final) states <span class="math inline">\(F\)</span> form
+a subset of the states of the automaton, <span class="math inline">\(F
+\subseteq  Q\)</span>. These states are used to flag if the machine
+accepts or rejects an input string.</p>
+</blockquote>
+<blockquote>
+<p>The computation of a machine on an input string is a sequence of
+states in the machine, starting with the start state, determined by
+transitions of the machine as it reads successive input symbols.</p>
+</blockquote>
+<blockquote>
+<p>The finite automaton <span class="math inline">\(M\)</span> accepts
+the given input string exactly when the computation of <span
+class="math inline">\(M\)</span> on the input string ends in an accept
+state. <span class="math inline">\(M\)</span> rejects the given input
+string exactly when the computation of <span
+class="math inline">\(M\)</span> on the input string ends in a nonaccept
+state, that is, a state that is not in <span
+class="math inline">\(F\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>The language of <span class="math inline">\(M\)</span>, <span
+class="math inline">\(L(M)\)</span>, is defined as the set of all
+strings that are each accepted by the machine <span
+class="math inline">\(M\)</span>. Each string that is rejected by <span
+class="math inline">\(M\)</span> is not in <span
+class="math inline">\(L(M)\)</span>. The language of <span
+class="math inline">\(M\)</span> is also called the language recognized
+by <span class="math inline">\(M\)</span>.</p>
+</blockquote>
+<p>What is <span><strong>finite</strong></span> about all finite
+automata? (Select all that apply)</p>
+<ul>
+<li><p>The size of the machine (number of states, number of
+arrows)</p></li>
+<li><p>The length of each computation of the machine</p></li>
+<li><p>The number of strings that are accepted by the machine</p></li>
+</ul>
+<div class="center">
+
+</div>
+<p>The formal definition of this FA is</p>
+<p>Classify each string <span class="math inline">\(a, aa, ab, ba, bb,
+\varepsilon\)</span> as accepted by the FA or rejected by the FA.</p>
+<p><span><em>Why are these the only two options?</em></span></p>
+<p>The language recognized by this automaton is</p>
+<div class="center">
+
+</div>
+<p>The language recognized by this automaton is</p>
+<hr />
+<div class="center">
+
+</div>
+<p>The language recognized by this automaton is</p>
 <h2 class="unnumbered"
-id="monday-finite-automaton-constructions">Monday: Finite automaton
-constructions</h2>
+id="week-2-wednesay-finite-automaton-constructions">Week 2 Wednesay:
+Finite automaton constructions</h2>
 <p><span><strong>Review</strong></span>: Formal definition of DFA: <span
 class="math inline">\(M = (Q, \Sigma, \delta, q_0, F)\)</span></p>
 <div class="center">
@@ -369,14 +460,20 @@ accepts a string <span class="math inline">\(w\)</span> over <span
 class="math inline">\(\Sigma\)</span> if and only if <span
 class="math inline">\(\delta^*( ~(q_0,w)~) \in F\)</span>.</p>
 <p><span><strong>Proof</strong></span>:</p>
-<h2 class="unnumbered"
-id="wednesday-nondeterministic-automata">Wednesday: Nondeterministic
-automata</h2>
+<h2 class="unnumbered" id="week-2-friday-nondeterministic-automata">Week
+2 Friday: Nondeterministic automata</h2>
 <p>We saw that whenever a language is recognized by a DFA, its
 complement is also recognized by some (other) DFA.</p>
 <p>Another way to say this is that the collection of languages that are
 each recognizable by a DFA is <span><strong>closed</strong></span> under
 complementation.</p>
+<p>Before we continue with more complicated constructions, let’s revisit
+some of the assumption of the <span><strong>D</strong></span>FA
+model.</p>
+<p>Recall that the computation of
+<span><strong>deterministic</strong></span> finite automaton has exactly
+one choice for its next step given the current state and the current
+character to read.</p>
 <div class="center">
 <table>
 <tbody>
@@ -460,17 +557,20 @@ ends in an accept state.</td>
 <p>The formal definition of the NFA over <span
 class="math inline">\(\{0,1\}\)</span> given by this state diagram
 is:</p>
-<p><img src="../../resources/machines/Lect4NFA1.png" style="width:2in"
-alt="image" /></p>
+<div class="center">
+
+</div>
 <p>The language over <span class="math inline">\(\{0,1\}\)</span>
 recognized by this NFA is:</p>
-<p>Change the transition function to get a different NFA which accepts
-the empty string (and potentially other strings too).</p>
+<p><span><em>Practice</em></span>: Change the transition function to get
+a different NFA which accepts the empty string (and potentially other
+strings too).</p>
 <p>The state diagram of an NFA over <span
-class="math inline">\(\{a,b\}\)</span> is below. The formal definition
-of this NFA is:</p>
-<p><img src="../../resources/machines/Lect5NFA1.png" style="width:2.5in"
-alt="image" /></p>
+class="math inline">\(\{a,b\}\)</span> is:</p>
+<div class="center">
+
+</div>
+<p>The formal definition of this NFA is:</p>
 <p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
 over an alphabet <span class="math inline">\(\Sigma\)</span>.
 <span><strong>Claim:</strong></span> if there is a NFA <span
@@ -513,51 +613,5 @@ class="math inline">\(A_2\)</span>; then, taking an arbitrary string in
 <span class="math inline">\(A_1 \cup A_2\)</span> and proving that it is
 accepted by <span class="math inline">\(N\)</span>. Details left for
 extra practice.</em></span></p>
-<h2 class="unnumbered" id="friday-automata-constructions">Friday:
-Automata constructions</h2>
-<p><span><strong>Review</strong></span>: The language recognized by the
-NFA over <span class="math inline">\(\{a,b\}\)</span> with state
-diagram</p>
-<p>is:</p>
-<p>So far, we know:</p>
-<ul>
-<li><p>The collection of languages that are each recognizable by a DFA
-is <span><strong>closed</strong></span> under complementation.</p>
-<p><span><em>Could we do the same construction with
-NFA?</em></span></p></li>
-<li><p>The collection of languages that are each recognizable by a NFA
-is <span><strong>closed</strong></span> under union.</p>
-<p><span><em>Could we do the same construction with
-DFA?</em></span></p></li>
-</ul>
-<p>Happily, though, an analogous claim is true!</p>
-<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
-over an alphabet <span class="math inline">\(\Sigma\)</span>.
-<span><strong>Claim:</strong></span> if there is a DFA <span
-class="math inline">\(M_1\)</span> such that <span
-class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
-class="math inline">\(M_2\)</span> such that <span
-class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
-let’s call it <span class="math inline">\(M\)</span>, such that <span
-class="math inline">\(L(M) = A_1 \cup A_2\)</span>. <span><em>Theorem
-1.25 in Sipser, page 45</em></span></p>
-<p><span><strong>Proof idea</strong></span>:</p>
-<p><span><strong>Formal construction</strong></span>:</p>
-<p><span><strong>Example</strong></span>: When <span
-class="math inline">\(A_1 = \{w \mid w~\text{has an $a$ and ends in $b$}
-\}\)</span> and <span class="math inline">\(A_2 = \{ w \mid w~\text{is
-of even length} \}\)</span>.</p>
-<p>Suppose <span class="math inline">\(A_1, A_2\)</span> are languages
-over an alphabet <span class="math inline">\(\Sigma\)</span>.
-<span><strong>Claim:</strong></span> if there is a DFA <span
-class="math inline">\(M_1\)</span> such that <span
-class="math inline">\(L(M_1) = A_1\)</span> and DFA <span
-class="math inline">\(M_2\)</span> such that <span
-class="math inline">\(L(M_2) = A_2\)</span>, then there is another DFA,
-let’s call it <span class="math inline">\(M\)</span>, such that <span
-class="math inline">\(L(M) = A_1 \cap A_2\)</span>. <span><em>Footnote
-to Sipser Theorem 1.25, page 46</em></span></p>
-<p><span><strong>Proof idea</strong></span>:</p>
-<p><span><strong>Formal construction</strong></span>:</p>
 </body>
 </html>

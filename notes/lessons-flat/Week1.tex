@@ -55,19 +55,10 @@ perspectives, experiences, and identities (including race, ethnicity, heritage, 
 class, sexuality, religion, ability, age, educational background, etc.).  
 Our goal is for you to  engage
 with interesting and challenging concepts and 
-feel comfortable exploring, asking questions, and thriving.
+feel comfortable exploring, asking questions, and thriving.\\
 
-If you or someone you know is suffering from food and/or housing insecurities 
-there are UCSD resources here to help:
-
-Basic Needs Office: \href{https://basicneeds.ucsd.edu/}{https://basicneeds.ucsd.edu/}
-
-Triton Food Pantry (in the old Student Center)
-is free and anonymous, and includes produce: 
-
-\href{https://www.facebook.com/tritonfoodpantry/}{https://www.facebook.com/tritonfoodpantry/}
-
-Mutual Aid UCSD: \href{https://mutualaiducsd.wordpress.com/}{https://mutualaiducsd.wordpress.com/}
+If you are skipping and stretching meals, or having difficulties affording or accessing food, you may be eligible for CalFresh, California's Supplemental Nutrition Assistance Program, that can provide up to \$292 a month in free money on a debit card to buy food. Students can apply at \url{benefitscal.com/r/ucsandiegocalfresh}.
+The Hub Basic Needs Center empowers all students by connecting them to resources for food, stable housing and financial literacy. Visit their site at \url{basicneeds.ucsd.edu}.
 
 Financial aid resources, the possibility of emergency grant funding, and off-campus housing referral 
 resources are available: see your College Dean of Student Affairs.
@@ -92,7 +83,7 @@ Instructor: Prof. Mia Minnes {\tiny{"Minnes" rhymes with Guinness}}, minnes@ucsd
 \href{http://cseweb.ucsd.edu/~minnes}{http://cseweb.ucsd.edu/~minnes}
 
 
-Our team: One instructor + two TAs and eight tutors + all of you
+Our team: One instructor + two TAs and five tutors + all of you
 
 Fill in contact info for students around you, if you'd like:
 
@@ -100,7 +91,7 @@ Fill in contact info for students around you, if you'd like:
 \vfill
 
 \newpage 
-Welcome to CSE 105: Introduction to Theory of Computation in Fall 2024!
+Welcome to CSE 105: Introduction to Theory of Computation in Winter 2025!
 
 \section*{CSE 105's Big Questions}
 \begin{itemize}
@@ -140,21 +131,18 @@ To be able to compare ``hardness'' of problems, we use a consistent description 
 
 \vspace{-15pt}
 
-Before Monday, review class syllabus on Canvas (https://canvas.ucsd.edu/) and 
-read Example 1.51 and Definition 1.52 (definition of regular expressions) on page 64.
+Before Monday, review class syllabus on Canvas (https://canvas.ucsd.edu/).
+
+Before Wednesday, read Example 1.51.
+
 {\it Notice}: we are jumping to Section 1.3 and then will come back 
-to Section 1.1 on Wednesday.
+to Section 1.1 next week.
 
-Before Wednesday, read Figure 1.4 and Definition 1.5 (definition of finite automata) on pages 34-35.
+Before Friday, read Definition 1.52 (definition of regular expressions) on page 64.
 
-Before Friday, read the definition of the union, concatenation, and star operations for languages is given 
-as Definition 1.23 on page 44 and a useful example is Example 1.24.
+For Week 2 Monday: Figure 1.4 and Definition 1.5 (definition of finite automata) on pages 34-35.
 
-For Week 2 Monday: Pages 41-43 (Figures 1.18, 1.19, 1.20) (examples of automata and languages).
-
-
-{\it Textbook references: Within a chapter, each item is numbered consecutively. Figure 1.22
-is the twenty-second numbered item in chapter one; it comes right after Example 1.21 and right before Definition 1.23.}
+{\it Textbook references: Within a chapter, each item is numbered consecutively. Example 1.51 is the fifty-first numbered item in chapter one.}
 
 
 \subsubsection*{We will be learning and practicing to:}
@@ -163,26 +151,14 @@ is the twenty-second numbered item in chapter one; it comes right after Example 
 \begin{itemize}
    \item Translate a decision problem to a set of strings coding the problem.
    \begin{itemize}
-   \item {\bf Distinguish between alphabet, language, sets, and strings}
+      \item {\bf Distinguish between alphabet, language, sets, and strings}
    \end{itemize}
    \item Use regular expressions and relate them to languages and automata.
    \begin{itemize}
       \item {\bf Write and debug regular expressions using correct syntax}
       \item {\bf Determine if a given string is in the language described by a regular expression}
    \end{itemize}
-   \item Use precise notation to formally define the state diagram of finite automata.
-   \item Use clear English to describe computations of finite automata informally.
-   \begin{itemize}
-      \item {\bf State the formal definition of (deterministic) finite automata}   
-      \item {\bf Trace the computation of a finite automaton on a given string using its state diagram}
-      \item {\bf Translate between a state diagram and a formal definition}
-      \item {\bf Determine if a given string is in the language recognized by a finite automaton}
-   \end{itemize}
 \end{itemize}
-
-
-
-
 \end{itemize}
 
 \subsubsection*{TODO:}
@@ -190,14 +166,14 @@ is the twenty-second numbered item in chapter one; it comes right after Example 
    \item \#FinAid Assignment on Canvas (complete as soon as possible) and read syllabus on Canvas
    \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
    at PrairieTest (http://us.prairietest.com)
-   \item Review Quiz on PrairieLearn (http://us.prairielearn.com), complete by Sunday 10/6/2024
+   \item Review Quiz 1 on PrairieLearn (http://us.prairielearn.com), complete by 1/15/25
    \item Create a homework group, possibly by using the Piazza (https://piazza.com/) find-a-teammate tool
-   \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due Tuesday 10/8/2024
+   \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due 1/16/25
 \end{list}
 
 \newpage
 
-\section*{Week 0 Friday: Terminology and Notation}
+\section*{Week 1 Monday: Terminology and Notation}
 
 
 
@@ -315,7 +291,7 @@ The first five strings over $\Sigma_2$ in string order, using the usual alphabet
      
 \newpage
 
-\section*{Week 1 Monday: Regular expressions}
+\section*{Week 1 Wednesday: Regular expressions}
 
 
 
@@ -408,18 +384,19 @@ The language described by the regular expression $\varepsilon$ is $L(\varepsilon
 
 The language described by the regular expression $\emptyset$ is $L(\emptyset) = \emptyset$
 
-The language described by the regular expression $(\Sigma_1 \Sigma_1 \Sigma_1)^*$ 
-is $L(~(\Sigma_1 \Sigma_1 \Sigma_1)^*~) = $
+
+The language described by the regular expression $1^* \circ 1$ is $L(1^* \circ 1) = $
 
 \vfill
 
-The language described by the regular expression $1^* \circ 1$ is $L(1^* \circ 1) = $
+The language described by the regular expression $(~(0 \cup 1) \circ (0 \cup 1) \circ (0 \cup 1) ~)^*$ 
+is $L(~(~(0 \cup 1) \circ (0 \cup 1) \circ (0 \cup 1) ~)^*~) = $
 
 \vfill
      
 \newpage
 
-\subsection*{Week 1 Wednesday: Regular expressions conventions}
+\subsection*{Week 1 Friday: Regular expressions conventions}
 
 
 
@@ -509,119 +486,6 @@ $(aaa)^*$
 \vfill
 
 $(\varepsilon \cup a) b$
-
-\vfill 
-
-\newpage
-\subsection*{Week 1 Friday: Finite automata}
-
-
-
-
-**This definition was in the pre-class reading**
-A finite automaton (FA) is specified by  $M = (Q, \Sigma, \delta, q_0, F)$.
-This $5$-tuple is called the {\bf formal definition} of the FA. The FA can also 
-be represented by its state diagram: with nodes for the state, labelled edges specifying the 
-transition function, and decorations on nodes denoting the start and accept states.
-
-\begin{quote}
-Finite set of states $Q$ can be labelled by any collection of distinct names. Often
-we use default state labels $q0, q1, \ldots$ 
-\end{quote}
-
-\begin{quote}  
-The alphabet $\Sigma$ determines the possible inputs to the automaton. 
-Each input to the automaton is a string over  $\Sigma$, and the automaton ``processes'' the input
-one symbol (or character) at a time.
-\end{quote}
-
-\begin{quote}
-The transition function $\delta$ gives the next state of the automaton based on the current state of 
-the machine and on the next input symbol.
-\end{quote}
-
-\begin{quote}
-The start state $q_0$ is an element of $Q$.  Each computation of the machine starts at the  start  state.
-\end{quote}
-
-\begin{quote}
-The accept (final) states $F$ form a subset of the states of the automaton, $F \subseteq  Q$. 
-These states are used to flag if the machine accepts or rejects an input string.
-\end{quote}
-
-
-\begin{quote}
-The computation of a machine on an input string is a sequence of states
-in the machine,  starting with the start state, determined by transitions 
-of the machine as it reads successive input symbols.
-\end{quote}
-
-\begin{quote}
-The finite automaton $M$ accepts the given input string exactly when the computation of $M$ on the input string
-ends in an accept state. $M$ rejects the given input string exactly when the computation of 
-$M$ on the input string ends in a nonaccept state, that is, a state that is not in $F$.
-\end{quote}
-
-\begin{quote} 
-The language of $M$, $L(M)$, is defined as the set of  all strings that are each accepted 
-by the machine $M$. Each string that is rejected by $M$ is not in $L(M)$.
-The language of $M$ is also called the language recognized by $M$.
-\end{quote}   
-   
-What is {\bf finite} about all finite automata? (Select all that apply)
-\begin{itemize}
-   \item[$\square$] The size of the machine (number of states, number of arrows)
-   \item[$\square$] The length of each computation of the machine
-   \item[$\square$] The number of strings that are accepted by the machine
-\end{itemize}
-\newpage
-  
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=3in]{../../resources/machines/Lect2DFA1.png} 
-\end{figure}
-   
-The formal definition of this FA is
-   
-\vfill
-\vfill
-   
-
-Classify each string $a, aa, ab, ba, bb, \varepsilon$ as accepted by the FA or rejected by the FA.  
-
-{\it Why are these the only two options?}
-
-\vspace{200pt}
-
-
-The language recognized by this automaton is
-  
-
-\vfill
-
-\newpage
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=3in]{../../resources/machines/Lect2DFA2.png} 
-\end{figure}
-   
-
-The language recognized by this automaton is
-  
-
-
-\vfill
-
-\hrule
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=3in]{../../resources/machines/Lect2DFA3.png} 
-\end{figure}
-
-The language recognized by this automaton is
-  
 
 \vfill 
 

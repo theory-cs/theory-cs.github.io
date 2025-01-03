@@ -91,8 +91,69 @@ you did to try to get unstuck.} }
 \usepackage{tikz}
 \usetikzlibrary{automata,positioning,arrows}
 
-\input{../../resources/discrete-math-packages}
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
 
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+ 
 \newcommand{\SUBSTRING}{\textsc{Substring}}
 \newcommand{\REP}{\textsc{Rep}}
 \newcommand{\blank}{\scalebox{1.5}{\textvisiblespace}}
+ 
+\title{HW1CSE105W25: Homework assignment 1}
+\date{Due: January 16th at 5pm, via Gradescope}
+
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+{\bf In this assignment,}
+
+You will practice reading and
+applying the definitions of alphabets, strings, languages, Kleene star, and regular expressions.
+You will use regular expressions and relate them to languages and finite automata.
+You will use precise notation to formally define the state diagram of finite automata,
+and you will use clear English to describe computations of finite automata informally.
+
+
+{\bf Resources}: To review the topics 
+for this assignment, see the class material from Weeks 0 and 1.
+We will post frequently asked questions and our answers to them in a 
+pinned Piazza post.
+
+{\bf Reading and extra practice problems}: Sipser Section 0, 1.3, 1.1.
+Chapter 1 exercises 1.1, 1.2, 1.3, 1.18, 1.23.
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw1CSE105W25''.
+
+{\bf Assigned questions}
+
+(To be updated soon)
+\end{document}
