@@ -117,19 +117,38 @@ from such an $r$ by spontaneous moves in $N$} \}
 Consider the state diagram of an NFA over $\{a,b\}$. Use the ``macro-state'' construction 
 to find an equivalent DFA.
 
-\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA1.png}
-
-
-
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state] (q0)          {$q_0$};
+    \node[state]         (q1) [right of=q0, xshift=20pt] {$q_1$};
+    \node[state,accepting]         (q2) [right of=q1, xshift=20pt] {$q_2$};
+    
+    \path (q0) edge  [loop above] node {$a,b$} (q0)
+            edge [bend left=0] node {$a$} (q1)
+        (q1) edge [loop above] node {$a,b$} (q1)
+            edge [bend left=0] node {$b$} (q2)
+    ;
+    \end{tikzpicture}
 
 \vfill
 
 Consider the state diagram of an NFA over $\{0,1\}$. Use the ``macro-state'' construction 
 to find an equivalent DFA.
 
-
-\includegraphics[width=1.8in]{../../resources/machines/Lect6NFA2.png}
-
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state] (q0)          {$q_0$};
+    \node[state,accepting]         (q1) [above right of=q0, xshift=20pt] {$q_1$};
+    \node[state,accepting]         (q2) [below right of=q0, xshift=20pt] {$q_2$};
+    
+    \path (q0)  edge [bend left=0] node {$\varepsilon$} (q1)
+        (q0) edge [bend left = 0] node {$\varepsilon$} (q2)
+        (q1) edge [loop above] node {$0$} (q1)
+        (q2) edge [loop above] node {$1$} (q2)
+    ;
+    \end{tikzpicture}
 
 \vfill
 
@@ -187,6 +206,22 @@ state to restore language recognized by machine.
 {\bf Application}: Find a regular expression describing the language recognized by the DFA with 
 state diagram
 
-\includegraphics[width=2.5in]{../../resources/machines/Lect6NFA3.png}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state,accepting] (q0)          {$q_0$};
+    \node[state,accepting]         (q1) [above right of=q0, xshift=20pt] {$q_1$};
+    \node[state,accepting]         (q2) [below right of=q0, xshift=20pt] {$q_2$};
+    \node[state]                   (q3) [below right of=q1, xshift=20pt] {$q_3$};
+    
+    \path (q0)  edge [bend left=0] node {$a$} (q1)
+        (q0) edge [bend left = 0] node {$b$} (q2)
+        (q1) edge [loop above] node {$a$} (q1)
+        (q1) edge [bend left=0] node {$b$} (q3)
+        (q2) edge [loop below] node {$b$} (q2)
+        (q2) edge [bend left=0] node {$a$} (q3)
+        (q3) edge [loop above] node {$a,b$} (q3)
+    ;
+    \end{tikzpicture}
 
 \vfill

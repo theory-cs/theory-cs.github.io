@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="CSE105W25" />
-  <title>assignments-compiled</title>
+  <title>HW2CSE105W25: Homework assignment 2</title>
   <style>
     html {
       color: #1a1a1a;
@@ -173,268 +173,10 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">HW1CSE105W25: Homework assignment 1HW2CSE105W25:
-Homework assignment 2</h1>
+<h1 class="title">HW2CSE105W25: Homework assignment 2</h1>
 <p class="author">CSE105W25</p>
-<p class="date">Due: January 16th at 5pm, via GradescopeDue: January
-30th at 5pm, via Gradescope</p>
+<p class="date">Due: January 30th at 5pm, via Gradescope</p>
 </header>
-<p><span><strong>In this assignment,</strong></span></p>
-<p>You will practice reading and applying the definitions of alphabets,
-strings, languages, Kleene star, and regular expressions. You will use
-regular expressions and relate them to languages.</p>
-<p><span><strong>Resources</strong></span>: To review the topics for
-this assignment, see the class material from Weeks 0 and 1 and Review
-Quiz 1. We will post frequently asked questions and our answers to them
-in a pinned Piazza post.</p>
-<p><span><strong>Reading and extra practice problems</strong></span>:
-Sipser Section 0, 1.3. Chapter 0 exercises 0.1, 0.2, 0.3, 0.5, 0.6, 0.9.
-Chapter 1 exercises 1.19, 1.23.</p>
-<p><span><strong>For all HW assignments:</strong></span> Weekly homework
-may be done individually or in groups of up to 3 students. You may
-switch HW partners for different HW assignments. Please ensure your
-name(s) and PID(s) are clearly visible on the first page of your
-homework submission and then upload the PDF to Gradescope. If working in
-a group, submit only one submission per group: one partner uploads the
-submission through their Gradescope account and then adds the other
-group member(s) to the Gradescope submission by selecting their name(s)
-in the “Add Group Members" dialog box. You will need to re-add your
-group member(s) every time you resubmit a new version of your
-assignment. Each homework question will be graded either for correctness
-(including clear and precise explanations and justifications of all
-answers) or fair effort completeness. On the “graded for correctness"
-questions, you may only collaborate with CSE 105 students in your group;
-if your group has questions about a problem, you may ask in drop-in help
-hours or post a private post (visible only to the Instructors) on
-Piazza. On the "graded for completeness" questions, you may collaborate
-with all other CSE 105 students this quarter, and you may make public
-posts about these questions on Piazza.</p>
-<p>All submitted homework for this class must be typed. You can use a
-word processing editor if you like (Microsoft Word, Open Office,
-Notepad, Vim, Google Docs, etc.) but you might find it useful to take
-this opportunity to learn LaTeX. LaTeX is a markup language used widely
-in computer science and mathematics. The homework assignments are typed
-using LaTeX and you can use the source files as templates for
-typesetting your solutions. To generate state diagrams of machines, you
-can (1) use the LaTex tikzpicture environment (see templates in the
-class notes), or (2) use the software tools Flap.js or JFLAP described
-in the class syllabus (and include a screenshot in your PDF), or (3) you
-can carefully and clearly hand-draw the diagram and take a picture and
-include it in your PDF. We recommend that you submit early drafts to
-Gradescope so that in case of any technical difficulties, at least some
-of your work is present. You may update your submission as many times as
-you’d like up to the deadline.</p>
-<p><span><strong>Integrity reminders</strong></span></p>
-<ul>
-<li><p>Problems should be solved together, not divided up between the
-partners. The homework is designed to give you practice with the main
-concepts and techniques of the course, while getting to know and learn
-from your classmates.</p></li>
-<li><p>On the "graded for correctness" questions, you may only
-collaborate with CSE 105 students in your group. You may ask questions
-about the homework in office hours (of the instructor, TAs, and/or
-tutors) and on Piazza (as private notes viewable only to the
-Instructors). You <em>cannot</em> use any online resources about the
-course content other than the class material from this quarter – this is
-primarily to ensure that we all use consistent notation and definitions
-(aligned with the textbook) and also to protect the learning experience
-you will have when the ‘aha’ moments of solving the problem
-authentically happen.</p></li>
-<li><p>Do not share written solutions or partial solutions for homework
-with other students in the class who are not in your group. Doing so
-would dilute their learning experience and detract from their success in
-the class.</p></li>
-</ul>
-<p>You will submit this assignment via Gradescope (<a
-href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
-assignment called “hw1CSE105W25”.</p>
-<p><span><strong>Assigned questions</strong></span></p>
-<ol>
-<li><p><strong>Strings and languages: finding examples and edge
-cases</strong> (12 points):</p>
-<ol>
-<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn1"
-class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
-Give five (different) example alphabets that are meaningful or useful to
-you in some way. Specify them formally, either with roster notation
-(which means listing all and only distict elements between <span
-class="math inline">\(\{\)</span> and <span
-class="math inline">\(\}\)</span> and separated by commas) or with
-another approach to precisely define all and only the elements of the
-alphabet.</p></li>
-<li><p>(<span><em>Graded for completeness</em></span>) Give an example
-of a finite set over an alphabet and an infinite set over an alphabet.
-You get to choose the alphabet, and you get to choose the sets. The goal
-is to practice communicating your choices and definitions with clear and
-precise notation. One habit that will be useful (for this course, and
-beyond), is to think of your response for each question as a well-formed
-paragraph: include all the information that is relevant so that your
-solution is self-contained, and so that each sentence is grammatically
-constructed.</p></li>
-<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn2"
-class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
-Define an alphabet <span class="math inline">\(\Sigma_1\)</span> and an
-alphabet <span class="math inline">\(\Sigma_2\)</span> and a language
-<span class="math inline">\(L_1\)</span> over <span
-class="math inline">\(\Sigma_1\)</span> that is also a language over
-<span class="math inline">\(\Sigma_2\)</span> and a language <span
-class="math inline">\(L_2\)</span> over <span
-class="math inline">\(\Sigma_2\)</span> that is
-<span><strong>not</strong></span> a language over <span
-class="math inline">\(\Sigma_1\)</span>. A complete and correct answer
-will use clear and precise notation (consistent with the textbook and
-class notes) and will include a description of why the given example
-<span class="math inline">\(L_1\)</span> is a language over both <span
-class="math inline">\(\Sigma_1\)</span> and <span
-class="math inline">\(\Sigma_2\)</span> and a description of why the
-given example <span class="math inline">\(L_2\)</span> is a language
-over <span class="math inline">\(\Sigma_2\)</span> and not over <span
-class="math inline">\(\Sigma_1\)</span>.</p></li>
-</ol></li>
-<li><p><strong>Regular expressions</strong> (20 points):</p>
-<ol>
-<li><p>(<span><em>Graded for completeness</em></span>) Give three
-regular expressions that all describe the set of all strings over <span
-class="math inline">\(\{a,b\}\)</span> that have odd length. Ungraded
-bonus challenge: Make the expressions as different as possible!</p></li>
-<li><p>(<span><em>Graded for completeness</em></span>) A friend tells
-you that each regular expression that has a Kleene star (<span
-class="math inline">\(~^*\)</span>) describes an infinite language. Are
-they right? Either help them justify their claim or give a
-counterexample to disprove it and explain your counterexample.</p></li>
-<li><p>(<span><em>Graded for correctness</em></span>) For this question,
-the alphabet is <span class="math inline">\(\{a,b,c\}\)</span>. A friend
-is trying to design a regular expression that describes the set of all
-strings over this alphabet that end in <span
-class="math inline">\(c\)</span>. Classify each of the following
-attempts as</p>
-<ul>
-<li><p>Correct. Explain why.</p></li>
-<li><p>Error Type 1: Incorrect, because (even though each string that is
-in the language described by the regular expression ends in <span
-class="math inline">\(c\)</span>) there is a string that ends in <span
-class="math inline">\(c\)</span> that is not in the language described
-by the regular expression. Give this example string and explain why it
-proves we’re in this case.</p></li>
-<li><p>Error Type 2: Incorrect, because (even though each string that
-ends in <span class="math inline">\(c\)</span> is in the language
-described by the regular expression), there is a string in the language
-described by the regular expression that does not end in <span
-class="math inline">\(c\)</span>. Give this example string and explain
-why it proves we’re in this case.</p></li>
-<li><p>Error Type 3: Incorrect, because there are two counterexample
-strings, one which is a string that ends in <span
-class="math inline">\(c\)</span> that is not in the language described
-by the regular expression and one which is in the language described by
-the regular expression but does not end in <span
-class="math inline">\(c\)</span>.Give both example strings and describe
-why each has the given property.</p></li>
-</ul>
-<hr />
-<p><span><em>Worked example for reference:</em></span> Consider the
-regular expression <span class="math inline">\((a\cup b\cup
-c)^*\)</span>. This regular expression has <span><strong>Error Type
-2</strong></span> because it describes the set of all strings over <span
-class="math inline">\(\{a,b,c\}\)</span>, so even though each string
-that ends in <span class="math inline">\(c\)</span> is in this language,
-there is an example, say <span class="math inline">\(ab\)</span> that is
-a string in the language described by the regular expression (because we
-consider the string formed as a result of the Kleene star operation
-which has 2 slots and where the first slot matches the <span
-class="math inline">\(a\)</span> in <span class="math inline">\(a \cup b
-\cup c\)</span> and the second slot matches <span
-class="math inline">\(b\)</span> in <span class="math inline">\(a \cup b
-\cup c\)</span>) but does not end in <span
-class="math inline">\(c\)</span> (it ends in <span
-class="math inline">\(b\)</span>).</p>
-<hr />
-<ol>
-<li><p>The regular expression is <span class="math display">\[(a\cup
-b)^* \circ c\]</span></p></li>
-<li><p>The regular expression is <span class="math display">\[(a \circ b
-\circ c)^*\]</span></p></li>
-<li><p>The regular expression is <span class="math display">\[a^*c
-~\cup~ b^*c ~\cup~ c^*c\]</span></p></li>
-</ol></li>
-</ol></li>
-<li><p><strong>Functions over languages</strong> (18 points):</p>
-<p>For each language <span class="math inline">\(L\)</span> over an
-alphabet <span class="math inline">\(\Sigma\)</span>, we have the
-associated sets of strings (also over <span
-class="math inline">\(\Sigma\)</span>) <span class="math display">\[L^*
-= \{ w_1 \cdots w_k \mid k \geq 0 \textrm{ and each } w_i \in
-L\}\]</span> and <span class="math display">\[SUBSTRING(L) = \{ w \in
-\Sigma_1^* ~|~ \text{there exist } x,y \in \Sigma_1^* \text{ such that }
-xwy \in L\}\]</span> and <span class="math display">\[EXTEND(L) = \{ w
-\in \Sigma_1^* ~|~ w = uv \text{ for some strings } u \in L \text{ and }
-v \in \Sigma_1^* \}\]</span> Also, recall the set operations union and
-intersection: for any sets <span class="math inline">\(X\)</span> and
-<span class="math inline">\(Y\)</span> <span class="math display">\[X
-\cup Y = \{ w \mid w \in X \text{ or } w \in Y \}\]</span> <span
-class="math display">\[X \cap Y = \{ w \mid w \in X \text{ and } w \in Y
-\}\]</span></p>
-<ol>
-<li><p>(<span><em>Graded for completeness</em></span>) Specify an
-example language <span class="math inline">\(A\)</span> over <span
-class="math inline">\(\{0,1\}\)</span> such that <span
-class="math display">\[SUBSTRING(A) = EXTEND(A)\]</span> or explain why
-there is no such example. A complete solution will include either (1) a
-precise and clear description of your example language <span
-class="math inline">\(A\)</span> and a precise and clear description of
-the result of computing <span
-class="math inline">\(SUBSTRING(A)\)</span>, <span
-class="math inline">\(EXTEND(A)\)</span> (using the given definitions)
-to justify this description and to justify the set equality, or (2) a
-sufficiently general and correct argument why there is no such example,
-referring back to the relevant definitions.</p></li>
-<li><p>(<span><em>Graded for correctness</em></span>) Specify an example
-language <span class="math inline">\(B\)</span> over <span
-class="math inline">\(\{0,1\}\)</span> such that <span
-class="math display">\[SUBSTRING(B) \cap EXTEND(B) =
-\{\varepsilon\}\]</span> and <span class="math display">\[SUBSTRING(B)
-\cup EXTEND(B) = \{0,1\}^*\]</span> or explain why there is no such
-example. A complete solution will include either (1) a precise and clear
-description of your example language <span
-class="math inline">\(B\)</span> and a precise and clear description of
-the result of computing <span
-class="math inline">\(SUBSTRING(B)\)</span>, <span
-class="math inline">\(EXTEND(B)\)</span> (using the given definitions)
-to justify this description and to justify the set equality with <span
-class="math inline">\(\{\varepsilon\}\)</span> and <span
-class="math inline">\(\{0,1\}^*\)</span> (respectively), or (2) a
-sufficiently general and correct argument why there is no such example,
-referring back to the relevant definitions.</p></li>
-<li><p>(<span><em>Graded for correctness</em></span>) Specify an example
-<span><strong>infinite</strong></span> language <span
-class="math inline">\(C\)</span> over <span
-class="math inline">\(\{0,1\}\)</span> such that <span
-class="math display">\[SUBSTRING(C) \neq \{0,1\}^*\]</span> and <span
-class="math display">\[SUBSTRING(C) = C^*\]</span>or explain why there
-is no such example. A complete solution will include either (1) a
-precise and clear description of your example language <span
-class="math inline">\(C\)</span> and a precise and clear description of
-the result of computing <span
-class="math inline">\(SUBSTRING(C)\)</span>, <span
-class="math inline">\(C^*\)</span> (using the given definitions) to
-justify this description and to justify the set nonequality claims, or
-(2) a sufficiently general and correct argument why there is no such
-example, referring back to the relevant definitions.</p></li>
-<li><p>(<span><em>Graded for correctness</em></span>) Specify an example
-<span><strong>finite</strong></span> language <span
-class="math inline">\(D\)</span> over <span
-class="math inline">\(\{0,1\}\)</span> such that <span
-class="math display">\[EXTEND(D) \neq \{0,1\}^*\]</span> and <span
-class="math display">\[EXTEND(D) = D^*\]</span>or explain why there is
-no such example. A complete solution will include either (1) a precise
-and clear description of your example language <span
-class="math inline">\(D\)</span> and a precise and clear description of
-the result of computing <span class="math inline">\(EXTEND(D)\)</span>,
-<span class="math inline">\(D^*\)</span> (using the given definitions)
-to justify this description and to justify the set nonequality claims,
-or (2) a sufficiently general and correct argument why there is no such
-example, referring back to the relevant definitions.</p></li>
-</ol></li>
-</ol>
 <p><span><strong>In this assignment,</strong></span></p>
 <p>You will practice designing multiple representations of regular
 languages and working with general constructions of automata to
@@ -629,8 +371,8 @@ results in multiplying the integer value by the base. In this question
 we’ll explore building deterministic finite automata that recognize
 languages that correspond to useful sets of integers.</p>
 <ol>
-<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn3"
-class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
 Design a DFA that recognizes the set of binary (base <span
 class="math inline">\(2\)</span>) expansions of positive integers that
 are powers of <span class="math inline">\(2\)</span>. A complete
@@ -665,8 +407,8 @@ possible remainder upon division by <span
 class="math inline">\(m\)</span>. (2) To determine transitions, notice
 that reading a new character will shift what we already read over by one
 slot.</p></li>
-<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn4"
-class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
 Choose a positive integer <span class="math inline">\(m_{0}\)</span>
 between <span class="math inline">\(5\)</span> and <span
 class="math inline">\(8\)</span> (inclusive) and draw the state diagram
@@ -785,8 +527,8 @@ each recognizable by some NFA is closed under the <span
 class="math inline">\(EXTEND\)</span> operation.</p>
 <ol>
 <li><p>(<span><em>Graded for completeness</em></span>) As a helpful tool
-in our construction<a href="#fn5" class="footnote-ref" id="fnref5"
-role="doc-noteref"><sup>5</sup></a>, prove that every NFA can be
+in our construction<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>, prove that every NFA can be
 converted to an equivalent one that has a single accept state. Note:
 this is exercise 1.11 in the textbook.</p></li>
 <li><p>(<span><em>Graded for correctness</em></span>) Prove that the
@@ -817,8 +559,8 @@ which are not in <span class="math inline">\(L\)</span>. Our notation
 for regular expressions does not include the complement symbol. However,
 it turns out that the complement of a language described by a regular
 expression is guaranteed to also be describable by a (different) regular
-expression.<a href="#fn6" class="footnote-ref" id="fnref6"
-role="doc-noteref"><sup>6</sup></a></p>
+expression.<a href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a></p>
 <p>For example, over the alphabet <span class="math inline">\(\Sigma =
 \{a,b\}\)</span>, the complement of the language described by the
 regular expression <span class="math inline">\(\Sigma^* b\)</span> is
@@ -862,8 +604,8 @@ class="math inline">\((a \cup b) (a \cup b) (a \cup b)\)</span></p></li>
 Consider the NFA <span class="math inline">\(N\)</span> over <span
 class="math inline">\(\{0,1,2\}\)</span> with state diagram</p>
 <ol>
-<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn7"
-class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
+<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn5"
+class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
 Give two examples of strings of length greater than <span
 class="math inline">\(2\)</span> that are accepted by <span
 class="math inline">\(N\)</span> and two examples of strings of length
@@ -872,8 +614,8 @@ greater than <span class="math inline">\(2\)</span> that are rejected by
 least one of the computations of <span class="math inline">\(N\)</span>
 on this string and label whether this computation witnesses that the
 string is accepted by <span class="math inline">\(N\)</span>.</p></li>
-<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn8"
-class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> Use
+<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn6"
+class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Use
 the “macro-state” construction from Theorem 1.39 and class to create the
 DFA <span class="math inline">\(M\)</span> recognizing the same language
 as <span class="math inline">\(N\)</span>. You only need to include
@@ -917,46 +659,29 @@ something is true, your answers should always be well-supported. Your
 goal should be to convince the reader that your results and methods are
 sound.<a href="#fnref2" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>This means you will get full credit so long as your
-submission demonstrates honest effort to answer the question. You will
-not be penalized for incorrect answers. To demonstrate your honest
-effort in answering the question, we expect you to include your attempt
-to answer *each* part of the question. If you get stuck with your
-attempt, you can still demonstrate your effort by explaining where you
-got stuck and what you did to try to get unstuck.<a href="#fnref3"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>This means your solution will be evaluated not only on
-the correctness of your answers, but on your ability to present your
-ideas clearly and logically. You should explain how you arrived at your
-conclusions, using mathematically sound reasoning. Whether you use
-formal proof techniques or write a more informal argument for why
-something is true, your answers should always be well-supported. Your
-goal should be to convince the reader that your results and methods are
-sound.<a href="#fnref4" class="footnote-back"
+<li id="fn3"><p>A result that is proved in order to work towards a
+larger theorem is called a Lemma.<a href="#fnref3" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>A result that is proved in order to work towards a
-larger theorem is called a Lemma.<a href="#fnref5" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>We’ll see that this is connected to the result we proved
+<li id="fn4"><p>We’ll see that this is connected to the result we proved
 in class that the complement of each language recognizable by a DFA is
-recognizable by a(nother) DFA.<a href="#fnref6" class="footnote-back"
+recognizable by a(nother) DFA.<a href="#fnref4" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>This means you will get full credit so long as your
+<li id="fn5"><p>This means you will get full credit so long as your
 submission demonstrates honest effort to answer the question. You will
 not be penalized for incorrect answers. To demonstrate your honest
 effort in answering the question, we expect you to include your attempt
 to answer *each* part of the question. If you get stuck with your
 attempt, you can still demonstrate your effort by explaining where you
-got stuck and what you did to try to get unstuck.<a href="#fnref7"
+got stuck and what you did to try to get unstuck.<a href="#fnref5"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p>This means your solution will be evaluated not only on
+<li id="fn6"><p>This means your solution will be evaluated not only on
 the correctness of your answers, but on your ability to present your
 ideas clearly and logically. You should explain how you arrived at your
 conclusions, using mathematically sound reasoning. Whether you use
 formal proof techniques or write a more informal argument for why
 something is true, your answers should always be well-supported. Your
 goal should be to convince the reader that your results and methods are
-sound.<a href="#fnref8" class="footnote-back"
+sound.<a href="#fnref6" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>

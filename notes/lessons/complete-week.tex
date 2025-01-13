@@ -201,18 +201,16 @@ as Definition 1.23 on page 44 and a useful example is Example 1.24.
 \end{itemize}
 
 \end{itemize}
-
-\vspace{-50pt}
-
+\newpage
 \subsubsection*{TODO:}
 \begin{list}{\itemsep-10pt}
    \item \#FinAid Assignment on Canvas (complete as soon as possible) and read syllabus on Canvas
    \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
    at PrairieTest (http://us.prairietest.com)
    \item Review Quiz 1 on PrairieLearn (http://us.prairielearn.com), complete by 1/15/25
-   \item Review Quiz 2 on PrairieLearn (http://us.prairielearn.com), complete by 1/15/25
    \item Create a homework group, possibly by using the Piazza (https://piazza.com/) find-a-teammate tool
    \item Homework 1 submitted via Gradescope (https://www.gradescope.com/), due 1/16/25
+   \item Review Quiz 2 on PrairieLearn (http://us.prairielearn.com), complete by 1/22/25
 \end{list}
 
 
@@ -246,6 +244,108 @@ Recall that the computation of {\bf deterministic} finite automaton has exactly 
 \input{../activity-snippets/day6.tex}
 
 
+
+\newpage
+
+\subsection*{Week 3 at a glance}
+
+
+\subsubsection*{Textbook reading: Chapter 1}
+
+\vspace{-15pt}
+
+No class on Week 3 Monday in observance of Martin Luther King Jr. Day.
+
+Before Wednesday: read the definition of the union, concatenation, and star operations for languages,  given 
+as Definition 1.23 on page 44 and a useful example is Example 1.24.
+
+Before Friday,  read pages 45-46 (Theorem 1.25) that we'll refer to as a ``closure proof".
+
+For Week 4 Monday, read Introduction to Section 1.4 (page 77) which introduces nonregularity.
+
+
+\vspace{-20pt}
+
+\subsubsection*{We will be learning and practicing to:}
+
+\vspace{-15pt}
+
+%Define decision problem, Formal definition of automata, Informal definition of automata, Find example languages, 
+%Describe and use models of computation that don't involve state machines.
+\begin{itemize}
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+   \item Use precise notation to formally define the state diagram of finite automata.
+   \item Use clear English to describe computations of finite automata informally.
+      \begin{itemize}
+         \item {\bf Motivate the use of nondeterminism}
+         \item {\bf State the formal definition of NFA}   
+         \item {\bf Trace the computation(s) of a NFA on a given string using its state diagram}
+         \item {\bf Determine if a given string is in the language recognized by a NFA}
+         \item {\bf Translate between a state diagram and a formal definition of a NFA}
+      \end{itemize}
+   \item Give examples of sets that are regular (and prove that they are).
+   \begin{itemize}
+      \item {\bf State the definition of the class of regular languages}
+      \item {\bf Give examples of regular languages, using each of the three equivalent models of computation for proving regularity.}
+      \item {\bf Choose between multiple models to prove that a language is regular}
+      \item {\bf Explain the limits of the class of regular languages}
+   \end{itemize}
+   \item Describe and use models of computation that don't involve state machines.
+   \begin{itemize}
+      \item {\bf Given a DFA or NFA, find a regular expression that describes its language.}
+      \item {\bf Given a regular expression, find a DFA or NFA that recognizes its language.}
+   \end{itemize}
+\end{itemize}
+
+
+\item Understand, guide, shape impact of computing on society/the world. Connect the role of Theory CS classes to other applications (in undergraduate CS curriculum and beyond). Model problems using appropriate mathematical concepts.
+ \begin{itemize}
+     \item Explain nondeterminism and describe tools for simulating it with deterministic computation.
+     \begin{itemize}
+       \item {\bf Given a NFA, find a DFA that recognizes its language.}
+       \item {\bf Convert between regular expressions and automata}
+     \end{itemize}
+ \end{itemize}
+
+\end{itemize}
+
+\vspace{-20pt}
+
+\subsubsection*{TODO:}
+\begin{list}{\itemsep-10pt}
+   \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1, Test 1 Attempt 2, and Test 2 Attempt 2 times 
+   at PrairieTest (http://us.prairietest.com)
+   \item Review Quiz 3 on PrairieLearn (http://us.prairielearn.com), due 1/29/2025
+   \item Homework 2 submitted via Gradescope (https://www.gradescope.com/), due Tuesday 1/30/2025
+\end{list}
+
+
+\vfill
+
+In Computer Science, we operationalize ``hardest'' as ``requires most resources'', where
+resources might be memory, time, parallelism, randomness, power, etc.
+To be able to compare ``hardness'' of problems, we use a consistent description of problems
+
+{\bf Input}: String
+
+{\bf Output}: Yes/ No, where Yes means that the input string matches the pattern or property described by the problem.
+
+So far: we saw that regular expressions are convenient ways of describring patterns in strings.
+{\bf Finite automata} give a model of computation for processing strings and and classifying them into Yes (accepted)
+or No (rejected). We will see that each set of strings is described by a regular expression if and only 
+if there is a FA that recognizes it.  Another way of thinking about it: properties described by regular
+expressions require exactly the computational power of these finite automata.
+
+\newpage
+\subsection*{Wednesday: Automata constructions}
+
+\input{../activity-snippets/day7.tex}
+
+\newpage
+\subsection*{Friday: Regular langauges}
+
+\input{../activity-snippets/day8.tex}
 
 \newpage
 \end{document}
