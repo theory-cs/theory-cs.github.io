@@ -3,7 +3,7 @@
         "header": "Weeks 0 and 1",
         "outcomes": "Languages, expressions, and automata",
         "CalendarInfo": "Dates: 1/2/25 - 1/12/25<br> Welcome! Please take our <a href=\"https://canvas.ucsd.edu/\" target=\"_blank\">pre-class survey</a> on Canvas. See you Monday 9am in Peterson 110. Notes for class are linked below: we recommend attending class in person each day (if you can). We'll be working directly on quiz and homework questions in many classes to help you get started with problem solving. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Fridays at 1pm in SOLIS 107.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -182,7 +182,7 @@
         "header": "Week 3",
         "outcomes": "Automata constructions and nonregular languages",
         "CalendarInfo": " Dates: 1/20/25 - 1/26/25. No class on Monday January 20 in observance of Martin Luther King Jr. Day.",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
