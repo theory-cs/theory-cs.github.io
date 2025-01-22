@@ -433,11 +433,11 @@ these DFA:
 \]
 \item The NFA $N_\beta = ( Q_1 \times Q_2, \Sigma, \delta_\beta, (q_1,q_2), F_1 \times F_2)$  with the transition function given by 
 \[
-\delta(~(~(r,s)~, x~)~) = \{ (~\delta_{1}(~(r,x)~), \delta_{2}( ~(s,x)~)~)\}
+\delta_\beta(~(~(r,s)~, x~)~) = \{ (~\delta_{1}(~(r,x)~), \delta_{2}( ~(s,x)~)~)\}
 \]
  and 
 \[
-\delta(~(~(r,s)~, \varepsilon~)~) = \emptyset
+\delta_\beta(~(~(r,s)~, \varepsilon~)~) = \emptyset
 \]
 for $r \in Q_1, s \in Q_2, x \in \Sigma$.
 \item The NFA $N_{\gamma}=(Q_1\cup\{q_{0}\},\Sigma,\delta_{\gamma},q_{0},\{q \in Q_1 \mid \exists w \in \Sigma^* (\delta_1^* ((q,w)) \in F_1)\})$, and
