@@ -10,17 +10,18 @@ where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$
 is the transition function,  $q_0 \in Q$ is the start state, $F \subseteq  Q$ is the set of accept states.
 
 
-Draw the state diagram and give the formal definition of a PDA with $\Sigma = \Gamma$.
+%Draw the state diagram and give the formal definition of a PDA with $\Sigma = \Gamma$.
 
-\vfill
+%\vfill
 
-Draw the state diagram and give the formal definition of a PDA with $\Sigma \cap \Gamma = \emptyset$.
+%Draw the state diagram and give the formal definition of a PDA with $\Sigma \cap \Gamma = \emptyset$.
     
-\vfill
+%\vfill
 
-\newpage
+%\newpage
 For the PDA state diagrams below, $\Sigma = \{0,1\}$.
 
+\vspace{-15pt}
 
 \begin{center}
 \begin{tabular}{c c}
@@ -87,11 +88,20 @@ Mathematical description of language & State diagram of PDA recognizing language
 $\{ 0^i 1^j 0^k \mid i,j,k \geq 0 \}$ & \\
 & \\
 & \\
+
 \end{tabular}
 \end{center}
+{\it Note: alternate notation is to replace $;$ with $\to$ on arrow labels.}
+
+\newpage
+Corollary: for each language $L$ over $\Sigma$, if there is an NFA $N$ with $L(N)=L$
+then there is a PDA $M$ with $L(M) = L$
+
+Proof idea: Declare stack alphabet to be $\Gamma = \Sigma$ and then 
+don't use stack at all. 
+
 
  \vfill
- {\it Note: alternate notation is to replace $;$ with $\to$}
 
 \begin{comment}
 {\it Extra practice}: Consider the state diagram of a PDA with input alphabet 
@@ -140,3 +150,18 @@ $a, \varepsilon ; \varepsilon$ when $a \in \Sigma$
 
 How does the meaning change if $a$ is replaced by $\varepsilon$?
 \end{comment}
+
+{\it Big picture}: PDAs are motivated by wanting to add some memory of unbounded size to NFA. How 
+do we accomplish a similar enhancement of regular expressions to get a syntactic model that is 
+more expressive?
+
+DFA, NFA, PDA: Machines process one input string at a time; the computation of a machine on its input string 
+reads the input from left to right.
+
+Regular expressions: Syntactic descriptions of all strings that match a particular pattern; the language 
+described by a regular expression is built up recursively according to the expression's syntax
+
+{\bf Context-free grammars}: Rules to produce one string at a time, adding characters from the middle, beginning, 
+or end of the final string as the derivation proceeds.\\
+
+\vfill

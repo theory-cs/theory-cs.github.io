@@ -1,0 +1,134 @@
+%! app: Regular Languages
+%! outcome: Classify language, Find example languages, Pumping Lemma
+
+{\bf Definition and Theorem}: For an alphabet $\Sigma$, a language $L$ over $\Sigma$ is called {\bf regular}
+exactly when $L$ is recognized by some DFA, which happens exactly when $L$ is recognized by some NFA, 
+and happens exactly when $L$ is described by some regular expression
+
+{\bf We saw that}: The class of regular languages is closed under complementation, union, 
+intersection, set-wise concatenation, and Kleene star.
+
+{\it Extra practice}: 
+
+{\bf Disprove}: There is some alphabet $\Sigma$ for which there is 
+some language recognized by an NFA but not by any DFA.
+
+\vfill
+
+{\bf Disprove}: There is some alphabet $\Sigma$ for which there is 
+some finite language not described by any regular expression over $\Sigma$.
+
+\vfill
+
+{\bf Disprove}: If a language is recognized by an NFA 
+then the complement of this language is not recognized by any DFA.
+
+\vfill
+
+
+{\bf Fix alphabet $\Sigma$. Is every language $L$ over $\Sigma$ regular?}
+
+\begin{center}
+\begin{tabular}{c|c}
+Set & Cardinality \\
+\hline
+& \\
+$\{0,1\}$ & \\
+& \\
+$\{0,1\}^*$ & \\
+& \\
+$\mathcal{P}( \{0,1\})$ & \\
+& \\
+The set of all languages over $\{0,1\}$ & \\
+& \\
+The set of all regular expressions over $\{0,1\}$ & \\
+& \\
+The set of all regular languages over $\{0,1\}$ & \\
+& \\
+\end{tabular}
+\end{center}
+
+\newpage
+
+Strategy: Find an {\bf invariant} property that is true of all regular languages. When analyzing 
+a given language, if the invariant is not true about it, then the language is not regular.
+
+\vfill
+
+{\bf Pumping Lemma} (Sipser Theorem 1.70): If $A$ is a regular language, then there
+is a number $p$ (a {\it pumping length}) where, if $s$ is any string in $A$ of length at least $p$, 
+then $s$ may be divided into three pieces, $s = xyz$ such that
+\vspace{-10pt}
+\begin{itemize}
+\item $|y| > 0$
+\item for each $i \geq 0$, $xy^i z \in A$
+\item $|xy| \leq p$.
+\end{itemize}
+\vfill
+
+{\bf Proof idea}: In DFA, the only memory available is in the states. 
+Automata can only
+``remember'' finitely far in the past and finitely much information, because
+they can have only finitely many states. If a computation path of a DFA visits 
+the same state more than once, the machine can't tell the difference between 
+the first time and future times it visits this state. Thus, if 
+a DFA accepts one long string, then it must accept (infinitely) many 
+similar strings.
+\vfill
+
+{\bf Proof illustration}
+
+
+\vfill
+\vfill
+
+
+\newpage
+
+{\bf True or False}: A pumping length for $A = \{ 0,1 \}^*$ is $p = 5$.
+
+\vfill
+
+
+{\bf True or False}: A pumping length for $A = \{ 0,1 \}^*$ is $p = 2$.
+
+\vfill
+
+
+
+{\bf True or False}: A pumping length for $A = \{ 0,1 \}^*$ is $p = 105$.
+
+\vfill
+
+
+
+Restating {\bf Pumping Lemma}: If $L$ is a regular language, then it  has
+a pumping length.
+
+
+{\bf Contrapositive}: If $L$ has no pumping length, then  it is nonregular.
+
+\vfill
+
+{\Large The Pumping Lemma {\it cannot} be used to prove that a language {\it is} regular.} 
+
+{\Large The Pumping Lemma {\bf can} be used to prove that a language {\it is not} regular.}
+
+{\it Extra practice}: Exercise 1.49 in the book.
+
+
+\vfill
+
+{\bf Proof strategy}: To prove that a language $L$ is {\bf not} regular, 
+\begin{itemize}
+    \item Consider an arbitrary positive integer $p$
+    \item Prove that $p$ is not a pumping length for $L$
+    \item Conclude that $L$ does not have {\it any} pumping length, and therefore it is not regular.
+\end{itemize}
+
+
+{\bf Negation}: A positive integer  $p$  is {\bf not a pumping length} of a language  $L$ over  $\Sigma$  iff
+\[
+\exists s \left(~  |s| \geq  p \wedge s \in L \wedge \forall x \forall y \forall z  \left( ~\left( s = xyz \wedge 
+|y| > 0 \wedge |xy| \leq p~ \right) \to \exists i  (  i \geq 0  \wedge xy^iz  \notin L ) \right) ~\right) 
+\]

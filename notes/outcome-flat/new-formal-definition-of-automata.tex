@@ -43,7 +43,460 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Day7}
+\end{flushright} \section*{Day12}
+
+
+
+{\bf Definition} A {\bf pushdown automaton} (PDA) is  specified by a  $6$-tuple $(Q, \Sigma, \Gamma, \delta, q_0, F)$
+where $Q$ is the finite set of states, $\Sigma$ is the input alphabet,  $\Gamma$ is the stack alphabet,
+\[
+    \delta: Q \times \Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times \Gamma_\varepsilon)
+\]
+is the transition function,  $q_0 \in Q$ is the start state, $F \subseteq  Q$ is the set of accept states.
+
+
+
+
+
+
+
+
+
+
+For the PDA state diagrams below, $\Sigma = \{0,1\}$.
+
+\vspace{-15pt}
+
+\begin{center}
+\begin{tabular}{c c}
+Mathematical description of language & State diagram of PDA recognizing language\\
+\hline
+& $\Gamma = \{ \$, \#\}$ \hspace{2.3in} \\
+& \\
+& 
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state] (q0)          {$q0$};
+    \node[state]         (q1) [right of=q0, xshift=20pt] {$q1$};
+    \node[state]         (q2) [below right of=q1, xshift=20pt] {$q2$};
+    \node[state]         (q3) [right of=q2, xshift=20pt] {$q3$};
+    \node[state,accepting]         (q4) [left of=q2, xshift=-20pt] {$q4$};
+    
+    \path (q0) edge [bend left=0] node {$\varepsilon, \varepsilon; \$$} (q1)
+        (q1) edge  [loop above] node {$0, \varepsilon; \#$} (q1)
+        (q1) edge [bend left=0] node {$\varepsilon, \varepsilon; \varepsilon$} (q2)
+        (q2) edge  [bend left=20] node [midway, above] {$1, \#; \varepsilon$} (q3)
+        (q3) edge  [bend left=20] node [midway, below] {$1, \varepsilon; \varepsilon$} (q2)
+        (q2) edge  [bend left=0] node {$\varepsilon, \$; \varepsilon$} (q4)
+    ;
+\end{tikzpicture}
+\\
+& \\
+& \\
+\hline
+& $\Gamma = \{ \sun, 1\}$ \hspace{2.3in} \\
+& \\
+& 
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state] (q0)          {$q0$};
+    \node[state]         (q1) [right of=q0, xshift=20pt] {$q1$};
+    \node[state]         (q2) [below right of=q1, xshift=20pt] {$q2$};
+    \node[state]         (q3) [right of=q2, xshift=20pt] {$q3$};
+    \node[state,accepting]  (q4) [right of=q3, xshift=20pt] {$q4$};
+    \node[state]         (q5) [above right of=q1, xshift=20pt] {$q5$};
+    \node[state,accepting]  (q6) [right of=q5, xshift=20pt] {$q6$};
+    
+    \path (q0) edge [bend left=0] node {$\varepsilon, \varepsilon; \sun$} (q1)
+        (q1) edge  [loop above] node {$1, \varepsilon; 1$} (q1)
+        (q1) edge [bend left=0] node [below] {$\varepsilon, \varepsilon; \varepsilon$} (q5)
+        (q1) edge [bend left=0] node [above]{$\varepsilon, \varepsilon; \varepsilon$} (q2)
+        (q5) edge [loop above] node {$0, 1, ; \varepsilon$} (q5)
+        (q5) edge [bend left=0] node {$\varepsilon, \sun; \varepsilon$} (q6)
+        (q6) edge [loop above] node {$1, \varepsilon; \varepsilon$} (q6)
+        (q2) edge [loop below] node {$0, \varepsilon; \varepsilon$} (q2)
+        (q2) edge  [bend left=0] node {$\varepsilon, \varepsilon; \varepsilon$} (q3)
+        (q3) edge  [loop below] node {$1, 1; \varepsilon$} (q3)
+        (q3) edge  [bend left=0] node {$\varepsilon, \sun; \varepsilon$} (q4)
+    ;
+\end{tikzpicture}
+\\
+& \\
+& \\
+\hline
+& \\
+& \\
+& \\
+$\{ 0^i 1^j 0^k \mid i,j,k \geq 0 \}$ & \\
+& \\
+& \\
+
+\end{tabular}
+\end{center}
+{\it Note: alternate notation is to replace $;$ with $\to$ on arrow labels.}
+
+\newpage
+Corollary: for each language $L$ over $\Sigma$, if there is an NFA $N$ with $L(N)=L$
+then there is a PDA $M$ with $L(M) = L$
+
+Proof idea: Declare stack alphabet to be $\Gamma = \Sigma$ and then 
+don't use stack at all. 
+
+
+ \vfill
+
+\begin{comment}
+{\it Extra practice}: Consider the state diagram of a PDA with input alphabet 
+$\Sigma$ and stack alphabet $\Gamma$.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Label & means \\
+\hline
+$a, b ; c$ when $a \in \Sigma$, $b\in \Gamma$, $c \in \Gamma$ 
+& \hspace{3in} \\
+& \\
+& \\
+& \\
+& \\
+&\\
+\hline
+$a, \varepsilon ; c$ when $a \in \Sigma$, $c \in \Gamma$ 
+& \hspace{3in} \\
+& \\
+& \\
+& \\
+& \\
+&\\
+\hline
+$a, b ; \varepsilon$ when $a \in \Sigma$, $b\in \Gamma$
+& \hspace{3in} \\
+& \\
+& \\
+& \\
+& \\
+&\\
+\hline
+$a, \varepsilon ; \varepsilon$ when $a \in \Sigma$
+& \hspace{3in} \\
+& \\
+& \\
+& \\
+& \\
+&\\
+\hline
+\end{tabular}
+\end{center}
+
+
+How does the meaning change if $a$ is replaced by $\varepsilon$?
+\end{comment}
+
+{\it Big picture}: PDAs are motivated by wanting to add some memory of unbounded size to NFA. How 
+do we accomplish a similar enhancement of regular expressions to get a syntactic model that is 
+more expressive?
+
+DFA, NFA, PDA: Machines process one input string at a time; the computation of a machine on its input string 
+reads the input from left to right.
+
+Regular expressions: Syntactic descriptions of all strings that match a particular pattern; the language 
+described by a regular expression is built up recursively according to the expression's syntax
+
+{\bf Context-free grammars}: Rules to produce one string at a time, adding characters from the middle, beginning, 
+or end of the final string as the derivation proceeds.\\
+
+\vfill
+ \vfill
+\section*{Day14}
+
+
+
+{\bf Theorem  2.20}: A language is  generated by some context-free  grammar
+if  and only if it is recognized by some push-down automaton.
+
+Definition: a language is called {\bf context-free} if it is the language generated by a context-free grammar.
+The class of all context-free language over a given alphabet $\Sigma$ is called {\bf CFL}.
+
+Consequences:
+\begin{itemize}
+    \item Quick proof that every regular language is context free 
+    \item To prove closure of the class of context-free languages under a given operation, we can choose 
+    either of two modes 
+    of proof (via CFGs or PDAs) depending on which is easier
+    \item To fully specify a PDA we could give its $6$-tuple formal definition or we could give its input 
+alphabet, stack alphabet, and state diagram.
+An informal description of a PDA is a step-by-step description of how its computations 
+would process input strings; the reader should be able to reconstruct the state diagram or formal 
+definition precisely from such a descripton. The informal description of a PDA can refer to some 
+common modules or subroutines that are computable by PDAs:
+\begin{itemize}
+  \item PDAs can ``test for emptiness of stack'' without providing details. 
+  {\it How?} We can always push a special end-of-stack symbol, $\$$, at the start, before processing
+  any input, and then use this symbol as a flag.
+  \item PDAs can ``test for end of input'' without providing details.
+  {\it How?} We can transform a PDA to one where accepting states are only those reachable 
+  when there are no more input symbols.
+\end{itemize}
+
+\end{itemize}
+
+
+
+
+\vfill
+
+\newpage
+Suppose $L_1$ and $L_2$ are context-free languages over $\Sigma$.  {\bf Goal}:  $L_1 \cup L_2$  is  also context-free.
+
+{\it Approach 1: with  PDAs}
+
+Let $M_1 = ( Q_1, \Sigma, \Gamma_1, \delta_1, q_1, F_1)$ and
+$M_2 = ( Q_2, \Sigma, \Gamma_2, \delta_2, q_2, F_2)$ be PDAs with 
+$L(M_1) =  L_1$  and  $L(M_2) = L_2$.
+
+Define $M = $
+
+\vfill
+
+{\it Approach  2: with CFGs}
+
+Let $G_1 = (V_1, \Sigma, R_1, S_1)$  and   $G_2 = (V_2, \Sigma, R_2, S_2)$  be CFGs  with
+$L(G_1) =  L_1$  and  $L(G_2) = L_2$.
+
+Define $G = $
+
+\vfill
+
+\newpage
+Suppose $L_1$ and $L_2$ are context-free languages over $\Sigma$.  {\bf Goal}:  $L_1 \circ L_2$  is  also context-free.
+
+
+{\it Approach 1: with  PDAs}
+
+Let $M_1 = ( Q_1, \Sigma, \Gamma_1, \delta_1, q_1, F_1)$ and
+$M_2 = ( Q_2, \Sigma, \Gamma_2, \delta_2, q_2, F_2)$ be PDAs with 
+$L(M_1) =  L_1$  and  $L(M_2) = L_2$.
+
+Define $M = $
+
+\vfill
+
+{\it Approach  2: with CFGs}
+
+Let $G_1 = (V_1, \Sigma, R_1, S_1)$  and   $G_2 = (V_2, \Sigma, R_2, S_2)$  be CFGs  with
+$L(G_1) =  L_1$  and  $L(G_2) = L_2$.
+
+Define $G = $
+
+\vfill
+
+{\it Summary}
+
+Over a fixed alphabet $\Sigma$, a language $L$ is {\bf regular}
+
+\vspace{-20pt}
+\begin{center}
+    iff it is described by some regular expression \\
+    iff it is recognized by some DFA\\
+    iff it is recognized by some NFA
+\end{center}
+
+Over a fixed alphabet $\Sigma$, a language $L$ is {\bf context-free}
+
+\vspace{-20pt}
+\begin{center}
+    iff it is generated by some CFG\\
+    iff it is recognized by some PDA
+\end{center}
+
+\vfill
+
+{\bf Fact}: Every regular language is a context-free language.
+
+\vfill
+
+{\bf Fact}: There are context-free languages that are not nonregular.
+
+\vfill
+
+{\bf Fact}: There are countably many regular languages.
+
+\vfill
+
+{\bf Fact}: There are countably infinitely many context-free languages.
+
+\vfill
+
+{\it Consequence}: Most languages are {\bf not} context-free!
+
+\vfill
+
+\newpage
+{\bf Examples  of non-context-free languages}
+
+\begin{align*}
+    &\{ a^n b^n c^n \mid 0 \leq n , n \in \mathbb{Z}\}\\
+    &\{ a^i b^j c^k \mid 0 \leq i \leq j \leq k , i \in \mathbb{Z}, j \in \mathbb{Z}, k \in \mathbb{Z}\}\\
+    &\{ ww \mid w \in \{0,1\}^* \}
+\end{align*}
+(Sipser Ex 2.36, Ex 2.37, 2.38)
+
+There is a Pumping Lemma for CFL that can be used to prove a specific language is non-context-free: 
+If $A$ is a context-free language, there
+is a number $p$ where, if $s$ is any string in $A$ of length at least $p$, then $s$ may be divided 
+into five pieces $s = uvxyz$ where (1) for each $i \geq 0$, $uv^ixy^iz \in A$, (2) $|uv|>0$, (3) $|vxy| \leq p$.
+{\it We will not go into the details of the proof or application of Pumping Lemma for CFLs this quarter.}
+
+
+Recall: A set $X$ is said to be {\bf closed} under an operation $OP$ if, for any elements in $X$, applying 
+$OP$ to them gives an element in $X$.  
+
+
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+True/False & Closure claim \\
+\hline
+True &  The set of integers is closed under multiplication. \\
+& $\forall x \forall y \left( ~(x \in \mathbb{Z} \wedge y \in \mathbb{Z})\to xy \in \mathbb{Z}~\right)$ \\
+\hline
+True & For each set $A$, the power set of $A$ is closed under intersection. \\
+& $\forall A_1 \forall A_2 \left( ~(A_1 \in \mathcal{P}(A) \wedge A_2 \in \mathcal{P}(A) \in \mathbb{Z}) \to A_1 \cap A_2 \in \mathcal{P}(A)~\right)$ \\
+\hline
+  & The class of regular languages over $\Sigma$ is closed under complementation. \\
+  & \\
+ \hline
+  & The class of regular languages over $\Sigma$ is closed under union. \\
+  & \\
+ \hline
+  & The class of regular languages over $\Sigma$ is closed under intersection. \\
+  & \\
+  \hline
+  & The class of regular languages over $\Sigma$ is closed under concatenation. \\
+  & \\
+ \hline
+  & The class of regular languages over $\Sigma$ is closed under Kleene star. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under complementation. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under union. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under intersection. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under concatenation. \\
+  & \\
+\hline
+    & The class of context-free languages over $\Sigma$ is closed under Kleene star. \\
+  & \\
+\hline
+\end{tabular}
+\end{center}
+ \vfill
+\section*{Day11}
+
+
+Regular sets are not the end of the story
+\begin{itemize}
+    \item Many nice / simple / important sets are not regular
+    \item Limitation of the finite-state automaton model: Can't ``count", Can only remember finitely far into the past,
+    Can't backtrack, Must make decisions in ``real-time"
+    \item We know actual computers are more powerful than this model...
+\end{itemize}
+
+The {\bf next} model of computation. Idea: allow some memory of unbounded size. How? 
+\begin{itemize}
+    \item To generalize regular expressions: {\bf context-free grammars}\\
+    \item To generalize NFA: {\bf Pushdown automata}, which is like an NFA with access to a stack: 
+    Number of states is fixed, number of entries in stack is unbounded. At each step
+    (1) Transition to new state based on current state, letter read, and top letter of stack, then
+    (2) (Possibly) push or pop a letter to (or from) top of stack. Accept a string iff
+    there is some sequence of states and some sequence of stack contents 
+    which helps the PDA processes the entire input string and ends in an accepting state.
+\end{itemize}
+
+\vfill
+
+\vfill
+
+Is there a PDA that recognizes the nonregular language $\{0^n1^n \mid n \geq 0 \}$?
+
+\vfill
+
+\newpage
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state,accepting] (q0)          {$q0$};
+    \node[state]         (q1) [right of=q0, xshift=20pt] {$q1$};
+    \node[state]         (q2) [below right of=q1, xshift=20pt] {$q2$};
+    \node[state,accepting]         (q3) [left of=q2, xshift=-20pt] {$q3$};
+    
+    \path (q0) edge [bend left=0] node {$\varepsilon, \varepsilon; \$$} (q1)
+        (q1) edge  [loop above] node {$0, \varepsilon; 0$} (q1)
+        (q1) edge [bend left=0] node {$1, 0; \varepsilon$} (q2)
+        (q2) edge  [loop right] node {$1, 0; \varepsilon$} (q2)
+        (q2) edge  [bend left=0] node {$\varepsilon, \$; \varepsilon$} (q3)
+    ;
+\end{tikzpicture}
+
+The PDA with state diagram above can be informally described as:
+\begin{quote}
+    Read symbols from the input. As each 0 is read, push it onto the stack. 
+    As soon as 1s are seen, pop a 0 off the stack for each 1 read. 
+    If the stack becomes empty and we are at the end of the input string, accept the input. 
+    If the stack becomes empty and there are 1s left to read, 
+    or if 1s are finished while the stack still contains 0s, or if any 0s
+    appear in the string following 1s, 
+    reject the input.
+\end{quote}
+    
+
+Trace a computation of this PDA on the input string $01$.
+
+\vfill
+    
+{\it Extra practice}: Trace the computations of this PDA on the input string $011$.
+
+\vfill
+
+\newpage
+A PDA recognizing the set $\{ \hspace{1.5 in} \}$ can be informally described as:
+\begin{quote}
+    Read symbols from the input. As each 0 is read, push it onto the stack. 
+    As soon as 1s are seen, pop a 0 off the stack for each 1 read. 
+    If the stack becomes empty and there is exactly one 1 left to read, read that 1 and accept the input. 
+    If the stack becomes empty and there are either zero or more than one 1s left to read, 
+    or if the 1s are finished while the stack still contains 0s, or if any 0s appear in the input following 1s, 
+    reject the input.
+\end{quote}
+Modify the state diagram below to get a PDA that implements this description:
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+    \tikzstyle{every state}=[text=black, fill=none]
+    
+    \node[initial,state,accepting] (q0)          {$q0$};
+    \node[state]         (q1) [right of=q0, xshift=20pt] {$q1$};
+    \node[state]         (q2) [below right of=q1, xshift=20pt] {$q2$};
+    \node[state,accepting]         (q3) [left of=q2, xshift=-20pt] {$q3$};
+    
+    \path (q0) edge [bend left=0] node {$\varepsilon, \varepsilon; \$$} (q1)
+        (q1) edge  [loop above] node {$0, \varepsilon; 0$} (q1)
+        (q1) edge [bend left=0] node {$1, 0; \varepsilon$} (q2)
+        (q2) edge  [loop right] node {$1, 0; \varepsilon$} (q2)
+        (q2) edge  [bend left=0] node {$\varepsilon, \$; \varepsilon$} (q3)
+    ;
+\end{tikzpicture}
+    
+ \vfill
+\section*{Day7}
 
 
 {\bf Review}: The language recognized by the NFA over $\{a,b\}$ with state diagram

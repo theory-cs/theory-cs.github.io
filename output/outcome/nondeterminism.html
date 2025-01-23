@@ -174,6 +174,182 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="day12">Day12</h1>
+<p><span><strong>Definition</strong></span> A <span><strong>pushdown
+automaton</strong></span> (PDA) is specified by a <span
+class="math inline">\(6\)</span>-tuple <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, F)\)</span> where <span
+class="math inline">\(Q\)</span> is the finite set of states, <span
+class="math inline">\(\Sigma\)</span> is the input alphabet, <span
+class="math inline">\(\Gamma\)</span> is the stack alphabet, <span
+class="math display">\[\delta: Q \times
+\Sigma_\varepsilon  \times  \Gamma_\varepsilon \to \mathcal{P}( Q \times
+\Gamma_\varepsilon)\]</span> is the transition function, <span
+class="math inline">\(q_0 \in Q\)</span> is the start state, <span
+class="math inline">\(F \subseteq  Q\)</span> is the set of accept
+states.</p>
+<p>For the PDA state diagrams below, <span class="math inline">\(\Sigma
+= \{0,1\}\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mathematical description of
+language</th>
+<th style="text-align: center;">State diagram of PDA recognizing
+language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\Gamma = \{
+\$, \#\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\Gamma = \{
+\sun, 1\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(\{ 0^i 1^j
+0^k \mid i,j,k \geq 0 \}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><em>Note: alternate notation is to replace <span
+class="math inline">\(;\)</span> with <span
+class="math inline">\(\to\)</span> on arrow labels.</em></span></p>
+<p>Corollary: for each language <span class="math inline">\(L\)</span>
+over <span class="math inline">\(\Sigma\)</span>, if there is an NFA
+<span class="math inline">\(N\)</span> with <span
+class="math inline">\(L(N)=L\)</span> then there is a PDA <span
+class="math inline">\(M\)</span> with <span class="math inline">\(L(M) =
+L\)</span></p>
+<p>Proof idea: Declare stack alphabet to be <span
+class="math inline">\(\Gamma = \Sigma\)</span> and then don’t use stack
+at all.</p>
+<p><span><em>Big picture</em></span>: PDAs are motivated by wanting to
+add some memory of unbounded size to NFA. How do we accomplish a similar
+enhancement of regular expressions to get a syntactic model that is more
+expressive?</p>
+<p>DFA, NFA, PDA: Machines process one input string at a time; the
+computation of a machine on its input string reads the input from left
+to right.</p>
+<p>Regular expressions: Syntactic descriptions of all strings that match
+a particular pattern; the language described by a regular expression is
+built up recursively according to the expression’s syntax</p>
+<p><span><strong>Context-free grammars</strong></span>: Rules to produce
+one string at a time, adding characters from the middle, beginning, or
+end of the final string as the derivation proceeds.<br />
+</p>
+<h1 class="unnumbered" id="day11">Day11</h1>
+<p>Regular sets are not the end of the story</p>
+<ul>
+<li><p>Many nice / simple / important sets are not regular</p></li>
+<li><p>Limitation of the finite-state automaton model: Can’t “count",
+Can only remember finitely far into the past, Can’t backtrack, Must make
+decisions in “real-time"</p></li>
+<li><p>We know actual computers are more powerful than this
+model...</p></li>
+</ul>
+<p>The <span><strong>next</strong></span> model of computation. Idea:
+allow some memory of unbounded size. How?</p>
+<ul>
+<li><p>To generalize regular expressions: <span><strong>context-free
+grammars</strong></span><br />
+</p></li>
+<li><p>To generalize NFA: <span><strong>Pushdown
+automata</strong></span>, which is like an NFA with access to a stack:
+Number of states is fixed, number of entries in stack is unbounded. At
+each step (1) Transition to new state based on current state, letter
+read, and top letter of stack, then (2) (Possibly) push or pop a letter
+to (or from) top of stack. Accept a string iff there is some sequence of
+states and some sequence of stack contents which helps the PDA processes
+the entire input string and ends in an accepting state.</p></li>
+</ul>
+<p>Is there a PDA that recognizes the nonregular language <span
+class="math inline">\(\{0^n1^n \mid n \geq 0 \}\)</span>?</p>
+<p>The PDA with state diagram above can be informally described as:</p>
+<blockquote>
+<p>Read symbols from the input. As each 0 is read, push it onto the
+stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If
+the stack becomes empty and we are at the end of the input string,
+accept the input. If the stack becomes empty and there are 1s left to
+read, or if 1s are finished while the stack still contains 0s, or if any
+0s appear in the string following 1s, reject the input.</p>
+</blockquote>
+<p>Trace a computation of this PDA on the input string <span
+class="math inline">\(01\)</span>.</p>
+<p><span><em>Extra practice</em></span>: Trace the computations of this
+PDA on the input string <span class="math inline">\(011\)</span>.</p>
+<p>A PDA recognizing the set <span class="math inline">\(\{ \hspace{1.5
+in} \}\)</span> can be informally described as:</p>
+<blockquote>
+<p>Read symbols from the input. As each 0 is read, push it onto the
+stack. As soon as 1s are seen, pop a 0 off the stack for each 1 read. If
+the stack becomes empty and there is exactly one 1 left to read, read
+that 1 and accept the input. If the stack becomes empty and there are
+either zero or more than one 1s left to read, or if the 1s are finished
+while the stack still contains 0s, or if any 0s appear in the input
+following 1s, reject the input.</p>
+</blockquote>
+<p>Modify the state diagram below to get a PDA that implements this
+description:</p>
 <h1 class="unnumbered" id="day7">Day7</h1>
 <p><span><strong>Review</strong></span>: The language recognized by the
 NFA over <span class="math inline">\(\{a,b\}\)</span> with state
