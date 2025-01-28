@@ -186,7 +186,7 @@
         "header": "Week 3",
         "outcomes": "Automata constructions and regular languages",
         "CalendarInfo": " Dates: 1/20/25 - 1/26/25. No class on Monday January 20 in observance of Martin Luther King Jr. Day.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -225,7 +225,7 @@
         "header": "Week 4",
         "outcomes": "Nonregular languages and Pushdown Automata",
         "CalendarInfo": " Dates: 1/27/25 - 2/2/25",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
