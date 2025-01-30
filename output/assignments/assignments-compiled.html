@@ -174,10 +174,10 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">HW1CSE105W25: Homework assignment 1HW2CSE105W25:
-Homework assignment 2</h1>
+Homework assignment 2HW3CSE105W25: Homework assignment 3</h1>
 <p class="author">CSE105W25</p>
 <p class="date">Due: January 16th at 5pm, via GradescopeDue: January
-30th at 5pm, via Gradescope</p>
+30th at 5pm, via GradescopeDue: February 6th at 5pm, via Gradescope</p>
 </header>
 <p><span><strong>In this assignment,</strong></span></p>
 <p>You will practice reading and applying the definitions of alphabets,
@@ -888,6 +888,407 @@ construction (and explain why) or explain why none of the operations
 mentioned is associated with the construction.</p></li>
 </ol></li>
 </ol>
+<p><span><strong>In this assignment,</strong></span></p>
+<p>You will demonstrate the richness of the class of regular languages,
+as well as its boundaries, and explore push-down automata and their
+design.</p>
+<p><span><strong>Resources</strong></span>: To review the topics for
+this assignment, see the class material from Week 3 and Week 4. We will
+post frequently asked questions and our answers to them in a pinned
+Piazza post.</p>
+<p><span><strong>Reading and extra practice problems</strong></span>:
+Sipser Chapter 1 and Section 2.2. Chapter 1 exercises 1.28, 1.29, 1.30.
+Chapter 1 problem 1.53, 1.54, 1.55. Chapter 2 exercises 2.7, 2.10.</p>
+<p><span><strong>For all HW assignments:</strong></span> Weekly homework
+may be done individually or in groups of up to 3 students. You may
+switch HW partners for different HW assignments. Please ensure your
+name(s) and PID(s) are clearly visible on the first page of your
+homework submission and then upload the PDF to Gradescope. If working in
+a group, submit only one submission per group: one partner uploads the
+submission through their Gradescope account and then adds the other
+group member(s) to the Gradescope submission by selecting their name(s)
+in the “Add Group Members" dialog box. You will need to re-add your
+group member(s) every time you resubmit a new version of your
+assignment. Each homework question will be graded either for correctness
+(including clear and precise explanations and justifications of all
+answers) or fair effort completeness. On the “graded for correctness"
+questions, you may only collaborate with CSE 105 students in your group;
+if your group has questions about a problem, you may ask in drop-in help
+hours or post a private post (visible only to the Instructors) on
+Piazza. On the "graded for completeness" questions, you may collaborate
+with all other CSE 105 students this quarter, and you may make public
+posts about these questions on Piazza.</p>
+<p>All submitted homework for this class must be typed. You can use a
+word processing editor if you like (Microsoft Word, Open Office,
+Notepad, Vim, Google Docs, etc.) but you might find it useful to take
+this opportunity to learn LaTeX. LaTeX is a markup language used widely
+in computer science and mathematics. The homework assignments are typed
+using LaTeX and you can use the source files as templates for
+typesetting your solutions. To generate state diagrams of machines, you
+can (1) use the LaTex tikzpicture environment (see templates in the
+class notes), or (2) use the software tools Flap.js or JFLAP described
+in the class syllabus (and include a screenshot in your PDF), or (3) you
+can carefully and clearly hand-draw the diagram and take a picture and
+include it in your PDF. We recommend that you submit early drafts to
+Gradescope so that in case of any technical difficulties, at least some
+of your work is present. You may update your submission as many times as
+you’d like up to the deadline.</p>
+<p><span><strong>Integrity reminders</strong></span></p>
+<ul>
+<li><p>Problems should be solved together, not divided up between the
+partners. The homework is designed to give you practice with the main
+concepts and techniques of the course, while getting to know and learn
+from your classmates.</p></li>
+<li><p>On the “graded for correctness" questions, you may only
+collaborate with CSE 105 students in your group. You may ask questions
+about the homework in office hours (of the instructor, TAs, and/or
+tutors) and on Piazza (as private notes viewable only to the
+Instructors). You <em>cannot</em> use any online resources about the
+course content other than the class material from this quarter – this is
+primarily to ensure that we all use consistent notation and definitions
+(aligned with the textbook) and also to protect the learning experience
+you will have when the ‘aha’ moments of solving the problem
+authentically happen.</p></li>
+<li><p>Do not share written solutions or partial solutions for homework
+with other students in the class who are not in your group. Doing so
+would dilute their learning experience and detract from their success in
+the class.</p></li>
+</ul>
+<p>You will submit this assignment via Gradescope (<a
+href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
+assignment called “hw3CSE105W25”.</p>
+<p><span><strong>Assigned questions</strong></span></p>
+<ol>
+<li><p><strong>Static analysis</strong> (10 points): In software
+engineering, static analysis is an approach to debugging and testing
+where the properties of a piece of code are inferred without actually
+running it. In the context of finite automata, we can think of static
+analysis as the process of inferring properties of the language
+recognized by a finite automaton from properties of the graph underlying
+its state diagram. The Pumping Lemma is one example of static analysis.
+In this question, you’ll explore other examples of how properties of the
+graph underlying the state diagram of a machine can give us information
+about the language recognized by the machine.</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn5"
+class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+Suppose you are given an NFA <span class="math inline">\(N_0\)</span>
+over an alphabet <span class="math inline">\(\Sigma\)</span> and each
+accepting state in <span class="math inline">\(N_0\)</span> is not
+reachable from the start state of <span
+class="math inline">\(N_0\)</span>. What can you conclude about the
+language of the NFA?</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn6"
+class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
+Prove or disprove: For any alphabet <span
+class="math inline">\(\Sigma\)</span> and any DFA <span
+class="math inline">\(M\)</span> over <span
+class="math inline">\(\Sigma\)</span>, if every state in <span
+class="math inline">\(M\)</span> is accepting then <span
+class="math inline">\(L(M) = \Sigma^*\)</span>. A complete answer will
+clearly indicate whether the statement is true or false and then will
+justify with a complete and correct argument.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Prove or disprove:
+For any alphabet <span class="math inline">\(\Sigma\)</span> and any NFA
+<span class="math inline">\(N\)</span> over <span
+class="math inline">\(\Sigma\)</span>, if every state in <span
+class="math inline">\(N\)</span> is accepting then <span
+class="math inline">\(L(N) = \Sigma^*\)</span>. A complete answer will
+clearly indicate whether the statement is true or false and then will
+justify with a complete and correct argument.</p></li>
+</ol></li>
+<li><p><strong>Multiple representations</strong> (12 points):</p>
+<ol>
+<li><p>Consider the language <span class="math inline">\(A_1 = \{ uw
+\mid \text{$u$ and
+   $w$ are strings over $\{0,1\}$ and have the same length} \}\)</span>
+and the following argument.</p>
+<blockquote>
+<p>“Proof" that <span class="math inline">\(A_1\)</span> is not regular
+using the Pumping Lemma: Let <span class="math inline">\(p\)</span> be
+an arbitrary positive integer. We will show that <span
+class="math inline">\(p\)</span> is not a pumping length for <span
+class="math inline">\(A_1\)</span>.</p>
+<p>Choose <span class="math inline">\(s\)</span> to be the string <span
+class="math inline">\(1^p 0^p\)</span>, which is in <span
+class="math inline">\(A_1\)</span> because we can choose <span
+class="math inline">\(u = 1^p\)</span> and <span class="math inline">\(w
+= 0^p\)</span> which each have length <span
+class="math inline">\(p\)</span>. Since <span
+class="math inline">\(s\)</span> is in <span
+class="math inline">\(A_1\)</span> and has length greater than or equal
+to <span class="math inline">\(p\)</span>, if <span
+class="math inline">\(p\)</span> were to be a pumping length for <span
+class="math inline">\(A_1\)</span>, <span
+class="math inline">\(s\)</span> ought to be pump’able. That is, there
+should be a way of dividing <span class="math inline">\(s\)</span> into
+parts <span class="math inline">\(x,y,z\)</span> where <span
+class="math inline">\(s=xyz\)</span>, <span class="math inline">\(|y|
+&gt;0\)</span>, <span class="math inline">\(|xy| \leq p\)</span>, and
+for each <span class="math inline">\(i \geq 0\)</span>, <span
+class="math inline">\(xy^iz \in A_1\)</span>. Suppose <span
+class="math inline">\(x,y,z\)</span> are such that <span
+class="math inline">\(s = xyz\)</span>, <span class="math inline">\(|y|
+&gt; 0\)</span> and <span class="math inline">\(|xy| \leq p\)</span>.
+Since the first <span class="math inline">\(p\)</span> letters of <span
+class="math inline">\(s\)</span> are all <span
+class="math inline">\(1\)</span> and <span class="math inline">\(|xy|
+\leq p\)</span>, we know that <span class="math inline">\(x\)</span> and
+<span class="math inline">\(y\)</span> are made up of all <span
+class="math inline">\(1\)</span>s. If we let <span
+class="math inline">\(i=2\)</span>, we get a string <span
+class="math inline">\(xy^iz\)</span> that is not in <span
+class="math inline">\(A_1\)</span> because repeating <span
+class="math inline">\(y\)</span> twice adds <span
+class="math inline">\(1\)</span>s to <span
+class="math inline">\(u\)</span> but not to <span
+class="math inline">\(w\)</span>, and strings in <span
+class="math inline">\(A_1\)</span> are required to have <span
+class="math inline">\(u\)</span> and <span
+class="math inline">\(w\)</span> be the same length. Thus, <span
+class="math inline">\(s\)</span> is not pumpable (even though it should
+have been if <span class="math inline">\(p\)</span> were to be a pumping
+length) and so <span class="math inline">\(p\)</span> is not a pumping
+length for <span class="math inline">\(A_1\)</span>. Since <span
+class="math inline">\(p\)</span> was arbitrary, we have demonstrated
+that <span class="math inline">\(A_1\)</span> has no pumping length. By
+the Pumping Lemma, this implies that <span
+class="math inline">\(A_1\)</span> is nonregular.</p>
+</blockquote>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) Find the (first
+and/or most significant) logical error in the “proof" above and describe
+why it’s wrong.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Prove that the
+set <span class="math inline">\(A_1\)</span> is actually regular (by
+finding a regular expression that describes it or a DFA/NFA that
+recognizes it, and justifying why) <span><strong>or</strong></span> fix
+the proof so that it is logically sound.</p></li>
+</ol></li>
+<li><p>Consider the language <span class="math inline">\(A_2 = \{ u1w
+\mid \text{$u$ and
+   $w$ are strings over $\{0,1\}$ and have the same length} \}\)</span>
+and the following argument.</p>
+<blockquote>
+<p>“Proof" that <span class="math inline">\(A_2\)</span> is not regular
+using the Pumping Lemma: Let <span class="math inline">\(p\)</span> be
+an arbitrary positive integer. We will show that <span
+class="math inline">\(p\)</span> is not a pumping length for <span
+class="math inline">\(A_2\)</span>.</p>
+<p>Choose <span class="math inline">\(s\)</span> to be the string <span
+class="math inline">\(1^{p+1} 0^{p}\)</span>, which is in <span
+class="math inline">\(A_2\)</span> because we can choose <span
+class="math inline">\(u = 1^p\)</span> and <span class="math inline">\(w
+= 0^p\)</span> which each have length <span
+class="math inline">\(p\)</span>. Since <span
+class="math inline">\(s\)</span> is in <span
+class="math inline">\(A_2\)</span> and has length greater than or equal
+to <span class="math inline">\(p\)</span>, if <span
+class="math inline">\(p\)</span> were to be a pumping length for <span
+class="math inline">\(A_2\)</span>, <span
+class="math inline">\(s\)</span> ought to be pump’able. That is, there
+should be a way of dividing <span class="math inline">\(s\)</span> into
+parts <span class="math inline">\(x,y,z\)</span> where <span
+class="math inline">\(s=xyz\)</span>, <span class="math inline">\(|y|
+&gt;0\)</span>, <span class="math inline">\(|xy| \leq p\)</span>, and
+for each <span class="math inline">\(i \geq 0\)</span>, <span
+class="math inline">\(xy^iz \in A_2\)</span>. When <span
+class="math inline">\(x = \varepsilon\)</span> and <span
+class="math inline">\(y = 1^{p+1}\)</span> and <span
+class="math inline">\(z = 0^{p}\)</span>, we have satisfied that <span
+class="math inline">\(s = xyz\)</span>, <span class="math inline">\(|y|
+&gt; 0\)</span> (because <span class="math inline">\(p\)</span> is
+positive) and <span class="math inline">\(|xy| \leq p\)</span>. If we
+let <span class="math inline">\(i=0\)</span>, we get the string <span
+class="math inline">\(xy^iz = 0^{p}\)</span> that is not in <span
+class="math inline">\(A_2\)</span> because its middle symbol is a <span
+class="math inline">\(0\)</span>, not a <span
+class="math inline">\(1\)</span>. Thus, <span
+class="math inline">\(s\)</span> is not pumpable (even though it should
+have been if <span class="math inline">\(p\)</span> were to be a pumping
+length) and so <span class="math inline">\(p\)</span> is not a pumping
+length for <span class="math inline">\(A_2\)</span>. Since <span
+class="math inline">\(p\)</span> was arbitrary, we have demonstrated
+that <span class="math inline">\(A_2\)</span> has no pumping length. By
+the Pumping Lemma, this implies that <span
+class="math inline">\(A_2\)</span> is nonregular.</p>
+</blockquote>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) Find the (first
+and/or most significant) logical error in the “proof" above and describe
+why it’s wrong.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Prove that the
+set <span class="math inline">\(A_2\)</span> is actually regular (by
+finding a regular expression that describes it or a DFA/NFA that
+recognizes it, and justifying why) <span><strong>or</strong></span> fix
+the proof so that it is logically sound.</p></li>
+</ol></li>
+</ol></li>
+<li><p><strong>Pumping</strong> (10 points):</p>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) Give an example of
+a language over the alphabet <span
+class="math inline">\(\{a,b\}\)</span> that has cardinality <span
+class="math inline">\(3\)</span> and for which <span
+class="math inline">\(5\)</span> is a pumping length and <span
+class="math inline">\(4\)</span> is not a pumping length. Is this
+language regular? A complete solution will give (1) a clear and precise
+description of the language, (2) a justification for why <span
+class="math inline">\(5\)</span> is a pumping length, (3) a
+justification for why <span class="math inline">\(4\)</span> is not a
+pumping length, (4) a correct and justified answer to whether the
+language is regular.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) In class and in
+the reading so far, we’ve seen the following examples of nonregular
+sets:</p>
+<div class="multicols">
+<p><span>3</span></p>
+<div class="center">
+<p><span class="math inline">\(\{ 0^n 1^n ~|~ n \geq 0 \}\)</span> <span
+class="math display">\[\{ 0^n 1^n ~|~ n \geq 2 \}\]</span> <span
+class="math display">\[\{ 0^n 1^m ~|~  0 \leq n \leq m \}\]</span> <span
+class="math display">\[\{ 0^n 1^m ~|~ 0 \leq m \leq n \}\]</span> <span
+class="math display">\[\{ 0^i 1^{2i} ~|~ 0 \leq i \}\]</span> <span
+class="math display">\[\{ 0^i 1^{i+1} ~|~ 0 \leq i \}\]</span> <span
+class="math display">\[\{ 0^n 1^m 0^n ~|~n,m \geq 0\}\]</span> <span
+class="math display">\[\{ w \in \{0,1\}^* ~|~w =
+w^{\mathcal{R}}\}\]</span> <span class="math display">\[\{ w
+w^{\mathcal{R}} ~|~ w \in \{0,1\}^*\}\]</span></p>
+</div>
+</div>
+<p>Modify one of these sets in some way and use the Pumping Lemma to
+prove that the resulting set is still nonregular.</p></li>
+</ol></li>
+<li><p><strong>Regular and nonregular languages</strong> (12 points): In
+Week 2’s review quiz, we saw the definition that a set <span
+class="math inline">\(X\)</span> is said to be <span><strong>closed
+under an operation</strong></span> if, for any elements in <span
+class="math inline">\(X\)</span>, applying to them gives an element in
+<span class="math inline">\(X\)</span>. For example, the set of integers
+is closed under multiplication because if we take any two integers,
+their product is also an integer .</p>
+<p>Recall the definitions of operations we’ve talked about that produce
+new languages from old: for each language <span
+class="math inline">\(L\)</span> over an alphabet <span
+class="math inline">\(\Sigma\)</span>, we have the associated sets of
+strings (also over <span class="math inline">\(\Sigma\)</span>) <span
+class="math display">\[L^* = \{ w_1 \cdots w_k \mid k \geq 0 \textrm{
+and each } w_i \in L\}\]</span> and <span
+class="math display">\[SUBSTRING(L) = \{ w \in \Sigma^* ~|~ \text{there
+exist } x,y \in \Sigma^* \text{ such that } xwy \in L\}\]</span> and
+<span class="math display">\[EXTEND(L) = \{ w \in \Sigma^* ~|~ w = uv
+\text{ for some strings } u \in L \text{ and } v \in \Sigma^*
+\}\]</span> Also, recall the set operations union and intersection: for
+any sets <span class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span> <span class="math display">\[X \cup Y =
+\{ w \mid w \in X \text{ or } w \in Y \}\]</span> <span
+class="math display">\[X \cap Y = \{ w \mid w \in X \text{ and } w \in Y
+\}\]</span></p>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) Use the general
+constructions that we developed to prove the closure of the class of
+regular languages under various operations to produce the state diagram
+of a NFA that recognizes the language <span
+class="math display">\[(~SUBSTRING(\{0, 01, 111\})~)^*\]</span>
+<span><em>Hint: Question 4 from Homework 2 might be
+helpful.</em></span></p>
+<p>For full credit, submit (1) a state diagram of an NFA that recognizes
+<span class="math inline">\(\{0,01,111\}\)</span>, (2) a state diagram
+of an NFA that recognizes <span class="math inline">\(SUBSTRING(\{0, 01,
+111\})\)</span>, and (3) a state diagram of an NFA that recognizes <span
+class="math inline">\((~SUBSTRING(\{0, 01, 111\})~)^*\)</span>, and a
+brief justification of each state diagram that references the language
+being recognized or the general constructions being used.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Prove that the
+class of nonregular languages over <span
+class="math inline">\(\{0,1\}\)</span> is not closed under the <span
+class="math inline">\(SUBSTRING\)</span> operation by giving an example
+language <span class="math inline">\(A\)</span> that is nonregular but
+for which <span class="math inline">\(SUBSTRING(A)\)</span> is regular.
+A complete solution will give (1) a clear and precise description of the
+language, (2) a justification for why it is nonregular (either by
+proving this directly or by referring to specific examples from the
+class or textbook), (3) a description of the result of applying the
+<span class="math inline">\(SUBSTRING\)</span> operation to the
+language, and (4) a justification for why this resulting language is
+regular.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Prove that the
+class of nonregular languages over <span
+class="math inline">\(\{0,1\}\)</span> is not closed under the <span
+class="math inline">\(EXTEND\)</span> operation by giving an example
+language <span class="math inline">\(B\)</span> that is nonregular but
+for which <span class="math inline">\(EXTEND(B)\)</span> is regular. A
+complete solution will give (1) a clear and precise description of the
+language, (2) a justification for why it is nonregular (either by
+proving this directly or by referring to specific examples from the
+class or textbook), (3) a description of the result of applying the
+<span class="math inline">\(EXTEND\)</span> operation to the language,
+and (4) a justification for why this resulting language is
+regular.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Prove that the
+class of nonregular languages over <span
+class="math inline">\(\{0,1\}\)</span> is not closed under the Kleene
+star operation by giving an example language <span
+class="math inline">\(C\)</span> that is nonregular but for which <span
+class="math inline">\(C^*\)</span> is regular. A complete solution will
+give (1) a clear and precise description of the language, (2) a
+justification for why it is nonregular (either by proving this directly
+or by referring to specific examples from the class or textbook), (3) a
+description of the result of applying the Kleene star operation to the
+language, and (4) a justification for why this resulting language is
+regular.</p></li>
+</ol></li>
+<li><p><strong>Regular and nonregular languages and Push-down automata
+(PDA)</strong> (6 points): On page 7 of the week 4 notes, we have the
+following list of languages over the alphabet <span
+class="math inline">\(\{a,b\}\)</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(\{a^nb^n
+\mid 0  \leq n  \leq 5 \}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{b^n a^n
+\mid  n  \geq 2\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{a^m b^n
+\mid  0 \leq m\leq n\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(\{a^m b^n
+\mid  m \geq n+3,  n \geq 0\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{b^m a^n
+\mid  m \geq 1, n \geq  3\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(\{ w  \in
+\{a,b\}^* \mid w = w^\mathcal{R} \}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{
+ww^\mathcal{R} \mid w\in \{a,b\}^* \}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) Pick one of the
+regular languages and design a regular expression that describes it and
+a DFA that recognizes it. Briefly justify your regular expression by
+connecting the subexpressions of it to the intended language and
+referencing relevant definitions. Briefly justify your DFA design by
+explaining the role each state plays in the machine, as well as a brief
+justification about how the strings accepted and rejected by the machine
+connect to the specified language.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Pick one of the
+nonregular languages and design a PDA that recognizes it. Draw the state
+diagram of your PDA. Briefly justify your design by explaining the role
+each state plays in the machine, as well as a brief justification about
+how the strings accepted and rejected by the machine connect to the
+specified language.</p></li>
+</ol></li>
+</ol>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
@@ -925,6 +1326,23 @@ formal proof techniques or write a more informal argument for why
 something is true, your answers should always be well-supported. Your
 goal should be to convince the reader that your results and methods are
 sound.<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>This means you will get full credit so long as your
+submission demonstrates honest effort to answer the question. You will
+not be penalized for incorrect answers. To demonstrate your honest
+effort in answering the question, we expect you to include your attempt
+to answer *each* part of the question. If you get stuck with your
+attempt, you can still demonstrate your effort by explaining where you
+got stuck and what you did to try to get unstuck.<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>This means your solution will be evaluated not only on
+the correctness of your answers, but on your ability to present your
+ideas clearly and logically. You should explain how you arrived at your
+conclusions, using mathematically sound reasoning. Whether you use
+formal proof techniques or write a more informal argument for why
+something is true, your answers should always be well-supported. Your
+goal should be to convince the reader that your results and methods are
+sound.<a href="#fnref6" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
