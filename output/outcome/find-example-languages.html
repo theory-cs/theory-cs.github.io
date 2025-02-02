@@ -1109,5 +1109,816 @@ ww^\mathcal{R} \mid w\in \{a,b\}^* \}\)</span></td>
 </tbody>
 </table>
 </div>
+<h1 class="unnumbered" id="day15">Day15</h1>
+<p>We are ready to introduce a formal model that will capture a notion
+of general purpose computation.</p>
+<ul>
+<li><p><span><em>Similar to DFA, NFA, PDA</em></span>: input will be an
+arbitrary string over a fixed alphabet.</p></li>
+<li><p><span><em>Different from NFA, PDA</em></span>: machine is
+deterministic.</p></li>
+<li><p><span><em>Different from DFA, NFA, PDA</em></span>: read-write
+head can move both to the left and to the right, and can extend to the
+right past the original input.</p></li>
+<li><p><span><em>Similar to DFA, NFA, PDA</em></span>: transition
+function drives computation one step at a time by moving within a finite
+set of states, always starting at designated start state.</p></li>
+<li><p><span><em>Different from DFA, NFA, PDA</em></span>: the special
+states for rejecting and accepting take effect immediately.</p></li>
+</ul>
+<p>(See more details: Sipser p. 166)</p>
+<p>Formally: a Turing machine is <span class="math inline">\(M= (Q,
+\Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})\)</span> where
+<span class="math inline">\(\delta\)</span> is the
+<span><strong>transition function</strong></span> <span
+class="math display">\[\delta: Q\times \Gamma \to Q \times \Gamma \times
+\{L, R\}\]</span> The <span><strong>computation</strong></span> of <span
+class="math inline">\(M\)</span> on a string <span
+class="math inline">\(w\)</span> over <span
+class="math inline">\(\Sigma\)</span> is:</p>
+<ul>
+<li><p>Read/write head starts at leftmost position on tape.</p></li>
+<li><p>Input string is written on <span
+class="math inline">\(|w|\)</span>-many leftmost cells of tape, rest of
+the tape cells have the blank symbol. <span><strong>Tape
+alphabet</strong></span> is <span class="math inline">\(\Gamma\)</span>
+with <span class="math inline">\(\textvisiblespace\in \Gamma\)</span>
+and <span class="math inline">\(\Sigma \subseteq \Gamma\)</span>. The
+blank symbol <span class="math inline">\(\textvisiblespace \notin
+\Sigma\)</span>.</p></li>
+<li><p>Given current state of machine and current symbol being read at
+the tape head, the machine transitions to next state, writes a symbol to
+the current position of the tape head (overwriting existing symbol), and
+moves the tape head L or R (if possible).</p></li>
+<li><p>Computation ends <span><strong>if and when</strong></span>
+machine enters either the accept or the reject state. This is called
+<span><strong>halting</strong></span>. Note: <span
+class="math inline">\(q_{accept} \neq q_{reject}\)</span>.</p></li>
+</ul>
+<p>The <span><strong>language recognized by the Turing
+machine</strong></span> <span class="math inline">\(M\)</span>, is <span
+class="math inline">\(L(M) = \{ w \in \Sigma^* \mid w \textrm{ is
+accepted by } M\}\)</span>, which is defined as <span
+class="math display">\[\{ w \in \Sigma^* \mid \textrm{computation of $M$
+on $w$ halts after entering the accept state}\}\]</span></p>
+<div class="multicols">
+<p><span>2</span></p>
+<p>Formal definition:</p>
+<p>Sample computation:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">\(q0\downarrow\)</span></th>
+<th colspan="6" style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The language recognized by this machine is …</p>
+<p><span><strong>Describing Turing machines</strong></span> (Sipser p.
+185) To define a Turing machine, we could give a</p>
+<ul>
+<li><p><span><strong>Formal definition</strong></span>: the <span
+class="math inline">\(7\)</span>-tuple of parameters including set of
+states, input alphabet, tape alphabet, transition function, start state,
+accept state, and reject state; or,</p></li>
+<li><p><span><strong>Implementation-level definition</strong></span>:
+English prose that describes the Turing machine head movements relative
+to contents of tape, and conditions for accepting / rejecting based on
+those contents.</p></li>
+<li><p><span><strong>High-level description</strong></span>: description
+of algorithm (precise sequence of instructions), without implementation
+details of machine. As part of this description, can “call" and run
+another TM as a subroutine.</p></li>
+</ul>
+<p>Fix <span class="math inline">\(\Sigma = \{0,1\}\)</span>, <span
+class="math inline">\(\Gamma = \{ 0, 1, \textvisiblespace\}\)</span> for
+the Turing machines with the following state diagrams:</p>
+<div class="center">
+
+</div>
+<p>Example of string accepted:<br />
+Example of string rejected:<br />
+Implementation-level description</p>
+<p>High-level description</p>
+<div class="center">
+
+</div>
+<p>Example of string accepted:<br />
+Example of string rejected:<br />
+Implementation-level description</p>
+<p>High-level description</p>
+<div class="center">
+
+</div>
+<p>Example of string accepted:<br />
+Example of string rejected:<br />
+Implementation-level description</p>
+<p>High-level description</p>
+<div class="center">
+
+</div>
+<p>Example of string accepted:<br />
+Example of string rejected:<br />
+Implementation-level description</p>
+<p>High-level description</p>
+<h1 class="unnumbered" id="day16">Day16</h1>
+<p><span><em>Sipser Figure 3.10</em></span></p>
+<p><span><strong>Conventions in state diagram of TM</strong></span>:
+<span class="math inline">\(b \to R\)</span> label means <span
+class="math inline">\(b \to b, R\)</span> and all arrows missing from
+diagram represent transitions with output <span
+class="math inline">\((q_{reject}, \textvisiblespace , R)\)</span></p>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<p><img src="../../resources/machines/Lect13TM3.png" style="width:4in"
+alt="image" /></p>
+</div>
+<p>Implementation level description of this machine:</p>
+<blockquote>
+<p>Zig-zag across tape to corresponding positions on either side of
+<span class="math inline">\(\#\)</span> to check whether the characters
+in these positions agree. If they do not, or if there is no <span
+class="math inline">\(\#\)</span>, reject. If they do, cross them
+off.</p>
+<p>Once all symbols to the left of the <span
+class="math inline">\(\#\)</span> are crossed off, check for any
+un-crossed-off symbols to the right of <span
+class="math inline">\(\#\)</span>; if there are any, reject; if there
+aren’t, accept.</p>
+</blockquote>
+<p>The language recognized by this machine is <span
+class="math display">\[\{ w \# w \mid w \in \{0,1\}^* \}\]</span></p>
+<p>Computation on input string <span
+class="math inline">\(01\#01\)</span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="math inline">\(q_1
+\downarrow\)</span></th>
+<th colspan="6" style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\#\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="multicols">
+<p><span>2</span> High-level description of this machine is</p>
+<p><span><em>Recall:</em></span> High-level descriptions of Turing
+machine algorithms are written as indented text within quotation marks.
+Stages of the algorithm are typically numbered consecutively. The first
+line specifies the input to the machine, which must be a string.</p>
+<p><span><em>Extra practice</em></span></p>
+<p>Computation on input string <span
+class="math inline">\(01\#1\)</span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">\(q_1\downarrow\)</span></th>
+<th colspan="6" style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\#\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\textvisiblespace\)</span></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A language <span class="math inline">\(L\)</span> is
+<span><strong>recognized by</strong></span> a Turing machine <span
+class="math inline">\(M\)</span> means</p>
+<p>A Turing machine <span class="math inline">\(M\)</span>
+<span><strong>recognizes</strong></span> a language <span
+class="math inline">\(L\)</span> means</p>
+<p>A Turing machine <span class="math inline">\(M\)</span> is a
+<span><strong>decider</strong></span> means</p>
+<p>A language <span class="math inline">\(L\)</span> is
+<span><strong>decided by</strong></span> a Turing machine <span
+class="math inline">\(M\)</span> means</p>
+<p>A Turing machine <span class="math inline">\(M\)</span>
+<span><strong>decides</strong></span> a language <span
+class="math inline">\(L\)</span> means</p>
+<p>Fix <span class="math inline">\(\Sigma = \{0,1\}\)</span>, <span
+class="math inline">\(\Gamma = \{ 0, 1, \textvisiblespace\}\)</span> for
+the Turing machines with the following state diagrams:</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Decider? Yes   /    No</td>
+<td style="text-align: center;">Decider? Yes   /    No</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Decider? Yes   /    No</td>
+<td style="text-align: center;">Decider? Yes   /    No</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="day17">Day17</h1>
+<p>A <span><strong>Turing-recognizable</strong></span> language is a set
+of strings that is the language recognized by some Turing machine. We
+also say that such languages are recognizable.</p>
+<p>A <span><strong>Turing-decidable</strong></span> language is a set of
+strings that is the language recognized by some decider. We also say
+that such languages are decidable.</p>
+<p>An <span><strong>unrecognizable</strong></span> language is a
+language that is not Turing-recognizable.</p>
+<p>An <span><strong>undecidable</strong></span> language is a language
+that is not Turing-decidable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any decidable language is also
+recognizable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any recognizable language is also
+decidable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any undecidable language is also
+unrecognizable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: Any unrecognizable language is also
+undecidable.</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The class of Turing-decidable
+languages is closed under complementation.</p>
+<p>Using formal definition:</p>
+<p>Using high-level description:</p>
+<p><span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183):
+The informal notion of algorithm is formalized completely and correctly
+by the formal definition of a Turing machine. In other words: all
+reasonably expressive models of computation are equally expressive with
+the standard Turing machine.</p>
 </body>
 </html>
