@@ -62,7 +62,7 @@ for i in range(0,len(unitData)):
                     #annotations switch/toggle
                     pdfString += """
                     <label class="switch">
-                    <input type="checkbox" id="toggle-"""+str(elementCount)+"""">
+                    <input type="checkbox" id="toggle-"""+str(elementCount)+"""" checked>
                     <span class="slider round"></span>
                     </label>
                     """
