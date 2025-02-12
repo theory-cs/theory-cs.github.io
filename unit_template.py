@@ -91,12 +91,12 @@ for i in range(0,len(unitData)):
 
                 initialFileName = annotatedFileName if exists("files/" + annotatedFileName) else pdf
 
+                pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
+                
                 #heading and PDF download button, only PDF download button in this case 
                 pdfString += """<h2 tabindex = "2"> """+ unitData[i]['content'][j]['name'] +"""</h2>
                 <a id=\"""" + pdfjsID + """-download\" tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ initialFileName + """ download>PDF</a> """
 
-                pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
-                
                 if(exists("files/"+annotatedFileName)):
                     pdfString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
                                 <span class="onoff">OFF</span>
