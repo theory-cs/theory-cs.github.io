@@ -1,78 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  $unitHead
 
-$unitHead
+  <body>
+    <!-- Navigation -->
+    $unitSidebar $unitSecondarySidebar $unitMobileSidebar
 
-<body>
-		
-		  <!-- Navigation -->
-			$unitSidebar
-			$unitSecondarySidebar
-			$unitMobileSidebar
-		
-		
-	<div class="content secondary">
-		<!-- Overview -->
-		<div class="row">
-			<div class="col-lg-12 text-left">
-				<h1 tabindex = "1">$heading</h1>
-				$Information
-			</div>
-		</div>
-
-        <!-- Notes -->
-		<div class="daily">
-		</div>
-
-		
-				
-		<!---Non-annotated notes will be the default-->
-		<p>
-			
-		</p>
-
-		<div id="PDF">
-            $PDF
+    <div class="content secondary">
+      <!-- Overview -->
+      <div class="row">
+        <div class="col-lg-12 text-left">
+          <h1 tabindex="1">$heading</h1>
+          $Information
         </div>
-        <script>
-			
-			const toggles = document.querySelector('.toggle input');
-			
-			toggles.addEventListener('click', () => {
-    		const onOff = toggles.parentNode.querySelector('.onoff')
-    		onOff.textContent = toggles.checked ? 'ON' : 'OFF'
-			})
-			
-			// const divs = document.querySelectorAll('.toggle input');
+      </div>
 
-			// divs.forEach(el => el.addEventListener('click', () => {
-    		// const onOff = el.parentNode.querySelector('.onoff')
-    		// onOff.textContent = el.checked ? 'ON' : 'OFF'
-			// }));
-			
-			function annotations(num, notes, annotated,id) {
-				var doc;
-				var drive;
-				if (document.getElementById('toggle-'+num).checked) {
-					doc = "web/viewer.html?file=../" +annotated
-					
-				} 
+      <!-- Notes -->
+      <div class="daily"></div>
 
-				else {
-					doc = "web/viewer.html?file=../"+notes
-				}
-				
-                document.getElementById(id).src = doc;
-			}
-		</script>
-        <br><br>	
-		
-       <div id="embeddedLinks">
-		   $embed
-	   </div>
-			
-	</div>
-	
-</body>
+      <!---Non-annotated notes will be the default-->
+      <p></p>
 
+      <div id="PDF">$PDF</div>
+      <script>
+        const toggles = document.querySelector(".toggle input");
+
+        toggles.addEventListener("click", () => {
+          const onOff = toggles.parentNode.querySelector(".onoff");
+          onOff.textContent = toggles.checked ? "ON" : "OFF";
+        });
+
+        // const divs = document.querySelectorAll('.toggle input');
+
+        // divs.forEach(el => el.addEventListener('click', () => {
+        // const onOff = el.parentNode.querySelector('.onoff')
+        // onOff.textContent = el.checked ? 'ON' : 'OFF'
+        // }));
+
+        function annotations(num, notes, annotated, id) {
+          var doc;
+          var drive;
+          var downloadFile;
+          if (document.getElementById("toggle-" + num).checked) {
+            doc = "web/viewer.html?file=../" + annotated;
+            downloadFile = annotated;
+          } else {
+            doc = "web/viewer.html?file=../" + notes;
+            downloadFile = notes;
+          }
+
+          document.getElementById(id + "-download").href = downloadFile;
+          document.getElementById(id).src = doc;
+        }
+      </script>
+      <br /><br />
+
+      <div id="embeddedLinks">$embed</div>
+    </div>
+  </body>
 </html>

@@ -40,7 +40,7 @@ for i in range(0,len(unitData)):
 
                 #heading and PDF download button, only PDF download button in this case 
                 pdfString += """<h2 tabindex = "2"> """+ unitData[i]['content'][j]['name'] +"""</h2>
-                <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
+                <a id=\"""" + pdfjsID + """-download\" tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ annotatedFileName+ """ download>PDF</a> """
                 #.tex
                 pdfString += """ <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
                     href=""" + tex + """ download>LaTeX</a> """
@@ -72,7 +72,7 @@ for i in range(0,len(unitData)):
                      """+str(elementCount)+""", \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
                 
                 #pdf.js embed default 
-                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
+                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ annotatedFileName+ """" 
                 title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
             
             #if source value ends with .pdf, refer to the files directory  
@@ -81,7 +81,7 @@ for i in range(0,len(unitData)):
 
                 #heading and PDF download button, only PDF download button in this case 
                 pdfString += """<h2 tabindex = "2"> """+ unitData[i]['content'][j]['name'] +"""</h2>
-                <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
+                <a id=\"""" + pdfjsID + """-download\" tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ annotatedFileName+ """ download>PDF</a> """
 
                 pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
                 
@@ -103,7 +103,7 @@ for i in range(0,len(unitData)):
                      \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
 
                 #pdf.js embed from files
-                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
+                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../../files/"""+ annotatedFileName+ """" 
                     title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
             
             
