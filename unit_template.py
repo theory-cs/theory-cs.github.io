@@ -45,7 +45,7 @@ for i in range(0,len(unitData)):
                 annotatedFileName= unitData[i]['content'][j]['source'].replace(".tex","")
                 annotatedFileName = annotatedFileName+websiteData["Annotated"]+".pdf"
 
-                initialFileName = annotatedFileName if exists("files/" + annotatedFileName) else pdf
+                initialFileName = ("../files/" + annotatedFileName) if exists("files/" + annotatedFileName) else pdf
 
                 #heading and PDF download button, only PDF download button in this case 
                 pdfString += """<h2 tabindex = "2"> """+ unitData[i]['content'][j]['name'] +"""</h2>
@@ -89,7 +89,7 @@ for i in range(0,len(unitData)):
                 annotatedFileName= unitData[i]['content'][j]['source'].replace(".pdf","")
                 annotatedFileName = annotatedFileName+websiteData["Annotated"]+".pdf"
 
-                initialFileName = annotatedFileName if exists("files/" + annotatedFileName) else pdf
+                initialFileName = ("../files/" + annotatedFileName) if exists("files/" + annotatedFileName) else pdf
 
                 pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
                 
