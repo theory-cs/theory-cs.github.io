@@ -38,9 +38,19 @@ for i in range(0,len(unitData)):
                 if(tex == None):
                     tex=""
 
+                #id of pdf.js element formatting
+                pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
+
+                #annotatedFileName will be as such: for Week4.tex -> Week4-annotated.pdf
+                annotatedFileName= unitData[i]['content'][j]['source'].replace(".tex","")
+                annotatedFileName = annotatedFileName+websiteData["Annotated"]+".pdf"
+
+                initialFileName = ("../files/" + annotatedFileName) if exists("files/" + annotatedFileName) else pdf
+
                 #heading and PDF download button, only PDF download button in this case 
                 pdfString += """<h2 tabindex = "2"> """+ unitData[i]['content'][j]['name'] +"""</h2>
-                <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
+                <a id=\"""" + pdfjsID + """-download\" tabindex = "2" class="button PDF" aria-label="Download PDF" href=""" + initialFileName + """ download>PDF</a> """
+
                 #.tex
                 pdfString += """ <a tabindex = "2" class="button LaTeX" aria-label="Download .LaTeX" 
                     href=""" + tex + """ download>LaTeX</a> """
@@ -51,18 +61,12 @@ for i in range(0,len(unitData)):
                 
                
 
-                #id of pdf.js element formatting
-                pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
-
-                #annotatedFileName will be as such: for Week4.tex -> Week4-annotated.pdf
-                annotatedFileName= unitData[i]['content'][j]['source'].replace(".tex","")
-                annotatedFileName = annotatedFileName+websiteData["Annotated"]+".pdf"
 
                 if(exists("files/"+annotatedFileName)):
                     #annotations switch/toggle
                     pdfString += """
                     <label class="switch">
-                    <input type="checkbox" id="toggle-"""+str(elementCount)+"""">
+                    <input type="checkbox" id="toggle-"""+str(elementCount)+"""" checked>
                     <span class="slider round"></span>
                     </label>
                     """
@@ -72,28 +76,31 @@ for i in range(0,len(unitData)):
                      """+str(elementCount)+""", \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
                 
                 #pdf.js embed default 
-                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ pdf+ """" 
+                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../"""+ initialFileName+ """" 
                 title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
+
             
             #if source value ends with .pdf, refer to the files directory  
             elif (unitData[i]['content'][j]['source'][-4:] == '.pdf'):
                 pdf="../files/"+unitData[i]['content'][j]['source']
-
-                #heading and PDF download button, only PDF download button in this case 
-                pdfString += """<h2 tabindex = "2"> """+ unitData[i]['content'][j]['name'] +"""</h2>
-                <a tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ pdf+ """ download>PDF</a> """
-
-                pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
                 
             
                 #annotatedFileName will be as such: for Week4.tex -> Week4-annotated.pdf
                 annotatedFileName= unitData[i]['content'][j]['source'].replace(".pdf","")
                 annotatedFileName = annotatedFileName+websiteData["Annotated"]+".pdf"
+
+                initialFileName = ("../files/" + annotatedFileName) if exists("files/" + annotatedFileName) else pdf
+
+                pdfjsID = unitData[i]['content'][j]['source'].replace(" ", "-")
                 
+                #heading and PDF download button, only PDF download button in this case 
+                pdfString += """<h2 tabindex = "2"> """+ unitData[i]['content'][j]['name'] +"""</h2>
+                <a id=\"""" + pdfjsID + """-download\" tabindex = "2" class="button PDF" aria-label="Download PDF" href="""+ initialFileName + """ download>PDF</a> """
+
                 if(exists("files/"+annotatedFileName)):
                     pdfString += """<div style="font-weight: 700; font-size: 120%; display: inline-block;">&nbsp&nbspAnnotations:&nbsp</div><label class="toggle">
                                 <span class="onoff">OFF</span>
-                                            <input type="checkbox" />
+                                            <input type="checkbox" checked />
                         <span class="slider round" id="annotationsOnButton"""+str(elementCount)+""""></span>
                         </label> <br>"""
                     
@@ -103,7 +110,7 @@ for i in range(0,len(unitData)):
                      \""""+pdf+ """\",\"../files/"""+annotatedFileName+"""\", \""""+pdfjsID+ """\")}; </script>"""
 
                 #pdf.js embed from files
-                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../../files/"""+ pdf+ """" 
+                pdfString += """ <br> <iframe class="PDFjs" id=\""""+ pdfjsID +"""\" src="web/viewer.html?file=../../files/"""+ initialFileName + """" 
                     title="webviewer" frameborder="0" width="100%" height="600"></iframe> """
             
             
