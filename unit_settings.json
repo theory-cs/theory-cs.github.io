@@ -329,7 +329,7 @@
         "header": "Week 5",
         "outcomes": " and Context-free Grammars and Context-free languages",
         "CalendarInfo": " Dates: 2/3/25 - 2/9/25.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
