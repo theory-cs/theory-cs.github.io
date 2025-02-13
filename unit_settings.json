@@ -485,7 +485,7 @@
         "header": "Week 7",
         "outcomes": "Computational problems: decidable and undecidable",
         "CalendarInfo": " Dates: 2/17/25 - 2/23/25. No class on Monday February 17 in observance of Presidents Day.",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
