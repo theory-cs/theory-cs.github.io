@@ -1421,39 +1421,6 @@ The informal notion of algorithm is formalized completely and correctly
 by the formal definition of a Turing machine. In other words: all
 reasonably expressive models of computation are equally expressive with
 the standard Turing machine.</p>
-<h1 class="unnumbered" id="day18">Day18</h1>
-<p>Definition: A language <span class="math inline">\(L\)</span> over an
-alphabet <span class="math inline">\(\Sigma\)</span> is called
-<span><strong>co-recognizable</strong></span> if its complement, defined
-as <span class="math inline">\(\Sigma^* \setminus L  = \{
-x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
-Turing-recognizable.</p>
-<p><span><em>Notation</em></span>: The complement of a set <span
-class="math inline">\(X\)</span> is denoted with a superscript <span
-class="math inline">\(c\)</span>, <span
-class="math inline">\(X^c\)</span>, or an overline, <span
-class="math inline">\(\overline{X}\)</span>.</p>
-<p><span><strong>Theorem</strong></span> (Sipser Theorem 4.22): A
-language is Turing-decidable if and only if both it and its complement
-are Turing-recognizable.</p>
-<p><span><strong>Proof, first direction:</strong></span> Suppose
-language <span class="math inline">\(L\)</span> is Turing-decidable. WTS
-that both it and its complement are Turing-recognizable.</p>
-<p><span><strong>Proof, second direction:</strong></span> Suppose
-language <span class="math inline">\(L\)</span> is Turing-recognizable,
-and so is its complement. WTS that <span
-class="math inline">\(L\)</span> is Turing-decidable.</p>
-<p><span><strong>Dovetailing</strong></span>: interleaving progress on
-multiple computations by limiting the number of steps each computation
-makes in each round.</p>
-<p><span><strong>Claim</strong></span>: If two languages (over a fixed
-alphabet <span class="math inline">\(\Sigma\)</span>) are
-Turing-decidable, then their union is as well.</p>
-<p><span><strong>Proof</strong></span>:</p>
-<p><span><strong>Claim</strong></span>: If two languages (over a fixed
-alphabet <span class="math inline">\(\Sigma\)</span>) are
-Turing-recognizable, then their union is as well.</p>
-<p><span><strong>Proof</strong></span>:</p>
 <h1 class="unnumbered" id="day7">Day7</h1>
 <p><span><strong>Review</strong></span>: The language recognized by the
 NFA over <span class="math inline">\(\{a,b\}\)</span> with state
