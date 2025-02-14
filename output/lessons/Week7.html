@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>define-decision-problem</title>
+  <title>Week7</title>
   <style>
     html {
       color: #1a1a1a;
@@ -174,7 +174,114 @@
 <div class="flushright">
 
 </div>
-<h1 class="unnumbered" id="day19">Day19</h1>
+<h2 class="unnumbered" id="week-7-at-a-glance">Week 7 at a glance</h2>
+<h3 class="unnumbered" id="textbook-reading-chapter-4">Textbook reading:
+Chapter 4</h3>
+<p>No class on Monday in observance of UCSD holiday.</p>
+<p>Before Wednesday, Introduction to Chapter 4.</p>
+<p>Before Friday, Decidable problems concerning regular languages,
+Sipser pages 194-196.</p>
+<p>For Week 8 Monday: An undecidable language, Sipser pages 207-209.</p>
+<h3 class="unnumbered" id="we-will-be-learning-and-practicing-to">We
+will be learning and practicing to:</h3>
+<ul>
+<li><p>Clearly and unambiguously communicate computational ideas using
+appropriate formalism. Translate across levels of abstraction.</p>
+<ul>
+<li><p>Use clear English to describe computations of Turing machines
+informally.</p>
+<ul>
+<li><p><span><strong>Use high-level descriptions to define and trace
+Turing machines</strong></span></p></li>
+<li><p><span><strong>Apply dovetailing in high-level definitions of
+machines</strong></span></p></li>
+</ul></li>
+<li><p>Give examples of sets that are regular, context-free, decidable,
+or recognizable (and prove that they are).</p>
+<ul>
+<li><p><span><strong>Give examples of sets that are
+decidable.</strong></span></p></li>
+<li><p><span><strong>Give examples of sets that are
+recognizable.</strong></span></p></li>
+</ul></li>
+</ul></li>
+<li><p>Know, select and apply appropriate computing knowledge and
+problem-solving techniques. Reason about computation and systems.</p>
+<ul>
+<li><p>Translate a decision problem to a set of strings coding the
+problem.</p>
+<ul>
+<li><p><span><strong>Connect languages and computational
+problems</strong></span></p></li>
+<li><p><span><strong>Describe and use the encoding of objects as inputs
+to Turing machines</strong></span></p></li>
+<li><p><span><strong>Trace high-level descriptions of algorithms for
+computational problems</strong></span></p></li>
+</ul></li>
+<li><p>Classify the computational complexity of a set of strings by
+determining whether it is regular, context-free, decidable, or
+recognizable.</p>
+<ul>
+<li><p><span><strong>Describe common computational problems with respect
+to DFA, NFA, regular expressions, PDA, and context-free
+grammars.</strong></span></p></li>
+<li><p><span><strong>Give high-level descriptions of Turing machines
+that decide common computational problems with respect to DFA, NFA,
+regular expressions, PDA, and context-free
+grammars.</strong></span></p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>Review Quiz 6 on PrairieLearn (http://us.prairielearn.com), due
+2/19/2025</p>
+<p>Homework 4 submitted via Gradescope (https://www.gradescope.com/),
+due 2/20/2025</p>
+<p>Review Quiz 7 on PrairieLearn (http://us.prairielearn.com), due
+2/26/2025</p>
+</div>
+<h2 class="unnumbered"
+id="monday-no-class-in-observance-of-ucsd-holiday">Monday: No class, in
+observance of UCSD holiday</h2>
+<h2 class="unnumbered"
+id="wednesday-general-constructions-for-turing-machines">Wednesday:
+General constructions for Turing machines</h2>
+<p>Definition: A language <span class="math inline">\(L\)</span> over an
+alphabet <span class="math inline">\(\Sigma\)</span> is called
+<span><strong>co-recognizable</strong></span> if its complement, defined
+as <span class="math inline">\(\Sigma^* \setminus L  = \{
+x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
+Turing-recognizable.</p>
+<p><span><em>Notation</em></span>: The complement of a set <span
+class="math inline">\(X\)</span> is denoted with a superscript <span
+class="math inline">\(c\)</span>, <span
+class="math inline">\(X^c\)</span>, or an overline, <span
+class="math inline">\(\overline{X}\)</span>.</p>
+<p><span><strong>Theorem</strong></span> (Sipser Theorem 4.22): A
+language is Turing-decidable if and only if both it and its complement
+are Turing-recognizable.</p>
+<p><span><strong>Proof, first direction:</strong></span> Suppose
+language <span class="math inline">\(L\)</span> is Turing-decidable. WTS
+that both it and its complement are Turing-recognizable.</p>
+<p><span><strong>Proof, second direction:</strong></span> Suppose
+language <span class="math inline">\(L\)</span> is Turing-recognizable,
+and so is its complement. WTS that <span
+class="math inline">\(L\)</span> is Turing-decidable.</p>
+<p><span><strong>Dovetailing</strong></span>: interleaving progress on
+multiple computations by limiting the number of steps each computation
+makes in each round.</p>
+<p><span><strong>Claim</strong></span>: If two languages (over a fixed
+alphabet <span class="math inline">\(\Sigma\)</span>) are
+Turing-decidable, then their union is as well.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p><span><strong>Claim</strong></span>: If two languages (over a fixed
+alphabet <span class="math inline">\(\Sigma\)</span>) are
+Turing-recognizable, then their union is as well.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<h2 class="unnumbered"
+id="friday-decidable-problems-about-regular-languages">Friday: Decidable
+problems about regular languages</h2>
 <p><span><strong>The Church-Turing thesis posits that each algorithm can
 be implemented by some Turing machine.</strong></span></p>
 <p><span><strong>Describing algorithms</strong></span> (Sipser p. 185)
@@ -540,251 +647,6 @@ or NFA from two DFA or NFA so that we have a machine recognizing the
 language of the union (or intersection, concatenation) of the languages
 of the original machines; converting regular expressions to equivalent
 DFA; converting DFA to equivalent regular expressions, etc.</p>
-<h1 class="unnumbered" id="day1">Day1</h1>
-<p>The CSE 105 vocabulary and notation build on discrete math and
-introduction to proofs classes. Some of the conventions may be a bit
-different from what you saw before so we’ll draw your attention to
-them.</p>
-<p>For consistency, we will use the notation from this class’ textbook<a
-href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a>.</p>
-<p>These definitions are on pages 3, 4, 6, 13, 14, 53.</p>
-<div class="center">
-<table>
-<tbody>
-<tr>
-<td style="text-align: left;"><span><strong>Term</strong></span></td>
-<td style="text-align: center;"><span><strong>Typical
-symbol</strong></span></td>
-<td style="text-align: left;"><span><strong>Meaning</strong></span></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">or
-<span><strong>Notation</strong></span></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">Alphabet</td>
-<td style="text-align: center;"><span
-class="math inline">\(\Sigma\)</span>, <span
-class="math inline">\(\Gamma\)</span></td>
-<td style="text-align: left;">A non-empty finite set</td>
-</tr>
-<tr>
-<td style="text-align: left;">Symbol over <span
-class="math inline">\(\Sigma\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\sigma\)</span>, <span
-class="math inline">\(b\)</span>, <span
-class="math inline">\(x\)</span></td>
-<td style="text-align: left;">An element of the alphabet <span
-class="math inline">\(\Sigma\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">String over <span
-class="math inline">\(\Sigma\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(u\)</span>,
-<span class="math inline">\(v\)</span>, <span
-class="math inline">\(w\)</span></td>
-<td style="text-align: left;">A finite list of symbols from <span
-class="math inline">\(\Sigma\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">(The) empty string</td>
-<td style="text-align: center;"><span
-class="math inline">\(\varepsilon\)</span></td>
-<td style="text-align: left;">The (only) string of length <span
-class="math inline">\(0\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">The set of all strings over <span
-class="math inline">\(\Sigma\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\Sigma^*\)</span></td>
-<td style="text-align: left;">The collection of all possible strings
-formed from symbols from <span
-class="math inline">\(\Sigma\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">(Some) language over <span
-class="math inline">\(\Sigma\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(L\)</span></td>
-<td style="text-align: left;">(Some) set of strings over <span
-class="math inline">\(\Sigma\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">(The) empty language</td>
-<td style="text-align: center;"><span
-class="math inline">\(\emptyset\)</span></td>
-<td style="text-align: left;">The empty set, i.e. the set that has no
-strings (and no other elements either)</td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">The power set of a set <span
-class="math inline">\(X\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathcal{P}(X)\)</span></td>
-<td style="text-align: left;">The set of all subsets of <span
-class="math inline">\(X\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">(The set of) natural numbers</td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathcal{N}\)</span></td>
-<td style="text-align: left;">The set of positive integers</td>
-</tr>
-<tr>
-<td style="text-align: left;">(Some) finite set</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">The empty set or a set whose distinct
-elements can be counted by a natural number</td>
-</tr>
-<tr>
-<td style="text-align: left;">(Some) infinite set</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">A set that is not finite.</td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">Reverse of a string <span
-class="math inline">\(w\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(w^\mathcal{R}\)</span></td>
-<td style="text-align: left;">write <span
-class="math inline">\(w\)</span> in the opposite order, if <span
-class="math inline">\(w = w_1 \cdots  w_n\)</span> then <span
-class="math inline">\(w^\mathcal{R} = w_n \cdots  w_1\)</span>. Note:
-<span class="math inline">\(\varepsilon^\mathcal{R} =
-\varepsilon\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">Concatenating strings <span
-class="math inline">\(x\)</span> and <span
-class="math inline">\(y\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(xy\)</span></td>
-<td style="text-align: left;">take <span class="math inline">\(x = x_1
-\cdots x_m\)</span>, <span class="math inline">\(y=y_1 \cdots
-y_n\)</span> and form <span class="math inline">\(xy = x_1 \cdots x_m
-y_1 \cdots y_n\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">String <span
-class="math inline">\(z\)</span> is a substring of string <span
-class="math inline">\(w\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">there are strings <span
-class="math inline">\(u,v\)</span> such that <span
-class="math inline">\(w = uzv\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">String <span
-class="math inline">\(x\)</span> is a prefix of string <span
-class="math inline">\(y\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">there is a string <span
-class="math inline">\(z\)</span> such that <span class="math inline">\(y
-= xz\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;">String <span
-class="math inline">\(x\)</span> is a proper prefix of string <span
-class="math inline">\(y\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"><span class="math inline">\(x\)</span> is
-a prefix of <span class="math inline">\(y\)</span> and <span
-class="math inline">\(x \neq y\)</span></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">Shortlex order, also known as string order
-over alphabet <span class="math inline">\(\Sigma\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">Order strings over <span
-class="math inline">\(\Sigma\)</span> first by length and then according
-to the dictionary order, assuming symbols in <span
-class="math inline">\(\Sigma\)</span> have an ordering</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Write out in words the meaning of the symbols below:</p>
-<p><span class="math display">\[\{ a, b, c\}\]</span></p>
-<p><span class="math display">\[| \{a, b, a \} | = 2\]</span></p>
-<p><span class="math display">\[| aba | = 3\]</span></p>
-<p><span><em>Circle the correct choice</em></span>:</p>
-<p>A <span><strong>string</strong></span> over an alphabet <span
-class="math inline">\(\Sigma\)</span> is <u>  an element of <span
-class="math inline">\(\Sigma^*\)</span>    OR    a subset of <span
-class="math inline">\(\Sigma^*\)</span></u>.</p>
-<p>A <span><strong>language</strong></span> over an alphabet <span
-class="math inline">\(\Sigma\)</span> is <u>  an element of <span
-class="math inline">\(\Sigma^*\)</span>    OR    a subset of <span
-class="math inline">\(\Sigma^*\)</span></u>.</p>
-<p>With <span class="math inline">\(\Sigma_1 = \{0,1\}\)</span> and
-<span class="math inline">\(\Sigma_2 =
-\{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z\}\)</span> and
-<span class="math inline">\(\Gamma = \{0,1,x,y,z\}\)</span></p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: <span
-class="math inline">\(\varepsilon \in \Sigma_1\)</span></p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: <span
-class="math inline">\(\varepsilon\)</span> is a string over <span
-class="math inline">\(\Sigma_1\)</span></p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: <span
-class="math inline">\(\varepsilon\)</span> is a language over <span
-class="math inline">\(\Sigma_1\)</span></p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: <span
-class="math inline">\(\varepsilon\)</span> is a prefix of some string
-over <span class="math inline">\(\Sigma_1\)</span></p>
-<p><span><strong>True</strong></span> or
-<span><strong>False</strong></span>: There is a string over <span
-class="math inline">\(\Sigma_1\)</span> that is a proper prefix of <span
-class="math inline">\(\varepsilon\)</span></p>
-<p>The first five strings over <span
-class="math inline">\(\Sigma_1\)</span> in string order, using the
-ordering <span class="math inline">\(0 &lt;  1\)</span>:</p>
-<p>The first five strings over <span
-class="math inline">\(\Sigma_2\)</span> in string order, using the usual
-alphabetical ordering for single letters:</p>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
@@ -793,13 +655,6 @@ role="doc-endnotes">
 <a
 href="https://www.w3schools.com/charsets/ref_html_ascii.asp">here</a>.<a
 href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Page references are to the 3rd edition of Sipser’s
-Introduction to the Theory of Computation, available through various
-sources for approximately $30. You may be able to opt in to purchase a
-digital copy through Canvas. Copies of the book are also available for
-those who can’t access the book to borrow from the course instructor,
-while supplies last (minnes@ucsd.edu)<a href="#fnref2"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>
