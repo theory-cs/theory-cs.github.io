@@ -1212,4 +1212,304 @@ is also not context-free.
 \end{enumerate}
 \newpage
 
+\title{HW5CSE105W25: Homework assignment 5}
+\date{Due: February 27th at 5pm, via Gradescope}
+
+
+\maketitle
+\thispagestyle{fancy}
+
+{\bf In this assignment,}
+You will practice analyzing, designing, and working with Turing machines.
+You will use general constructions and specific machines to explore the classes 
+of recognizable and decidable languages. 
+You will explore various ways to encode machines as strings so that 
+computational problems can be recognized and solved.
+
+{\bf Resources}: To review the topics 
+for this assignment, see the class material from Weeks 6, 7, and 8.
+We will post frequently asked questions and our answers to them in a 
+pinned Piazza post. 
+
+{\bf Reading and extra practice problems}:  
+Sipser Chapters 3 and 4.
+Chapter 3 exercises 3.1, 3.2, 3.5, 3.8.
+Chapter 4 exercises 4.1, 4.2, 4.3, 4.4, 4.5.
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw5CSE105W25''.
+
+{\bf Assigned questions}
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+
+\item\textbf{Equally expressive models} (10 points):
+The {\bf  Church-Turing Thesis} (Sipser p.~183) says that the informal notion of algorithm is formalized completely  and correctly by the 
+formal definition of a  Turing machine. In other words: all reasonably expressive models of 
+computation are equally expressive with the standard Turing machine.
+In this question, we will give support for this thesis by showing that 
+some adaptations of the standard (Chapter 3) Turing machine model still 
+gives us a new model that is equally expressive.
+
+\begin{enumerate}
+\item\gradeCompleteFirst Let's define a new machine model, and call it the {\bf May-stay}  machine.
+The May-stay machine model is the same as the usual Turing machine model,  except that
+on each transition, the tape head may move L, move R, or Stay. 
+
+Formally: a May-stay machine is given by the $7$-tuple
+$(Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})$ where 
+$Q$ is a finite set with $q_0 \in Q$ and $q_{accept} \in Q$
+and $q_{reject} \in Q$ and $q_{accept} \neq q_{reject}$, 
+$\Sigma$ and $\Gamma$ are alphabets and $\Sigma \subseteq \Gamma$ and $\square \in \Gamma$ and $\square \notin \Sigma$, and the transition function 
+has signature
+\[
+  \delta: Q \times \Gamma \to Q \times \Gamma \times \{L, R, S\}
+\]
+The notions of computation and acceptance are analogous to that from Turing machines.
+
+Prove that Turing machines and May-stay machines are equally expressive.
+A complete proof will use the formal definitions of the machines.
+
+{\it Hint: Include two directions of implications. First, let $M$ be an 
+arbitrary Turing machine and prove that there's a May-stay machine 
+that recognizes the language recognized by $M$. Next, let $M_S$ 
+be an arbitrary May-stay 
+machine and prove that there's a Turing machine that recognizes the language
+recognized by $M_S$.}
+
+\item\gradeCorrectFirst Let's define a new machine model, and call it the {\bf Double-move}  machine.
+The Double-move machine model is the same as the usual Turing machine model,  except that on each transition, the tape head may move L, move R one cell, or 
+move R two cells. Formally: a Double-move machine is given by the $7$-tuple 
+$(Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})$ where 
+$Q$ is a finite set with $q_0 \in Q$ and $q_{accept} \in Q$
+and $q_{reject} \in Q$ and $q_{accept} \neq q_{reject}$, 
+$\Sigma$ and $\Gamma$ are alphabets and $\Sigma \subseteq \Gamma$ and $\square \in \Gamma$ and $\square \notin \Sigma$, and the transition function 
+has signature
+\[
+  \delta: Q \times \Gamma \to Q \times \Gamma \times \{L, R, T\}
+\]
+where $L$ means that the read-write head moves to the left one cell (or stays
+put if it's at the leftmost cell already), $R$ means that the read-write head 
+moves one cell to the right , and $T$ means that the read-write head moves 
+two cells to the right. The notion of computation and acceptance are analogous to that from Turing machines.
+
+Prove that Turing machines and Double-move machines are equally expressive.
+A complete proof will use the formal definitions of the machines.
+
+{\it Hint: Include two directions of implications. First, let $M$ be an 
+arbitrary Turing machine and prove that there's a Double-move machine 
+that recognizes the language recognized by $M$. Next, let $M_D$ 
+be an arbitrary Double-move
+machine and prove that there's a Turing machine that recognizes the language
+recognized by $M_D$.}
+
+\item \gradeComplete In your proofs of equal expressivity in the previous 
+parts of this question, you proved that a language is recognizable by some
+Turing machine if and only if it is recognizable by some May-stay machine
+or by some Double-move machine. Do your proofs also prove that a language is 
+decidable by some
+Turing machine if and only if it is decidable by some May-stay machine
+or by some Double-move machine? Justify your answer.
+\end{enumerate}
+
+\item\textbf{Modifying machines} (12 points)
+
+\begin{enumerate}
+\item\gradeCorrect
+Suppose a friend suggests that the following construction can be used
+to prove that the class of decidable languages is closed under intersection.
+
+Construction: given deciders $M_1$ and $M_2$ build the following machine $M$
+\begin{align*}
+    M &= ``\text{On input }w:\\
+     &\text{1. Run $M_1$ on input $w$.}\\
+     &\text{2. If $M_1$ accepts $w$, accept. } \\
+     &\text{3. Run $M_2$ on input $w$.} \\
+     &\text{4. If $M_2$ accepts $w$, accept.}\\
+     &\text{5. If $M_2$ rejects $w$, reject."}\\
+ \end{align*}
+
+ Build a counterexample that could be used to convince your friend that this 
+ construction doesn't work. A complete counterexample will include (1) a high-level description of $M_1$, (2) a high-level description of $M_2$, (3) a justification for why they provide a counterexample (that references
+ the definitions of $M$ , decidable languages, and intersection).
+
+ {\it Ungraded bonus:} Is it possible to change one line of the construction to make it work?
+
+ \item\gradeCorrect
+ Suppose a friend suggests that the following construction can be used
+ to prove that the class of recognizable languages is closed under intersection.
+ 
+ Construction: given Turing machines $M_1$ and $M_2$ build the following machine $M'$
+\begin{align*}
+    M' &= ``\text{On input }w:\\
+     &\text{1. Run $M_1$ on input $w$.}\\
+     &\text{2. If $M_1$ rejects $w$, reject.} \\
+     &\text{3. Run $M_2$ on input $w$.} \\
+     &\text{4. If $M_2$ rejects $w$, reject.}\\
+ \end{align*}
+
+ Build a counterexample that could be used to convince your friend that this 
+ construction doesn't work. A complete counterexample will include (1) a high-level description of $M_1$, (2) a high-level description of $M_2$, (3) a justification for why they provide a counterexample (that references the definition of $M'$, recognizable languages, and intersection).
+
+
+ {\it Ungraded bonus:} Is it possible to change one line of the construction to make it work?
+\end{enumerate}
+
+\item\textbf{Closure} (12 points):
+
+For each language $L$ over an alphabet $\Sigma$, we have the 
+associated sets of strings (also over $\Sigma$)
+\[
+    L^* = \{ w_1 \cdots w_k \mid k \geq 0 \textrm{ and each } w_i \in L\}
+\]
+and
+\[
+    SUBSTRING(L) = \{ w \in \Sigma^* ~|~ \text{there exist } x,y \in \Sigma^* \text{ such that } xwy \in L\}
+\]
+and 
+\[
+    EXTEND(L) = \{ w \in \Sigma^* ~|~ w = uv \text{ for some strings } u \in L \text{ and } v \in \Sigma^* \}
+\]
+
+\begin{enumerate}
+\item[(a)]\gradeCorrect Prove whether this Turing machine construction below 
+{\bf can} or {\bf cannot} be used to prove that the
+class of recognizable languages over $\Sigma$ is closed under the 
+Kleene star operation or the $SUBSTRING$ operation or the $EXTEND$ operation.
+
+Suppose $M$ is a Turing machine over the alphabet $\Sigma$. 
+Let $s_1, s_2, \ldots$ be a list of all strings in 
+$\Sigma^*$ in string (shortlex) order.
+We define a new Turing machine
+by giving its high-level description as follows: 
+\begin{align*}
+   M_{a} &= ``\text{On input }w:\\
+    &\text{1. For $n = 1, 2, \ldots$}\\
+    &\text{2.~~~For $j = 1, 2, \ldots n$} \\
+    &\text{3.~~~~~~For $k = 1, 2, \ldots, n$} \\
+    &\text{4.~~~~~~~~~Run the computation of $M$ on $s_jws_k$ for at most $n$ steps}\\
+    &\text{5.~~~~~~~~~If that computation halts and accepts within $n$ steps, accept.}\\
+    &\text{6.~~~~~~~~~Otherwise, continue with the next iteration of this inner loop"}\\
+\end{align*}
+
+A complete and correct answer will either identify which operation works and give the proof of correctness why, for any Turing machine $M$, $L(M_{a})$ is equal to the result of applying this operation to $L(M$); {\bf or} give a counterexample (a recognizable set $A$ and a Turing machine $M$ recognizing $A$
+and a description of why $L(M_a)$ where $M_a$ is the result of the construction 
+applied to $M$ doesn't equal $A^*$ and doesn't equal $SUBSTRING(A)$ and doesn't equal $EXTEND(A)$.
+
+\item[(b)]\gradeCorrect Prove whether this Turing machine construction below 
+{\bf can} or {\bf cannot} be used to prove that the
+class of recognizable languages over $\Sigma$ is closed under the 
+Kleene star operation or the $SUBSTRING$ operation or the $EXTEND$ operation.
+
+Suppose $M$ is a Turing machine over the alphabet $\Sigma$. 
+Let $s_1, s_2, \ldots$ be a list of all strings in 
+$\Sigma^*$ in string (shortlex) order.
+We define a new Turing machine
+by giving its high-level description as follows: 
+\begin{align*}
+    M_{b} &= ``\text{On input }w:\\
+     &\text{1. For $n = 1, 2, \ldots$}\\
+     &\text{2.~~~For $j = 0, 2, \ldots |w|$} \\
+     &\text{3.~~~~~~Let $u$ be the string consisting of the first $j$ characters of $w$} \\
+     &\text{4.~~~~~~Run the computation of $M$ on $u$ for at most $n$ steps}\\
+     &\text{5.~~~~~~If that computation halts and accepts within $n$ steps, accept.}\\
+     &\text{6.~~~~~~Otherwise, continue with the next iteration of this inner loop"}\\
+ \end{align*}
+
+A complete and correct answer will either identify which operation works and give the proof of correctness why, for any Turing machine $M$, $L(M_{b})$ is equal to the result of applying this operation to $L(M$); {\bf or} give a counterexample (a recognizable set $B$ and a Turing machine $M$ recognizing $B$
+and a description of why $L(M_b)$ where $M_b$ is the result of the construction 
+applied to $M$ doesn't equal equal $B^*$ and doesn't equal $SUBSTRING(B)$ and doesn't equal $EXTEND(B)$.
+\end{enumerate}
+
+\item \textbf{Computational problems} (8 points):
+Recall the definitions of some example computational problems from class
+
+\hspace{-30pt}
+    \begin{tabular}{|lcl|}
+    \hline
+    \multicolumn{3}{|l|}{{\bf  Acceptance problem} } \\
+    & & \\
+    \ldots for DFA & $A_{DFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  DFA that accepts input 
+    string $w$}\}$ \\
+    \ldots for NFA & $A_{NFA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a  NFA that accepts input 
+    string $w$}\}$ \\
+    \ldots for regular expressions & $A_{REX}$ & $\{ \langle R,w \rangle \mid  \text{$R$ is a  regular
+    expression that generates input string $w$}\}$ \\
+    \ldots for CFG & $A_{CFG}$ & $\{ \langle G,w \rangle \mid  \text{$G$ is a context-free grammar 
+    that generates input string $w$}\}$ \\
+    \ldots for PDA & $A_{PDA}$ & $\{ \langle B,w \rangle \mid  \text{$B$ is a PDA that accepts input string $w$}\}$ \\
+    & & \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language emptiness  testing} } \\
+    & & \\
+    \ldots for DFA & $E_{DFA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a  DFA and  $L(A) = \emptyset$\}}$ \\
+    \ldots for NFA & $E_{NFA}$ & $\{ \langle A\rangle \mid  \text{$A$ is a NFA and  $L(A) = \emptyset$\}}$ \\
+    \ldots for regular expressions & $E_{REX}$ & $\{ \langle R \rangle \mid  \text{$R$ is a  regular
+    expression and  $L(R) = \emptyset$\}}$ \\
+    \ldots for CFG & $E_{CFG}$ & $\{ \langle G \rangle \mid  \text{$G$ is a context-free grammar 
+    and  $L(G) = \emptyset$\}}$ \\
+    \ldots for PDA & $E_{PDA}$ & $\{ \langle A \rangle \mid  \text{$A$ is a PDA and  $L(A) = \emptyset$\}}$ \\
+    & & \\
+    \hline
+    \multicolumn{3}{|l|}{{\bf Language equality testing} } \\
+    & & \\
+    \ldots for DFA & $EQ_{DFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are DFAs and  $L(A) =L(B)$\}}$\\
+    \ldots for NFA & $EQ_{NFA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are NFAs and  $L(A) =L(B)$\}}$\\
+    \ldots for regular expressions & $EQ_{REX}$ & $\{ \langle R, R' \rangle \mid  \text{$R$ and $R'$ are regular
+    expressions and  $L(R) =L(R')$\}}$\\
+    \ldots for CFG & $EQ_{CFG}$ & $\{ \langle G, G' \rangle \mid  \text{$G$ and $G'$ are CFGs and  $L(G) =L(G')$\}}$ \\
+    \ldots for PDA & $EQ_{PDA}$ & $\{ \langle A, B \rangle \mid  \text{$A$ and $B$ are PDAs and  $L(A) =L(B)$\}}$ \\
+    \hline
+    \end{tabular}
+
+\begin{enumerate}
+    \item[(a)] \gradeComplete Pick three of the computational problems above and give 
+    examples (preferably different from the ones we talked about in class) of strings that are
+    in each of the corresponding languages. Remember to use the 
+    notation $\langle \cdots \rangle$ to denote the string encoding of relevant objects.
+    {\it Extension, not for credit:} Explain why it's hard to write a specific string of 
+    $0$s and $1$s and make a claim about membership in one of these sets.
+    \item[(b)] \gradeComplete Computational problems can also be defined for Turing machines.
+    Consider the two high-level descriptions of Turing machines below.
+    Reverse-engineer them to define the computational problem that is being
+    recognized, where $L(M_{DFA})$ is the language corresponding to this computational
+    problem about DFA and $L(M_{TM})$ is the language corresponding to this computational
+    problem about Turing machines. {\it Hint}: the computational problem is not acceptance,
+    language emptiness, or language equality (but is related to one of them).
+
+    Let $s_1, s_2, \ldots$ be a list of all strings in 
+    $\{0,1\}^*$ in string (shortlex) order. Consider the following Turing machines
+    \begin{align*}
+        M_{DFA} &= ``\text{On input $\langle D \rangle$ where $D$ is a DFA}:\\
+         &\text{1. for $i=1, 2, 3, \ldots$} \\
+         &\text{2.~~~ Run $D$ on $s_i$} \\
+         &\text{3.~~~~If it accepts, accept.}\\
+         &\text{4.~~~~If it rejects, go to the next iteration of the loop"}\\
+     \end{align*}
+     and
+     \begin{align*}
+        M_{TM} &= ``\text{On input $\langle T \rangle$ where $T$ is a Turing machine}:\\
+         &\text{1. for $i=1, 2, 3, \ldots$} \\
+         &\text{2.~~~ Run $T$ for $i$ steps on each input $s_1, s_2, \ldots, s_i$ in turn} \\
+         &\text{3.~~~~If $T$ has accepted any of these, accept.}\\
+         &\text{4.~~~~Otherwise, go to the next iteration of the loop"}\\
+     \end{align*}
+\end{enumerate}
+
+
+\item\textbf{Computational problems} (8 points):
+
+\begin{enumerate}
+    \item\gradeComplete Prove that the language $$\{\langle D \rangle \mid D \text{ is an NFA over $\{0,1\}$ and $D$ accepts at least $3$ strings 
+    of length less than $5$ }\}$$
+    is decidable.
+    \item\gradeCorrect Prove that the language $$\{\langle R \rangle \mid R \text{ is a regular expression over $\{0,1\}$ and } L(R) \text{ has
+    infinitely many strings starting with $0$} \}$$ is decidable.
+\end{enumerate}
+
+\end{enumerate}
+\newpage
+
 \end{document}

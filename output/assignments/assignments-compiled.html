@@ -175,11 +175,12 @@
 <header id="title-block-header">
 <h1 class="title">HW1CSE105W25: Homework assignment 1HW2CSE105W25:
 Homework assignment 2HW3CSE105W25: Homework assignment 3HW4CSE105W25:
-Homework assignment 4</h1>
+Homework assignment 4HW5CSE105W25: Homework assignment 5</h1>
 <p class="author">CSE105W25</p>
 <p class="date">Due: January 16th at 5pm, via GradescopeDue: January
 30th at 5pm, via GradescopeDue: February 6th at 5pm, via GradescopeDue:
-February 20th at 5pm, via Gradescope</p>
+February 20th at 5pm, via GradescopeDue: February 27th at 5pm, via
+Gradescope</p>
 </header>
 <p><span><strong>In this assignment,</strong></span></p>
 <p>You will practice reading and applying the definitions of alphabets,
@@ -1694,6 +1695,535 @@ class="math inline">\(b \to R\)</span> label means <span
 class="math inline">\(b \to b, R\)</span> ).</p></li>
 </ol></li>
 </ol>
+<p><span><strong>In this assignment,</strong></span> You will practice
+analyzing, designing, and working with Turing machines. You will use
+general constructions and specific machines to explore the classes of
+recognizable and decidable languages. You will explore various ways to
+encode machines as strings so that computational problems can be
+recognized and solved.</p>
+<p><span><strong>Resources</strong></span>: To review the topics for
+this assignment, see the class material from Weeks 6, 7, and 8. We will
+post frequently asked questions and our answers to them in a pinned
+Piazza post.</p>
+<p><span><strong>Reading and extra practice problems</strong></span>:
+Sipser Chapters 3 and 4. Chapter 3 exercises 3.1, 3.2, 3.5, 3.8. Chapter
+4 exercises 4.1, 4.2, 4.3, 4.4, 4.5.</p>
+<p><span><strong>For all HW assignments:</strong></span> Weekly homework
+may be done individually or in groups of up to 3 students. You may
+switch HW partners for different HW assignments. Please ensure your
+name(s) and PID(s) are clearly visible on the first page of your
+homework submission and then upload the PDF to Gradescope. If working in
+a group, submit only one submission per group: one partner uploads the
+submission through their Gradescope account and then adds the other
+group member(s) to the Gradescope submission by selecting their name(s)
+in the “Add Group Members" dialog box. You will need to re-add your
+group member(s) every time you resubmit a new version of your
+assignment. Each homework question will be graded either for correctness
+(including clear and precise explanations and justifications of all
+answers) or fair effort completeness. On the “graded for correctness"
+questions, you may only collaborate with CSE 105 students in your group;
+if your group has questions about a problem, you may ask in drop-in help
+hours or post a private post (visible only to the Instructors) on
+Piazza. On the "graded for completeness" questions, you may collaborate
+with all other CSE 105 students this quarter, and you may make public
+posts about these questions on Piazza.</p>
+<p>All submitted homework for this class must be typed. You can use a
+word processing editor if you like (Microsoft Word, Open Office,
+Notepad, Vim, Google Docs, etc.) but you might find it useful to take
+this opportunity to learn LaTeX. LaTeX is a markup language used widely
+in computer science and mathematics. The homework assignments are typed
+using LaTeX and you can use the source files as templates for
+typesetting your solutions. To generate state diagrams of machines, you
+can (1) use the LaTex tikzpicture environment (see templates in the
+class notes), or (2) use the software tools Flap.js or JFLAP described
+in the class syllabus (and include a screenshot in your PDF), or (3) you
+can carefully and clearly hand-draw the diagram and take a picture and
+include it in your PDF. We recommend that you submit early drafts to
+Gradescope so that in case of any technical difficulties, at least some
+of your work is present. You may update your submission as many times as
+you’d like up to the deadline.</p>
+<p><span><strong>Integrity reminders</strong></span></p>
+<ul>
+<li><p>Problems should be solved together, not divided up between the
+partners. The homework is designed to give you practice with the main
+concepts and techniques of the course, while getting to know and learn
+from your classmates.</p></li>
+<li><p>On the “graded for correctness" questions, you may only
+collaborate with CSE 105 students in your group. You may ask questions
+about the homework in office hours (of the instructor, TAs, and/or
+tutors) and on Piazza (as private notes viewable only to the
+Instructors). You <em>cannot</em> use any online resources about the
+course content other than the class material from this quarter – this is
+primarily to ensure that we all use consistent notation and definitions
+(aligned with the textbook) and also to protect the learning experience
+you will have when the ‘aha’ moments of solving the problem
+authentically happen.</p></li>
+<li><p>Do not share written solutions or partial solutions for homework
+with other students in the class who are not in your group. Doing so
+would dilute their learning experience and detract from their success in
+the class.</p></li>
+</ul>
+<p>You will submit this assignment via Gradescope (<a
+href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
+assignment called “hw5CSE105W25”.</p>
+<p><span><strong>Assigned questions</strong></span></p>
+<ol>
+<li><p><strong>Equally expressive models</strong> (10 points): The
+<span><strong>Church-Turing Thesis</strong></span> (Sipser p. 183) says
+that the informal notion of algorithm is formalized completely and
+correctly by the formal definition of a Turing machine. In other words:
+all reasonably expressive models of computation are equally expressive
+with the standard Turing machine. In this question, we will give support
+for this thesis by showing that some adaptations of the standard
+(Chapter 3) Turing machine model still gives us a new model that is
+equally expressive.</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn9"
+class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
+Let’s define a new machine model, and call it the
+<span><strong>May-stay</strong></span> machine. The May-stay machine
+model is the same as the usual Turing machine model, except that on each
+transition, the tape head may move L, move R, or Stay.</p>
+<p>Formally: a May-stay machine is given by the <span
+class="math inline">\(7\)</span>-tuple <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})\)</span> where
+<span class="math inline">\(Q\)</span> is a finite set with <span
+class="math inline">\(q_0 \in Q\)</span> and <span
+class="math inline">\(q_{accept} \in Q\)</span> and <span
+class="math inline">\(q_{reject} \in Q\)</span> and <span
+class="math inline">\(q_{accept} \neq q_{reject}\)</span>, <span
+class="math inline">\(\Sigma\)</span> and <span
+class="math inline">\(\Gamma\)</span> are alphabets and <span
+class="math inline">\(\Sigma \subseteq \Gamma\)</span> and <span
+class="math inline">\(\square \in \Gamma\)</span> and <span
+class="math inline">\(\square \notin \Sigma\)</span>, and the transition
+function has signature <span class="math display">\[\delta: Q \times
+\Gamma \to Q \times \Gamma \times \{L, R, S\}\]</span> The notions of
+computation and acceptance are analogous to that from Turing
+machines.</p>
+<p>Prove that Turing machines and May-stay machines are equally
+expressive. A complete proof will use the formal definitions of the
+machines.</p>
+<p><span><em>Hint: Include two directions of implications. First, let
+<span class="math inline">\(M\)</span> be an arbitrary Turing machine
+and prove that there’s a May-stay machine that recognizes the language
+recognized by <span class="math inline">\(M\)</span>. Next, let <span
+class="math inline">\(M_S\)</span> be an arbitrary May-stay machine and
+prove that there’s a Turing machine that recognizes the language
+recognized by <span
+class="math inline">\(M_S\)</span>.</em></span></p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn10"
+class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>
+Let’s define a new machine model, and call it the
+<span><strong>Double-move</strong></span> machine. The Double-move
+machine model is the same as the usual Turing machine model, except that
+on each transition, the tape head may move L, move R one cell, or move R
+two cells. Formally: a Double-move machine is given by the <span
+class="math inline">\(7\)</span>-tuple <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})\)</span> where
+<span class="math inline">\(Q\)</span> is a finite set with <span
+class="math inline">\(q_0 \in Q\)</span> and <span
+class="math inline">\(q_{accept} \in Q\)</span> and <span
+class="math inline">\(q_{reject} \in Q\)</span> and <span
+class="math inline">\(q_{accept} \neq q_{reject}\)</span>, <span
+class="math inline">\(\Sigma\)</span> and <span
+class="math inline">\(\Gamma\)</span> are alphabets and <span
+class="math inline">\(\Sigma \subseteq \Gamma\)</span> and <span
+class="math inline">\(\square \in \Gamma\)</span> and <span
+class="math inline">\(\square \notin \Sigma\)</span>, and the transition
+function has signature <span class="math display">\[\delta: Q \times
+\Gamma \to Q \times \Gamma \times \{L, R, T\}\]</span> where <span
+class="math inline">\(L\)</span> means that the read-write head moves to
+the left one cell (or stays put if it’s at the leftmost cell already),
+<span class="math inline">\(R\)</span> means that the read-write head
+moves one cell to the right , and <span class="math inline">\(T\)</span>
+means that the read-write head moves two cells to the right. The notion
+of computation and acceptance are analogous to that from Turing
+machines.</p>
+<p>Prove that Turing machines and Double-move machines are equally
+expressive. A complete proof will use the formal definitions of the
+machines.</p>
+<p><span><em>Hint: Include two directions of implications. First, let
+<span class="math inline">\(M\)</span> be an arbitrary Turing machine
+and prove that there’s a Double-move machine that recognizes the
+language recognized by <span class="math inline">\(M\)</span>. Next, let
+<span class="math inline">\(M_D\)</span> be an arbitrary Double-move
+machine and prove that there’s a Turing machine that recognizes the
+language recognized by <span
+class="math inline">\(M_D\)</span>.</em></span></p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) In your proofs of
+equal expressivity in the previous parts of this question, you proved
+that a language is recognizable by some Turing machine if and only if it
+is recognizable by some May-stay machine or by some Double-move machine.
+Do your proofs also prove that a language is decidable by some Turing
+machine if and only if it is decidable by some May-stay machine or by
+some Double-move machine? Justify your answer.</p></li>
+</ol></li>
+<li><p><strong>Modifying machines</strong> (12 points)</p>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) Suppose a friend
+suggests that the following construction can be used to prove that the
+class of decidable languages is closed under intersection.</p>
+<p>Construction: given deciders <span class="math inline">\(M_1\)</span>
+and <span class="math inline">\(M_2\)</span> build the following machine
+<span class="math inline">\(M\)</span> <span
+class="math display">\[\begin{aligned}
+    M &amp;= ``\text{On input }w:\\
+     &amp;\text{1. Run $M_1$ on input $w$.}\\
+     &amp;\text{2. If $M_1$ accepts $w$, accept. } \\
+     &amp;\text{3. Run $M_2$ on input $w$.} \\
+     &amp;\text{4. If $M_2$ accepts $w$, accept.}\\
+     &amp;\text{5. If $M_2$ rejects $w$, reject.&quot;}\\
+\end{aligned}\]</span></p>
+<p>Build a counterexample that could be used to convince your friend
+that this construction doesn’t work. A complete counterexample will
+include (1) a high-level description of <span
+class="math inline">\(M_1\)</span>, (2) a high-level description of
+<span class="math inline">\(M_2\)</span>, (3) a justification for why
+they provide a counterexample (that references the definitions of <span
+class="math inline">\(M\)</span> , decidable languages, and
+intersection).</p>
+<p><span><em>Ungraded bonus:</em></span> Is it possible to change one
+line of the construction to make it work?</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Suppose a friend
+suggests that the following construction can be used to prove that the
+class of recognizable languages is closed under intersection.</p>
+<p>Construction: given Turing machines <span
+class="math inline">\(M_1\)</span> and <span
+class="math inline">\(M_2\)</span> build the following machine <span
+class="math inline">\(M&#39;\)</span> <span
+class="math display">\[\begin{aligned}
+    M&#39; &amp;= ``\text{On input }w:\\
+     &amp;\text{1. Run $M_1$ on input $w$.}\\
+     &amp;\text{2. If $M_1$ rejects $w$, reject.} \\
+     &amp;\text{3. Run $M_2$ on input $w$.} \\
+     &amp;\text{4. If $M_2$ rejects $w$, reject.}\\
+\end{aligned}\]</span></p>
+<p>Build a counterexample that could be used to convince your friend
+that this construction doesn’t work. A complete counterexample will
+include (1) a high-level description of <span
+class="math inline">\(M_1\)</span>, (2) a high-level description of
+<span class="math inline">\(M_2\)</span>, (3) a justification for why
+they provide a counterexample (that references the definition of <span
+class="math inline">\(M&#39;\)</span>, recognizable languages, and
+intersection).</p>
+<p><span><em>Ungraded bonus:</em></span> Is it possible to change one
+line of the construction to make it work?</p></li>
+</ol></li>
+<li><p><strong>Closure</strong> (12 points):</p>
+<p>For each language <span class="math inline">\(L\)</span> over an
+alphabet <span class="math inline">\(\Sigma\)</span>, we have the
+associated sets of strings (also over <span
+class="math inline">\(\Sigma\)</span>) <span class="math display">\[L^*
+= \{ w_1 \cdots w_k \mid k \geq 0 \textrm{ and each } w_i \in
+L\}\]</span> and <span class="math display">\[SUBSTRING(L) = \{ w \in
+\Sigma^* ~|~ \text{there exist } x,y \in \Sigma^* \text{ such that } xwy
+\in L\}\]</span> and <span class="math display">\[EXTEND(L) = \{ w \in
+\Sigma^* ~|~ w = uv \text{ for some strings } u \in L \text{ and } v \in
+\Sigma^* \}\]</span></p>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) Prove whether this
+Turing machine construction below <span><strong>can</strong></span> or
+<span><strong>cannot</strong></span> be used to prove that the class of
+recognizable languages over <span class="math inline">\(\Sigma\)</span>
+is closed under the Kleene star operation or the <span
+class="math inline">\(SUBSTRING\)</span> operation or the <span
+class="math inline">\(EXTEND\)</span> operation.</p>
+<p>Suppose <span class="math inline">\(M\)</span> is a Turing machine
+over the alphabet <span class="math inline">\(\Sigma\)</span>. Let <span
+class="math inline">\(s_1, s_2, \ldots\)</span> be a list of all strings
+in <span class="math inline">\(\Sigma^*\)</span> in string (shortlex)
+order. We define a new Turing machine by giving its high-level
+description as follows: <span class="math display">\[\begin{aligned}
+   M_{a} &amp;= ``\text{On input }w:\\
+    &amp;\text{1. For $n = 1, 2, \ldots$}\\
+    &amp;\text{2.~~~For $j = 1, 2, \ldots n$} \\
+    &amp;\text{3.~~~~~~For $k = 1, 2, \ldots, n$} \\
+    &amp;\text{4.~~~~~~~~~Run the computation of $M$ on $s_jws_k$ for at
+most $n$ steps}\\
+    &amp;\text{5.~~~~~~~~~If that computation halts and accepts within
+$n$ steps, accept.}\\
+    &amp;\text{6.~~~~~~~~~Otherwise, continue with the next iteration of
+this inner loop&quot;}\\
+\end{aligned}\]</span></p>
+<p>A complete and correct answer will either identify which operation
+works and give the proof of correctness why, for any Turing machine
+<span class="math inline">\(M\)</span>, <span
+class="math inline">\(L(M_{a})\)</span> is equal to the result of
+applying this operation to <span class="math inline">\(L(M\)</span>);
+<span><strong>or</strong></span> give a counterexample (a recognizable
+set <span class="math inline">\(A\)</span> and a Turing machine <span
+class="math inline">\(M\)</span> recognizing <span
+class="math inline">\(A\)</span> and a description of why <span
+class="math inline">\(L(M_a)\)</span> where <span
+class="math inline">\(M_a\)</span> is the result of the construction
+applied to <span class="math inline">\(M\)</span> doesn’t equal <span
+class="math inline">\(A^*\)</span> and doesn’t equal <span
+class="math inline">\(SUBSTRING(A)\)</span> and doesn’t equal <span
+class="math inline">\(EXTEND(A)\)</span>.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Prove whether this
+Turing machine construction below <span><strong>can</strong></span> or
+<span><strong>cannot</strong></span> be used to prove that the class of
+recognizable languages over <span class="math inline">\(\Sigma\)</span>
+is closed under the Kleene star operation or the <span
+class="math inline">\(SUBSTRING\)</span> operation or the <span
+class="math inline">\(EXTEND\)</span> operation.</p>
+<p>Suppose <span class="math inline">\(M\)</span> is a Turing machine
+over the alphabet <span class="math inline">\(\Sigma\)</span>. Let <span
+class="math inline">\(s_1, s_2, \ldots\)</span> be a list of all strings
+in <span class="math inline">\(\Sigma^*\)</span> in string (shortlex)
+order. We define a new Turing machine by giving its high-level
+description as follows: <span class="math display">\[\begin{aligned}
+    M_{b} &amp;= ``\text{On input }w:\\
+     &amp;\text{1. For $n = 1, 2, \ldots$}\\
+     &amp;\text{2.~~~For $j = 0, 2, \ldots |w|$} \\
+     &amp;\text{3.~~~~~~Let $u$ be the string consisting of the first
+$j$ characters of $w$} \\
+     &amp;\text{4.~~~~~~Run the computation of $M$ on $u$ for at most
+$n$ steps}\\
+     &amp;\text{5.~~~~~~If that computation halts and accepts within $n$
+steps, accept.}\\
+     &amp;\text{6.~~~~~~Otherwise, continue with the next iteration of
+this inner loop&quot;}\\
+\end{aligned}\]</span></p>
+<p>A complete and correct answer will either identify which operation
+works and give the proof of correctness why, for any Turing machine
+<span class="math inline">\(M\)</span>, <span
+class="math inline">\(L(M_{b})\)</span> is equal to the result of
+applying this operation to <span class="math inline">\(L(M\)</span>);
+<span><strong>or</strong></span> give a counterexample (a recognizable
+set <span class="math inline">\(B\)</span> and a Turing machine <span
+class="math inline">\(M\)</span> recognizing <span
+class="math inline">\(B\)</span> and a description of why <span
+class="math inline">\(L(M_b)\)</span> where <span
+class="math inline">\(M_b\)</span> is the result of the construction
+applied to <span class="math inline">\(M\)</span> doesn’t equal equal
+<span class="math inline">\(B^*\)</span> and doesn’t equal <span
+class="math inline">\(SUBSTRING(B)\)</span> and doesn’t equal <span
+class="math inline">\(EXTEND(B)\)</span>.</p></li>
+</ol></li>
+<li><p><strong>Computational problems</strong> (8 points): Recall the
+definitions of some example computational problems from class</p>
+<table>
+<tbody>
+<tr>
+<td colspan="3" style="text-align: left;"><span><strong>Acceptance
+problem</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for DFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{DFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a  DFA that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for NFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{NFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a  NFA that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for regular expressions</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{REX}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle R,w
+\rangle \mid  \text{$R$ is a  regular
+    expression that generates input string $w$}\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for CFG</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{CFG}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle G,w
+\rangle \mid  \text{$G$ is a context-free grammar
+    that generates input string $w$}\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for PDA</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{PDA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle B,w
+\rangle \mid  \text{$B$ is a PDA that accepts input string
+$w$}\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td colspan="3" style="text-align: left;"><span><strong>Language
+emptiness testing</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for DFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{DFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A
+\rangle \mid  \text{$A$ is a  DFA and  $L(A) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for NFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{NFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle
+A\rangle \mid  \text{$A$ is a NFA and  $L(A) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for regular expressions</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{REX}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle R
+\rangle \mid  \text{$R$ is a  regular
+    expression and  $L(R) = \emptyset$\}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for CFG</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{CFG}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle G
+\rangle \mid  \text{$G$ is a context-free grammar
+    and  $L(G) = \emptyset$\}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for PDA</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{PDA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A
+\rangle \mid  \text{$A$ is a PDA and  $L(A) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td colspan="3" style="text-align: left;"><span><strong>Language
+equality testing</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for DFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{DFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A,
+B \rangle \mid  \text{$A$ and $B$ are DFAs and  $L(A)
+=L(B)$\}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for NFA</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{NFA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A,
+B \rangle \mid  \text{$A$ and $B$ are NFAs and  $L(A)
+=L(B)$\}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for regular expressions</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{REX}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle R,
+R&#39; \rangle \mid  \text{$R$ and $R&#39;$ are regular
+    expressions and  $L(R) =L(R&#39;)$\}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for CFG</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{CFG}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle G,
+G&#39; \rangle \mid  \text{$G$ and $G&#39;$ are CFGs and  $L(G)
+=L(G&#39;)$\}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">…for PDA</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{PDA}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle A,
+B \rangle \mid  \text{$A$ and $B$ are PDAs and  $L(A)
+=L(B)$\}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) Pick three of the
+computational problems above and give examples (preferably different
+from the ones we talked about in class) of strings that are in each of
+the corresponding languages. Remember to use the notation <span
+class="math inline">\(\langle \cdots \rangle\)</span> to denote the
+string encoding of relevant objects. <span><em>Extension, not for
+credit:</em></span> Explain why it’s hard to write a specific string of
+<span class="math inline">\(0\)</span>s and <span
+class="math inline">\(1\)</span>s and make a claim about membership in
+one of these sets.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Computational
+problems can also be defined for Turing machines. Consider the two
+high-level descriptions of Turing machines below. Reverse-engineer them
+to define the computational problem that is being recognized, where
+<span class="math inline">\(L(M_{DFA})\)</span> is the language
+corresponding to this computational problem about DFA and <span
+class="math inline">\(L(M_{TM})\)</span> is the language corresponding
+to this computational problem about Turing machines.
+<span><em>Hint</em></span>: the computational problem is not acceptance,
+language emptiness, or language equality (but is related to one of
+them).</p>
+<p>Let <span class="math inline">\(s_1, s_2, \ldots\)</span> be a list
+of all strings in <span class="math inline">\(\{0,1\}^*\)</span> in
+string (shortlex) order. Consider the following Turing machines <span
+class="math display">\[\begin{aligned}
+        M_{DFA} &amp;= ``\text{On input $\langle D \rangle$ where $D$ is
+a DFA}:\\
+         &amp;\text{1. for $i=1, 2, 3, \ldots$} \\
+         &amp;\text{2.~~~ Run $D$ on $s_i$} \\
+         &amp;\text{3.~~~~If it accepts, accept.}\\
+         &amp;\text{4.~~~~If it rejects, go to the next iteration of the
+loop&quot;}\\
+     
+\end{aligned}\]</span> and <span class="math display">\[\begin{aligned}
+        M_{TM} &amp;= ``\text{On input $\langle T \rangle$ where $T$ is
+a Turing machine}:\\
+         &amp;\text{1. for $i=1, 2, 3, \ldots$} \\
+         &amp;\text{2.~~~ Run $T$ for $i$ steps on each input $s_1, s_2,
+\ldots, s_i$ in turn} \\
+         &amp;\text{3.~~~~If $T$ has accepted any of these, accept.}\\
+         &amp;\text{4.~~~~Otherwise, go to the next iteration of the
+loop&quot;}\\
+     
+\end{aligned}\]</span></p></li>
+</ol></li>
+<li><p><strong>Computational problems</strong> (8 points):</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) Prove that the
+language <span class="math display">\[\{\langle D \rangle \mid D \text{
+is an NFA over $\{0,1\}$ and $D$ accepts at least $3$ strings
+    of length less than $5$ }\}\]</span> is decidable.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Prove that the
+language <span class="math display">\[\{\langle R \rangle \mid R \text{
+is a regular expression over $\{0,1\}$ and } L(R) \text{ has
+    infinitely many strings starting with $0$} \}\]</span> is
+decidable.</p></li>
+</ol></li>
+</ol>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
@@ -1765,6 +2295,23 @@ formal proof techniques or write a more informal argument for why
 something is true, your answers should always be well-supported. Your
 goal should be to convince the reader that your results and methods are
 sound.<a href="#fnref8" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>This means you will get full credit so long as your
+submission demonstrates honest effort to answer the question. You will
+not be penalized for incorrect answers. To demonstrate your honest
+effort in answering the question, we expect you to include your attempt
+to answer *each* part of the question. If you get stuck with your
+attempt, you can still demonstrate your effort by explaining where you
+got stuck and what you did to try to get unstuck.<a href="#fnref9"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>This means your solution will be evaluated not only on
+the correctness of your answers, but on your ability to present your
+ideas clearly and logically. You should explain how you arrived at your
+conclusions, using mathematically sound reasoning. Whether you use
+formal proof techniques or write a more informal argument for why
+something is true, your answers should always be well-supported. Your
+goal should be to convince the reader that your results and methods are
+sound.<a href="#fnref10" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
