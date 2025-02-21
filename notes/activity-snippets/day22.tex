@@ -13,11 +13,31 @@ Notation:  when $A$  is mapping reducible to $B$, we write $A  \leq_m B$.
 of difficulty of $A$ is less than or equal the level of difficulty of $B$.
 
 
-{\it Example}: $A_{TM} \leq_m A_{TM}$ 
+{\it Example}: $A_{TM} \leq_m A_{TM}$  \hfill 
+$A_{TM} = \{ \langle M, w \rangle  \mid M \text{ is a TM and } w \text{ is a string and } w \in L(M) \}$
+
+{\it To prove, need a witnessing function $f: \Sigma^* \to \Sigma^*$ that is (1) computable and 
+(2) for each $x \in \Sigma^*$, $x \in A_{TM}$ iff $f(x) \in A_{TM}$}
+
 
 \vfill
 
+
+{\bf Corollary}: For any language $L$, $L \leq_m L$, as witnessed by 
+
+\newpage
+
 {\it Example}: $A_{DFA} \leq_m \{ ww \mid  w \in \{0,1\}^* \}$ 
+
+
+{\it To prove, need a witnessing function $f: \Sigma^* \to \Sigma^*$ that is (1) computable and 
+(2) for each $x \in \Sigma^*$, $x \in A_{DFA}$ iff $f(x) \in \{ ww \mid  w \in \{0,1\}^* \}$}
+
+
+\vfill
+
+{\bf Corollary}: For any language decidable language $X$ and any 
+set $Y$ with at least one string string in $Y$ and at least one string not in $Y$, $X \leq_m Y$, as witnessed by 
 
 \vfill
 
@@ -29,15 +49,25 @@ of difficulty of $A$ is less than or equal the level of difficulty of $B$.
 %
 %\vfill
 
-
+Next: consider mapping reductions between potentially undecidable languages.
 \newpage
 
-    {\bf Halting problem}
+{\bf Halting problem}
     \[
     HALT_{TM} = \{ \langle M, w \rangle \mid \text{$M$ is a  Turing machine, $w$ is  a string, and $M$ halts on $w$} \}
     \]
-    
-    Define $F: \Sigma^* \to \Sigma^*$ by
+
+
+We know $A_{TM}$ is undecidable. If we could prove that $A_{TM} \leq_m HALT_{TM}$ then we could conclude that $HALT_{TM}$ is undecidable too.
+
+\vfill
+
+Could we adapt our approach from before by tweaking the identity map?
+
+\vfill
+
+\newpage
+Define $F: \Sigma^* \to \Sigma^*$ by
     \[
     F(x) =  \begin{cases}
     const_{out} \qquad &\text{if  $x \neq \langle M,w \rangle$ for any Turing machine  $M$ and string  $w$ over the alphabet of $M$} \\

@@ -28,12 +28,14 @@ If problem $X$ is {\bf no harder than} problem $Y$
 
 
 
-Definition:  $A$ is  {\bf  mapping  reducible to} $B$  means there is a computable function 
+Definition: For any languages $A$ and $B$, $A$ is  {\bf  mapping  reducible to} $B$  means there is a computable function 
 $f : \Sigma^* \to \Sigma^*$ such that {\it for all} strings  $x$ in $\Sigma^*$, 
 \[
 x  \in  A \qquad \qquad \text{if and  only  if} \qquad \qquad f(x) \in B.
 \]
 Notation:  when $A$  is mapping reducible to $B$, we write $A  \leq_m B$.
+
+\vfill
 
 {\it Intuition:} $A \leq_m B$ means $A$ is no harder than $B$, i.e. that the level 
 of difficulty of $A$ is less than or equal the level of difficulty of $B$.
@@ -46,6 +48,7 @@ of difficulty of $A$ is less than or equal the level of difficulty of $B$.
 \item How do mapping reductions help establish the computational difficulty of languages?
 \end{enumerate}
 
+\vfill
 \newpage
 {\bf Computable functions}
 
@@ -130,16 +133,18 @@ where $q_{trap} \notin Q$ and
 
 \newpage
 
-Definition:  $A$ is  {\bf  mapping  reducible to} $B$  means there is a computable function 
+Definition:  $A$ is  {\bf  mapping  reducible to} $B$, $A \leq_m B$m  means there is a computable function 
 $f : \Sigma^* \to \Sigma^*$ such that {\it for all} strings  $x$ in $\Sigma^*$, 
 \[
 x  \in  A \qquad \qquad \text{if and  only  if} \qquad \qquad f(x) \in B.
 \]
+In this case, we say the function $f$ {\bf witnesses} that $A$ is mapping reducible to $B$.
 
 {\it Making intutition precise \ldots}
 
 {\bf Theorem} (Sipser 5.22): If $A \leq_m B$ and $B$ is decidable, then $A$ is decidable.
     
+\vfill
 \vfill
 
 

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>reduction</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="day20">Day20</h1>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td colspan="3" style="text-align: left;"><span><strong>Acceptance
+problem</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(A_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M,w
+\rangle \mid  \text{$M$ is a Turing machine that accepts input
+    string $w$}\}\)</span></td>
+</tr>
+<tr>
+<td colspan="3" style="text-align: left;"><span><strong>Language
+emptiness testing</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{ \langle M
+\rangle \mid  \text{$M$ is a Turing machine and  $L(M) =
+\emptyset$\}}\)</span></td>
+</tr>
+<tr>
+<td colspan="3" style="text-align: left;"><span><strong>Language
+equality testing</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">for Turing machines</td>
+<td style="text-align: center;"><span
+class="math inline">\(EQ_{TM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\{
+\langle  M_1, M_2 \rangle \mid  \text{$M_1$ and $M_2$ are Turing
+machines and  
+     $L(M_1) =L(M_2)$\}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(M_1\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(M_2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Example strings in <span class="math inline">\(A_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(E_{TM}\)</span></p>
+<p>Example strings in <span class="math inline">\(EQ_{TM}\)</span></p>
+<p><span><strong>Theorem</strong></span>: <span
+class="math inline">\(A_{TM}\)</span> is Turing-recognizable.</p>
+<p><span><strong>Strategy</strong></span>: To prove this theorem, we
+need to define a Turing machine <span
+class="math inline">\(R_{ATM}\)</span> such that <span
+class="math inline">\(L(R_{ATM}) = A_{TM}\)</span>.</p>
+<p>Define <span class="math inline">\(R_{ATM} =\)</span> “</p>
+<p>Proof of correctness:</p>
+<p>We will show that <span class="math inline">\(A_{TM}\)</span> is
+undecidable. <span><em>First, let’s explore what that
+means.</em></span></p>
+<p>To prove that a computational problem is
+<span><strong>decidable</strong></span>, we find/ build a Turing machine
+that recognizes the language encoding the computational problem, and
+that is a decider.</p>
+<p>How do we prove a specific problem is <span><strong>not
+decidable</strong></span>?</p>
+<p>How would we even find such a computational problem?</p>
+<p><span><em>Counting arguments for the existence of an undecidable
+language:</em></span></p>
+<ul>
+<li><p>The set of all Turing machines is countably infinite.</p></li>
+<li><p>Each recognizable language has at least one Turing machine that
+recognizes it (by definition), so there can be no more
+Turing-recognizable languages than there are Turing machines.</p></li>
+<li><p>Since there are infinitely many Turing-recognizable languages
+(think of the singleton sets), there are countably infinitely many
+Turing-recognizable languages.</p></li>
+<li><p>Such the set of Turing-decidable languages is an infinite subset
+of the set of Turing-recognizable languages, the set of Turing-decidable
+languages is also countably infinite.</p></li>
+</ul>
+<p>Since there are uncountably many languages (because <span
+class="math inline">\(\mathcal{P}(\Sigma^*)\)</span> is uncountable),
+there are uncountably many unrecognizable languages and there are
+uncountably many undecidable languages.</p>
+<p>Thus, there’s at least one undecidable language!</p>
+<p><span><strong>What’s a specific example of a language that is
+unrecognizable or undecidable?</strong></span></p>
+<p>To prove that a language is undecidable, we need to prove that there
+is no Turing machine that decides it.</p>
+<p><span><strong>Key idea</strong></span>: proof by contradiction
+relying on self-referential disagreement.</p>
+<p><span><strong>Theorem</strong></span>: <span
+class="math inline">\(A_{TM}\)</span> is not Turing-decidable.</p>
+<p><span><strong>Proof</strong></span>: Suppose <span><strong>towards a
+contradiction</strong></span> that there is a Turing machine that
+decides <span class="math inline">\(A_{TM}\)</span>. We call this
+presumed machine <span class="math inline">\(M_{ATM}\)</span>.</p>
+<p>By assumption, for every Turing machine <span
+class="math inline">\(M\)</span> and every string <span
+class="math inline">\(w\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(w \in L(M)\)</span>, then the
+computation of <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M,w \rangle ~~
+\underline{\phantom{\hspace{2.5in}}}\)</span></p></li>
+<li><p>If <span class="math inline">\(w \notin L(M)\)</span>, then the
+computation of <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M,w \rangle ~~
+\underline{\phantom{\hspace{2.5in}}}\)</span></p></li>
+</ul>
+<p>Define a <span><strong>new</strong></span> Turing machine using the
+high-level description:</p>
+<blockquote>
+<p><span class="math inline">\(D =\)</span>“ On input <span
+class="math inline">\(\langle M \rangle\)</span>, where <span
+class="math inline">\(M\)</span> is a Turing machine:</p>
+<ul>
+<li><p>Run <span class="math inline">\(M_{ATM}\)</span> on <span
+class="math inline">\(\langle M, \langle M
+\rangle  \rangle\)</span>.</p></li>
+<li><p>If <span class="math inline">\(M_{ATM}\)</span> accepts, reject;
+if <span class="math inline">\(M_{ATM}\)</span> rejects,
+accept."</p></li>
+</ul>
+</blockquote>
+<p>Is <span class="math inline">\(D\)</span> a Turing machine?</p>
+<p>Is <span class="math inline">\(D\)</span> a decider?</p>
+<p>What is the result of the computation of <span
+class="math inline">\(D\)</span> on <span class="math inline">\(\langle
+D \rangle\)</span>?</p>
+<p><span><strong>Summarizing</strong></span>:</p>
+<ul>
+<li><p><span class="math inline">\(A_{TM}\)</span> is
+recognizable.</p></li>
+<li><p><span class="math inline">\(A_{TM}\)</span> is not
+decidable.</p></li>
+</ul>
+<p>Recall definition: A language <span class="math inline">\(L\)</span>
+over an alphabet <span class="math inline">\(\Sigma\)</span> is called
+<span><strong>co-recognizable</strong></span> if its complement, defined
+as <span class="math inline">\(\Sigma^* \setminus L  = \{
+x  \in  \Sigma^* \mid x \notin  L \}\)</span>, is
+Turing-recognizable.</p>
+<p>and Recall Theorem (Sipser Theorem 4.22): A language is
+Turing-decidable if and only if both it and its complement are
+Turing-recognizable.</p>
+<ul>
+<li><p><span class="math inline">\(A_{TM}\)</span> is
+recognizable.</p></li>
+<li><p><span class="math inline">\(A_{TM}\)</span> is not
+decidable.</p></li>
+<li><p><span class="math inline">\(\overline{A_{TM}}\)</span> is not
+recognizable.</p></li>
+<li><p><span class="math inline">\(\overline{A_{TM}}\)</span> is not
+decidable.</p></li>
+</ul>
+<h1 class="unnumbered" id="day21">Day21</h1>
+<p><span><strong>Mapping reduction</strong></span></p>
+<p>Motivation: Proving that <span class="math inline">\(A_{TM}\)</span>
+is undecidable was hard. How can we leverage that work? Can we relate
+the decidability / undecidability of one problem to another?</p>
+<blockquote>
+<p>If problem <span class="math inline">\(X\)</span> is <span><strong>no
+harder than</strong></span> problem <span
+class="math inline">\(Y\)</span></p>
+<p>…and if <span class="math inline">\(Y\)</span> is easy,</p>
+<p>…then <span class="math inline">\(X\)</span> must be easy too.</p>
+</blockquote>
+<blockquote>
+<p>If problem <span class="math inline">\(X\)</span> is <span><strong>no
+harder than</strong></span> problem <span
+class="math inline">\(Y\)</span></p>
+<p>…and if <span class="math inline">\(X\)</span> is hard,</p>
+<p>…then <span class="math inline">\(Y\)</span> must be hard too.</p>
+</blockquote>
+<p>“Problem <span class="math inline">\(X\)</span> is no harder than
+problem <span class="math inline">\(Y\)</span>” means “Can answer
+questions about membership in <span class="math inline">\(X\)</span> by
+converting them to questions about membership in <span
+class="math inline">\(Y\)</span>”.</p>
+<p>Definition: For any languages <span class="math inline">\(A\)</span>
+and <span class="math inline">\(B\)</span>, <span
+class="math inline">\(A\)</span> is <span><strong>mapping reducible
+to</strong></span> <span class="math inline">\(B\)</span> means there is
+a computable function <span class="math inline">\(f : \Sigma^* \to
+\Sigma^*\)</span> such that <span><em>for all</em></span> strings <span
+class="math inline">\(x\)</span> in <span
+class="math inline">\(\Sigma^*\)</span>, <span
+class="math display">\[x  \in  A \qquad \qquad \text{if and  only  if}
+\qquad \qquad f(x) \in B.\]</span> Notation: when <span
+class="math inline">\(A\)</span> is mapping reducible to <span
+class="math inline">\(B\)</span>, we write <span
+class="math inline">\(A  \leq_m B\)</span>.</p>
+<p><span><em>Intuition:</em></span> <span class="math inline">\(A \leq_m
+B\)</span> means <span class="math inline">\(A\)</span> is no harder
+than <span class="math inline">\(B\)</span>, i.e. that the level of
+difficulty of <span class="math inline">\(A\)</span> is less than or
+equal the level of difficulty of <span
+class="math inline">\(B\)</span>.</p>
+<p><span><strong>TODO</strong></span></p>
+<ol>
+<li><p>What is a computable function?</p></li>
+<li><p>How do mapping reductions help establish the computational
+difficulty of languages?</p></li>
+</ol>
+<p><span><strong>Computable functions</strong></span></p>
+<p>Definition: A function <span class="math inline">\(f: \Sigma^* \to
+\Sigma^*\)</span> is a <span><strong>computable function</strong></span>
+means there is some Turing machine such that, for each <span
+class="math inline">\(x\)</span>, on input <span
+class="math inline">\(x\)</span> the Turing machine halts with exactly
+<span class="math inline">\(f(x)\)</span> followed by all blanks on the
+tape</p>
+<p><span><em>Examples of computable functions</em></span>:</p>
+<p>The function that maps a string to a string which is one character
+longer and whose value, when interpreted as a fixed-width binary
+representation of a nonnegative integer is twice the value of the input
+string (when interpreted as a fixed-width binary representation of a
+non-negative integer) <span class="math display">\[f_1: \Sigma^* \to
+\Sigma^* \qquad  f_1(x)  = x0\]</span></p>
+<p>To prove <span class="math inline">\(f_1\)</span> is computable
+function, we define a Turing machine computing it.</p>
+<p><span><em>High-level description</em></span></p>
+<blockquote>
+<p>“On input <span class="math inline">\(w\)</span></p>
+<p>1. Append <span class="math inline">\(0\)</span> to <span
+class="math inline">\(w\)</span>.</p>
+<p>2. Halt.”</p>
+</blockquote>
+<p><span><em>Implementation-level description</em></span></p>
+<blockquote>
+<p>“On input <span class="math inline">\(w\)</span></p>
+<p>1. Sweep read-write head to the right until find first blank
+cell.</p>
+<p>2. Write 0.</p>
+<p>3. Halt.”</p>
+</blockquote>
+<p><span><em>Formal definition</em></span> <span
+class="math inline">\((\{q0, qacc, qrej\}, \{0,1\},
+\{0,1,\textvisiblespace\},\delta, q0, qacc, qrej)\)</span> where <span
+class="math inline">\(\delta\)</span> is specified by the state
+diagram:</p>
+<p>The function that maps a string to the result of repeating the string
+twice. <span class="math display">\[f_2: \Sigma^* \to \Sigma^* \qquad
+f_2( x )  =  xx\]</span></p>
+<p>The function that maps strings that are not the codes of NFAs to the
+empty string and that maps strings that code NFAs to the code of a DFA
+that recognizes the language recognized by the NFA produced by the
+macro-state construction from Chapter 1.</p>
+<p>The function that maps strings that are not the codes of Turing
+machines to the empty string and that maps strings that code Turing
+machines to the code of the related Turing machine that acts like the
+Turing machine coded by the input, except that if this Turing machine
+coded by the input tries to reject, the new machine will go into a loop.
+<span class="math display">\[f_4: \Sigma^* \to \Sigma^*  \qquad f_4( x
+)  =   \begin{cases}  \varepsilon \qquad&amp;\text{if $x$ is not the
+code of  a TM} \\
+\langle (Q \cup \{q_{trap} \}, \Sigma, \Gamma, \delta&#39;, q_0,
+q_{acc}, q_{rej} ) \rangle \qquad&amp;\text{if $x = \langle (Q, \Sigma,
+\Gamma, \delta, q_0, q_{acc}, q_{rej} )\rangle$}\end{cases}\]</span>
+where <span class="math inline">\(q_{trap} \notin Q\)</span> and <span
+class="math display">\[\delta&#39;( (q,x) ) = \begin{cases}
+(r,y,d) &amp;\text{if $q \in Q$, $x \in \Gamma$, $\delta ((q,x)) =
+(r,y,d)$, and  $r \neq  q_{rej}$} \\
+(q_{trap}, \textvisiblespace, R) &amp; \text{otherwise}
+\end{cases}\]</span></p>
+<p>Definition: <span class="math inline">\(A\)</span> is
+<span><strong>mapping reducible to</strong></span> <span
+class="math inline">\(B\)</span>, <span class="math inline">\(A \leq_m
+B\)</span>m means there is a computable function <span
+class="math inline">\(f : \Sigma^* \to \Sigma^*\)</span> such that
+<span><em>for all</em></span> strings <span
+class="math inline">\(x\)</span> in <span
+class="math inline">\(\Sigma^*\)</span>, <span
+class="math display">\[x  \in  A \qquad \qquad \text{if and  only  if}
+\qquad \qquad f(x) \in B.\]</span> In this case, we say the function
+<span class="math inline">\(f\)</span>
+<span><strong>witnesses</strong></span> that <span
+class="math inline">\(A\)</span> is mapping reducible to <span
+class="math inline">\(B\)</span>.</p>
+<p><span><em>Making intutition precise …</em></span></p>
+<p><span><strong>Theorem</strong></span> (Sipser 5.22): If <span
+class="math inline">\(A \leq_m B\)</span> and <span
+class="math inline">\(B\)</span> is decidable, then <span
+class="math inline">\(A\)</span> is decidable.</p>
+<p><span><strong>Theorem</strong></span> (Sipser 5.23): If <span
+class="math inline">\(A \leq_m B\)</span> and <span
+class="math inline">\(A\)</span> is undecidable, then <span
+class="math inline">\(B\)</span> is undecidable.</p>
+<h1 class="unnumbered" id="day22">Day22</h1>
+<p>Recall definition: <span class="math inline">\(A\)</span> is
+<span><strong>mapping reducible to</strong></span> <span
+class="math inline">\(B\)</span> means there is a computable function
+<span class="math inline">\(f : \Sigma^* \to \Sigma^*\)</span> such that
+<span><em>for all</em></span> strings <span
+class="math inline">\(x\)</span> in <span
+class="math inline">\(\Sigma^*\)</span>, <span
+class="math display">\[x  \in  A \qquad \qquad \text{if and  only  if}
+\qquad \qquad f(x) \in B.\]</span> Notation: when <span
+class="math inline">\(A\)</span> is mapping reducible to <span
+class="math inline">\(B\)</span>, we write <span
+class="math inline">\(A  \leq_m B\)</span>.</p>
+<p><span><em>Intuition:</em></span> <span class="math inline">\(A \leq_m
+B\)</span> means <span class="math inline">\(A\)</span> is no harder
+than <span class="math inline">\(B\)</span>, i.e. that the level of
+difficulty of <span class="math inline">\(A\)</span> is less than or
+equal the level of difficulty of <span
+class="math inline">\(B\)</span>.</p>
+<p><span><em>Example</em></span>: <span class="math inline">\(A_{TM}
+\leq_m A_{TM}\)</span> <span class="math inline">\(A_{TM} = \{ \langle
+M, w \rangle  \mid M \text{ is a TM and } w \text{ is a string and } w
+\in L(M) \}\)</span></p>
+<p><span><em>To prove, need a witnessing function <span
+class="math inline">\(f: \Sigma^* \to \Sigma^*\)</span> that is (1)
+computable and (2) for each <span class="math inline">\(x \in
+\Sigma^*\)</span>, <span class="math inline">\(x \in A_{TM}\)</span> iff
+<span class="math inline">\(f(x) \in A_{TM}\)</span></em></span></p>
+<p><span><strong>Corollary</strong></span>: For any language <span
+class="math inline">\(L\)</span>, <span class="math inline">\(L \leq_m
+L\)</span>, as witnessed by</p>
+<p><span><em>Example</em></span>: <span class="math inline">\(A_{DFA}
+\leq_m \{ ww \mid  w \in \{0,1\}^* \}\)</span></p>
+<p><span><em>To prove, need a witnessing function <span
+class="math inline">\(f: \Sigma^* \to \Sigma^*\)</span> that is (1)
+computable and (2) for each <span class="math inline">\(x \in
+\Sigma^*\)</span>, <span class="math inline">\(x \in A_{DFA}\)</span>
+iff <span class="math inline">\(f(x) \in \{ ww \mid  w \in \{0,1\}^*
+\}\)</span></em></span></p>
+<p><span><strong>Corollary</strong></span>: For any language decidable
+language <span class="math inline">\(X\)</span> and any set <span
+class="math inline">\(Y\)</span> with at least one string string in
+<span class="math inline">\(Y\)</span> and at least one string not in
+<span class="math inline">\(Y\)</span>, <span class="math inline">\(X
+\leq_m Y\)</span>, as witnessed by</p>
+<p>Next: consider mapping reductions between potentially undecidable
+languages.</p>
+<p><span><strong>Halting problem</strong></span> <span
+class="math display">\[HALT_{TM} = \{ \langle M, w \rangle \mid
+\text{$M$ is a  Turing machine, $w$ is  a string, and $M$ halts on $w$}
+\}\]</span></p>
+<p>We know <span class="math inline">\(A_{TM}\)</span> is undecidable.
+If we could prove that <span class="math inline">\(A_{TM} \leq_m
+HALT_{TM}\)</span> then we could conclude that <span
+class="math inline">\(HALT_{TM}\)</span> is undecidable too.</p>
+<p>Could we adapt our approach from before by tweaking the identity
+map?</p>
+<p>Define <span class="math inline">\(F: \Sigma^* \to \Sigma^*\)</span>
+by <span class="math display">\[F(x) =  \begin{cases}
+    const_{out} \qquad &amp;\text{if  $x \neq \langle M,w \rangle$ for
+any Turing machine  $M$ and string  $w$ over the alphabet of $M$} \\
+    \langle M&#39;_x, w \rangle \qquad &amp;  \text{if $x = \langle M, w
+\rangle$ for some Turing machine  $M$ and string $w$ over the alphabet
+of $M$.}
+    \end{cases}\]</span> where <span
+class="math inline">\(const_{out}  =  \langle  
+        %\includegraphics[width=1.5in]{../../resources/machines/Lect22TM1.png}
+        \begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten &gt;=1pt,
+auto, node distance=2cm, semithick]
+            \tikzstyle{every state}=[text=black, fill=none]
+            
+            \node[initial,state] (q0)          {$q0$};
+            \node[state,accepting]         (qacc) [right of=q0,
+xshift=20pt] {$q_{acc}$};
+            
+            \path (q0) edge  [loop above] node {\parbox{1cm}{$0;
+\square, R$\newline$1; \square, R$\newline $\square; \square, R$}} (q0)
+            ;
+          \end{tikzpicture},  \varepsilon  \rangle\)</span> and <span
+class="math inline">\(M&#39;_x\)</span> is a Turing machine that
+computes like <span class="math inline">\(M\)</span> except, if the
+computation of <span class="math inline">\(M\)</span> ever were to go to
+a reject state, <span class="math inline">\(M&#39;_x\)</span> loops
+instead.</p>
+<p><span class="math inline">\(F( \langle
+        \begin{tikzpicture}[-&gt;,&gt;=stealth&#39;,shorten &gt;=1pt,
+auto, node distance=2cm, semithick]
+            \tikzstyle{every state}=[text=black, fill=none]
+            
+            \node[initial,state] (q0)          {$q0$};
+            \node[state]         (q1) [right of=q0, xshift=80pt] {$q1$};
+            \node[state,accepting]   (qacc) [above of=q0] {$q_{acc}$};
+            
+            \path (q0) edge [bend left=20] node {\parbox{1cm}{$0;
+0,R$\newline $1; 1, R$}} (q1)
+                (q1) edge [bend left=20] node {\parbox{1cm}{$0;
+0,R$\newline $1; 1, R$}} (q0)
+                (q0) edge  [bend left=0] node {$\square; \square, R$}
+(qacc)
+            ;
+        \end{tikzpicture}, \varepsilon \rangle)\)</span> =</p>
+<p>To use this function to prove that <span class="math inline">\(A_{TM}
+\leq_m HALT_{TM}\)</span>, we need two claims:</p>
+<p>Claim (1): <span class="math inline">\(F\)</span> is computable</p>
+<p>Claim (2): for every <span class="math inline">\(x\)</span>, <span
+class="math inline">\(x \in  A_{TM}\)</span> iff <span
+class="math inline">\(F(x) \in HALT_{TM}\)</span>.</p>
+</body>
+</html>
