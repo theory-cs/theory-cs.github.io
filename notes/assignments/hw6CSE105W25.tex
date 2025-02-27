@@ -1,0 +1,257 @@
+\input{../../resources/assignment-head.tex}
+
+\title{HW6CSE105W25: Homework assignment 6}
+\date{Due: March 13, 2025 at 5pm, via Gradescope}
+
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+{\bf In this assignment,}
+
+You will  practice analyzing, designing, and working with reductions to compare 
+the difficulty level of computational problems.
+You will explore various ways to encode machines as strings so that 
+computational problems can be recognized.
+
+{\bf Resources}: To review the topics 
+for this assignment, see the class material from Weeks 8 and 9.
+We will post frequently asked questions and our answers to them in a 
+pinned Piazza post. 
+
+{\bf Reading and extra practice problems}:  
+Sipser Sections 4.2, 5.3, 5.1.
+Chapter 4 exercises 4.9, 4.12.
+Chapter 5 exercises 5.4, 5.5, 5.6, 5.7. 
+Chapter 5 problems 5.22, 5.23, 5.24, 5.28
+
+\instructions
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw6CSE105W25''.
+
+{\bf Assigned questions}
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+
+%%%%%%%%%%% PROBLEM 1 %%%%%%%%%%%
+\item \textbf{What's wrong with these reductions? (if anything)} (16 points):
+Suppose your friends are practicing
+coming up with mapping reductions $A \leq_m B$ and their witnessing
+functions $f: \Sigma^* \to \Sigma^*$. For each of the following 
+attempts, determine if it  has error(s) or is correct.
+Do so by labelling each attempt with all and 
+only the labels below that apply, and justifying
+this labelling.
+\begin{itemize}
+\item \textit{Error Type 1:} The given function 
+can't witness the claimed mapping reduction because there
+exists an $x \in A$ such that $f(x) \not\in B$.
+\item \textit{Error Type 2:} The given function 
+can't witness the claimed mapping reduction because there 
+exists an $x \not\in A$ such that $f(x) \in B$.
+\item \textit{Error Type 3:} The given function 
+can't witness the claimed mapping reduction because the specified
+function is not computable.
+\item \textit{Correct:} The 
+claimed mapping reduction is true and 
+is witnessed by the given function.
+\end{itemize}
+
+Clearly present your answer by
+providing a brief (3-4 sentences or so) justification for 
+whether {\bf each} of these labels applies to each example.
+
+
+\begin{enumerate}
+\item\gradeCompleteFirst $A_{\mathrm{TM}} \le_m HALT_{\mathrm{TM}}$ and 
+\[
+f(x) = \begin{cases}
+ \scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=none]
+  \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+ ;
+\end{tikzpicture}}
+$, \varepsilon \rangle$}  
+& \text{if } x = \langle M, w \rangle \text{ for a Turing machine $M$ and string $w$}\\
+& \qquad \qquad \text{ and } w \in L(M) \\
+
+\scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=none]
+  \node[initial,state] (q0)                    {$q_0$};
+  \node[state,accepting] (qacc) [right of = q0, xshift = 20]{$q_{acc}$};
+  \path (q0) edge  [loop above] node {$0, 1, \blank \to R$} (q0)
+ ;
+\end{tikzpicture}}
+$\rangle$} 
+& \text{otherwise}
+\end{cases} 
+\]
+
+
+\item\gradeComplete $A_{\mathrm{TM}} \le_m EQ_{\mathrm{TM}} $ with 
+\[
+f(x) = \begin{cases}
+ \scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=none]
+  \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+ ;
+\end{tikzpicture}}
+, $M_w \rangle$}  & \text{if } x = \langle M, w \rangle \text{ for a Turing machine $M$ and string $w$}\\\\
+\scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=none]
+      \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+     ;
+    \end{tikzpicture}}}
+    , ~~~
+    \scalebox{.7}{\hspace{-.5cm} \raisebox{-.4cm}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+        \tikzstyle{every state}=[text=black, fill=none]
+        \node[initial,state] (qrej)                    {$q_{\mathrm{rej}}$};
+        \node[state,accepting] (qacc) [right of=qrej]            {$q_{\mathrm{acc}}$};
+       ;
+      \end{tikzpicture}}$\rangle$ }  & \text{otherwise}.
+\end{cases}
+\]
+Where for each Turing machine $M$, we  define 
+\begin{align*}
+    M_w = ``&\text{On input } y \\
+    &1. \text{   Simulate $M$ on $w$.}\\
+    &2. \text{   If it accepts, accept.}\\
+    &3. \text{   If it rejects, reject."}
+\end{align*}
+
+\item\gradeCorrectFirst $HALT_{\mathrm{TM}} \le_m EQ_{\mathrm{TM}} $ with 
+\[
+f(x) = \begin{cases}
+ \scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+  \tikzstyle{every state}=[text=black, fill=none]
+  \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+ ;
+\end{tikzpicture}}
+, $M_w \rangle$}  & \text{if } x = \langle M, w \rangle \text{ for a Turing machine $M$ and string $w$}\\\\
+\scalebox{.7}{$\langle$ \hspace{-.5cm} \raisebox{-.4cm}{
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+      \tikzstyle{every state}=[text=black, fill=none]
+      \node[initial,state,accepting] (q0)                    {$q_{\mathrm{acc}}$};
+     ;
+    \end{tikzpicture}}}
+    , ~~~
+    \scalebox{.7}{\hspace{-.5cm} \raisebox{-.4cm}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt, auto, node distance=2cm, semithick]
+        \tikzstyle{every state}=[text=black, fill=none]
+        \node[initial,state] (qrej)                    {$q_{\mathrm{rej}}$};
+        \node[state,accepting] (qacc) [right of=qrej]            {$q_{\mathrm{acc}}$};
+       ;
+      \end{tikzpicture}}$\rangle$ }  & \text{otherwise}.
+\end{cases}
+\]
+Where for each Turing machine $M$, we  define 
+\begin{align*}
+    M_w = ``&\text{On input } y \\
+    &1. \text{   If } y \text{ is not the empty string, accept.}\\
+    &2. \text{   Else, simulate $M$ on $w$.}\\
+    &3. \text{   If it accepts, accept.}\\
+    &4. \text{   If it rejects, reject."}
+\end{align*}
+
+\item\gradeCorrect $\{w w \mid w \in \{0,1\}^* \} \leq \Sigma^*$ and
+$f(x) = 11$ for each $x \in \{0,1\}^*$.
+
+\item\gradeCorrect $\Sigma^* \le_m \{w w \mid w \in \{0,1\}^* \}$ and
+$f(x) = 11$ for each $x \in \{0,1\}^*$.
+
+
+\end{enumerate}
+
+%%%%%%%%%%% PROBLEM 2 %%%%%%%%%%%
+\item\textbf{Using mapping reductions} (14 points):
+Consider the following computational problems we've discussed
+\begin{align*}
+A_{TM} &= \{ \langle M, w \rangle \mid M \text{ is a Turing machine, } w \text{ is a string and $M$ accepts $w$}\} \\
+HALT_{TM} &= \{ \langle M, w \rangle \mid M \text{ is a Turing machine, } w \text{ is a string and $M$ halts on $w$}\} \\
+E_{TM} &=  \{ \langle M \rangle \mid M \text{ is a Turing machine and } L(M) = \emptyset\} \\
+EQ_{TM} &= \{ \langle M_1, M_2 \rangle \mid M_1, M_2 \text{ are both Turing machines and } L(M_1) = L(M_2) \}
+\end{align*}
+and the new computational problem
+\begin{align*}
+    IncludesEmptyString_{TM} &= \{ \langle M \rangle \mid M \text{ is a Turing machine and }\\
+    &\text{$M$ accepts the empty string (and maybe other strings too)} \}
+\end{align*}
+
+\begin{enumerate}
+\item[(a)] \gradeCorrect Give an example of a string that is an element of $IncludesEmptyString_{TM}$ and a string that is not an element of
+$IncludesEmptyString_{TM}$ and briefly justify your choices.
+\item[(b)] \gradeComplete Prove that $IncludesEmptyString_{TM}$ is not decidable by showing that $A_{TM} \leq_m IncludesEmptyString_{TM}$.
+\item[(c)] \gradeCorrect Give a different proof that $IncludesEmptyString_{TM}$ is not decidable by showing that $HALT_{TM} \leq_m IncludesEmptyString_{TM}$.
+\item[(d)] \gradeComplete Is $IncludesEmptyString_{TM}$ recognizable? Justify your answer.
+\end{enumerate}
+
+%%%%%%%%%%% PROBLEM 3 %%%%%%%%%%%
+\item\textbf{Using mapping reductions} (14 points):
+Consider the following computational problems we've discussed
+\begin{align*}
+A_{TM} &= \{ \langle M, w \rangle \mid M \text{ is a Turing machine, } w \text{ is a string and $M$ accepts $w$}\} \\
+HALT_{TM} &= \{ \langle M, w \rangle \mid M \text{ is a Turing machine, } w \text{ is a string and $M$ halts on $w$}\} \\
+E_{TM} &=  \{ \langle M \rangle \mid M \text{ is a Turing machine and } L(M) = \emptyset\} \\
+EQ_{TM} &= \{ \langle M_1, M_2 \rangle \mid M_1, M_2 \text{ are both Turing machines and } L(M_1) = L(M_2) \}
+\end{align*}
+and the new computational problem
+\begin{align*}
+    NotIncludesEmptyString_{TM} &= \{ \langle M \rangle \mid M \text{ is a Turing machine and $M$ does not accept the empty string} \}
+\end{align*}
+\begin{enumerate}
+\item[(a)] \gradeCorrect Prove that $NotIncludesEmptyString_{TM}$ is not the complement of $E_{TM}$ and is also not the complement of $IncludesEmptyString_{TM}$.
+\item[(b)] \gradeComplete Prove that $NotIncludesEmptyString_{TM}$ is not decidable by showing that $\overline{HALT_{TM}} \leq_m NotIncludesEmptyString_{TM}$.
+\item[(c)] \gradeCorrect Give a different proof that $NotIncludesEmptyString_{TM}$ is not decidable by showing that $\overline{A_{TM}} \leq_m NotIncludesEmptyString_{TM}$. 
+\item[(d)] \gradeComplete Is $NotIncludesEmptyString_{TM}$ recognizable? Justify your answer.
+\end{enumerate}
+
+
+%%%%%%%%%%% PROBLEM 4 %%%%%%%%%%%
+\item \textbf{Examples of languages} (6 points):
+
+For each part of the question, use precise mathematical notation or English to define your examples
+and then briefly justify why they work.
+
+
+For each language $L$ over an alphabet $\Sigma$, we have the 
+associated sets of strings (also over $\Sigma$)
+\[
+    L^* = \{ w_1 \cdots w_k \mid k \geq 0 \textrm{ and each } w_i \in L\}
+\]
+and
+\[
+    SUBSTRING(L) = \{ w \in \Sigma^* ~|~ \text{there exist } x,y \in \Sigma^* \text{ such that } xwy \in L\}
+\]
+and 
+\[
+    EXTEND(L) = \{ w \in \Sigma^* ~|~ w = uv \text{ for some strings } u \in L \text{ and } v \in \Sigma^* \}
+\]
+
+\begin{enumerate}
+    \item\gradeCorrect Two undecidable languages $L_1$ and $L_2$ over the same alphabet
+        whose union $L_1 \cup L_2$ is co-recognizable, or write {\bf NONE}
+        if there is no such example (and explain why).
+    
+    \item\gradeCorrect An unrecognizable
+        language $L_3$ for which $EXTEND(L_3)$ is regular
+        or write {\bf NONE} if there is no such example (and explain why).
+    
+    
+    \item\gradeComplete A co-recognizable language $L_4$ that is NP-complete,
+         or write {\bf NONE} if there is no such example (and explain why).
+        Recall the definition: A language $L$ over an  alphabet $\Sigma$ is called {\bf co-recognizable} if its complement,  defined
+        as $\Sigma^* \setminus L  = \{ x  \in  \Sigma^* \mid x \notin  L \}$, is Turing-recognizable.
+
+        {\it This part of the question uses definitions from Week 10 of the course.}
+        
+\end{enumerate}
+    
+
+\end{enumerate}
+\end{document}
