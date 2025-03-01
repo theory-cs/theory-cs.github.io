@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CSE105W25" />
+  <title>ProjectCSE105W25: Project</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ProjectCSE105W25: Project</h1>
+<p class="author">CSE105W25</p>
+<p class="date">Due March 19, 2025 at 8am</p>
+</header>
+<p>The CSE 105 project is designed for you to go deeper and extend your
+work on assignments and to see how some of the abstract notions we
+discuss can be implemented in concrete ways. The project is an
+individual assignment and has two tasks:</p>
+<p>Task 1: Checking the consistency of two regular properties, and</p>
+<p>Task 2: Illustrating a mapping reduction</p>
+<p>In each task, you’ll be implementing some of the theoretical concepts
+we’ve talked about in a programming language of your choosing, and then
+presenting your reasoning and demonstrating your code. Getting practice
+with this style of presentation is a good thing for you to learn in
+general and a rich way for us to assess your skills.</p>
+<h3 class="unnumbered" id="what-resources-can-you-use">What resources
+can you use?</h3>
+<p>This project must be completed individually, without any help from
+other people, including the course staff (other than logistics support
+if you get stuck with screencast). You should be the architect of your
+approach to the project. You can refer to any of this quarter’s CSE 105
+offering (notes, readings, class videos, homework feedback). Tools for
+drawing state diagrams (like Flap.js and JFLAP and the PrairieLearn
+automata library) can be used to help draw the diagrams in the project
+too. However, do not copy / screenshot material that was not produced by
+you directly to your project writeup. Instead, you can refer to it in
+your own words and include a citation to the resource you
+referenced.</p>
+<p>These resources should be more than enough. If you are struggling to
+get started and want to look elsewhere online, you must acknowledge this
+by listing and citing any resources you consult (even if you do not
+explicitly quote them), including any large-language model style
+resources (ChatGPT, Bard, Co-Pilot, etc.). Link directly to them and
+include the name of the author / video creator, any and all search
+strings or prompts you used, and the reason you consulted this
+reference. Also, a word of caution, make sure you validate and check any
+code produced by these aids. Last quarter there were a lot of examples
+of project submissions that fed the prompt of the project directly to a
+LLM code generator and got wrong implementations back.</p>
+<p><span><strong>Submitting the project</strong></span> You will submit
+a PDF plus a video file (.mp4) for each. All file submissions will be in
+Gradescope. Upload the four files themselves. It is your responsibility
+to ensure that the files are playable within Gradescope. No Google Drive
+links, YouTube links, or .mov files.</p>
+<h3 class="unnumbered" id="your-videos">Your videos:</h3>
+<p>You may produce screencasts with any software you choose. One option
+is to record yourself with Zoom; a tutorial on how to use Zoom to record
+a screencast (courtesy of Prof. Joe Politz) is here:</p>
+<p><a
+href="https://drive.google.com/open?id=1KROMAQuTCk40zwrEFotlYSJJQdcG_GUU"
+class="uri">https://drive.google.com/open?id=1KROMAQuTCk40zwrEFotlYSJJQdcG_GUU</a>.</p>
+<p>The video that was produced from that recording session in Zoom is
+here:</p>
+<p><a
+href="https://drive.google.com/open?id=1MxJN6CQcXqIbOekDYMxjh7mTt1TyRVMl"
+class="uri">https://drive.google.com/open?id=1MxJN6CQcXqIbOekDYMxjh7mTt1TyRVMl</a></p>
+<p>Please send an email to the instructor (minnes@ucsd.edu) if you have
+concerns about the video / screencast components of this project or
+cannot complete projects in this style for some reason.</p>
+<h3 class="unnumbered"
+id="task-1-checking-the-consistency-of-two-regular-properties">Task 1:
+Checking the consistency of two regular properties</h3>
+<p>When we have a list of desired properties, it’s helpful to know
+whether there are any examples that satisfy *all* of them at once; in
+other words, whether the properties are consistent with each other. For
+example, the properties of a string starting with <span
+class="math inline">\(0\)</span> and a string starting with <span
+class="math inline">\(1\)</span> are <span><em>not</em></span>
+consistent, because there isn’t any example of a string that
+simultaneously starts with <span class="math inline">\(0\)</span> and
+with <span class="math inline">\(1\)</span>. In this part of the
+project, you’ll use the decidability of the emptiness problem for DFA to
+build an algorithm that checks if two given regular properties are
+consistent.</p>
+<p>Specifically:</p>
+<ol>
+<li><p>Write a program in Java, Python, JavaScript, C++ , or another
+programming language of your choosing that checks the consistency of two
+arbitrary regular properties. The function input must be a
+<span><strong>pair of strings</strong></span> and part of your work in
+this program is to design string representations for any arbitrary DFA
+since those DFAs will be how you represent the properties. The function
+output must be a <span><strong>boolean</strong></span>: true (if the
+pair of strings represent consistent regular properties) or false (if
+the pair of strings do not represent consistent regular properties).</p>
+<ul>
+<li><p>You might find it useful to use the algorithm for building a DFA
+that recognizes the <span><strong>intersection</strong></span> of the
+languages of two DFA and the algorithm for testing the
+<span><strong>emptiness</strong></span> of the language of a
+DFA.</p></li>
+<li><p>One test case for your program is the following: Consider the DFA
+<span class="math inline">\(M_0\)</span> and <span
+class="math inline">\(M_1\)</span></p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(M_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(M_1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>and let <span class="math inline">\(w_0\)</span> be the string
+representing <span class="math inline">\(M_0\)</span> and let <span
+class="math inline">\(w_1\)</span> be the string representing <span
+class="math inline">\(M_1\)</span>. Then the result of your program on
+the input <span class="math inline">\(w_0, w_1\)</span> should be
+<span><strong>false</strong></span> because the properties represented
+by <span class="math inline">\(M_0\)</span> and <span
+class="math inline">\(M_1\)</span> are inconsistent.<a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></p></li>
+<li><p>The algorithm you implement needs to work with any pair of
+strings given as input (you should first parse each string in the input
+to see if it is formatted to represent a DFA). Your explanation of the
+algorithm should be such that most programmers can replicate the
+algorithm correctly. If you would like, you may use aids such as
+co-pilot or ChatGPT to help you write this program. However, you should
+test the code that is produced and be able to explain what it is doing.
+Your code needs to be well-organized and well-documented. As a header in
+your code file or as an appendix in your PDF submission, include a
+comment block describing any resources that were used to help generate
+your code, including any and all prompts used in interactions with LLM
+coding tools.</p></li>
+</ul></li>
+<li><p>To demonstrate your program, you will show how it runs (at least)
+twice: once with the test input <span class="math inline">\(w_0,
+w_1\)</span> described above, and once with test input <span
+class="math inline">\(x_0, x_1\)</span> that you define to demonstrate
+when the program outputs <span><strong>true</strong></span>. Your choice
+of <span class="math inline">\(x_0, x_1\)</span> needs to satisfy the
+following conditions:</p>
+<ul>
+<li><p><span class="math inline">\(x_0\)</span> and <span
+class="math inline">\(x_1\)</span> each represent DFA over the same
+fixed alphabet,</p></li>
+<li><p>the DFA represented by <span class="math inline">\(x_0\)</span>
+and <span class="math inline">\(x_1\)</span> do not recognize the same
+language,</p></li>
+<li><p>the DFA represented by <span class="math inline">\(x_0\)</span>
+and <span class="math inline">\(x_1\)</span> do not recognize the empty
+set or the set of all strings or the set of all strings starting with
+<span class="math inline">\(0\)</span> or the set of all strings
+starting with <span class="math inline">\(1\)</span>.</p></li>
+</ul>
+<p>As part of your demonstration, describe your choice of <span
+class="math inline">\(x_0\)</span> and <span
+class="math inline">\(x_1\)</span>, clearly specifying the DFAs they
+represent and the languages recognized by these DFAs. Each demo run of
+the program should include:</p>
+<ul>
+<li><p>Side-by-side view of an English / mathematical formulation of the
+properties and DFA corresponding to the demo run, along with their
+string representation as input strings to the program.</p></li>
+<li><p>Talk-aloud trace of the running of your program on the input pair
+of strings representing the two properties for the demo. During the
+trace, talk about the software design choices you made (e.g. which data
+structures are you using, etc.) and how they impact the program. Also,
+give credit to any resources you used to make these design choices or
+develop the code.</p></li>
+<li><p>Recording of actually running your program on the input pair of
+strings for this demo, including interpreting the output the program
+gives and connecting it to whether the properties represented by the
+input are consistent or not.</p></li>
+</ul></li>
+</ol>
+<p><span><strong>Checklist for submission</strong></span> For this task,
+you will submit a PDF file plus a 3-5 minute video.</p>
+<ul>
+<li><p>Submit a single PDF file that clearly describes the design
+choices you made, includes all relevant code, and includes all relevant
+information (definition, representation, justification) about the
+examples used to demonstrate your program and screenshots from running
+your program on the examples. The writeup should use precise language
+and notation for all terms and clearly communicate the goal and approach
+of your program.</p></li>
+<li><p>The documentation for your program should include a description
+of how input strings are parsed to represent DFA, in general and for the
+specific examples of <span class="math inline">\(w_0, w_1, x_0,
+x_1\)</span>.</p></li>
+<li><p>The video should start with your face and your student ID visible
+for a few seconds at the beginning, and introduce yourself audibly while
+on screen. You don’t have to be on camera for the rest of the video,
+though it’s fine if you are. We are looking for a brief confirmation
+that it’s you creating the video and doing the work you
+submitted.</p></li>
+<li><p>The video includes the full program demo twice (once with the
+input <span class="math inline">\(w_0,w_1\)</span> and once with the
+input <span class="math inline">\(x_0,x_1\)</span>), and includes the a
+mathematical and/or English definition of the regular properties you are
+using, connected to their representations as strings when input to the
+program, and the talk-aloud trace of running the program on these inputs
+and its output connecting back to the notion of consistency of regular
+properties.</p></li>
+</ul>
+<p><span><strong>Note</strong></span>: Clarity and brevity are both
+important aspects of your video. In previous years, we’ve seen students
+speed up their videos to get below the 5 minute upper bound. This is ok
+so long as it doesn’t compromise clarity. If the graders need to slow
+your video down to understand it, it may not earn full credit.</p>
+<p><span><strong>Possible extensions</strong></span>: If you’re enjoying
+working on this and want to go deeper, here are a few additions you can
+consider. You will not be graded on any of these, and you should still
+make sure your project has the core functionality described above, but
+these extensions give you an opportunity to explore further.</p>
+<ul>
+<li><p>Build a preprocesing step so that the regular properties can be
+expressed using NFA or regular expressions (in addition to DFA). You’ll
+need to think about how to represent NFA and/or regular expressions as
+strings, and then how to convert them to DFA.</p></li>
+<li><p>Extend your work so that your program can test for consistency of
+more than two regular properties.</p></li>
+</ul>
+<h3 class="unnumbered" id="task-2-illustrating-a-mapping-reduction">Task
+2: Illustrating a mapping reduction</h3>
+<p>We can use mapping reductions to prove that interesting computational
+problems are undecidable, building on the undecidability of other
+computational problems. In this part of the project, you’ll choose a
+specific <span><strong>mapping reduction</strong></span> from an
+undecidable language of your choice to <span
+class="math display">\[EQ_{TM} = \{ \langle M_1, M_2 \rangle \mid M_1,
+M_2 \text{ are Turing machines and } L(M_1) = L(M_2) \}\]</span> and
+implement a computable function that witnesses it using a programming
+language of your choice (aka a high-level description of a Turing
+machine that computes it). You will then demonstrate how your
+construction works for some test examples.</p>
+<p>Specifically:</p>
+<ol>
+<li><p>Choose an undecidable language (other than <span
+class="math inline">\(EQ_{TM}\)</span>) that we discussed in class or in
+the homework or in review quizzes or in the textbook . <span><em>Note:
+if you’d like to consider an undecidable language we have not discussed
+instead, please check with Prof. Minnes first. You must do so no later
+than the start of Week 10.</em></span></p></li>
+<li><p>Write a program in Java, Python, JavaScript, C++ , or another
+programming language of your choosing that implements a computable
+function witnessing this mapping reduction. The function input must be a
+<span><strong>string</strong></span> and the function output must be a
+<span><strong>string</strong></span>. Part of your work in this program
+is to design string representations for arbitrary instances of the model
+of computation the computational problems being compared in the mapping
+reduction.</p>
+<ul>
+<li><p>You may use our class material for ideas on the algorithm that
+your program will implement. The algorithm you implement needs to be
+general enough to decide whether each input string is in the language or
+not. Your explanation of the algorithm should be such that most
+programmers can replicate the algorithm correctly.</p></li>
+<li><p>If you would like, you may use aids such as co-pilot or ChatGPT
+to help you write this program. However, you should test the code that
+is produced and be able to explain what it is doing. Your code needs to
+be well-organized and well-documented. As a header in your code file or
+as an appendix in your PDF submission, include a comment block
+describing any resources that were used to help generate your code,
+including any and all prompts used in interactions with LLM coding
+tools.</p></li>
+</ul></li>
+<li><p>To demonstrate your program, you will need to run it for an
+example positive and negative instance. That is to say, if you are
+implementing a computable function witnessing <span
+class="math inline">\(X \leq_m EQ_{TM}\)</span>, you will select one
+string that is in <span class="math inline">\(X\)</span> and one string
+that is not in <span class="math inline">\(X\)</span>, and you will
+demonstrate running your program on each of these strings and explain
+why the output of the function is good.</p></li>
+</ol>
+<p><span><strong>Checklist for submission</strong></span> For this task,
+you will submit a PDF file plus a 3-5 minute video.</p>
+<ul>
+<li><p>Submit a single PDF file that clearly describes the mapping
+reduction, including defining the undecidable language you chose and the
+computable function that you will implement to witness its mapping
+reduction to <span class="math inline">\(EQ_{TM}\)</span>, and includes
+all relevant code and documentation documentation for the program
+computing the function witnessing this mapping reduction. In particular,
+include a description of how input strings are parsed and how output
+strings correspond to input strings and a clear specification of your
+two example strings, explaining which is is a positive instance (and
+why) and which is a negative instance (and why not). The writeup should
+use precise language and notation for all terms and clearly communicate
+the goal and approach of your program.</p></li>
+<li><p>The video should start with your face and your student ID visible
+for a few seconds at the beginning, and introduce yourself audibly while
+on screen. You don’t have to be on camera for the rest of the video,
+though it’s fine if you are. We are looking for a brief confirmation
+that it’s you creating the video and doing the work you
+submitted.</p></li>
+<li><p>The video includes the mapping reduction you will be working
+with, and the example strings that you will be using, including
+explanations of why you chose this reduction and these strings (and why
+one of the strings is a positive instance and the other is a negative
+instance). The full program demo should be part of the video, with an
+explanation of the code and the software design choices you made and any
+resources you used, and then live screencasts running your code on each
+of your example inputs. Explain why the output of your program is what
+you would expect, by connecting the output of the program to the
+definition of the mapping reduction and your chosen parsing of input
+strings.</p></li>
+</ul>
+<p><span><strong>Note</strong></span>: Clarity and brevity are both
+important aspects of your video. In previous years, we’ve seen students
+speed up their videos to get below the 5 minute upper bound. This is ok
+so long as it doesn’t compromise clarity. If the graders need to slow
+your video down to understand it, it may not earn full credit.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>To see why, notice that <span
+class="math inline">\(L(M_0)\)</span> is the set of strings that start
+with <span class="math inline">\(0\)</span> and <span
+class="math inline">\(L(M_1)\)</span> is the set of strings that start
+with <span class="math inline">\(1\)</span>.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
