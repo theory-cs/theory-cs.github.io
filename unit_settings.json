@@ -549,7 +549,7 @@
         "header": "Week 8",
         "outcomes": "How undecidable: mapping reductions and the halting problem",
         "CalendarInfo": "Dates: 2/24/25 - 3/2/25",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -633,7 +633,7 @@
         "header": "Week 9",
         "outcomes": "Mapping reductions and revisiting the Church-Turing thesis",
         "CalendarInfo": "Dates: 3/3/25 - 3/9/25.",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -774,7 +774,7 @@
         "header": "Finals week",
         "outcomes": "Final exam",
         "CalendarInfo":  "Project due",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Project",
