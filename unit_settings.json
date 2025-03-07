@@ -640,6 +640,10 @@
                 "source": "Week9.tex"
             },
             {
+                "name": "Discussion Notes",
+                "source": "wi25_wk9_discussion.pdf"
+            },
+            {
                 "name": "(Video) Reducing A_TM to HALT_TM",
                 "source": "https://youtu.be/u8u7mYsZFWE"
             },
