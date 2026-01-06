@@ -7,6 +7,9 @@
   <meta name="author" content="CSE105W25" />
   <title>HW6CSE105W25: Homework assignment 6</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -167,7 +170,7 @@
       vertical-align: middle;
     }
   </style>
-  <script
+  <script defer=""
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
 </head>
@@ -342,12 +345,12 @@ of=qrej]            {$q_{\mathrm{acc}}$};
       \end{tikzpicture}}$\rangle$ }  &amp; \text{otherwise}.
 \end{cases}\]</span> Where for each Turing machine <span
 class="math inline">\(M\)</span>, we define <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     M_w = ``&amp;\text{On input } y \\
     &amp;1. \text{   Simulate $M$ on $w$.}\\
     &amp;2. \text{   If it accepts, accept.}\\
     &amp;3. \text{   If it rejects, reject.&quot;}
-\end{aligned}\]</span></p></li>
+\end{align*}\]</span></p></li>
 <li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn2"
 class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
 <span class="math inline">\(HALT_{\mathrm{TM}} \le_m
@@ -384,13 +387,13 @@ of=qrej]            {$q_{\mathrm{acc}}$};
       \end{tikzpicture}}$\rangle$ }  &amp; \text{otherwise}.
 \end{cases}\]</span> Where for each Turing machine <span
 class="math inline">\(M\)</span>, we define <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     M_w = ``&amp;\text{On input } y \\
     &amp;1. \text{   If } y \text{ is not the empty string, accept.}\\
     &amp;2. \text{   Else, simulate $M$ on $w$.}\\
     &amp;3. \text{   If it accepts, accept.}\\
     &amp;4. \text{   If it rejects, reject.&quot;}
-\end{aligned}\]</span></p></li>
+\end{align*}\]</span></p></li>
 <li><p>(<span><em>Graded for correctness</em></span>) <span
 class="math inline">\(\{w w \mid w \in \{0,1\}^* \} \leq
 \Sigma^*\)</span> and <span class="math inline">\(f(x) = 11\)</span> for
@@ -402,7 +405,7 @@ class="math inline">\(\Sigma^* \le_m \{w w \mid w \in \{0,1\}^*
 </ol></li>
 <li><p><strong>Using mapping reductions</strong> (14 points): Consider
 the following computational problems we’ve discussed <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
 A_{TM} &amp;= \{ \langle M, w \rangle \mid M \text{ is a Turing machine,
 } w \text{ is a string and $M$ accepts $w$}\} \\
 HALT_{TM} &amp;= \{ \langle M, w \rangle \mid M \text{ is a Turing
@@ -411,13 +414,13 @@ E_{TM} &amp;=  \{ \langle M \rangle \mid M \text{ is a Turing machine
 and } L(M) = \emptyset\} \\
 EQ_{TM} &amp;= \{ \langle M_1, M_2 \rangle \mid M_1, M_2 \text{ are both
 Turing machines and } L(M_1) = L(M_2) \}
-\end{aligned}\]</span> and the new computational problem <span
-class="math display">\[\begin{aligned}
+\end{align*}\]</span> and the new computational problem <span
+class="math display">\[\begin{align*}
     IncludesEmptyString_{TM} &amp;= \{ \langle M \rangle \mid M \text{
 is a Turing machine and }\\
     &amp;\text{$M$ accepts the empty string (and maybe other strings
 too)} \}
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <ol>
 <li><p>(<span><em>Graded for correctness</em></span>) Give an example of
 a string that is an element of <span
@@ -439,7 +442,7 @@ Justify your answer.</p></li>
 </ol></li>
 <li><p><strong>Using mapping reductions</strong> (14 points): Consider
 the following computational problems we’ve discussed <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
 A_{TM} &amp;= \{ \langle M, w \rangle \mid M \text{ is a Turing machine,
 } w \text{ is a string and $M$ accepts $w$}\} \\
 HALT_{TM} &amp;= \{ \langle M, w \rangle \mid M \text{ is a Turing
@@ -448,11 +451,11 @@ E_{TM} &amp;=  \{ \langle M \rangle \mid M \text{ is a Turing machine
 and } L(M) = \emptyset\} \\
 EQ_{TM} &amp;= \{ \langle M_1, M_2 \rangle \mid M_1, M_2 \text{ are both
 Turing machines and } L(M_1) = L(M_2) \}
-\end{aligned}\]</span> and the new computational problem <span
-class="math display">\[\begin{aligned}
+\end{align*}\]</span> and the new computational problem <span
+class="math display">\[\begin{align*}
     NotIncludesEmptyString_{TM} &amp;= \{ \langle M \rangle \mid M
 \text{ is a Turing machine and $M$ does not accept the empty string} \}
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <ol>
 <li><p>(<span><em>Graded for correctness</em></span>) Prove that <span
 class="math inline">\(NotIncludesEmptyString_{TM}\)</span> is not the

@@ -7,6 +7,9 @@
   <meta name="author" content="CSE105W25" />
   <title>HW5CSE105W25: Homework assignment 5</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -167,7 +170,7 @@
       vertical-align: middle;
     }
   </style>
-  <script
+  <script defer=""
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
 </head>
@@ -349,14 +352,14 @@ class of decidable languages is closed under intersection.</p>
 <p>Construction: given deciders <span class="math inline">\(M_1\)</span>
 and <span class="math inline">\(M_2\)</span> build the following machine
 <span class="math inline">\(M\)</span> <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     M &amp;= ``\text{On input }w:\\
      &amp;\text{1. Run $M_1$ on input $w$.}\\
      &amp;\text{2. If $M_1$ accepts $w$, accept. } \\
      &amp;\text{3. Run $M_2$ on input $w$.} \\
      &amp;\text{4. If $M_2$ accepts $w$, accept.}\\
      &amp;\text{5. If $M_2$ rejects $w$, reject.&quot;}\\
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p>Build a counterexample that could be used to convince your friend
 that this construction doesn’t work. A complete counterexample will
 include (1) a high-level description of <span
@@ -374,13 +377,13 @@ class of recognizable languages is closed under intersection.</p>
 class="math inline">\(M_1\)</span> and <span
 class="math inline">\(M_2\)</span> build the following machine <span
 class="math inline">\(M&#39;\)</span> <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     M&#39; &amp;= ``\text{On input }w:\\
      &amp;\text{1. Run $M_1$ on input $w$.}\\
      &amp;\text{2. If $M_1$ rejects $w$, reject.} \\
      &amp;\text{3. Run $M_2$ on input $w$.} \\
      &amp;\text{4. If $M_2$ rejects $w$, reject.&quot;}\\
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p>Build a counterexample that could be used to convince your friend
 that this construction doesn’t work. A complete counterexample will
 include (1) a high-level description of <span
@@ -416,7 +419,7 @@ over the alphabet <span class="math inline">\(\Sigma\)</span>. Let <span
 class="math inline">\(s_1, s_2, \ldots\)</span> be a list of all strings
 in <span class="math inline">\(\Sigma^*\)</span> in string (shortlex)
 order. We define a new Turing machine by giving its high-level
-description as follows: <span class="math display">\[\begin{aligned}
+description as follows: <span class="math display">\[\begin{align*}
    M_{a} &amp;= ``\text{On input }w:\\
     &amp;\text{1. For $n = 1, 2, \ldots$}\\
     &amp;\text{2.~~~For $j = 1, 2, \ldots n$} \\
@@ -427,7 +430,7 @@ most $n$ steps}\\
 $n$ steps, accept.}\\
     &amp;\text{6.~~~~~~~~~Otherwise, continue with the next iteration of
 this inner loop&quot;}\\
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p>A complete and correct answer will either identify which operation
 works and give the proof of correctness why, for any Turing machine
 <span class="math inline">\(M\)</span>, <span
@@ -455,7 +458,7 @@ over the alphabet <span class="math inline">\(\Sigma\)</span>. Let <span
 class="math inline">\(s_1, s_2, \ldots\)</span> be a list of all strings
 in <span class="math inline">\(\Sigma^*\)</span> in string (shortlex)
 order. We define a new Turing machine by giving its high-level
-description as follows: <span class="math display">\[\begin{aligned}
+description as follows: <span class="math display">\[\begin{align*}
     M_{b} &amp;= ``\text{On input }w:\\
      &amp;\text{1. For $n = 1, 2, \ldots$}\\
      &amp;\text{2.~~~For $j = 0, \ldots, |w|$} \\
@@ -467,7 +470,7 @@ $n$ steps}\\
 steps, accept.}\\
      &amp;\text{6.~~~~~~Otherwise, continue with the next iteration of
 this inner loop&quot;}\\
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p>A complete and correct answer will either identify which operation
 works and give the proof of correctness why, for any Turing machine
 <span class="math inline">\(M\)</span>, <span
@@ -672,7 +675,7 @@ them).</p>
 <p>Let <span class="math inline">\(s_1, s_2, \ldots\)</span> be a list
 of all strings in <span class="math inline">\(\{0,1\}^*\)</span> in
 string (shortlex) order. Consider the following Turing machines <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
         M_{DFA} &amp;= ``\text{On input $\langle D \rangle$ where $D$ is
 a DFA}:\\
          &amp;\text{1. for $i=1, 2, 3, \ldots$} \\
@@ -680,8 +683,7 @@ a DFA}:\\
          &amp;\text{3.~~~~If it accepts, accept.}\\
          &amp;\text{4.~~~~If it rejects, go to the next iteration of the
 loop&quot;}\\
-     
-\end{aligned}\]</span> and <span class="math display">\[\begin{aligned}
+\end{align*}\]</span> and <span class="math display">\[\begin{align*}
         M_{TM} &amp;= ``\text{On input $\langle T \rangle$ where $T$ is
 a Turing machine}:\\
          &amp;\text{1. for $i=1, 2, 3, \ldots$} \\
@@ -690,8 +692,7 @@ a Turing machine}:\\
          &amp;\text{3.~~~~If $T$ has accepted any of these, accept.}\\
          &amp;\text{4.~~~~Otherwise, go to the next iteration of the
 loop&quot;}\\
-     
-\end{aligned}\]</span></p></li>
+\end{align*}\]</span></p></li>
 </ol></li>
 <li><p><strong>Computational problems</strong> (8 points):</p>
 <ol>

@@ -7,6 +7,9 @@
   <meta name="author" content="CSE105W25" />
   <title>HW2CSE105W25: Homework assignment 2</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -167,7 +170,7 @@
       vertical-align: middle;
     }
   </style>
-  <script
+  <script defer=""
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
 </head>
@@ -424,12 +427,12 @@ state plays in the machine, as well as a brief justification about how
 the strings accepted and rejected by the machine connect to the
 specified language.</p></li>
 <li><p>(<span><em>Graded for completeness</em></span>) Consider the
-language <span class="math display">\[\begin{aligned}
+language <span class="math display">\[\begin{align*}
 L_1 \cup L_2 = \{w \in \{a,b,c\}^* \mid w &amp;\text{ starts with $a$
 and ends with $a$} \\
 &amp;\text{{\bf or} has no consecutive repeated characters}\}
-\end{aligned}\]</span> Give at least two representations of this
-language among the following:</p>
+\end{align*}\]</span> Give at least two representations of this language
+among the following:</p>
 <ul>
 <li><p>A regular expression that describes <span
 class="math inline">\(L_1 \cup L_2\)</span></p></li>
@@ -444,13 +447,12 @@ for the simpler languages.</p>
 <p>A complete solution will include at least two of the representations
 as well as a brief justification of each construction.</p></li>
 <li><p>(<span><em>Graded for completeness</em></span>) Consider the
-language <span class="math display">\[\begin{aligned}
+language <span class="math display">\[\begin{align*}
     L_1 \cap L_2 = \{w \in \{a,b,c\}^* \mid w &amp;\text{ starts with
 $a$ and ends with $a$} \\
     &amp;\text{{\bf and} has no consecutive repeated characters}\}
-    
-\end{aligned}\]</span> Give at least two representations of this
-language among the following:</p>
+\end{align*}\]</span> Give at least two representations of this language
+among the following:</p>
 <ul>
 <li><p>A regular expression that describes <span
 class="math inline">\(L_1 \cap L_2\)</span></p></li>
