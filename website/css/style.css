@@ -186,7 +186,7 @@ table.cinereousTable thead th {
     z-index: 1;
     top: 20px;
     left: 10px;
-    background-color: #182B49;
+    background-color: var(--dark-blue);
     font-weight: bold;
     overflow-x: hidden;
     padding: 8px 0;
@@ -236,6 +236,7 @@ ul {
  li {
     margin-bottom: 5px;
     text-decoration: none;
+    color: var(--maincolor);
 }
 
 .PDFjs{
